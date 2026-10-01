@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Society axed expert",
     "enumeration": "7"
    },
-   "solution": "SKILLED"
+   "solution": "SKILLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKILLED",
+    "definitions": [
+     {
+      "text": "expert",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Society",
+      "gives": "S",
+      "note": "S is the standard abbreviation for society"
+     },
+     {
+      "clueFragment": "axed",
+      "gives": "KILLED",
+      "note": "to axe something is to kill it off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KILLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A club or society has sacked its specialist adviser.",
+     "walkthrough": "'Axed' reads as dismissed from a job, but here it is the slang sense of finished off, cancelled.",
+     "definitionFit": "Both words describe a person with great ability gained through training and practice, so the adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "axed"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,43 @@
     "text": "Mischievous, like Jack?",
     "enumeration": "7"
    },
-   "solution": "KNAVISH"
+   "solution": "KNAVISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNAVISH",
+    "definitions": [
+     {
+      "text": "Mischievous",
+      "at": 0
+     },
+     {
+      "text": "like Jack?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mischievous",
+      "note": "first meaning: roguish, behaving like a rascal"
+     },
+     {
+      "clueFragment": "like Jack?",
+      "note": "second meaning: in a playing-card deck the jack is also called the knave, so like him is knave-ish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The jack in a pack of cards is also called the knave; the question mark flags this playful second reading.",
+     "definitionFit": "A knave is a dishonest rogue, so knavish behaviour is roguish, mischievous and tricky in nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +140,54 @@
     "text": "Set off without a meal",
     "enumeration": "5"
    },
-   "solution": "LUNCH"
+   "solution": "LUNCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUNCH",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "going without something means doing without it, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set off",
+      "gives": "LAUNCH",
+      "note": "to set off a rocket or venture is to launch it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads off on a journey without having eaten anything first.",
+     "walkthrough": "Remove the A from LAUNCH and LUNCH is left.",
+     "definitionFit": "The midday meal is a specific example of a meal, taken around noon between breakfast and dinner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +201,51 @@
     "text": "This animal can hide in disguise",
     "enumeration": "7"
    },
-   "solution": "ECHIDNA"
+   "solution": "ECHIDNA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ECHIDNA",
+    "definitions": [
+     {
+      "text": "This animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in disguise",
+      "for": "anagram",
+      "note": "a disguise alters the appearance of something, so these letters are rearranged into a new look"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can hide",
+      "gives": "CANHIDE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANHIDE",
+       "gives": "ECHIDNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature that is able to conceal itself by camouflage.",
+     "walkthrough": "The echidna, a spiny anteater of Australia and New Guinea, really does hide by burrowing, so the surface fits the creature.",
+     "definitionFit": "The echidna is a spiny egg-laying mammal, so it is a particular example of an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disguise"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +265,50 @@
      }
     ]
    },
-   "solution": "JAMPACK"
+   "solution": "JAMPACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAM-PACK",
+    "definitions": [
+     {
+      "text": "stuff full",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preserve",
+      "gives": "JAM",
+      "note": "jam is a fruit preserve"
+     },
+     {
+      "clueFragment": "carton",
+      "gives": "PACK",
+      "note": "a carton is a pack, as of juice or cigarettes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "PACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to keep a box for filling up with goods.",
+     "walkthrough": "'Preserve' looks like a verb meaning keep, but it is the noun for fruit spread.",
+     "definitionFit": "To cram a space with as much as it will hold is to stuff it completely, crowding every corner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Preserve"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +322,56 @@
     "text": "Notice about pig on the bus",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "on the bus",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "a notice in a paper is an advertisement, AD for short"
+     },
+     {
+      "clueFragment": "pig",
+      "gives": "BOAR",
+      "note": "a boar is a male pig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign complaining about a pig riding on public transport.",
+     "walkthrough": "'Notice' reads as a verb, see, but it is the noun for a small advertisement; 'about' then wraps it round the animal.",
+     "definitionFit": "Being on board a vehicle means being carried as a passenger inside it, here on a bus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +385,54 @@
     "text": "In turn quickly rue tiptoe manoeuvre",
     "enumeration": "9"
    },
-   "solution": "PIROUETTE"
+   "solution": "PIROUETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIROUETTE",
+    "definitions": [
+     {
+      "text": "turn quickly",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvre",
+      "for": "anagram",
+      "note": "to manoeuvre things is to shift them around skilfully, so these letters are moved into a new order"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rue tiptoe",
+      "gives": "RUETIPTOE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUETIPTOE",
+       "gives": "PIROUETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer moves on tiptoe and spins fast, then regrets the move.",
+     "walkthrough": "'Manoeuvre' reads as a noun in the dance, but it is the instruction to rearrange the letters.",
+     "definitionFit": "A pirouette is a ballet spin on one foot, and as a verb it means to whirl round rapidly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvre"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +446,37 @@
     "text": "One who has more responsibility in the navy than in the army",
     "enumeration": "7"
    },
-   "solution": "CAPTAIN"
+   "solution": "CAPTAIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAPTAIN",
+    "definitions": [
+     {
+      "text": "One who has more responsibility in the navy than in the army",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who has more responsibility in the navy than in the army",
+      "note": "surface reading: someone whose job is bigger at sea than on land"
+     },
+     {
+      "clueFragment": "One who has more responsibility in the navy than in the army",
+      "note": "setter's reading: a rank with the same name in both services, which commands a whole ship at sea but only a company ashore"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same title is used in both services, but at sea it is a senior rank commanding a ship, while in the army it is a junior officer.",
+     "definitionFit": "The clue describes an officer rank whose seniority differs between the services, which fits this title exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +496,48 @@
      }
     ]
    },
-   "solution": "ILLCONSIDERED"
+   "solution": "ILLCONSIDERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILL-CONSIDERED",
+    "definitions": [
+     {
+      "text": "Rash",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not well",
+      "gives": "ILL",
+      "note": "someone not well is ill"
+     },
+     {
+      "clueFragment": "treated",
+      "gives": "CONSIDERED",
+      "note": "to treat a subject is to consider it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "CONSIDERED"
+     ]
+    },
+    "explanation": {
+     "surface": "A skin rash that a doctor has not dealt with properly.",
+     "walkthrough": "'Rash' looks like the skin complaint, with 'treated' as medical care; both words switch sense, to hasty and to thought about.",
+     "definitionFit": "A rash decision is made hastily without enough thought, which is exactly a poorly thought-out one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rash"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +551,39 @@
     "text": "Man who will change sex if promoted",
     "enumeration": "4"
    },
-   "solution": "PAWN"
+   "solution": "PAWN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAWN",
+    "definitions": [
+     {
+      "text": "Man who will change sex if promoted",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man who will change sex if promoted",
+      "note": "surface reading: a male employee who would become female on promotion"
+     },
+     {
+      "clueFragment": "Man who will change sex if promoted",
+      "note": "setter's reading: a chess man that, reaching the far rank, is usually promoted to a queen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In chess the pieces are called men; the lowliest one, on reaching the last rank, is promoted and normally becomes a queen.",
+     "definitionFit": "The humblest chess piece is a man that can be promoted to queen, the only female piece on the board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +597,54 @@
     "text": "In hole I repot flourishing plant",
     "enumeration": "10"
    },
-   "solution": "HELIOTROPE"
+   "solution": "HELIOTROPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HELIOTROPE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flourishing",
+      "for": "anagram",
+      "note": "something flourishing is waved about with a flourish, so these letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hole I repot",
+      "gives": "HOLEIREPOT",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOLEIREPOT",
+       "gives": "HELIOTROPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener repots a thriving plant into a hole.",
+     "walkthrough": "'Flourishing' looks like it describes the healthy plant, but it is the anagram signal.",
+     "definitionFit": "Heliotrope is a garden shrub with fragrant purple flowers, so it is a particular kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flourishing"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +658,44 @@
     "text": "To reporters, team expressed disappointment",
     "enumeration": "6"
    },
-   "solution": "SIGHED"
+   "solution": "SIGHED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIGHED",
+    "definitions": [
+     {
+      "text": "expressed disappointment",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To reporters",
+      "for": "homophone",
+      "note": "reporters take down what they hear, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIGHED",
+      "soundsLike": "SIDE",
+      "note": "a team is a side, as in a football side"
+     }
+    ],
+    "explanation": {
+     "surface": "A team tells the press how let down they feel.",
+     "walkthrough": "'To reporters' sounds like the audience for a statement, but it signals that we hear the word for team.",
+     "definitionFit": "A sigh is a long audible breath that typically shows sadness or being let down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reporters"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +709,44 @@
     "text": "Sort of saw letter being passed round",
     "enumeration": "8"
    },
-   "solution": "CIRCULAR"
+   "solution": "CIRCULAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CIRCULAR",
+    "definitions": [
+     {
+      "text": "Sort of saw",
+      "at": 0
+     },
+     {
+      "text": "letter being passed round",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of saw",
+      "note": "first meaning: a power saw with a spinning toothed disc"
+     },
+     {
+      "clueFragment": "letter being passed round",
+      "note": "second meaning: a notice sent round to many people"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone glimpsed a note that was going round the office.",
+     "walkthrough": "'Saw' reads as the past tense of see, but it is the cutting tool.",
+     "definitionFit": "A circular saw has a round blade, and a circular is a letter copied and distributed widely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +760,59 @@
     "text": "Bubbly Pam toying with change",
     "enumeration": "9"
    },
-   "solution": "CHAMPAGNE"
+   "solution": "CHAMPAGNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAMPAGNE",
+    "definitions": [
+     {
+      "text": "Bubbly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toying",
+      "for": "anagram",
+      "note": "toying means playing about idly, so these letters are played with into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pam",
+      "gives": "PAM",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "CHANGE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAMCHANGE",
+       "gives": "CHAMPAGNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lively Pam is fiddling with the coins in her pocket.",
+     "walkthrough": "'Bubbly' looks like an adjective describing Pam, but it is the noun for sparkling wine.",
+     "definitionFit": "Bubbly is informal slang for sparkling wine, especially the famous French one from Reims and Épernay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bubbly"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +832,52 @@
      }
     ]
    },
-   "solution": "METOFFICE"
+   "solution": "METOFFICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MET OFFICE",
+    "definitions": [
+     {
+      "text": "Forecasters",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got together",
+      "gives": "MET",
+      "note": "people who got together met"
+     },
+     {
+      "clueFragment": "away from",
+      "gives": "OFF",
+      "note": "off means away from"
+     },
+     {
+      "clueFragment": "freezing conditions",
+      "gives": "ICE",
+      "note": "ice forms in freezing conditions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "OFF",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Weather forecasters held a meeting somewhere warmer.",
+     "walkthrough": "The Met Office is the UK's national weather service.",
+     "definitionFit": "The British national weather service employs meteorologists who produce weather forecasts, so it stands for forecasters collectively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +891,47 @@
     "text": "Special aquarium betrayed lack of cleaning?",
     "enumeration": "5"
    },
-   "solution": "STANK"
+   "solution": "STANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANK",
+    "definitions": [
+     {
+      "text": "betrayed lack of cleaning?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "S",
+      "note": "S is an abbreviation for special"
+     },
+     {
+      "clueFragment": "aquarium",
+      "gives": "TANK",
+      "note": "a fish tank is an aquarium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TANK"
+     ]
+    },
+    "explanation": {
+     "surface": "A special fish tank revealed that nobody had cleaned it.",
+     "walkthrough": "The definition is playful, hence the question mark: something that smelled foul gave away that it had not been washed.",
+     "definitionFit": "A bad smell is evidence of dirt, so smelling bad gave away the neglect of washing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "betrayed"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +945,47 @@
     "text": "With violence eject unknown dog",
     "enumeration": "5"
    },
-   "solution": "SPITZ"
+   "solution": "SPITZ",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPITZ",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With violence eject",
+      "gives": "SPIT",
+      "note": "to spit is to eject from the mouth forcefully"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "in algebra unknowns are x, y and z"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIT",
+      "Z"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone violently throws out a stray dog nobody knows.",
+     "walkthrough": "Mathematicians call unknown quantities x, y and z, so 'unknown' can give any of those letters.",
+     "definitionFit": "The spitz is a breed type of dog with a pointed muzzle and curled tail, such as the Pomeranian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +999,55 @@
     "text": "Army group also opening map",
     "enumeration": "7"
    },
-   "solution": "PLATOON"
+   "solution": "PLATOON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLATOON",
+    "definitions": [
+     {
+      "text": "Army group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "container",
+      "note": "when something opens up it splits to let something inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "map",
+      "gives": "PLAN",
+      "note": "a plan is a map, as of a building"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "TOO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A military unit is also unfolding its map.",
+     "walkthrough": "'Opening' reads as the act of unfolding the map, but it means the map splits apart to take the other word in.",
+     "definitionFit": "A platoon is a subdivision of an army company, a small unit of soldiers under a lieutenant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1061,47 @@
     "text": "Annoy detectives, if you will",
     "enumeration": "9"
    },
-   "solution": "DISPLEASE"
+   "solution": "DISPLEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISPLEASE",
+    "definitions": [
+     {
+      "text": "Annoy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "DIS",
+      "note": "DIs are detective inspectors"
+     },
+     {
+      "clueFragment": "if you will",
+      "gives": "PLEASE",
+      "note": "if you will is a polite request, as is please"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "PLEASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A polite invitation to irritate the police.",
+     "walkthrough": "DI stands for Detective Inspector, a British police rank.",
+     "definitionFit": "To annoy someone is to irritate them or make them unhappy, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1121,47 @@
      }
     ]
    },
-   "solution": "PLUGSIN"
+   "solution": "PLUGSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUGS IN",
+    "definitions": [
+     {
+      "text": "Connects up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advertisement",
+      "gives": "PLUG",
+      "note": "a plug is a piece of publicity for a product"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUG",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wires up an advert the wrong way.",
+     "walkthrough": "The word break moves: PLUG plus SIN regroups as PLUGS IN.",
+     "definitionFit": "Plugging in an appliance attaches it to the electricity supply, linking it to the mains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1175,51 @@
     "text": "Small job for gardener, and one for farrier",
     "enumeration": "7"
    },
-   "solution": "SHOEING"
+   "solution": "SHOEING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOEING",
+    "definitions": [
+     {
+      "text": "one for farrier",
+      "at": 28,
+      "note": "'one' stands for a job, so this means a farrier's job"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "job for gardener",
+      "gives": "HOEING",
+      "note": "gardeners hoe weeds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOEING"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of tasks for two tradesmen, one in the garden and one at the forge.",
+     "walkthrough": "A farrier fits horseshoes; adding S to the gardener's task gives the farrier's.",
+     "definitionFit": "A farrier's main work is fitting iron plates to horses' hooves, so that task is his job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1233,38 @@
     "text": "Regularly moving parts of railway line",
     "enumeration": "6"
    },
-   "solution": "POINTS"
+   "solution": "POINTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POINTS",
+    "definitions": [
+     {
+      "text": "Regularly moving parts of railway line",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regularly moving parts of railway line",
+      "note": "surface reading: any components of a track that shift often"
+     },
+     {
+      "clueFragment": "Regularly moving parts of railway line",
+      "note": "setter's reading: the movable rails at a junction that switch trains from one track to another"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Regularly' hints at alternate letters, but no fodder gives the answer; the clue simply describes the movable rails at a junction, called switches in America.",
+     "definitionFit": "On British railways the movable tapered rails that divert trains between tracks are known by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Regularly"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1284,43 @@
      }
     ]
    },
-   "solution": "CALFLOVE"
+   "solution": "CALFLOVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CALF LOVE",
+    "definitions": [
+     {
+      "text": "Immature feelings",
+      "at": 0
+     },
+     {
+      "text": "for one of the herd?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Immature feelings",
+      "note": "first meaning: a youthful infatuation, puppy love"
+     },
+     {
+      "clueFragment": "for one of the herd?",
+      "note": "second meaning, taken literally: affection for a young cow"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark marks the literal reading: a young bovine in the herd as the object of affection.",
+     "definitionFit": "The phrase is an idiom for a teenager's short-lived romantic crush, much like puppy love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "herd"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1334,47 @@
     "text": "Lifts very warm? Result!",
     "enumeration": "6"
    },
-   "solution": "UPSHOT"
+   "solution": "UPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSHOT",
+    "definitions": [
+     {
+      "text": "Result",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lifts",
+      "gives": "UPS",
+      "note": "lifts are ups, as in ups and downs"
+     },
+     {
+      "clueFragment": "very warm",
+      "gives": "HOT",
+      "note": "very warm is hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the elevators are overheated, then celebrates a win.",
+     "walkthrough": "'Result!' looks like a cry of triumph, but it is the plain noun for an outcome.",
+     "definitionFit": "The upshot of events is their final outcome or consequence, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Result"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1388,54 @@
     "text": "Little furry animal wild in Basle",
     "enumeration": "5"
    },
-   "solution": "SABLE"
+   "solution": "SABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SABLE",
+    "definitions": [
+     {
+      "text": "Little furry animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so these letters run loose into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Basle",
+      "gives": "BASLE",
+      "note": "taken as written; Basle is the Swiss city of Basel"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BASLE",
+       "gives": "SABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small furry creature living in the wild near Basel in Switzerland.",
+     "walkthrough": "'Wild' looks like it describes the animal, but it signals the anagram.",
+     "definitionFit": "The sable is a small marten-like mammal of Siberia prized for its soft dark fur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1449,48 @@
     "text": "Still deadpan, without leader",
     "enumeration": "10"
    },
-   "solution": "MOTIONLESS"
+   "solution": "MOTIONLESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MOTIONLESS",
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without leader",
+      "for": "deletion",
+      "note": "to be without a leader is to lose the one at the front, so the opening letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deadpan",
+      "gives": "EMOTIONLESS",
+      "note": "a deadpan face shows no feeling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTIONLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian keeps a straight face, even with nobody in charge.",
+     "walkthrough": "'Still' looks like the adverb meaning even so, but it is the adjective for unmoving.",
+     "definitionFit": "Something still is not moving at all, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1504,54 @@
     "text": "Enticement is a bit off",
     "enumeration": "4"
    },
-   "solution": "BAIT"
+   "solution": "BAIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BAIT",
+    "definitions": [
+     {
+      "text": "Enticement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so these letters are spoiled into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit",
+      "gives": "ABIT",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABIT",
+       "gives": "BAIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone judges an inducement to be slightly improper.",
+     "walkthrough": "'A bit off' reads as the British phrase for rather unfair, but it splits into fodder and signal.",
+     "definitionFit": "Bait is food used to lure fish or animals, and figuratively any lure or temptation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1565,44 @@
     "text": "The opposite – of ‘prosaic’?",
     "enumeration": "7"
    },
-   "solution": "INVERSE"
+   "solution": "INVERSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INVERSE",
+    "definitions": [
+     {
+      "text": "The opposite",
+      "at": 0
+     },
+     {
+      "text": "of ‘prosaic’?",
+      "at": 15,
+      "note": "describes something written as poetry, the opposite of prose"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The opposite",
+      "note": "first meaning: the reverse or contrary of something"
+     },
+     {
+      "clueFragment": "of ‘prosaic’?",
+      "note": "second meaning, split in two: the opposite of written in prose is written in poetry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the answer as IN VERSE: the opposite of prosaic (literally, in prose) is written as poetry.",
+     "definitionFit": "The inverse of something is its reverse or contrary, and in verse means in poetic form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prosaic"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1616,47 @@
     "text": "Don’t travel far enough to suffer?",
     "enumeration": "7"
    },
-   "solution": "UNDERGO"
+   "solution": "UNDERGO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDERGO",
+    "definitions": [
+     {
+      "text": "Don’t travel far enough",
+      "at": 0
+     },
+     {
+      "text": "suffer",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don’t travel far enough",
+      "note": "first meaning, split in two: to go short of the distance is to go under it"
+     },
+     {
+      "clueFragment": "suffer",
+      "note": "second meaning: to endure or experience something unpleasant"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice that a trip too short will cause hardship.",
+     "walkthrough": "Split the answer as UNDER-GO: to fall short of a target is to undergo it in this fanciful sense.",
+     "definitionFit": "To undergo an operation or ordeal is to experience and endure it, so it means suffer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suffer"
+    }
+   }
   }
  ]
 }
