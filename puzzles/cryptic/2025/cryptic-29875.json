@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Still figure divided by three originally in document",
     "enumeration": "7"
    },
-   "solution": "STATUTE"
+   "solution": "STATUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STATUTE",
+    "definitions": [
+     {
+      "text": "document",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally is what comes at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "divided by",
+      "for": "container",
+      "note": "a thing divided by something has that something sitting inside it, splitting it in two"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still figure",
+      "gives": "STATUE",
+      "note": "a statue is a figure that stays still"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATU",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A statue split into three parts, as described in some official paper.",
+     "walkthrough": "'Still' reads as an adverb (yet), but it is an adjective with 'figure': a still figure is a statue, which takes the T between its last two letters to give STATUTE.",
+     "definitionFit": "A statute is a written law passed by a legislature, so it is a formal legal document."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,47 @@
     "text": "Solvent, though having lost a few pounds?",
     "enumeration": "7"
    },
-   "solution": "THINNER"
+   "solution": "THINNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THINNER",
+    "definitions": [
+     {
+      "text": "Solvent",
+      "at": 0
+     },
+     {
+      "text": "having lost a few pounds",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solvent",
+      "note": "first meaning: a liquid used to dilute paint"
+     },
+     {
+      "clueFragment": "having lost a few pounds",
+      "note": "second meaning: slimmer after losing weight"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is financially solvent, despite having lost some money.",
+     "walkthrough": "'Solvent' and 'pounds' push you towards money: someone in credit despite losing cash. Pounds are body weight here, and solvent is the paint chemical.",
+     "definitionFit": "Paint thinner is a liquid solvent for diluting oil paint; a dieter who has shed weight is slimmer than before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Solvent"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +175,55 @@
     "text": "Cat cut tail off freshwater shrimp",
     "enumeration": "7"
    },
-   "solution": "TIDDLER"
+   "solution": "TIDDLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TIDDLER",
+    "definitions": [
+     {
+      "text": "shrimp",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut tail off",
+      "for": "deletion",
+      "note": "cutting off a tail removes the final letter of a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "TIDDLE",
+      "note": "Tiddles, a stock pet name for a cat in Britain, losing its end"
+     },
+     {
+      "clueFragment": "freshwater",
+      "gives": "R",
+      "note": "R for river, the home of fresh water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIDDLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's cat bit the tail off a little freshwater crustacean.",
+     "walkthrough": "'Freshwater shrimp' reads as a single creature, but the definition is just 'shrimp', a small person or thing. Tiddles is a traditional British cat's name, like Fido for a dog.",
+     "definitionFit": "A shrimp is slang for a small person, and a tiddler is a tiny fish or a small child, so both mean a little one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "freshwater"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +237,56 @@
     "text": "Boy on ward providing sheets and packs, say, for building",
     "enumeration": "7"
    },
-   "solution": "EDIFICE"
+   "solution": "EDIFICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EDIFICE",
+    "definitions": [
+     {
+      "text": "building",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy on ward",
+      "gives": "ED",
+      "note": "Ed, a boy's name; 'on ward' just puts him in a hospital for the surface"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing, as in 'on condition that'"
+     },
+     {
+      "clueFragment": "sheets and packs, say",
+      "gives": "ICE",
+      "note": "ice sheets and ice packs are examples of ice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "IF",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy in hospital is given bedsheets and ice packs.",
+     "walkthrough": "'Sheets and packs' look like bedding and dressings on a hospital ward, but 'say' signals examples: ice sheets and ice packs.",
+     "definitionFit": "An edifice is a large, imposing structure, a formal synonym for a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheets"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +306,45 @@
      }
     ]
    },
-   "solution": "DOODOO"
+   "solution": "DOODOO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DOO-DOO",
+    "definitions": [
+     {
+      "text": "Waste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "what is discussed is talked about out loud, so we want a word as it is heard rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parties",
+      "gives": "DOODOO",
+      "soundsLike": "DO DO",
+      "note": "a do is a party, so two of them are two parties"
+     }
+    ],
+    "explanation": {
+     "surface": "Political parties' talk is nothing but rubbish.",
+     "walkthrough": "'Parties' suggests political parties, but a do is British slang for a party or social event.",
+     "definitionFit": "Doo-doo is a childish word for excrement, which is bodily waste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +368,40 @@
    "group": [
     "7-down",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FINISHING LINE",
+    "definitions": [
+     {
+      "text": "Home, with some cord to cross – here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home, with some cord to cross",
+      "note": "surface reading: a house with a length of string to step over"
+     },
+     {
+      "clueFragment": "here?",
+      "note": "setter's reading: the place at the end of a race, marked with a tape for the winner to break"
+     }
+    ],
+    "explanation": {
+     "surface": "A house where you must step over a stretched rope.",
+     "walkthrough": "Home is where a race ends ('home straight'), and the cord is the tape stretched across the track for the winner to break.",
+     "definitionFit": "In racing, coming home means reaching the end, which is marked by a line often with tape across it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Home"
+    }
+   }
   },
   {
    "number": 8,
@@ -146,7 +415,48 @@
     "text": "25 22, someone there doing well",
     "enumeration": "7"
    },
-   "solution": "CONFINE"
+   "solution": "CONFINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFINE",
+    "definitions": [
+     {
+      "text": "25 22",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone there",
+      "gives": "CON",
+      "note": "a con (convict) is someone in prison"
+     },
+     {
+      "clueFragment": "doing well",
+      "gives": "FINE",
+      "note": "'I'm fine' means I'm doing well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thriving inside a jail.",
+     "walkthrough": "The cross-references read 'Putin prison', which becomes 'put in prison'; 'there' points back to that prison.",
+     "definitionFit": "To put someone in prison is to lock them up, which is to restrict or imprison them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "25"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +476,73 @@
      }
     ]
    },
-   "solution": "CAPECANAVERAL"
+   "solution": "CAPECANAVERAL",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CAPE CANAVERAL",
+    "definitions": [
+     {
+      "text": "where missiles launched",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one thing inside another sits within it"
+     },
+     {
+      "text": "missing one",
+      "for": "deletion",
+      "note": "one is the letter I, and missing it means it is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hole",
+      "gives": "CAVE",
+      "note": "a cave is a hole in rock"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "PECAN",
+      "note": "a pecan is a nut"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "RAIL",
+      "note": "a rail is a bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APECAN",
+      "AVE",
+      "RAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A crazy person in a pit, a bar lacking one place where rockets go up.",
+     "walkthrough": "'Nut' wants to be a madman, but it is a kind of nut to eat. The launch site sits on the Atlantic coast of Florida.",
+     "definitionFit": "Cape Canaveral in Florida is the US launch site for rockets and missiles, home of NASA's Kennedy Space Center."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +569,67 @@
     "text": "Daughter, a thug in gang being a bully",
     "enumeration": "10"
    },
-   "solution": "DRAGOONING"
+   "solution": "DRAGOONING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DRAGOONING",
+    "definitions": [
+     {
+      "text": "being a bully",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another thing is placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "gang",
+      "gives": "RING",
+      "note": "a ring is a gang of criminals"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thug",
+      "gives": "GOON",
+      "note": "a goon is a hired thug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "AGOON",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter, as a heavy in a gang, acts like a bully.",
+     "walkthrough": "'Gang' looks like the definition's setting, but it supplies the enclosing letters. 'Being a bully' is a phrase, yet it works as a participle, matching the -ING form.",
+     "definitionFit": "To dragoon is to coerce or force someone, so dragooning is browbeating and intimidating others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gang"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +643,50 @@
     "text": "Russian dictator’s elected to push west – 25?",
     "enumeration": "6"
    },
-   "solution": "INSTAL"
+   "solution": "INSTAL",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "INSTAL",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elected to push west",
+      "for": "cycling",
+      "note": "in an across answer west is the left, so the letters that mean voted in travel from the end round to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian dictator",
+      "gives": "STALIN",
+      "note": "Joseph Stalin, Soviet leader, whose name ends in a word meaning voted in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian dictator, voted in, wants to expand westward.",
+     "walkthrough": "The 's after dictator stands for 'is'; the dictator's own name ends in the word for elected, and that tail moves to the front. 25 is the autocrat's surname, read as 'put in'.",
+     "definitionFit": "To install is to put in place, such as fitting equipment; INSTAL is the British alternative spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elected"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +700,72 @@
     "text": "Quote recalled about progress is vain",
     "enumeration": "8"
    },
-   "solution": "EGOISTIC"
+   "solution": "EGOISTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EGOISTIC",
+    "definitions": [
+     {
+      "text": "vain",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "something recalled is called back, so the word runs backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quote",
+      "gives": "CITE",
+      "note": "to quote is to cite"
+     },
+     {
+      "clueFragment": "progress",
+      "gives": "GO",
+      "note": "to progress is to go on"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GOIS",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITE",
+       "to": "ETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remembered quotation about progress is pointless.",
+     "walkthrough": "'Vain' reads as futile in the surface, but here it means conceited, describing a self-admiring person.",
+     "definitionFit": "Someone egoistic is self-centred and absorbed in themselves, much as a vain person admires themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vain"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +779,50 @@
     "text": "Less spineless person required as old home secretary",
     "enumeration": "9"
    },
-   "solution": "BRAVERMAN"
+   "solution": "BRAVERMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAVERMAN",
+    "definitions": [
+     {
+      "text": "old home secretary",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "required as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Less spineless",
+      "gives": "BRAVER",
+      "note": "spineless means cowardly, so less spineless is braver"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "MAN",
+      "note": "a man is a person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAVER",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gutsier figure was needed as a former minister.",
+     "walkthrough": "Suella Braverman was UK Home Secretary, the minister in charge of policing and immigration, in 2022 and 2022–23.",
+     "definitionFit": "Suella Braverman held the post of Home Secretary in the British government, and no longer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spineless"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +836,62 @@
     "text": "Innocent banking leader in office, disenfranchised",
     "enumeration": "9"
    },
-   "solution": "VOICELESS"
+   "solution": "VOICELESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VOICELESS",
+    "definitions": [
+     {
+      "text": "disenfranchised",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader goes in front, so only the opening letter is kept"
+     },
+     {
+      "text": "banking",
+      "for": "container",
+      "note": "banking is holding something safe inside, as a bank holds money"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Innocent",
+      "gives": "VICELESS",
+      "note": "without vice, so innocent"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "O",
+      "ICELESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A blameless boss at a bank, left without a vote.",
+     "walkthrough": "'Banking' looks like the financial trade in the surface; here it means holding something, as a bank keeps deposits.",
+     "definitionFit": "Disenfranchised people have no vote and so no say, which is to be without a voice in decisions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banking"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +915,73 @@
    "group": [
     "16-across",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "RIVER TRENT",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally is what comes at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped within it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pin",
+      "gives": "RIVET",
+      "note": "a rivet is a metal pin"
+     },
+     {
+      "clueFragment": "rose",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "damaged",
+      "gives": "RENT",
+      "note": "rent means torn, so damaged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIVE",
+      "R",
+      "T",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower pinned into a rose display has been spoilt.",
+     "walkthrough": "'Flower' means something that flows: a river, not a bloom. The River Trent is a major river of the English Midlands.",
+     "definitionFit": "A river flows, so in crossword-only sense a flower is any river, and the Trent is one in England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +995,56 @@
     "text": "Bowl initially – meaning bowl!",
     "enumeration": "5"
    },
-   "solution": "BASIN"
+   "solution": "BASIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BASIN",
+    "definitions": [
+     {
+      "text": "bowl",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "what comes initially is at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bowl",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "meaning",
+      "gives": "ASIN",
+      "note": "'as in' is used when explaining what something means"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ASIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spells out a word: 'bowl', as in the bowl.",
+     "walkthrough": "The clue uses its own definition word as wordplay too; 'meaning' gives AS IN, the phrase used in spelling out a word (B, as in bowl).",
+     "definitionFit": "A basin is a wide round container for liquid, a synonym for a bowl such as a washing-up bowl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meaning"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1058,81 @@
     "text": "Salamander often swallowing beef up and last of veal",
     "enumeration": "7"
    },
-   "solution": "AXOLOTL"
+   "solution": "AXOLOTL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AXOLOTL",
+    "definitions": [
+     {
+      "text": "Salamander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, up means reading from the bottom, so the word runs backwards"
+     },
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "something swallowing takes another thing inside it"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of something is its final part, so only the end letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "often",
+      "gives": "ALOT",
+      "note": "'a lot' means often"
+     },
+     {
+      "clueFragment": "beef",
+      "gives": "OX",
+      "note": "beef comes from an ox"
+     },
+     {
+      "clueFragment": "veal",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "XO",
+      "LOT",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "OX",
+       "to": "XO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salamander that regularly gulps beef and the remains of veal.",
+     "walkthrough": "'Beef up' looks like a phrasal verb meaning strengthen, but the animal behind the meat is the piece, and 'up' turns it round.",
+     "definitionFit": "The axolotl is a Mexican amphibian, a type of salamander that keeps its larval gills into adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beef"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1152,66 @@
      }
     ]
    },
-   "solution": "BARMAGNET"
+   "solution": "BARMAGNET",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BAR MAGNET",
+    "definitions": [
+     {
+      "text": "drawer",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thing",
+      "gives": "BAG",
+      "note": "one's thing or bag is one's interest, as in 'not my bag'"
+     },
+     {
+      "clueFragment": "levering mechanism",
+      "gives": "ARM",
+      "note": "a lever works by means of an arm"
+     },
+     {
+      "clueFragment": "catch",
+      "gives": "NET",
+      "note": "to net is to catch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARM",
+      "AG",
+      "NET"
+     ]
+    },
+    "explanation": {
+     "surface": "A fastening on a lever, a catch for a chest of drawers.",
+     "walkthrough": "'Drawer' suggests furniture, but it means something that draws, that is attracts. 'Thing' as BAG is the sense in 'my thing' or 'my bag'.",
+     "definitionFit": "A magnet attracts or draws iron towards it, so it is literally a drawer in the sense of puller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawer"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1225,56 @@
     "text": "Surface, a block on which coat applied",
     "enumeration": "7"
    },
-   "solution": "MACADAM"
+   "solution": "MACADAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACADAM",
+    "definitions": [
+     {
+      "text": "Surface",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat applied",
+      "gives": "MAC",
+      "note": "a mac is a raincoat; in a down answer it goes on top"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "block",
+      "gives": "DAM",
+      "note": "a dam blocks water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAC",
+      "A",
+      "DAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A surface prepared as a block that is then given a coat of paint.",
+     "walkthrough": "'Coat' suggests paint on the block, but it is the raincoat MAC, placed on top in a down answer.",
+     "definitionFit": "Macadam is a road surface of compacted broken stone, named after the engineer John McAdam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1288,67 @@
     "text": "Reversible trap in identical puzzles",
     "enumeration": "7"
    },
-   "solution": "ENIGMAS"
+   "solution": "ENIGMAS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ENIGMAS",
+    "definitions": [
+     {
+      "text": "puzzles",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another thing is placed within it"
+     },
+     {
+      "text": "Reversible",
+      "for": "reversal",
+      "note": "a reversible thing can be turned back to front, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "identical",
+      "gives": "SAME",
+      "note": "identical means the same"
+     },
+     {
+      "clueFragment": "trap",
+      "gives": "GIN",
+      "note": "a gin is an animal trap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NIG",
+      "MAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAMGINE",
+       "to": "ENIGMAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A two-way trap appearing in matching puzzles.",
+     "walkthrough": "'Reversible' looks like it describes only the trap, but it turns round the whole assembled word. A gin trap is a sprung metal trap for animals.",
+     "definitionFit": "An enigma is a riddle or mystery, so enigmas are puzzles in the sense of baffling questions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reversible"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1362,61 @@
     "text": "Can is in flat, not closed",
     "enumeration": "6"
    },
-   "solution": "PRISON"
+   "solution": "PRISON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PRISON",
+    "definitions": [
+     {
+      "text": "Can",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not closed",
+      "for": "deletion",
+      "note": "a word not closed has no ending, so its final letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another thing is placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "flat",
+      "gives": "PRON",
+      "note": "prone means lying flat, here without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A tin is inside an apartment, with the door left open.",
+     "walkthrough": "'Can' looks like a verb or a tin, but it is slang for jail; PRONE loses its E and IS goes inside.",
+     "definitionFit": "The can is American slang for jail, so it names the place where convicts are locked up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1436,51 @@
      }
     ]
    },
-   "solution": "COMETRUE"
+   "solution": "COMETRUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COME TRUE",
+    "definitions": [
+     {
+      "text": "Happen",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brilliant streaker",
+      "gives": "COMET",
+      "note": "a comet streaks brightly across the sky"
+     },
+     {
+      "clueFragment": "road in Marseille",
+      "gives": "RUE",
+      "note": "rue is French for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMET",
+      "RUE"
+     ]
+    },
+    "explanation": {
+     "surface": "By chance you spot a dazzling naked runner on a French street.",
+     "walkthrough": "A streaker is usually a naked runner, but here it is a comet streaking across the sky. Marseille signals a French word.",
+     "definitionFit": "When a wish or prediction comes true, it actually takes place, so it happens as foretold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "streaker"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1494,56 @@
     "text": "Catch second spoken language",
     "enumeration": "6"
    },
-   "solution": "COPTIC"
+   "solution": "COPTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "COPTIC",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoken",
+      "for": "homophone",
+      "note": "something spoken is said out loud, so we want a word as it is heard rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "COP",
+      "note": "to cop is to catch"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "TIC",
+      "soundsLike": "TICK",
+      "note": "a tick is a second, as in 'just a tick'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Catching a second language as it is spoken.",
+     "walkthrough": "'Second spoken language' reads as a person's second tongue; actually 'second' is a tick, said aloud as TIC.",
+     "definitionFit": "Coptic is the language descended from ancient Egyptian, still used in the liturgy of the Coptic Church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1557,62 @@
     "text": "Autocrat, flipping idiot finished?",
     "enumeration": "5"
    },
-   "solution": "PUTIN"
+   "solution": "PUTIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PUTIN",
+    "definitions": [
+     {
+      "text": "Autocrat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "to flip something is to turn it over, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiot",
+      "gives": "NIT",
+      "note": "a nit is an idiot"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "'time's up' means time is finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "TIN"
+     ],
+     "reversals": [
+      {
+       "from": "NITUP",
+       "to": "PUTIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry outburst: the autocratic so-and-so is done for?",
+     "walkthrough": "'Flipping' looks like a mild British swear word, as in 'flipping idiot', but it reverses NIT UP. Nit is British slang for a fool.",
+     "definitionFit": "Vladimir Putin is Russia's president, a ruler with absolute power, which is what an autocrat is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1632,75 @@
      }
     ]
    },
-   "solution": "LOVEISLAND"
+   "solution": "LOVEISLAND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "LOVE ISLAND",
+    "definitions": [
+     {
+      "text": "Where vain dolls out to impress beefcake, ultimately?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so these letters must be rearranged"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "to impress",
+      "for": "container",
+      "note": "to impress is to press into, so one piece is set inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vain dolls",
+      "gives": "VAINDOLLS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "beefcake",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOV",
+      "E",
+      "ISLAND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VAINDOLLS",
+       "gives": "LOVISLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A place where vain glamorous women flaunt themselves to win over muscular men.",
+     "walkthrough": "VAIN DOLLS rearranged takes in the E ending beefcake, and the whole clue describes the show. Love Island is a British reality TV dating series set in a sunny villa.",
+     "definitionFit": "On that reality show, attractive contestants pair up and try to impress each other, beefcake hunks included."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1737,55 @@
    "group": [
     "28-across",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "CLOSING TIME",
+    "definitions": [
+     {
+      "text": "Hundred behind eleven, usually?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "LOSING",
+      "note": "a team that is behind is losing"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "TIME",
+      "note": "eleven o'clock is a time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSING",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team a hundred runs down, with all eleven players out.",
+     "walkthrough": "'Eleven' suggests a cricket or football side; it is the hour. British pubs traditionally had to stop serving at 11pm.",
+     "definitionFit": "Traditional pub licensing hours in England ended at eleven at night, the usual hour bars shut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 29,
@@ -482,7 +1799,58 @@
     "text": "In second, worry about that",
     "enumeration": "7"
    },
-   "solution": "AMONGST"
+   "solution": "AMONGST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMONGST",
+    "definitions": [
+     {
+      "text": "In",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go around it"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worry",
+      "gives": "ANGST",
+      "note": "angst is anxiety, worry"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MO",
+      "NGST"
+     ]
+    },
+    "explanation": {
+     "surface": "Fretting over something within a moment.",
+     "walkthrough": "'In' sits at the front as if it began the phrase 'in a second', but it is the definition. Mo is British informal for a moment.",
+     "definitionFit": "To be amongst a group is to be in it, surrounded by its members, so the two are prepositional synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   }
  ]
 }
