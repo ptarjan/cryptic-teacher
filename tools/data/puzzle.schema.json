@@ -118,14 +118,13 @@
    "description": "Who wrote the hints, in the order the runs happened: exact model ids, or tools/provenance.py ANNOTATORS. Present exactly when an entry has an annotation."
   },
   "unclued": {
-   "description": "Lights the setter fills with no clue, such as a shaded quotation round a ring of squares. Their squares are white even where no entry covers them, and the player fills them like any light. A square shared with an entry holds the same letter in both (tools/puzzle_integrity.py check_extra_cells).",
+   "description": "Lights the setter fills with no clue, such as a shaded quotation round a ring of squares. Their squares are white even where no entry covers them, and the player fills them like any light. A square shared with an entry holds the same letter in both (tools/puzzle_integrity.py check_extra_cells). A light with no solution is unsolved: no source printed its letters, and the backfill derives them.",
    "type": "array",
    "minItems": 1,
    "items": {
     "type": "object",
     "required": [
-     "cells",
-     "solution"
+     "cells"
     ],
     "additionalProperties": false,
     "properties": {
