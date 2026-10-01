@@ -991,11 +991,20 @@ def refile_ft(adapter, pid, path, number, found):
     date = (datetime.date.fromisoformat(entry["date"]) if entry.get("date")
             else fpp.neighbour_date(number, adapter.index)
             or (datetime.date.fromisoformat(old["date"]) if old.get("date") else None))
-    new, why = fpp.assemble(number, fpp.read_pdf(adapter.raw_file(number)),
-                            adapter.posts.get(number), date, entry.get("url"), how)
+    pdf = fpp.read_pdf(adapter.raw_file(number))
+    post = adapter.posts.get(number)
+    new, why = fpp.assemble(number, pdf, post, date, entry.get("url"), how)
+    notes = []
+    if why and post is not None:
+        # The post's answers read against the PDF's clues can fail where the
+        # held file's, read by ft_puzzles, do not: file the PDF unsolved and
+        # keep the held answers below when its grid is ours.
+        new, unsolved_why = fpp.assemble(number, pdf, None, date, entry.get("url"), how)
+        if unsolved_why is None:
+            notes.append(f"the post's answers refused ({why})")
+            why = None
     if why:
         raise ValueError(f"ft_pdf_puzzles.assemble: {why}")
-    notes = []
     solved = all(e.get("solution") for e in new["entries"])
     if not solved and all(e.get("solution") for e in old["entries"]):
         mine = {c for e in old["entries"] for c in cells(e)}
@@ -1004,7 +1013,7 @@ def refile_ft(adapter, pid, path, number, found):
             for e in new["entries"]:
                 e["solution"] = at[where(e)]
             new["solutions"] = old["solutions"]
-            notes.append("the post answers too few lights; kept the held answers on the same grid")
+            notes.append("kept the held answers: the PDF's grid is theirs")
     if solved or new["solutions"] is old["solutions"]:
         notes += keep_backed_answers(old, new)
     elif all(e.get("solution") for e in old["entries"]):
