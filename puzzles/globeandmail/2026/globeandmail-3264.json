@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Prevent completion of work on street",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "Prevent completion of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation for street"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a musical work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Roadworks on a street are blocked before they can be finished.",
+     "walkthrough": "'Completion of' tempts you to take a last letter, but it belongs to the definition. 'On' tells you the work comes after the street.",
+     "definitionFit": "To halt something midway is to keep it from being finished, an ordinary verb sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "completion"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,57 @@
     "text": "Drip fled naked after fool",
     "enumeration": "7"
    },
-   "solution": "TRICKLE"
+   "solution": "TRICKLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRICKLE",
+    "definitions": [
+     {
+      "text": "Drip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "letter_selection",
+      "note": "something naked is stripped of its covering, so the word loses its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "TRICK",
+      "note": "to trick someone is to fool them"
+     },
+     {
+      "clueFragment": "fled",
+      "gives": "LE",
+      "select": "middle",
+      "note": "the inner letters of this word, without its first and last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRICK",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drip of a man ran off without his clothes after being made a fool of.",
+     "walkthrough": "'After' puts the fool piece first. This puzzle has many clues on the theme of fools.",
+     "definitionFit": "Both words describe liquid falling slowly in small drops, so they are close synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +154,59 @@
     "text": "Fool primarily expected to talk foolishly",
     "enumeration": "5"
    },
-   "solution": "PRATE"
+   "solution": "PRATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRATE",
+    "definitions": [
+     {
+      "text": "talk foolishly",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "PRAT",
+      "note": "a prat is British slang for an idiot"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot can be counted on, first and foremost, to babble nonsense.",
+     "walkthrough": "PRAT is everyday British slang for a stupid person.",
+     "definitionFit": "To prate is to chatter at length about nothing much, idle empty talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +226,50 @@
      }
     ]
    },
-   "solution": "TURNBACK"
+   "solution": "TURNBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURN BACK",
+    "definitions": [
+     {
+      "text": "retreat",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "precedes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "TURN",
+      "note": "a turn is a performer's act on stage"
+     },
+     {
+      "clueFragment": "Second",
+      "gives": "BACK",
+      "note": "to second a proposal is to back it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "In a play, the second act comes before the characters withdraw.",
+     "walkthrough": "'Second act' reads as a single stage term, but the two words are separate pieces, and 'precedes' puts the act before the second.",
+     "definitionFit": "To turn back is to give up going forward and head the other way, which is to withdraw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +283,52 @@
     "text": "Seconds to stop fool revealing part of body",
     "enumeration": "3"
    },
-   "solution": "TOE"
+   "solution": "TOE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TOE",
+    "definitions": [
+     {
+      "text": "part of body",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Seconds",
+      "for": "letter_selection",
+      "note": "seconds here means the letters in second place of each following word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop fool revealing",
+      "gives": "TOE",
+      "select": 2,
+      "note": "the second letter of each of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has seconds to stop an idiot from exposing his body.",
+     "walkthrough": "'Seconds' looks like a measure of time; it asks for the second letter of each of the next three words.",
+     "definitionFit": "A digit on the foot is one of the small parts of the human body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Seconds"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +342,80 @@
     "text": "Shake up loud vacuous fool stopping us here unexpectedly",
     "enumeration": "9"
    },
-   "solution": "RESHUFFLE"
+   "solution": "RESHUFFLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RESHUFFLE",
+    "definitions": [
+     {
+      "text": "Shake up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "what happens unexpectedly breaks the usual order, so these letters are rearranged"
+     },
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word is emptied of its inside letters"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so these letters sit inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us here",
+      "gives": "RESHUE",
+      "note": "these six letters are rearranged"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "F is forte, the musical direction for loud"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "FL",
+      "select": "outer",
+      "note": "only the outside letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESHU",
+      "F",
+      "FL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USHERE",
+       "gives": "RESHUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud, empty-headed idiot suddenly halts our progress, causing a shake-up.",
+     "walkthrough": "Three letters, F and FL, go inside the rearranged US HERE, near its end.",
+     "definitionFit": "A reshuffle, as of a government cabinet, reorganises who does what, which is a shake-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +429,46 @@
     "text": "Fool recited great passage",
     "enumeration": "7"
    },
-   "solution": "BEGUILE"
+   "solution": "BEGUILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "BEGUILE",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recited",
+      "for": "homophone",
+      "note": "something recited is spoken out loud, so we go by sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great passage",
+      "gives": "BEGUILE",
+      "soundsLike": "BIG AISLE",
+      "note": "great is BIG and a passage between seats is an AISLE"
+     }
+    ],
+    "explanation": {
+     "surface": "A fool stands up and declaims a great passage of verse.",
+     "walkthrough": "Said quickly, BIG plus AISLE runs together into a close match for the answer.",
+     "definitionFit": "To beguile someone is to charm and deceive them, which is a way to fool them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +482,60 @@
     "text": "Monarchy replacing Republican with Liberal fool",
     "enumeration": "5"
    },
-   "solution": "CLOWN"
+   "solution": "CLOWN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CLOWN",
+    "definitions": [
+     {
+      "text": "fool",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing means putting one thing in place of another, so one letter swaps out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarchy",
+      "gives": "CROWN",
+      "note": "the Crown stands for the monarchy as an institution"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A political joke: overthrowing the monarchy for a republic, then a liberal, only to end up with a fool.",
+     "walkthrough": "The R in CROWN is swapped for L.",
+     "definitionFit": "A clown is a comic performer, and by extension anyone who behaves like an idiot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Monarchy"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +549,51 @@
     "text": "Nastiest corrupt individual of immense strength",
     "enumeration": "8"
    },
-   "solution": "TITANESS"
+   "solution": "TITANESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TITANESS",
+    "definitions": [
+     {
+      "text": "individual of immense strength",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoiled or debased, so the original order of letters is broken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nastiest",
+      "gives": "NASTIEST",
+      "note": "these eight letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NASTIEST",
+       "gives": "TITANESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most vicious crooked person also happens to be enormously powerful.",
+     "walkthrough": "'Nastiest corrupt' reads as a description of one villain; the adjective is the instruction to rearrange the superlative.",
+     "definitionFit": "A titaness is a female Titan, one of the giant gods of Greek myth famed for great power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +607,47 @@
     "text": "Develop good part of grid",
     "enumeration": "4"
    },
-   "solution": "GROW"
+   "solution": "GROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GROW",
+    "definitions": [
+     {
+      "text": "Develop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "part of grid",
+      "gives": "ROW",
+      "note": "a grid is made of rows and columns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A useful section of the electricity network gets developed.",
+     "walkthrough": "'Part of grid' looks like a hidden-word signal, but it is a definition of a row.",
+     "definitionFit": "To grow is to increase in size or maturity, which is to develop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grid"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +661,56 @@
     "text": "Offshore part of UK broadcaster close to collapse",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "Offshore part of UK",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of something is its end, so only the final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcaster",
+      "gives": "SKY",
+      "note": "Sky is a British satellite television company"
+     },
+     {
+      "clueFragment": "collapse",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKY",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A British broadcaster's offshore arm is on the verge of going under.",
+     "walkthrough": "'UK broadcaster' looks like one phrase, but UK closes the definition and the broadcaster stands alone. Sky is a UK pay-TV network.",
+     "definitionFit": "Skye is a large island off Scotland's west coast, so it lies offshore yet within Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Offshore"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +724,47 @@
     "text": "Meetings concerning groups supporting workers",
     "enumeration": "8"
    },
-   "solution": "REUNIONS"
+   "solution": "REUNIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REUNIONS",
+    "definitions": [
+     {
+      "text": "Meetings",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means about or concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "groups supporting workers",
+      "gives": "UNIONS",
+      "note": "trade unions are bodies that support workers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "UNIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Meetings about labour organisations that back employees.",
+     "walkthrough": "The surface reads as one sentence about labour politics; it splits after the first word.",
+     "definitionFit": "Reunions are gatherings of people coming together again, a particular kind of meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concerning"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +778,73 @@
     "text": "Deny judge accepts one fool returning",
     "enumeration": "9"
    },
-   "solution": "REPUDIATE"
+   "solution": "REPUDIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "REPUDIATE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so these letters run backwards"
+     },
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "DUPE",
+      "note": "to dupe someone is to fool them"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate something is to judge its worth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EPUDI",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "IDUPE",
+       "to": "EPUDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge takes in a fool on the way back and then denies it.",
+     "walkthrough": "'Judge' looks like the person on the bench, but here it is a verb meaning to assess; the reversed fool and one sit inside it, just after its first letter.",
+     "definitionFit": "To repudiate a claim is to reject it as untrue or refuse to acknowledge it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +858,39 @@
     "text": "Minor disturbance in this small vessel?",
     "enumeration": "6"
    },
-   "solution": "TEACUP"
+   "solution": "TEACUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEACUP",
+    "definitions": [
+     {
+      "text": "Minor disturbance in this small vessel?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor disturbance in this small vessel?",
+      "note": "surface reading: a little rocking aboard a small boat"
+     },
+     {
+      "clueFragment": "Minor disturbance in this small vessel?",
+      "note": "setter's reading: the idiom 'a storm in a ...' means a fuss over nothing, and the vessel is a cup for a hot drink"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Vessel' suggests a boat, but here it is a container for drinking from. A storm in a teacup is the British idiom for a fuss about trivia.",
+     "definitionFit": "The idiom places a petty commotion inside this little drinking cup, so the cup is where the minor upset happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +904,50 @@
     "text": "Fool cleaning woman with untrue story",
     "enumeration": "7"
    },
-   "solution": "CHARLIE"
+   "solution": "CHARLIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARLIE",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaning woman",
+      "gives": "CHAR",
+      "note": "a char, or charwoman, is a British term for a cleaner"
+     },
+     {
+      "clueFragment": "untrue story",
+      "gives": "LIE",
+      "note": "a falsehood is a lie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gullible fool of a cleaner comes out with a made-up tale.",
+     "walkthrough": "A char is an old British word for a woman paid to clean houses.",
+     "definitionFit": "In British slang a 'right charlie' is a silly person, an idiot who looks ridiculous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cleaning"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +961,54 @@
     "text": "Wicked people right to be dropped by US sitcom",
     "enumeration": "6"
    },
-   "solution": "FIENDS"
+   "solution": "FIENDS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FIENDS",
+    "definitions": [
+     {
+      "text": "Wicked people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be dropped by",
+      "for": "deletion",
+      "note": "what is dropped is let go and left out, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "US sitcom",
+      "gives": "FRIENDS",
+      "note": "Friends was a hugely popular American sitcom about six New Yorkers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Villains insist the conservative actor be written out of an American comedy show.",
+     "walkthrough": "Remove the R from FRIENDS.",
+     "definitionFit": "Fiends are demons or cruel evildoers, so they are wicked people in a strong sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1022,48 @@
     "text": "Abandon broadcast for fool?",
     "enumeration": "7"
    },
-   "solution": "DESSERT"
+   "solution": "DESSERT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DESSERT",
+    "definitions": [
+     {
+      "text": "fool",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "a broadcast goes out over the air to be heard, so the sound matters, not spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abandon",
+      "gives": "DESSERT",
+      "soundsLike": "DESERT",
+      "note": "to abandon someone is to desert them"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thinks about walking out on a fool and telling everyone.",
+     "walkthrough": "The verb to desert, stressed on the second syllable, sounds like the sweet course after dinner.",
+     "definitionFit": "A fool is a cold pudding of puréed fruit folded into cream, served as a sweet course; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1077,62 @@
     "text": "Sit astride bicycle seat holding traveller’s coat",
     "enumeration": "8"
    },
-   "solution": "STRADDLE"
+   "solution": "STRADDLE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "STRADDLE",
+    "definitions": [
+     {
+      "text": "Sit astride",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one piece goes inside the other"
+     },
+     {
+      "text": "coat",
+      "for": "letter_selection",
+      "note": "a coat is the outer layer, so only the outside letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bicycle seat",
+      "gives": "SADDLE",
+      "note": "the seat of a bicycle is its saddle"
+     },
+     {
+      "clueFragment": "traveller’s",
+      "gives": "TR",
+      "select": "outer",
+      "note": "the first and last letters of this word, ignoring the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TR",
+      "ADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist sits astride the saddle with a coat slung over it.",
+     "walkthrough": "'Coat' looks like a garment, but it signals the outer letters of 'traveller', which sit after the first letter of SADDLE.",
+     "definitionFit": "To straddle something is to sit or stand with one leg on each side of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1146,43 @@
     "text": "Fool contributing to waste, as expected",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contributing to",
+      "for": "hidden_word",
+      "note": "something contributing to a whole is a part of it, so the letters lie inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waste, as expected",
+      "gives": "TEASE",
+      "note": "the letters run across these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An idiot adds to the rubbish pile, just as you'd predict.",
+     "walkthrough": "The letters run from the end of 'waste' through 'as' into the start of 'expected'.",
+     "definitionFit": "To tease someone is to kid or have them on, which is to fool them playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1196,55 @@
     "text": "Band like to enter in silence",
     "enumeration": "4"
    },
-   "solution": "SASH"
+   "solution": "SASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SASH",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter something is to go inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like, as in 'white as snow'"
+     },
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "sh is the call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A music group would prefer to walk on stage quietly.",
+     "walkthrough": "'Band' suggests musicians, but it means a strip of cloth. 'In' is part of the setting: the word for like sits within the call for quiet.",
+     "definitionFit": "A sash is a long strip of fabric worn round the waist or over the shoulder, a band of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1258,67 @@
     "text": "Attack fool filling manuscript up",
     "enumeration": "5"
    },
-   "solution": "SPASM"
+   "solution": "SPASM",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SPASM",
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling sits inside something, so one piece goes within the other"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manuscript",
+      "gives": "MS",
+      "note": "MS is the abbreviation for manuscript"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "SAP",
+      "note": "a sap is a gullible person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAS",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MSAPS",
+       "to": "SPASM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic savages an idiot who has stuffed a document full of nonsense.",
+     "walkthrough": "'Up' only works as a reversal signal because this is a down entry, read from the bottom; 'Attack' here is a fit or seizure, not an assault.",
+     "definitionFit": "An attack can mean a sudden bout of illness or feeling, as does a spasm of coughing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attack"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1332,44 @@
     "text": "What was used during war to protect post?",
     "enumeration": "4"
    },
-   "solution": "MAIL"
+   "solution": "MAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAIL",
+    "definitions": [
+     {
+      "text": "What was used during war to protect",
+      "at": 0
+     },
+     {
+      "text": "post",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What was used during war to protect",
+      "note": "first meaning: chain armour worn by soldiers of old"
+     },
+     {
+      "clueFragment": "post",
+      "note": "second meaning: letters and parcels delivered by a postal service"
+     }
+    ],
+    "explanation": {
+     "surface": "Something used in wartime to keep the letters safe.",
+     "walkthrough": "The surface reads as one question about protecting the post in wartime; it splits into two separate meanings.",
+     "definitionFit": "Chain armour of linked metal rings shielded medieval fighters, and the same word means letters delivered by a postal service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "protect"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1383,64 @@
     "text": "Strengthened new deal backing former monarch",
     "enumeration": "8"
    },
-   "solution": "ANNEALED"
+   "solution": "ANNEALED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANNEALED",
+    "definitions": [
+     {
+      "text": "Strengthened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, so these letters are put into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "backing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former monarch",
+      "gives": "ANNE",
+      "note": "Queen Anne reigned over Britain in the early 1700s"
+     },
+     {
+      "clueFragment": "deal",
+      "gives": "DEAL",
+      "note": "these four letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNE",
+      "ALED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEAL",
+       "gives": "ALED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh agreement supporting a past ruler made her position stronger.",
+     "walkthrough": "'New deal' sounds like Roosevelt's programme; the first word only asks for a rearrangement, which goes after the queen.",
+     "definitionFit": "Annealing heats then slowly cools metal or glass to toughen it, so annealed material has been strengthened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1454,49 @@
     "text": "Fool regularly forgetting anxiety",
     "enumeration": "3"
    },
-   "solution": "NIT"
+   "solution": "NIT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NIT",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly forgetting",
+      "for": "letter_selection",
+      "note": "forgetting every other letter at a steady interval leaves only the alternate ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anxiety",
+      "gives": "NIT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of this word; the reversed run inside 'forgetting' is a coincidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot keeps forgetting to worry.",
+     "walkthrough": "Drop the first, third, fifth and seventh letters of 'anxiety'. Nit is short for nitwit.",
+     "definitionFit": "Nit is British slang for a nitwit, a stupid person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forgetting"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1510,55 @@
     "text": "What may accommodate men bound by principle?",
     "enumeration": "8"
    },
-   "solution": "TENEMENT"
+   "solution": "TENEMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TENEMENT",
+    "definitions": [
+     {
+      "text": "What may accommodate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bound by",
+      "for": "container",
+      "note": "to be bound by something is to be enclosed by it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principle",
+      "gives": "TENET",
+      "note": "a tenet is a principle or belief"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what will make room for people who are tied to their beliefs.",
+     "walkthrough": "'Accommodate' doubles as housing in the definition and as holding in the surface; the question mark admits a building houses more than men.",
+     "definitionFit": "A tenement is a large building divided into flats, so it is somewhere that houses residents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "accommodate"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1572,51 @@
     "text": "Team playing final stage of game",
     "enumeration": "4"
    },
-   "solution": "MATE"
+   "solution": "MATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MATE",
+    "definitions": [
+     {
+      "text": "final stage of game",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing with something means toying with it, so these letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "TEAM",
+      "note": "these four letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAM",
+       "gives": "MATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A side competing in the last part of a match.",
+     "walkthrough": "'Game' suggests team sport, but the game is chess.",
+     "definitionFit": "Checkmate, often shortened, ends a chess match when the king cannot escape capture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Team"
+    }
+   }
   }
  ]
 }
