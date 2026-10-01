@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,42 @@
     "text": "Poor show",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "Poor",
+      "at": 0
+     },
+     {
+      "text": "show",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor",
+      "note": "shabby, inferior"
+     },
+     {
+      "clueFragment": "show",
+      "note": "to signify or indicate, as a verb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it sounds like a review of a weak performance; split, it gives an adjective and a verb that share one spelling.",
+     "definitionFit": "A mean dwelling is a poor, shabby one, and to mean something is to signify or indicate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +84,56 @@
     "text": "Problem hosting cricket game — element likely to react?",
     "enumeration": "6"
    },
-   "solution": "SODIUM"
+   "solution": "SODIUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SODIUM",
+    "definitions": [
+     {
+      "text": "element likely to react",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes guests inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     },
+     {
+      "clueFragment": "cricket game",
+      "gives": "ODI",
+      "note": "ODI is a one-day international, a format of cricket match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ODI",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting fixture causes trouble, and someone wonders who will react badly.",
+     "walkthrough": "ODI, a one-day international, is a standard cricket abbreviation. 'Likely to react' looks like temperament but is chemistry.",
+     "definitionFit": "Sodium is an alkali metal that reacts violently with water, so it is a highly reactive chemical element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "react"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +147,41 @@
     "text": "Neat cut",
     "enumeration": "4"
    },
-   "solution": "TRIM"
+   "solution": "TRIM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIM",
+    "definitions": [
+     {
+      "text": "Neat",
+      "at": 0
+     },
+     {
+      "text": "cut",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neat",
+      "note": "first meaning: tidy, smart in appearance"
+     },
+     {
+      "clueFragment": "cut",
+      "note": "second meaning: to clip or shorten slightly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like praise for a haircut, but the two words are separate meanings, an adjective and a verb.",
+     "definitionFit": "A trim figure is tidy and smart, and to trim hedges or hair is to clip them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +195,67 @@
     "text": "Revolutionary cares about a dictator",
     "enumeration": "6"
    },
-   "solution": "CAESAR"
+   "solution": "CAESAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CAESAR",
+    "definitions": [
+     {
+      "text": "dictator",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the existing order, so these letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be around it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cares",
+      "gives": "CARES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAES",
+      "A",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARES",
+       "gives": "CAESR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary worries about some tyrant.",
+     "walkthrough": "'Revolutionary' looks like a noun for a rebel, but it is the signal to rearrange the next word.",
+     "definitionFit": "Julius Caesar was appointed dictator of Rome for life, and the name became a title for autocratic rulers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +269,47 @@
     "text": "Sardinian, say, vilified by me?",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Sardinian, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by me",
+      "gives": "I",
+      "note": "if something is done by me, the doer speaking is I"
+     },
+     {
+      "clueFragment": "vilified",
+      "gives": "SLANDER",
+      "note": "to slander is to vilify, defame with false words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Sardinia complains about being badmouthed by the speaker.",
+     "walkthrough": "'Vilified by me' turns round into the active sentence I SLANDER, which spells ISLANDER.",
+     "definitionFit": "Sardinia is a Mediterranean island, so a native of it is one example of an island dweller; 'say' flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vilified"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +329,55 @@
      }
     ]
    },
-   "solution": "WINECELLAR"
+   "solution": "WINECELLAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WINE CELLAR",
+    "definitions": [
+     {
+      "text": "Lower chamber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing something out of materials, so these letters are put together afresh"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new, I recall",
+      "gives": "NEWIRECALL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEWIRECALL",
+       "gives": "WINECELLAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remembers the lower house of a new parliament building.",
+     "walkthrough": "'Lower chamber' suggests a House of Commons; here it is simply a room below ground.",
+     "definitionFit": "A cellar for bottles sits beneath a house, making it literally a room on a lower level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lower"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +391,47 @@
     "text": "Newshound referring to carrier",
     "enumeration": "8"
    },
-   "solution": "REPORTER"
+   "solution": "REPORTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPORTER",
+    "definitions": [
+     {
+      "text": "Newshound",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referring to",
+      "gives": "RE",
+      "note": "re means regarding or concerning"
+     },
+     {
+      "clueFragment": "carrier",
+      "gives": "PORTER",
+      "note": "a porter carries luggage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PORTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist writes a piece about an airline or delivery company.",
+     "walkthrough": "RE is the Latin-derived 'in the matter of', a common crossword piece.",
+     "definitionFit": "Newshound is an informal word for a journalist who chases stories eagerly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +445,65 @@
     "text": "Annoying editor promises to pay after end of August",
     "enumeration": "7"
    },
-   "solution": "TEDIOUS"
+   "solution": "TEDIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEDIOUS",
+    "definitions": [
+     {
+      "text": "Annoying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "August",
+      "gives": "T",
+      "select": "last",
+      "note": "the month's closing letter"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     },
+     {
+      "clueFragment": "promises to pay",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to repay a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ED",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An irritating editor keeps saying payment will come at the end of the summer.",
+     "walkthrough": "'After' puts the editor and debts behind the last letter of the month. An IOU ('I owe you') is a note acknowledging a debt.",
+     "definitionFit": "Something tedious is tiresome and wearying, which is close to irritating or annoying in loose usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +517,47 @@
     "text": "Antipodean too in French and English",
     "enumeration": "6"
    },
-   "solution": "AUSSIE"
+   "solution": "AUSSIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUSSIE",
+    "definitions": [
+     {
+      "text": "Antipodean",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too in French",
+      "gives": "AUSSI",
+      "note": "aussi is French for also or too"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSSI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian speaks both French and English as well.",
+     "walkthrough": "'In French' marks a foreign word: the French for 'too'.",
+     "definitionFit": "The Antipodes are Australia and New Zealand, so an Australian person is an Antipodean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "too"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +571,60 @@
     "text": "Relative without a daughter freed",
     "enumeration": "6"
    },
-   "solution": "UNTIED"
+   "solution": "UNTIED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNTIED",
+    "definitions": [
+     {
+      "text": "freed",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "to go without something is to lack it, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "AUNTIE",
+      "note": "an auntie is an aunt, a family relative"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTIE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member without a daughter is now free of ties.",
+     "walkthrough": "AUNTIE loses its A to become UNTIE, then D is added at the end.",
+     "definitionFit": "When ropes are untied the thing they held is released, so untied serves as a synonym for freed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relative"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +638,61 @@
     "text": "Artist Samuel’s back rubbed",
     "enumeration": "8"
    },
-   "solution": "MASSAGED"
+   "solution": "MASSAGED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MASSAGED",
+    "definitions": [
+     {
+      "text": "rubbed",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "DEGAS",
+      "note": "Edgar Degas, the French painter of ballet dancers"
+     },
+     {
+      "clueFragment": "Samuel",
+      "gives": "SAM",
+      "note": "the first three letters of the name, its usual short form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "SAGED"
+     ],
+     "reversals": [
+      {
+       "from": "DEGASSAM",
+       "to": "MASSAGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter called Samuel has his back given a rub.",
+     "walkthrough": "'Artist Samuel' looks like one person, but it is two names, Degas and Sam; the ’s means 'is', with 'back' as the signal.",
+     "definitionFit": "A massage is a kneading of the muscles, so to be massaged is to be rubbed down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Samuel"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +712,78 @@
      }
     ]
    },
-   "solution": "STAMFORDBRIDGE"
+   "solution": "STAMFORDBRIDGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STAMFORD BRIDGE",
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made over, so these letters take a fresh order"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "prior to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formats",
+      "gives": "FORMATS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "decisive",
+      "gives": "D",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "card game",
+      "gives": "BRIDGE",
+      "note": "bridge is a trick-taking card game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMFOR",
+      "D",
+      "BRIDGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORMATS",
+       "gives": "STAMFOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clash over new formats before a decisive round of cards.",
+     "walkthrough": "'Decisive' suggests a decisive battle, but only its first letter is used. Stamford Bridge (1066) was where Harold II defeated the Norwegians; it is also Chelsea FC's London stadium.",
+     "definitionFit": "The Battle of Stamford Bridge was fought in Yorkshire in 1066, weeks before Hastings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decisive"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +803,47 @@
      }
     ]
    },
-   "solution": "TRAFFICJAM"
+   "solution": "TRAFFICJAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAFFIC JAM",
+    "definitions": [
+     {
+      "text": "stoppage on the way?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deal",
+      "gives": "TRAFFIC",
+      "note": "to traffic is to deal or trade, often illicitly"
+     },
+     {
+      "clueFragment": "with predicament",
+      "gives": "JAM",
+      "note": "a jam is a tight spot or predicament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAFFIC",
+      "JAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone handles an awkward situation, maybe a hold-up on a journey.",
+     "walkthrough": "'Deal' looks like 'cope with', but it is the verb meaning to trade; 'the way' is a road.",
+     "definitionFit": "Vehicles brought to a standstill on a road form a congested queue, a stoppage on the highway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Deal"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +857,43 @@
     "text": "General meaning, might that be flaky?",
     "enumeration": "5"
    },
-   "solution": "DRIFT"
+   "solution": "DRIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRIFT",
+    "definitions": [
+     {
+      "text": "General meaning",
+      "at": 0
+     },
+     {
+      "text": "might that be flaky?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "General meaning",
+      "note": "first meaning: the gist of what is said"
+     },
+     {
+      "clueFragment": "might that be flaky?",
+      "note": "second meaning: a heap of snowflakes piled by wind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'General' looks like a military officer and 'flaky' like unreliable; the second meaning is a pile of snow, which is made of flakes.",
+     "definitionFit": "If you get someone's drift you grasp their gist, and a snowdrift is a bank of windblown flakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flaky"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +907,51 @@
     "text": "Girl in form losing lead",
     "enumeration": "4"
    },
-   "solution": "LASS"
+   "solution": "LASS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LASS",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing lead",
+      "for": "deletion",
+      "note": "the lead is the front position, and losing it removes the first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "form",
+      "gives": "CLASS",
+      "note": "a form is a school class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolgirl in a class falls behind in a race.",
+     "walkthrough": "In British schools a form is a class or year group.",
+     "definitionFit": "Lass is a Scottish and northern English word for a young woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +971,50 @@
      }
     ]
    },
-   "solution": "SQUAREUP"
+   "solution": "SQUAREUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUARE UP",
+    "definitions": [
+     {
+      "text": "prepare to fight",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Level",
+      "gives": "SQUARE",
+      "note": "scores that are square are level"
+     },
+     {
+      "clueFragment": "winning",
+      "gives": "UP",
+      "note": "to be up is to be ahead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A contest goes from level to winning, and tempers flare.",
+     "walkthrough": "The surface reads like a match report; the wordplay is two sporting words for scores.",
+     "definitionFit": "To square up to someone is to adopt a fighting stance, ready to start a brawl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1028,42 @@
     "text": "Prompt writer",
     "enumeration": "5"
    },
-   "solution": "SWIFT"
+   "solution": "SWIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWIFT",
+    "definitions": [
+     {
+      "text": "Prompt",
+      "at": 0
+     },
+     {
+      "text": "writer",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prompt",
+      "note": "first meaning: quick, without delay"
+     },
+     {
+      "clueFragment": "writer",
+      "note": "second meaning: the Irish satirist who wrote Gulliver's Travels"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Prompt writer' looks like someone who writes cues or prompts; it is an adjective and a famous author.",
+     "definitionFit": "A swift reply is a prompt one, and Jonathan Swift was the Irish satirist behind Gulliver's Travels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prompt"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1077,59 @@
     "text": "Plant where whistler comes into work",
     "enumeration": "7"
    },
-   "solution": "TREFOIL"
+   "solution": "TREFOIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREFOIL",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes into",
+      "for": "container",
+      "note": "coming into a place means entering it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whistler",
+      "gives": "REF",
+      "note": "a referee blows a whistle"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "TOIL",
+      "note": "toil is hard work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REF",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A factory where a whistling employee turns up for the day.",
+     "walkthrough": "'Plant' looks like a factory, which fits 'work'; it is the botanical sense. REF is short for referee.",
+     "definitionFit": "Trefoil is a clover-like plant with three-part leaves, from the Latin for three leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1143,46 @@
     "text": "Travel by tube?",
     "enumeration": "4"
    },
-   "solution": "ROLL"
+   "solution": "ROLL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROLL",
+    "definitions": [
+     {
+      "text": "Travel",
+      "at": 0
+     },
+     {
+      "text": "tube",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Travel",
+      "note": "first meaning: to move along on wheels"
+     },
+     {
+      "clueFragment": "tube",
+      "note": "second meaning: a cylinder of wound-up paper or film"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Travel by tube' suggests the London Underground; instead it pairs a verb of motion with a cylinder shape.",
+     "definitionFit": "Cars roll along a road, and a roll of paper or film forms a cylindrical tube."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tube"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1206,39 @@
      }
     ]
    },
-   "solution": "FOURLETTERWORD"
+   "solution": "FOURLETTERWORD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOUR-LETTER WORD",
+    "definitions": [
+     {
+      "text": "Oath or cuss — but not bad?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oath or cuss",
+      "note": "surface reading: a swear word, as rude language"
+     },
+     {
+      "clueFragment": "but not bad?",
+      "note": "setter's reading: the mild word 'bad' fails the letter count, being one short"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Swear words are proverbially brief, and 'cuss' and 'oath' both have four letters; 'bad' has only three, so it does not qualify on length as well as on rudeness.",
+     "definitionFit": "The phrase is the stock term for a rude or obscene expletive, many of which are short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1252,50 @@
     "text": "Grey retreat south of meadow",
     "enumeration": "6"
    },
-   "solution": "LEADEN"
+   "solution": "LEADEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEADEN",
+    "definitions": [
+     {
+      "text": "Grey",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "south of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meadow",
+      "gives": "LEA",
+      "note": "a lea is a meadow, a poetic word"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "DEN",
+      "note": "a den is a private retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grey hideaway lies beyond the field.",
+     "walkthrough": "In a down clue 'south of' means below, so the retreat goes after the meadow.",
+     "definitionFit": "Lead is a dull bluish-grey metal, so a leaden sky is a heavy, grey one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grey"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1309,41 @@
     "text": "Possible breakfast chatter",
     "enumeration": "6"
    },
-   "solution": "WAFFLE"
+   "solution": "WAFFLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAFFLE",
+    "definitions": [
+     {
+      "text": "Possible breakfast",
+      "at": 0
+     },
+     {
+      "text": "chatter",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possible breakfast",
+      "note": "first meaning: a grid-patterned batter cake"
+     },
+     {
+      "clueFragment": "chatter",
+      "note": "second meaning: talk at length saying little"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like small talk over the morning meal; the two parts are a food and a verb for rambling speech.",
+     "definitionFit": "A waffle is a crisp batter cake often eaten at the morning meal, and to waffle is to talk vaguely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1357,50 @@
     "text": "Boa perhaps meeting wicked gangster",
     "enumeration": "8"
    },
-   "solution": "SCARFACE"
+   "solution": "SCARFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARFACE",
+    "definitions": [
+     {
+      "text": "gangster",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boa perhaps",
+      "gives": "SCARF",
+      "note": "a feather boa is a kind of scarf"
+     },
+     {
+      "clueFragment": "wicked",
+      "gives": "ACE",
+      "note": "wicked is slang for excellent, as is ace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCARF",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake encounters an evil mobster.",
+     "walkthrough": "'Boa' looks like the snake; it is the fluffy neckwear. 'Wicked' is used in its slang sense of brilliant.",
+     "definitionFit": "Scarface was the nickname of Al Capone and the title of gangster films from 1932 and 1983."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boa"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1414,43 @@
     "text": "God in lover, ostensibly",
     "enumeration": "4"
    },
-   "solution": "EROS"
+   "solution": "EROS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EROS",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the following words, spanning them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover, ostensibly",
+      "gives": "EROS",
+      "note": "letters running across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A deity seemingly present in someone's sweetheart.",
+     "walkthrough": "The god of love is apt for 'lover', making the hiding place cheeky.",
+     "definitionFit": "Eros is the Greek deity of love and desire, counterpart of the Roman Cupid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ostensibly"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1464,43 @@
     "text": "Bureau no longer slipping?",
     "enumeration": "6"
    },
-   "solution": "OFFICE"
+   "solution": "OFFICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFFICE",
+    "definitions": [
+     {
+      "text": "Bureau",
+      "at": 0
+     },
+     {
+      "text": "no longer slipping?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bureau",
+      "note": "first meaning: a place of administrative work"
+     },
+     {
+      "clueFragment": "no longer slipping?",
+      "note": "second, punning meaning: split in two, it describes someone who has stepped off the slippery surface"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as OFF ICE, the word describes someone who has left the frozen surface and so stopped sliding; the question mark flags the pun.",
+     "definitionFit": "A bureau is a government department or agency, and also a workplace with desks, an office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slipping"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1514,54 @@
     "text": "Valve left out of timer",
     "enumeration": "4"
    },
-   "solution": "COCK"
+   "solution": "COCK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COCK",
+    "definitions": [
+     {
+      "text": "Valve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "taking something out of a container removes it, so a letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "timer",
+      "gives": "CLOCK",
+      "note": "a clock is a timer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A valve has been omitted from a timing device.",
+     "walkthrough": "CLOCK loses its L to leave the answer.",
+     "definitionFit": "A cock, as in stopcock, is a tap or valve that controls the flow of liquid or gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1575,62 @@
     "text": "Content of tube fills European river",
     "enumeration": "6"
    },
-   "solution": "DANUBE"
+   "solution": "DANUBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DANUBE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Content of",
+      "for": "letter_selection",
+      "note": "the content of something is what lies inside it, so only the middle letters are kept"
+     },
+     {
+      "text": "fills",
+      "for": "container",
+      "note": "filling something means going inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tube",
+      "gives": "UB",
+      "select": "middle",
+      "note": "the two inner letters of the word"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "DANE",
+      "note": "a Dane is a person from Denmark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAN",
+      "UB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Toothpaste or paint from a tube is being poured into a continental river.",
+     "walkthrough": "'European river' looks like one phrase, but 'European' is the wordplay and 'river' alone the definition.",
+     "definitionFit": "The Danube flows from Germany to the Black Sea through ten countries, making it a major river of Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1650,48 @@
      }
     ]
    },
-   "solution": "OILSLICK"
+   "solution": "OILSLICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OIL SLICK",
+    "definitions": [
+     {
+      "text": "film noir?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paintings",
+      "gives": "OILS",
+      "note": "oils are paintings done in oil paint"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "LICK",
+      "note": "to lick is to beat or thrash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OILS",
+      "LICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Artworks outdo a dark crime movie.",
+     "walkthrough": "'Film noir' is the moody cinema genre; read literally it is a black film, a dark layer on water. The question mark flags the pun.",
+     "definitionFit": "A slick of crude spilled on the sea spreads as a thin dark layer, literally a black film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   }
  ]
 }
