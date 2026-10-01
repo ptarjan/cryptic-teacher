@@ -344,13 +344,14 @@ def counts(enum):
 
 def annotation_fits(annotation, text, answer):
     """Whether an annotation written for one clue still describes this one:
-    the same answer, and every definition, indicator and block's words still
-    in the clue as written (tools/definitions.py places them exactly)."""
+    the same answer, and every definition, indicator, link word and block's
+    words still in the clue as written (tools/definitions.py places them exactly)."""
     if _letters(annotation.get("answer")) != answer:
         return False
     pieces = ([d.get("text") for d in annotation.get("definitions") or ()]
               + [i.get("text") for i in annotation.get("indicators") or ()]
-              + [b.get("clueFragment") for b in annotation.get("blocks") or ()])
+              + [b.get("clueFragment") for b in annotation.get("blocks") or ()]
+              + list(annotation.get("linkWords") or ()))
     return all(p in (text or "") for p in pieces if p)
 
 
