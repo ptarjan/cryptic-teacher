@@ -85,7 +85,42 @@ def heading(ln):
     return m.group(1).lower() if m else None
 
 
-def head_of(ln, direction, last):
+#: Wordplay, not a clue: a capitalised word of three letters or more, or the
+#: blog's working marks. A post that prints its clues without their counts
+#: is read by telling the clue from the wordplay row beside it.
+WORKING = re.compile(r"\b[A-Z]{3,}\b|[=+*<>\[\]{}]")
+MARKS = re.compile(r"[=+*<>\[\]{}]")
+#: The blogger's verdict on a clue, never the clue: "Double definition".
+VERDICT = re.compile(r"^\W*(?:double|triple|dd\b|cd\b|cryptic|charade|anagram|hidden|"
+                     r"reversal|homophone|&\s*lit|see\b|a (?:double|cryptic))", re.IGNORECASE)
+#: A line that is all answer: capitals, spaces, hyphens, apostrophes.
+WHOLE_ANSWER = re.compile(r"[A-Z][A-Z'’\-–\s]*[A-Z]!?")
+#: An answer the wordplay ends on: "... + tub (clumsy one) = STUB".
+EQUALS_ANSWER = re.compile(r"=\s*([A-Z][A-Z'’\-\s]*[A-Z])(?![a-z])")
+
+
+def enum_of(printed):
+    """The enumeration a printed answer spells: "SEA PERCH" is 3,5."""
+    out = ""
+    for tok in re.findall(r"[^\s\-–]+|[\-–]+|\s+", printed.strip()):
+        if tok[0] in "-–":
+            out += "-"
+        elif tok.isspace():
+            out += ","
+        else:
+            n = len(re.sub(r"[^A-Za-z]", "", tok))
+            out += str(n) if n else ""
+    return re.sub(r"^[,\-]+|[,\-]+$", "", re.sub(r"([,\-])[,\-]+", r"\1", out)) or None
+
+
+def clue_like(ln, strict):
+    """Could this line be a clue printed without its count? `strict` also
+    turns away a capitalised word, for a line that could be the wordplay."""
+    return (bool(re.search(r"[a-z]", ln)) and not VERDICT.match(ln)
+            and not (WORKING if strict else MARKS).search(ln))
+
+
+def head_of(ln, direction, last, bare=False):
     """(lights, rest) when this line opens a new light, else None.
 
     A light opens on its number, alone or followed by its clue or answer, and
@@ -113,13 +148,55 @@ def head_of(ln, direction, last):
     if not lights or lights[0][0] <= last or lights[0][0] > 40:
         return None
     if rest and not (tftt.ENUM.search(rest) or tftt.CONTINUATION.match(rest)
-                     or tftt.answer_line(rest)):
+                     or tftt.answer_line(rest) or (bare and clue_like(rest, False))):
         return None
     return lights, rest
 
 
-def read_light(lines):
+def answer_by_count(lines, enum, clue):
+    """The answer a line spells to the count, when nothing marks it as the
+    answer: a whole line "Facial" under (6), or "... = STUB" under (4)."""
+    counts = [int(n) for n in re.findall(r"\d+", enum)]
+    for ln in lines:
+        if ln is clue:
+            continue
+        if re.fullmatch(r"[A-Za-z'’\-–\s]+[.!?]?", ln.strip()):
+            words = re.findall(r"[A-Za-z'’]+", ln)
+            if (len(words) <= len(counts)
+                    and sum(len(re.sub(r"[^A-Za-z]", "", w)) for w in words) == sum(counts)):
+                return " ".join(w.upper() for w in words)
+        for m in reversed(list(EQUALS_ANSWER.finditer(ln))):
+            if tftt.enum_fits(m.group(1), enum):
+                return " ".join(m.group(1).split())
+    return None
+
+
+def read_bare(lines):
+    """(clue, enumeration, printed answer) for a light whose clue has no count:
+    the answer is a line of capitals alone, the clue the line before it, or
+    else the line after it when the wordplay follows that. The count is the
+    one the answer spells, written onto the clue as the blog would have."""
+    for i, ln in enumerate(lines):
+        if WHOLE_ANSWER.fullmatch(ln.strip()):
+            printed = " ".join(ln.split())
+            break
+    else:
+        return None, None, None
+    enum = enum_of(printed)
+    clue = None
+    if i > 0 and clue_like(lines[i - 1], False):
+        clue = lines[i - 1]
+    elif i + 2 < len(lines) and clue_like(lines[i + 1], True):
+        clue = lines[i + 1]
+    if clue and enum:
+        clue = f"{clue.strip()} ({enum})"
+    return clue, enum, printed
+
+
+def read_light(lines, bare=False):
     """(clue, enumeration, printed answer) out of one light's lines."""
+    if bare:
+        return read_bare(lines)
     clue = enum = None
     for ln in lines:
         e = tftt.ENUM.search(ln)
@@ -134,17 +211,34 @@ def read_light(lines):
         if printed and (enum is None or tftt.enum_fits(printed, enum)):
             answer = printed
             break
+    if answer is None and enum:
+        answer = answer_by_count(lines, enum, clue)
     return clue, enum, answer
 
 
-def complete(lines):
+def complete(lines, bare=False):
     """Has this light its clue and its answer? A "See N" has no answer."""
-    clue, _, answer = read_light(lines)
+    clue, _, answer = read_light(lines, bare)
     return bool(clue) and (answer is not None or bool(tftt.CONTINUATION.match(clue)))
 
 
+def clued(entries):
+    return sum(bool(e.get("clue")) for e in entries)
+
+
 def parse_entries(rendered):
-    """(entries, unsplit) in the times_grids record shape."""
+    """(entries, unsplit) in the times_grids record shape. A post that prints
+    its clues without their counts is read again for that layout, and that
+    reading kept when it finds more clues."""
+    got = read_entries(rendered)
+    if clued(got[0]) < 0.9 * len(got[0]) or not got[0]:
+        bare = read_entries(rendered, bare=True)
+        if clued(bare[0]) > clued(got[0]):
+            return bare
+    return got
+
+
+def read_entries(rendered, bare=False):
     direction, last, lights = None, 0, None
     segments = []
     for ln in tftt.lines(rendered):
@@ -156,11 +250,11 @@ def parse_entries(rendered):
             continue
         if direction is None:
             continue
-        head = head_of(ln, direction, last)
+        head = head_of(ln, direction, last, bare)
         # A clue can open with a number, "16 9 church in Leicester", so a
         # number with text after it only opens a light once the one before it
         # has its clue and its answer. A bare number cell always does.
-        if head and head[1] and segments and not complete(segments[-1][1]):
+        if head and head[1] and segments and not complete(segments[-1][1], bare):
             head = None
         if head:
             lights, rest = head
@@ -170,7 +264,7 @@ def parse_entries(rendered):
             segments[-1][1].append(ln)
     entries, unsplit = [], []
     for lights, lines in segments:
-        clue, enum, printed = read_light(lines)
+        clue, enum, printed = read_light(lines, bare)
         if printed is None:
             continue
         pieces = ([(lights[0], re.sub(r"[^A-Z]", "", printed))] if len(lights) == 1

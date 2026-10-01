@@ -7,6 +7,7 @@
 # A misread answer is a wrong light length, and a wrong light length rebuilds
 # a wrong grid or none. The fixtures are hand-written posts, one per layout,
 # and a hand-built 5x5, so nothing here reads the blog cache or the corpus.
+# The layouts without counts are rows cut from real fifteensquared posts.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 fails=0
@@ -52,6 +53,52 @@ print("OLD", show("""
 <tr><td>1 Dismiss people in traditional event (4,4)</td><td> </td><td>SACK RACE</td><td> </td><td>SACK ( dismiss ) RACE</td></tr>
 <tr><td>5 Booze cruises returning (6)</td><td> </td><td>SPIRIT</td><td> </td><td>TRIPS reversed</td></tr>
 </table>"""))
+
+# Clues printed with no count, Independent 8934 / Dac: number, clue, then the
+# answer and wordplay. The count is the one the answer spells.
+print("NOCOUNT", show("""
+<table><tbody><tr><td colspan="3"><strong>Across</strong></td></tr>
+<tr><td>1</td><td><strong> </strong></td><td><span><em><span>Remember</span> everything taking place behind play area</em></span></td></tr>
+<tr><td></td><td><strong>RECALL</strong></td><td><span>ALL</span> (everything) after <span>REC</span> (play area)</td></tr>
+<tr><td>4</td><td><strong> </strong></td><td><span><em>Trawl netting most of favourite <span>type of fish</span></em></span></td></tr>
+<tr><td></td><td><strong>SEA PERCH</strong></td><td><span>SEARCH</span> (trawl) around or ‘netting’ <span>PE</span><del>t</del> (favourite)</td></tr>
+<tr><td>13</td><td><strong> </strong></td><td><span><em>Serviceman’s uniform</em></span></td></tr>
+<tr><td></td><td><strong>REGULAR</strong></td><td>Double definition</td></tr>
+</tbody></table>"""))
+
+# Independent 7699 / Klingsor: the number opens the clue's own line.
+print("NOCOUNT_INLINE", show("""
+<p><strong>Across</strong></p>
+<p>1  <span>TV comedy Addams Family&#8217;s final run?  Could be</span><br />
+<strong>DAD&#8217;S ARMY</strong><br />
+(ADDAMS Y R)*  The Y and the R are in the anagram fodder.</p>
+<p>5  <span>Clubs reportedly want people who&#8217;ll give a hand for pay</span><br />
+<strong>CLAQUE</strong><br />
+Okay, I put in CLIQUE because nothing else seemed to fit.</p>"""))
+
+# Independent 18,702 / Bluth: the answer first, the clue, then the wordplay.
+# An answer with only its wordplay after it has no clue to take.
+print("NOCOUNT_AFTER", show("""
+<table><tbody><tr><td><strong>Across</strong></td><td></td><td></td></tr>
+<tr><td><strong>01</strong></td><td><strong>ELBOW GREASE</strong></td><td>Sally Bowles missing start of stage musical – it’s<em> hard work</em></p>
+<p>*(<strong>BOWLE</strong>&lt;s&gt;) + GREASE (=musical)</td></tr>
+<tr><td><strong>07</strong></td><td><strong>DUE</strong></td><td>Short song <em>expected</em></p>
+<p><strong>DUE</strong>&lt;t&gt; (=song); “short” means last letter is dropped</td></tr>
+<tr><td><strong>09</strong></td><td><strong>LOCUM</strong></td><td>*(<strong>COLUM</strong>&lt;n&gt;)</td></tr>
+</tbody></table>"""))
+
+# Counts printed, answers not in capitals: Independent 8208 / Quixote prints
+# "Facial", Independent 8231 / Nestor ends the wordplay "= PENDULUM".
+print("BYCOUNT", show("""
+<table><tr><td></td><td><b>Across</b></td></tr>
+<tr><td valign="top">1.</td><td colspan="3"><font color="blue">Beauty treatment? Female having a cold one gets a line reduced (6)</font></td></tr>
+<tr><td></td><td valign="top"><font color="red"><b>Facial</b></font></td><td></td><td valign="top">F(emale) = a c I + a l[ine]</td></tr>
+<tr><td valign="top">12.</td><td colspan="3"><font color="blue">A learner just getting excited about the old man who was a philosopher? (4-4,6)</font></td></tr>
+<tr><td></td><td valign="top"><font color="red"><b>Jean-Paul Sartre</b></font></td><td></td><td valign="top">(A learner just)* around pa</td></tr>
+</table>
+<p><strong>DOWN</strong></p>
+<p>6 <span>Vacillator</span>&#8216;s choice about finishing university(8)</p>
+<p>Plum (choice) about end (finishing) + u (university) = PENDULUM</p>"""))
 
 print("TITLE", [(F.post_number(t), F.post_setter(t)) for t in (
     "Financial Times 18,489 by XELA", "Financial Times 18480 Mudd",
@@ -124,6 +171,18 @@ check "the list layout, and a linked answer with more words than lights left uns
 check "the older table, number and clue in one cell" \
   "1a=SACKRACE|Dismiss people in traditional event (4,4); 5a=SPIRIT|Booze cruises returning (6)" \
   "$(field OLD)"
+check "clues with no count: the count from the answer, a verdict is no clue" \
+  "1a=RECALL|Remember everything taking place behind play area (6); 4a=SEAPERCH|Trawl netting most of favourite type of fish (3,5); 13a=REGULAR|Serviceman’s uniform (7)" \
+  "$(field NOCOUNT)"
+check "clues with no count, opening on the number's own line" \
+  "1a=DADSARMY|TV comedy Addams Family’s final run? Could be (4,4); 5a=CLAQUE|Clubs reportedly want people who’ll give a hand for pay (6)" \
+  "$(field NOCOUNT_INLINE)"
+check "clues with no count after the answer, wordplay alone is no clue" \
+  "1a=ELBOWGREASE|Sally Bowles missing start of stage musical – it’s hard work (5,6); 7a=DUE|Short song expected (3); 9a=LOCUM|None" \
+  "$(field NOCOUNT_AFTER)"
+check "an answer not in capitals read off the clue's count" \
+  "1a=FACIAL|Beauty treatment? Female having a cold one gets a line reduced (6); 12a=JEANPAULSARTRE|A learner just getting excited about the old man who was a philosopher? (4-4,6); 6d=PENDULUM|Vacillator‘s choice about finishing university(8)" \
+  "$(field BYCOUNT)"
 check "number and setter off each title shape" \
   "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb')]" "$(field TITLE)"
 check "a linked answer shared out at the grid's light break" \
