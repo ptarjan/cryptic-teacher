@@ -83,7 +83,8 @@ The flags, in the order they matter:
             is not a real calendar day written YYYY-MM-DD, a book puzzle whose `year` is not its
             book's `published` year or that holds a date, a `year` on a paper's
             puzzle, no date at all where the source prints one, a blog's brace markup left in a clue, a
-            clue transcribed from a blog with no enumeration, and — from
+            clue transcribed from a blog with no enumeration or opening with
+            what is left of the blog's clue number ("a Bizarre ..."), and — from
             validate_annotations — markup or an undecodable character in the
             puzzle's text, or the legs of a linked answer naming different
             groups.
@@ -783,6 +784,13 @@ def content_hash(puzzle):
     return hashlib.sha1(blob.encode("utf-8")).hexdigest()
 
 
+#: What a blog's clue number leaves when a parser takes the number and not
+#: its direction: "a Bizarre eponym ...", "ac. Seaman ...", "dFares ...", or a
+#: blogger's typo in the suffix's place, "s Sailor ...". A clue never opens
+#: with a lone lowercase letter or two before a capitalised word.
+NUMBER_RESIDUE = re.compile(r"^(?:(?:ac|dn|[a-z]{1,2})\.?\s+(?=[A-Z])|[ad](?=[A-Z][a-z]))")
+
+
 def check_shape(puzzle, today, flags):
     """Defects visible in one entry on its own, plus the puzzle-level ones.
 
@@ -881,6 +889,10 @@ def check_shape(puzzle, today, flags):
             flags.append(("SHAPE", pid, f"{eid}: clue {clue!r} keeps a blog's "
                           f"brace markup; a clue line keeps the letters and "
                           f"loses only the braces"))
+        if from_blog and NUMBER_RESIDUE.match(clue):
+            flags.append(("SHAPE", pid, f"{eid}: clue {clue!r} opens with what is "
+                          f"left of the blog's clue number; strip it, and check "
+                          f"the parser did not also eat a leading \"A\""))
         # A blogger copying a clue can leave its count off, and the count is
         # then the answer's word lengths. A paper's own feed prints what it
         # printed, so only a transcribed clue is held to this.
