@@ -77,6 +77,11 @@ data = {"id": "crosswords/quiptic/1090", "number": 1090, "name": "Quiptic No 1,0
                      "clue": " Tom’s pet (3)", "solution": "CAT"}]}
 same("a clue the page prints with a space in front converts without it",
      fp.convert(data)["entries"][0]["clue"]["text"], "Tom’s pet")
+same("a note's sentences that are only a link are not kept",
+     [fp.preamble("Eight solutions are of a kind.Click here for annotated solutions."),
+      fp.preamble("For a printable version of this crossword, click here."),
+      fp.preamble("To see the clues please click here Method: fit them in.")],
+     ["Eight solutions are of a kind.", None, "To see the clues please click here Method: fit them in."])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY

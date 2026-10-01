@@ -33,8 +33,9 @@ The report goes to ~/cryptic-setter-data/cross-validate/<source>.jsonl, one
 line per puzzle with mismatches, and a tally prints per class.
 
 --refile (the guardian adapter) then rewrites, from the page, each file whose
-only differences are CLUE, ENUMERATION or ANSWER, and each clean file taken
-from somewhere other than the page; see refile_guardian().
+only differences are CLUE, ENUMERATION or ANSWER, each clean file taken from
+somewhere other than the page, and each file lacking the note the page prints
+above the clues; see refile_guardian().
 """
 import argparse
 import html
@@ -465,12 +466,14 @@ def refile_guardian(adapter, pid, path, url, found):
     import fetch_telegraph as ft
     classes = {m["class"] for m in found}
     old = read_puzzle_file(path)
+    data = json.loads(adapter.raw_file(url).read_text(encoding="utf-8"))
     from_page = (old.get("source") or {}).get("acquiredBy") == "tools/fetch_puzzle.py"
-    if classes - REFILED or (from_page and not classes):
+    # Files fetched before puzzles kept a preamble lack the page's note.
+    lacks_note = not old.get("preamble") and fp.preamble(data.get("instructions"))
+    if classes - REFILED or (from_page and not classes and not lacks_note):
         return None
     if (old.get("solutions") or {}).get("origin") != "published":
         return None
-    data = json.loads(adapter.raw_file(url).read_text(encoding="utf-8"))
     data["number"] = int(pid.rsplit("-", 1)[1])
     new = fp.convert(data)
     if new["id"] != pid or not all(e.get("solution") for e in new["entries"]):
@@ -496,6 +499,10 @@ def refile_guardian(adapter, pid, path, url, found):
     for e in new["entries"]:
         if notes_by.get(groups.entry_id(e)):
             e["clue"]["missingNote"] = notes_by[groups.entry_id(e)]
+    if old.get("preamble"):
+        new["preamble"] = old["preamble"]
+    elif lacks_note:
+        notes.append(f"the page's note: {new['preamble'][:60]!r}")
     new, more = ft.refile(new, old)
     fp.write_puzzle_file(path, new, generator="tools/fetch_puzzle.py")
     return notes + more
