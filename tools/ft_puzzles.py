@@ -92,7 +92,7 @@ WORKING = re.compile(r"\b[A-Z]{3,}\b|[=+*<>\[\]{}]")
 MARKS = re.compile(r"[=+*<>\[\]{}]")
 #: The blogger's verdict on a clue, never the clue: "Double definition".
 VERDICT = re.compile(r"^\W*(?:double|triple|dd\b|cd\b|cryptic|charade|anagram|hidden|"
-                     r"reversal|homophone|&\s*lit|see\b|a (?:double|cryptic))", re.IGNORECASE)
+                     r"reversal|homophone|&\s*lit|see\b|a (?:double|cryptic)|vote\W*$)", re.IGNORECASE)
 #: A line that is all answer: capitals, spaces, hyphens, apostrophes.
 WHOLE_ANSWER = re.compile(r"[A-Z][A-Z'’\-–\s]*[A-Z]!?")
 #: An answer the wordplay ends on: "... + tub (clumsy one) = STUB".
@@ -194,9 +194,14 @@ def read_bare(lines):
 
 
 def read_light(lines, bare=False):
-    """(clue, enumeration, printed answer) out of one light's lines."""
-    if bare:
-        return read_bare(lines)
+    """(clue, enumeration, printed answer) out of one light's lines, the clue
+    tidied of the blogger's slashes, brackets and stray spaces (tftt.tidy)."""
+    clue, enum, answer = (read_bare if bare else read_counted)(lines)
+    return (tftt.tidy(clue) if clue else clue), enum, answer
+
+
+def read_counted(lines):
+    """read_light() for a light whose clue prints its count."""
     clue = enum = None
     for ln in lines:
         e = tftt.ENUM.search(ln)
@@ -226,10 +231,19 @@ def clued(entries):
     return sum(bool(e.get("clue")) for e in entries)
 
 
+#: A table post that shows each clue only as its answer's hover text,
+#: '<span title="Shrink's terms of employment (8)"><strong>CONTRACT', beside
+#: a "vote" link: the title is the clue, and becomes a line of its own after
+#: what the span wraps (the light's number).
+TITLED_CLUE = re.compile(r'<span\s+title="([^"<>]*\(\s*\d[^"<>]*\))"\s*>(.*?)</span>',
+                         re.IGNORECASE | re.DOTALL)
+
+
 def parse_entries(rendered):
     """(entries, unsplit) in the times_grids record shape. A post that prints
     its clues without their counts is read again for that layout, and that
     reading kept when it finds more clues."""
+    rendered = TITLED_CLUE.sub(lambda m: f"{m.group(2)}<br />{m.group(1)}<br />", rendered)
     got = read_entries(rendered)
     if clued(got[0]) < 0.9 * len(got[0]) or not got[0]:
         bare = read_entries(rendered, bare=True)
@@ -484,15 +498,23 @@ def file(write=True, limit=None):
             skipped["number claimed twice"] += 1
         elif puzzle_path(SERIES, number).exists():
             skipped["already filed"] += 1
-            # Only the date is rewritten: it is fitted to every post, and a
-            # post arriving later can move it.
+            # Only the date and the tidied clues are rewritten: the date is
+            # fitted to every post, and a post arriving later can move it.
             held = read_puzzle_file(puzzle_path(SERIES, number))
+            fix = {}
             day = dates.get(number)
             if day and series_meta.puzzle_day(held) != day:
                 skipped["already filed, redated"] += 1
-                if write:
-                    write_puzzle_file(puzzle_path(SERIES, number),
-                                      {**held, "date": day.isoformat()})
+                fix["date"] = day.isoformat()
+            # What a parser fix tidies out of the clues reaches the files
+            # written before it (file_blog_puzzles.retext).
+            if (held.get("source") or {}).get("acquiredBy") == GENERATOR:
+                tidied, n = file_blog_puzzles.retext(held, tftt.tidy)
+                if n:
+                    skipped["already filed, clues tidied"] += 1
+                    fix["entries"] = tidied["entries"]
+            if fix and write:
+                write_puzzle_file(puzzle_path(SERIES, number), {**held, **fix})
         elif limit is not None and len(filed) >= limit:
             skipped["past --limit"] += 1
         else:

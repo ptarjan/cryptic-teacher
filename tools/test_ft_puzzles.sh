@@ -36,6 +36,17 @@ print("TABLE", show("""
 <tr><td>5</td><td>MACK THE KNIFE</td><td>Old woman trained (4,3,5)</td></tr>
 </table>"""))
 
+# The table whose clue is only the answer's hover text, beside a "vote" link;
+# the blogger's definition slash is no part of the clue.
+print("TITLED", show("""
+<table><tr><td colspan="4"><strong>Across</strong></td></tr>
+<tr><td><span title="Shrink&#8217;s terms / of employment (8)"><strong>9</strong></span></td>
+<td><strong>CONTRACT</strong></td><td><a href="http://x/cod.aspx?clueId=9+across">vote</a></td>
+<td>Double definition</td></tr>
+<tr><td><span title="Preserve postgrad qualification in wood (6)"><strong>10</strong></span></td>
+<td><strong>EMBALM</strong></td><td><a href="http://x/cod.aspx?clueId=10+across">vote</a></td>
+<td>MBA in ELM</td></tr></table>"""))
+
 # The list layout: "7. clue (n)", then the answer, then the wordplay.
 print("LIST", show("""
 <div class="fts-group">ACROSS</div>
@@ -158,6 +169,25 @@ F.ftp.build = lambda rec, row, series, day: (built(row["number"], "Old clue (5)"
 F.held_by_content = lambda: {F.puzzle_integrity.content_hash(built(100, "Old clue (5)")): "ftcryptic-100"}
 filed, skipped = F.file(write=False)
 print("REPRINT", filed, sorted(k for k in skipped if k.startswith("reprint")))
+
+# A file written before the parser tidied clues is tidied on the next run:
+# the blogger's definition slash goes from the clue and from the annotation's
+# quotation of it. A file another tool wrote is left alone.
+held = {**built(300, "Withdraw / cash"), "source": {"acquiredBy": F.GENERATOR}}
+held["entries"][0]["clue"]["enumeration"] = "5"
+held["entries"][0]["annotation"] = {"definition": "Withdraw /"}
+(tmp / "ftcryptic-300.json").write_text("{}")
+written = {}
+F.read_puzzle_file = lambda path: json.loads(json.dumps(held))
+F.write_puzzle_file = lambda path, puzzle, **kw: written.update({path.name: puzzle})
+F.held_by_content = lambda: {}
+F.file(write=True)
+e = written["ftcryptic-300.json"]["entries"][0]
+print("RETEXT", e["clue"]["text"], "|", e["annotation"]["definition"])
+held["source"]["acquiredBy"] = "tools/ft_pdf_puzzles.py"
+written.clear()
+F.file(write=True)
+print("RETEXT_OTHER", "ftcryptic-300.json" in written)
 PY
 )
 field() { printf '%s\n' "$out" | sed -n "s/^$1 //p"; }
@@ -183,6 +213,12 @@ check "clues with no count after the answer, wordplay alone is no clue" \
 check "an answer not in capitals read off the clue's count" \
   "1a=FACIAL|Beauty treatment? Female having a cold one gets a line reduced (6); 12a=JEANPAULSARTRE|A learner just getting excited about the old man who was a philosopher? (4-4,6); 6d=PENDULUM|Vacillator‘s choice about finishing university(8)" \
   "$(field BYCOUNT)"
+check "a clue held only in the answer's title is the clue, never the vote link; the slash goes" \
+  "9a=CONTRACT|Shrink’s terms of employment (8); 10a=EMBALM|Preserve postgrad qualification in wood (6)" \
+  "$(field TITLED)"
+check "a held file of this tool's is tidied, its annotation's quotation with it" \
+  "Withdraw cash | Withdraw" "$(field RETEXT)"
+check "a held file another tool wrote is not tidied" "False" "$(field RETEXT_OTHER)"
 check "number and setter off each title shape" \
   "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb')]" "$(field TITLE)"
 check "a linked answer shared out at the grid's light break" \

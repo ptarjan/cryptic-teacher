@@ -11,6 +11,7 @@
     python3 tools/cross_validate.py indyblog               # its answers against fifteensquared's
     python3 tools/cross_validate.py globe --fetch --limit 60
     python3 tools/cross_validate.py globe                  # the Times Quick against the Globe's print
+    python3 tools/cross_validate.py ft                     # the FT cryptic against the FT's PDFs
 
 Most of the corpus came off a blog: the blogger retyped the clues, a parser
 read the post, and tools/reconstruct_grid.py rebuilt the grid from the light
@@ -37,10 +38,11 @@ by class:
 The report goes to ~/cryptic-setter-data/cross-validate/<source>.jsonl, one
 line per puzzle with mismatches, and a tally prints per class.
 
---refile (the guardian and independent adapters) then rewrites, from the source, each file whose
+--refile (the guardian, independent and ft adapters) then rewrites, from the source, each file whose
 only differences are CLUE, ENUMERATION or ANSWER, each clean file taken from
 somewhere other than the source, and (the Guardian) each file lacking the note
-the page prints above the clues; see refile_guardian() and refile_independent().
+the page prints above the clues; see refile_guardian(), refile_independent() and
+refile_ft().
 """
 import argparse
 import html
@@ -551,7 +553,81 @@ def globe_shape(data, key):
             "entries": entries}
 
 
-ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog, Globe)}
+class FT(Adapter):
+    """The FT's own printable PDF of each cryptic, 2006 to 2012, fetched by
+    tools/ft_pdf_puzzles.py into ~/cryptic-setter-data/ft-pdf/pdf/<number>.pdf.
+
+    The PDF's clue list and vector grid are read with ft_pdf_puzzles.read_pdf
+    and shaped here without file_blog_puzzles.build(), so a file filed from
+    the PDF checks that converter, and a file ft_puzzles.py rebuilt from
+    fifteensquared checks the blog's parser and the grid reconstructor. The
+    PDF prints no answers. A PDF whose grid cannot be read is compared on
+    our grid's geometry, by light, for its clues and counts only."""
+    name = "ft"
+    series = ("ftcryptic",)
+    exact_clues = True
+    #: Read once by refile_ft: fifteensquared's posts and the PDF index.
+    posts = index = None
+
+    @property
+    def cache(self):
+        import ft_pdf_puzzles as fpp
+        return fpp.PDFS
+
+    def ids(self):
+        return {f"ftcryptic-{p.stem}": int(p.stem) for p in self.cache.glob("*.pdf")}
+
+    def raw_file(self, number):
+        return self.cache / f"{number}.pdf"
+
+    def fetch_one(self, number):
+        raise SystemExit("ft: tools/ft_pdf_puzzles.py fetch fills the PDF cache")
+
+    def puzzle(self, number):
+        import ft_pdf_puzzles as fpp
+        path = self.raw_file(number)
+        if not path.exists():
+            return None
+        if self._held is None:
+            self._held = held_paths(self.series)
+        held_at = self._held.get(f"ftcryptic-{number}")
+        return ft_shape(fpp.read_pdf(path), held_at and read_puzzle_file(held_at))
+
+    _held = None
+
+
+def ft_shape(pdf, ours=None):
+    """ft_pdf_puzzles.read_pdf's reading in our shape. The light's cells come
+    from the PDF's grid when its numbering is the clue list's; otherwise from
+    `ours` by number and direction (the grid is then not witnessed, and a
+    light we lack is reported MISSING at no cell)."""
+    import ft_pdf_puzzles as fpp
+    import reconstruct_grid as rg
+    grid = pdf.get("grid")
+    if grid is not None and fpp.grid_matches(grid, pdf["clues"]) is None:
+        lights = rg.light_cells(grid)
+        dims = {"cols": len(grid[0]), "rows": len(grid)}
+    else:
+        lights = {}
+        for e in (ours or {}).get("entries", []):
+            lights[(e["number"], e["direction"])] = [(y, x) for x, y in cells(e)]
+        dims = (ours or {}).get("dimensions")
+    entries = []
+    for c in pdf["clues"]:
+        text = " ".join(fpp.ENUM.sub("", c["clue"]).split())
+        for i, light in enumerate(c["lights"]):
+            at = lights.get(light)
+            e = {"number": light[0], "direction": light[1],
+                 "position": {"x": at[0][1], "y": at[0][0]} if at else {"x": -1, "y": -light[0]},
+                 "length": len(at) if at else 0,
+                 "clue": ({"text": text, "enumeration": c["enumeration"]} if i == 0
+                          else {"text": f"See {c['lights'][0][0]}"}),
+                 "solution": None}
+            entries.append(e)
+    return {"id": f"ftcryptic-{pdf['number']}", "dimensions": dims, "entries": entries}
+
+
+ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog, Globe, FT)}
 
 
 def held(adapter):
@@ -887,12 +963,112 @@ def refile_independent(adapter, pid, path, ymd, found):
     return notes + more
 
 
+def refile_ft(adapter, pid, path, number, found):
+    """Refile one FT puzzle from its PDF through ft_pdf_puzzles.assemble(),
+    the filer's own path: a file ft_puzzles.py rebuilt from fifteensquared
+    whatever differs, since the PDF is the printed grid and clues and becomes
+    the primary source; a file already from the PDF only where the PDF now
+    reads otherwise (a reader fix). Returns notes, or None when left alone.
+
+    The answers stay fifteensquared's, read off the post by the PDF's clues;
+    where the post yields none for a light, a held answer is kept only when
+    the PDF's grid is ours, so no answer is written into a cell it was not
+    solved for."""
+    import fetch_puzzle as fp
+    import fetch_telegraph as ft
+    import ft_pdf_puzzles as fpp
+    old = read_puzzle_file(path)
+    from_pdf = (old.get("source") or {}).get("acquiredBy", "").startswith(fpp.GENERATOR)
+    if from_pdf and not found:
+        return None
+    if adapter.posts is None:
+        adapter.posts = fpp.blog_posts()
+        adapter.index = json.loads(fpp.INDEX.read_text())["puzzles"]
+    entry = adapter.index.get(str(number), {})
+    how_file = fpp.PDFS / f"{number}.how"
+    how = how_file.read_text().strip() if how_file.exists() else "live"
+    import datetime
+    date = (datetime.date.fromisoformat(entry["date"]) if entry.get("date")
+            else fpp.neighbour_date(number, adapter.index)
+            or (datetime.date.fromisoformat(old["date"]) if old.get("date") else None))
+    new, why = fpp.assemble(number, fpp.read_pdf(adapter.raw_file(number)),
+                            adapter.posts.get(number), date, entry.get("url"), how)
+    if why:
+        raise ValueError(f"ft_pdf_puzzles.assemble: {why}")
+    notes = []
+    solved = all(e.get("solution") for e in new["entries"])
+    if not solved and all(e.get("solution") for e in old["entries"]):
+        mine = {c for e in old["entries"] for c in cells(e)}
+        if mine == {c for e in new["entries"] for c in cells(e)}:
+            at = {where(e): e["solution"] for e in old["entries"]}
+            for e in new["entries"]:
+                e["solution"] = at[where(e)]
+            new["solutions"] = old["solutions"]
+            notes.append("the post answers too few lights; kept the held answers on the same grid")
+    if solved or new["solutions"] is old["solutions"]:
+        notes += keep_backed_answers(old, new)
+    elif all(e.get("solution") for e in old["entries"]):
+        notes.append("filed unsolved: the PDF's grid is not the one the held answers were solved in")
+    classes = sorted({m["class"] for m in found})
+    notes.append(f"the FT's PDF over the file {old['source'].get('acquiredBy')} built "
+                 f"({', '.join(classes) or 'no differences'})")
+    printed = {where(e): e["clue"].get("text") for e in new["entries"]}
+    fp.merge_annotations(new, old)
+    new, more = ft.refile(new, old)
+    notes += reprint_marks(new, printed)
+    fp.write_puzzle_file(path, new, generator=fpp.GENERATOR if how == "live" else fpp.GENERATOR_WAYBACK)
+    return notes + more
+
+
+def reprint_marks(puzzle, printed):
+    """Put the printed clue back where fetch_telegraph.refile() kept ours for
+    having the same words: its hyphens and marks are the paper's ("far-
+    reaching", where the blogger typed "farreaching"). The annotation's
+    quotations are moved to the printed text; a clue whose annotation quotes
+    words the printed text spells otherwise keeps ours. Returns notes."""
+    import file_blog_puzzles as fbp
+    notes = []
+    for i, e in enumerate(puzzle["entries"]):
+        text, want = e["clue"].get("text"), printed.get(where(e))
+        if not want or not text or text == want or norm_text(text) != norm_text(want):
+            continue
+        try:
+            ann = fbp.requote(e.get("annotation"), lambda q: same_words_in(q, want), text, want)
+        except ValueError as err:
+            notes.append(f"{groups.entry_id(e)}: kept our clue, the annotation quotes it: {err}")
+            continue
+        clue = {k: v for k, v in e["clue"].items() if k != "italics"}
+        e = {**e, "clue": {**clue, "text": want}}
+        if ann is not None:
+            e["annotation"] = ann
+        puzzle["entries"][i] = e
+    return notes
+
+
+def same_words_in(quote, text):
+    """The span of `text` that spells `quote`'s words (norm_text), or None."""
+    want = norm_text(quote)
+    if not want:
+        return None
+    for a in range(len(text)):
+        if not text[a].isalnum() or (a and text[a - 1].isalnum()):
+            continue
+        for b in range(a + 1, len(text) + 1):
+            got = norm_text(text[a:b])
+            if got == want and (b == len(text) or not text[b].isalnum()):
+                return text[a:b]
+            if len(got) > len(want) or not want.startswith(got):
+                break
+    return None
+
+
 def refile(adapter, limit=None):
     """Refile every puzzle the last report names whose differences refile
     settles, and every clean copy taken from elsewhere, up to `limit`."""
-    one = {"guardian": refile_guardian, "independent": refile_independent}.get(adapter.name)
+    one = {"guardian": refile_guardian, "independent": refile_independent,
+           "ft": refile_ft}.get(adapter.name)
     if one is None:
-        raise SystemExit("--refile: the guardian and independent adapters refile here; the "
+        raise SystemExit("--refile: the guardian, independent and ft adapters refile here; the "
                          "Telegraph's is tools/fetch_telegraph.py --holes, and the Globe's "
                          "numbers are filed as globeandmail already")
     keys = adapter.ids()
@@ -903,7 +1079,8 @@ def refile(adapter, limit=None):
     for pid in sorted(keys):
         if limit is not None and done["refiled"] >= limit:
             break
-        if not adapter.raw_file(keys[pid]).exists() or found.get(pid, []) is None:
+        if (pid not in disk or not adapter.raw_file(keys[pid]).exists()
+                or found.get(pid, []) is None):
             continue
         try:
             notes = one(adapter, pid, disk[pid], keys[pid], found.get(pid, []))
@@ -924,7 +1101,7 @@ def main(argv=None):
     ap.add_argument("--fetch", action="store_true", help="top up the cache first")
     ap.add_argument("--limit", type=int, help="fetch or refile at most this many")
     ap.add_argument("--refile", action="store_true",
-                    help="refile from the source what the last report found (guardian, independent)")
+                    help="refile from the source what the last report found (guardian, independent, ft)")
     ap.add_argument("--show", nargs="+", metavar="ID", help="diff these puzzles and print")
     args = ap.parse_args(argv)
     adapter = ADAPTERS[args.source]()
