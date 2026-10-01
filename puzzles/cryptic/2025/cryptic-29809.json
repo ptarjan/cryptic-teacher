@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "Break out again? Screw ignoring guards secured criminal",
     "enumeration": "10"
    },
-   "solution": "RECRUDESCE"
+   "solution": "RECRUDESCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RECRUDESCE",
+    "definitions": [
+     {
+      "text": "Break out again?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring guards",
+      "for": "letter_selection",
+      "note": "the guards of a word are its two outside letters, and ignoring them leaves only the inner part"
+     },
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is bent or crooked, so these letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Screw",
+      "gives": "CRE",
+      "select": "middle",
+      "note": "the word with its first and last letters dropped"
+     },
+     {
+      "clueFragment": "secured",
+      "gives": "SECURED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRESECURED",
+       "gives": "RECRUDESCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison warder is asked whether a crooked inmate has escaped twice after the guards looked away.",
+     "walkthrough": "'Screw' is slang for a prison officer, which makes 'guards' look like more prison staff; here it just means the outer letters of the word.",
+     "definitionFit": "To recrudesce is to flare up anew, used of a disease or trouble that recurs after a quiet spell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +106,64 @@
     "text": "Bark on this dog without lead: animal is shaken",
     "enumeration": "8"
    },
-   "solution": "MAGNOLIA"
+   "solution": "MAGNOLIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MAGNOLIA",
+    "definitions": [
+     {
+      "text": "Bark on this",
+      "at": 0,
+      "note": "a cryptic pointer to a tree, the thing that wears the bark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without lead",
+      "for": "deletion",
+      "note": "the lead is the front position, so going without it means dropping the opening letter"
+     },
+     {
+      "text": "is shaken",
+      "for": "anagram",
+      "note": "shaking something jumbles it, so the letters are thrown into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "OG",
+      "note": "the word minus its first letter"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "ANIMAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OGANIMAL",
+       "gives": "MAGNOLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog let off its lead starts barking and shakes itself like a wet animal.",
+     "walkthrough": "'Bark' and 'lead' both pull towards dogs, but the bark is a tree's outer layer and the definition points at the tree it covers.",
+     "definitionFit": "A magnolia is a flowering tree, so it is something whose trunk is covered with bark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bark"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +177,50 @@
     "text": "Search in order to get date",
     "enumeration": "6"
    },
-   "solution": "FORAGE"
+   "solution": "FORAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORAGE",
+    "definitions": [
+     {
+      "text": "Search",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in order to",
+      "gives": "FOR",
+      "note": "'for' can mean 'in order to', as in 'run for the bus'"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "AGE",
+      "note": "a date or period in history, such as the Bronze Age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hunts around in order to land a date.",
+     "walkthrough": "'Date' suggests a romantic outing, but it is a period of time.",
+     "definitionFit": "To forage is to hunt about for food or supplies, a rummaging kind of search."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +234,54 @@
     "text": "Tip Kay behind bar",
     "enumeration": "4"
    },
-   "solution": "BANK"
+   "solution": "BANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANK",
+    "definitions": [
+     {
+      "text": "Tip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "being behind something means coming after it, so the piece named first in the clue is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar something is to ban it"
+     },
+     {
+      "clueFragment": "Kay",
+      "gives": "K",
+      "note": "Kay is the spoken name of the letter K"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a barmaid called Kay to slip a tip behind the bar.",
+     "walkthrough": "'Behind' places the letter after the word for bar; 'Kay' looks like a name but is how the letter is spelt out.",
+     "definitionFit": "To bank is to tilt or tip sideways, as an aircraft does when turning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kay"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +295,61 @@
     "text": "One captivated by unfinished drawing: it was discovered in mould?",
     "enumeration": "10"
    },
-   "solution": "PENICILLIN"
+   "solution": "PENICILLIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PENICILLIN",
+    "definitions": [
+     {
+      "text": "it was discovered in mould?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "to be captivated is to be held captive, so one part sits imprisoned inside another"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something left unfinished lacks its end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "drawing",
+      "gives": "PENCILLIN",
+      "note": "pencilling is drawing; dropping its last letter leaves nine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "I",
+      "CILLIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enthralled by a half-done sketch wonders if it was found growing in mould.",
+     "walkthrough": "The I slots in after the first three letters of the clipped drawing word.",
+     "definitionFit": "Alexander Fleming noticed the antibiotic in 1928 when a Penicillium mould killed bacteria on a culture plate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drawing"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +363,51 @@
     "text": "Supports Bill in act of betrayal",
     "enumeration": "8"
    },
-   "solution": "BACKSTAB"
+   "solution": "BACKSTAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKSTAB",
+    "definitions": [
+     {
+      "text": "act of betrayal",
+      "at": 17,
+      "note": "a noun phrase; the answer is most often used as a verb, but can name the act"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supports",
+      "gives": "BACKS",
+      "note": "to back someone is to support them"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "TAB",
+      "note": "a tab is a bill, as in a bar tab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKS",
+      "TAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician backs a parliamentary bill while secretly betraying an ally.",
+     "walkthrough": "'Bill' looks like a name or a law, but it is the bill you run up at a bar.",
+     "definitionFit": "A backstab is a treacherous attack on someone who trusted you, delivered when their back is turned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +421,64 @@
     "text": "Film on copper from Pennsylvania: American stealing money",
     "enumeration": "6"
    },
-   "solution": "PATINA"
+   "solution": "PATINA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PATINA",
+    "definitions": [
+     {
+      "text": "Film on copper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "a thief takes something into keeping, so one part ends up held within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pennsylvania",
+      "gives": "PA",
+      "note": "the US state abbreviation"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old slang for money"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "TIN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie about a Pennsylvania cop shows an American pocketing cash.",
+     "walkthrough": "'Film' and 'copper' suggest a police movie, but they mean a thin layer on the metal; PA and A together take in the money.",
+     "definitionFit": "A patina is the green or brown surface layer that forms on copper or bronze as it oxidises over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +492,59 @@
     "text": "Horny male to droop after drinking time",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "Horny male",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after drinking",
+      "for": "container",
+      "note": "drinking takes something in, so one part swallows the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "droop",
+      "gives": "SAG",
+      "note": "to sag is to droop"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "AG"
+     ]
+    },
+    "explanation": {
+     "surface": "A randy man's ardour wilts after a few drinks.",
+     "walkthrough": "'Horny' suggests lust, but it literally means bearing horns, or antlers here.",
+     "definitionFit": "A stag is an adult male deer, which carries antlers, so it is literally a male with horns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Horny"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +558,71 @@
     "text": "Turn to gas with Virginia: Prince to speak after Epstein’s introduction",
     "enumeration": "9"
    },
-   "solution": "EVAPORATE"
+   "solution": "EVAPORATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVAPORATE",
+    "definitions": [
+     {
+      "text": "Turn to gas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "an introduction is the opening part, so only the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epstein’s",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of the name"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "the US state abbreviation"
+     },
+     {
+      "clueFragment": "Prince",
+      "gives": "P",
+      "note": "standard abbreviation for prince"
+     },
+     {
+      "clueFragment": "to speak",
+      "gives": "ORATE",
+      "note": "to orate is to make a speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VA",
+      "P",
+      "ORATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A topical scandal: Virginia Giuffre, Prince Andrew and Jeffrey Epstein, with a prince trying to make the matter vanish.",
+     "walkthrough": "'After' puts the prince and his speech behind the E, with VA sitting between them in the final order.",
+     "definitionFit": "To evaporate is for a liquid to become vapour, which is a change into a gaseous state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Virginia"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +636,59 @@
     "text": "Tailor stripped lads before fitting",
     "enumeration": "5"
    },
-   "solution": "ADAPT"
+   "solution": "ADAPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADAPT",
+    "definitions": [
+     {
+      "text": "Tailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "stripping takes off the outer layer, so a word loses its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lads",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the word minus its outside letters"
+     },
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "fitting means appropriate or apt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor has young men undress before measuring them for suits.",
+     "walkthrough": "'Tailor' and 'fitting' sound like clothes, but the tailor is a verb meaning modify and fitting is an adjective.",
+     "definitionFit": "To tailor something is to adjust or modify it to suit a particular purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fitting"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +702,58 @@
     "text": "Go through torture to acquire answer",
     "enumeration": "7"
    },
-   "solution": "RANSACK"
+   "solution": "RANSACK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RANSACK",
+    "definitions": [
+     {
+      "text": "Go through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquire",
+      "for": "container",
+      "note": "to acquire is to take into your possession, so one part gathers the other inside"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torture",
+      "gives": "RACK",
+      "note": "the rack is an instrument of torture, and to rack is to torture"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "standard abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANS",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "An interrogator endures, or inflicts, torture to extract an answer.",
+     "walkthrough": "'Go through torture' reads as one phrase meaning suffer; the definition is only the first two words.",
+     "definitionFit": "To ransack a place is to search it thoroughly and roughly, rifling through everything in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "through"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +767,58 @@
     "text": "Suggestion of line in tattooist’s work?",
     "enumeration": "7"
    },
-   "solution": "INKLING"
+   "solution": "INKLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INKLING",
+    "definitions": [
+     {
+      "text": "Suggestion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "standard abbreviation for line"
+     },
+     {
+      "clueFragment": "tattooist’s work",
+      "gives": "INKING",
+      "note": "a tattooist's work is putting ink into skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INK",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A hint of a line shows in a tattoo artist's design.",
+     "walkthrough": "The question mark flags the playful description of tattooing as inking.",
+     "definitionFit": "An inkling is a slight hint or vague idea, which is what a suggestion of something amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +832,71 @@
     "text": "Back to table after ordering cold sweet",
     "enumeration": "5"
    },
-   "solution": "DOLCE"
+   "solution": "DOLCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOLCE",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordering",
+      "for": "anagram",
+      "note": "putting things in order rearranges them, so the letters change places"
+     },
+     {
+      "text": "Back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its final position, so only the last letter is used"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "COLD",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOLC",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COLD",
+       "gives": "DOLC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner returns to the table after ordering a chilled dessert.",
+     "walkthrough": "'Ordering' looks like asking a waiter for food, but it means arrange; 'after' places the last letter behind the jumbled word.",
+     "definitionFit": "Dolce is the Italian word for sweet, used in English for desserts and as a musical direction meaning softly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordering"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +910,66 @@
     "text": "Where one might get shot with beer hosting a party",
     "enumeration": "9"
    },
-   "solution": "PAINTBALL"
+   "solution": "PAINTBALL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PAINTBALL",
+    "definitions": [
+     {
+      "text": "Where one might get shot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes guests in, so one part holds the other inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "PINT",
+      "note": "a pint is a glass of beer"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BALL",
+      "note": "a ball is a formal party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "INT",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A boozy party where someone might get a shot, or get shot.",
+     "walkthrough": "With beer and a party in view, 'shot' suggests a drink; it is the splat of a paint pellet.",
+     "definitionFit": "Paintball is a combat game in which players fire pellets of dye at one another, so getting hit is the point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +983,56 @@
     "text": "She sees parking spots here when manoeuvring",
     "enumeration": "10"
    },
-   "solution": "PROPHETESS"
+   "solution": "PROPHETESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROPHETESS",
+    "definitions": [
+     {
+      "text": "She sees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when manoeuvring",
+      "for": "anagram",
+      "note": "manoeuvring moves things around into new positions, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "spots here",
+      "gives": "SPOTSHERE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PSPOTSHERE",
+       "gives": "PROPHETESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman driver notices parking spaces here as she manoeuvres.",
+     "walkthrough": "'She sees' reads as the start of a sentence about a driver; taken alone it describes a female seer.",
+     "definitionFit": "A prophetess is a woman who foresees the future, a female seer, so she is one who sees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sees"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1056,47 @@
      }
     ]
    },
-   "solution": "LAYHANDSON"
+   "solution": "LAYHANDSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAY HANDS ON",
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "position",
+      "gives": "LAY",
+      "note": "the lay of something is its position or arrangement, as in the lay of the land"
+     },
+     {
+      "clueFragment": "practical",
+      "gives": "HANDSON",
+      "note": "hands-on means practical, involving direct experience"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "HANDSON"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to seek out a job that is practical rather than desk-bound.",
+     "walkthrough": "'Find position' reads as job-hunting, but the first word alone is the definition.",
+     "definitionFit": "To lay hands on something is an idiom for obtaining or locating it, as in 'I can't lay hands on my keys'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1120,55 @@
      }
     ]
    },
-   "solution": "STATUEOFLIBERTY"
+   "solution": "STATUEOFLIBERTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STATUE OF LIBERTY",
+    "definitions": [
+     {
+      "text": "American woman’s figure",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fix",
+      "for": "anagram",
+      "note": "to fix something can mean to rework or rig it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eyes or a butt-lift",
+      "gives": "EYESORABUTTLIFT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EYESORABUTTLIFT",
+       "gives": "STATUEOFLIBERTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cosmetic surgery on eyes or buttocks to improve an American woman's figure.",
+     "walkthrough": "'Figure' suggests body shape, which suits the cosmetic surgery; it actually means a statue.",
+     "definitionFit": "The Statue of Liberty is a colossal sculpture of a robed woman in New York harbour, an American female figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1182,55 @@
     "text": "Delivery firm adopting suitable standards",
     "enumeration": "8"
    },
-   "solution": "UPRIGHTS"
+   "solution": "UPRIGHTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UPRIGHTS",
+    "definitions": [
+     {
+      "text": "standards",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "to adopt is to take in as your own, so one part is brought inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delivery firm",
+      "gives": "UPS",
+      "note": "UPS is the parcel company United Parcel Service"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "RIGHT",
+      "note": "right means suitable or proper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "RIGHT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A courier company takes on appropriate quality standards.",
+     "walkthrough": "'Standards' suggests quality benchmarks, but here it means upright poles or posts.",
+     "definitionFit": "A standard can be an upright pole or support, such as a lamp standard, so uprights are vertical posts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standards"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1244,51 @@
     "text": "Collar on dog for other animal",
     "enumeration": "8"
    },
-   "solution": "RINGTAIL"
+   "solution": "RINGTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RINGTAIL",
+    "definitions": [
+     {
+      "text": "other animal",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Collar",
+      "gives": "RING",
+      "note": "a collar is a ring around the neck"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to follow or tail them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's collar is fitted onto another kind of animal.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the second; 'dog' is a verb meaning follow.",
+     "definitionFit": "Ringtail is the name of several mammals with banded tails, such as the ringtail possum or ring-tailed cat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1302,67 @@
     "text": "Painkiller, heroin, injected in butt or leg",
     "enumeration": "9"
    },
-   "solution": "ENDORPHIN"
+   "solution": "ENDORPHIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENDORPHIN",
+    "definitions": [
+     {
+      "text": "Painkiller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injected in",
+      "for": "container",
+      "note": "something injected is pushed inside, so one piece goes into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     },
+     {
+      "clueFragment": "butt",
+      "gives": "END",
+      "note": "a butt is the end of something, such as a cigarette butt"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "pins is informal for legs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "OR",
+      "P",
+      "H",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A painkilling drug, heroin, is jabbed into the buttock or the leg.",
+     "walkthrough": "The heroin goes inside the last piece, after its first letter.",
+     "definitionFit": "Endorphins are hormones the body releases that reduce pain sensation, so one is a natural painkiller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "butt"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1376,71 @@
     "text": "Make love: female on vacation with Romeo – it could be remote?",
     "enumeration": "6"
    },
-   "solution": "DOOFER"
+   "solution": "DOOFER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOOFER",
+    "definitions": [
+     {
+      "text": "it could be remote?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a vacation empties a place, so the word is emptied of its middle and only the outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make",
+      "gives": "DO",
+      "note": "to do is to make, as in 'do a cake'"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "FE",
+      "select": "outer",
+      "note": "outer letters of the word"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "O",
+      "FE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Romance on holiday with a woman and her Romeo, with a sly hint at the remote.",
+     "walkthrough": "'Make love' reads as one phrase, but it splits into two pieces. Doofer is informal British slang for any gadget whose name escapes you, especially the TV remote.",
+     "definitionFit": "A doofer is a thingummy, a word for an unnamed object, and the television remote control is the classic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1454,58 @@
     "text": "It might make you go brown when leaving Italy",
     "enumeration": "5"
    },
-   "solution": "SENNA"
+   "solution": "SENNA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SENNA",
+    "definitions": [
+     {
+      "text": "It might make you go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something leaves it is no longer present, so it is taken out of the word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "SIENNA",
+      "note": "sienna is a reddish-brown earth pigment"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ENNA"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that tans you on holiday once you have left Italy.",
+     "walkthrough": "'Go brown' suggests a suntan, but 'go' alone means visit the toilet; the brown is the pigment named after Siena.",
+     "definitionFit": "Senna is a plant-based laxative, so taking it is likely to send you to the lavatory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1519,57 @@
     "text": "Struggle connecting a neutral line in plug",
     "enumeration": "6"
    },
-   "solution": "SLOGAN"
+   "solution": "SLOGAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOGAN",
+    "definitions": [
+     {
+      "text": "line in plug",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "connecting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Struggle",
+      "gives": "SLOG",
+      "note": "a slog is a hard struggle"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "neutral",
+      "gives": "N",
+      "note": "N marks the neutral terminal or wire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLOG",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone struggles to connect the neutral wire inside an electrical plug.",
+     "walkthrough": "'Line', 'neutral' and 'plug' all suggest wiring; the definition's plug is an advertisement and its line a catchphrase.",
+     "definitionFit": "A slogan is a short memorable phrase used in advertising, the kind of catchy wording in a promotional plug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plug"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1583,62 @@
     "text": "Beaten with hard truncheon at the start",
     "enumeration": "7"
    },
-   "solution": "WROUGHT"
+   "solution": "WROUGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WROUGHT",
+    "definitions": [
+     {
+      "text": "Beaten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening position, so only its first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is a standard abbreviation for with"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "ROUGH",
+      "note": "rough can mean hard or harsh"
+     },
+     {
+      "clueFragment": "truncheon",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ROUGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is beaten hard with a police truncheon.",
+     "walkthrough": "The surface is a police beating; the definition means hammered into shape, as metal is.",
+     "definitionFit": "Wrought describes metal that has been shaped by hammering, as in wrought iron, which is beaten into form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beaten"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1652,73 @@
     "text": "Flower on top of wall on climbing plant",
     "enumeration": "4"
    },
-   "solution": "WEED"
+   "solution": "WEED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "WEED",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down entry is its first letter, so only that is kept"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing goes upwards, and in a down answer that means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wall",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "Flower",
+      "gives": "DEE",
+      "note": "a flower is something that flows, a river; the Dee is a river in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EED"
+     ],
+     "reversals": [
+      {
+       "from": "DEE",
+       "to": "EED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flower sits on top of a wall above a climbing plant.",
+     "walkthrough": "'Flower' wants to be the definition; it is a flow-er, a river, and the definition is the last word. The Dee is a river in Scotland and in Wales.",
+     "definitionFit": "A weed is any plant growing where it is not wanted, such as one sprouting from the top of a wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1732,65 @@
     "text": "Did wear pants, initially, problem solved for clothing",
     "enumeration": "7"
    },
-   "solution": "SPORTED"
+   "solution": "SPORTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPORTED",
+    "definitions": [
+     {
+      "text": "Did wear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so only the first letter is used"
+     },
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing wraps around a body, so one part is dressed around another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem solved",
+      "gives": "SORTED",
+      "note": "'Sorted!' is British slang for 'problem solved'"
+     },
+     {
+      "clueFragment": "pants",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ORTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether someone wore trousers, with the dress problem fixed.",
+     "walkthrough": "In British English pants means underpants, adding a little cheek to the surface.",
+     "definitionFit": "To sport an item of clothing is to wear it showily, so having sported it means you wore it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1804,50 @@
     "text": "Beach with sun: big deal?",
     "enumeration": "4"
    },
-   "solution": "SAND"
+   "solution": "SAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAND",
+    "definitions": [
+     {
+      "text": "Beach",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun",
+      "gives": "S",
+      "note": "standard abbreviation for sun"
+     },
+     {
+      "clueFragment": "big deal?",
+      "gives": "AND",
+      "note": "a dismissive 'And?' means 'So what, big deal?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrug at a sunny beach holiday: so what?",
+     "walkthrough": "'Big deal?' looks like a comment on the whole picture, but it stands for the one-word retort 'And?'.",
+     "definitionFit": "The noun is used loosely for a sandy shore, as in the sands of a seaside resort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1861,55 @@
     "text": "Pitch in sports ground confined in extra time",
     "enumeration": "5"
    },
-   "solution": "ERECT"
+   "solution": "ERECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERECT",
+    "definitions": [
+     {
+      "text": "Pitch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confined in",
+      "for": "container",
+      "note": "something confined is shut inside, so one part sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sports ground",
+      "gives": "REC",
+      "note": "a rec is a recreation ground, a British local park for games"
+     },
+     {
+      "clueFragment": "extra time",
+      "gives": "ET",
+      "note": "ET is the abbreviation for extra time in football"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "REC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A football pitch is shut in during extra time.",
+     "walkthrough": "'Pitch' suggests the playing field; it is the verb, as in pitching a tent.",
+     "definitionFit": "To pitch a tent is to put it up, and to erect something is to set it upright or build it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pitch"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1929,63 @@
      }
     ]
    },
-   "solution": "SANMARINO"
+   "solution": "SANMARINO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SAN MARINO",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is taken"
+     },
+     {
+      "text": "needing repair",
+      "for": "anagram",
+      "note": "something needing repair is broken, so the letters are fixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manor in a",
+      "gives": "MANORINA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANORINAS",
+       "gives": "SANMARINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country house in a bad state, badly needing repairs.",
+     "walkthrough": "'In a state' reads as 'in a mess', which disguises the first letter being taken from 'state'.",
+     "definitionFit": "San Marino is a tiny independent republic surrounded by Italy, one of the smallest nations in Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   }
  ]
 }
