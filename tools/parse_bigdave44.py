@@ -153,6 +153,40 @@ def published_on(rendered):
     return None
 
 
+#: A count in brackets anywhere in a clue line: "(5,5)", "(4-2,4)", "(10)".
+COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*)\s*\)")
+#: What opens a blogger's note after a clue's enumeration: a bracket that
+#: holds words ("[online clue]", "(paper version)", "[not (7,4) as
+#: published]"), a dash or slash, or a word about the clue's printing
+#: ("Revised on-line clue: ...", "Newspaper version - ...").
+NOTE = re.compile(
+    r"^(?:[\[(][^\])]*[A-Za-z]|[–—/-]|(?:revised|revision|amended|corrected|online|on-line"
+    r"|paper|newspaper|printed|published|version|clue|original\w*)\b)", re.IGNORECASE)
+#: A count closing a line, past any trailing punctuation or brackets.
+LAST_COUNT = re.compile(COUNT.pattern + r"[\s.,;:\])]*$")
+
+
+def note_cut(clue):
+    """(clue up to its enumeration, that enumeration) when what follows the
+    enumeration is a blogger's note, else None.
+
+    The clue ends at the first count in brackets that is followed by a note
+    (NOTE), or by words that close on a count of the same total: the clue's
+    second version, of which the first is kept. A count followed by clue
+    words and no matching count, "Son (10) enthralled by foreign song -- he
+    did this? (8)", is a cross-reference inside the clue and stays."""
+    for m in COUNT.finditer(clue or ""):
+        tail = clue[m.end():].strip()
+        if not tail:
+            return None
+        last = LAST_COUNT.search(tail)
+        if NOTE.match(tail) or (last and re.search(r"[A-Za-z]", tail) and sum(
+                map(int, re.findall(r"\d+", last.group(1)))) == sum(
+                map(int, re.findall(r"\d+", m.group(1))))):
+            return clue[:m.end()], re.sub(r"\s+", "", m.group(1)).replace("–", "-")
+    return None
+
+
 def headed(rendered):
     """The lines with each clue's direction suffix turned into the heading
     the shared reader expects: "9a Fragrance ... (5)" under "Across"."""
@@ -176,6 +210,10 @@ def read_post(post, cats):
     if series is None:
         return None
     entries, unsplit = tftt.read_entries(headed(rendered))
+    for e in entries:
+        cut = note_cut(e["clue"])
+        if cut:
+            e["clue"], e["enumeration"] = cut
     review = bool(REVIEW.search(title_of(post))) or any(
         REVIEW.search(ln) for ln in rendered[:3])
     return {
