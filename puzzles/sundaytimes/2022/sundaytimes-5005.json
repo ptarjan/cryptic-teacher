@@ -24,6 +24,9 @@
   "date": "2022-05-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,68 @@
     "text": "Binge drinking’s ending in Conservative leader being axed",
     "enumeration": "4"
    },
-   "solution": "ORGY"
+   "solution": "ORGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "ORGY",
+    "definitions": [
+     {
+      "text": "Binge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only that letter is kept"
+     },
+     {
+      "text": "leader being axed",
+      "for": "deletion",
+      "note": "a leader comes first, so axing it chops off the opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "ORY",
+      "note": "TORY, a Conservative, losing its first letter"
+     },
+     {
+      "clueFragment": "drinking",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "G",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A party drinking spree ends with the Tory leader sacked.",
+     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party; behead it and drop the last letter of drinking inside.",
+     "definitionFit": "A wild bout of excessive indulgence, especially drinking or partying, is an orgy, so binge is a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +115,59 @@
     "text": "French way, we hear, to dig in leafy veg",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "leafy veg",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the spelling may differ from the sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French way",
+      "gives": "RHU",
+      "soundsLike": "RUE",
+      "note": "rue is French for street"
+     },
+     {
+      "clueFragment": "to dig",
+      "gives": "BARB",
+      "note": "a dig is a barbed remark, a barb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHU",
+      "BARB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes the French route for digging into a vegetable patch.",
+     "walkthrough": "Only the first syllable is sounded out; the dig is a cutting remark, not spadework.",
+     "definitionFit": "Rhubarb is a garden plant with huge leaves grown for its edible stalks, so it fairly counts as leafy veg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dig"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +181,45 @@
     "text": "Give in return",
     "enumeration": "5"
    },
-   "solution": "YIELD"
+   "solution": "YIELD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YIELD",
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0
+     },
+     {
+      "text": "return",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give",
+      "note": "first meaning: to give way or surrender"
+     },
+     {
+      "clueFragment": "return",
+      "note": "second meaning: the profit an investment produces"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase reads as 'give back', but the two words are separate meanings joined by a link.",
+     "definitionFit": "The verb means to concede or surrender, and the noun means the income produced by shares or bonds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +243,66 @@
      }
     ]
    },
-   "solution": "ACTTHEGOAT"
+   "solution": "ACTTHEGOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACT THE GOAT",
+    "definitions": [
+     {
+      "text": "Be daft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about suggests messing around, so the letters are rearranged freely"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "HOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a cat",
+      "gives": "ACAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETHOTACAT",
+       "gives": "ACTTHEGOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acts silly and overheats while playing with a pet cat.",
+     "walkthrough": "To act the goat is a British idiom for fooling around.",
+     "definitionFit": "The idiom means to behave in a silly, foolish way, which is exactly being daft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +316,67 @@
     "text": "Fugitive prisoner trying on false beards",
     "enumeration": "9"
    },
-   "solution": "ABSCONDER"
+   "solution": "ABSCONDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ABSCONDER",
+    "definitions": [
+     {
+      "text": "Fugitive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "something false is not genuine, so these letters appear in a faked order"
+     },
+     {
+      "text": "trying on",
+      "for": "container",
+      "note": "trying clothing on means wearing it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beards",
+      "gives": "BEARDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "CON",
+      "DER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEARDS",
+       "gives": "ABSDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An escaped convict tries on fake beards as a disguise.",
+     "walkthrough": "'Fugitive prisoner' wants to be the definition, but the prisoner is the CON going inside the shuffled beards.",
+     "definitionFit": "Someone who absconds runs away secretly to escape justice, so an absconder is a fugitive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trying"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +390,74 @@
     "text": "Flood turning brook periodically into a river",
     "enumeration": "7"
    },
-   "solution": "TORRENT"
+   "solution": "TORRENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "TORRENT",
+    "definitions": [
+     {
+      "text": "Flood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is taken"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "to turn round is to face the other way, so the letters go backwards"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a river",
+      "gives": "TRENT",
+      "note": "the Trent is a major English river"
+     },
+     {
+      "clueFragment": "brook",
+      "gives": "RO",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OR",
+      "RENT"
+     ],
+     "reversals": [
+      {
+       "from": "RO",
+       "to": "OR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flood sends a brook flowing into a bigger river.",
+     "walkthrough": "The Trent is a long river in the English Midlands, a crossword favourite.",
+     "definitionFit": "A torrent is a violent rush of water, and a flood is an overwhelming flow of water, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +471,51 @@
     "text": "Someone devout executed for theft",
     "enumeration": "5"
    },
-   "solution": "HEIST"
+   "solution": "HEIST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEIST",
+    "definitions": [
+     {
+      "text": "theft",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "executed",
+      "for": "deletion",
+      "note": "executed suggests beheading, so the first letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone devout",
+      "gives": "THEIST",
+      "note": "a theist believes in God"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A pious person is put to death as punishment for stealing.",
+     "walkthrough": "Execution here means beheading, which removes the head letter of the believer.",
+     "definitionFit": "A heist is a robbery, usually a daring one, so it is a straightforward synonym for theft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "executed"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +529,82 @@
     "text": "War campaign loot mostly raised with crude oil",
     "enumeration": "9"
    },
-   "solution": "GALLIPOLI"
+   "solution": "GALLIPOLI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GALLIPOLI",
+    "definitions": [
+     {
+      "text": "War campaign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising letters makes them read bottom to top"
+     },
+     {
+      "text": "crude",
+      "for": "anagram",
+      "note": "crude means unrefined, so the letters are left in a rough jumbled form"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loot",
+      "gives": "PILLAG",
+      "note": "PILLAGE, to loot, without its final letter"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALLIP",
+      "OLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OIL",
+       "gives": "OLI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PILLAG",
+       "to": "GALLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military campaign where plunder was carried off along with crude oil.",
+     "walkthrough": "Crude oil reads as a commodity, but crude is the signal to mix the three letters.",
+     "definitionFit": "Gallipoli was the disastrous 1915-16 Allied campaign against Turkey in the First World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crude"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +618,62 @@
     "text": "Charge one guinea to visit an island",
     "enumeration": "7"
    },
-   "solution": "ARRAIGN"
+   "solution": "ARRAIGN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARRAIGN",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "visiting a place means going into it, so these letters enter another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     },
+     {
+      "clueFragment": "guinea",
+      "gives": "G",
+      "note": "G is the abbreviation for guinea, an old British coin worth 21 shillings"
+     },
+     {
+      "clueFragment": "an island",
+      "gives": "ARRAN",
+      "note": "Arran is an island off the west coast of Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRA",
+      "I",
+      "G",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pays a guinea for a trip to an island.",
+     "walkthrough": "Charge reads as a price, but it is the legal sense.",
+     "definitionFit": "To arraign is to call someone before a court to answer a criminal accusation, so it means to charge formally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +687,59 @@
     "text": "University dons prepare for pressure",
     "enumeration": "6"
    },
-   "solution": "DURESS"
+   "solution": "DURESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DURESS",
+    "definitions": [
+     {
+      "text": "pressure",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don is to put on clothing, so one piece wears the other around it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "prepare",
+      "gives": "DRESS",
+      "note": "to dress food is to prepare it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "U",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Academics at a university get ready for a stressful time.",
+     "walkthrough": "Dons look like the noun for lecturers, but here it is the verb: prepare puts on the university letter.",
+     "definitionFit": "Duress is compulsion by threats or force, so it is a kind of pressure applied to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +753,56 @@
     "text": "Beam securing more diseased ribbing",
     "enumeration": "8"
    },
-   "solution": "RAILLERY"
+   "solution": "RAILLERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAILLERY",
+    "definitions": [
+     {
+      "text": "ribbing",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece grips the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beam",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     },
+     {
+      "clueFragment": "more diseased",
+      "gives": "ILLER",
+      "note": "comparative of ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "ILLER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A wooden beam holds diseased timber ribs in place.",
+     "walkthrough": "Ribbing sounds structural next to beam, but it means teasing.",
+     "definitionFit": "Raillery is good-humoured teasing or banter, and ribbing is informal for teasing someone playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ribbing"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +816,44 @@
     "text": "Part in Macbeth and someone generous",
     "enumeration": "8"
    },
-   "solution": "HANDSOME"
+   "solution": "HANDSOME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HANDSOME",
+    "definitions": [
+     {
+      "text": "generous",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part in",
+      "for": "hidden_word",
+      "note": "a part is only a portion of the whole, so a run of letters sits within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Macbeth and someone",
+      "gives": "HANDSOME",
+      "note": "letters running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor has a role in Macbeth and also plays someone kind.",
+     "walkthrough": "'Part' looks like a theatrical role, but it signals that the answer is a piece of the text.",
+     "definitionFit": "A handsome gift or sum is a large and generous one, a slightly old-fashioned sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +867,62 @@
     "text": "Times Review originally provided papers in three parts",
     "enumeration": "6"
    },
-   "solution": "TRIFID"
+   "solution": "TRIFID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRIFID",
+    "definitions": [
+     {
+      "text": "in three parts",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally comes at the start, so only first letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times Review",
+      "gives": "TR",
+      "select": "first",
+      "note": "the opening letters of both words"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided that means if"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers, ID"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "IF",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's review section was first published in three instalments.",
+     "walkthrough": "Papers sounds like newspapers, but it is identity papers.",
+     "definitionFit": "Trifid is a botanical term for something split into three lobes or divisions, so it means divided threefold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +946,40 @@
      }
     ]
    },
-   "solution": "BESIDETHEPOINT"
+   "solution": "BESIDETHEPOINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BESIDE THE POINT",
+    "definitions": [
+     {
+      "text": "irrelevant",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In 0.999 where one 9 is",
+      "note": "surface reading: a puzzle about where a digit sits in a decimal"
+     },
+     {
+      "clueFragment": "In 0.999 where one 9 is",
+      "note": "setter's reading: the first nine sits right next to the decimal dot"
+     }
+    ],
+    "explanation": {
+     "surface": "A maths question asking where a certain nine lies in a decimal number.",
+     "walkthrough": "Taken literally, the first 9 in 0.999 sits immediately after the decimal point; the idiom for that position also means not relevant.",
+     "definitionFit": "Something beside the point does not bear on the matter being discussed, an idiom for not pertinent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "irrelevant"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +999,69 @@
      }
     ]
    },
-   "solution": "SUGARCOAT"
+   "solution": "SUGARCOAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUGAR-COAT",
+    "definitions": [
+     {
+      "text": "Make acceptable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "synthetic",
+      "for": "anagram",
+      "note": "synthetic means artificially made up, so these letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugs",
+      "gives": "RUGS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fur",
+      "gives": "COAT",
+      "note": "an animal's fur is its coat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUGAR",
+      "COAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUGSA",
+       "gives": "SUGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fake-fur rugs are made palatable to buyers who dislike real fur.",
+     "walkthrough": "'Synthetic fur' reads as one phrase, but synthetic works on the letters before it, and fur alone is the coat.",
+     "definitionFit": "To sugar-coat something is to present an unpleasant fact so that it seems more palatable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "synthetic"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1075,70 @@
     "text": "Surround PM, once ordered by a bodyguard",
     "enumeration": "9"
    },
-   "solution": "ENCOMPASS"
+   "solution": "ENCOMPASS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENCOMPASS",
+    "definitions": [
+     {
+      "text": "Surround",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a fresh arrangement, so the letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM, once",
+      "gives": "PMONCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bodyguard",
+      "gives": "SS",
+      "note": "the SS began as Hitler's personal bodyguard unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCOMP",
+      "A",
+      "SS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PMONCE",
+       "gives": "ENCOMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister is protected by a bodyguard who orders the crowd to surround him.",
+     "walkthrough": "'PM, once' reads as an ex-prime minister, but the words just supply letters.",
+     "definitionFit": "To encompass is to encircle or enclose on all sides, which is to surround."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1158,63 @@
      }
     ]
    },
-   "solution": "VULGARFRACTION"
+   "solution": "VULGARFRACTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VULGAR FRACTION",
+    "definitions": [
+     {
+      "text": "7/10 for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means wrapping round it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirty",
+      "gives": "VULGAR",
+      "note": "vulgar can mean crude or dirty"
+     },
+     {
+      "clueFragment": "side’s",
+      "gives": "FACTION",
+      "note": "a faction is a side within a group"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VULGAR",
+      "F",
+      "R",
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A dirty team earns a grudging seven out of ten for its winger.",
+     "walkthrough": "Outside right is a football position, but here outside means the side wraps round the right.",
+     "definitionFit": "A vulgar fraction is one written as numerator over denominator, and seven tenths is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1228,54 @@
     "text": "In tanning area, drop cap and loosen tie",
     "enumeration": "7"
    },
-   "solution": "UNSTRAP"
+   "solution": "UNSTRAP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNSTRAP",
+    "definitions": [
+     {
+      "text": "loosen tie",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop cap",
+      "for": "anagram",
+      "note": "a cap is the top letter in a down entry, and dropping it moves it lower down the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tanning area",
+      "gives": "SUNTRAP",
+      "note": "a suntrap is a sheltered spot that catches the sun"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUNTRAP",
+       "gives": "UNSTRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sunbathing, someone takes off their hat and loosens their necktie.",
+     "walkthrough": "The rearrangement is precise: the top letter of the sunbathing spot slides down two places, leaving the rest in order.",
+     "definitionFit": "To unstrap is to undo a strap or band, so it fits loosening a fastening that holds something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1289,50 @@
     "text": "On deck giving satisfaction",
     "enumeration": "7"
    },
-   "solution": "REDRESS"
+   "solution": "REDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDRESS",
+    "definitions": [
+     {
+      "text": "satisfaction",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "RE",
+      "note": "re means on, concerning"
+     },
+     {
+      "clueFragment": "deck",
+      "gives": "DRESS",
+      "note": "to deck out is to dress up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Being out on a ship's deck is pleasing.",
+     "walkthrough": "Deck looks like part of a ship, but it is the verb meaning to adorn.",
+     "definitionFit": "Redress is compensation for a wrong, and satisfaction in its old sense means amends made for an injury."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1346,54 @@
     "text": "Unpleasant chart topper going on a bit",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOISOME",
+    "definitions": [
+     {
+      "text": "Unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going on",
+      "for": "charade",
+      "note": "in a down entry, going on top of something places one piece directly above the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chart topper",
+      "gives": "NOI",
+      "note": "the chart topper is number one, No 1, with 1 as I"
+     },
+     {
+      "clueFragment": "a bit",
+      "gives": "SOME",
+      "note": "a bit of something is some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOI",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A hit single that drags on too long is disagreeable.",
+     "walkthrough": "The digit one becomes the letter I, as is usual in crosswords.",
+     "definitionFit": "Noisome means offensive or disgusting, especially of smells, and has nothing to do with noise despite its look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1407,68 @@
     "text": "Spirit, primarily rum, in medium strength vermouth",
     "enumeration": "6"
    },
-   "solution": "ESPRIT"
+   "solution": "ESPRIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ESPRIT",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing one thing in another sets it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medium strength",
+      "gives": "ESP",
+      "note": "extrasensory perception, the special power a psychic medium claims"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "vermouth",
+      "gives": "IT",
+      "note": "It is Italian vermouth, as in gin and it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESP",
+      "R",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail recipe: spirit, chiefly rum, mixed with a moderately strong vermouth.",
+     "walkthrough": "Medium strength reads as a drink's proof, but a medium is a psychic. 'Gin and it' is an old British cocktail of gin and Italian vermouth.",
+     "definitionFit": "Esprit is liveliness of mind and wit, borrowed from the French word for spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "medium"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1482,48 @@
     "text": "Kid that’s hot drinks noisily",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "Kid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "noisily means out loud, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot drinks",
+      "gives": "TEASE",
+      "soundsLike": "TEAS",
+      "note": "cups of tea are hot drinks"
+     }
+    ],
+    "explanation": {
+     "surface": "A child gulps hot drinks with loud slurping.",
+     "walkthrough": "Kid looks like a noun for a child, but it is the verb meaning to joke with.",
+     "definitionFit": "To kid someone is to fool or josh them playfully, which is what teasing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kid"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1537,65 @@
     "text": "Daily Times cryptic used in treatment of OCD",
     "enumeration": "8"
    },
-   "solution": "DOMESTIC"
+   "solution": "DOMESTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOMESTIC",
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "cryptic means puzzling and disguised, so these letters are concealed in a new order"
+     },
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "treatment works something over and changes it, so these letters are processed into a new order"
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "TIMES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "OCD",
+      "gives": "OCD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMESOCD",
+       "gives": "DOMESTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doing the Times crossword every day as therapy for obsessive-compulsive disorder.",
+     "walkthrough": "Daily looks like a frequency, but in British English a daily is a cleaner who comes in each day.",
+     "definitionFit": "A daily is a British term for a domestic cleaner, and a domestic is a household servant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1609,53 @@
     "text": "Figures going up and down",
     "enumeration": "5"
    },
-   "solution": "STATS"
+   "solution": "STATS",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "STATS",
+    "definitions": [
+     {
+      "text": "Figures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up and down",
+      "for": "palindrome",
+      "note": "a word that reads identically whichever way you travel through it in a column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "going up and down",
+      "note": "the answer reads the same upward and downward in the grid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATS"
+     ],
+     "reversals": [
+      {
+       "from": "STATS",
+       "to": "STATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Statistics that keep rising and falling.",
+     "walkthrough": "The phrase reads as fluctuating numbers, but it says the entry is the same read either way.",
+     "definitionFit": "Stats is short for statistics, which are numerical figures collected about something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1669,54 @@
     "text": "Wrongly assume a town lacks aspiration",
     "enumeration": "8"
    },
-   "solution": "ARROGATE"
+   "solution": "ARROGATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARROGATE",
+    "definitions": [
+     {
+      "text": "Wrongly assume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacks",
+      "for": "deletion",
+      "note": "to lack something is to be without it, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a town",
+      "gives": "HARROGATE",
+      "note": "Harrogate is a spa town in North Yorkshire"
+     },
+     {
+      "clueFragment": "aspiration",
+      "gives": "H",
+      "note": "the breathy sound of H is called an aspirate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARROGATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A snobbish assumption that a certain town has no ambition.",
+     "walkthrough": "Aspiration reads as ambition, but in phonetics it is the breath of the letter H. Harrogate is a genteel Yorkshire spa town.",
+     "definitionFit": "To arrogate is to claim or take something for oneself without any justification or right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "aspiration"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1730,60 @@
     "text": "A river Earth’s no longer in shock about",
     "enumeration": "6"
    },
-   "solution": "AMAZON"
+   "solution": "AMAZON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AMAZON",
+    "definitions": [
+     {
+      "text": "A river",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer in",
+      "for": "deletion",
+      "note": "something no longer in a place has left it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shock",
+      "gives": "AMAZE",
+      "note": "to amaze is to shock"
+     },
+     {
+      "clueFragment": "Earth",
+      "gives": "E",
+      "note": "E is the abbreviation for Earth"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMAZ",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A river is suddenly gone from the planet, a shocking development.",
+     "walkthrough": "Take the earth letter out of the verb for astound and add the word for concerning.",
+     "definitionFit": "The Amazon is the great South American waterway, so it is one example of a river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1797,75 @@
     "text": "On a river, the fertile area missing a high point",
     "enumeration": "10"
    },
-   "solution": "APOTHEOSIS"
+   "solution": "APOTHEOSIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "APOTHEOSIS",
+    "definitions": [
+     {
+      "text": "high point",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing has gone, so a letter is left out"
+     }
+    ],
+    "linkWords": [
+     "On"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "PO",
+      "note": "the Po is the longest river in Italy"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fertile area",
+      "gives": "OASIS",
+      "note": "an oasis is a fertile spot in a desert"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "THE",
+      "OSIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Out on a river, a lush region lies far from any high ground.",
+     "walkthrough": "The second 'a' is the letter removed from the desert refuge.",
+     "definitionFit": "An apotheosis is the culmination or finest example of something, its peak, so it is a high point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1879,43 @@
     "text": "Staunch supporter of bloomers",
     "enumeration": "4"
    },
-   "solution": "STEM"
+   "solution": "STEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEM",
+    "definitions": [
+     {
+      "text": "Staunch",
+      "at": 0
+     },
+     {
+      "text": "supporter of bloomers",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staunch",
+      "note": "first meaning: to stop a flow"
+     },
+     {
+      "clueFragment": "supporter of bloomers",
+      "note": "second meaning: the stalk holding up a flower"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Staunch looks like an adjective for loyal and bloomers like baggy underwear; a bloomer here is a flowering plant.",
+     "definitionFit": "To stem bleeding is to staunch it, and a plant stalk holds up the blossoms of flowering plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomers"
+    }
+   }
   }
  ]
 }
