@@ -24,6 +24,9 @@
   "date": "2019-03-18",
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,40 @@
    "group": [
     "1-down",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GLOBAL WARMING",
+    "definitions": [
+     {
+      "text": "Trump's denial of this, merely a matter of degree?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's denial of this",
+      "note": "surface reading: something Donald Trump famously dismisses as a hoax"
+     },
+     {
+      "clueFragment": "merely a matter of degree?",
+      "note": "setter's reading: the phenomenon literally is a matter of degrees, a rise in temperature of a degree or two"
+     }
+    ],
+    "explanation": {
+     "surface": "A jibe at Trump shrugging off a contested issue as merely a question of extent.",
+     "walkthrough": "'A matter of degree' usually means a question of how much, but here the degrees are on a thermometer: the planet heating by a degree or so is exactly what climate change is.",
+     "definitionFit": "The worldwide rise in average temperatures is the climate phenomenon that Trump has repeatedly dismissed as a hoax."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "degree"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +91,48 @@
     "text": "Ancient penned \"Leader's done a bunk\"",
     "enumeration": "4"
    },
-   "solution": "AGED"
+   "solution": "AGED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AGED",
+    "definitions": [
+     {
+      "text": "Ancient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader's done a bunk",
+      "for": "deletion",
+      "note": "to do a bunk is to run away, so the front letter has fled and is no longer there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penned",
+      "gives": "CAGED",
+      "note": "penned in, shut up like an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGED"
+     ]
+    },
+    "explanation": {
+     "surface": "An old headline announcing that someone in charge has fled.",
+     "walkthrough": "CAGED loses its first letter C to leave AGED. 'Done a bunk' is British slang for running off without warning.",
+     "definitionFit": "Both words describe something or someone very old, having lived or existed for a long time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leader's"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +146,67 @@
     "text": "Putin's due to be replaced by democratic leader agreed by all",
     "enumeration": "10"
    },
-   "solution": "UNDISPUTED"
+   "solution": "UNDISPUTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNDISPUTED",
+    "definitions": [
+     {
+      "text": "agreed by all",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be replaced",
+      "for": "anagram",
+      "note": "things that are replaced are put back in different positions, so the order changes"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Putin's due",
+      "gives": "PUTINSDUE",
+      "note": "taken as written, the apostrophe dropped"
+     },
+     {
+      "clueFragment": "democratic",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUTINSDUED",
+       "gives": "UNDISPUTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone agrees Putin is overdue to make way for a democrat.",
+     "walkthrough": "The D joins the nine letters of 'Putin's due' before the whole lot is rearranged.",
+     "definitionFit": "Something nobody contests or argues with is accepted universally, which is what being agreed upon by everyone means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "replaced"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +220,50 @@
     "text": "Trump's obsession with work strike",
     "enumeration": "6"
    },
-   "solution": "WALLOP"
+   "solution": "WALLOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WALLOP",
+    "definitions": [
+     {
+      "text": "strike",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's obsession",
+      "gives": "WALL",
+      "note": "Trump's long-promised barrier along the Mexican border"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Trump fixated on a labour stoppage.",
+     "walkthrough": "'Strike' looks like industrial action alongside 'work', but it is a verb meaning hit.",
+     "definitionFit": "To give someone a hard blow or thump is to hit them, a colloquial synonym for the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +277,84 @@
     "text": "Angst about raising of Cyclops by small athletes",
     "enumeration": "8"
    },
-   "solution": "GYMNASTS"
+   "solution": "GYMNASTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "GYMNASTS",
+    "definitions": [
+     {
+      "text": "athletes",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raising",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it so it reads from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about suggests letters moved around into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angst",
+      "gives": "ANGST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "of Cyclops",
+      "gives": "MY",
+      "note": "the setter, Cyclops, would say 'my' for 'of Cyclops'"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "YM",
+      "NAST",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGST",
+       "gives": "GNAST"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MY",
+       "to": "YM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anxiety about the setter being hoisted aloft by tiny sportspeople.",
+     "walkthrough": "Setters often speak of themselves by their pseudonym, so 'of Cyclops' means 'my'. 'About' does double duty in spirit: the jumbled letters also wrap round the upturned pronoun.",
+     "definitionFit": "Gymnasts are sportspeople who perform vaults, floor routines and bars, so they are a kind of athlete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +382,52 @@
     "text": "Elastic nip pants, the making of models?",
     "enumeration": "10"
    },
-   "solution": "PLASTICINE"
+   "solution": "PLASTICINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLASTICINE",
+    "definitions": [
+     {
+      "text": "the making of models?",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are badly arranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elastic nip",
+      "gives": "ELASTICNIP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELASTICNIP",
+       "gives": "PLASTICINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stretchy figure-trimming underwear is what makes fashion models.",
+     "walkthrough": "'Pants' looks like a noun for underwear, but it is the slang adjective for poor. The models are clay figures, not catwalk ones.",
+     "definitionFit": "It is the soft modelling clay children use to make figures, so it is literally the stuff models are made of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +447,56 @@
      }
     ]
    },
-   "solution": "PRORATA"
+   "solution": "PRORATA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRO RATA",
+    "definitions": [
+     {
+      "text": "in proportion",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reason for",
+      "gives": "PRO",
+      "note": "a pro is an argument in favour, as in pros and cons"
+     },
+     {
+      "clueFragment": "arse",
+      "gives": "RAT",
+      "note": "a loose equivalence, perhaps via rat-arsed; both are terms of abuse"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "RAT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude justification for someone being incompetent, with a dangling phrase about proportion.",
+     "walkthrough": "'Reason' looks like the definition, but 'Reason for' is a pro, as in pros and cons. The step from arse to rat is a loose one; both are abusive slang.",
+     "definitionFit": "The Latin phrase means according to the rate, so amounts are shared or calculated proportionally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reason"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +510,66 @@
     "text": "Foot's comical description by Ray, translated as \"Fabulous!\"",
     "enumeration": "9"
    },
-   "solution": "LEGENDARY"
+   "solution": "LEGENDARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LEGENDARY",
+    "definitions": [
+     {
+      "text": "Fabulous",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating turns words into another form, so the letters are rendered differently"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foot's comical description",
+      "gives": "LEGEND",
+      "note": "jokily, a foot is the end of a leg, a leg-end"
+     },
+     {
+      "clueFragment": "Ray",
+      "gives": "RAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGEND",
+      "ARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAY",
+       "gives": "ARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playful account of a foot, rendered into another language as a word of praise.",
+     "walkthrough": "The comical description of a foot is 'leg end', which spells LEGEND.",
+     "definitionFit": "Fabulous originally means belonging to fable, and legendary similarly means famed in legend or story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Foot's"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +583,70 @@
     "text": "Deadbeat takes lid off booze – be gone!",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "IDLER",
+    "definitions": [
+     {
+      "text": "Deadbeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off is wrong or gone bad, so these letters are out of order"
+     },
+     {
+      "text": "be gone",
+      "for": "deletion",
+      "note": "telling something to be gone orders it out, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lid",
+      "gives": "LID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "booze",
+      "gives": "BEER",
+      "note": "a common alcoholic drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDL",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LID",
+       "gives": "IDL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A layabout opens the drink and is told to clear off.",
+     "walkthrough": "'Takes lid off' suggests losing a first letter, but LID itself is jumbled. Then BEER drops BE ('be gone') to leave ER.",
+     "definitionFit": "A deadbeat is a lazy, unproductive person, and an idler is likewise someone who avoids work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +666,65 @@
      }
     ]
    },
-   "solution": "BADWILL"
+   "solution": "BADWILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BAD WILL",
+    "definitions": [
+     {
+      "text": "Hostility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders stand at the front, so only the opening letters are taken"
+     },
+     {
+      "text": "to split",
+      "for": "container",
+      "note": "splitting something opens a gap in it for other letters to fill"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "BALL",
+      "note": "a ball is a formal dance party"
+     },
+     {
+      "clueFragment": "Democrats with intent",
+      "gives": "DWI",
+      "select": "first",
+      "note": "initials of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "DWI",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "Leading Democrats bent on dividing their political party show antagonism.",
+     "walkthrough": "'Party' suggests a political one given the Democrats, but it is a dance, split by the initials.",
+     "definitionFit": "Bad will is the opposite of goodwill: resentment or ill feeling, so it equals hostility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +744,51 @@
      }
     ]
    },
-   "solution": "NOWISER"
+   "solution": "NOWISER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO WISER",
+    "definitions": [
+     {
+      "text": "still in the dark",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ground",
+      "for": "anagram",
+      "note": "ground down, as in a mill, the letters are crushed and reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "owner is",
+      "gives": "OWNERIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OWNERIS",
+       "gives": "NOWISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landowner remains uninformed about what is happening.",
+     "walkthrough": "'Ground owner' reads as a landowner, but 'Ground' is a past participle telling you to grind the next two words.",
+     "definitionFit": "Being none the better informed after hearing something leaves you ignorant, which is the idiom for being kept uninformed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ground"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +808,50 @@
      }
     ]
    },
-   "solution": "LAPUP"
+   "solution": "LAPUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAP UP",
+    "definitions": [
+     {
+      "text": "Delight in",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genital area",
+      "gives": "LAP",
+      "note": "the lap is the front of the lower body when seated"
+     },
+     {
+      "clueFragment": "getting out of bed",
+      "gives": "UP",
+      "note": "to be up is to have risen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Morning pleasure in one's nether regions on rising.",
+     "walkthrough": "Typical Private Eye smut: the cheeky phrase for the groin is just a lap.",
+     "definitionFit": "To lap something up is to accept or enjoy it eagerly, an idiom for taking pleasure in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "genital"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +865,68 @@
     "text": "Corbyn by nature? Pillock covering up awful stigma",
     "enumeration": "10"
    },
-   "solution": "PRAGMATIST"
+   "solution": "PRAGMATIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PRAGMATIST",
+    "definitions": [
+     {
+      "text": "Corbyn by nature?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "awful means dreadful, so the letters are in a terrible mess"
+     },
+     {
+      "text": "covering up",
+      "for": "container",
+      "note": "covering something up wraps it round, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pillock",
+      "gives": "PRAT",
+      "note": "a prat is a fool"
+     },
+     {
+      "clueFragment": "stigma",
+      "gives": "STIGMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRA",
+      "GMATIS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STIGMA",
+       "gives": "GMATIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at the former Labour leader Jeremy Corbyn as a fool trying to hide a disgrace.",
+     "walkthrough": "The question mark flags irony: Corbyn was famous for sticking to principle, so calling him practical by nature is a joke. Pillock is British slang for an idiot.",
+     "definitionFit": "A pragmatist deals with things sensibly and practically rather than by ideology, ironically applied to a famously ideological politician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Corbyn"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +940,56 @@
     "text": "Doom merchant Times – piss off!",
     "enumeration": "9"
    },
-   "solution": "PESSIMIST"
+   "solution": "PESSIMIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PESSIMIST",
+    "definitions": [
+     {
+      "text": "Doom merchant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something sent off goes away disordered, so the letters set off in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "TIMES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "piss",
+      "gives": "PISS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMESPISS",
+       "gives": "PESSIMIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a gloomy Times columnist to get lost.",
+     "walkthrough": "'Piss off' reads as a rude dismissal, but only 'off' is the signal; PISS joins TIMES as fodder.",
+     "definitionFit": "A doom merchant forever predicts the worst, which describes someone who always expects bad outcomes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1003,61 @@
     "text": "Fake news: Cain toyed with clerical position",
     "enumeration": "10"
    },
-   "solution": "INACCURACY"
+   "solution": "INACCURACY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INACCURACY",
+    "definitions": [
+     {
+      "text": "Fake news",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toyed with",
+      "for": "anagram",
+      "note": "playing with something moves it about, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cain",
+      "gives": "CAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clerical position",
+      "gives": "CURACY",
+      "note": "the office of a curate in the church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INAC",
+      "CURACY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAIN",
+       "gives": "INAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A false story claims the biblical Cain fiddled with a church post.",
+     "walkthrough": "Cain looks like the biblical murderer, but he is just four letters to rearrange.",
+     "definitionFit": "Fake news is false or misleading reporting, and an error of fact is an example of such untruth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cain"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1071,65 @@
     "text": "Whip doing U-turn on jerk's approach",
     "enumeration": "6"
    },
-   "solution": "TACTIC"
+   "solution": "TACTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TACTIC",
+    "definitions": [
+     {
+      "text": "approach",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doing U-turn",
+      "for": "reversal",
+      "note": "a U-turn sends you back the way you came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whip",
+      "gives": "CAT",
+      "note": "the cat-o'-nine-tails is a whip"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "CAT",
+       "to": "TAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party whip reverses position on some idiot's policy.",
+     "walkthrough": "'Whip' and 'U-turn' suggest a parliamentary whip changing policy, and 'jerk' an idiot, but the whip is a CAT and the jerk a twitch.",
+     "definitionFit": "A tactic is a planned method or move for achieving something, so it is a way of going about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Whip"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1143,43 @@
     "text": "In public, Ali personally measuring tool in US",
     "enumeration": "8"
    },
-   "solution": "CALIPERS"
+   "solution": "CALIPERS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CALIPERS",
+    "definitions": [
+     {
+      "text": "measuring tool in US",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer sits inside the following words rather than being built from them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public, Ali personally",
+      "gives": "CALIPERS",
+      "note": "runs across the end of the first word, the whole of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Muhammad Ali behaving one way in public and another in private.",
+     "walkthrough": "'In public' reads as a phrase meaning openly, but 'In' is the signal. 'In US' tells you the spelling is American; Britons write callipers.",
+     "definitionFit": "Calipers are a hinged instrument for gauging thickness or diameter, the American spelling of the British callipers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "public"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1193,46 @@
     "text": "Former leader's share of dosh, \"a miracle!\"",
     "enumeration": "6"
    },
-   "solution": "SHAMIR"
+   "solution": "SHAMIR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHAMIR",
+    "definitions": [
+     {
+      "text": "Former leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "share of",
+      "for": "hidden_word",
+      "note": "a share is only a portion, so the answer is a slice of the text that follows"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dosh, \"a miracle",
+      "gives": "SHAMIR",
+      "note": "runs from the end of the first word through the second into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A former head of state exclaiming that getting a cut of the cash is miraculous.",
+     "walkthrough": "Yitzhak SHAMIR was prime minister of Israel in the 1980s and early 1990s. Dosh is British slang for money.",
+     "definitionFit": "Yitzhak Shamir twice served as Israel's prime minister, so he is a past national head of government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "share"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1246,54 @@
     "text": "New look waistband? Capital!",
     "enumeration": "7"
    },
-   "solution": "NAIROBI"
+   "solution": "NAIROBI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAIROBI",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "standard abbreviation for new"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "AIR",
+      "note": "an air is a manner or appearance"
+     },
+     {
+      "clueFragment": "waistband",
+      "gives": "OBI",
+      "note": "an obi is the broad sash worn with a kimono"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AIR",
+      "OBI"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion feature hailing a fresh style of belt as splendid.",
+     "walkthrough": "'Capital!' looks like an old-fashioned exclamation of approval, but it means a capital city: that of Kenya.",
+     "definitionFit": "Nairobi is the seat of government of Kenya, so it is an example of a national capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1307,65 @@
     "text": "Protected species of member getting publicity with Dicky round",
     "enumeration": "9"
    },
-   "solution": "ARMADILLO"
+   "solution": "ARMADILLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMADILLO",
+    "definitions": [
+     {
+      "text": "Protected species",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "getting",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member",
+      "gives": "ARM",
+      "note": "a limb is a member of the body"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an advertisement"
+     },
+     {
+      "clueFragment": "Dicky",
+      "gives": "ILL",
+      "note": "dicky is British slang for unwell or unsound"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "AD",
+      "ILL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An MP courting press coverage alongside someone named Dicky, as if a protected species.",
+     "walkthrough": "'Member' suggests an MP, but it is a limb. 'Protected' is the witty part: the animal is literally armoured.",
+     "definitionFit": "The armadillo's body is covered in bony armour plates, so it is a species that is literally shielded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1379,70 @@
     "text": "Fascist leader's senile hugging was creepy",
     "enumeration": "6"
    },
-   "solution": "OSWALD"
+   "solution": "OSWALD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OSWALD",
+    "definitions": [
+     {
+      "text": "Fascist leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "creepy",
+      "for": "anagram",
+      "note": "something creepy is unsettling, so these letters are disturbed"
+     },
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap the arms around, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senile",
+      "gives": "OLD",
+      "note": "senile means old and failing"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SWA",
+      "LD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WAS",
+       "gives": "SWA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aged fascist leader's embraces were unpleasant.",
+     "walkthrough": "Sir OSWALD Mosley led the British Union of Fascists in the 1930s. 'Creepy' looks like part of the gossip but jumbles 'was'.",
+     "definitionFit": "Oswald Mosley founded and led the British Union of Fascists, Britain's prewar far-right party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "creepy"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1456,59 @@
     "text": "Bloke full of energy gets a snip",
     "enumeration": "5"
    },
-   "solution": "CHEAP"
+   "solution": "CHEAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEAP",
+    "definitions": [
+     {
+      "text": "a snip",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of a thing has it inside, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloke",
+      "gives": "CHAP",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "E",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "An energetic man has a vasectomy.",
+     "walkthrough": "'A snip' hints at the operation, but in British English a snip is also a bargain.",
+     "definitionFit": "A snip is British slang for a bargain, something surprisingly low-priced, so it is used here as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snip"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1522,65 @@
     "text": "A party opening up a tower",
     "enumeration": "6"
    },
-   "solution": "PAGODA"
+   "solution": "PAGODA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PAGODA",
+    "definitions": [
+     {
+      "text": "a tower",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "GAP",
+      "note": "a gap is an opening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGODA"
+     ],
+     "reversals": [
+      {
+       "from": "ADOGAP",
+       "to": "PAGODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebration opening up a tower to the public.",
+     "walkthrough": "'Opening up' reads as a phrasal verb, but 'opening' is a noun and 'up' reverses the whole string.",
+     "definitionFit": "A pagoda is a tiered temple tower found in East Asia, so it is a specific kind of tower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1600,65 @@
      }
     ]
    },
-   "solution": "RATECAP"
+   "solution": "RATECAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RATE CAP",
+    "definitions": [
+     {
+      "text": "Government imposition",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail is the hindmost part, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bastard",
+      "gives": "RAT",
+      "note": "a rat is a contemptible person"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the"
+     },
+     {
+      "clueFragment": "England player",
+      "gives": "CAP",
+      "note": "a cap is a player selected for a national team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "E",
+      "CAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Abusing an England footballer from behind, then a political grievance.",
+     "walkthrough": "A rate cap was the 1980s British government's legal limit on how much local councils could charge in rates, a property tax.",
+     "definitionFit": "Central government imposed rate caps on local councils, restricting how much local property tax they were allowed to levy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1677,72 @@
     "26-down",
     "28-down",
     "6-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "COME INTO VIEW",
+    "definitions": [
+     {
+      "text": "Appear",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "something fixed has been rigged and tampered with, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to have an orgasm",
+      "gives": "COME",
+      "note": "the slang verb for climaxing"
+     },
+     {
+      "clueFragment": "getting elected",
+      "gives": "IN",
+      "note": "an elected candidate is in"
+     },
+     {
+      "clueFragment": "WI vote",
+      "gives": "WIVOTE",
+      "note": "taken as written; the WI is the Women's Institute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COME",
+      "IN",
+      "TOVIEW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WIVOTE",
+       "gives": "TOVIEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate thrilled to win a rigged Women's Institute ballot.",
+     "walkthrough": "The Women's Institute is a staid British organisation of countrywomen, which makes the smut funnier.",
+     "definitionFit": "To come into view is to become visible, an idiom for appearing or emerging into sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1784,68 @@
     "text": "Tits like to hide in retreating rabble",
     "enumeration": "5"
    },
-   "solution": "BOSOM"
+   "solution": "BOSOM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BOSOM",
+    "definitions": [
+     {
+      "text": "Tits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "retreating means moving backwards, so the letters run in reverse"
+     },
+     {
+      "text": "to hide in",
+      "for": "container",
+      "note": "something hiding in a place is concealed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "SO",
+      "note": "as in 'do it like so'"
+     },
+     {
+      "clueFragment": "rabble",
+      "gives": "MOB",
+      "note": "a mob is a disorderly crowd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "SO",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MOB",
+       "to": "BOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Small birds that like to shelter in a crowd heading backwards.",
+     "walkthrough": "'Tits' first suggests the birds, which fits the surface of hiding; in fact it is the slang for breasts.",
+     "definitionFit": "Bosom is a polite word for a woman's chest, and tits is the vulgar slang for the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tits"
+    }
+   }
   },
   {
    "number": 30,
@@ -482,7 +1859,54 @@
     "text": "House's situation changed to declare \"chaos!\"",
     "enumeration": "9"
    },
-   "solution": "RELOCATED"
+   "solution": "RELOCATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELOCATED",
+    "definitions": [
+     {
+      "text": "situation changed",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaos",
+      "for": "anagram",
+      "note": "chaos is utter disorder, so these letters are thrown into confusion"
+     }
+    ],
+    "linkWords": [
+     "House's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to declare",
+      "gives": "TODECLARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TODECLARE",
+       "gives": "RELOCATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Parliament's position shifts so it can proclaim pandemonium.",
+     "walkthrough": "The House sounds like the Commons, but simply hints at moving home.",
+     "definitionFit": "To be relocated is to have been moved to a new place, so its position is different from before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "House's"
+    }
+   }
   }
  ]
 }
