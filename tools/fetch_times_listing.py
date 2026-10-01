@@ -50,7 +50,8 @@ EVERY = datetime.timedelta(days=5)
 
 #: The listing's slug for each series this repo dates from it.
 SLUGS = {"times-cryptic": "times", "times-cryptic-jumbo": "timesjumbo",
-         "sunday-times-cryptic": "sundaytimes", "times-quick-cryptic": "timesquick"}
+         "sunday-times-cryptic": "sundaytimes", "times-quick-cryptic": "timesquick",
+         "mephisto": "mephisto"}
 
 CARD = re.compile(
     r'href="/puzzles/crossword/([a-z0-9-]+?)-no-(\d+)-[a-z0-9]+"'

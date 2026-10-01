@@ -10,11 +10,11 @@ must pass. What is the Times's is here: which series a row is, its setter,
 its print date.
 
 The date is the print date, from print_dates below: the Quick's is its post
-date; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times, the
-TLS on Fridays) are blogged after entries close, so theirs comes from the
-Times's own listing (tools/fetch_times_listing.py), the post's slug, and the
-paper's cadence between them, and stays null where those prove nothing. The
-Club Monthly Special's stays null.
+date; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times and
+its Mephisto, the TLS on Fridays) are blogged after entries close, so theirs
+comes from the Times's own listing (tools/fetch_times_listing.py), the post's
+slug, and the paper's cadence between them, and stays null where those prove
+nothing. The Club Monthly Special's stays null.
 
 The setter of a Quick, Sunday Times or TLS puzzle is the one the post's title
 names, or failing that SETTERS_FROM_COMMENTS; the Times Cryptic and the Jumbo
@@ -24,6 +24,7 @@ import argparse
 import bisect
 import collections
 import datetime
+import html
 import itertools
 import re
 import sys
@@ -65,9 +66,31 @@ SETTERS_FROM_COMMENTS = {
 }
 
 
+#: The Mephisto's setters, each named in two or more post titles ("Mephisto
+#: 3447 – Paul McKenna"). A title's words after the dash are just as often the
+#: blogger's own headline ("Mephisto 3236 – Whoa!"), so only these are read
+#: as a byline; a misspelling the titles carry maps to its setter.
+MEPHISTO_SETTERS = {"Paul McKenna", "Tim Moorey", "Don Manley", "Mike Laws",
+                    "Robert Teuton", "John Grimshaw", "Chris Feetenby"}
+MEPHISTO_TYPOS = {"Tim Morey": "Tim Moorey", "Moorey": "Tim Moorey"}
+MEPHISTO_TITLE = re.compile(r"Mephisto\s+(?:No\.?\s*)?[\d,]+\s*(?:[–—-]\s*)?(?:by\s+)?(.+?)\s*$")
+
+
+def mephisto_setter(rec):
+    """The setter a Mephisto post names, in its title or as the parser read it."""
+    m = MEPHISTO_TITLE.match(html.unescape(rec.get("title") or "").strip())
+    for name in (m and m.group(1), rec.get("setter")):
+        name = MEPHISTO_TYPOS.get(name, name)
+        if name in MEPHISTO_SETTERS:
+            return name
+    return None
+
+
 def setter(rec, series):
     """The setter the post's title names, where the series prints one: a
     parser that read it already has it in the record."""
+    if series == "mephisto":
+        return mephisto_setter(rec)
     named = rec.get("setter") or series in BYLINED and (
         tftt.setter_from_title(rec.get("title"))
         or SETTERS_FROM_COMMENTS.get(rec.get("post_id")))
@@ -77,7 +100,7 @@ def setter(rec, series):
 #: The blog's series labels this files. The Club Monthly Special prints no
 #: date and keeps a null one (series.py datedFromNeighbours).
 LABELS = ("Quick Cryptic", "Daily Cryptic", "Jumbo Cryptic", "Weekend Cryptic",
-          "Monthly Club Special", "TLS Crossword")
+          "Monthly Club Special", "TLS Crossword", "Mephisto")
 
 
 #: The Club Monthly Special ran from 20,000 to 20,278 (November 2023), and the
@@ -106,6 +129,8 @@ def target(row):
         return "timesclub", False
     if label == "TLS Crossword":
         return "tls", False
+    if label == "Mephisto":
+        return "mephisto", False
     raise ValueError(f"post {row['post_id']}: no series for {label!r}")
 
 
@@ -132,7 +157,7 @@ PRINT_DATES = {
 }
 
 PRIZE_DAY = {"times": SATURDAY, "timesjumbo": SATURDAY, "sundaytimes": SUNDAY,
-             "tls": FRIDAY}
+             "tls": FRIDAY, "mephisto": SUNDAY}
 
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}

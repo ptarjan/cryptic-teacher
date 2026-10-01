@@ -143,6 +143,10 @@ Shape:
 }
 ```
 
+A barred grid (the Mephisto) also has `bars`, a string per row with a character per cell:
+`r` for a bar on the cell's right, `b` for one below it, `+` for both, `.` for neither. A blocked grid
+has no `bars`, and its black squares are the cells that no entry covers.
+
 An entry has no stored id. Its id is `"<number>-<direction>"` ("16-across"),
 derived where it is needed (`groups.entry_id`, `entryId` in `app.js`); `group`
 and annotation files name entries by it. A puzzle file that stores an entry

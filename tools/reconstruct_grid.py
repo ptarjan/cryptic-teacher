@@ -668,35 +668,41 @@ def light_cells(grid):
     """The forward function: which cells does each light of this grid cover?
 
     Row-major scan; a cell takes the next number when it starts an across
-    light (two or more cells, a block or the edge to its left) or a down one.
-    Everything in this module exists to invert exactly this, so the numbering
-    is written once, here, and lights_from_grid is a view of it.
+    light (two or more cells, a block, a bar or the edge to its left) or a
+    down one. Everything in this module exists to invert exactly this, so the
+    numbering is written once, here, and lights_from_grid is a view of it.
+
+    A grid is a string per row, a character per cell: "#" a block, any other
+    an open cell, and a barred grid's bars on the cell they follow ("r" a bar
+    on its right, "b" one below it, "+" both, "." neither).
 
     Returns {(number, direction): [(y, x), ...]} in printed order.
     """
     rows, cols = len(grid), len(grid[0])
-    white = [[c == "." for c in row] for row in grid]
+    # Does (y, x) run on into its right / lower neighbour?
+    right = [[x + 1 < cols and row[x] not in "#r+" and row[x + 1] != "#"
+              for x in range(cols)] for row in grid]
+    below = [[y + 1 < rows and grid[y][x] not in "#b+" and grid[y + 1][x] != "#"
+              for x in range(cols)] for y in range(rows)]
     cells, number = {}, 0
     for y in range(rows):
         for x in range(cols):
-            if not white[y][x]:
+            if grid[y][x] == "#":
                 continue
-            across = (x == 0 or not white[y][x - 1]) \
-                and x + 1 < cols and white[y][x + 1]
-            down = (y == 0 or not white[y - 1][x]) \
-                and y + 1 < rows and white[y + 1][x]
+            across = right[y][x] and (x == 0 or not right[y][x - 1])
+            down = below[y][x] and (y == 0 or not below[y - 1][x])
             if not (across or down):
                 continue
             number += 1
             if across:
-                run = []
-                while x + len(run) < cols and white[y][x + len(run)]:
-                    run.append((y, x + len(run)))
+                run = [(y, x)]
+                while right[y][run[-1][1]]:
+                    run.append((y, run[-1][1] + 1))
                 cells[(number, "across")] = run
             if down:
-                run = []
-                while y + len(run) < rows and white[y + len(run)][x]:
-                    run.append((y + len(run), x))
+                run = [(y, x)]
+                while below[run[-1][0]][x]:
+                    run.append((run[-1][0] + 1, x))
                 cells[(number, "down")] = run
     return cells
 
@@ -912,8 +918,16 @@ def blank_numbers(triples, fraction, rng):
             for number, direction, length in triples]
 
 
+def barred(grid):
+    """Is this a barred grid, its lights ended by bars rather than blocks?"""
+    return any(c in "rb+" for row in grid for c in row)
+
+
 def grid_of(puzzle):
-    """The published black squares, as reconstruct() would render them."""
+    """The published grid, as light_cells() reads it: a barred puzzle's
+    `bars` rows, else its black squares as reconstruct() would render them."""
+    if puzzle.get("bars"):
+        return tuple(puzzle["bars"])
     cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     white = [[False] * cols for _ in range(rows)]
     for e in puzzle["entries"]:

@@ -304,10 +304,30 @@ def with_enumeration(clue, enumeration):
     return f"{body} ({enumeration})"
 
 
+#: The Mephisto's count in words, "(11, two words)".
+WORDED = re.compile(r"\(\s*(\d{1,2})\s*,\s*(two|three|four|five|six)\s+words\s*\)\s*$", re.I)
+NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+
+
+def worded(clue, enum):
+    """The clue with a count in words, "(11, two words)", written as the
+    enumeration the blog read off the answer, "(5,6)", when that has the same
+    total and as many words; else the clue as it was."""
+    m = WORDED.search(clue or "")
+    if not (m and enum):
+        return clue
+    parts = enumeration_parts(enum)
+    if (sum(n for n, _ in parts) != int(m.group(1))
+            or len(parts) != NUMBER_WORDS[m.group(2).lower()]):
+        return clue
+    return with_enumeration(clue, enum)
+
+
 def build(rec, row, series, date, setter, typed=None):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
     date, or None where nothing proves one; `typed` is typed_counts()."""
-    entries = [dict(e, clue=clean(e.get("clue"))) for e in tg.answers(rec, row)]
+    entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
+               for e in tg.answers(rec, row)]
     if not tg.answers_fit(row["grid"], {"entries": entries}):
         return None, "answers disagree with the grid"
     lights = rg.light_cells(row["grid"])
@@ -385,7 +405,9 @@ def build(rec, row, series, date, setter, typed=None):
 
     number = row["number"]
     fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())]
-    check = (f"grid rebuilt from the blog's light list ({row['how']}); every "
+    barred = rg.barred(row["grid"])
+    check = (f"{'bars' if barred else 'grid'} rebuilt from the blog's "
+             f"{'numbered answers' if barred else 'light list'} ({row['how']}); every "
              f"answer written into it with each crossing agreeing")
     if row.get("titled"):
         check += (f"; the blog titled it No {row['titled']}, which the sequence "
@@ -405,6 +427,7 @@ def build(rec, row, series, date, setter, typed=None):
         "setter": setter,
         "date": date.isoformat() if date else None,
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
+        "bars": list(row["grid"]) if barred else None,
         "source": {"url": rec["link"]},
         # The blog's own name: "timesforthetimes", "bigdave44".
         "solutions": {"blog": blog_name(series, rec["link"]),
