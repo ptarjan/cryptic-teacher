@@ -98,6 +98,27 @@ T.ATTEMPTS.write_text(
     + json.dumps({"post_id": 5, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
                   "settled": T.settled_digest(fix)}) + "\n")
 print("RETRY_SETTLED", sorted(T.attempted(6000000, {4: fix, 5: {(1, "across"): "COT"}})))
+# A linked answer the post prints whole (the Times and Telegraph parsers keep
+# its letters and count, no word breaks) is split by the grid: the search
+# that left it out fitted no grid for want of its lights. A post holding one
+# that a search tried without splitting it is tried again.
+two = [k for k in cells if k[1] == "across" and len(cells[k]) == 5]
+whole = "".join(e["answer"] for e in rec["entries"] if (e["number"], e["direction"]) in two)
+linked = {"series": "Test", "entries": [e for e in rec["entries"]
+                                        if (e["number"], e["direction"]) not in two],
+          "unsplit": [{"lights": [list(k) for k in two], "answer": whole,
+                       "enumeration": "5,5", "clue": "Linked (5,5)"}]}
+grids, how = T.solve(dict(linked))
+print("LINKED", grids == [TINY], how)
+split = T.split_by(linked, TINY)
+print("LINKED_SPLIT", "unsplit" in split,
+      [e["clue"] for e in T.printed(split) if (e["number"], e["direction"]) in two]
+      == ["Linked (5,5)", f"See {two[0][0]}"])
+T.ATTEMPTS.write_text(
+    json.dumps({"post_id": 6, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
+    + json.dumps({"post_id": 7, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
+                  "linked": True}) + "\n")
+print("RETRY_LINKED", sorted(T.attempted(6000000, linked={6, 7})))
 
 # Answers that refute EVERY candidate are the opposite of an ambiguous grid:
 # the right grid is not in the list, so the light list or an answer is wrong.
@@ -271,6 +292,11 @@ check "a killed run reads back what it already solved" "[111]" "$(field RESUME)"
 check "and appends to it rather than truncating" True "$(field KEPT)"
 check "only --fresh starts the file over" "" "$(field FRESH)"
 check "a failure is not re-ground on the next run, an older search's is" "[1]" "$(field TRIED)"
+check "a linked answer printed whole is split by the grid that fits" \
+      "True unique, linked answer split by the grid" "$(field LINKED)"
+check "the split record carries the clue on its leader and See N on the rest" \
+      "False True" "$(field LINKED_SPLIT)"
+check "a linked post tried without splitting is tried again" "[7]" "$(field RETRY_LINKED)"
 check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
 check "a settled post is retried only when its settled answers change" "[4]" "$(field RETRY_SETTLED)"
 check "answers refuting every candidate does not read as an unsettled tie" \

@@ -443,7 +443,84 @@ def solve_barred(rec, n):
     return [tuple(bg.layout(rec["entries"], placements[0], size=n)[1])], "unique"
 
 
-def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
+#: The most splits of a record's linked answers solve() tries.
+MAX_SPLITS = 16
+
+
+def splits(group):
+    """Every way to share a linked answer's words out among its lights, in
+    order and at word breaks: [[(light, letters), ...], ...]. The words are
+    the printed answer's, or where the parser kept only its letters, the
+    enumeration's counts cut from them."""
+    if group.get("answer_printed"):
+        words = parser.answer_words(group["answer_printed"])
+    else:
+        counts = [int(n) for n in re.findall(r"\d+", group.get("enumeration") or "")]
+        letters = group.get("answer") or ""
+        if sum(counts) != len(letters):
+            return []
+        words, at = [], 0
+        for n in counts:
+            words.append(letters[at:at + n])
+            at += n
+    lights = [tuple(x) for x in group["lights"]]
+    out = []
+    for cuts in itertools.combinations(range(1, len(words)), len(lights) - 1):
+        bounds = (0, *cuts, len(words))
+        out.append([(light, "".join(words[a:b]))
+                    for light, a, b in zip(lights, bounds, bounds[1:])])
+    return out
+
+
+def with_split(rec, choice):
+    """rec with one split of each linked answer the blog left unsplit, and
+    no longer unsplit."""
+    entries = list(rec["entries"])
+    for group, pieces in zip(rec["unsplit"], choice):
+        leader = pieces[0][0][0]
+        for i, ((n, d), letters) in enumerate(pieces):
+            entries.append({"number": n, "direction": d, "answer": letters,
+                            "clue": group.get("clue") if i == 0 else f"See {leader}",
+                            "enumeration": group["enumeration"] if i == 0 else None})
+    return {**{k: v for k, v in rec.items() if k != "unsplit"}, "entries": entries}
+
+
+def split_by(rec, grid):
+    """rec with its linked answers shared out as the grid's lights have them;
+    rec as it is when no split fits the grid."""
+    if not rec.get("unsplit"):
+        return rec
+    for choice in itertools.product(*(splits(g) for g in rec["unsplit"])):
+        whole = with_split(rec, choice)
+        if answers_fit(grid, whole):
+            return whole
+    return rec
+
+
+def solve_linked(rec, limit, max_nodes):
+    """solve() for a record holding a linked answer the post prints whole:
+    every split at a word break is rebuilt, and one split landing on exactly
+    one grid is the split. The chosen split is written into rec's entries,
+    which is what the grid row and the filer read."""
+    choices = list(itertools.islice(
+        itertools.product(*(splits(g) for g in rec["unsplit"])), MAX_SPLITS + 1))
+    if len(choices) > MAX_SPLITS:
+        return [], "rejected: too many ways to split its linked answers"
+    found = []
+    for choice in choices:
+        grids, why = solve(with_split(rec, choice), limit=limit, max_nodes=max_nodes,
+                           thorough=False)
+        if grids:
+            found.append((choice, grids, why))
+    if len(found) != 1 or len(found[0][1]) != 1:
+        return [], ("no grid fits any split of its linked answers" if not found
+                    else f"shortlist: {len(found)} splits of its linked answers fit")
+    choice, grids, why = found[0]
+    rec["entries"] = with_split(rec, choice)["entries"]
+    return grids, why + ", linked answer split by the grid"
+
+
+def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True):
     """(grids, how) for one puzzle. `how` is why it ended where it did.
 
     The answers and the Times' longest line of blocks go into the search, not
@@ -457,8 +534,13 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     lands on one grid: lights at their enumeration's length, a grid symmetric
     about a diagonal or a centre line instead of a half turn, and one light
     freed. A grid with no symmetry at all is never taken: every one this
-    module rebuilt was built round a light the parser had not read.
+    module rebuilt was built round a light the parser had not read. Not
+    `thorough`, the enumeration's lengths are the only second try: the two
+    unsymmetric searches and the freed lights are each a whole budget, which
+    solve_linked() would spend once per split.
     """
+    if rec.get("unsplit"):
+        return solve_linked(rec, limit, max_nodes)
     n = size(rec)
     if rec["series"] in BARRED:
         return solve_barred(rec, n)
@@ -484,9 +566,10 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     # symmetry: an answer blogged at the wrong length under an enumeration
     # that has it right, and a grid symmetric some other way.
     alt = by_enumeration(rec)
-    tries = ([(alt, True, "enumeration length")] if alt else []) + [
-        ((lights, words), False, "mirror symmetry")]
-    if alt:
+    tries = [(alt, True, "enumeration length")] if alt else []
+    if thorough:
+        tries.append(((lights, words), False, "mirror symmetry"))
+    if alt and thorough:
         tries.append((alt, False, "enumeration length, mirror symmetry"))
     for (spec, ws), symmetric, why in tries:
         sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=limit,
@@ -496,6 +579,8 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
         if (len(sols) == 1 and not info["truncated"]
                 and (symmetric or mirrored(sols[0]))):
             return list(sols), "unique, " + why
+    if not thorough:
+        return [], "no grid"
     grid, why = one_light_wrong(lights, words, n, black_run(rec))
     if grid:
         return [grid], "unique, " + why
@@ -537,9 +622,11 @@ def settled_digest(fix):
     return hashlib.sha256(json.dumps(lights).encode()).hexdigest()[:12]
 
 
-def attempted(max_nodes, settled=None, attempts=None):
+def attempted(max_nodes, settled=None, attempts=None, linked=frozenset()):
     """post_id of every puzzle this search already tried, at this budget or more,
-    with the settled answers it has now.
+    with the settled answers it has now. A post in `linked` holds a linked
+    answer it prints whole, and counts as tried only by a search that split it
+    (an attempt marked "linked").
 
     Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
     `truncated` puzzle gets another go, and that has to still work. Nor is one
@@ -555,7 +642,8 @@ def attempted(max_nodes, settled=None, attempts=None):
             except ValueError:
                 continue       # the last line of a killed run, half written
             if (a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes
-                    and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))):
+                    and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))
+                    and (a["post_id"] not in linked or a.get("linked"))):
                 ids.add(a["post_id"])
     return ids
 
@@ -660,7 +748,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     # A changed settled answer is a reason to try its puzzle again; an
     # unchanged one is not.
     done = set() if (fresh or not write) else (
-        solved_already(out_path) | attempted(max_nodes, settled, attempts))
+        solved_already(out_path) | attempted(
+            max_nodes, settled, attempts, {r["post_id"] for r in recs if r.get("unsplit")}))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} puzzle(s) already tried, per {attempts.name}")
@@ -674,6 +763,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
         rec, made = amend(rec, settled)
+        linked = bool(rec.get("unsplit"))
         grids, why = solver(rec, max_nodes=max_nodes)
         fixes = []
         if len(grids) == 1:
@@ -688,10 +778,12 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
             key = prefix if why.startswith(prefix) else key
         how[key] += 1
         if log:
-            log.write(json.dumps({"post_id": rec["post_id"], "how": why,
-                                  "max_nodes": max_nodes,
-                                  "search": SEARCH,
-                                  "settled": settled_digest(settled.get(rec["post_id"]))}) + "\n")
+            attempt = {"post_id": rec["post_id"], "how": why,
+                       "max_nodes": max_nodes, "search": SEARCH,
+                       "settled": settled_digest(settled.get(rec["post_id"]))}
+            if linked:
+                attempt["linked"] = True
+            log.write(json.dumps(attempt) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
