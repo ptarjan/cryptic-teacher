@@ -135,8 +135,20 @@ def stopped_names(text):
     return {"STOPPED: " + (m.group(1) if m else "?")}
 
 
+def failed_command(command):
+    """The command whose status a Bash call returned: the last of a `;` or `|` chain.
+
+    The commands before it ran and delivered their output, so naming the call by
+    its first word blames a `cat` for the `ls` after it. Quoted strings and heredoc
+    bodies are blanked first, so a `;` inside `python3 -c "..."` splits nothing."""
+    body = re.sub(r"<<-?\s*['\"]?(\w+)['\"]?.*?\n\1\b", "", command, flags=re.DOTALL)
+    body = re.sub(r"'[^']*'|\"(?:[^\"\\]|\\.)*\"", "''", body)
+    return ([seg.strip() for seg in re.split(r"[;|\n]", body) if seg.strip()] or [""])[-1]
+
+
 def tool_error_kind(tool, command, text):
-    """Name a failed tool call, or None when it is annotate_check reporting errors."""
+    """Name a failed tool call, or None when nothing was wasted: annotate_check
+    reporting errors, or an `ls` answering that a file is not there yet."""
     if "annotate_check" in command and text.startswith("Exit code"):
         return None
     for needle, kind in REFUSED.items():
@@ -153,8 +165,12 @@ def tool_error_kind(tool, command, text):
     if "String to replace not found" in text:
         return "Edit whose old_string is not in the file"
     if text.startswith("Exit code"):
-        word = (command.split() or ["?"])[0]
-        word = "python3 -c" if command.startswith("python3 -c") else word
+        last = failed_command(command)
+        if (re.match(r"ls\b", last) and "ls:" in text and all(
+                "No such file or directory" in ln for ln in text.splitlines() if ln.startswith("ls:"))):
+            return None     # an existence probe answered "not yet": no call wasted
+        word = (last.split() or ["?"])[0]
+        word = "python3 -c" if last.startswith("python3 -c") else word
         return f"{tool} `{word}` exited non-zero"
     return f"{tool}: " + " ".join(text.split()[:5])
 

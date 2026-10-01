@@ -50,6 +50,21 @@ check(a.tool_error_kind("Bash", "python3 tools/annotate_check.py x", "Exit code 
 check(a.tool_error_kind("Bash", "cat <<X", "Contains brace with quote character"),
       a.REFUSED["brace with quote"], "a refused heredoc is classified")
 
+probe = ('{\n "id": "toughie-3670"\n}\n'
+         "ls: cannot access 'tools/_ann_toughie-3670.json': No such file or directory")
+check(a.tool_error_kind("Bash", "cat tools/_puzzle_toughie-3670.json; ls tools/_ann_toughie-3670.json",
+                        "Exit code 2\n" + probe), None,
+      "the opening read with an ls of the not-yet-written _ann file wastes nothing")
+check(a.tool_error_kind("Bash", "cat a.json; ls b.json", "Exit code 2\nls: b.json: Permission denied"),
+      "Bash `ls` exited non-zero", "an ls that fails for another reason is still a failure, named ls")
+check(a.tool_error_kind("Bash", "cat STYLE.md | head -80; python3 -c \"import json; x=1\"",
+                        "Exit code 1\nTraceback"),
+      "Bash `python3 -c` exited non-zero", "a chain is named by its last command, not split inside quotes")
+check(a.failed_command("python3 - <<'EOF'\nimport a; b\nEOF"), "python3 -",
+      "a heredoc body splits nothing")
+check(a.tool_error_kind("Bash", "cat nope.json", "Exit code 1\ncat: nope.json: No such file"),
+      "Bash `cat` exited non-zero", "a cat that really failed still counts")
+
 item = {"key": "rule:x", "share": 0.40, "title": "", "detail": ""}
 check([w for _, w in a.decide([item], [], {})], ["new"], "an untold finding is news")
 check(a.decide([dict(item, share=0.05)], [], {}), [], "a small one is not")
