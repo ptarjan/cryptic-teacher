@@ -24,6 +24,9 @@
   "date": "2024-12-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,51 @@
     "text": "I sang a lot, drunkenly longing for home",
     "enumeration": "9"
    },
-   "solution": "NOSTALGIA"
+   "solution": "NOSTALGIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSTALGIA",
+    "definitions": [
+     {
+      "text": "longing for home",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunkenly",
+      "for": "anagram",
+      "note": "someone drunk lurches about unsteadily, so the letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I sang a lot",
+      "gives": "ISANGALOT",
+      "note": "the nine letters are used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISANGALOT",
+       "gives": "NOSTALGIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A homesick singer belts out songs while tipsy, pining for home.",
+     "walkthrough": "The surface itself is about homesickness, so the definition sits naturally at the end while the first four words are the letters to rearrange into NOSTALGIA.",
+     "definitionFit": "Nostalgia originally meant homesickness, a wistful yearning for one's native place, before broadening to sentimental yearning for the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunkenly"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +98,74 @@
     "text": "Emperor, one stumbling round capital in Rome",
     "enumeration": "4"
    },
-   "solution": "NERO"
+   "solution": "NERO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NERO",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stumbling",
+      "for": "anagram",
+      "note": "a stumbling walker falls out of step, so the letters fall out of their usual order"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the large letter at the start of a word, so only the leading letter is kept"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to surround it, so one piece encircles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rome",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the city's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "R",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "NEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pictures a Roman emperor staggering around the capital city.",
+     "walkthrough": "The letters of ONE are rearranged to NEO and split around the R that heads Rome, giving NE-R-O.",
+     "definitionFit": "Nero was the Roman ruler infamous for allegedly fiddling while the city burned in AD 64."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +179,57 @@
     "text": "Line under pole for bird",
     "enumeration": "7"
    },
-   "solution": "SPARROW"
+   "solution": "SPARROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARROW",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, a piece placed under another is written after it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pole",
+      "gives": "SPAR",
+      "note": "a spar is a pole, as used for a mast or boom"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "ROW",
+      "note": "a row is a line of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "Suggests a wire or line strung beneath a perch, a spot for birds.",
+     "walkthrough": "The clue reads Line first, but because this is a down entry the line sits under the pole, so the pole comes first.",
+     "definitionFit": "The sparrow is a small, common brown songbird found in gardens and towns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Line"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +243,43 @@
     "text": "Boxer seen in America, lippy",
     "enumeration": "3"
    },
-   "solution": "ALI"
+   "solution": "ALI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALI",
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "what is seen inside a phrase is visible within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America, lippy",
+      "gives": "ALI",
+      "note": "runs across the end of the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A mouthy boxer making waves in America.",
+     "walkthrough": "Muhammad Ali, famously talkative and an American, makes the surface apt: he was known for being lippy.",
+     "definitionFit": "Muhammad Ali was the heavyweight champion fighter, renowned for his boasting and quick wit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lippy"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +293,45 @@
     "text": "Risk romp, did you say?",
     "enumeration": "6"
    },
-   "solution": "GAMBLE"
+   "solution": "GAMBLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GAMBLE",
+    "definitions": [
+     {
+      "text": "Risk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what someone said points to how a word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romp",
+      "gives": "GAMBLE",
+      "soundsLike": "GAMBOL",
+      "note": "to gambol is to skip about playfully, a romp"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone checking whether they heard the suggestion of a risky romp.",
+     "walkthrough": "GAMBOL and GAMBLE are pronounced the same, so the playful romp leads by sound to the word meaning risk.",
+     "definitionFit": "To gamble is to take a chance, staking something on an uncertain outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "romp"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +345,68 @@
     "text": "A role people took, originally flat",
     "enumeration": "9"
    },
-   "solution": "APARTMENT"
+   "solution": "APARTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "APARTMENT",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what something was originally is how it began, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "a part is a role in a play"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "took",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PART",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's account of a part that people played in the beginning, delivered flatly.",
+     "walkthrough": "'Flat' at the end looks like an adjective about how the role was performed, but it is the noun meaning a home.",
+     "definitionFit": "An apartment is the American term for a self-contained set of rooms, which Britons call a flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +420,41 @@
     "text": "Meal and drink",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEA",
+    "definitions": [
+     {
+      "text": "Meal",
+      "at": 0
+     },
+     {
+      "text": "drink",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meal",
+      "note": "first meaning: an evening or afternoon meal"
+     },
+     {
+      "clueFragment": "drink",
+      "note": "second meaning: a hot beverage brewed from leaves"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain 'tea' can mean the evening meal as well as the brew, so both words lead to the same short answer.",
+     "definitionFit": "The word names both the infused leaf beverage and, in British usage, a light afternoon or early evening repast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +468,50 @@
     "text": "Pulse that’s here resembling ordinary bean, first of all",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "THROB",
+    "definitions": [
+     {
+      "text": "Pulse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "taking the first of each of several words keeps only their leading letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that’s here resembling ordinary bean",
+      "gives": "THROB",
+      "select": "first",
+      "note": "the leading letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THROB"
+     ]
+    },
+    "explanation": {
+     "surface": "Pulses are beans and lentils, so this reads as a market note that the pulse here is like an ordinary bean.",
+     "walkthrough": "'Pulse' misleads toward the legume sense, which the surface supports with bean; the answer is the heartbeat sense.",
+     "definitionFit": "A throb is a strong regular beat, the same rhythmic pumping felt as a heartbeat or pulse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pulse"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +525,62 @@
     "text": "Dabbler, a friend pure at heart",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "Dabbler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of something is its centre, so only the middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     },
+     {
+      "clueFragment": "pure",
+      "gives": "UR",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MATE",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a well-meaning hobbyist whose intentions are innocent.",
+     "walkthrough": "An amateur originally meant one who does something for love, so a friend pure at heart suits the word nicely.",
+     "definitionFit": "A dabbler takes up an activity casually, without professional skill or payment, which is what a non-professional enthusiast does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pure"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +594,55 @@
     "text": "Pragmatic attitude is found in kingdom",
     "enumeration": "7"
    },
-   "solution": "REALISM"
+   "solution": "REALISM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REALISM",
+    "definitions": [
+     {
+      "text": "Pragmatic attitude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found inside another thing sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kingdom",
+      "gives": "REALM",
+      "note": "a realm is a kingdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A political observation that practical thinking prevails in some kingdom.",
+     "walkthrough": "The small word 'is' reads as a verb but is itself the piece placed inside.",
+     "definitionFit": "Realism is the practical outlook of accepting situations as they are rather than as one would wish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +656,44 @@
     "text": "Vessel located in cafeteria or tavern",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AORTA",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "located in",
+      "for": "hidden_word",
+      "note": "what is located within a phrase is sitting among its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cafeteria or tavern",
+      "gives": "AORTA",
+      "note": "spans the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hunting for a jug or cup left at a café or pub.",
+     "walkthrough": "'Vessel' suggests a container for drink, fitting cafés and taverns, but it is a blood vessel.",
+     "definitionFit": "The aorta is the body's main artery, carrying blood out of the heart, and arteries are blood vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +713,59 @@
      }
     ]
    },
-   "solution": "TRESTLETABLE"
+   "solution": "TRESTLETABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRESTLE TABLE",
+    "definitions": [
+     {
+      "text": "supportive platform",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "built",
+      "for": "anagram",
+      "note": "to build is to put materials together into a new structure, so the letters are constructed afresh"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Battler",
+      "gives": "BATTLER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "steel",
+      "gives": "STEEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BATTLERSTEEL",
+       "gives": "TRESTLETABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter constructs a sturdy stage out of steel.",
+     "walkthrough": "Both words go into the mix together; 'with' simply joins them.",
+     "definitionFit": "A trestle table is a board laid across trestles, freestanding frames that hold it up, giving a flat working surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Battler"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +785,47 @@
      }
     ]
    },
-   "solution": "SQUAREOFF"
+   "solution": "SQUAREOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUARE OFF",
+    "definitions": [
+     {
+      "text": "prepare to fight",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "gives": "SQUARE",
+      "note": "square means fair or just, as in a square deal"
+     },
+     {
+      "clueFragment": "not on",
+      "gives": "OFF",
+      "note": "off is the opposite of on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARE",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "An outraged cry that something is unacceptable, followed by readiness to brawl.",
+     "walkthrough": "'Just not on' reads as one indignant phrase; split it into Just and not on.",
+     "definitionFit": "To square off is to take up a fighting stance facing an opponent, ready for combat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +839,54 @@
     "text": "Just terrible after fifty",
     "enumeration": "6"
    },
-   "solution": "LAWFUL"
+   "solution": "LAWFUL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAWFUL",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another is written following it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "terrible",
+      "gives": "AWFUL",
+      "note": "awful means terrible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AWFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that things simply go downhill once you pass fifty.",
+     "walkthrough": "'Just' looks like the adverb meaning simply, but it is the adjective meaning fair or legal.",
+     "definitionFit": "Lawful and just both describe what is permitted and right in the eyes of the law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +900,42 @@
     "text": "Confidential information at the bottom?",
     "enumeration": "7"
    },
-   "solution": "LOWDOWN"
+   "solution": "LOWDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOWDOWN",
+    "definitions": [
+     {
+      "text": "Confidential information",
+      "at": 0
+     },
+     {
+      "text": "at the bottom?",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confidential information",
+      "note": "first meaning: inside facts or the real story"
+     },
+     {
+      "clueFragment": "at the bottom?",
+      "note": "second meaning, read literally: placed far beneath"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second meaning splits the answer into two words, low and down, which together describe something at the bottom.",
+     "definitionFit": "Getting the lowdown is slang for receiving the private, insider facts about something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +949,42 @@
     "text": "Associate part of the body with hand or foot?",
     "enumeration": "6"
    },
-   "solution": "MEMBER"
+   "solution": "MEMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEMBER",
+    "definitions": [
+     {
+      "text": "Associate",
+      "at": 0
+     },
+     {
+      "text": "part of the body with hand or foot?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Associate",
+      "note": "first meaning: someone belonging to a club or group"
+     },
+     {
+      "clueFragment": "part of the body with hand or foot?",
+      "note": "second meaning: a limb, an arm or leg"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Associate' could be a verb, but it is the noun for a person who belongs. The second sense is an old word for a limb, which ends in a hand or foot.",
+     "definitionFit": "The word means both a person belonging to an organisation and, archaically, a limb such as an arm or leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Associate"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +998,55 @@
     "text": "4 down holding series of shelves — might this secure it ?",
     "enumeration": "7"
    },
-   "solution": "BRACKET"
+   "solution": "BRACKET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRACKET",
+    "definitions": [
+     {
+      "text": "might this secure it",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to grip it inside, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4 down",
+      "gives": "BET",
+      "note": "the answer to 4 down means risk, and a bet is a risk or wager"
+     },
+     {
+      "clueFragment": "series of shelves",
+      "gives": "RACK",
+      "note": "a rack is a framework of shelves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RACK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A DIY question: would this hardware keep a set of shelves fixed?",
+     "walkthrough": "The answer to 4 down is GAMBLE, which must be converted to the synonym BET before it can hold the rack. The 'it' of the definition is the shelving.",
+     "definitionFit": "A bracket is a right-angled support fixed to a wall to hold up a shelf, keeping the shelving firmly in place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1060,68 @@
     "text": "Count flies besieging a bird",
     "enumeration": "6"
    },
-   "solution": "TOUCAN"
+   "solution": "TOUCAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOUCAN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flies",
+      "for": "anagram",
+      "note": "something that flies is sent scattering, so the letters scatter into a new order"
+     },
+     {
+      "text": "besieging",
+      "for": "container",
+      "note": "a besieging army surrounds its target, so one piece encircles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Count",
+      "gives": "COUNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOUC",
+      "A",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COUNT",
+       "gives": "TOUCN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman rushes off to lay siege to a bird.",
+     "walkthrough": "'Count' looks like a nobleman or a verb, and 'flies' like his travel, but the word is fodder and 'flies' scatters it.",
+     "definitionFit": "The toucan is a tropical American bird with a huge, brightly coloured beak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "flies"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1141,65 @@
      }
     ]
    },
-   "solution": "WATERBOATMAN"
+   "solution": "WATERBOATMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATER BOATMAN",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confusion jumbles things up, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ant",
+      "gives": "ANT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wombat",
+      "gives": "WOMBAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANTWOMBATARE",
+       "gives": "WATERBOATMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bug, an ant and a wombat are all baffled together, a comic animal scene.",
+     "walkthrough": "'Bug' looks like one item in a list of creatures, but it is the definition; the comma separates it from the anagram fodder.",
+     "definitionFit": "The water boatman is an aquatic true bug that swims on its back using oar-like legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1213,47 @@
     "text": "Bird, an enormous individual",
     "enumeration": "5"
    },
-   "solution": "TITAN"
+   "solution": "TITAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITAN",
+    "definitions": [
+     {
+      "text": "an enormous individual",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a huge bird, as if spotting an ostrich.",
+     "walkthrough": "'Bird' looks like the definition, but it supplies the opening piece; 'an' does double duty in the surface and the answer.",
+     "definitionFit": "The Titans were giant deities of Greek myth, so a titan is a person of great size or stature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1267,49 @@
     "text": "Cut odd bits in cargo up",
     "enumeration": "4"
    },
-   "solution": "CROP"
+   "solution": "CROP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CROP",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd bits in",
+      "for": "letter_selection",
+      "note": "the odd bits are those in odd-numbered positions, first, third, fifth and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cargo up",
+      "gives": "CROP",
+      "select": "alternate",
+      "note": "letters one, three, five and seven of the two words run together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROP"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipping order: trim the stray items in a cargo that is going up.",
+     "walkthrough": "'up' looks like a direction for a down clue to reverse something, but it simply supplies its letters to the run.",
+     "definitionFit": "To crop is to trim or clip, as with hair or a photograph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1323,47 @@
     "text": "Top off cook",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "off",
+      "gives": "OUT",
+      "note": "a light that is off is out"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "DO",
+      "note": "to do food is to cook it, as in do the potatoes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a command to sack the head chef.",
+     "walkthrough": "'Top' as a verb means surpass, not the noun for a lid or a peak.",
+     "definitionFit": "To top a performance is to better it, the same as surpassing or beating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1377,41 @@
     "text": "Dry biscuit, fabulous thing",
     "enumeration": "7"
    },
-   "solution": "CRACKER"
+   "solution": "CRACKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACKER",
+    "definitions": [
+     {
+      "text": "Dry biscuit",
+      "at": 0
+     },
+     {
+      "text": "fabulous thing",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dry biscuit",
+      "note": "first meaning: a thin crisp savoury wafer"
+     },
+     {
+      "clueFragment": "fabulous thing",
+      "note": "second meaning: British slang for something excellent"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British slang a cracker is an outstanding example, as in 'a cracker of a goal'.",
+     "definitionFit": "The word covers both an unsweetened crisp wafer and, informally, anything first-rate or impressive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1425,49 @@
     "text": "Amazing card, exceptional, the tops!",
     "enumeration": "3"
    },
-   "solution": "ACE"
+   "solution": "ACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ACE",
+    "definitions": [
+     {
+      "text": "Amazing card, exceptional, the tops!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the tops",
+      "for": "letter_selection",
+      "note": "the tops of words in a down entry are their leading letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amazing card, exceptional",
+      "gives": "ACE",
+      "select": "first",
+      "note": "the leading letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiastic cry over a superb playing card.",
+     "walkthrough": "Every word also defines: the answer is a card, and means amazing, exceptional and the tops, while the first three words' initials spell it.",
+     "definitionFit": "An ace is the highest playing card, and as slang the word means excellent or first-rate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1481,43 @@
     "text": "Sister welcomed by brethren, unsisterly",
     "enumeration": "3"
    },
-   "solution": "NUN"
+   "solution": "NUN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NUN",
+    "definitions": [
+     {
+      "text": "Sister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "hidden_word",
+      "note": "something welcomed is taken in, so it lies within the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brethren, unsisterly",
+      "gives": "NUN",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A sister is received by the brethren, though they treat her coldly.",
+     "walkthrough": "Sister is the religious title, matching the religious brethren of the surface.",
+     "definitionFit": "A nun is addressed as Sister, being a woman in a religious order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unsisterly"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1531,66 @@
     "text": "Lean beyond wobbly fringe, extremity",
     "enumeration": "9"
    },
-   "solution": "FINGERTIP"
+   "solution": "FINGERTIP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FINGERTIP",
+    "definitions": [
+     {
+      "text": "extremity",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbly",
+      "for": "anagram",
+      "note": "something wobbly is unsteady, so the letters shift into another order"
+     },
+     {
+      "text": "beyond",
+      "for": "charade",
+      "note": "what lies beyond comes further along, so it is written afterwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fringe",
+      "gives": "FRINGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lean",
+      "gives": "TIP",
+      "note": "to tip is to lean or tilt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINGER",
+      "TIP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FRINGE",
+       "gives": "FINGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leans past a wobbling edge, at the very limit.",
+     "walkthrough": "'Fringe' and 'extremity' both suggest an edge, tempting a solver to look for a border word.",
+     "definitionFit": "A fingertip is the very end of a finger, and extremity means the furthest point of a limb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lean"
+    }
+   }
   }
  ]
 }
