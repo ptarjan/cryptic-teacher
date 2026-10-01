@@ -123,6 +123,15 @@ tools/test_file_trove_puzzles.sh             files three real Trove articles: th
                                              the OCR misread held back by name, a second run
                                              touching nothing, and the clues alone filing a
                                              puzzle whose picture is missing
+tools/trove_clue_ocr.py                      repairs the clues Trove's OCR loses (a number read
+                                             as junk, a broken bracket, "(S)") from RapidOCR's
+                                             reading of the page's clue columns, cached in
+                                             ~/.cache/trove-clues; file_trove_puzzles.py
+                                             applies it, anchored on text both readings share
+tools/fixtures/trove-repair/                 the 14 July 1967 cryptic, whose OCR glued 6-down
+                                             onto 5-down, and RapidOCR's reading of its clue
+                                             columns: the repair test_file_trove_puzzles.sh
+                                             checks
 tools/fixtures/trove/                        three Canberra Times articles as fetch_trove.py
                                              caches them (meta.json, ocr.txt, grid.jpg), the
                                              fixtures test_file_trove_puzzles.sh reads

@@ -75,6 +75,26 @@ cells = lambda p: sorted((e['number'], e['direction'], e['position']['x'], e['po
 print(b['source']['gridOrigin'], cells(a) == cells(b))")
 check "no grid image: filed from the clues, rebuilt" "reconstructed True" "$got"
 
+# A lost clue repaired from RapidOCR's reading of the clue columns: in the
+# 14 July 1967 cryptic Trove read 5-down's "(6, 4)" as "(6,\n4> , ," and
+# glued 6-down onto it. The reading (tools/fixtures/trove-repair/cache-clues,
+# cached as tools/trove_clue_ocr.py leaves it) gives 6-down back and 5-down
+# its length, so the clues agree with the picture and the puzzle files;
+# without the reading it waits.
+cp -r "$REPO/tools/fixtures/trove-repair" "$tmp/repair"
+mkdir "$tmp/out3"
+(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" >/dev/null)
+got=$(python3 -c "
+import json
+p = json.load(open('$tmp/out3/canberra-670714.json'))
+e = {(x['number'], x['direction']): x['clue'] for x in p['entries']}
+print(p['source']['gridOrigin'], e[(5, 'down')]['text'], '|', e[(5, 'down')].get('enumeration'),
+      '|', e[(6, 'down')]['text'], e[(6, 'down')]['enumeration'])")
+check "a lost clue repaired from the clue columns" "published Under which possibly neither Irving Berlin nor Edward German ever sat | None | Rumour that s hardly about the bishop. 11" "$got"
+rm -r "$tmp/repair/cache-clues" "$tmp/repair/cache/filed.jsonl"
+got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c 'pending: no grid')
+check "without the clue columns it waits" "1" "$got"
+
 # Slips are repaired only where the light decides: "(S)" over a five is 5,
 # over an eight 8, and over a six it is a disagreement.
 got=$(cd "$REPO/tools" && python3 -c "

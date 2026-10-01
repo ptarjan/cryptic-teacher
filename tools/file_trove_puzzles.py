@@ -12,6 +12,10 @@ Only the clues are mandatory:
   - The clues come from ocr.txt: the ACROSS and DOWN lists, wrapped lines
     rejoined (a word the paper hyphenated over a line end is rejoined when
     the joined word is in tools/data/cmudict.txt.gz and its halves are not).
+  - A clue the OCR lost or garbled (a number read as junk, a bracket broken,
+    "(S)") is repaired from RapidOCR's reading of the page's clue columns
+    when tools/trove_clue_ocr.py has cached them beside the cache
+    (~/.cache/trove-clues), anchored on text both readings share.
   - The grid comes from grid.jpg (tools/trove_grid.py), and is used only when
     it is 180-degree symmetric and every clue the OCR kept agrees with it:
     each clue number names one of its lights, and each enumeration counts that
@@ -56,6 +60,7 @@ sys.path.insert(0, str(TOOLS))
 import enumeration
 import reconstruct_grid as rg
 import series as series_meta
+import trove_clue_ocr
 import trove_grid
 import trove_solution_ocr
 from fetch_puzzle import puzzle_path, write_puzzle_file
@@ -67,7 +72,8 @@ CACHE = Path(os.path.expanduser("~/.cache/trove"))
 TOOL = "tools/file_trove_puzzles.py"
 ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
 #: The code whose change makes every article worth reading again.
-CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py"]
+CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py",
+        TOOLS / "trove_clue_ocr.py"]
 #: How hard reconstruct_grid may try before a clue list counts as not pinning
 #: its grid down: its own cap, ~10s on a 15x15.
 REBUILD_NODES = rg.DEFAULT_MAX_NODES
@@ -189,15 +195,17 @@ def sections(ocr):
     (a, a_rest), (d, d_rest) = marks["across"], marks["down"]
     end = len(lines)
     for i in range(d + 1, len(lines)):
-        if re.match(r"\s*(solution|yesterday|today's solution)", lines[i], re.IGNORECASE):
+        if re.match(r"\s*[(.]*\s*(solution|yesterday|today's solution)", lines[i], re.IGNORECASE):
             end = i
             break
     # What follows the heading on its line is a clue only when it starts
     # with a digit: "ACROSS II" is a rule the OCR read, not clue 11.
     def rest(text):
         return text if re.match(r"\s*\d", text) else ""
-    return {"across": rejoin([rest(a_rest)] + lines[a + 1:d]),
-            "down": rejoin([rest(d_rest)] + lines[d + 1:end])}
+    # The paper's "(Solution Monday)" after the last clue is not its text.
+    down = re.sub(r"(?<=[).])\s*\(?\.?\s*solution\b[^()]{0,25}\)?[.*]?\s*$", "",
+                  rejoin([rest(d_rest)] + lines[d + 1:end]), flags=re.IGNORECASE)
+    return {"across": rejoin([rest(a_rest)] + lines[a + 1:d]), "down": down}
 
 
 def readings(token):
@@ -350,7 +358,8 @@ def match(parsed, grid):
             if clue["enums"] and len(fits) != 1:
                 return None, (f"{lid}: the enumeration reads as {sorted(clue['enums'])}, "
                               f"the grid holds {total} letters")
-            out[lid] = (clue["text"], fits[0] if fits else None, group if len(group) > 1 else None)
+            enum = fits[0] if fits and not clue.get("count_only") else None
+            out[lid] = (clue["text"], enum, group if len(group) > 1 else None)
     return out, None
 
 
@@ -493,6 +502,12 @@ def code_hash():
     return h.hexdigest()[:12]
 
 
+def clue_zones(d):
+    """Where tools/trove_clue_ocr.py caches the clue columns of the articles
+    in d's cache: ~/.cache/trove-clues beside ~/.cache/trove."""
+    return d.parent.parent / f"{d.parent.name}-clues"
+
+
 def input_hash(d, code):
     """The article's files by size and modification time, and the code: a
     rerun stats every article but reads only those whose hash moved."""
@@ -501,6 +516,7 @@ def input_hash(d, code):
         p = d / name
         st = p.stat() if p.exists() else None
         h.update((f"{name}:{st.st_size}:{st.st_mtime_ns}" if st else f"{name}:-").encode())
+    h.update(" ".join(p.name for p in trove_clue_ocr.zone_images(d.name, clue_zones(d))).encode())
     return h.hexdigest()[:16]
 
 
@@ -522,7 +538,10 @@ def consider(d, taken):
         parsed[direction], why = clues(text)
         if why:
             return {"refused": f"{direction} clues do not parse: {why}"}, None
+    parsed, repairs = trove_clue_ocr.repaired(d, parsed, clue_zones(d))
     verdict = {"clues": sum(len(v) for v in parsed.values())}
+    if repairs:
+        verdict["clueRepairs"] = repairs
     grid, laid, how, image = None, None, None, None
     if (d / "grid.jpg").exists():
         g, why = trove_grid.read_grid(d / "grid.jpg")
