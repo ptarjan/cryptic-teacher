@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,47 @@
     "text": "Social climber finished jump",
     "enumeration": "7"
    },
-   "solution": "UPSTART"
+   "solution": "UPSTART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSTART",
+    "definitions": [
+     {
+      "text": "Social climber",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "time is up when it is finished"
+     },
+     {
+      "clueFragment": "jump",
+      "gives": "START",
+      "note": "to start is to jump in surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "START"
+     ]
+    },
+    "explanation": {
+     "surface": "A pushy newcomer has finished making a leap up the social ladder.",
+     "walkthrough": "'Finished' reads as an adjective for the climber, but it supplies the opening two letters; 'jump' is the startled kind, not a leap.",
+     "definitionFit": "An upstart is someone who has risen suddenly in status and behaves with unearned self-importance, much like an ambitious social striver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jump"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +89,62 @@
     "text": "Free meal, though not starter, dining on success",
     "enumeration": "7"
    },
-   "solution": "UNHITCH"
+   "solution": "UNHITCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "UNHITCH",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "though not starter",
+      "for": "deletion",
+      "note": "leaving out the starter means the opening letter is dropped"
+     },
+     {
+      "text": "dining on",
+      "for": "container",
+      "note": "someone dining takes food in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "UNCH",
+      "note": "lunch is a meal, here without its first letter"
+     },
+     {
+      "clueFragment": "success",
+      "gives": "HIT",
+      "note": "a hit is a success"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "HIT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A complimentary lunch, minus the first course, eaten to celebrate a triumph.",
+     "walkthrough": "'Free meal' looks like one idea, but 'Free' is the definition and the meal is lunch; 'starter' plays on the first course.",
+     "definitionFit": "To unhitch a horse or trailer is to unfasten and release it, so the verb means liberate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +164,68 @@
      }
     ]
    },
-   "solution": "SPIRALSTAIRCASE"
+   "solution": "SPIRALSTAIRCASE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SPIRAL STAIRCASE",
+    "definitions": [
+     {
+      "text": "Corkscrewing flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "catching something means taking it in, so one piece is held inside the others"
+     },
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "a struggling thing writhes and twists, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scariest",
+      "gives": "SCARIEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pals",
+      "gives": "PALS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "breath",
+      "gives": "AIR",
+      "note": "a breath is a gulp of air"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCARIESTPALSAIR",
+       "gives": "SPIRALSTAIRCASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing a twisting set of steps leaves frightened friends gasping.",
+     "walkthrough": "'Flight' suggests an aircraft looping in the sky, but it is a flight of stairs; the breath goes in with the other letters before the mix.",
+     "definitionFit": "A set of steps winding round a central post twists like a corkscrew, and a flight is a series of stairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +239,42 @@
     "text": "Biblical book plays a part",
     "enumeration": "4"
    },
-   "solution": "ACTS"
+   "solution": "ACTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACTS",
+    "definitions": [
+     {
+      "text": "Biblical book",
+      "at": 0
+     },
+     {
+      "text": "plays a part",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biblical book",
+      "note": "first meaning: the New Testament book of the Apostles"
+     },
+     {
+      "clueFragment": "plays a part",
+      "note": "second meaning: performs a role on stage"
+     }
+    ],
+    "explanation": {
+     "surface": "A scripture text that takes on a role.",
+     "walkthrough": "The book's full title is the Acts of the Apostles, usually shortened.",
+     "definitionFit": "It is the fifth New Testament book, and the verb means performs a role in a drama or film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +288,65 @@
     "text": "Wobbly child given low grade in test",
     "enumeration": "7"
    },
-   "solution": "TOTTERY"
+   "solution": "TOTTERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOTTERY",
+    "definitions": [
+     {
+      "text": "Wobbly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting within its outer letters"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "low grade",
+      "gives": "E",
+      "note": "E is a low mark on an exam"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRY",
+      "note": "to try something is to test it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "T",
+      "E",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "An unsteady youngster gets a poor mark in an exam.",
+     "walkthrough": "'Wobbly' fits the toddler in the scene but is the definition; the poor mark sits inside the test.",
+     "definitionFit": "Someone who totters walks unsteadily, so the adjective means shaky and liable to topple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wobbly"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +360,61 @@
     "text": "Manage some poetry in heartless ode",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter of the word is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting inside another means it is placed within the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some poetry",
+      "gives": "VERSE",
+      "note": "verse is a portion of poetry"
+     },
+     {
+      "clueFragment": "ode",
+      "gives": "OE",
+      "note": "the word with its middle letter D taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERSE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone handles a little poetry within a lacklustre, soulless ode.",
+     "walkthrough": "The two remaining letters of the poem wrap around the poetry; 'heartless' sounds like criticism but just drops a middle letter.",
+     "definitionFit": "To oversee a project is to supervise or run it, a straightforward synonym for managing people or work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +428,62 @@
     "text": "Taxing figure ours to manipulate",
     "enumeration": "7"
    },
-   "solution": "ONEROUS"
+   "solution": "ONEROUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ONEROUS",
+    "definitions": [
+     {
+      "text": "Taxing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to manipulate",
+      "for": "anagram",
+      "note": "manipulating something means handling and reshaping it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "ONE",
+      "note": "one is a numeral"
+     },
+     {
+      "clueFragment": "ours",
+      "gives": "OURS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "ROUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OURS",
+       "gives": "ROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tax figure that belongs to us has been fiddled.",
+     "walkthrough": "'Taxing figure' suggests a tax bill or a taxman, but 'Taxing' alone is the definition and 'figure' is a number.",
+     "definitionFit": "An onerous duty is burdensome and demanding, a synonym for a task that strains one's effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Taxing"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +497,43 @@
     "text": "Reverberation of sound in the chorus",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Reverberation of sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "being in a phrase means sitting among its letters, spanning the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the chorus",
+      "gives": "ECHO",
+      "note": "letters running from the end of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Choir music resonating around a hall.",
+     "walkthrough": "The answer runs across the gap between the article and the noun.",
+     "definitionFit": "An echo is a reflected sound wave heard again after a delay, which is what reverberation means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chorus"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +553,70 @@
      }
     ]
    },
-   "solution": "SHOOTINGGALLERY"
+   "solution": "SHOOTINGGALLERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SHOOTING GALLERY",
+    "definitions": [
+     {
+      "text": "Fair game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stern of",
+      "for": "letter_selection",
+      "note": "the stern is the back of a ship, so only the final letter is kept"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "running",
+      "gives": "SHOOTING",
+      "note": "shooting rapids is running them at speed"
+     },
+     {
+      "clueFragment": "clipper",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the sailing ship"
+     },
+     {
+      "clueFragment": "old warship",
+      "gives": "GALLEY",
+      "note": "a galley was an oared warship of ancient times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOOTING",
+      "GALLE",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A legitimate target sails fast with its rear end ramming an ancient vessel.",
+     "walkthrough": "'Fair game' sounds like the idiom for a legitimate target, but it means a game at a funfair.",
+     "definitionFit": "At a funfair, a shooting gallery is a stall where players fire at targets to win prizes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fair"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +630,68 @@
     "text": "Permanent representative in the end learnt to adapt",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "Permanent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "to adapt",
+      "for": "anagram",
+      "note": "adapting means altering form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "representative",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "learnt",
+      "gives": "LEARNT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TERNAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNT",
+       "gives": "TERNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A permanent representative, such as an envoy at the UN, eventually learnt to adjust.",
+     "walkthrough": "'Permanent representative' looks like one diplomatic title, but only the first word is the definition.",
+     "definitionFit": "Eternal means lasting forever, without end, so it is a close synonym for everlasting or unchanging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "representative"
+    }
+   }
   },
   {
    "number": 9,
@@ -198,7 +719,51 @@
      }
     ]
    },
-   "solution": "HEIRTOTHETHRONE"
+   "solution": "HEIRTOTHETHRONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEIR TO THE THRONE",
+    "definitions": [
+     {
+      "text": "Prince say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on manoeuvres",
+      "for": "anagram",
+      "note": "troops on manoeuvres move about and change position, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hitherto there on",
+      "gives": "HITHERTOTHEREON",
+      "note": "the fifteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITHERTOTHEREON",
+       "gives": "HEIRTOTHETHRONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal prince has, until now, been out on military exercises.",
+     "walkthrough": "'Say' marks the prince as an example: not every heir is a prince, and not every prince is first in line.",
+     "definitionFit": "A prince, such as the eldest son of a monarch, is typically next in line to succeed and wear the crown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvres"
+    }
+   }
   },
   {
    "number": 10,
@@ -212,7 +777,45 @@
     "text": "Asian secure, we hear?",
     "enumeration": "4"
    },
-   "solution": "THAI"
+   "solution": "THAI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THAI",
+    "definitions": [
+     {
+      "text": "Asian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the spelling may differ from what is heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secure",
+      "gives": "THAI",
+      "soundsLike": "TIE",
+      "note": "to tie something is to secure or fasten it"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether someone from Asia is safe or settled.",
+     "walkthrough": "The silent H makes the spelling far from the sound of fastening a knot.",
+     "definitionFit": "A Thai person comes from Thailand, a country in Southeast Asia, so the nationality is one example of Asian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 11,
@@ -226,7 +829,50 @@
     "text": "Number working in joint",
     "enumeration": "5"
    },
-   "solution": "TENON"
+   "solution": "TENON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENON",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A count of something functioning inside a carpentry joint.",
+     "walkthrough": "'In' looks like a container instruction but only links wordplay to definition.",
+     "definitionFit": "A tenon is the projecting tongue in a mortise-and-tenon woodworking connection, so it names part of that carpentry fitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 12,
@@ -240,7 +886,49 @@
     "text": "Surprise: is it funny? Oddly not",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly not",
+      "for": "letter_selection",
+      "note": "rejecting the odd-numbered positions leaves only the even-numbered characters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is it funny",
+      "gives": "STUN",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a surprise is amusing, and finds it strangely is not.",
+     "walkthrough": "'Oddly not' reads as a comment on the joke; it keeps the even letters.",
+     "definitionFit": "To stun someone is to astonish or shock them, a strong synonym for the verb surprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +942,41 @@
     "text": "Film with boxer, 4 Down",
     "enumeration": "5"
    },
-   "solution": "ROCKY"
+   "solution": "ROCKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKY",
+    "definitions": [
+     {
+      "text": "Film with boxer",
+      "at": 0
+     },
+     {
+      "text": "4 Down",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film with boxer",
+      "note": "first meaning: the 1976 Sylvester Stallone movie about a fighter"
+     },
+     {
+      "clueFragment": "4 Down",
+      "note": "second meaning: the cross-referenced answer, meaning unsteady"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The cross-reference points to the answer at 4 Down, which means wobbly; that is the second meaning.",
+     "definitionFit": "It is the title of the Stallone boxing picture and also an adjective for shaky or unstable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +990,47 @@
     "text": "Range, part of the morning?",
     "enumeration": "5"
    },
-   "solution": "AMBIT"
+   "solution": "AMBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMBIT",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the morning",
+      "gives": "AM",
+      "note": "AM marks the hours before noon"
+     },
+     {
+      "clueFragment": "part of",
+      "gives": "BIT",
+      "note": "a bit is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a span of time belongs to the early hours.",
+     "walkthrough": "'Part of' reads as a hidden-word signal, but it supplies a word meaning piece; the order is morning then part.",
+     "definitionFit": "An ambit is the scope or extent of something, such as authority, which matches range as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1044,49 @@
     "text": "That chap’s a politician no more!",
     "enumeration": "7"
    },
-   "solution": "HISTORY"
+   "solution": "HISTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HISTORY",
+    "definitions": [
+     {
+      "text": "no more",
+      "at": 25,
+      "note": "the answer is a noun used in the idiom 'is history', meaning finished"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That chap’s",
+      "gives": "HIS",
+      "note": "belonging to that man"
+     },
+     {
+      "clueFragment": "a politician",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIS",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares that a certain man has quit politics for good.",
+     "walkthrough": "The apostrophe-s doubles as possessive for the wordplay and as 'is' in the idiom 'he is history'.",
+     "definitionFit": "Saying something is history means it is over and gone, an informal idiom for whatever has ended or ceased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chap’s"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1100,51 @@
     "text": "Creative menials wasted",
     "enumeration": "7"
    },
-   "solution": "SEMINAL"
+   "solution": "SEMINAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMINAL",
+    "definitions": [
+     {
+      "text": "Creative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "something wasted is ruined or in a mess, so these letters fall into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "menials",
+      "gives": "MENIALS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENIALS",
+       "gives": "SEMINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inventive servants have been squandered or have got drunk.",
+     "walkthrough": "'Wasted' can mean drunk or squandered; either way it scrambles the letters.",
+     "definitionFit": "A seminal work is original and highly influential, sowing ideas for later development, close to inventive or generative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1164,58 @@
      }
     ]
    },
-   "solution": "CRANKUP"
+   "solution": "CRANKUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRANK UP",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being inside something means placed within its outer letters"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "RANK",
+      "note": "rank means foul or rotten"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "CUP",
+      "note": "a cup is a knockout tournament, like the FA Cup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RANK",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor beginning to a contest or tournament.",
+     "walkthrough": "The rotten word sits between the first letter and the last two of the trophy contest.",
+     "definitionFit": "To crank up an engine is to get it going, originally by turning a handle, so the phrasal verb means start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "competition"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1229,51 @@
     "text": "Tilt over hole in part of plane",
     "enumeration": "7"
    },
-   "solution": "COCKPIT"
+   "solution": "COCKPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKPIT",
+    "definitions": [
+     {
+      "text": "part of plane",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "over",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tilt",
+      "gives": "COCK",
+      "note": "to cock the head is to tilt it"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "PIT",
+      "note": "a pit is a hole in the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft banks over a gap in its structure.",
+     "walkthrough": "In a down clue 'over' means placed above, so the tilt comes first.",
+     "definitionFit": "The cockpit is the compartment at the front of an aircraft where the pilot sits and flies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tilt"
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1287,57 @@
     "text": "Glad whelp finally let out",
     "enumeration": "7"
    },
-   "solution": "PLEASED"
+   "solution": "PLEASED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLEASED",
+    "definitions": [
+     {
+      "text": "Glad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the close, so only the last letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whelp",
+      "gives": "P",
+      "select": "last",
+      "note": "the final letter of the word for a puppy"
+     },
+     {
+      "clueFragment": "let out",
+      "gives": "LEASED",
+      "note": "to let out a property is to rent or lease it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEASED"
+     ]
+    },
+    "explanation": {
+     "surface": "A happy puppy is at last allowed outside.",
+     "walkthrough": "'Let out' suggests releasing the dog, but it means rented, as a landlord lets out a flat.",
+     "definitionFit": "Pleased means happy or satisfied, a direct synonym for glad as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1351,55 @@
     "text": "Go-getter importing goods set off",
     "enumeration": "7"
    },
-   "solution": "TRIGGER"
+   "solution": "TRIGGER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIGGER",
+    "definitions": [
+     {
+      "text": "set off",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "to import is to bring something inside, so one piece is taken in by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go-getter",
+      "gives": "TRIER",
+      "note": "a trier is someone who keeps making an effort"
+     },
+     {
+      "clueFragment": "goods",
+      "gives": "GG",
+      "note": "G is short for good, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "GG",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambitious trader brings in merchandise and then sets off.",
+     "walkthrough": "'Goods' looks like merchandise, but it is the plural of the abbreviation G for good.",
+     "definitionFit": "To trigger an event or an alarm is to cause it to begin, the same as setting it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goods"
+    }
+   }
   },
   {
    "number": 19,
@@ -372,7 +1413,43 @@
     "text": "Great movie",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TITANIC",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     },
+     {
+      "text": "movie",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "note": "first meaning: enormous, gigantic"
+     },
+     {
+      "clueFragment": "movie",
+      "note": "second meaning: the 1997 James Cameron film about the doomed liner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Great movie' reads as praise, but the two words are separate meanings.",
+     "definitionFit": "The adjective means colossal, from the giant Titans of myth, and it titles the blockbuster about the sinking ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 20,
@@ -386,7 +1463,51 @@
     "text": "Merge in after blending process",
     "enumeration": "7"
    },
-   "solution": "REGIMEN"
+   "solution": "REGIMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGIMEN",
+    "definitions": [
+     {
+      "text": "process",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after blending",
+      "for": "anagram",
+      "note": "blending mixes things up, so these letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Merge in",
+      "gives": "MERGEIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MERGEIN",
+       "gives": "REGIMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to fold ingredients together once a mixing step is done.",
+     "walkthrough": "The kitchen-style surface hides that 'process' is the definition, a noun.",
+     "definitionFit": "A regimen is a prescribed course or system of treatment or exercise, a structured procedure followed over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Merge"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1521,43 @@
     "text": "Constantly criticise swimmer",
     "enumeration": "4"
    },
-   "solution": "CARP"
+   "solution": "CARP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARP",
+    "definitions": [
+     {
+      "text": "Constantly criticise",
+      "at": 0
+     },
+     {
+      "text": "swimmer",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Constantly criticise",
+      "note": "first meaning: to complain or find fault persistently"
+     },
+     {
+      "clueFragment": "swimmer",
+      "note": "second meaning: a freshwater fish"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone nags an athlete in the pool.",
+     "walkthrough": "'Swimmer' suggests a person; in crosswords it is often a fish.",
+     "definitionFit": "The verb means nag or grumble endlessly, and the noun names a common freshwater fish kept in ponds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 22,
@@ -414,7 +1571,56 @@
     "text": "For example, like beef tea, my brews",
     "enumeration": "5"
    },
-   "solution": "MEATY"
+   "solution": "MEATY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEATY",
+    "definitions": [
+     {
+      "text": "For example, like beef",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brews",
+      "for": "anagram",
+      "note": "brewing stirs and mixes ingredients together, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAMY",
+       "gives": "MEATY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes their homemade drink as tasting like beef tea, a traditional British hot drink.",
+     "walkthrough": "Beef tea is a hot broth made by stewing beef; the definition borrows 'beef' while the wordplay uses the next two words.",
+     "definitionFit": "Beef is a flesh food, so something beef-flavoured or substantial is described as having the quality of animal flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1634,42 @@
     "text": "Standard stone",
     "enumeration": "4"
    },
-   "solution": "FLAG"
+   "solution": "FLAG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLAG",
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     },
+     {
+      "text": "stone",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "note": "first meaning: a banner carried as an emblem"
+     },
+     {
+      "clueFragment": "stone",
+      "note": "second meaning: a flat paving slab"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Standard' reads as normal or usual, but here it is a banner; the second sense is the paving slab, a flagstone.",
+     "definitionFit": "A standard is a military banner, and a flagstone is a broad flat paving piece of rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 24,
@@ -442,7 +1683,44 @@
     "text": "Some butcher’s hooks on your bike!",
     "enumeration": "4"
    },
-   "solution": "SHOO"
+   "solution": "SHOO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHOO",
+    "definitions": [
+     {
+      "text": "on your bike!",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a phrase is only a portion of its letters, found inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "butcher’s hooks",
+      "gives": "SHOO",
+      "note": "letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A butcher's meat hooks are hanging from a bicycle.",
+     "walkthrough": "'On your bike!' is British slang for 'go away!'; butcher's hook is also rhyming slang for a look, a deliberate distraction.",
+     "definitionFit": "Both are dismissive British interjections telling someone to clear off and leave at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bike"
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1734,48 @@
     "text": "Evidence of battle wound, terrifying cut",
     "enumeration": "4"
    },
-   "solution": "SCAR"
+   "solution": "SCAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCAR",
+    "definitions": [
+     {
+      "text": "Evidence of battle wound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so its last letter is lopped off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrifying",
+      "gives": "SCARY",
+      "note": "something terrifying is frightening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A frightening gash left by combat.",
+     "walkthrough": "'Cut' sits naturally with a wound, but it trims the adjective rather than describing an injury.",
+     "definitionFit": "A scar is the mark left on skin after an injury heals, physical proof of past harm in combat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 26,
@@ -480,7 +1799,45 @@
      }
     ]
    },
-   "solution": "PEACHESANDCREAM"
+   "solution": "PEACHESANDCREAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEACHES AND CREAM",
+    "definitions": [
+     {
+      "text": "Smooth",
+      "at": 0
+     },
+     {
+      "text": "lovely sweet",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smooth",
+      "note": "first meaning: a clear soft complexion, or a situation going without a hitch"
+     },
+     {
+      "clueFragment": "lovely sweet",
+      "note": "second meaning: a delicious dessert of fruit with dairy topping"
+     }
+    ],
+    "explanation": {
+     "surface": "A dessert praised for being silky and delicious.",
+     "walkthrough": "The phrase is used of a fair, flawless complexion or of things going very easily, as well as literally naming a pudding; 'sweet' is the British word for dessert.",
+     "definitionFit": "The phrase describes flawless skin or effortless progress, and it literally names a classic fruit pudding served with dairy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -494,7 +1851,65 @@
     "text": "Purchase English house: informed about that",
     "enumeration": "7"
    },
-   "solution": "TOEHOLD"
+   "solution": "TOEHOLD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOEHOLD",
+    "definitions": [
+     {
+      "text": "Purchase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "going about something means surrounding it on both sides"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "informed",
+      "gives": "TOLD",
+      "note": "to be told is to be informed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "E",
+      "HO",
+      "LD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone buying an English home has been briefed on the matter.",
+     "walkthrough": "'Purchase' reads as buying, but it means grip, as in getting purchase on a rock.",
+     "definitionFit": "A toehold is a small foothold or grip, and purchase means a firm hold or leverage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Purchase"
+    }
+   }
   },
   {
    "number": 28,
@@ -514,7 +1929,44 @@
      }
     ]
    },
-   "solution": "CARRYON"
+   "solution": "CARRYON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARRY-ON",
+    "definitions": [
+     {
+      "text": "Continue",
+      "at": 0,
+      "note": "the answer as two words is a verb; the hyphenated noun fits the second meaning"
+     },
+     {
+      "text": "song and dance",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continue",
+      "note": "first meaning: to keep going"
+     },
+     {
+      "clueFragment": "song and dance",
+      "note": "second meaning: a fuss or commotion"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to keep performing music and movement.",
+     "walkthrough": "'Song and dance' suggests a show, but it is an idiom for a needless fuss.",
+     "definitionFit": "To carry on is to persist, while a carry-on is a British term for an overblown fuss or commotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dance"
+    }
+   }
   }
  ]
 }
