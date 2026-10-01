@@ -5810,20 +5810,27 @@
   // [what the chip says, why]. The label used to be the series key itself,
   // which worked only while every key happened to read as a word — and then
   // "indysunday" arrived. Keep it a label; keys are storage, not English.
+  // The why says what the series is known for, never a count or a puzzle
+  // number: we hold part of each archive. tools/app_tables.py refuses one.
   const SERIES_BADGE = {
-    cryptic: ["guardian", `The Guardian's daily cryptic, Monday to Saturday. The
-      setters take turns and the difficulty varies a lot, so one day is a gentle
-      Vulcan and the next is a Paul full of puns.`],
-    quiptic: ["quiptic", `Guardian Quiptic — their crossword for beginners, published
-      Mondays. The same kinds of clue as the daily cryptic, but gentler: plainer
-      definitions and indicators that are easier to spot.`],
-    everyman: ["everyman", `Everyman — the Observer's Sunday cryptic. The gentlest
-      of the big-paper cryptics and strictly fair: the definition is always at one
-      end, and the wordplay always leads to the answer once you see how it works.`],
+    cryptic: ["guardian", `The Guardian's daily cryptic, Monday to Saturday, known for its
+      named setters and their personalities: one day a gentle Vulcan, the next a
+      Paul full of puns or a fiendish Enigmatist. It is the most liberal of the
+      big dailies: themes, ninas and jokes are common, and the rules bend for a
+      good surface, so learning a setter's habits pays off.`],
+    quiptic: ["quiptic", `Guardian Quiptic — the Guardian's puzzle for newcomers,
+      published Mondays. The same kinds of clue as the daily cryptic, without the
+      tricks: plain definitions, familiar words, standard indicators that are easy
+      to spot, and few of the daily's themes or in-jokes.`],
+    everyman: ["everyman", `Everyman — the Observer's Sunday cryptic, set under one
+      house name. Known for consistency and strict fairness: classic clues with
+      the definition at one end, smooth surfaces and no obscure words, which makes
+      it a favourite step up from beginner puzzles to the dailies.`],
     independent: ["independent", `The Independent's daily cryptic, Monday to
-      Saturday. About as hard as the Guardian, with a regular team of setters —
-      Phi, Quince, Eccles, Hippogryph — so if you like one, their habits are worth
-      learning.`],
+      Saturday, known for its adventurous streak: themes, ninas and hidden
+      messages turn up often. About as hard as the Guardian, with a regular team
+      of named setters — Phi, Quince, Eccles, Hippogryph — so if you like one,
+      their habits are worth learning.`],
     cyclops: ["cyclops", `Cyclops — Private Eye's cryptic, every two weeks, and the
       only one here that swears. The wordplay is strictly fair, but the clues read
       as jokes about whoever is in the news, so solving leans on the last two
@@ -5834,44 +5841,54 @@
       start if the Guardian's daily still feels impossible.`],
     globeandmail: ["globe & mail", `The Globe and Mail's daily cryptic — reprinted
       from the Times of London's smaller 13x13 puzzles rather than its 15x15 ones:
-      neat clues, no obscure words, and a solve you can finish over a coffee.`],
-    times: ["times", `The Times's daily cryptic, Monday to Saturday. Setters
-      are not named, and its style is the one other papers are measured against:
-      exact definitions, no obscure words, nothing unfair. The Times doesn't put
-      its grid or answers online, so the grid here is rebuilt from the write-up
-      on the “Times for the Times” blog, and the answers are that blog's.`],
-    timesquick: ["times quick", `The Times Quick Cryptic, weekdays: a 13x13 grid, short
-      clues and everyday words, made as a way in to the daily. Grid rebuilt and
-      answers taken from the “Times for the Times” blog. The newest ones are
-      listed under the Globe and Mail, which reprints it.`],
+      neat, precise clues in the Times style, no obscure words, and a solve you
+      can finish over a coffee.`],
+    times: ["times", `The Times's daily cryptic, Monday to Saturday: the benchmark
+      other papers are measured against. Setters are anonymous and the house
+      style is strict and precise: exact definitions, sound grammar, nothing in
+      poor taste and nothing unfair, with the odd less familiar word that the
+      wordplay always pins down. The Times doesn't put its grid or answers
+      online, so the grid here is rebuilt from the write-up on the “Times for the
+      Times” blog, and the answers are that blog's.`],
+    timesquick: ["times quick", `The Times Quick Cryptic, weekdays: a 13x13 grid made
+      as a way in to the daily, with short clues, everyday words and the daily's
+      standards of fairness. Grid rebuilt and answers taken from the “Times for
+      the Times” blog. The newest ones are listed under the Globe and Mail, which
+      reprints it.`],
     timesjumbo: ["times jumbo", `The Times Jumbo Cryptic, Saturdays: a big 23x23 grid
-      with about sixty clues in the daily's style, for a long weekend solve. Grid
-      rebuilt and answers taken from the “Times for the Times” blog.`],
+      with about sixty clues in the daily's precise style, for a long weekend
+      solve and a test of stamina. Grid rebuilt and answers
+      taken from the “Times for the Times” blog.`],
     sundaytimes: ["sunday times", `The Sunday Times cryptic — a separate paper with
-      its own weekly puzzle numbers, now near 5,200. Setters are named, and the clues are a
-      little more playful than the daily's. Grid rebuilt and answers taken from
-      the “Times for the Times” blog.`],
+      its own weekly puzzle. Unlike the daily its setters are named, and the
+      clues are a little more playful and inventive while keeping the Times's
+      fairness. Grid rebuilt and answers taken from the “Times for the Times”
+      blog.`],
     ftcryptic: ["FT", `The Financial Times cryptic, Monday to Saturday, from a
-      stable of named setters — Io, Mudd, Julius, Jason — and pitched about
-      where the Guardian is. The FT doesn't put its grid online, so the grid
-      here is rebuilt from the fifteensquared blog's write-up, and the answers
-      are that blog's.`],
+      stable of named setters — Io, Mudd, Julius, Jason — many of them familiar
+      from other papers under other names (Mudd is the Guardian's Paul). Pitched
+      about where the Guardian is, with witty surfaces and the odd financial
+      theme. The FT doesn't put its grid online, so the grid here is rebuilt from
+      the fifteensquared blog's write-up, and the answers are that blog's.`],
     telegraph: ["telegraph", `The Daily Telegraph's back-page cryptic, Monday to
-      Saturday: smooth, approachable clues, and setters are not named. The
-      Telegraph keeps its archive behind a paywall, so the grid here is rebuilt
-      from the write-up on the Big Dave blog, and the answers are that blog's.`],
+      Saturday, known for smooth, approachable clues and a steady difficulty:
+      setters are not named, and many solvers learn on it. The Telegraph keeps
+      its archive behind a paywall, so the grid here is rebuilt from the
+      write-up on the Big Dave blog, and the answers are that blog's.`],
     toughie: ["toughie", `The Telegraph Toughie, weekdays: the paper's harder
-      puzzle, from named setters such as Elgar and Dada, with more obscure words
-      and bolder wordplay. Grid rebuilt and answers taken from the Big Dave blog.`],
-    sundaytel: ["sunday telegraph", `The Sunday Telegraph cryptic — a separate paper
-      with its own weekly puzzle numbers, about as hard as the daily. Grid rebuilt
-      and answers taken from the Big Dave blog.`],
+      puzzle, from named setters such as Elgar and Dada, with more obscure words,
+      bolder wordplay and long, intricate clues; Elgar's are among the hardest in
+      any daily paper. Grid rebuilt and answers taken from the Big Dave blog.`],
+    sundaytel: ["sunday telegraph", `The Sunday Telegraph cryptic — a separate paper's
+      weekly puzzle in the back-pager's smooth, approachable style, and about as
+      hard. Grid rebuilt and answers taken from the Big Dave blog.`],
     sundaytough: ["sunday toughie", `The Sunday Telegraph's Toughie, weekly: a
-      harder Sunday puzzle from a small team of named setters. Grid rebuilt
-      and answers taken from the Big Dave blog.`],
+      harder Sunday puzzle from a small team of named setters, with the
+      weekday Toughie's bolder wordplay. Grid rebuilt and answers taken from the
+      Big Dave blog.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
-      weekly puzzle numbers: now near 1,900, while the daily's are past 12,400. The same
-      setters as the daily, and about as hard.`],
+      weekly numbering: the daily's setters and its adventurous style, themes and
+      ninas included, and about as hard.`],
     book: ["book", `Crosswords out of scanned printed books: out-of-print
       collections, so the puzzles are years older than today's. Each
       puzzle is named by its book and its place in it — Penguin book 5 No 18 —
