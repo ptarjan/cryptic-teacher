@@ -241,6 +241,10 @@ ACQUIRED_BY = {
         "channel": "wayback",
         "what": "a Wayback copy of the FT's printable crossword PDF that "
                 "media.ft.com no longer serves, answers from fifteensquared"},
+    "tools/listener_puzzles.py": {
+        "channel": "publisher",
+        "what": "the Listener Team's archive PDFs on listenercrossword.com: clues, "
+                "the grid's bars and the solution read from the vector pages"},
     "tools/indy_puzzles.py": {
         "channel": "blog",
         "what": "a fifteensquared write-up of an Independent puzzle older than "
@@ -283,6 +287,7 @@ ACQUISITION_BY_SOURCE = {
     # The FT's printable PDFs of 2006-2012, before fifteensquared printed clues.
     ("ftcryptic", "media.ft.com"): ("tools/ft_pdf_puzzles.py",
                                     "tools/ft_pdf_puzzles.py --wayback"),
+    ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
