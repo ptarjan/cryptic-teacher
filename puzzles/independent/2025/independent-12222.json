@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Pass judgement on several words, appropriately structured",
     "enumeration": "8"
    },
-   "solution": "SENTENCE"
+   "solution": "SENTENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SENTENCE",
+    "definitions": [
+     {
+      "text": "Pass judgement on",
+      "at": 0
+     },
+     {
+      "text": "several words, appropriately structured",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass judgement on",
+      "note": "first meaning: what a judge does to a convicted person, a verb"
+     },
+     {
+      "clueFragment": "several words, appropriately structured",
+      "note": "second meaning: a grammatical unit of words, a noun"
+     }
+    ],
+    "explanation": {
+     "surface": "A critic delivering a verdict on a carefully built phrase.",
+     "walkthrough": "The clue reads as one action, judging some words, but it splits into a verb meaning and a noun meaning of the same word.",
+     "definitionFit": "A judge hands down a penalty to a convict, and grammar calls a well-formed group of words carrying a complete thought by the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +92,45 @@
      }
     ]
    },
-   "solution": "REDRAG"
+   "solution": "REDRAG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RED RAG",
+    "definitions": [
+     {
+      "text": "Pull again",
+      "at": 0,
+      "note": "read as one verb, RE-DRAG; the enumeration splits the phrase noun"
+     },
+     {
+      "text": "an inflammatory action",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pull again",
+      "note": "first meaning: to haul once more, taken as RE- plus a verb for pull"
+     },
+     {
+      "clueFragment": "an inflammatory action",
+      "note": "second meaning: something sure to provoke anger, as a red cloth to a bull"
+     }
+    ],
+    "explanation": {
+     "surface": "Tugging something a second time turns out to be provocative.",
+     "walkthrough": "The 3,3 enumeration hides the first sense: run together, the letters are re-drag, to pull again.",
+     "definitionFit": "A red rag supposedly enrages a bull, so the idiom names anything bound to provoke fury or a heated reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pull"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +144,50 @@
     "text": "Ruin ostentatious jewellery's mottled appearance",
     "enumeration": "8"
    },
-   "solution": "MARBLING"
+   "solution": "MARBLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARBLING",
+    "definitions": [
+     {
+      "text": "mottled appearance",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruin",
+      "gives": "MAR",
+      "note": "to mar is to spoil or ruin"
+     },
+     {
+      "clueFragment": "ostentatious jewellery",
+      "gives": "BLING",
+      "note": "bling is slang for showy jewellery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "BLING"
+     ]
+    },
+    "explanation": {
+     "surface": "Flashy jewels spoilt by a blotchy, discoloured look.",
+     "walkthrough": "The possessive 's reads as part of the jewellery, but it is a link meaning 'is' or 'has'.",
+     "definitionFit": "Marbling is a streaked, veined pattern resembling marble stone, a kind of mottled look found in paper, meat or paint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ruin"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +201,55 @@
     "text": "Tail of rook found in tree",
     "enumeration": "6"
    },
-   "solution": "BREECH"
+   "solution": "BREECH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREECH",
+    "definitions": [
+     {
+      "text": "Tail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found within another sits inside it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for a rook"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "BEECH",
+      "note": "a beech is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "EECH"
+     ]
+    },
+    "explanation": {
+     "surface": "The tail feathers of a rook, the bird, discovered up in a tree.",
+     "walkthrough": "Rook looks like the bird, which fits tree and tail, but it is the chess piece, abbreviated R.",
+     "definitionFit": "Breech is an old word for the buttocks or rear end, as in a breech birth, so it means the hind part or bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +263,60 @@
     "text": "Picked up tips from tramp in tent",
     "enumeration": "6"
    },
-   "solution": "TEEPEE"
+   "solution": "TEEPEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone"
+    ],
+    "answer": "TEEPEE",
+    "definitions": [
+     {
+      "text": "tent",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips from",
+      "for": "letter_selection",
+      "note": "the tips of a word are its two extreme ends, so only its outer letters are kept"
+     },
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "picked up is heard, as a radio picks up a signal, so letters are taken by their sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tramp",
+      "gives": "TP",
+      "select": "outer",
+      "note": "the first and last letters of the word tramp"
+     },
+     {
+      "clueFragment": "tips from tramp",
+      "gives": "TEEPEE",
+      "soundsLike": "T P",
+      "note": "the two letter names said one after the other"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collecting advice from a vagrant camping in a tent.",
+     "walkthrough": "Tips looks like advice or gratuities, but it means the end letters; spoken aloud the letter names make the word.",
+     "definitionFit": "A teepee is a conical tent of skins or canvas on poles, traditionally used by Plains peoples of North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +336,50 @@
      }
     ]
    },
-   "solution": "TRYOUT"
+   "solution": "TRYOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRY OUT",
+    "definitions": [
+     {
+      "text": "test",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score in rugby",
+      "gives": "TRY",
+      "note": "a try is a touchdown scoring points in rugby"
+     },
+     {
+      "clueFragment": "Blossoming",
+      "gives": "OUT",
+      "note": "flowers that are out are in bloom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRY",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby team flourishing after scoring in an international Test match.",
+     "walkthrough": "'After' puts the blossoming word second. A rugby Test is an international match, which disguises test as the definition.",
+     "definitionFit": "A tryout is a trial or audition, an occasion to see whether someone or something performs well enough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +393,63 @@
     "text": "Thick-skinned individual left during fight with America",
     "enumeration": "6"
    },
-   "solution": "WALRUS"
+   "solution": "WALRUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WALRUS",
+    "definitions": [
+     {
+      "text": "Thick-skinned individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something occurring during an event falls inside its span, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight",
+      "gives": "WAR",
+      "note": "a war is a large-scale fight"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US stands for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "L",
+      "R",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An insensitive person who walked out while a conflict involving America went on.",
+     "walkthrough": "Thick-skinned suggests someone hard to offend, but it is meant literally of an animal with a very tough hide.",
+     "definitionFit": "The walrus is a large Arctic marine mammal with tusks and an extremely thick, wrinkled hide, a literal reading of the idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thick-skinned"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +463,58 @@
     "text": "Steamship touring Great Lake for regularly broadcast shows",
     "enumeration": "6"
    },
-   "solution": "SERIES"
+   "solution": "SERIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERIES",
+    "definitions": [
+     {
+      "text": "regularly broadcast shows",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to go all around it, so one piece wraps around another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steamship",
+      "gives": "SS",
+      "note": "SS is the prefix for a steamship"
+     },
+     {
+      "clueFragment": "Great Lake",
+      "gives": "ERIE",
+      "note": "Lake Erie is one of the five Great Lakes of North America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ERIE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A steamer cruising a Great Lake, used as the setting for a TV programme.",
+     "walkthrough": "SS, the steamship prefix, splits to hold the lake inside it.",
+     "definitionFit": "A series is a run of programmes or episodes aired on television or radio at fixed intervals under one title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +528,55 @@
     "text": "Die in Bhutan, horribly, having had liver removed?",
     "enumeration": "11"
    },
-   "solution": "UNINHABITED"
+   "solution": "UNINHABITED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNINHABITED",
+    "definitions": [
+     {
+      "text": "having had liver removed?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "something done horribly is mangled out of shape, so the letters are wrecked into new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Die in Bhutan",
+      "gives": "DIEINBHUTAN",
+      "note": "eleven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIEINBHUTAN",
+       "gives": "UNINHABITED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gruesome death in the Himalayan kingdom of Bhutan after losing one's liver to surgery.",
+     "walkthrough": "Liver looks like the organ, but it is 'one who lives'; a place with every liver removed has no residents. The question mark flags that playful reading.",
+     "definitionFit": "A place with nobody dwelling in it has had its residents taken away, so a whimsical reading of liver as resident fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "liver"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +590,59 @@
     "text": "English Tory's desperate for aphrodisiac",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "aphrodisiac",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperate",
+      "for": "anagram",
+      "note": "someone desperate is in a wild, frantic state, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Tory's",
+      "gives": "TORYS",
+      "note": "taken as written, with the s of the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETORYS",
+       "gives": "OYSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative politician from England craving something to stoke desire.",
+     "walkthrough": "Tory's possessive looks like grammar, but its s is part of the fodder. A Tory is a member of Britain's Conservative Party.",
+     "definitionFit": "Oysters are a shellfish long reputed to stimulate sexual desire, the classic example of food thought to arouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desperate"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +662,65 @@
      }
     ]
    },
-   "solution": "NOBLEART"
+   "solution": "NOBLEART",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOBLE ART",
+    "definitions": [
+     {
+      "text": "Boxing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead of",
+      "for": "letter_selection",
+      "note": "the lead of a word is whatever goes in front, so only its opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "NOB",
+      "note": "in cribbage, 'his nob' is the jack of the turned-up suit, so nob is a jack"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "LEAR",
+      "note": "King Lear, Shakespeare's tragic king"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOB",
+      "LEAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A card hand of jack, king and a ten, as if the game were a bout of boxing.",
+     "walkthrough": "Jack and King look like playing cards, which ten supports; King is in fact Lear, and the jack is the cribbage nob.",
+     "definitionFit": "The noble art, short for the noble art of self-defence, is an old idiomatic name for the sport of prizefighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +734,64 @@
     "text": "Desire back massage before noon",
     "enumeration": "4"
    },
-   "solution": "BURN"
+   "solution": "BURN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BURN",
+    "definitions": [
+     {
+      "text": "Desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means going the other way, so the letters run from right to left"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massage",
+      "gives": "RUB",
+      "note": "a rub is a massage"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "RUB",
+       "to": "BUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Craving a back rub some time before midday.",
+     "walkthrough": "'Back massage' reads as a rub on the back, but back is the instruction to turn the massage word round.",
+     "definitionFit": "To burn for something is to long for it intensely, an idiom of passionate wanting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +805,79 @@
     "text": "Wyatt Earp, perhaps, following in darkness to stop urge evolving",
     "enumeration": "10"
    },
-   "solution": "GUNFIGHTER"
+   "solution": "GUNFIGHTER",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "GUNFIGHTER",
+    "definitions": [
+     {
+      "text": "Wyatt Earp, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing in another is placed inside it, so one piece sits within the next"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper plugs a gap, so this piece fills the middle of the other"
+     },
+     {
+      "text": "evolving",
+      "for": "anagram",
+      "note": "something evolving changes its form, so the letters develop into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "darkness",
+      "gives": "NIGHT",
+      "note": "night is the time of darkness"
+     },
+     {
+      "clueFragment": "urge",
+      "gives": "URGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "N",
+      "F",
+      "IGHT",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "URGE",
+       "gives": "GUER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Wild West lawman tracking someone through the dark to curb a growing impulse.",
+     "walkthrough": "Two containers nest: the following abbreviation goes inside darkness, then that unit plugs the gap in the reworked urge.",
+     "definitionFit": "Wyatt Earp was a US frontier marshal famed for the OK Corral shootout, an example of a pistol duellist; 'perhaps' signals an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +897,51 @@
      }
     ]
    },
-   "solution": "PERSIANGULF"
+   "solution": "PERSIANGULF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSIAN GULF",
+    "definitions": [
+     {
+      "text": "oil rich area",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to develop",
+      "for": "anagram",
+      "note": "to develop something is to work it into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figures plan",
+      "gives": "FIGURESPLAN",
+      "note": "eleven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIGURESPLAN",
+       "gives": "PERSIANGULF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Officials drawing up a scheme to exploit an oil-producing region.",
+     "walkthrough": "Figures looks like officials or numbers, but it is just fodder whose letters combine with plan.",
+     "definitionFit": "The sea between Iran and Arabia is ringed by major petroleum producers, among the world's richest crude-bearing regions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Figures"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +955,61 @@
     "text": "Experienced a child punching others",
     "enumeration": "8"
    },
-   "solution": "SEASONED"
+   "solution": "SEASONED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEASONED",
+    "definitions": [
+     {
+      "text": "Experienced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punching",
+      "for": "container",
+      "note": "a punch drives into its target, so one piece is driven inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "SEED",
+      "note": "seed in the biblical sense of descendants, the offspring who come after; a loose match for others"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a male child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "A",
+      "SON",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has been through a child lashing out at other people.",
+     "walkthrough": "Experienced reads as a past-tense verb, but it is the adjective. The equation of seed with others is loose: it rests on seed meaning descendants.",
+     "definitionFit": "A seasoned campaigner is a veteran, someone hardened and made skilful by long practice, as timber is dried by time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punching"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1023,64 @@
     "text": "Libertine's destiny with many wives and concubines curtailed by love",
     "enumeration": "8"
    },
-   "solution": "LOTHARIO"
+   "solution": "LOTHARIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOTHARIO",
+    "definitions": [
+     {
+      "text": "Libertine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "to curtail is to cut the tail off, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destiny",
+      "gives": "LOT",
+      "note": "one's lot is one's fate or destiny"
+     },
+     {
+      "clueFragment": "many wives and concubines",
+      "gives": "HARIM",
+      "note": "harim is a variant spelling of harem, the women of a polygamous household"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOT",
+      "HARI",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A rake's fate: a crowd of spouses and mistresses, cut short by love.",
+     "walkthrough": "The harem word must be taken in its rarer spelling, harim, before its tail goes; 'with' and 'by' only place the pieces in order.",
+     "definitionFit": "Lothario, a seducer in Rowe's play The Fair Penitent, became a byword for a womaniser, a man who pursues women heartlessly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1100,50 @@
      }
     ]
    },
-   "solution": "JETLAG"
+   "solution": "JETLAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JET LAG",
+    "definitions": [
+     {
+      "text": "Exhaustion from travelling",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring",
+      "gives": "JET",
+      "note": "a jet is a spurt of water, as from a spring or fountain"
+     },
+     {
+      "clueFragment": "convict",
+      "gives": "LAG",
+      "note": "an old lag is British slang for a habitual prisoner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "LAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out traveller on a springtime trip alongside an escaped prisoner.",
+     "walkthrough": "'In spring' seems to set the season; spring is a gush of water instead. Lag is British slang for a convict.",
+     "definitionFit": "Jet lag is the fatigue and disrupted sleep felt after flying across several time zones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1157,48 @@
     "text": "Delivered ice cream for start of week?",
     "enumeration": "6"
    },
-   "solution": "SUNDAY"
+   "solution": "SUNDAY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUNDAY",
+    "definitions": [
+     {
+      "text": "start of week?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Delivered",
+      "for": "homophone",
+      "note": "a speech is delivered when spoken, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice cream",
+      "gives": "SUNDAY",
+      "soundsLike": "SUNDAE",
+      "note": "a sundae is an ice-cream dessert with toppings"
+     }
+    ],
+    "explanation": {
+     "surface": "An ice-cream treat brought round to kick off the week.",
+     "walkthrough": "Delivered suggests a van bringing goods, but it means spoken. The question mark admits that many calendars begin the week on Monday.",
+     "definitionFit": "In the traditional and American calendar the seven days begin with the Christian day of rest, so the first day is Sunday."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Delivered"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1212,77 @@
     "text": "On and on and on, railing at international banishment",
     "enumeration": "10"
    },
-   "solution": "RELEGATION"
+   "solution": "RELEGATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RELEGATION",
+    "definitions": [
+     {
+      "text": "banishment",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "railing",
+      "for": "anagram",
+      "note": "someone railing is ranting wildly, so the letters are thrown into turmoil"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "RE",
+      "note": "re means on or concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the leg side is also called the on side"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LEG",
+      "ATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONATI",
+       "gives": "ATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone droning on endlessly, ranting at a foreign team about being sent down.",
+     "walkthrough": "The three ons must each be read differently: the 're' of a memo, the leg (on) side in cricket, and plain on. Cricket's leg side is the half of the field behind the batter's legs.",
+     "definitionFit": "Relegation originally meant exile, a Roman sentence sending someone away from the city, so it is a formal word for being sent off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "railing"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1296,79 @@
     "text": "Upstanding chap claiming jail reformed prophet",
     "enumeration": "6"
    },
-   "solution": "ELIJAH"
+   "solution": "ELIJAH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "reversal"
+    ],
+    "answer": "ELIJAH",
+    "definitions": [
+     {
+      "text": "prophet",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformed",
+      "for": "anagram",
+      "note": "something reformed is made over in a new shape, so the letters are reordered"
+     },
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "to claim something is to take hold of it, so one piece grips the other"
+     },
+     {
+      "text": "Upstanding",
+      "for": "reversal",
+      "note": "in a down entry standing up means reading bottom to top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "HE",
+      "note": "he is a pronoun for a chap"
+     },
+     {
+      "clueFragment": "jail",
+      "gives": "JAIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LIJA",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JAIL",
+       "gives": "LIJA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "HE",
+       "to": "EH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An honest man insisting that a rehabilitated prisoner is a holy seer.",
+     "walkthrough": "Upstanding looks like praise for the chap, but in a down clue it flips his pronoun to read upwards.",
+     "definitionFit": "Elijah is a Hebrew prophet of the Old Testament, taken up to heaven in a chariot of fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upstanding"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1382,59 @@
     "text": "Opera lover's head is not unusual",
     "enumeration": "6"
    },
-   "solution": "NORMAL"
+   "solution": "NORMAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NORMAL",
+    "definitions": [
+     {
+      "text": "not unusual",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of something is its top, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opera",
+      "gives": "NORMA",
+      "note": "Norma is Bellini's opera"
+     },
+     {
+      "clueFragment": "lover's",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NORMA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An opera fan who is perfectly ordinary in the head.",
+     "walkthrough": "Opera lover reads as a fan, but the two words split: one names a particular opera, the other supplies a single letter.",
+     "definitionFit": "Ordinary and typical are what normal means, so negating unusual gives the standard, expected state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lover's"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1448,53 @@
     "text": "Change ends in bar, therefore",
     "enumeration": "4"
    },
-   "solution": "THUS"
+   "solution": "THUS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "THUS",
+    "definitions": [
+     {
+      "text": "therefore",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change ends",
+      "for": "substitution",
+      "note": "changing the ends means the first and last letters trade places"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "SHUT",
+      "note": "to bar a door is to shut it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Spare change landing up in a pub, so to speak.",
+     "walkthrough": "Change looks like coins and bar like a pub, but change ends is the instruction to swap the outer letters of the bar word.",
+     "definitionFit": "Thus and therefore are both adverbs introducing a consequence, interchangeable in a logical argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1508,62 @@
     "text": "English stories about crime location in Hamlet",
     "enumeration": "8"
    },
-   "solution": "ELSINORE"
+   "solution": "ELSINORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELSINORE",
+    "definitions": [
+     {
+      "text": "location in Hamlet",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "stories",
+      "gives": "LORE",
+      "note": "lore is a body of traditional tales"
+     },
+     {
+      "clueFragment": "crime",
+      "gives": "SIN",
+      "note": "a sin is a wrongdoing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "SIN",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "English tales about a murder scene in Shakespeare's tragedy.",
+     "walkthrough": "'Crime location' reads as a murder scene, but crime belongs to the wordplay and location to the definition.",
+     "definitionFit": "Elsinore, the Danish castle at Helsingør, is the setting of Shakespeare's play, where the ghost appears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crime"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1577,51 @@
     "text": "Land fish on film next to river",
     "enumeration": "6"
    },
-   "solution": "RWANDA"
+   "solution": "RWANDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RWANDA",
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "fish on film",
+      "gives": "WANDA",
+      "note": "from the comedy film A Fish Called Wanda"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "WANDA"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler landing a catch beside a river while a camera rolls.",
+     "walkthrough": "Land reads as a verb for catching a fish, but it is a noun meaning country. Wanda is the fish in the 1988 comedy A Fish Called Wanda.",
+     "definitionFit": "Rwanda is a small landlocked country in central Africa, and land is a standard crossword term for a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1635,46 @@
     "text": "Stones German composer",
     "enumeration": "6"
    },
-   "solution": "GRAVEL"
+   "solution": "GRAVEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRAVEL",
+    "definitions": [
+     {
+      "text": "Stones",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "RAVEL",
+      "note": "Maurice Ravel, composer of Bolero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAVEL"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "German composer suggests one person such as Bach, but the two words are separate pieces, and Ravel was French.",
+     "definitionFit": "Gravel is a loose mass of small pebbles, the collective term for little rounded rocks used on paths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1688,46 @@
     "text": "Quits on the phone like Polly?",
     "enumeration": "6"
    },
-   "solution": "PARITY"
+   "solution": "PARITY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PARITY",
+    "definitions": [
+     {
+      "text": "Quits",
+      "at": 0,
+      "note": "an adjective for being even; the answer is the noun for that state"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the phone",
+      "for": "homophone",
+      "note": "a phone carries only the voice, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like Polly",
+      "gives": "PARITY",
+      "soundsLike": "PARROTY",
+      "note": "Polly is the stock name for a pet parrot, so like Polly is parrot-like"
+     }
+    ],
+    "explanation": {
+     "surface": "Resigning by telephone, chattering like a pet parrot.",
+     "walkthrough": "Quits looks like a verb for resigning; it is the adjective for being even, as in 'call it quits'.",
+     "definitionFit": "Two parties who are quits owe each other nothing and stand equal, and equality of standing is what parity names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Quits"
+    }
+   }
   }
  ]
 }
