@@ -23,6 +23,9 @@
   "date": "2026-04-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,59 @@
     "text": "Size of loaf initially too huge",
     "enumeration": "7"
    },
-   "solution": "BREADTH"
+   "solution": "BREADTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BREADTH",
+    "definitions": [
+     {
+      "text": "Size",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each following word is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loaf",
+      "gives": "BREAD",
+      "note": "a loaf is a quantity of baked bread"
+     },
+     {
+      "clueFragment": "too huge",
+      "gives": "TH",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAD",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper complains that a loaf of bread is far too big.",
+     "walkthrough": "'Size of loaf' reads as one phrase, but 'Size' alone is the definition and 'of' just joins it to the wordplay.",
+     "definitionFit": "Breadth is width, one measure of how large something is, so it serves as a synonym for size in a general sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 2,
@@ -56,7 +111,43 @@
      }
     ]
    },
-   "solution": "TALLORDER"
+   "solution": "TALLORDER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TALL ORDER",
+    "definitions": [
+     {
+      "text": "excessively large task",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "hidden_word",
+      "note": "the clue words receive and hold the result inside them, so it sits within their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judgemental lord erupts",
+      "gives": "TALLORDER",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A peer with strong opinions loses his temper when handed an enormous job.",
+     "walkthrough": "The phrase looks like a description of an angry aristocrat; the answer is spelt out inside 'judgemenTAL LORD ERupts'.",
+     "definitionFit": "A tall order is an idiom for a demand or job that is unreasonably difficult to fulfil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "receiving"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +161,58 @@
     "text": "Basic foodstuff is no longer fresh, soft inside",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Basic foodstuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one element is placed within the other, so a single letter goes into the middle of a word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no longer fresh",
+      "gives": "STALE",
+      "note": "stale food has gone past its best"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A loaf has gone stale on the outside but is still soft in the middle.",
+     "walkthrough": "P for soft comes from music notation, where piano means play quietly.",
+     "definitionFit": "A staple is a food eaten routinely that forms the main part of a diet, such as rice or bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +226,67 @@
     "text": "Deceive criminal hiding new proof",
     "enumeration": "8"
    },
-   "solution": "EVIDENCE"
+   "solution": "EVIDENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EVIDENCE",
+    "definitions": [
+     {
+      "text": "proof",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked or bent, so the letters are twisted out of their order"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to conceal it within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deceive",
+      "gives": "DECEIVE",
+      "note": "taken as written, as letters to rearrange"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIDE",
+      "N",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DECEIVE",
+       "gives": "EVIDECE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook conceals freshly discovered proof to mislead the police.",
+     "walkthrough": "'Deceive' looks like the instruction to the solver, and 'criminal' like a noun, but the first is raw letters and the second the rearrangement signal.",
+     "definitionFit": "Evidence is the facts or material that establish something as true, as proof does in a courtroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +306,51 @@
      }
     ]
    },
-   "solution": "EVENINGPRIMROSE"
+   "solution": "EVENINGPRIMROSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVENING PRIMROSE",
+    "definitions": [
+     {
+      "text": "source of oil",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow suggests something done in an unspecified way, so the letters come out in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m preserving one",
+      "gives": "IMPRESERVINGONE",
+      "note": "fifteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMPRESERVINGONE",
+       "gives": "EVENINGPRIMROSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains that they are somehow keeping a single oil well going.",
+     "walkthrough": "The fifteen letters of 'I'm preserving one' rearrange to the flower's name.",
+     "definitionFit": "The seeds of this yellow-flowered plant are pressed for a widely sold oil used as a dietary supplement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "preserving"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +364,51 @@
     "text": "Burdensome types break promises",
     "enumeration": "8"
    },
-   "solution": "IMPOSERS"
+   "solution": "IMPOSERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPOSERS",
+    "definitions": [
+     {
+      "text": "Burdensome types",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "break",
+      "for": "anagram",
+      "note": "breaking something smashes it into bits that can be reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promises",
+      "gives": "PROMISES",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROMISES",
+       "gives": "IMPOSERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tiresome people are the sort who go back on their word.",
+     "walkthrough": "'Break promises' reads as a single idiom, but 'break' is the instruction to rearrange 'promises'.",
+     "definitionFit": "Imposers are people who impose on others, making unwelcome demands and becoming a burden to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +422,51 @@
     "text": "Lose head in fright? That’s a mistake",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERROR",
+    "definitions": [
+     {
+      "text": "mistake",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lose head",
+      "for": "deletion",
+      "note": "losing the head means dropping the first letter of the word in question"
+     }
+    ],
+    "linkWords": [
+     "That’s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fright",
+      "gives": "TERROR",
+      "note": "terror is extreme fright"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERROR"
+     ]
+    },
+    "explanation": {
+     "surface": "Panicking in a scary moment is a bad idea, the clue warns.",
+     "walkthrough": "TERROR without its first letter T leaves the answer.",
+     "definitionFit": "An error is a plain synonym for a mistake, something done wrongly or incorrectly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +480,47 @@
     "text": "Break down constant low-frequency noise",
     "enumeration": "7"
    },
-   "solution": "CRUMBLE"
+   "solution": "CRUMBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUMBLE",
+    "definitions": [
+     {
+      "text": "Break down",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the symbol for a constant, such as the speed of light"
+     },
+     {
+      "clueFragment": "low-frequency noise",
+      "gives": "RUMBLE",
+      "note": "a rumble is a deep, low continuous sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A steady deep hum might shake a structure apart.",
+     "walkthrough": "C for constant comes from science, where c stands for the speed of light.",
+     "definitionFit": "To crumble is to fall to pieces or disintegrate gradually, as an old wall does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +534,54 @@
     "text": "Utter a right tirade",
     "enumeration": "6"
    },
-   "solution": "ARRANT"
+   "solution": "ARRANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARRANT",
+    "definitions": [
+     {
+      "text": "Utter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is an angry, loud speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to deliver a proper angry speech.",
+     "walkthrough": "'Utter' looks like a verb meaning speak, but it is the adjective meaning complete, as in 'utter nonsense'.",
+     "definitionFit": "Arrant is an old-fashioned adjective meaning complete or downright, used of bad things, as in arrant nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Utter"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +595,51 @@
     "text": "Store up memoir misguidedly",
     "enumeration": "8"
    },
-   "solution": "EMPORIUM"
+   "solution": "EMPORIUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMPORIUM",
+    "definitions": [
+     {
+      "text": "Store",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misguidedly",
+      "for": "anagram",
+      "note": "something done misguidedly goes astray, so the letters are led into the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up memoir",
+      "gives": "UPMEMOIR",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPMEMOIR",
+       "gives": "EMPORIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone foolishly hoards copies of their autobiography.",
+     "walkthrough": "'Store up' reads as a phrasal verb, but 'Store' is a noun and 'up' belongs to the letters being rearranged.",
+     "definitionFit": "An emporium is a large retail shop selling a wide variety of goods, a grand word for a store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Store"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +653,53 @@
     "text": "Corkscrew motion ends parking at home",
     "enumeration": "8"
    },
-   "solution": "TAILSPIN"
+   "solution": "TAILSPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILSPIN",
+    "definitions": [
+     {
+      "text": "Corkscrew motion",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ends",
+      "gives": "TAILS",
+      "note": "tails are the end parts of things"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign symbol for parking"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAILS",
+      "P",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A spiralling drive finishes with the car parked in the garage.",
+     "walkthrough": "'Ends' looks like a verb finishing the manoeuvre, but it is a noun giving TAILS.",
+     "definitionFit": "A tailspin is the spiralling descent of an aircraft nose-first, rotating as it falls like a corkscrew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +713,47 @@
     "text": "Writer of copy in Kent perhaps",
     "enumeration": "6"
    },
-   "solution": "SCRIBE"
+   "solution": "SCRIBE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRIBE",
+    "definitions": [
+     {
+      "text": "Writer of copy",
+      "at": 0
+     },
+     {
+      "text": "Kent perhaps",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer of copy",
+      "note": "first meaning: someone who copied out manuscripts by hand"
+     },
+     {
+      "clueFragment": "Kent perhaps",
+      "note": "second meaning: a journalist, as Clark Kent is a newspaper reporter"
+     }
+    ],
+    "explanation": {
+     "surface": "A copywriter working somewhere in the English county of Kent.",
+     "walkthrough": "Kent looks like the English county; it is Clark Kent, Superman's alter ego, a reporter at the Daily Planet.",
+     "definitionFit": "The word means both a copyist of documents and, informally, a journalist or newspaper writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kent"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +767,62 @@
     "text": "Vet grabbing head of tropical fish",
     "enumeration": "8"
    },
-   "solution": "STURGEON"
+   "solution": "STURGEON",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "STURGEON",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "to grab is to take hold of, so one piece clasps another inside it"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vet",
+      "gives": "SURGEON",
+      "note": "a vet is a veterinary surgeon"
+     },
+     {
+      "clueFragment": "tropical",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "URGEON"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal doctor catches hold of an exotic fish by its head.",
+     "walkthrough": "'Vet' could be the verb meaning check, but it is the noun, short for veterinary surgeon.",
+     "definitionFit": "The sturgeon is a large fish, the source of caviar, so it is an example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vet"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +836,39 @@
     "text": "Vegetarians sticking their necks out?",
     "enumeration": "8"
    },
-   "solution": "GIRAFFES"
+   "solution": "GIRAFFES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GIRAFFES",
+    "definitions": [
+     {
+      "text": "Vegetarians sticking their necks out?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegetarians sticking their necks out?",
+      "note": "surface reading: people who avoid meat taking a risk by speaking up"
+     },
+     {
+      "clueFragment": "sticking their necks out",
+      "note": "setter's reading: plant-eating animals literally stretching very long necks out to browse"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To stick your neck out is an idiom for taking a risk; here it is literal, about herbivores famous for their necks.",
+     "definitionFit": "These African mammals eat only leaves and have extremely long necks for reaching high branches of trees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vegetarians"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +882,54 @@
     "text": "Bit of rest fantastic for inflammation caused by cold",
     "enumeration": "9"
    },
-   "solution": "FROSTBITE"
+   "solution": "FROSTBITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FROSTBITE",
+    "definitions": [
+     {
+      "text": "inflammation caused by cold",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "fantastic means fanciful or unreal, so the letters take on an imaginative new form"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of rest",
+      "gives": "BITOFREST",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BITOFREST",
+       "gives": "FROSTBITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short break is recommended as a great remedy for a chill-induced complaint.",
+     "walkthrough": "'Fantastic' looks like praise for the rest, but it signals rearranging the three words before it.",
+     "definitionFit": "Frostbite is injury to skin and tissue from freezing temperatures, typically fingers and toes in severe weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fantastic"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +943,62 @@
     "text": "Driving young cattle into grassland at first",
     "enumeration": "8"
    },
-   "solution": "STEERING"
+   "solution": "STEERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STEERING",
+    "definitions": [
+     {
+      "text": "Driving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the beginning, so just the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young cattle",
+      "gives": "STEER",
+      "note": "a steer is a young castrated bull"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "IN",
+      "note": "shortened to its first part"
+     },
+     {
+      "clueFragment": "grassland",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEER",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer herds bullocks onto a pasture.",
+     "walkthrough": "'Driving' looks like herding the cattle, but it is the definition, as in steering a car.",
+     "definitionFit": "Steering a vehicle means guiding its direction, which is the essence of driving it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Driving"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1012,64 @@
     "text": "Worker in musical production rejected rubbish",
     "enumeration": "8"
    },
-   "solution": "OPERATOR"
+   "solution": "OPERATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPERATOR",
+    "definitions": [
+     {
+      "text": "Worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical production",
+      "gives": "OPERA",
+      "note": "an opera is a staged work set to music"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot means nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROT",
+       "to": "TOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stagehand on a show dismisses it as junk.",
+     "walkthrough": "'Worker in musical production' reads as one phrase, but 'in' only joins the definition to the wordplay.",
+     "definitionFit": "An operator is a person who works or runs a machine or a service, such as a telephone operator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1083,46 @@
     "text": "Old European scientist",
     "enumeration": "7"
    },
-   "solution": "PASTEUR"
+   "solution": "PASTEUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTEUR",
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "PAST",
+      "note": "something past is old, gone by"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "EUR",
+      "note": "EUR is a short form of European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "EUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of some long-dead Continental researcher.",
+     "walkthrough": "The surface happens to be literally true: Louis Pasteur was a nineteenth-century French scientist.",
+     "definitionFit": "Louis Pasteur was the French chemist and microbiologist who developed pasteurisation and early vaccines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1136,46 @@
     "text": "Ask about search",
     "enumeration": "7"
    },
-   "solution": "REQUEST"
+   "solution": "REQUEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REQUEST",
+    "definitions": [
+     {
+      "text": "Ask",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, about"
+     },
+     {
+      "clueFragment": "search",
+      "gives": "QUEST",
+      "note": "a quest is a long search"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "QUEST"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Ask about' reads as a phrasal verb, but 'about' belongs to the wordplay as RE.",
+     "definitionFit": "To request is to ask formally or politely for something, making it a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1189,51 @@
     "text": "Put money in distribution of event IDs",
     "enumeration": "8"
    },
-   "solution": "INVESTED"
+   "solution": "INVESTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INVESTED",
+    "definitions": [
+     {
+      "text": "Put money in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distribution of",
+      "for": "anagram",
+      "note": "a distribution spreads things out and deals them anew, so the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "event IDs",
+      "gives": "EVENTIDS",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVENTIDS",
+       "gives": "INVESTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone funded the handing out of identity passes for an event.",
+     "walkthrough": "'Put money in distribution' looks like one financial phrase, but the definition stops at 'in'.",
+     "definitionFit": "To have invested is to have committed funds to something in the hope of a profitable return."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1247,50 @@
     "text": "Ransacker of design museum left",
     "enumeration": "6"
    },
-   "solution": "VANDAL"
+   "solution": "VANDAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VANDAL",
+    "definitions": [
+     {
+      "text": "Ransacker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "design museum",
+      "gives": "VANDA",
+      "note": "the V and A, the Victoria and Albert Museum in London, specialises in art and design"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VANDA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar who raided a design museum got away.",
+     "walkthrough": "The V and A is the Victoria and Albert Museum in London, known for decorative arts and design; written out as V AND A it supplies five letters.",
+     "definitionFit": "A vandal wilfully destroys or damages property, much as a ransacker wrecks a place while plundering it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1304,60 @@
     "text": "Flight of geese regularly seen by headland",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "Flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is kept"
+     }
+    ],
+    "linkWords": [
+     "seen by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "geese",
+      "gives": "ES",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     },
+     {
+      "clueFragment": "headland",
+      "gives": "CAPE",
+      "note": "a cape is a headland jutting into the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Birdwatchers often see geese flying in formation over a coastal promontory.",
+     "walkthrough": "'Flight of geese' looks like a formation of birds, but 'Flight' alone is the definition, meaning running away.",
+     "definitionFit": "Flight in the sense of fleeing from danger is an escape, getting away from captivity or a threat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1371,49 @@
     "text": "A tax for coral island",
     "enumeration": "5"
    },
-   "solution": "ATOLL"
+   "solution": "ATOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOLL",
+    "definitions": [
+     {
+      "text": "coral island",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TOLL",
+      "note": "a charge levied for using a road or bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TOLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A levy charged for visiting a tropical reef island.",
+     "walkthrough": "A toll is a fee paid to use a road or bridge, so it fits 'tax'.",
+     "definitionFit": "An atoll is a ring-shaped reef or island formed of coral, enclosing a lagoon in tropical seas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1427,55 @@
     "text": "Organise a contest for small car",
     "enumeration": "8"
    },
-   "solution": "RUNABOUT"
+   "solution": "RUNABOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUNABOUT",
+    "definitions": [
+     {
+      "text": "small car",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organise",
+      "gives": "RUN",
+      "note": "to run an event is to organise it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "contest",
+      "gives": "BOUT",
+      "note": "a bout is a boxing or wrestling contest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "A",
+      "BOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Set up a competition with a little motor as the prize.",
+     "walkthrough": "A bout is a single match in boxing or wrestling, hence a contest.",
+     "definitionFit": "A runabout is an informal term for a small, light car used for short local trips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1489,52 @@
     "text": "Pro on ice stumbling? Hard cheese!",
     "enumeration": "8"
    },
-   "solution": "PECORINO"
+   "solution": "PECORINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PECORINO",
+    "definitions": [
+     {
+      "text": "Hard cheese",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stumbling",
+      "for": "anagram",
+      "note": "a stumbling skater loses footing, so the letters tumble into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro on ice",
+      "gives": "PROONICE",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROONICE",
+       "gives": "PECORINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional skater trips, and an onlooker says 'Hard cheese!', British slang for 'bad luck'.",
+     "walkthrough": "'Hard cheese' is a British idiom for tough luck, here read literally as a firm cheese.",
+     "definitionFit": "Pecorino is a firm Italian cheese made from sheep's milk, often grated over pasta."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1548,43 @@
     "text": "Maybe sculptor from Stuttgart is talented",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTIST",
+    "definitions": [
+     {
+      "text": "Maybe sculptor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the result is drawn from within the following words, taken out of their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuttgart is talented",
+      "gives": "ARTIST",
+      "note": "the letters run across the end of the first word, the second, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A sculptor from a German city may well be gifted.",
+     "walkthrough": "The answer sits inside 'StuttgART IS Talented'; 'Maybe' marks a sculptor as one example of the definition.",
+     "definitionFit": "A sculptor is one kind of creative practitioner in the visual arts, so 'maybe' signals an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1598,44 @@
     "text": "Preface for diary read out",
     "enumeration": "8"
    },
-   "solution": "PROLOGUE"
+   "solution": "PROLOGUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PROLOGUE",
+    "definitions": [
+     {
+      "text": "Preface",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading out means saying aloud, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for diary",
+      "gives": "PROLOGUE",
+      "soundsLike": "PRO LOG",
+      "note": "pro means for, and a log is a diary or record"
+     }
+    ],
+    "explanation": {
+     "surface": "An introduction to a journal is spoken aloud to an audience.",
+     "walkthrough": "PRO is Latin-derived for 'in favour of' and a ship's LOG is a diary; together they sound like the answer.",
+     "definitionFit": "A prologue is an introductory section to a literary work or play, acting as its preface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   }
  ]
 }
