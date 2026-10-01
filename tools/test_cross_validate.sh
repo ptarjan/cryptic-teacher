@@ -292,15 +292,24 @@ same("georgeho: a Mephisto count's words are no clue, and no witness to the spli
 corroborate.georgeho = lambda puzzle: [mistitled]
 same("georgeho: a post holding none of our answers is another puzzle",
      gh.puzzle("telegraph-1", copy.deepcopy(base))["id"].split(":")[0], "another puzzle")
-# corroborate_all: a majority of three or more copies settles a light; two
-# copies that disagree, or a split, leave ours and log a lead.
+# corroborate_all: a majority of three or more copies settles a light; of
+# two, the one nearer the paper's print; anything else leaves ours, a lead.
 class Fake(cv.Adapter):
-    def __init__(self, name, origin=None, votes=cv.VOTED, exact=False):
+    def __init__(self, name, origin=None, votes=cv.VOTED, exact=False, authority=None):
         self.name, self.origin, self.votes, self.exact_clues = name, origin or name, votes, exact
+        self.authority = authority
 
 
-def bee(sol="BEE", text="Buzzer", enum=None, ann=None):
+#: Our file's provenance: (source.retrievedFrom, solutions.origin).
+FILED = {"blog": ("blog", "writeup"), "paper": ("publisher", "published"),
+         "scan": ("newspaper", "published"), "paper, blog answers": ("publisher", "writeup")}
+
+
+def bee(sol="BEE", text="Buzzer", enum=None, ann=None, filed=None):
     p = copy.deepcopy(base)
+    if filed:
+        p["source"] = {"retrievedFrom": FILED[filed][0]}
+        p["solutions"] = {"origin": FILED[filed][1]}
     e = p["entries"][3]
     e["solution"], e["clue"]["text"] = sol, text
     if enum:
@@ -349,6 +358,57 @@ same("majority: an answer that would cross a letter it does not share stays ours
      (vs, new["entries"][3]["solution"]), ([("ANSWER", "3-across", False)], "BEE"))
 vs, _ = verdict(bee(), (Fake("a"), bee(text="Buzzer (3)")), (Fake("b"), bee(text="Buzzer (3) (3)")))
 same("majority: a count left at a copy's clue tail is no other word", vs, [])
+
+
+def kinds(ours, *held):
+    vs, _ = cv.majority(ours, list(held))
+    new = cv.apply_majority(ours, vs)
+    return [(v["class"], v["kind"], v["fixed"]) for v in vs], new["entries"][3]
+
+
+paper = lambda name="guardian-page": Fake(name, authority=cv.PAPER)
+scan = lambda name="archiveorg": Fake(name, authority=cv.SCAN)
+blog = lambda name="fifteensquared": Fake(name, authority=cv.BLOG)
+vs, e = kinds(bee("BYE", "Hummer", filed="blog"), (paper(), bee()))
+same("authority: of two copies, the paper's print fixes a blog-built ours",
+     (vs, e["solution"], e["clue"]["text"]),
+     ([("ANSWER", "outranked", True), ("CLUE", "outranked", True)], "BEE", "Buzzer"))
+vs, e = kinds(bee(filed="paper"), (blog(), bee("BYE", "Hummer")))
+same("authority: of two copies, a blog's leaves a paper-built ours standing",
+     (vs, e["solution"]), ([("ANSWER", "upheld", False), ("CLUE", "upheld", False)], "BEE"))
+vs, e = kinds(bee("BYE", filed="blog"), (scan(), bee()))
+same("authority: an OCR'd scan fixes a blog-built ours", (vs, e["solution"]),
+     ([("ANSWER", "outranked", True)], "BEE"))
+vs, e = kinds(bee(filed="scan"), (paper(), bee("BYE")))
+same("authority: the paper's print fixes a scan-built ours", (vs, e["solution"]),
+     ([("ANSWER", "outranked", True)], "BYE"))
+vs, e = kinds(bee("BYE", filed="blog"), (blog("bigdave44"), bee()))
+same("authority: two blogs are equal rank and a lead", (vs, e["solution"]),
+     ([("ANSWER", "split", False)], "BYE"))
+vs, e = kinds(bee("BYE", filed="paper"), (paper("telegraph-app"), bee()))
+same("authority: two paper prints are equal rank and a lead", (vs, e["solution"]),
+     ([("ANSWER", "split", False)], "BYE"))
+vs, e = kinds(bee("BYE"), (paper(), bee()))
+same("authority: a file that names no source is a lead", vs, [("ANSWER", "split", False)])
+vs, e = kinds(bee("BYE", "Hummer", filed="paper, blog answers"), (blog(), bee()),)
+same("authority: a blog's answer is no better than a write-up's, its clue no match for the "
+     "paper's", vs, [("ANSWER", "split", False), ("CLUE", "upheld", False)])
+vs, e = kinds(bee("BYE", "Hummer", filed="paper, blog answers"), (paper(), bee()))
+same("authority: the paper's print fixes answers ours took from a write-up",
+     (vs, e["solution"]), ([("ANSWER", "outranked", True), ("CLUE", "split", False)], "BEE"))
+vs, e = kinds(bee("BYE", filed="blog"), (Fake("a", "guardian-page", authority=cv.PAPER), bee()),
+              (Fake("b", "guardian-page", authority=cv.PAPER), bee()))
+same("authority: two reads of the paper's one print are one copy, and fix ours",
+     (vs, e["solution"]), ([("ANSWER", "outranked", True)], "BEE"))
+vs, e = kinds(bee(filed="blog"), (paper(), bee("TEE")))
+same("authority: an answer that would cross a letter it does not share stays ours",
+     (vs, e["solution"]), ([("ANSWER", "split", False)], "BEE"))
+vs, e = kinds(bee(text="Hummer", ann="Hummer: a car", filed="blog"), (paper(), bee()))
+same("authority: a clue an annotation quotes stays ours", (vs, e["clue"]["text"]),
+     ([("CLUE", "split", False)], "Hummer"))
+vs, e = kinds(bee("BYE", filed="blog"), (paper(), bee("BOE")), (blog(), bee()))
+same("authority: three votes and no majority is a lead, whoever prints them",
+     vs, [("ANSWER", "split", False)])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY

@@ -47,11 +47,20 @@ line per puzzle with mismatches, and a tally prints per class.
 
 `all` puts every copy of a puzzle to a vote at once (majority()): ours is one
 vote and each other origin one more. Three or more votes with a value other
-than ours holding more than half of them fix our file, the votes recorded in
-tools/data/corroboration_ledger.json; anything less, two copies split above
-all, leaves the file and is a lead in cross-validate/all-leads.jsonl. The
-votes settle ANSWER, ENUMERATION and CLUE; the structural classes are tallied
-and left to the per-source refiles.
+than ours holding more than half of them fix our file. Two copies are enough:
+where ours and one other origin are the only votes, source authority breaks
+the tie. The paper's own print (the guardian, telegraph, independent, globe
+and ft adapters, or ours when retrieved from that feed) beats an OCR'd scan
+(archiveorg, canberra, a book), which beats a blog's rebuild (fifteensquared,
+bigdave44, timesforthetimes, georgeho). Ours' rank is its file's: clues and
+counts by source.retrievedFrom, answers a blog's when solutions came from a
+write-up (ours_authority()). The nearer copy wins; equal or unknown rank, or
+no majority of three, leaves the file and is a lead in
+cross-validate/all-leads.jsonl. Each fix is recorded in
+tools/data/corroboration_ledger.json and is still refused where it crosses a
+letter it does not share or rewrites a clue an annotation quotes. The votes
+settle ANSWER, ENUMERATION and CLUE; the structural classes are tallied and
+left to the per-source refiles.
 
 Every copy we hold, by series. "own" is the paper's own feed, app or page; an
 adapter in brackets reads it. * = compared nightly before 2026-10-01 (each
@@ -109,6 +118,12 @@ from fetch_puzzle import puzzle_files, read_puzzle_file
 DATA = Path.home() / "cryptic-setter-data"
 REPORTS = DATA / "cross-validate"
 CLASSES = ("GRID", "NUMBERING", "MISSING", "EXTRA", "ANSWER", "ENUMERATION", "CLUE")
+#: Source authority, best first: the paper's own print (its feed, app, page or
+#: PDF), an OCR'd scan of it (archive.org, Trove, a book), a blog's retyping.
+PAPER, SCAN, BLOG = 0, 1, 2
+#: A file's source.retrievedFrom, as an authority.
+RETRIEVED_AUTHORITY = {"publisher": PAPER, "wayback": PAPER, "newspaper": SCAN,
+                       "book": SCAN, "blog": BLOG}
 
 
 class Adapter:
@@ -130,6 +145,9 @@ class Adapter:
     votes = ("ANSWER", "ENUMERATION", "CLUE")
     #: Read only what is cached: no request, not even a calendar refresh.
     offline = False
+    #: How far this copy is from the paper's print (PAPER, SCAN or BLOG):
+    #: the tie-break when it and ours are the only two votes.
+    authority = None
 
     def origin_of(self, ours):
         return self.origin or self.name
@@ -165,6 +183,7 @@ class Telegraph(Adapter):
     """puzzlesdata.telegraph.co.uk, the Telegraph Puzzles app's bucket; see
     tools/fetch_telegraph.py, whose parse() turns a bucket puzzle into ours."""
     name = "telegraph"
+    authority = PAPER
     origin = "telegraph-app"
     series = ("telegraph", "sundaytel", "toughie", "sundaytough")
 
@@ -244,6 +263,7 @@ class Guardian(Adapter):
     Machine, observer.co.uk) for numbers the Guardian also serves.
     """
     name = "guardian"
+    authority = PAPER
     origin = "guardian-page"
     series = ("cryptic", "quiptic", "everyman")
     #: More than two at once draws 429s from theguardian.com.
@@ -334,6 +354,7 @@ class Independent(Adapter):
     feed its primary source; it never rewrites a file already from the feed.
     The feed starts in June 2015, so every rebuilt file so far predates it."""
     name = "independent"
+    authority = PAPER
     origin = "independent-feed"
     series = ("independent", "indysunday")
     #: A CDN: a request a second from each of three workers is polite.
@@ -451,6 +472,7 @@ class FifteenSquared(Adapter):
     witnesses ANSWER alone. Where the feed's key is wrong in one cell, both
     crossing lights differ from ours there and agree with each other."""
     name = "fifteensquared"
+    authority = BLOG
     series = ("independent", "indysunday", "cryptic", "quiptic", "everyman", "cyclops")
     votes = ("ANSWER",)
 
@@ -495,6 +517,7 @@ class Globe(Adapter):
     Quick before 3106. A Quick file we do hold is compared as filed, and so
     is each globeandmail file, which checks fetch_globeandmail's converter."""
     name = "globe"
+    authority = PAPER
     origin = "globe"
     series = ("timesquick", "globeandmail")
     exact_clues = True
@@ -626,6 +649,7 @@ class FT(Adapter):
     PDF prints no answers. A PDF whose grid cannot be read is compared on
     our grid's geometry, by light, for its clues and counts only."""
     name = "ft"
+    authority = PAPER
     origin = "ft-pdf"
     series = ("ftcryptic",)
     exact_clues = True
@@ -700,10 +724,11 @@ class GeorgeHo(Adapter):
     and count; a light the blog does not write up keeps no clue or answer and
     witnesses nothing. A light the blog numbers that we lack is MISSING. The
     blogger retyped the clue, so CLUE compares words, never punctuation, and
-    any one difference is a lead for a third copy, not a verdict. A blog that
+    a blog outranks no file (majority()), so alone it fixes nothing. A blog that
     prints no count witnesses none, and a row the scrape filed under another
     light (misfiled()) witnesses nothing."""
     name = "georgeho"
+    authority = BLOG
     series = ("cryptic", "quiptic", "everyman", "independent", "indysunday", "cyclops",
               "times", "timesquick", "timesjumbo", "sundaytimes", "mephisto", "timesclub",
               "tls", "telegraph", "sundaytel", "toughie", "sundaytough")
@@ -948,6 +973,7 @@ class ArchiveOrg(Adapter):
     (reprintOf). A file the archive.org filer wrote is that reading, and is
     not compared with itself. Offline: the filer fills the cache."""
     name = "archiveorg"
+    authority = SCAN
     series = ("times", "canberra")
     offline = True
     filer = "tools/file_archive_org_puzzles.py"
@@ -980,6 +1006,7 @@ class CanberraReprint(Adapter):
     the canberra file's source names it (reprintOf, matched by clue set in
     tools/file_archive_org_puzzles.py --match-canberra)."""
     name = "canberra"
+    authority = SCAN
     series = ("times",)
     offline = True
 
@@ -1536,6 +1563,18 @@ def copies(pid, ours, adapters, keys):
     return out
 
 
+def ours_authority(ours, cls):
+    """How far our file's value for `cls` is from the paper's print, or None
+    when the file does not say: its clues and counts are where the file was
+    retrieved from, its answers that too when published, a blog's when taken
+    from a write-up, and unranked when a model solved them."""
+    rest = RETRIEVED_AUTHORITY.get((ours.get("source") or {}).get("retrievedFrom"))
+    if cls != "ANSWER":
+        return rest
+    origin = (ours.get("solutions") or {}).get("origin")
+    return BLOG if origin == "writeup" else rest if origin in (None, "published") else None
+
+
 def majority(ours, held_copies):
     """(verdicts, per-copy mismatches) over every copy of one puzzle.
 
@@ -1544,9 +1583,12 @@ def majority(ours, held_copies):
     scrape of bigdave44 and our parse of it) counting once and abstaining when
     they disagree. A copy whose grid is not ours votes on nothing. Where three
     or more votes are cast and a value other than ours holds more than half of
-    them, it wins (`fixed`); any other disagreement, two copies split above
-    all, is a lead and our file stands: a lone dissenting copy is as likely
-    our parser's defect as the paper's, and needs a third to say which."""
+    them, it wins (`fixed`, "outvoted"). Where ours and one other origin are
+    the only votes, source authority settles it: a copy nearer the paper's
+    print than ours (Adapter.authority against ours_authority()) wins
+    ("outranked"), one further from it leaves ours ("upheld"). Any other
+    disagreement (equal or unknown authority, or three votes with no
+    majority) is a lead and our file stands."""
     mine = {where(e): e for e in ours["entries"]}
     reads, found = defaultdict(list), []
     for a, theirs in held_copies:
@@ -1560,7 +1602,7 @@ def majority(ours, held_copies):
             own = ballot(o, cls)
             if own is None:
                 continue
-            votes, shown = {"ours": own}, defaultdict(list)
+            votes, shown, ranks = {"ours": own}, defaultdict(list), {}
             for origin, said in reads.items():
                 got = {}
                 for a, at in said:
@@ -1570,17 +1612,26 @@ def majority(ours, held_copies):
                     value, by = next(iter(got.items()))
                     votes[origin] = value
                     shown[value] += by
+                    ranks[origin] = min((a.authority for a, _ in by if a.authority is not None),
+                                        default=None)
             tally = Counter(votes.values())
             if len(tally) == 1:
                 continue
             top, n = tally.most_common(1)[0]
             settled = len(votes) >= 3 and n * 2 > len(votes)
-            fixed = settled and top != own
+            kind = "outvoted" if settled and top != own else "backed" if settled else "split"
+            if len(votes) == 2:
+                (them, top), = ((g, v) for g, v in votes.items() if g != "ours")
+                mine_rank, their_rank = ours_authority(ours, cls), ranks[them]
+                if None not in (mine_rank, their_rank) and mine_rank != their_rank:
+                    kind = "outranked" if their_rank < mine_rank else "upheld"
+            fixed = kind in ("outvoted", "outranked")
             verdicts.append({"class": cls, "light": groups.entry_id(o), "at": k,
                              "ours": own, "votes": votes, "fixed": fixed,
                              # backed: the majority is ours, the dissent is that
-                             # copy's defect; split: no majority, a lead for us.
-                             "kind": "outvoted" if fixed else "backed" if settled else "split",
+                             # copy's defect; upheld: ours outranks the one copy
+                             # against it; split: neither, a lead for us.
+                             "kind": kind,
                              "winner": top if fixed else own,
                              # The words written are the paper's own print where one votes.
                              "entry": (min(shown[top], key=lambda r: not r[0].exact_clues)[1]
@@ -1634,7 +1685,8 @@ def ledger_majority(pid, verdicts):
         for origin, value in v["votes"].items():
             cands[value][origin] = origin
         disputes.append(corroborate.Dispute(v["class"].lower(), v["light"], v["ours"],
-                                            dict(cands), v["winner"], "majority"))
+                                            dict(cands), v["winner"],
+                                            "authority" if v["kind"] == "outranked" else "majority"))
     if disputes:
         corroborate.record(pid, disputes)
 
@@ -1731,11 +1783,14 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
     for n in names:
         print(f"  {n:18} compared {pair[(n, 'compared')]:5}  " + "  ".join(
             f"{cls} {pair[(n, cls)]}" for cls in CLASSES if pair[(n, cls)]))
-    print("verdicts (fixed; outvoted: a majority against ours, not applied; backed: a majority "
-          "with ours against a copy; split: no majority, a lead):")
+    print("verdicts (fixed; outvoted: a majority against ours, not applied; outranked: the "
+          "one other copy is nearer the print, not applied; backed: a majority with ours "
+          "against a copy; upheld: ours is nearer the print than the one copy against it; "
+          "split: neither, a lead):")
     for cls in VOTED:
-        print(f"  {cls:12} " + "  ".join(f"{k} {verdict_tally[(cls, k)]}"
-                                         for k in ("fixed", "outvoted", "backed", "split")))
+        print(f"  {cls:12} " + "  ".join(f"{k} {verdict_tally[(cls, k)]}" for k in
+                                         ("fixed", "outvoted", "outranked", "backed", "upheld",
+                                          "split")))
     print(f"files fixed: {fixed_files}; leads in {LEADS}")
     return fixed_files
 
