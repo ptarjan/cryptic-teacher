@@ -24,6 +24,9 @@
   "date": "2025-01-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,51 @@
     "text": "Home for French people, with their pet and their drink",
     "enumeration": "7"
    },
-   "solution": "CHATEAU"
+   "solution": "CHATEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHATEAU",
+    "definitions": [
+     {
+      "text": "Home for French people",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "their pet",
+      "gives": "CHAT",
+      "note": "the French word for a cat, a French person's pet"
+     },
+     {
+      "clueFragment": "their drink",
+      "gives": "EAU",
+      "note": "the French word for water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAT",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A French family's house, complete with the cat and something to drink.",
+     "walkthrough": "'Their' points back to the French people, so the pet and the drink must be named in French.",
+     "definitionFit": "A grand country house or castle in France is the classic French residence, used loosely for any French mansion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "their"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +98,63 @@
     "text": "Tory pamphlet regularly disowns part of Labour",
     "enumeration": "11"
    },
-   "solution": "CONTRACTION"
+   "solution": "CONTRACTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CONTRACTION",
+    "definitions": [
+     {
+      "text": "part of Labour",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so only every second letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "CON",
+      "note": "CON is the abbreviation for Conservative, a Tory"
+     },
+     {
+      "clueFragment": "pamphlet",
+      "gives": "TRACT",
+      "note": "a tract is a short pamphlet arguing a case"
+     },
+     {
+      "clueFragment": "disowns",
+      "gives": "ION",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TRACT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative leaflet rejects a section of the Labour Party.",
+     "walkthrough": "Labour with a capital L looks like the political party, which fits the Tory surface; it is really childbirth.",
+     "definitionFit": "During childbirth the womb tightens in repeated muscular spasms, and each of these is one stage of the process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +168,70 @@
     "text": "Supposed fool gets extremely embarrassed about hesitant remark",
     "enumeration": "7"
    },
-   "solution": "ASSUMED"
+   "solution": "ASSUMED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASSUMED",
+    "definitions": [
+     {
+      "text": "Supposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outer letters are kept"
+     },
+     {
+      "text": "about",
+      "for": "charade",
+      "note": "about in the sense of concerning puts one piece after the thing it concerns, so the order flips"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a foolish person"
+     },
+     {
+      "clueFragment": "hesitant remark",
+      "gives": "UM",
+      "note": "um is the sound of someone hesitating"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "ED",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "UM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A so-called idiot goes red over an awkward, faltering comment.",
+     "walkthrough": "The fool comes first, then the hesitation, then the outer letters of the embarrassed word; 'about' only sets the order.",
+     "definitionFit": "Both words mean taken for granted or believed without proof, as in a supposed or assumed identity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supposed"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +245,42 @@
     "text": "Concealing some YouTube clips ingeniously",
     "enumeration": "9"
    },
-   "solution": "ECLIPSING"
+   "solution": "ECLIPSING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECLIPSING",
+    "definitions": [
+     {
+      "text": "Concealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so the letters are a stretch running inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "YouTube clips ingeniously",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone cleverly hides a few online videos.",
+     "walkthrough": "The run starts with the final letter of YouTube, which is easy to miss.",
+     "definitionFit": "Eclipsing means blocking from view, as the moon does to the sun, so it is hiding something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clips"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +294,58 @@
     "text": "Parking during 180-degree spin in vehicle shows improvement",
     "enumeration": "6"
    },
-   "solution": "UPTURN"
+   "solution": "UPTURN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UPTURN",
+    "definitions": [
+     {
+      "text": "improvement",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another event sits within it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "180-degree spin in vehicle",
+      "gives": "UTURN",
+      "note": "a U-turn turns a car round to face the other way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "P",
+      "TURN"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver's parking during a three-point turn gets better.",
+     "walkthrough": "The parking letter goes straight after the U of the turn.",
+     "definitionFit": "An upturn is a rise or recovery, as when sales or fortunes start to get better again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shows"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +359,42 @@
     "text": "Infrared screens not seen very often",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "not seen very often",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screens",
+      "for": "hidden_word",
+      "note": "to screen is to shield from view, so the word conceals letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infrared",
+      "note": "the letters sit in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Infrared screens are an unusual sight.",
+     "walkthrough": "'Screens' looks like a noun for displays; it is a verb meaning hides.",
+     "definitionFit": "Something rare is uncommon or seldom encountered, so it turns up only occasionally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "screens"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +408,53 @@
     "text": "Agent responds, overlooking false statements",
     "enumeration": "3"
    },
-   "solution": "REP"
+   "solution": "REP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REP",
+    "definitions": [
+     {
+      "text": "Agent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "to overlook is to ignore or leave out, so some letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "responds",
+      "gives": "REPLIES",
+      "note": "replies is a synonym"
+     },
+     {
+      "clueFragment": "false statements",
+      "gives": "LIES",
+      "note": "lies are untrue statements"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP"
+     ]
+    },
+    "explanation": {
+     "surface": "A spokesperson answers while ignoring the untruths told.",
+     "walkthrough": "Take the lies away from the replies and only the first three letters are left.",
+     "definitionFit": "A rep is a sales representative, someone acting on behalf of a company, as an agent does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +468,48 @@
     "text": "What monarchs do in inclement weather, we’re told",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REIGN",
+    "definitions": [
+     {
+      "text": "What monarchs do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we’re told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclement weather",
+      "gives": "REIGN",
+      "soundsLike": "RAIN",
+      "note": "wet weather, the kind nobody wants"
+     }
+    ],
+    "explanation": {
+     "surface": "A joke about what kings and queens get up to when it pours down.",
+     "walkthrough": "The bad weather is said aloud and spelt as the royal verb.",
+     "definitionFit": "Kings and queens rule over their realm, and ruling as sovereign is exactly what the verb describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inclement"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +523,51 @@
     "text": "Perhaps nosy learner follows explorers of space",
     "enumeration": "5"
    },
-   "solution": "NASAL"
+   "solution": "NASAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NASAL",
+    "definitions": [
+     {
+      "text": "Perhaps nosy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "follows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explorers of space",
+      "gives": "NASA",
+      "note": "the American space agency"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner-driver plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NASA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An inquisitive trainee tags along after astronauts.",
+     "walkthrough": "'Nosy' here means to do with the nose, not prying; 'perhaps' warns that it is a loose example.",
+     "definitionFit": "Nasal means relating to the nose, and nosy is a playful stretch for that sense of belonging to the nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nosy"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +581,43 @@
     "text": "Wonderful choice when ordering a pizza",
     "enumeration": "7"
    },
-   "solution": "TOPPING"
+   "solution": "TOPPING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOPPING",
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 0
+     },
+     {
+      "text": "choice when ordering a pizza",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wonderful",
+      "note": "first meaning: excellent, in dated British slang"
+     },
+     {
+      "clueFragment": "choice when ordering a pizza",
+      "note": "second meaning: something like cheese or ham spread over the base"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface sounds like praise for a pizza order; the two parts are separate meanings.",
+     "definitionFit": "The word is old British slang for first-rate, and also the name for whatever is added on top of a pizza."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wonderful"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +631,55 @@
     "text": "At sea, mad stranger’s an expert on board",
     "enumeration": "11"
    },
-   "solution": "GRANDMASTER"
+   "solution": "GRANDMASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRANDMASTER",
+    "definitions": [
+     {
+      "text": "an expert on board",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At sea",
+      "for": "anagram",
+      "note": "at sea means confused and all over the place, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mad stranger",
+      "gives": "MADSTRANGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADSTRANGER",
+       "gives": "GRANDMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crazed newcomer on a ship turns out to know the sailing trade.",
+     "walkthrough": "'On board' suggests a ship, matching 'At sea'; the board is a chessboard.",
+     "definitionFit": "A grandmaster is a chess player of the highest rank, so a master of play on the chessboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +693,55 @@
     "text": "Marines protecting India’s border",
     "enumeration": "3"
    },
-   "solution": "RIM"
+   "solution": "RIM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIM",
+    "definitions": [
+     {
+      "text": "border",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "guards protecting something surround it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marines",
+      "gives": "RM",
+      "note": "RM stands for the Royal Marines"
+     },
+     {
+      "clueFragment": "India’s",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops guarding India's frontier.",
+     "walkthrough": "Border looks like a national frontier, but it is an edge.",
+     "definitionFit": "A rim is the outer edge of something round, like a wheel or a cup, so a border."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +755,60 @@
     "text": "Destructive compulsion from extremists in party leading country",
     "enumeration": "9"
    },
-   "solution": "PYROMANIA"
+   "solution": "PYROMANIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PYROMANIA",
+    "definitions": [
+     {
+      "text": "Destructive compulsion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremists in",
+      "for": "letter_selection",
+      "note": "extremists are those at the far ends, so only the end letters of the next word are kept"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "leading"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "PY",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "ROMANIA",
+      "note": "the Eastern European nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PY",
+      "ROMANIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Radicals in the ruling party drive the nation towards ruin.",
+     "walkthrough": "'Leading' says the party's ends come before the country.",
+     "definitionFit": "Pyromania is an uncontrollable urge to start fires, a compulsion that is destructive by nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +828,70 @@
      }
     ]
    },
-   "solution": "MARCOPOLO"
+   "solution": "MARCOPOLO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MARCO POLO",
+    "definitions": [
+     {
+      "text": "Traveller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifting something turns it to read upwards"
+     }
+    ],
+    "linkWords": [
+     "on top of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "CRAM",
+      "note": "to stuff is to cram"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Volkswagen",
+      "gives": "POLO",
+      "note": "the Polo is a Volkswagen hatchback"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARC",
+      "O",
+      "POLO"
+     ],
+     "reversals": [
+      {
+       "from": "CRAM",
+       "to": "MARC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wanderer heaves luggage onto the roof of an ageing VW.",
+     "walkthrough": "'Lifted' reads like stolen or raised luggage; in a down answer it flips the word upwards.",
+     "definitionFit": "Marco Polo was the Venetian merchant who journeyed to China, the most famous explorer of the medieval era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +905,61 @@
     "text": "Scoundrel that is holding diamonds? This person holds clubs",
     "enumeration": "6"
    },
-   "solution": "CADDIE"
+   "solution": "CADDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CADDIE",
+    "definitions": [
+     {
+      "text": "This person holds clubs",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "charade",
+      "note": "someone holding cards keeps them in hand right beside him, so that piece follows straight on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card-suit abbreviation"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAD",
+      "D",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A card game: a cheat hides diamonds, while this player holds clubs.",
+     "walkthrough": "Diamonds and clubs both look like card suits; only the diamonds are, and the clubs are for golf. The scoundrel holds the diamonds, so they follow him before 'that is'.",
+     "definitionFit": "A caddie carries a golfer's bag of clubs around the course, so holding the clubs is the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +973,54 @@
     "text": "Darren failing in task",
     "enumeration": "6"
    },
-   "solution": "ERRAND"
+   "solution": "ERRAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ERRAND",
+    "definitions": [
+     {
+      "text": "task",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "something failing breaks down and falls apart, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Darren",
+      "gives": "DARREN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARREN",
+       "gives": "ERRAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor Darren falls short at his job.",
+     "walkthrough": "A man's name is often anagram fodder; the six letters rearrange cleanly.",
+     "definitionFit": "An errand is a short trip to do a job for someone, a small piece of work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1034,61 @@
     "text": "Endless parties entertaining street performer",
     "enumeration": "7"
    },
-   "solution": "ARTISTE"
+   "solution": "ARTISTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ARTISTE",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "having no ends means losing the letter at each end"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parties",
+      "gives": "PARTIES",
+      "note": "taken as written before the ends go"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTI",
+      "ST",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Non-stop gatherings feature a busker.",
+     "walkthrough": "'Street performer' reads as a busker, but street only supplies two letters and performer alone is the definition.",
+     "definitionFit": "An artiste is a professional entertainer such as a singer or dancer, so someone who performs on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "street"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1102,56 @@
     "text": "Participant in chess game’s blunder over pawn",
     "enumeration": "6"
    },
-   "solution": "BISHOP"
+   "solution": "BISHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BISHOP",
+    "definitions": [
+     {
+      "text": "Participant in chess game",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blunder",
+      "gives": "BISH",
+      "note": "bish is British slang for a mistake"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     },
+     {
+      "clueFragment": "pawn",
+      "gives": "P",
+      "note": "P is the chess notation for a pawn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BISH",
+      "O",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player's game is undone by a slip involving a pawn.",
+     "walkthrough": "'Over' looks like a position word, but it is O from cricket, where an over is a set of six balls.",
+     "definitionFit": "The bishop is one of the pieces on a chessboard, moving diagonally, so it takes part in every game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1165,65 @@
     "text": "Gin and tonic drunk by Oscar in disguise",
     "enumeration": "9"
    },
-   "solution": "INCOGNITO"
+   "solution": "INCOGNITO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCOGNITO",
+    "definitions": [
+     {
+      "text": "in disguise",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "something drunk is tipsy and disordered, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tonic",
+      "gives": "TONIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GINTONICO",
+       "gives": "INCOGNITO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oscar Wilde, perhaps, sips a G and T while dressed up so nobody knows him.",
+     "walkthrough": "'Drunk' looks like the past tense of drink, but it means scrambled, and Oscar joins the fodder.",
+     "definitionFit": "Incognito means with one's identity concealed, travelling under a false name or appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1237,58 @@
     "text": "Bear’s track behind vehicle",
     "enumeration": "5"
    },
-   "solution": "CARRY"
+   "solution": "CARRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARRY",
+    "definitions": [
+     {
+      "text": "Bear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "what is behind comes after, so the earlier-named piece is placed second"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a track"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear's footprints trail behind a car.",
+     "walkthrough": "'Bear' looks like the animal, but it is the verb to bear a load; the track goes behind, after, the vehicle.",
+     "definitionFit": "To bear something is to hold it up and move it along, the same as lifting and transporting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1302,48 @@
     "text": "Drink and drive from here, by the sound of it?",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by sound means the word as heard, not as written"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drive from here",
+      "gives": "TEA",
+      "soundsLike": "TEE",
+      "note": "golfers drive off from the tee at each hole"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning against drink-driving.",
+     "walkthrough": "'Drink and drive' is the familiar phrase; here drive is a golf shot.",
+     "definitionFit": "Tea is the everyday hot beverage brewed from leaves, so it is a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1357,65 @@
     "text": "Refusal by wife to enter affluent city",
     "enumeration": "7"
    },
-   "solution": "NORWICH"
+   "solution": "NORWICH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NORWICH",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "something that enters goes inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "affluent",
+      "gives": "RICH",
+      "note": "affluent means rich"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "R",
+      "W",
+      "ICH"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife refuses to move into a wealthy town.",
+     "walkthrough": "Norwich is a cathedral city in Norfolk, in the east of England.",
+     "definitionFit": "Norwich has city status in England, so it is a city in the plain geographical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Refusal"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1429,51 @@
     "text": "Periodically ignored fierce fury",
     "enumeration": "3"
    },
-   "solution": "IRE"
+   "solution": "IRE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IRE",
+    "definitions": [
+     {
+      "text": "fury",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically ignored",
+      "for": "letter_selection",
+      "note": "ignoring at regular intervals drops every other letter and keeps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fierce",
+      "gives": "IRE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters; the reversed run in the first word is a coincidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Every so often a ferocious rage is brushed aside.",
+     "walkthrough": "The odd letters go, leaving the even ones.",
+     "definitionFit": "Ire is a literary word for anger, and fury is intense anger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1487,50 @@
     "text": "Start working with firm",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "SET",
+      "note": "jelly that has gone firm has set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Begin a job at a company.",
+     "walkthrough": "'Start' reads as a verb, but it is the noun, and firm is an adjective, not a company.",
+     "definitionFit": "The onset of something is its beginning, as in the onset of winter or an illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1544,53 @@
     "text": "Leads of terriers you petted, exceptionally kind",
     "enumeration": "4"
    },
-   "solution": "TYPE"
+   "solution": "TYPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TYPE",
+    "definitions": [
+     {
+      "text": "kind",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leads of",
+      "for": "letter_selection",
+      "note": "what leads comes at the front, so the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terriers you petted, exceptionally",
+      "gives": "TYPE",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "Y",
+      "P",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Dog leashes for the terriers you stroked, unusually gentle.",
+     "walkthrough": "'Leads' looks like dog leashes, fitting the terriers; it means first letters, and 'kind' is a noun, not gentle.",
+     "definitionFit": "A type is a sort or category, the same as a kind of thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Leads"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1604,71 @@
     "text": "Individual cutting ripe bananas is an innovator",
     "enumeration": "7"
    },
-   "solution": "PIONEER"
+   "solution": "PIONEER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PIONEER",
+    "definitions": [
+     {
+      "text": "an innovator",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so the letters go wild"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into another slices through its middle, so it sits inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ripe",
+      "gives": "RIPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Individual",
+      "gives": "ONE",
+      "note": "one is a single individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ONE",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIPE",
+       "gives": "PIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who slices up overripe fruit is a creative trailblazer.",
+     "walkthrough": "'Bananas' looks like the fruit being cut, but it is the slang word for crazy that jumbles the letters.",
+     "definitionFit": "A pioneer is the first to develop a new idea or method, someone who breaks new ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   }
  ]
 }
