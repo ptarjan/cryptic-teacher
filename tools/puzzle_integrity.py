@@ -907,9 +907,11 @@ def check_shape(puzzle, today, flags):
                           f"the parser did not also eat a leading \"A\""))
         # A blogger copying a clue can leave its count off, and the count is
         # then the answer's word lengths. A paper's own feed prints what it
-        # printed, so only a transcribed clue is held to this.
+        # printed, so only a transcribed clue is held to this; a count in
+        # words ("(5, two words)") is a count, kept in the text as printed.
         if (from_blog and has_words(clue) and not missing
-                and not is_continuation(clue) and "enumeration" not in e["clue"]):
+                and not is_continuation(clue) and "enumeration" not in e["clue"]
+                and not enumeration.worded(clue)):
             flags.append(("SHAPE", pid, f"{eid}: clue {clue!r}, transcribed from "
                           f"a blog, has no enumeration"))
 
