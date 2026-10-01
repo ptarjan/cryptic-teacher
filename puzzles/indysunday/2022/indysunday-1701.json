@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Golf shot somewhat missed a fairway going backwards",
     "enumeration": "4"
    },
-   "solution": "FADE"
+   "solution": "FADE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FADE",
+    "definitions": [
+     {
+      "text": "Golf shot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "'somewhat' means only partly, so just a portion of the following words is used"
+     },
+     {
+      "text": "going backwards",
+      "for": "reversal",
+      "note": "moving backwards means travelling in the opposite direction, so the letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "missed a fairway",
+      "gives": "EDAF",
+      "note": "four consecutive letters running across the end of the first word into the next two"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EDAF",
+       "to": "FADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer mis-hits and the ball misses the fairway.",
+     "walkthrough": "The run of letters spans 'missED A Fairway' and reads FADE when turned round.",
+     "definitionFit": "In golf this is a shot that curves gently away, left to right for a right-handed player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somewhat"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,71 @@
     "text": "Female estimated one valued 50 per cent off is fair",
     "enumeration": "8"
    },
-   "solution": "FESTIVAL"
+   "solution": "FESTIVAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FESTIVAL",
+    "definitions": [
+     {
+      "text": "fair",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50 per cent off",
+      "for": "deletion",
+      "note": "taking fifty per cent off leaves only half of the word, so its back half is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "estimated",
+      "gives": "EST",
+      "note": "common abbreviation, as in 'est. cost'"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "valued",
+      "gives": "VAL",
+      "note": "a deletion: only the first half of its six letters survives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EST",
+      "I",
+      "VAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman guesses that a piece rated half price is a reasonable deal.",
+     "walkthrough": "'fair' looks like an adjective meaning reasonable, but here it is the noun: a public celebration or fete.",
+     "definitionFit": "A fair and a festival are both public gatherings with entertainment, stalls and celebrations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,43 @@
     "text": "Went out with old hat",
     "enumeration": "5"
    },
-   "solution": "DATED"
+   "solution": "DATED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DATED",
+    "definitions": [
+     {
+      "text": "Went out with",
+      "at": 0
+     },
+     {
+      "text": "old hat",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went out with",
+      "note": "first meaning: had a romantic outing with someone"
+     },
+     {
+      "clueFragment": "old hat",
+      "note": "second meaning: old-fashioned, behind the times"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests someone leaving the house in an old hat; the two halves are separate senses of one word.",
+     "definitionFit": "The word is both the past tense of courting someone and an adjective for something no longer fashionable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +228,77 @@
     "text": "Good wearing torn anorak and ordinary jumper",
     "enumeration": "8"
    },
-   "solution": "KANGAROO"
+   "solution": "KANGAROO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "KANGAROO",
+    "definitions": [
+     {
+      "text": "jumper",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "torn",
+      "for": "anagram",
+      "note": "something torn is ripped apart, so the letters are broken up and rearranged"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whoever is wearing a garment is inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "anorak",
+      "gives": "ANORAK",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "abbreviation for ordinary, as in O level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KAN",
+      "G",
+      "AROO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANORAKO",
+       "gives": "KANAROO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart person dons a ripped anorak and a plain sweater.",
+     "walkthrough": "ANORAK plus O is shuffled to KANAROO, and G goes inside. 'Jumper' looks like a British sweater, as the anorak primes you to think, but it is an animal that jumps.",
+     "definitionFit": "Kangaroos travel by hopping on powerful hind legs, so they are literally creatures that leap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +312,60 @@
     "text": "Loudspeaker leaving tense editor fed up",
     "enumeration": "7"
    },
-   "solution": "ANNOYED"
+   "solution": "ANNOYED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANNOYED",
+    "definitions": [
+     {
+      "text": "fed up",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something is leaving it departs, so that letter goes out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loudspeaker",
+      "gives": "TANNOY",
+      "note": "a Tannoy is a British brand name for a public-address loudspeaker system"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "grammatical abbreviation"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNOY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor is sick of a booming PA announcement in a tense office.",
+     "walkthrough": "Tannoy is a brand name that became the everyday British word for a public-address speaker system, as in 'an announcement over the Tannoy'.",
+     "definitionFit": "Being fed up means irritated or exasperated, which is the same state as being irked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +385,67 @@
      }
     ]
    },
-   "solution": "GOODHUMOUREDLY"
+   "solution": "GOODHUMOUREDLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GOOD-HUMOUREDLY",
+    "definitions": [
+     {
+      "text": "amicably",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters reel into a new order"
+     },
+     {
+      "text": "to go outside",
+      "for": "container",
+      "note": "going outside something means surrounding it, so the jumble wraps around another letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urge loud and moody",
+      "gives": "URGELOUDMOODY",
+      "note": "the three words, joined by 'and', supply the fodder"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is Hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOD",
+      "H",
+      "UMOUREDLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "URGELOUDMOODY",
+       "gives": "GOODUMOUREDLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presses a noisy, sulky drunk to step outside a hotel calmly.",
+     "walkthrough": "The thirteen letters of the three words rearrange around H. The surface sounds like a bouncer at work, quite the opposite of the friendly answer.",
+     "definitionFit": "Acting amicably means in a friendly, cheerful and pleasant manner, as a cheerful temperament implies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +465,68 @@
      }
     ]
    },
-   "solution": "REEXAMINE"
+   "solution": "REEXAMINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RE-EXAMINE",
+    "definitions": [
+     {
+      "text": "Again research",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in a place is enclosed by it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "Latin 're', meaning concerning"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon, England"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "short time",
+      "gives": "MIN",
+      "note": "abbreviation for minute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "EX",
+      "A",
+      "MIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Scientists study a brief interval in a river's flow once more.",
+     "walkthrough": "The Exe, a short Devon river name, is a crossword favourite. The hyphenated enumeration shows the prefix stands apart.",
+     "definitionFit": "To study or inspect something again is to look over it a second time, which is exactly this verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +540,59 @@
     "text": "Mineral one's cut with axes",
     "enumeration": "4"
    },
-   "solution": "ONYX"
+   "solution": "ONYX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ONYX",
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting a word shortens it, so its final letter is lopped off"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ON",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "axes",
+      "gives": "YX",
+      "note": "y and x are the two axes of a graph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "YX"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock specimen is split using axes.",
+     "walkthrough": "'axes' reads as chopping tools, but means the axes of a graph, x and y, here placed Y then X.",
+     "definitionFit": "Onyx is a banded variety of chalcedony quartz, a mineral used for carvings and jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "axes"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +612,52 @@
      }
     ]
    },
-   "solution": "RAILWAYSTATION"
+   "solution": "RAILWAYSTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAILWAY STATION",
+    "definitions": [
+     {
+      "text": "such as Victoria",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfortunately",
+      "for": "anagram",
+      "note": "an unfortunate outcome is things going wrong, so the letters are put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a wit isn't a royal",
+      "gives": "AWITISNTAROYAL",
+      "note": "fourteen letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AWITISNTAROYAL",
+       "gives": "RAILWAYSTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regretful note that a clever comedian cannot be a royal like Queen Victoria.",
+     "walkthrough": "The surface makes Victoria the queen; she is the London terminus, Victoria Station. The question mark flags a definition by example.",
+     "definitionFit": "London Victoria is one of the capital's main terminals where trains depart and arrive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Victoria"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +677,52 @@
      }
     ]
    },
-   "solution": "SITUATIONCOMEDY"
+   "solution": "SITUATIONCOMEDY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SITUATION COMEDY",
+    "definitions": [
+     {
+      "text": "Porridge?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranging things sets them out in a fresh order, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oat diet my cousin",
+      "gives": "OATDIETMYCOUSIN",
+      "note": "fifteen letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OATDIETMYCOUSIN",
+       "gives": "SITUATIONCOMEDY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative has organised a breakfast diet of oats.",
+     "walkthrough": "Porridge is not the breakfast here: it is a classic 1970s BBC sitcom set in a prison, and 'porridge' is British slang for a jail term. The oats deepen the trap.",
+     "definitionFit": "Porridge was a much-loved British television comedy series built around recurring characters in one setting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Porridge"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +736,70 @@
     "text": "This writer is unhappy, forgetting bottom of hill's steep",
     "enumeration": "5"
    },
-   "solution": "IMBUE"
+   "solution": "IMBUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "IMBUE",
+    "definitions": [
+     {
+      "text": "steep",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "the bottom of a down-going word is its last letter"
+     },
+     {
+      "text": "forgetting",
+      "for": "deletion",
+      "note": "what is forgotten is left out, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This writer is",
+      "gives": "IM",
+      "note": "the setter speaking: I'm"
+     },
+     {
+      "clueFragment": "unhappy",
+      "gives": "BLUE",
+      "note": "feeling blue is feeling sad"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "L",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "BUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer complains that the hill was steep, having forgotten the bottom part.",
+     "walkthrough": "BLUE drops L. 'steep' sounds like an adjective about the hill, but it is the verb: to soak.",
+     "definitionFit": "To steep something is to soak or saturate it thoroughly, the same as permeating it with a quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steep"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +813,75 @@
     "text": "Permanently in food shop by around end of April",
     "enumeration": "9"
    },
-   "solution": "INDELIBLY"
+   "solution": "INDELIBLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INDELIBLY",
+    "definitions": [
+     {
+      "text": "Permanently",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "food shop",
+      "gives": "DELI",
+      "note": "short for delicatessen"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "April",
+      "gives": "L",
+      "select": "last",
+      "note": "final letter of the month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DELI",
+      "B",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works permanently in a grocer's, at least until late April.",
+     "walkthrough": "'by' looks like a mere preposition in the surface, but it is a piece of the answer taken literally, and it is the part that does the surrounding.",
+     "definitionFit": "Something done indelibly cannot be erased or removed, so it lasts for good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +895,66 @@
     "text": "Woman not oddly cross after husband's practical joke",
     "enumeration": "4"
    },
-   "solution": "HOAX"
+   "solution": "HOAX",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOAX",
+    "definitions": [
+     {
+      "text": "practical joke",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not oddly",
+      "for": "letter_selection",
+      "note": "not taking the odd positions means taking the even ones, every second letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Woman",
+      "gives": "OA",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is the letter X"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OA",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife is quite reasonably angry at her husband's prank.",
+     "walkthrough": "'not oddly' sounds like 'not strangely' but means keep the even letters of Woman.",
+     "definitionFit": "A hoax is a trick or deception played on someone for fun, which is what a prank is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +968,75 @@
     "text": "A copper holding middle of shotgun bolted down trigger",
     "enumeration": "7"
    },
-   "solution": "ACTUATE"
+   "solution": "ACTUATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACTUATE",
+    "definitions": [
+     {
+      "text": "trigger",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of an odd-length word is its single central letter"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "shotgun",
+      "gives": "T",
+      "select": "middle",
+      "note": "fourth of seven letters"
+     },
+     {
+      "clueFragment": "bolted down",
+      "gives": "ATE",
+      "note": "to bolt food down is to eat it quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "T",
+      "U",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer with a shotgun that has been fixed down to the trigger.",
+     "walkthrough": "The surface makes the copper a police officer and 'bolted down' a fixing; really CU is the element and to bolt down is to wolf food.",
+     "definitionFit": "To actuate a mechanism is to set it working, just as triggering it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bolted"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1050,68 @@
     "text": "Crossed river wearing a vest and red pants",
     "enumeration": "9"
    },
-   "solution": "TRAVERSED"
+   "solution": "TRAVERSED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRAVERSED",
+    "definitions": [
+     {
+      "text": "Crossed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "'pants' is British slang for rubbish, so the letters are a mess to be reordered"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whoever is wearing clothes is inside them, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "a vest and red",
+      "gives": "AVESTRED",
+      "note": "the words joined by 'and' supply the fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AVERSED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AVESTRED",
+       "gives": "TAVERSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forded a river dressed only in a vest and red underpants.",
+     "walkthrough": "In British English pants are underpants, and 'pants' is also slang for poor or rubbish, hence the anagram signal. R sits inside the rearranged letters.",
+     "definitionFit": "To traverse a place is to cross or travel from one side of it to the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1125,65 @@
     "text": "Party I held in bloke's field",
     "enumeration": "6"
    },
-   "solution": "DOMAIN"
+   "solution": "DOMAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOMAIN",
+    "definitions": [
+     {
+      "text": "field",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in another is enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party or social gathering"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bloke",
+      "gives": "MAN",
+      "note": "a bloke is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A party was held on some fellow's land.",
+     "walkthrough": "Bloke is everyday British slang for a man; 'field' reads as farmland but means an area of activity.",
+     "definitionFit": "A field of knowledge or activity is someone's area of expertise or sphere of influence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1197,40 @@
     "text": "These could make chef from Claridge's heat each fish?",
     "enumeration": "8"
    },
-   "solution": "STARTERS"
+   "solution": "STARTERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STARTERS",
+    "definitions": [
+     {
+      "text": "These could make chef from Claridge's heat each fish?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "These could make chef from Claridge's",
+      "note": "surface reading: first-course dishes a cook at a London hotel might prepare, like grilled fish"
+     },
+     {
+      "clueFragment": "Claridge's heat each fish",
+      "note": "setter's reading: the opening letters of these four words spell out the cook"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel cook heating up fish for the first course of dinner.",
+     "walkthrough": "Claridge's is a grand London hotel. The answer is both the opening courses of a meal and the initial letters of words, and the initials here do spell CHEF.",
+     "definitionFit": "The word means the first dishes served at a meal and also the beginnings of things, here initial letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1244,63 @@
     "text": "The man grabs American behind large badger",
     "enumeration": "6"
    },
-   "solution": "HASSLE"
+   "solution": "HASSLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HASSLE",
+    "definitions": [
+     {
+      "text": "badger",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabs",
+      "for": "container",
+      "note": "to grab something is to take hold of it, so one piece clutches others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The man",
+      "gives": "HE",
+      "note": "pronoun for a man"
+     },
+     {
+      "clueFragment": "American behind",
+      "gives": "ASS",
+      "note": "US slang for the bottom"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "clothing-size abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ASS",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man seizes a big American badger by its rear.",
+     "walkthrough": "'badger' looks like the animal but is the verb: to pester.",
+     "definitionFit": "To badger someone is to nag or pester them persistently, which is what harassing them means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "badger"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1314,70 @@
     "text": "Delete witticism after former lover, for example, gets upset",
     "enumeration": "7"
    },
-   "solution": "EXPUNGE"
+   "solution": "EXPUNGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXPUNGE",
+    "definitions": [
+     {
+      "text": "Delete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upsetting something tips it over, so in a down clue the letters are turned upside down"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "witticism",
+      "gives": "PUN",
+      "note": "a play on words"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "abbreviation of exempli gratia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PUN",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone upset by an ex's joke wants it deleted.",
+     "walkthrough": "'upset' reads as the emotional state of the person, but in a down clue it turns the abbreviation upside down.",
+     "definitionFit": "To expunge is to erase or remove completely, the same as wiping out a record."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1391,65 @@
     "text": "Tip for polishing dirty set of books is well advised",
     "enumeration": "7"
    },
-   "solution": "PRUDENT"
+   "solution": "PRUDENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRUDENT",
+    "definitions": [
+     {
+      "text": "well advised",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tip for",
+      "for": "letter_selection",
+      "note": "the tip of a word is its point, its first letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polishing",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "dirty",
+      "gives": "RUDE",
+      "note": "a dirty joke is a rude one"
+     },
+     {
+      "clueFragment": "set of books",
+      "gives": "NT",
+      "note": "the New Testament, a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RUDE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to clean up grubby books by polishing them.",
+     "walkthrough": "'Tip' looks like a piece of advice; it is the first letter. NT is the New Testament.",
+     "definitionFit": "A prudent course is a wise and sensible one, which is what a well advised action is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1463,48 @@
     "text": "Troublesome thing, duck sauce",
     "enumeration": "5"
    },
-   "solution": "PESTO"
+   "solution": "PESTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PESTO",
+    "definitions": [
+     {
+      "text": "sauce",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Troublesome thing",
+      "gives": "PEST",
+      "note": "a pest is a nuisance"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nought, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEST",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An annoying duck is turned into sauce for a meal.",
+     "walkthrough": "The duck sauce suggests a Chinese takeaway; the duck is a cricket score of zero.",
+     "definitionFit": "Pesto is an Italian basil, pine nut and parmesan condiment served with pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1518,52 @@
     "text": "Notable achievement moving a cheese",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FETA",
+    "definitions": [
+     {
+      "text": "a cheese",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "things that are moving change position, so the letters shift into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notable achievement",
+      "gives": "FEAT",
+      "note": "a feat is a remarkable accomplishment"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEAT",
+       "gives": "FETA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shifting a whole cheese counts as a real accomplishment.",
+     "walkthrough": "'moving' could mean touching, as in a moving achievement, but it signals the shuffle.",
+     "definitionFit": "Feta is a crumbly white Greek brined curd variety made from sheep or goat milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1577,52 @@
     "text": "Traveller sees prang round the bend",
     "enumeration": "9"
    },
-   "solution": "PASSENGER"
+   "solution": "PASSENGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PASSENGER",
+    "definitions": [
+     {
+      "text": "Traveller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round the bend",
+      "for": "anagram",
+      "note": "'round the bend' means crazy, so the letters go wild and rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sees prang",
+      "gives": "SEESPRANG",
+      "note": "nine letters of fodder; a prang is British slang for a minor crash"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEESPRANG",
+       "gives": "PASSENGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on a journey witnesses a car crash just around a corner.",
+     "walkthrough": "'round the bend' reads as a road's curve, but it is the idiom for mad. A prang is a minor car accident in British slang.",
+     "definitionFit": "A passenger is someone travelling in a vehicle they are not driving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1642,43 @@
      }
     ]
    },
-   "solution": "GETUP"
+   "solution": "GETUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET UP",
+    "definitions": [
+     {
+      "text": "Rouse",
+      "at": 0
+     },
+     {
+      "text": "what could be young sheep",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rouse",
+      "note": "first meaning: to wake or stir someone out of bed"
+     },
+     {
+      "clueFragment": "what could be young sheep",
+      "note": "second, cryptic meaning: 'get' is offspring and a tup is a ram, so the get of a tup, run together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Get' is an old word for an animal's offspring and a tup is a ram; read GE-TUP with the shared T, the answer is a ram's young. The question mark flags the stretch.",
+     "definitionFit": "To rouse someone is to make them rise from sleep, which this phrasal verb also means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "young"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1692,56 @@
     "text": "Genuine regret after Truss's first",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRUE",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Truss's",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Real remorse follows Liz Truss's first moves as prime minister.",
+     "walkthrough": "Liz Truss was briefly UK prime minister in 2022; only her initial letter is used, coming before RUE even though the clue says 'after'.",
+     "definitionFit": "Something genuine is real and authentic rather than fake, which is what true describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Truss's"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1761,68 @@
      }
     ]
    },
-   "solution": "RUSSIANROULETTE"
+   "solution": "RUSSIANROULETTE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RUSSIAN ROULETTE",
+    "definitions": [
+     {
+      "text": "Unruliest are shot - not hard playing this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' excludes something, so a letter is taken out of the fodder"
+     },
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is wrecked or ruined, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unruliest are",
+      "gives": "UNRULIESTARE",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "SHOT",
+      "note": "also part of the fodder as well as the signal"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "pencil-grade abbreviation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNRULIESTARESOT",
+       "gives": "RUSSIANROULETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most reckless people get shot while playing a deadly game.",
+     "walkthrough": "The fodder is 'Unruliest are shot' with H removed; the whole clue also describes the game, where wild players do get shot.",
+     "definitionFit": "In this lethal gamble players take turns firing a revolver loaded with a single bullet at their own heads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1836,50 @@
     "text": "Threaten to destroy bug",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDANGER",
+    "definitions": [
+     {
+      "text": "Threaten",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destroy",
+      "gives": "END",
+      "note": "to end something is to finish it off"
+     },
+     {
+      "clueFragment": "bug",
+      "gives": "ANGER",
+      "note": "to bug someone is to annoy them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A householder vows to wipe out an insect pest.",
+     "walkthrough": "'bug' looks like an insect but is the verb: to irritate.",
+     "definitionFit": "To endanger something is to put it at risk, which is what threatening it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1893,65 @@
     "text": "Work over, drink's knocked back",
     "enumeration": "4"
    },
-   "solution": "OPUS"
+   "solution": "OPUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPUS",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocked back means pushed backwards, so these letters run in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "cricket scoring abbreviation for an over"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to sip a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUP",
+       "to": "PUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After work is over, a drink is downed quickly.",
+     "walkthrough": "'knocked back' looks like gulping a drink, but signals the reversal of SUP.",
+     "definitionFit": "An opus is a musical or literary composition, a creative piece of artistic output."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knocked"
+    }
+   }
   }
  ]
 }
