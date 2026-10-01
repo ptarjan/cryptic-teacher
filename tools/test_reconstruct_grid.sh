@@ -442,12 +442,12 @@ read -r _ _ n_bare _ ex_bare _ amb_bare _ miss_bare _ unc_bare _ bud_bare _ <<<"
 # is exactly what this file exists to catch, and a count derived from the same
 # files it is checking would agree with itself whatever arrived. A new series
 # fails here and is meant to — read the number off `puzzles/*/*/*.json` (index.json
-# is not a puzzle) and update it. 25 = cryptic at six sizes, cyclops at two,
-# and book, everyman, ftcryptic, globeandmail, independent, indysunday,
-# mephisto, metro, quiptic, sundaytel, sundaytimes, sundaytough, telegraph,
-# times, timesjumbo, timesquick and toughie at one each. Every scanned printed book is the one `book` series, so a
+# is not a puzzle) and update it. 28 = cryptic at six sizes, cyclops and
+# sundaytimes at two, and book, everyman, ftcryptic, globeandmail, independent,
+# indysunday, mephisto, metro, quiptic, sundaytel, sundaytough, telegraph,
+# times, timesclub, timesjumbo, timesquick, tls and toughie at one each. Every scanned printed book is the one `book` series, so a
 # thirty-first book does not move this number.
-same "every series and size was drawn from" "$(field GROUPS "$out2")" "25"
+same "every series and size was drawn from" "$(field GROUPS "$out2")" "28"
 same "every attempt lands in exactly one of the five buckets" \
   "$(( ex_num + amb_num + miss_num + unc_num + bud_num ))" "$n_num"
 # Everything below is stated against the attempts that finished AND whose
