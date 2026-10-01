@@ -23,6 +23,9 @@
   "date": "2024-12-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,67 @@
     "text": "Response I publish in red, abridged",
     "enumeration": "7"
    },
-   "solution": "RIPOSTE"
+   "solution": "RIPOSTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RIPOSTE",
+    "definitions": [
+     {
+      "text": "Response",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "an abridged text has been cut short, so the final letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "RE",
+      "note": "the colour word with its last letter removed"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "publish",
+      "gives": "POST",
+      "note": "to post a notice or message online is to publish it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "POST",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone replies to a critic by printing a shortened rebuttal in red ink.",
+     "walkthrough": "'In red' suggests red ink, but the colour word itself is the outer piece, trimmed by 'abridged'.",
+     "definitionFit": "A riposte is a quick, sharp reply, originally a fencing term for a return thrust after parrying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +113,54 @@
     "text": "Mouth, bit towards the top",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "Mouth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "towards the top",
+      "for": "reversal",
+      "note": "in a down entry, moving towards the top means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit",
+      "gives": "PART",
+      "note": "a bit of something is a part of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse's mouth and the bit that sits high in it.",
+     "walkthrough": "'Bit' suggests the horse's mouthpiece, but it simply means a portion. 'Shut your trap' is British slang for 'be quiet'.",
+     "definitionFit": "Trap is informal slang for a person's mouth, as in the rude command to keep it closed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +174,45 @@
     "text": "Weapon member of the clergy discussed?",
     "enumeration": "6"
    },
-   "solution": "CANNON"
+   "solution": "CANNON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CANNON",
+    "definitions": [
+     {
+      "text": "Weapon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken about, so the clue works on how words sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member of the clergy",
+      "gives": "CANNON",
+      "soundsLike": "CANON",
+      "note": "a canon is a clergyman attached to a cathedral"
+     }
+    ],
+    "explanation": {
+     "surface": "A heavily armed churchman being talked about.",
+     "walkthrough": "A canon is a cathedral clergyman; spoken, the word is identical to the big gun.",
+     "definitionFit": "A cannon is a large heavy gun firing shot, a classic piece of artillery and so a weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +226,62 @@
     "text": "Athletic activity, decathlon’s first in sport",
     "enumeration": "8"
    },
-   "solution": "HURDLING"
+   "solution": "HURDLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HURDLING",
+    "definitions": [
+     {
+      "text": "Athletic activity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter only"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decathlon’s",
+      "gives": "D",
+      "select": "first",
+      "note": "opening letter of the event name"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "HURLING",
+      "note": "hurling is an Irish field sport played with sticks and a ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUR",
+      "D",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "Hurdles are part of the decathlon, so the opening event sounds like an athletic sport.",
+     "walkthrough": "D goes inside HURLING, a fast Irish stick-and-ball game, to make HURDLING.",
+     "definitionFit": "Hurdling is running a race while jumping over a series of barriers, a track event in athletics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decathlon’s"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +305,43 @@
      }
     ]
    },
-   "solution": "ONTHEFENCE"
+   "solution": "ONTHEFENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE FENCE",
+    "definitions": [
+     {
+      "text": "Torn",
+      "at": 0
+     },
+     {
+      "text": "between neighbouring gardens",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Torn",
+      "note": "first meaning: undecided between two options"
+     },
+     {
+      "clueFragment": "between neighbouring gardens",
+      "note": "second meaning: literally sitting on the boundary between two plots"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is a literal location; the question mark flags that it is playful rather than a dictionary sense.",
+     "definitionFit": "Someone undecided who refuses to take a side in a dispute is said to sit on the fence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Torn"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +361,43 @@
      }
     ]
    },
-   "solution": "ONBOARD"
+   "solution": "ONBOARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON BOARD",
+    "definitions": [
+     {
+      "text": "Where chairperson may be",
+      "at": 0
+     },
+     {
+      "text": "in agreement",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where chairperson may be",
+      "note": "first meaning: a chair sits on a company's governing board"
+     },
+     {
+      "clueFragment": "in agreement",
+      "note": "second meaning: supporting a plan, as in 'getting everyone on side'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first meaning is a literal position, a chair being a member of the directors' board.",
+     "definitionFit": "Being on board idiomatically means supporting and agreeing with a proposal or team plan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chairperson"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +417,66 @@
      }
     ]
    },
-   "solution": "LIPREAD"
+   "solution": "LIPREAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LIP-READ",
+    "definitions": [
+     {
+      "text": "Watch what someone says",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter only"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means wrong or out of place, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladies",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "paired",
+      "gives": "PAIRED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LPAIRED",
+       "gives": "LIPREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watching what's said as the women at a dance are paired with partners.",
+     "walkthrough": "'Paired off' reads as one phrase about couples, but 'off' is the rearrangement signal acting on PAIRED plus L.",
+     "definitionFit": "To lip-read is to understand speech by watching the movement of the speaker's mouth, so one literally watches speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +490,43 @@
     "text": "Trotting along on the trot!",
     "enumeration": "7"
    },
-   "solution": "RUNNING"
+   "solution": "RUNNING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUNNING",
+    "definitions": [
+     {
+      "text": "Trotting along",
+      "at": 0
+     },
+     {
+      "text": "on the trot",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trotting along",
+      "note": "first meaning: moving quickly on foot"
+     },
+     {
+      "clueFragment": "on the trot",
+      "note": "second meaning: one after another, consecutively"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On the trot' is British for consecutively, as in three wins on the trot; so is 'running', as in three days running.",
+     "definitionFit": "Running describes jogging movement and also successive occurrences, as in four nights running."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trot"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +540,67 @@
     "text": "Ground in mess around that place – little bits",
     "enumeration": "11"
    },
-   "solution": "SMITHEREENS"
+   "solution": "SMITHEREENS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SMITHEREENS",
+    "definitions": [
+     {
+      "text": "little bits",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ground",
+      "for": "anagram",
+      "note": "something ground is crushed and broken up, so its letters are reworked"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to be around something is to surround it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in mess",
+      "gives": "INMESS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "that place",
+      "gives": "THERE",
+      "note": "'there' means at that place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMI",
+      "THERE",
+      "ENS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INMESS",
+       "gives": "SMIENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something ground into a mess has been reduced to tiny fragments.",
+     "walkthrough": "IN MESS is rearranged to SMIENS, which then wraps around THERE: SMI-THERE-ENS.",
+     "definitionFit": "Smithereens are tiny fragments, as when something is smashed or blown to pieces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ground"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +620,39 @@
      }
     ]
    },
-   "solution": "HOPPINGMAD"
+   "solution": "HOPPINGMAD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOPPING MAD",
+    "definitions": [
+     {
+      "text": "Furious",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Furious",
+      "note": "surface reading: extremely angry"
+     },
+     {
+      "clueFragment": "having lost the first leg?",
+      "note": "setter's reading: someone with one leg would have to move by jumping on the other"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The angry idiom is taken literally: losing a leg leaves one getting about on one foot, which is what the first word describes.",
+     "definitionFit": "Hopping mad is an informal idiom for extremely angry, as if jumping up and down with rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +666,60 @@
     "text": "Laugh overly hard, falling over",
     "enumeration": "4"
    },
-   "solution": "HOOT"
+   "solution": "HOOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HOOT",
+    "definitions": [
+     {
+      "text": "Laugh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling over",
+      "for": "reversal",
+      "note": "something falling over ends up upside down, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overly",
+      "gives": "TOO",
+      "note": "'too' means excessively"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOOH",
+       "to": "HOOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laughing so hard that one falls over.",
+     "walkthrough": "'Falling over' looks like part of the laughing picture, as in falling about laughing, but it is the turnaround signal.",
+     "definitionFit": "A hoot is a loud burst of laughter, and to hoot is to laugh loudly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +743,43 @@
      }
     ]
    },
-   "solution": "STEPONIT"
+   "solution": "STEPONIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEP ON IT",
+    "definitions": [
+     {
+      "text": "Put one’s foot down",
+      "at": 0
+     },
+     {
+      "text": "crush that thing",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put one’s foot down",
+      "note": "first meaning: accelerate a car, hurry up"
+     },
+     {
+      "clueFragment": "crush that thing",
+      "note": "second meaning: a literal command to tread on an object"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both phrases have a literal and a figurative sense; 'put one's foot down' here means drive faster, not assert authority.",
+     "definitionFit": "Step on it is an idiom urging a driver to speed up, and literally means tread hard on something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +793,60 @@
     "text": "Meat in risotto with cup that’s drunk",
     "enumeration": "10"
    },
-   "solution": "PROSCIUTTO"
+   "solution": "PROSCIUTTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROSCIUTTO",
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk is unsteady and disordered, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "risotto",
+      "gives": "RISOTTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cup",
+      "gives": "CUP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISOTTOCUP",
+       "gives": "PROSCIUTTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian meal: a cured meat in the risotto washed down with a cup of something.",
+     "walkthrough": "'Meat in risotto' reads as an ingredient list, but 'in' just joins the definition to the letters of RISOTTO and CUP.",
+     "definitionFit": "Prosciutto is Italian dry-cured ham, usually served in thin slices, so a type of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +860,44 @@
     "text": "Tell part of the class?",
     "enumeration": "6"
    },
-   "solution": "INFORM"
+   "solution": "INFORM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INFORM",
+    "definitions": [
+     {
+      "text": "Tell",
+      "at": 0
+     },
+     {
+      "text": "part of the class",
+      "at": 5,
+      "note": "describes being in a school group; the answer splits as IN FORM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tell",
+      "note": "first meaning: give information to"
+     },
+     {
+      "clueFragment": "part of the class",
+      "note": "second meaning, split in two: belonging to a school class, which in Britain is called a form"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British schools a class is a 'form', so a pupil in the class is in form; the question mark flags the split.",
+     "definitionFit": "To inform someone is to tell them facts, and a pupil within a school form is literally in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +917,56 @@
      }
     ]
    },
-   "solution": "DOUBLEAGENT"
+   "solution": "DOUBLEAGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOUBLE AGENT",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "going after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large drink",
+      "gives": "DOUBLE",
+      "note": "a double is twice the standard measure of spirits"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent, short for gentleman, is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUBLE",
+      "A",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy notices a man heading for a big drink.",
+     "walkthrough": "'Spy' looks like a verb, but it is the noun definition; the man comes after the drink in the answer.",
+     "definitionFit": "A double agent is a spy who pretends to work for one side while secretly serving its enemy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spy"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +980,43 @@
     "text": "Patty, macho man",
     "enumeration": "8"
    },
-   "solution": "BEEFCAKE"
+   "solution": "BEEFCAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEEFCAKE",
+    "definitions": [
+     {
+      "text": "Patty",
+      "at": 0
+     },
+     {
+      "text": "macho man",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patty",
+      "note": "first meaning: a flat cake of minced cow meat"
+     },
+     {
+      "clueFragment": "macho man",
+      "note": "second meaning: a muscular, attractive man"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as a name, 'Patty' suggests a woman paired with a man; it is the burger patty.",
+     "definitionFit": "Beefcake is slang for a muscular man displayed for his physique, and literally a cake of minced beef."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Patty"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1030,61 @@
     "text": "Country, e.g. Iran I gathered",
     "enumeration": "7"
    },
-   "solution": "NIGERIA"
+   "solution": "NIGERIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGERIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathered",
+      "for": "anagram",
+      "note": "things gathered are collected up in a heap, losing their original order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g.",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Iran",
+      "gives": "IRAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGIRANI",
+       "gives": "NIGERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cites Iran as an example of a country, as they understood it.",
+     "walkthrough": "'E.g. Iran' sets up Iran as the example country, but its letters, with EG and I, make a different one.",
+     "definitionFit": "Nigeria is a nation in West Africa, the most populous on the continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iran"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1098,64 @@
     "text": "Shallow receptacle where trash mixed up, always",
     "enumeration": "7"
    },
-   "solution": "ASHTRAY"
+   "solution": "ASHTRAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ASHTRAY",
+    "definitions": [
+     {
+      "text": "Shallow receptacle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed up",
+      "for": "anagram",
+      "note": "mixed up means jumbled together, so the letters change order"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trash",
+      "gives": "TRASH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay, also spelt aye, is a poetic word for always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASHTR",
+      "AY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRASH",
+       "gives": "ASHTR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shallow dish where rubbish always ends up jumbled.",
+     "walkthrough": "AY for 'always' is an old poetic word that crosswords use often.",
+     "definitionFit": "An ashtray is a small shallow dish for cigarette ash and butts, so a shallow container."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trash"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1169,51 @@
     "text": "Group of friends cleric mistreated",
     "enumeration": "6"
    },
-   "solution": "CIRCLE"
+   "solution": "CIRCLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CIRCLE",
+    "definitions": [
+     {
+      "text": "Group of friends",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistreated",
+      "for": "anagram",
+      "note": "something mistreated is knocked about, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleric",
+      "gives": "CLERIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLERIC",
+       "gives": "CIRCLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang of friends treated a priest badly.",
+     "walkthrough": "The clergyman's six letters rearrange directly into the answer.",
+     "definitionFit": "A circle is a social set of people with shared interests, as in a circle of friends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cleric"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1227,67 @@
     "text": "Jam goes in like that after energy drink",
     "enumeration": "8"
    },
-   "solution": "ESPRESSO"
+   "solution": "ESPRESSO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ESPRESSO",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes in",
+      "for": "container",
+      "note": "to go in something is to enter it, so one piece sits inside another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind another, so the order is fixed by this word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "like that",
+      "gives": "SO",
+      "note": "'so' means in that way"
+     },
+     {
+      "clueFragment": "Jam",
+      "gives": "PRESS",
+      "note": "to jam is to crush or press"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "PRESS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puts jam on toast and follows up with an energy drink.",
+     "walkthrough": "'Jam' suggests the fruit preserve, but here it is a verb meaning squeeze. E for energy is the physics symbol.",
+     "definitionFit": "Espresso is strong black coffee made by forcing steam through ground beans, a caffeinated drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jam"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1301,59 @@
     "text": "Revolutionary once up for attack",
     "enumeration": "6"
    },
-   "solution": "POUNCE"
+   "solution": "POUNCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POUNCE",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "anagram",
+      "note": "something revolutionary overturns the existing order, so the letters change places"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCEUP",
+       "gives": "POUNCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former rebel ready for an assault.",
+     "walkthrough": "'Revolutionary' looks like the definition or the usual CHE; it is the signal to rearrange ONCE UP.",
+     "definitionFit": "To pounce is to spring suddenly on a victim, so a sudden swoop or assault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1367,43 @@
     "text": "List in programme, numerical",
     "enumeration": "4"
    },
-   "solution": "MENU"
+   "solution": "MENU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MENU",
+    "definitions": [
+     {
+      "text": "List",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "something in a phrase is contained within it, spread across its words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "programme, numerical",
+      "gives": "MENU",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of numbers in a programme schedule.",
+     "walkthrough": "The answer spans programME NUmerical, ignoring the comma.",
+     "definitionFit": "A menu is a list of dishes on offer, or of options in a computer program."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "numerical"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1417,55 @@
     "text": "Carpet in use, complete",
     "enumeration": "10"
    },
-   "solution": "CONSUMMATE"
+   "solution": "CONSUMMATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONSUMMATE",
+    "definitions": [
+     {
+      "text": "complete",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "use",
+      "gives": "CONSUME",
+      "note": "to consume something is to use it up"
+     },
+     {
+      "clueFragment": "Carpet",
+      "gives": "MAT",
+      "note": "a mat is a small carpet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONSUM",
+      "MAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpet in use, laid down and finished.",
+     "walkthrough": "'Complete' is the definition in its adjective sense, meaning utter or perfect, as in a consummate professional.",
+     "definitionFit": "Consummate as an adjective means perfect or total, and as a verb means bring to completion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carpet"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1479,48 @@
     "text": "Flash lit up satellite",
     "enumeration": "4"
    },
-   "solution": "MOON"
+   "solution": "MOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOON",
+    "definitions": [
+     {
+      "text": "satellite",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flash",
+      "gives": "MO",
+      "note": "a mo, short for moment, is a very brief time, as in 'in a flash'"
+     },
+     {
+      "clueFragment": "lit up",
+      "gives": "ON",
+      "note": "a light that is lit up is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A satellite gleams as it is illuminated.",
+     "walkthrough": "'Flash' and the answer can both mean bare one's bottom, a tempting false trail; here the clue is a charade of a brief moment and a lit state.",
+     "definitionFit": "The Moon is Earth's natural satellite, the body that orbits our planet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flash"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1534,62 @@
     "text": "Last in exam, I risk error",
     "enumeration": "7"
    },
-   "solution": "MISTAKE"
+   "solution": "MISTAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MISTAKE",
+    "definitions": [
+     {
+      "text": "error",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last in",
+      "for": "letter_selection",
+      "note": "the last in a word is its final letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exam",
+      "gives": "M",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "risk",
+      "gives": "STAKE",
+      "note": "a stake is something risked in a bet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "STAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A student coming last in an exam fears getting something wrong.",
+     "walkthrough": "'Risk' is a verb in the surface but gives the noun STAKE, money put at risk on a bet.",
+     "definitionFit": "A mistake is an error or wrong action, something done incorrectly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1603,61 @@
     "text": "Performer in coat and bra, bizarrely",
     "enumeration": "7"
    },
-   "solution": "ACROBAT"
+   "solution": "ACROBAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACROBAT",
+    "definitions": [
+     {
+      "text": "Performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bizarrely",
+      "for": "anagram",
+      "note": "something done bizarrely is done strangely, so the letters fall into an odd new order"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "COAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COATBRA",
+       "gives": "ACROBAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strangely dressed entertainer wearing only a coat and a bra.",
+     "walkthrough": "'Performer in coat and bra' looks like a costume description; 'in' only links the definition to the letters.",
+     "definitionFit": "An acrobat is a circus performer who does gymnastic feats such as tumbling and balancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
