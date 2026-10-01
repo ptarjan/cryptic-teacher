@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Daughter is last to finish food",
     "enumeration": "4"
    },
-   "solution": "DISH"
+   "solution": "DISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DISH",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only the closing letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter dawdles over dinner and is the last one still eating.",
+     "walkthrough": "D is the usual abbreviation for daughter, as in family trees.",
+     "definitionFit": "A dish is a prepared item of cooking served at a meal, so the word stands for something eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,64 @@
     "text": "US soldier set up facilities in simple dwelling",
     "enumeration": "5"
    },
-   "solution": "IGLOO"
+   "solution": "IGLOO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "IGLOO",
+    "definitions": [
+     {
+      "text": "simple dwelling",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, setting something up raises it so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the familiar name for an American soldier"
+     },
+     {
+      "clueFragment": "facilities",
+      "gives": "LOO",
+      "note": "loo is British slang for a toilet, the 'facilities'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IG",
+      "LOO"
+     ],
+     "reversals": [
+      {
+       "from": "GI",
+       "to": "IG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American soldier builds a latrine at a basic shelter.",
+     "walkthrough": "'Facilities' is a polite word for toilets, and loo is the everyday British word for one; in a down entry 'set up' turns a word to read upward.",
+     "definitionFit": "An Inuit snow house is a basic shelter built from blocks of packed snow, a plain home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "facilities"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +182,46 @@
      }
     ]
    },
-   "solution": "HAVINGKITTENS"
+   "solution": "HAVINGKITTENS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAVING KITTENS",
+    "definitions": [
+     {
+      "text": "Dropping litter",
+      "at": 0
+     },
+     {
+      "text": "becoming anxious",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dropping litter",
+      "note": "first meaning: a cat giving birth to a brood of young"
+     },
+     {
+      "clueFragment": "becoming anxious",
+      "note": "second meaning: a British idiom for getting into a nervous state"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Dropping litter' reads like tossing rubbish, but to drop a litter is for an animal to give birth. The second sense is a British idiom for being very nervous or agitated.",
+     "definitionFit": "A cat delivering young is literally doing this, and the same phrase is British slang for working oneself into a state of panic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "litter"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +235,56 @@
     "text": "Extremely demure uniform characteristic of speaker",
     "enumeration": "8"
    },
-   "solution": "DELIVERY"
+   "solution": "DELIVERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DELIVERY",
+    "definitions": [
+     {
+      "text": "characteristic of speaker",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demure",
+      "gives": "DE",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "LIVERY",
+      "note": "livery is the distinctive uniform worn by servants or staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LIVERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A very modest outfit becomes the trademark of a public speaker.",
+     "walkthrough": "'Uniform' is not the NATO letter U here; it is a noun meaning official dress.",
+     "definitionFit": "A speaker's manner of voicing words, the pace, tone and style of oratory, is called their delivery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +298,53 @@
     "text": "Foppish fellow departs with Yankee",
     "enumeration": "5"
    },
-   "solution": "DANDY"
+   "solution": "DANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANDY",
+    "definitions": [
+     {
+      "text": "Foppish fellow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the timetable abbreviation for departs"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "'and' means along with"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A vain, fashionable man leaves accompanied by an American.",
+     "walkthrough": "D for departs comes from railway timetables, and Yankee is the radio code word for Y.",
+     "definitionFit": "A dandy is a man excessively devoted to his clothes and appearance, which is exactly what foppish describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +358,67 @@
     "text": "Earl abroad covers the skin",
     "enumeration": "7"
    },
-   "solution": "LEATHER"
+   "solution": "LEATHER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEATHER",
+    "definitions": [
+     {
+      "text": "skin",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "something abroad is out of its usual place, so the letters wander into a new order"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "to cover something is to wrap around it, so one group surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earl",
+      "gives": "EARL",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "THE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EARL",
+       "gives": "LEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman travelling overseas wraps up his hide against the weather.",
+     "walkthrough": "'Earl' looks like the subject of the sentence, but it is only letters to be jumbled; the jumbled result is then split to hold the article.",
+     "definitionFit": "Leather is tanned animal hide, and 'skin' can mean the processed hide of an animal as well as living skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +438,60 @@
      }
     ]
    },
-   "solution": "VIRGINIAWATER"
+   "solution": "VIRGINIAWATER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "VIRGINIA WATER",
+    "definitions": [
+     {
+      "text": "location in Surrey",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so a letter is dropped from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "VIRGINIA",
+      "note": "Virginia is a US state"
+     },
+     {
+      "clueFragment": "service provider",
+      "gives": "WAITER",
+      "note": "a waiter provides service at table"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one, and it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIRGINIA",
+      "WATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A government-run utility company loses a site somewhere in Surrey.",
+     "walkthrough": "'State service provider' looks like one public body, but it splits into a US state and a waiter. Surrey is an English county south-west of London; Virginia Water is a village there.",
+     "definitionFit": "Virginia Water is a real village and lake in the English county of Surrey, near Windsor Great Park."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "provider"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +511,67 @@
      }
     ]
    },
-   "solution": "ROPEDIN"
+   "solution": "ROPEDIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROPED IN",
+    "definitions": [
+     {
+      "text": "Enlisted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "a criminal is crooked, so these letters are bent out of their order"
+     },
+     {
+      "text": "to probe",
+      "for": "container",
+      "note": "a probe pushes inside something, so one piece goes into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ripon",
+      "gives": "RIPON",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "chief journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the chief journalist on a paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROP",
+      "ED",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIPON",
+       "gives": "ROPIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly recruited senior reporter is sent to investigate a crook from Ripon.",
+     "walkthrough": "Ripon is a small cathedral city in North Yorkshire; its letters become ROPIN and ED goes inside.",
+     "definitionFit": "To be roped in is to be persuaded or recruited to take part, so it matches enlisted as a past participle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +585,79 @@
     "text": "Alison failed to secure EV around European country",
     "enumeration": "8"
    },
-   "solution": "SLOVENIA"
+   "solution": "SLOVENIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "SLOVENIA",
+    "definitions": [
+     {
+      "text": "European country",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failed",
+      "for": "anagram",
+      "note": "something that has failed has broken down, so the letters fall apart and reassemble"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means facing the other way, so the letters run backwards"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure is to hold fast, so one group grips another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alison",
+      "gives": "ALISON",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "EV",
+      "gives": "EV",
+      "note": "taken as written, an electric vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLO",
+      "VE",
+      "NIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALISON",
+       "gives": "SLONIA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "EV",
+       "to": "VE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Alison couldn't get hold of an electric vehicle anywhere on the continent.",
+     "walkthrough": "EV is the common abbreviation for an electric vehicle, but here it is just two letters to be flipped; three separate signals act on one short clue.",
+     "definitionFit": "Slovenia is a nation in central Europe bordering Italy, Austria, Hungary and Croatia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "failed"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +671,49 @@
     "text": "Periodically, fruit pie’s ready to eat",
     "enumeration": "4"
    },
-   "solution": "RIPE"
+   "solution": "RIPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RIPE",
+    "definitions": [
+     {
+      "text": "ready to eat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit pie",
+      "gives": "RIPE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Every so often a fruit pie comes out of the oven ready to serve.",
+     "walkthrough": "The apostrophe-s is read as 'is', linking wordplay to definition.",
+     "definitionFit": "Fruit that is fully matured and fit for eating is described as ripe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Periodically"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +727,50 @@
     "text": "Foreign nobleman encounters unknown shire",
     "enumeration": "6"
    },
-   "solution": "COUNTY"
+   "solution": "COUNTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUNTY",
+    "definitions": [
+     {
+      "text": "shire",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "encounters"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign nobleman",
+      "gives": "COUNT",
+      "note": "a count is a continental European noble, the equivalent of an earl"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A visiting aristocrat comes across an unfamiliar rural district.",
+     "walkthrough": "Britain has earls rather than counts, which is why the count is 'foreign'. X, Y and Z are the usual unknowns from algebra.",
+     "definitionFit": "Shire is the old English word for an administrative region, now generally called a county."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +784,51 @@
     "text": "Aggressive dog’s curfew half ignored",
     "enumeration": "3"
    },
-   "solution": "CUR"
+   "solution": "CUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CUR",
+    "definitions": [
+     {
+      "text": "Aggressive dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half ignored",
+      "for": "deletion",
+      "note": "ignoring half of something leaves only the other half, so part of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curfew",
+      "gives": "CUR",
+      "note": "the first half of this word, the second half being dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A snarling dog pays no attention to the night-time curfew.",
+     "walkthrough": "The apostrophe-s stands for 'is', joining the definition to the wordplay.",
+     "definitionFit": "A cur is a mongrel, especially a snappish or vicious one, so it suits a hostile hound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curfew"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +842,63 @@
     "text": "Maybe Bob ate duck around Ireland",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "Maybe Bob",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to sit around something is to surround it, so one piece goes outside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ate",
+      "gives": "HAD",
+      "note": "to have a meal is to eat it, so 'had' can mean ate"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "IR",
+      "note": "IR is an abbreviation for Ireland"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a zero score in cricket, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "IR",
+      "D",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Bob perhaps had duck for dinner somewhere in Ireland.",
+     "walkthrough": "Bob looks like a man's name, but it is a short haircut. In cricket a duck is a score of nothing, so it gives O.",
+     "definitionFit": "A bob is one example of a hairstyle, a short even cut, hence the 'Maybe' marking an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +918,75 @@
      }
     ]
    },
-   "solution": "ROCKYMARCIANO"
+   "solution": "ROCKYMARCIANO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROCKY MARCIANO",
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter of the word is used"
+     },
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wobbling",
+      "gives": "ROCKY",
+      "note": "rocky means unsteady"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "MAR",
+      "note": "to mar is to damage or spoil"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "CIAO",
+      "note": "ciao, like cheers, is a casual goodbye"
+     },
+     {
+      "clueFragment": "beaten",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCKY",
+      "MAR",
+      "CIA",
+      "N",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A battered prizefighter, staggering and in pain, finally goes down while the crowd roars.",
+     "walkthrough": "Cheers is a British way of saying goodbye as well as a toast, so it matches the Italian farewell CIAO.",
+     "definitionFit": "Rocky Marciano was the American heavyweight champion of the 1950s who retired unbeaten, a famous prizefighter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1000,59 @@
     "text": "Greek character’s minor company briefly reorganised",
     "enumeration": "7"
    },
-   "solution": "OMICRON"
+   "solution": "OMICRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OMICRON",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reorganised",
+      "for": "anagram",
+      "note": "reorganising puts things into a fresh arrangement, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minor",
+      "gives": "MINOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "company briefly",
+      "gives": "CO",
+      "note": "CO is the short form of company"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINORCO",
+       "gives": "OMICRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek man's small firm has been restructured.",
+     "walkthrough": "'Briefly' tells you to use the abbreviation CO, which joins the other five letters for the shuffle.",
+     "definitionFit": "Omicron is the fifteenth letter of the Greek alphabet, and 'character' here means a written letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1066,57 @@
     "text": "Some athlete ran impulsively up tower",
     "enumeration": "7"
    },
-   "solution": "MINARET"
+   "solution": "MINARET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MINARET",
+    "definitions": [
+     {
+      "text": "tower",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a part of what follows, so the letters lie within the given words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "athlete ran impulsively",
+      "gives": "TERANIM",
+      "note": "the letters run across the end of the first word, all of the second, and the start of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TERANIM",
+       "to": "MINARET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sprinter dashes on a whim up a tall building.",
+     "walkthrough": "The run TERANIM sits across three words and is read upward.",
+     "definitionFit": "A minaret is the slender tower of a mosque from which the call to prayer is made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1130,60 @@
     "text": "Duke supporting old English verse",
     "enumeration": "3"
    },
-   "solution": "ODE"
+   "solution": "ODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODE",
+    "definitions": [
+     {
+      "text": "verse",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, a supporting piece sits beneath another, so it comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a common abbreviation for old"
+     },
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat backs traditional English poetry.",
+     "walkthrough": "Duke is written first but sits under old in this down entry, then English comes last.",
+     "definitionFit": "An ode is a lyric poem, usually addressed to a subject, so it is a piece of poetry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1197,52 @@
     "text": "Points affected another part of engine",
     "enumeration": "6"
    },
-   "solution": "PISTON"
+   "solution": "PISTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PISTON",
+    "definitions": [
+     {
+      "text": "another part of engine",
+      "at": 16,
+      "note": "'another' nods to the neighbouring engine-themed entries; the answer is simply a part of an engine"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered or influenced, so the letters are changed in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Points",
+      "gives": "POINTS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POINTS",
+       "gives": "PISTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Contact points have had a knock-on effect on a different engine component.",
+     "walkthrough": "Points are themselves engine parts (ignition points), which is why the surface hangs together.",
+     "definitionFit": "A piston is the sliding cylinder component driven by combustion inside an internal-combustion motor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1262,50 @@
      }
     ]
    },
-   "solution": "BOWTIE"
+   "solution": "BOWTIE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BOW TIE",
+    "definitions": [
+     {
+      "text": "Formal attire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "to pick up a signal is to hear it, so the words are taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boyfriend",
+      "gives": "BOW",
+      "soundsLike": "BEAU",
+      "note": "a beau is an old-fashioned word for a boyfriend"
+     },
+     {
+      "clueFragment": "southeast Asian",
+      "gives": "TIE",
+      "soundsLike": "THAI",
+      "note": "a Thai is a person from Thailand in southeast Asia"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman's boyfriend, from Southeast Asia, is collected wearing evening dress.",
+     "walkthrough": "BEAU sounds like BOW and THAI sounds like TIE.",
+     "definitionFit": "A bow tie is the neckwear worn with a dinner jacket at black-tie events, an item of evening dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1319,47 @@
     "text": "Head bishop formerly",
     "enumeration": "5"
    },
-   "solution": "BONCE"
+   "solution": "BONCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BONCE",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "ONCE",
+      "note": "once means at some time in the past"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ONCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who used to lead the diocese as its senior cleric.",
+     "walkthrough": "'Head bishop' reads as a single senior churchman, but the first word is the definition. Bonce is British slang for the head.",
+     "definitionFit": "Bonce is informal British slang for a person's skull or noggin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1373,47 @@
     "text": "Pub exactly what’s needed, don’t you think?",
     "enumeration": "5"
    },
-   "solution": "INNIT"
+   "solution": "INNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNIT",
+    "definitions": [
+     {
+      "text": "don’t you think?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "exactly what’s needed",
+      "gives": "IT",
+      "note": "'it' can mean the very thing, as in 'that's it'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suggests a pub is just the thing and asks for agreement.",
+     "walkthrough": "Innit is British street slang, a contraction of 'isn't it', tagged onto a remark to seek agreement.",
+     "definitionFit": "The slang tag is used at the end of a statement to invite agreement, just like asking a listener's opinion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pub"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1427,55 @@
     "text": "Unrestrained Republican in charge",
     "enumeration": "4"
    },
-   "solution": "FREE"
+   "solution": "FREE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREE",
+    "definitions": [
+     {
+      "text": "Unrestrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "FEE",
+      "note": "a fee is a charge for a service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild Republican politician has been put in command.",
+     "walkthrough": "'In charge' looks like one phrase meaning responsible; it splits into the container signal and a word for a payment.",
+     "definitionFit": "Someone unrestrained is not held back or confined, which is to be at liberty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1489,63 @@
     "text": "Band start to tout single that’s often played on phones",
     "enumeration": "8"
    },
-   "solution": "RINGTONE"
+   "solution": "RINGTONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RINGTONE",
+    "definitions": [
+     {
+      "text": "that’s often played on phones",
+      "at": 26,
+      "note": "a descriptive clause standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Band",
+      "gives": "RING",
+      "note": "a ring is a circular band"
+     },
+     {
+      "clueFragment": "tout",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "one is a single unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "T",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A group begins promoting its new release, a tune heard on mobiles everywhere.",
+     "walkthrough": "'Band' and 'single' sound like pop music, but they are a ring and the number one.",
+     "definitionFit": "A ringtone is the sound or short tune a mobile makes to announce an incoming call."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1559,56 @@
     "text": "Liqueur developed in estate",
     "enumeration": "8"
    },
-   "solution": "ANISETTE"
+   "solution": "ANISETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANISETTE",
+    "definitions": [
+     {
+      "text": "Liqueur",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "estate",
+      "gives": "ESTATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INESTATE",
+       "gives": "ANISETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spirit has been produced on a country property.",
+     "walkthrough": "'In' looks like a link word but its letters are part of the fodder.",
+     "definitionFit": "Anisette is a sweet aniseed-flavoured spirit, one type of liqueur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1622,61 @@
     "text": "Schedule artist retains over time",
     "enumeration": "4"
    },
-   "solution": "ROTA"
+   "solution": "ROTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROTA",
+    "definitions": [
+     {
+      "text": "Schedule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retains",
+      "for": "container",
+      "note": "to retain is to keep hold of, so one piece holds others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, a recognised artist"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter keeps his timetable despite running late.",
+     "walkthrough": "RA stands for Royal Academician, a member of the Royal Academy of Arts in London. An over is a set of six balls in cricket.",
+     "definitionFit": "A rota is a British word for a roster listing who does which duty and when."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   }
  ]
 }
