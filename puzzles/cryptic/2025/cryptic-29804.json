@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,49 @@
      }
     ]
    },
-   "solution": "DISCOVEREDCHECK"
+   "solution": "DISCOVEREDCHECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCOVERED CHECK",
+    "definitions": [
+     {
+      "text": "that threatens the monarch",
+      "at": 27,
+      "note": "a describing clause for a noun phrase: the thing that threatens the king"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was first to see",
+      "gives": "DISCOVERED",
+      "note": "to discover something is to be the first to see it"
+     },
+     {
+      "clueFragment": "a pattern",
+      "gives": "CHECK",
+      "note": "a check is a pattern of squares, as on a tablecloth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCOVERED",
+      "CHECK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a sinister design aimed at the king before anyone else does.",
+     "walkthrough": "In chess, the monarch is the king; a DISCOVERED CHECK happens when one piece moves out of the way and uncovers an attack on the king by another.",
+     "definitionFit": "This chess term names an attack on the king revealed by moving a different piece out of the line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pattern"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +98,58 @@
     "text": "Arranging to take power, but refusing to take advantage",
     "enumeration": "8"
    },
-   "solution": "SPORTING"
+   "solution": "SPORTING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPORTING",
+    "definitions": [
+     {
+      "text": "refusing to take advantage",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "taking something means holding it inside, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arranging",
+      "gives": "SORTING",
+      "note": "sorting things is arranging them"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the standard abbreviation for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ORTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A schemer plots to seize power yet declines to exploit the situation.",
+     "walkthrough": "SORTING takes P after its first letter, giving SPORTING.",
+     "definitionFit": "A sporting person plays fair and will not exploit an opponent's misfortune, like a good sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +163,43 @@
     "text": "Frustrate one buttoned up for Olympic event",
     "enumeration": "4"
    },
-   "solution": "FOIL"
+   "solution": "FOIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOIL",
+    "definitions": [
+     {
+      "text": "Frustrate",
+      "at": 0
+     },
+     {
+      "text": "one buttoned up for Olympic event",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frustrate",
+      "note": "first meaning: to thwart or block a plan"
+     },
+     {
+      "clueFragment": "one buttoned up for Olympic event",
+      "note": "second meaning: the light fencing sword whose tip is covered by a small button for safety"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Buttoned up' suggests a fastened coat, but it means a blade with a button on its point; fencing is an Olympic sport.",
+     "definitionFit": "To foil a scheme is to thwart it, and a foil is also a blunted fencing weapon with a safety tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buttoned"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +213,59 @@
     "text": "Not forced to disband one platoon",
     "enumeration": "8"
    },
-   "solution": "OPTIONAL"
+   "solution": "OPTIONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPTIONAL",
+    "definitions": [
+     {
+      "text": "Not forced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disband",
+      "for": "anagram",
+      "note": "a disbanded unit scatters and breaks up, so the letters are dispersed and regrouped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "platoon",
+      "gives": "PLATOON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IPLATOON",
+       "gives": "OPTIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers are told breaking up a unit is voluntary rather than compulsory.",
+     "walkthrough": "The military surface makes 'Not forced' read like troops, but it is the definition.",
+     "definitionFit": "Something optional is left to choice, not required or compelled by anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forced"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +279,55 @@
     "text": "Be after contract United accepted",
     "enumeration": "6"
    },
-   "solution": "PURSUE"
+   "solution": "PURSUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PURSUE",
+    "definitions": [
+     {
+      "text": "Be after",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted",
+      "for": "container",
+      "note": "something accepted is taken in, so one piece is received inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "PURSE",
+      "note": "to purse the lips is to contract or pucker them"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the usual abbreviation for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PURS",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A football club chases a deal that it has agreed to sign.",
+     "walkthrough": "'Contract' looks like a noun for a deal but is the verb, as in pursing the lips; PURSE takes U inside.",
+     "definitionFit": "To pursue something is to chase it or seek it, so being after it is a synonym phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +341,39 @@
     "text": "State that is briefly satisfactory",
     "enumeration": "8"
    },
-   "solution": "OKLAHOMA"
+   "solution": "OKLAHOMA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OKLAHOMA",
+    "definitions": [
+     {
+      "text": "State that is briefly satisfactory",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State that is briefly satisfactory",
+      "note": "surface reading: a condition that is fine for a short while"
+     },
+     {
+      "clueFragment": "State that is briefly satisfactory",
+      "note": "setter's reading: a US state whose postal abbreviation is the two-letter word for 'all right'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'State' reads as a condition and 'briefly' as 'for a short time'; really 'briefly' means abbreviated, and this state's code is OK.",
+     "definitionFit": "The American state's two-letter postal code is OK, which is also a common word for acceptable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +387,50 @@
     "text": "Cut of meat, second to go bad",
     "enumeration": "6"
    },
-   "solution": "SADDLE"
+   "solution": "SADDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SADDLE",
+    "definitions": [
+     {
+      "text": "Cut of meat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "go bad",
+      "gives": "ADDLE",
+      "note": "eggs that addle go rotten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's joint has only a moment before it spoils.",
+     "walkthrough": "'to' simply places the two pieces side by side.",
+     "definitionFit": "A saddle of lamb or venison is a joint taken from both loins of the animal's back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +454,46 @@
      }
     ]
    },
-   "solution": "KEEPONESCOUNSEL"
+   "solution": "KEEPONESCOUNSEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KEEP ONES COUNSEL",
+    "definitions": [
+     {
+      "text": "Be very discreet",
+      "at": 0
+     },
+     {
+      "text": "retain a personal lawyer",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be very discreet",
+      "note": "first meaning: the idiom for keeping your thoughts and plans to yourself"
+     },
+     {
+      "clueFragment": "retain a personal lawyer",
+      "note": "second meaning, read literally: to keep (retain) a barrister (counsel) of your own"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom is read word by word: keep = retain, one's = personal, counsel = a lawyer.",
+     "definitionFit": "The idiom means saying nothing of your intentions, staying silent and secretive about private matters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retain"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +507,71 @@
     "text": "I am at concert, and put out a piece of music",
     "enumeration": "9"
    },
-   "solution": "IMPROMPTU"
+   "solution": "IMPROMPTU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IMPROMPTU",
+    "definitions": [
+     {
+      "text": "a piece of music",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "something knocked out of place is disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "contracted to I'm"
+     },
+     {
+      "clueFragment": "concert",
+      "gives": "PROM",
+      "note": "a prom is a promenade concert, as at the London Proms"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "PUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PROM",
+      "PTU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUT",
+       "gives": "PTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concertgoer claims to have been flustered by a musical item.",
+     "walkthrough": "'put out' reads as annoyed, but 'out' is the signal working on the word before it.",
+     "definitionFit": "An impromptu is a short free-form composition, often for solo piano, as by Schubert or Chopin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +585,44 @@
     "text": "One rascal that can beat nine or ten",
     "enumeration": "5"
    },
-   "solution": "KNAVE"
+   "solution": "KNAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNAVE",
+    "definitions": [
+     {
+      "text": "One rascal",
+      "at": 0
+     },
+     {
+      "text": "that can beat nine or ten",
+      "at": 11,
+      "note": "a describing clause standing for the playing card"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One rascal",
+      "note": "first meaning: a dishonest rogue"
+     },
+     {
+      "clueFragment": "that can beat nine or ten",
+      "note": "second meaning: the court card ranking just above the ten in a suit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a brawler beating up several people; really it is a card outranking the nine and ten.",
+     "definitionFit": "A knave is an old word for a scoundrel and also the jack in a pack of cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +636,64 @@
     "text": "Composer’s heart problem returned",
     "enumeration": "7"
    },
-   "solution": "CORELLI"
+   "solution": "CORELLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CORELLI",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "CORE",
+      "note": "the core is the heart or centre of something"
+     },
+     {
+      "clueFragment": "problem",
+      "gives": "ILL",
+      "note": "an ill is a trouble or misfortune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORE",
+      "LLI"
+     ],
+     "reversals": [
+      {
+       "from": "ILL",
+       "to": "LLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer's cardiac trouble has come back.",
+     "walkthrough": "'heart problem' looks like one medical phrase, but splits into two pieces; the 's means 'is'.",
+     "definitionFit": "Arcangelo Corelli was an Italian Baroque violinist and composer of concerti grossi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +713,43 @@
      }
     ]
    },
-   "solution": "STANDUP"
+   "solution": "STANDUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAND UP",
+    "definitions": [
+     {
+      "text": "Fail to appear for",
+      "at": 0
+     },
+     {
+      "text": "pub performance perhaps",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to appear for",
+      "note": "first meaning: to miss a date without warning"
+     },
+     {
+      "clueFragment": "pub performance perhaps",
+      "note": "second meaning: solo comedy routines, often staged in pubs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface is a no-show at a gig; the two halves are separate meanings.",
+     "definitionFit": "To stand someone up is to jilt them at a meeting, and a stand-up act is live comedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pub"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +763,55 @@
     "text": "Unoccupied, love to be cast in a film",
     "enumeration": "4"
    },
-   "solution": "VOID"
+   "solution": "VOID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VOID",
+    "definitions": [
+     {
+      "text": "Unoccupied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be cast in",
+      "for": "container",
+      "note": "an actor cast in a movie is placed within it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "VID",
+      "note": "vid is short for video, a film"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the shape of the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "O",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "An out-of-work actor would love a part in a movie.",
+     "walkthrough": "'Unoccupied' sounds like an idle actor, but it is the definition.",
+     "definitionFit": "A void place is empty, with nothing and nobody in it, as in an empty seat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +831,74 @@
      }
     ]
    },
-   "solution": "ANNEBOLEYN"
+   "solution": "ANNEBOLEYN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANNE BOLEYN",
+    "definitions": [
+     {
+      "text": "Queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused things are muddled out of order, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bee",
+      "gives": "BEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "ONLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEEONLYANN",
+       "gives": "ANNEBOLEYN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen bee alone is baffled by a new label.",
+     "walkthrough": "'Queen bee' looks like one insect, but 'Queen' alone is the definition.",
+     "definitionFit": "Anne Boleyn was the second wife of Henry VIII and Queen of England, executed in 1536."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bee"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +918,56 @@
      }
     ]
    },
-   "solution": "RAGDOLL"
+   "solution": "RAGDOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAG DOLL",
+    "definitions": [
+     {
+      "text": "soft toy",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "RAG",
+      "note": "a rag is a disparaging word for a newspaper"
+     },
+     {
+      "clueFragment": "Create",
+      "gives": "DO",
+      "note": "to do something can mean to make or produce it"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "DO",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A child draws lines on a sheet of paper to design a cuddly toy.",
+     "walkthrough": "In an across clue 'on' places the first part after the second, so the paper comes first.",
+     "definitionFit": "A rag doll is a cuddly toy made from stuffed cloth, an example of a soft plaything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +981,74 @@
     "text": "Say, Roman soldier up in old tree",
     "enumeration": "8"
    },
-   "solution": "OLIGARCH"
+   "solution": "OLIGARCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "OLIGARCH",
+    "definitions": [
+     {
+      "text": "Say, Roman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "LARCH",
+      "note": "the larch is a conifer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "L",
+      "IG",
+      "ARCH"
+     ],
+     "reversals": [
+      {
+       "from": "GI",
+       "to": "IG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legionary climbs into an ancient tree.",
+     "walkthrough": "'Roman soldier' looks like a legionary, but 'Say, Roman' is the definition: Roman Abramovich, the Russian billionaire who owned Chelsea football club.",
+     "definitionFit": "Roman Abramovich is a famous example of a Russian tycoon wielding wealth and influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Roman"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1062,51 @@
     "text": "Runs on the shore, having to live with twinges",
     "enumeration": "7"
    },
-   "solution": "BEACHES"
+   "solution": "BEACHES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEACHES",
+    "definitions": [
+     {
+      "text": "Runs on the shore",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "twinges",
+      "gives": "ACHES",
+      "note": "twinges are small pains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ACHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A jogger trots along the sand, putting up with sore muscles.",
+     "walkthrough": "'Runs' suggests jogging, but it means drives a boat aground.",
+     "definitionFit": "To beach a vessel is to run it aground onto sand deliberately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1120,56 @@
     "text": "Express disapproval of girl with glasses going to dance",
     "enumeration": "8"
    },
-   "solution": "BOOGALOO"
+   "solution": "BOOGALOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOGALOO",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express disapproval of",
+      "gives": "BOO",
+      "note": "to boo is to jeer"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GAL",
+      "note": "gal is a casual word for a girl"
+     },
+     {
+      "clueFragment": "glasses",
+      "gives": "OO",
+      "note": "two O shapes look like a pair of spectacles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "GAL",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone jeers at a bespectacled girl heading off to a disco.",
+     "walkthrough": "OO for glasses is a crossword convention from the shape of spectacle lenses.",
+     "definitionFit": "The boogaloo is a 1960s style of rhythm-and-blues dancing popular in America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glasses"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1183,61 @@
     "text": "March round in ragged sort of progression",
     "enumeration": "8"
    },
-   "solution": "HARMONIC"
+   "solution": "HARMONIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARMONIC",
+    "definitions": [
+     {
+      "text": "sort of progression",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ragged",
+      "for": "anagram",
+      "note": "something ragged is torn and untidy, so the letters are roughed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March",
+      "gives": "MARCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape is the letter O"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARCHOIN",
+       "gives": "HARMONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops march in untidy formation, a sort of procession.",
+     "walkthrough": "'March round' looks like a parade instruction; 'progression' is the definition, used in maths and music.",
+     "definitionFit": "A harmonic progression is a mathematical sequence of reciprocals, and also a chord sequence in music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "March"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1251,61 @@
     "text": "Old Chancellor not going about town",
     "enumeration": "10"
    },
-   "solution": "DARLINGTON"
+   "solution": "DARLINGTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DARLINGTON",
+    "definitions": [
+     {
+      "text": "town",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going about",
+      "for": "reversal",
+      "note": "turning about means facing back the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Chancellor",
+      "gives": "DARLING",
+      "note": "Alistair Darling was UK Chancellor of the Exchequer from 2007 to 2010"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARLING",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former finance minister declines to tour the town.",
+     "walkthrough": "The Chancellor of the Exchequer is Britain's finance minister; 'not going about' reads as staying put but is the turned word.",
+     "definitionFit": "Darlington is a market town in County Durham in north-east England, famous for early railways."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1319,44 @@
     "text": "Object to being given another errand?",
     "enumeration": "6"
    },
-   "solution": "RESENT"
+   "solution": "RESENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESENT",
+    "definitions": [
+     {
+      "text": "Object to",
+      "at": 0
+     },
+     {
+      "text": "being given another errand",
+      "at": 10,
+      "note": "read as RE-SENT, a past participle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Object to",
+      "note": "first meaning: to feel bitter about something"
+     },
+     {
+      "clueFragment": "being given another errand",
+      "note": "second meaning, split as two parts: sent again on a mission"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful split: someone sent out once more has been sent a second time.",
+     "definitionFit": "To resent something is to feel aggrieved by it; re-sent describes being dispatched again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "errand"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1376,43 @@
      }
     ]
    },
-   "solution": "GOESBY"
+   "solution": "GOESBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOES BY",
+    "definitions": [
+     {
+      "text": "As authority, accepts",
+      "at": 0
+     },
+     {
+      "text": "passes",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As authority, accepts",
+      "note": "first meaning: follows a rule or source, as in following the book"
+     },
+     {
+      "clueFragment": "passes",
+      "note": "second meaning: moves past, as time does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests an official approving a permit; the comma splits the clue into two senses.",
+     "definitionFit": "To go by the rules means to follow them, and time or traffic that goes by moves past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "passes"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1426,54 @@
     "text": "Energy from writer, one moving along",
     "enumeration": "4"
    },
-   "solution": "BRIO"
+   "solution": "BRIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRIO",
+    "definitions": [
+     {
+      "text": "Energy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one moving along",
+      "for": "anagram",
+      "note": "a single letter, one, shifts its place in the word, so the order changes"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer",
+      "gives": "BIRO",
+      "note": "a Biro is a ballpoint pen, from the brand name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIRO",
+       "gives": "BRIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer gets energy from someone else passing by.",
+     "walkthrough": "'one' is I, and the I in BIRO slides one place along to give BRIO.",
+     "definitionFit": "Brio is vigour or liveliness, especially in performance, a synonym for vitality and verve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1487,60 @@
     "text": "Recoil from being pierced by a stone shaped like a spear point",
     "enumeration": "7"
    },
-   "solution": "HASTATE"
+   "solution": "HASTATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HASTATE",
+    "definitions": [
+     {
+      "text": "shaped like a spear point",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being pierced by",
+      "for": "container",
+      "note": "a pierced thing has something pushed through it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recoil from",
+      "gives": "HATE",
+      "note": "to hate something is to recoil from it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for stone, the British weight of 14 pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AST",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flinches from being stabbed by a spear-tipped flint.",
+     "walkthrough": "A stone is a British unit of body weight, abbreviated ST.",
+     "definitionFit": "Hastate is a botanical term for leaves with a triangular, arrowhead-like base, from the Latin for spear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1564,50 @@
      }
     ]
    },
-   "solution": "ANDSOON"
+   "solution": "ANDSOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AND SO ON",
+    "definitions": [
+     {
+      "text": "I won’t mention the rest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "even",
+      "gives": "AND",
+      "note": "'and' can add emphasis like 'even', as in 'he refused, and rudely'"
+     },
+     {
+      "clueFragment": "quickly",
+      "gives": "SOON",
+      "note": "soon means before long, quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "SOON"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker skips the details, even rushing what remains.",
+     "walkthrough": "The definition is a whole sentence, the speaker's way of cutting a list short.",
+     "definitionFit": "The phrase is used to wave away further items in a list without naming them, like et cetera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "quickly"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1621,59 @@
     "text": "Dip into Brown Book at last",
     "enumeration": "4"
    },
-   "solution": "DUNK"
+   "solution": "DUNK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DUNK",
+    "definitions": [
+     {
+      "text": "Dip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "'at last' points to the final position, so only the end letter is kept"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brown",
+      "gives": "DUN",
+      "note": "dun is a dull greyish-brown colour"
+     },
+     {
+      "clueFragment": "Book",
+      "gives": "K",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finally gets round to reading a Brown novel.",
+     "walkthrough": "'Brown Book' suggests an author such as Dan Brown; they are two separate pieces.",
+     "definitionFit": "To dunk is to dip food briefly into liquid, like a biscuit in tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1687,63 @@
     "text": "Study one initially complicated section of maths",
     "enumeration": "5"
    },
-   "solution": "CONIC"
+   "solution": "CONIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CONIC",
+    "definitions": [
+     {
+      "text": "section of maths",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' means at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is an old word for to study or learn"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "complicated",
+      "gives": "C",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A student studies a tricky part of the maths syllabus.",
+     "walkthrough": "'section' looks like part of a course, but a conic is itself a section, the curve made by slicing a cone.",
+     "definitionFit": "A conic, short for conic section, is a curve such as an ellipse or parabola studied in geometry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1763,57 @@
      }
     ]
    },
-   "solution": "BROWNRICE"
+   "solution": "BROWNRICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROWN RICE",
+    "definitions": [
+     {
+      "text": "Edible grains",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "stuck to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of face",
+      "gives": "BROW",
+      "note": "the brow is the forehead"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "NR",
+      "note": "NR is the abbreviation for near"
+     },
+     {
+      "clueFragment": "frozen state",
+      "gives": "ICE",
+      "note": "ice is water in its frozen state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROW",
+      "NR",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Grains of food, almost frozen, get stuck to someone's face.",
+     "walkthrough": "'near frozen' reads as almost frozen, but splits into two pieces; 'stuck to' places them after the face part.",
+     "definitionFit": "Brown rice is unpolished rice with the bran left on, a wholegrain cereal food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   }
  ]
 }
