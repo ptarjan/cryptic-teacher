@@ -166,8 +166,10 @@ thin = short = 0
 for path in puzzle_files():
     puzzle = read_puzzle_file(path)
     # An unclued light's cells are in no entry, so the entries do not describe
-    # its grid; these conventions are about grids the entries draw whole.
-    if puzzle.get("unclued"):
+    # its grid; these conventions are about grids the entries draw whole. A
+    # barred grid has no black squares, so the blocked-grid conventions say
+    # nothing about it.
+    if puzzle.get("unclued") or puzzle.get("bars"):
         continue
     grid = R.grid_of(puzzle)
     rows, cols = len(grid), len(grid[0])
