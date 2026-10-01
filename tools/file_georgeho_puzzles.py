@@ -227,7 +227,7 @@ def file_all(write=True):
     held = held_numbers()
     reprints = fbp.reprinted_from()
     typed = fbp.typed_counts(recs.values())
-    filed, skipped = collections.Counter(), collections.Counter()
+    filed, skipped, compared = collections.Counter(), collections.Counter(), collections.Counter()
     for row in rows:
         rec = recs.get(row["post_id"])
         if rec is None:
@@ -236,7 +236,13 @@ def file_all(write=True):
         series, number = rec["series"], rec["number"]
         path = puzzle_path(series, number)
         if path.exists():
+            # Filed meanwhile from another source: georgeho corroborates it.
             skipped["already filed"] += 1
+            agree, differ = compare(read_puzzle_file(path), rec)
+            compared["answers agree"] += agree
+            if differ:
+                compared["answers differ"] += len(differ)
+                print(f"  {rec['post_id']}: georgeho differs at " + ", ".join(differ))
             continue
         by = fbp.reprinted_by(reprints, series, number)
         if by:
@@ -267,14 +273,34 @@ def file_all(write=True):
             try:
                 write_puzzle_file(path, puzzle, generator=TOOL)
             except ValueError as e:
-                skipped[f"refused by the write path: {str(e)[:60]}"] += 1
+                skipped["refused by the write path: " + str(e).split(": ", 1)[-1].split()[0]] += 1
                 continue
         filed[series] += 1
     print(f"{'filed' if write else 'would file'} {sum(filed.values())}: "
           + ", ".join(f"{s} {n}" for s, n in sorted(filed.items())))
     for why, n in skipped.most_common():
         print(f"  skipped {n}: {why}")
+    if compared:
+        print("  against the files already held: " + ", ".join(
+            f"{n} {k}" for k, n in compared.items()))
     return filed, skipped
+
+
+def compare(held, rec):
+    """(answers agreeing, ["13 across HELD/GEORGEHO", ...]) between a held
+    puzzle and georgeho's record of it, light by light. tools/cross_validate.py
+    georgeho is the full comparison, clue words and counts included."""
+    ours = {(e["number"], e["direction"]): e.get("solution") for e in held["entries"]}
+    agree, differ = 0, []
+    for e in rec["entries"]:
+        mine = ours.get((e["number"], e["direction"]))
+        if not mine or not e["answer"]:
+            continue
+        if mine == e["answer"]:
+            agree += 1
+        else:
+            differ.append(f"{e['number']} {e['direction']} {mine}/{e['answer']}")
+    return agree, differ
 
 
 def main(argv=None):
@@ -285,7 +311,14 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if a.rebuild:
         write_records()
-        tg.report(tg.run(where=CACHE))
+        # Smallest grids first: a 23x23 can spend its whole budget, minutes,
+        # and a run cut short should have spent them on the many.
+        held = {json.loads(line)["series"] for line in (CACHE / "parsed.jsonl").open()}
+        for series in sorted(held, key=lambda s: (tg.SIZE[s], s)):
+            print(f"\n{series}")
+            r = tg.run(where=CACHE, series=series)
+            if r:
+                tg.report(r)
         return 0
     file_all(write=not a.dry_run)
     return 0
