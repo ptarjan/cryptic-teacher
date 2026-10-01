@@ -882,7 +882,7 @@ def check_shape(puzzle, today, flags):
         # The enumeration has its own key; a writer that left it on the words
         # did not build its clue with enumeration.clue().
         group_total = sum(by_id[g]["length"] for g in e.get("group") or () if g in by_id)
-        if enumeration.unsplit(e["clue"], {e["length"], group_total}):
+        if enumeration.unsplit(e["clue"], {e.get("length"), group_total}):
             flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} ends in its "
                           f"enumeration; enumeration.split() it into clue.enumeration"))
         # A letter left stuck to the clue's last mark ("gateau?d") is a source's
