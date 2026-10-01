@@ -70,6 +70,15 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     rm -f "$_ct_log.trim"
   done
 
+  # The tree is leased to one run at a time: the reset below discards whatever
+  # a live run has not committed yet. fd 9 survives the exec, so the lease
+  # lasts until the run and every child it started have exited.
+  exec 9>"$_ct_main/.$_ct_job.tree.lock"
+  if ! flock -n 9; then
+    echo "another $_ct_job run holds $_ct_tree — leaving it alone"
+    exit 0
+  fi
+
   if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
     # Quiet: the first run checks out 600 files and the progress meter writes a
     # line per percent into a log somebody has to read a failure out of.
