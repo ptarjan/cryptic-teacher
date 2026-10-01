@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Bay's home, standing firm",
     "enumeration": "6"
    },
-   "solution": "STABLE"
+   "solution": "STABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STABLE",
+    "definitions": [
+     {
+      "text": "Bay's home",
+      "at": 0
+     },
+     {
+      "text": "standing firm",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bay's home",
+      "note": "first meaning: where a bay, a reddish-brown horse, is kept"
+     },
+     {
+      "clueFragment": "standing firm",
+      "note": "second meaning: steady, not likely to give way"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bay' suggests a stretch of coast, but here it is a horse of reddish-brown colour, whose home is a building for horses.",
+     "definitionFit": "A horse lives in a stable building, and anything steady and secure is described with the same adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bay's"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,60 @@
     "text": "Range small, not large – pick!",
     "enumeration": "8"
    },
-   "solution": "SPECTRUM"
+   "solution": "SPECTRUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPECTRUM",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "saying a word comes without something tells you to strike that letter out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "pick",
+      "gives": "PLECTRUM",
+      "note": "a pick is the small plate used to pluck guitar strings"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PECTRUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choosing from a range of sizes, told to take small rather than large.",
+     "walkthrough": "S is followed by PLECTRUM with its L removed, giving SPECTRUM.",
+     "definitionFit": "A spectrum is a full scale or span of possibilities, the same sense as a range of options."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pick"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +153,63 @@
     "text": "Perhaps Merkel's eaten 40% of icing that's used on cakes",
     "enumeration": "8"
    },
-   "solution": "ANGELICA"
+   "solution": "ANGELICA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ANGELICA",
+    "definitions": [
+     {
+      "text": "that's used on cakes",
+      "at": 36,
+      "note": "a descriptive phrase for a noun: the thing that's used on cakes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "40% of",
+      "for": "deletion",
+      "note": "a percentage of a five-letter word means keeping only two of its letters and cutting the rest"
+     },
+     {
+      "text": "eaten",
+      "for": "container",
+      "note": "what has been eaten sits inside the eater, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps Merkel",
+      "gives": "ANGELA",
+      "note": "Angela Merkel, the former German chancellor, is an example of someone with this first name"
+     },
+     {
+      "clueFragment": "icing",
+      "gives": "ICING",
+      "note": "taken as written; only its first two letters survive the cut, since two of five is 40 per cent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGEL",
+      "IC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The German chancellor has helped herself to some of the cake icing.",
+     "walkthrough": "'Perhaps' signals that Merkel is just one example of a woman with this first name; the definition is a description rather than a synonym.",
+     "definitionFit": "Angelica is a plant whose candied green stems are a traditional decoration on cakes and trifles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Merkel's"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,68 @@
     "text": "Flower, gilt edges removed, clutched by gutted lady",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LILY",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges removed",
+      "for": "letter_selection",
+      "note": "taking off the edges leaves only the inner letters of a word"
+     },
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "gutting removes the insides, leaving just the outside letters"
+     },
+     {
+      "text": "clutched by",
+      "for": "container",
+      "note": "something clutched is held tightly inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gilt",
+      "gives": "IL",
+      "select": "middle",
+      "note": "the two inner letters once its outer ones go"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LY",
+      "select": "outer",
+      "note": "only the first and last letters survive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A golden-trimmed flower being gripped by a lady who has been badly let down.",
+     "walkthrough": "The middle of 'gilt' sits inside the outside of 'lady': L(IL)Y.",
+     "definitionFit": "The lily is a well-known garden plant with large trumpet-shaped blooms, so it is an example of a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +298,54 @@
     "text": "Clots in kitchens, cooking",
     "enumeration": "8"
    },
-   "solution": "THICKENS"
+   "solution": "THICKENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THICKENS",
+    "definitions": [
+     {
+      "text": "Clots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms its ingredients, so these letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kitchens",
+      "gives": "KITCHENS",
+      "note": "taken as written, eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KITCHENS",
+       "gives": "THICKENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lumps forming in the sauce while people cook in their kitchens.",
+     "walkthrough": "'Clots' reads as a plural noun for lumps, or for fools in kitchens, but it is a verb.",
+     "definitionFit": "When a liquid clots it becomes more solid and dense, which is what a sauce does as it sets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clots"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +365,67 @@
      }
     ]
    },
-   "solution": "HEADLONGRUSH"
+   "solution": "HEADLONGRUSH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HEADLONG RUSH",
+    "definitions": [
+     {
+      "text": "stampede",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so these letters must be put back in a fresh order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old range",
+      "gives": "EADLONGR",
+      "note": "the eight letters, rearranged"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "HUSH",
+      "note": "hush means silence or quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EADLONGR",
+      "USH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDRANGE",
+       "gives": "EADLONGR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old cattle range wrecked when the herd charges, a quiet moment turning into chaos.",
+     "walkthrough": "'Old range' sounds like a cattle range from the frontier; the two words are anagram fodder, placed inside HUSH.",
+     "definitionFit": "A stampede is a panicked, reckless dash by a crowd, exactly a hasty headlong charge forward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +445,68 @@
      }
     ]
    },
-   "solution": "CLEVERDICK"
+   "solution": "CLEVERDICK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CLEVER DICK",
+    "definitions": [
+     {
+      "text": "Smarty-pants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word loses all its inside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is the French for 'the'"
+     },
+     {
+      "clueFragment": "musician",
+      "gives": "VERDI",
+      "note": "Giuseppe Verdi, the Italian opera composer"
+     },
+     {
+      "clueFragment": "crook",
+      "gives": "CK",
+      "select": "outer",
+      "note": "only the first and last letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LE",
+      "VERDI",
+      "CK"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of unflattering descriptions of some know-it-all: cold, foreign, a musician and an empty-headed criminal.",
+     "walkthrough": "The definition is the first word; everything after it is a chain of small pieces.",
+     "definitionFit": "Clever dick is British slang for a show-off who parades their knowledge, the same scornful insult as smarty-pants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "musician"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +520,66 @@
     "text": "Setter had cryptic clue earlier: 'father of geometry?'",
     "enumeration": "6"
    },
-   "solution": "EUCLID"
+   "solution": "EUCLID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EUCLID",
+    "definitions": [
+     {
+      "text": "father of geometry",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "cryptic means puzzling or obscured, so these letters are disguised in a new order"
+     },
+     {
+      "text": "earlier",
+      "for": "charade",
+      "note": "coming earlier places this piece in front of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue",
+      "gives": "EUCL",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "Setter had",
+      "gives": "ID",
+      "note": "the setter is 'I', and 'I had' contracts to I'd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUCL",
+      "ID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "EUCL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter admits to having set a cryptic clue for a famous mathematician.",
+     "walkthrough": "In crosswords 'setter' often means 'I'; so 'setter had' is I'D, which follows the rearranged CLUE.",
+     "definitionFit": "The ancient Greek mathematician Euclid wrote the Elements and is traditionally called the founder of geometry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +593,71 @@
     "text": "'How do you spell \"shy\"?' That's pretty light stuff",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "pretty light stuff",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "How do you spell",
+      "for": "letter_selection",
+      "note": "spelling a word out means saying each of its letters one at a time"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shy",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "shy",
+      "gives": "H",
+      "select": 2,
+      "note": "the second letter of the word"
+     },
+     {
+      "clueFragment": "That's",
+      "gives": "AND",
+      "note": "when you list letters aloud, the last two are joined by a conjunction"
+     },
+     {
+      "clueFragment": "shy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "AND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher asks a child to spell a word, then remarks on how easy that is.",
+     "walkthrough": "Spelling the word out loud you say 'S, H and Y', and run together that gives the answer. A shandy is beer mixed with lemonade, popular in Britain.",
+     "definitionFit": "Being beer diluted with lemonade, a shandy is a weak, low-alcohol drink, hence fairly light refreshment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +671,65 @@
     "text": "Communist, English, ultimately smitten with posh ladies",
     "enumeration": "6"
    },
-   "solution": "ENGELS"
+   "solution": "ENGELS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ENGELS",
+    "definitions": [
+     {
+      "text": "Communist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "smitten",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter"
+     },
+     {
+      "clueFragment": "posh ladies",
+      "gives": "GELS",
+      "note": "gels is 'girls' as pronounced in an upper-class English accent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "GELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A communist Englishman who in the end fell for some upper-class women.",
+     "walkthrough": "'Gels' is a jokey spelling of 'girls' in a plummy British accent, standard crossword shorthand for posh young women.",
+     "definitionFit": "Friedrich Engels co-wrote the Communist Manifesto with Marx, so he is a famous communist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +743,69 @@
     "text": "Cave in, having consumed most of ale, in resort port on the Med",
     "enumeration": "8"
    },
-   "solution": "VALENCIA"
+   "solution": "VALENCIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "VALENCIA",
+    "definitions": [
+     {
+      "text": "port on the Med",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most but not all of a word means its last letter is dropped"
+     },
+     {
+      "text": "having consumed",
+      "for": "container",
+      "note": "what has been consumed is now inside the consumer"
+     },
+     {
+      "text": "in resort",
+      "for": "anagram",
+      "note": "to re-sort something is to sort it again, putting letters in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cave in",
+      "gives": "CAVEIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ale",
+      "gives": "AL",
+      "note": "the word without its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAVEINAL",
+       "gives": "VALENCIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist collapses after drinking too much beer at a Mediterranean holiday resort.",
+     "walkthrough": "'Resort' looks like a holiday spot, but split as re-sort it tells you to rearrange CAVE IN with AL inside.",
+     "definitionFit": "Valencia is a major Spanish city with a large seaport on the Mediterranean coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +833,61 @@
      }
     ]
    },
-   "solution": "DAFTASABRUSH"
+   "solution": "DAFTASABRUSH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DAFT AS A BRUSH",
+    "definitions": [
+     {
+      "text": "Silly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "something stupid is muddled and confused, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad: a fast",
+      "gives": "DAFTASAB",
+      "note": "these eight letters rearranged"
+     },
+     {
+      "clueFragment": "scramble",
+      "gives": "RUSH",
+      "note": "to scramble is to hurry or rush"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAFTASAB",
+      "RUSH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BADAFAST",
+       "gives": "DAFTASAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A string of insults about something foolish, ending with a hurried mess.",
+     "walkthrough": "'Stupid' looks like part of a list of synonyms but signals the anagram; 'scramble' looks like a second anagram signal but is the hurry.",
+     "definitionFit": "Daft as a brush is a British idiom meaning extremely foolish or scatterbrained, a colourful way of saying silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scramble"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +901,42 @@
     "text": "Up to cultivate the land",
     "enumeration": "4"
    },
-   "solution": "TILL"
+   "solution": "TILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TILL",
+    "definitions": [
+     {
+      "text": "Up to",
+      "at": 0
+     },
+     {
+      "text": "cultivate the land",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Up to",
+      "note": "first meaning: until a certain time"
+     },
+     {
+      "clueFragment": "cultivate the land",
+      "note": "second meaning: to plough and prepare soil for crops"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one instruction to a farmer, but it splits into a preposition and a verb.",
+     "definitionFit": "The short word serves both as a preposition meaning until and as a farming verb for ploughing soil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Up"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +956,55 @@
      }
     ]
    },
-   "solution": "FALLBEHIND"
+   "solution": "FALLBEHIND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALL BEHIND",
+    "definitions": [
+     {
+      "text": "Trail",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after places one piece behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "autumn in Oregon",
+      "gives": "FALL",
+      "note": "fall is the American word for autumn"
+     },
+     {
+      "clueFragment": "What moon reveals",
+      "gives": "BEHIND",
+      "note": "to moon someone is to show them your bare backside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FALL",
+      "BEHIND"
+     ]
+    },
+    "explanation": {
+     "surface": "A view of the autumn moon rising over the Oregon Trail of pioneer days.",
+     "walkthrough": "'Moon' looks like the night-time satellite but is the verb for baring one's buttocks; 'Oregon Trail' looks like one name but the last word is the definition.",
+     "definitionFit": "To trail is to lag at the back of a group or race, failing to keep up with others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "moon"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1018,59 @@
     "text": "Primarily modernized African democracy, although governor's a strongman called Andry Rajoelina?",
     "enumeration": "10"
    },
-   "solution": "MADAGASCAR"
+   "solution": "MADAGASCAR",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "MADAGASCAR",
+    "definitions": [
+     {
+      "text": "African democracy, although governor's a strongman called Andry Rajoelina?",
+      "at": 21,
+      "note": "the whole clue describes the country"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modernized African democracy, although governor's a strongman called Andry Rajoelina",
+      "gives": "MADAGASCAR",
+      "select": "first",
+      "note": "the initial letter of each of the ten words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "D",
+      "A",
+      "G",
+      "A",
+      "S",
+      "C",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A sketch of an African nation that is nominally democratic yet led by a strongman.",
+     "walkthrough": "The whole clue does double duty: its initial letters spell the answer, and it describes the island nation, whose president Andry Rajoelina first took power in a 2009 coup.",
+     "definitionFit": "Madagascar is an island republic off southeast Africa whose leader came to office through a military-backed takeover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1084,55 @@
     "text": "With no humility, half of mum's brothers advanced",
     "enumeration": "11"
    },
-   "solution": "UNCHASTENED"
+   "solution": "UNCHASTENED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNCHASTENED",
+    "definitions": [
+     {
+      "text": "With no humility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "keeping only half a word means the other half is thrown away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mum's brothers",
+      "gives": "UNCLES",
+      "note": "your mother's brothers are your uncles"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "HASTENED",
+      "note": "to advance something is to bring it forward or hurry it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNC",
+      "HASTENED"
+     ]
+    },
+    "explanation": {
+     "surface": "Arrogant relatives on the mother's side pushing themselves forward.",
+     "walkthrough": "The first three letters of UNCLES are joined by HASTENED.",
+     "definitionFit": "Someone unchastened has not been humbled or subdued by punishment or rebuke, so shows no meekness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1146,70 @@
     "text": "Incomplete romantic gift Everyman had offered up in muddle",
     "enumeration": "8"
    },
-   "solution": "DISORDER"
+   "solution": "DISORDER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DISORDER",
+    "definitions": [
+     {
+      "text": "muddle",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing a part, here its final letter"
+     },
+     {
+      "text": "offered up",
+      "for": "reversal",
+      "note": "in a down answer, sending letters up means reading them from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romantic gift",
+      "gives": "REDROSE",
+      "note": "a red rose is the classic token of love"
+     },
+     {
+      "clueFragment": "Everyman had",
+      "gives": "ID",
+      "note": "the setter is 'I', and 'I had' contracts to I'd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SORDER"
+     ],
+     "reversals": [
+      {
+       "from": "REDROSID",
+       "to": "DISORDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter confesses to giving a half-hearted romantic present in a state of confusion.",
+     "walkthrough": "RED ROSE loses its E, I'D is added, and the whole lot is turned upside down in this down answer.",
+     "definitionFit": "A muddle is a state of confusion or untidiness, which is exactly the sense of a disarray."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offered"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1229,52 @@
      }
     ]
    },
-   "solution": "INERTGAS"
+   "solution": "INERTGAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INERT GAS",
+    "definitions": [
+     {
+      "text": "Perhaps krypton",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might make you",
+      "for": "anagram",
+      "note": "these letters could be made into something else when rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angriest",
+      "gives": "ANGRIEST",
+      "note": "taken as written, eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGRIEST",
+       "gives": "INERTGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Superman's home planet Krypton, and kryptonite, could make anyone furious.",
+     "walkthrough": "'Krypton' suggests Superman's planet, but here it is the chemical element; 'perhaps' marks it as one example.",
+     "definitionFit": "Krypton is one of the noble elements, chemically unreactive gases such as neon and argon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "krypton"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1288,57 @@
     "text": "Pulling muscles earlier in inattentive state",
     "enumeration": "11"
    },
-   "solution": "ABSTRACTION"
+   "solution": "ABSTRACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSTRACTION",
+    "definitions": [
+     {
+      "text": "inattentive state",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "earlier",
+      "for": "charade",
+      "note": "coming earlier means placed in front"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muscles",
+      "gives": "ABS",
+      "note": "abs is short for abdominal muscles"
+     },
+     {
+      "clueFragment": "Pulling",
+      "gives": "TRACTION",
+      "note": "traction is the act of pulling or drawing along"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "TRACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who strained their muscles earlier while their mind was elsewhere.",
+     "walkthrough": "'Pulling muscles' reads as an injury, but the two words are separate pieces, with the muscles placed first.",
+     "definitionFit": "Abstraction can mean absent-mindedness, being lost in thought and not noticing one's surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pulling"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1352,74 @@
     "text": "Weatherman's line: 'I weep over a drop of rain'",
     "enumeration": "6"
    },
-   "solution": "ISOBAR"
+   "solution": "ISOBAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ISOBAR",
+    "definitions": [
+     {
+      "text": "Weatherman's line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a drop of",
+      "for": "letter_selection",
+      "note": "a drop is a tiny amount, just one letter from the start"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down answer, being over something means sitting above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weep",
+      "gives": "SOB",
+      "note": "to sob is to cry or weep"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SOB",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV forecaster's catchphrase lamenting the arrival of rain.",
+     "walkthrough": "The quoted words look like a forecaster's spoken line but are just the pieces, with 'Weatherman's line' the definition.",
+     "definitionFit": "On a weather map, an isobar is a curve joining places of equal atmospheric pressure, drawn by forecasters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1433,46 @@
     "text": "A little belligerent ombudsman in Bury",
     "enumeration": "6"
    },
-   "solution": "ENTOMB"
+   "solution": "ENTOMB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTOMB",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "a little of something is a small portion, so only part of these words is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belligerent ombudsman",
+      "gives": "ENTOMB",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A rather aggressive complaints official working in the Lancashire town of Bury.",
+     "walkthrough": "Bury is also a town near Manchester, which makes it look like a place rather than the verb.",
+     "definitionFit": "To entomb is to place a body in a tomb or grave, which is to inter or lay it to rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1492,60 @@
      }
     ]
    },
-   "solution": "SUNDAYBEST"
+   "solution": "SUNDAYBEST",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SUNDAY BEST",
+    "definitions": [
+     {
+      "text": "glad rags",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "an announcement is spoken out, so we go by the sound rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pudding",
+      "gives": "SUNDAY",
+      "soundsLike": "SUNDAE",
+      "note": "a sundae is an ice-cream dessert"
+     },
+     {
+      "clueFragment": "footballer",
+      "gives": "BEST",
+      "note": "George Best, the famous Manchester United and Northern Ireland player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNDAY",
+      "BEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer in fancy clothes calls out for dessert.",
+     "walkthrough": "Pudding is the British word for dessert. Only the first piece is sounded out; the footballer is spelt as is.",
+     "definitionFit": "Glad rags is slang for smart clothes kept for special occasions, traditionally the finest outfit worn to church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pudding"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1559,45 @@
     "text": "By sound of it, put up with a swine",
     "enumeration": "4"
    },
-   "solution": "BOAR"
+   "solution": "BOAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BOAR",
+    "definitions": [
+     {
+      "text": "a swine",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By sound of it",
+      "for": "homophone",
+      "note": "going by how something sounds means listening rather than reading"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put up with",
+      "gives": "BOAR",
+      "soundsLike": "BORE",
+      "note": "to bear something is to put up with it; its past tense is bore"
+     }
+    ],
+    "explanation": {
+     "surface": "Having to tolerate somebody who is a real pig.",
+     "walkthrough": "'Put up with' is past tense here: bore, the past of bear, which sounds the same as the answer.",
+     "definitionFit": "A boar is a male pig or a wild pig, and pigs are also called swine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swine"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1611,47 @@
     "text": "Report of low reef in wharf",
     "enumeration": "4"
    },
-   "solution": "QUAY"
+   "solution": "QUAY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "QUAY",
+    "definitions": [
+     {
+      "text": "wharf",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Report of",
+      "for": "homophone",
+      "note": "a report is something heard, so we go by sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low reef",
+      "gives": "QUAY",
+      "soundsLike": "KEY",
+      "note": "a key or cay is a low island or reef, as in the Florida Keys"
+     }
+    ],
+    "explanation": {
+     "surface": "News of a shallow reef found in the harbour.",
+     "walkthrough": "A key (from Spanish cayo) is a low coral island or reef.",
+     "definitionFit": "A quay is a stone or concrete landing place where ships tie up, the same structure as a wharf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Report"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1671,52 @@
      }
     ]
    },
-   "solution": "BOOKCLUB"
+   "solution": "BOOKCLUB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOK CLUB",
+    "definitions": [
+     {
+      "text": "bibliophiles' association",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "finding",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrest",
+      "gives": "BOOK",
+      "note": "police book a suspect when charging them"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "CLUB",
+      "note": "a club is a heavy stick used as a weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOK",
+      "CLUB"
+     ]
+    },
+    "explanation": {
+     "surface": "Police make an arrest after discovering a weapon at a reading group.",
+     "walkthrough": "'Finding' and 'in' link the pieces to the definition; there is no container here.",
+     "definitionFit": "A bibliophile is a lover of books, and a society of such readers who meet to discuss them is a reading group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "finding"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1736,50 @@
      }
     ]
    },
-   "solution": "GUNDOG"
+   "solution": "GUNDOG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GUN DOG",
+    "definitions": [
+     {
+      "text": "one working with hunters",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Trained",
+      "for": "anagram",
+      "note": "training reshapes something, so these letters are put into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gudong",
+      "gives": "GUDONG",
+      "note": "a nonsense word taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GUDONG",
+       "gives": "GUNDOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal, given an odd name, that has been trained to help on a shoot.",
+     "walkthrough": "The fodder is not a real word, which is a strong hint that it needs rearranging.",
+     "definitionFit": "A gun dog such as a retriever or pointer is bred to find and fetch game for people shooting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1793,52 @@
     "text": "Stir herb stews; they're regenerative",
     "enumeration": "8"
    },
-   "solution": "REBIRTHS"
+   "solution": "REBIRTHS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REBIRTHS",
+    "definitions": [
+     {
+      "text": "they're regenerative",
+      "at": 17,
+      "note": "a clause describing a plural noun: things that are regenerative"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stews",
+      "for": "anagram",
+      "note": "stewing cooks things together into a mixture, so these letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stir herb",
+      "gives": "STIRHERB",
+      "note": "taken as written, eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STIRHERB",
+       "gives": "REBIRTHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cooking instructions: stir herbs into restorative stews.",
+     "walkthrough": "'Stir' looks like the anagram signal but is part of the fodder; 'stews' does the job instead.",
+     "definitionFit": "Rebirths are renewals or revivals, events which bring fresh life, which is what regeneration means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stir"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1852,46 @@
     "text": "Fancy: 'Prussia' contains name of another country",
     "enumeration": "6"
    },
-   "solution": "CYPRUS"
+   "solution": "CYPRUS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CYPRUS",
+    "definitions": [
+     {
+      "text": "another country",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "a phrase that contains something holds it within its letters"
+     }
+    ],
+    "linkWords": [
+     "name of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy: 'Prussia'",
+      "gives": "CYPRUS",
+      "note": "the letters straddle the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A historical musing that the old state of Prussia had another nation inside it.",
+     "walkthrough": "'Fancy' looks like the definition or an anagram signal, but it is only there for its last two letters.",
+     "definitionFit": "Cyprus is an island republic in the eastern Mediterranean, a separate nation from the old German state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   }
  ]
 }
