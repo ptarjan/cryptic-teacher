@@ -101,6 +101,19 @@ print("SOLVE", check_geometry(bare), problems, crossings)
 print("SOURCES", check_sources(bare, fill, sources=[lambda p: []]))
 print("PACKET", "no grid" in solve_packet.packet(bare))
 print("CHECKING", difficulty.checking(bare), difficulty.checking(real) is not None)
+
+# The provenance backfill over a corpus holding a gridless puzzle: it runs,
+# and tallies the puzzle as having no grid.
+import contextlib, io, backfill_provenance as bp
+bp.puzzle_files = lambda: [path]
+bp.ROOT = path.parent
+bp.add_dates = lambda: {}
+bp.machine_solved_ever = lambda: (set(), [])
+path.unlink(); fetcher.write_puzzle_file(path, bare)
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    bp.main(["--dry-run", "--report"])
+print("BACKFILL", "no grid" in buf.getvalue(), "already correct 1" in buf.getvalue())
 PY
 )
 fails=0
@@ -130,6 +143,7 @@ same BUILTOK accepted "the gridless blog puzzle passes the write gate"
 same SOLVE "[] [] 0" "a gridless fill has no geometry to fail and nothing to cross"
 same SOURCES "[]" "the fill is weighed against other sources with no grid to place it in"
 same PACKET True "the solve packet says there is no grid"
+same BACKFILL "True True" "the provenance backfill tallies a gridless puzzle and leaves it as written"
 same CHECKING "None True" "difficulty has no checking component for a gridless puzzle"
 
 [ "$fails" -eq 0 ] && echo "gridless: all checks passed" || { echo "gridless: $fails failure(s)"; exit 1; }
