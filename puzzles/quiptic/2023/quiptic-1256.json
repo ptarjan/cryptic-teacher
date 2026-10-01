@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Set of items put behind somewhere filthy for hairdresser",
     "enumeration": "7"
    },
-   "solution": "STYLIST"
+   "solution": "STYLIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STYLIST",
+    "definitions": [
+     {
+      "text": "hairdresser",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put behind",
+      "for": "charade",
+      "note": "placing one thing behind another sets the order of the two parts, the second following the first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somewhere filthy",
+      "gives": "STY",
+      "note": "a pigsty is a byword for a filthy place"
+     },
+     {
+      "clueFragment": "Set of items",
+      "gives": "LIST",
+      "note": "a list is a set of items written down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out a hairdresser's kit in a grubby back room.",
+     "walkthrough": "The set of items comes first in the clue but goes second in the answer, because it is put behind the filthy place.",
+     "definitionFit": "A stylist is someone who cuts and styles hair for a living, the usual salon job title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,56 @@
     "text": "Casual worker starts to unpick really appetising Japanese dish",
     "enumeration": "7"
    },
-   "solution": "TEMPURA"
+   "solution": "TEMPURA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEMPURA",
+    "definitions": [
+     {
+      "text": "Japanese dish",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casual worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary or casual employee"
+     },
+     {
+      "clueFragment": "unpick really appetising",
+      "gives": "URA",
+      "select": "first",
+      "note": "opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "URA"
+     ]
+    },
+    "explanation": {
+     "surface": "A casual kitchen worker starts to pick at a delicious Japanese dish.",
+     "walkthrough": "'Unpick' looks like a verb the worker performs, but it only lends its first letter.",
+     "definitionFit": "Tempura is a Japanese preparation of seafood or vegetables fried in light batter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unpick"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +163,43 @@
     "text": "Delicate thing that might be struck?",
     "enumeration": "5"
    },
-   "solution": "LIGHT"
+   "solution": "LIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIGHT",
+    "definitions": [
+     {
+      "text": "Delicate",
+      "at": 0
+     },
+     {
+      "text": "thing that might be struck",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delicate",
+      "note": "first meaning: gentle, not heavy"
+     },
+     {
+      "clueFragment": "thing that might be struck",
+      "note": "second meaning: a flame struck from a match"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests something fragile that could be hit; the second meaning comes from the phrase 'strike a light', meaning ignite a match.",
+     "definitionFit": "The word means gentle or not heavy as an adjective, and as a noun a flame or match one can strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "struck"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +213,51 @@
     "text": "Orangey flavouring for fans varied",
     "enumeration": "7"
    },
-   "solution": "SAFFRON"
+   "solution": "SAFFRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAFFRON",
+    "definitions": [
+     {
+      "text": "Orangey flavouring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "something varied has been changed about, so these letters come in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for fans",
+      "gives": "FORFANS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORFANS",
+       "gives": "SAFFRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orange-coloured flavouring is offered to fans in several varieties.",
+     "walkthrough": "'For fans' reads like the audience for the flavouring, but the two words are the letters to rearrange.",
+     "definitionFit": "Saffron is a costly spice from crocus stigmas that colours and flavours rice an orange-yellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +271,74 @@
     "text": "Bachelor keeps getting excited about round made for a particular customer",
     "enumeration": "7"
    },
-   "solution": "BESPOKE"
+   "solution": "BESPOKE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "BESPOKE",
+    "definitions": [
+     {
+      "text": "made for a particular customer",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting excited",
+      "for": "anagram",
+      "note": "excited things are stirred up and agitated, so the letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "B",
+      "note": "B is the standard abbreviation for bachelor"
+     },
+     {
+      "clueFragment": "keeps",
+      "gives": "KEEPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ESP",
+      "O",
+      "KE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEEPS",
+       "gives": "ESPKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single man keeps getting worked up about a round of drinks.",
+     "walkthrough": "The jumbled letters of 'keeps' wrap around the round letter, all after the bachelor's B.",
+     "definitionFit": "Bespoke tailoring is cut to one client's order rather than bought off the peg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +352,66 @@
     "text": "Eastern writer with regret regularly gets to appear",
     "enumeration": "6"
    },
-   "solution": "EMERGE"
+   "solution": "EMERGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EMERGE",
+    "definitions": [
+     {
+      "text": "appear",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "doing something regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "ME",
+      "note": "the writer of a clue refers to themselves as me"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RGE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ME",
+      "RGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An oriental author, full of remorse, steadily comes out into the open.",
+     "walkthrough": "In crosswords 'writer' or 'setter' often means the setter, giving ME.",
+     "definitionFit": "To emerge is to come into view or come out, the same as to appear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +425,54 @@
     "text": "A spree Viv arranged to become widespread",
     "enumeration": "9"
    },
-   "solution": "PERVASIVE"
+   "solution": "PERVASIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERVASIVE",
+    "definitions": [
+     {
+      "text": "widespread",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranging things puts them into a new order, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A spree Viv",
+      "gives": "ASPREEVIV",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASPREEVIV",
+       "gives": "PERVASIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Viv organised a shopping spree that caught on everywhere.",
+     "walkthrough": "The odd name Viv is there only to supply letters, a sure sign of anagram fodder.",
+     "definitionFit": "Something pervasive spreads through every part, so it is found widely throughout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +486,56 @@
     "text": "Most enthusiastic king has three points established",
     "enumeration": "7"
    },
-   "solution": "KEENEST"
+   "solution": "KEENEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEENEST",
+    "definitions": [
+     {
+      "text": "Most enthusiastic",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess notation"
+     },
+     {
+      "clueFragment": "three points",
+      "gives": "EEN",
+      "note": "three compass points: east, east, north"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EEN",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "An eager monarch has set out three founding principles.",
+     "walkthrough": "'Points' in crosswords are usually compass points; any three that fit will do, here east twice and then north.",
+     "definitionFit": "Keen means eager or enthusiastic, and the superlative form means the most eager of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +549,72 @@
     "text": "Minor actor with alternative record around November that's remarkable",
     "enumeration": "13"
    },
-   "solution": "EXTRAORDINARY"
+   "solution": "EXTRAORDINARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXTRAORDINARY",
+    "definitions": [
+     {
+      "text": "remarkable",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around something is to encircle it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor actor",
+      "gives": "EXTRA",
+      "note": "an extra is a non-speaking film or stage performer"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "DIARY",
+      "note": "a diary is a daily record"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTRA",
+      "OR",
+      "DI",
+      "N",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit-part actor with another recording from November turns out to be impressive.",
+     "walkthrough": "The record goes around the November letter, placed after the actor and the alternative.",
+     "definitionFit": "Extraordinary means beyond the ordinary, so worthy of comment or notice, which is what remarkable means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +628,56 @@
     "text": "Self-satisfied sergeant major outwardly unappealing",
     "enumeration": "4"
    },
-   "solution": "SMUG"
+   "solution": "SMUG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SMUG",
+    "definitions": [
+     {
+      "text": "Self-satisfied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "letter_selection",
+      "note": "the outward part of a word is its outside, so only the first and last letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sergeant major",
+      "gives": "SM",
+      "note": "SM is the abbreviation for sergeant major"
+     },
+     {
+      "clueFragment": "unappealing",
+      "gives": "UG",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SM",
+      "UG"
+     ]
+    },
+    "explanation": {
+     "surface": "A complacent sergeant major who looks thoroughly unattractive.",
+     "walkthrough": "'Outwardly unappealing' reads as a description of his looks, but it asks for just the outer letters of the word.",
+     "definitionFit": "Smug describes someone excessively pleased with themselves, a close synonym of complacent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outwardly"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +697,67 @@
      }
     ]
    },
-   "solution": "FOXTERRIER"
+   "solution": "FOXTERRIER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FOX TERRIER",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "blocking a path means standing in the middle of it, so one piece sits inside another"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so these letters take on a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exit for",
+      "gives": "EXITFOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Make a mistake",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOXT",
+      "ERR",
+      "IER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EXITFOR",
+       "gives": "FOXTIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting something wrong stands in the way of a fresh way out for a pet.",
+     "walkthrough": "'For' looks like a link word joining the clue to its definition, but its letters are part of the fodder.",
+     "definitionFit": "A fox terrier is a small breed of terrier, originally used to drive foxes from their earths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +771,59 @@
     "text": "Fool here essentially gets to speak in a barely audible voice",
     "enumeration": "6"
    },
-   "solution": "MUTTER"
+   "solution": "MUTTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MUTTER",
+    "definitions": [
+     {
+      "text": "speak in a barely audible voice",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a thing is its core, so only the central letters are kept"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "MUTT",
+      "note": "mutt is slang for a stupid person"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the two middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUTT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot standing here has to speak very quietly.",
+     "walkthrough": "Mutt usually means a mongrel dog, but it is also slang for a fool.",
+     "definitionFit": "To mutter is to talk in a low, indistinct way, often grumbling under one's breath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +837,67 @@
     "text": "Engineer agreed to enter road given a new assessment?",
     "enumeration": "8"
    },
-   "solution": "REGRADED"
+   "solution": "REGRADED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REGRADED",
+    "definitions": [
+     {
+      "text": "given a new assessment",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineer",
+      "for": "anagram",
+      "note": "to engineer something is to contrive or rework it, so these letters are reconstructed"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "entering means going inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreed",
+      "gives": "AGREED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EGRADE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGREED",
+       "gives": "EGRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A civil engineer consents to go onto a road that has been re-surveyed.",
+     "walkthrough": "'Engineer' wants to be the noun RE, the Royal Engineers; here it is a verb telling you to rework 'agreed'.",
+     "definitionFit": "Something regraded has been placed in a fresh grade or category after evaluation, like a reclassified road or exam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +911,51 @@
     "text": "Tom in band played a racket sport",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BADMINTON",
+    "definitions": [
+     {
+      "text": "a racket sport",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "something played has been performed or toyed with, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom in band",
+      "gives": "TOMINBAND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOMINBAND",
+       "gives": "BADMINTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tom, a member of a pop group, took up a racket sport.",
+     "walkthrough": "'Played' seems to be about the band making music; it signals the reordering of the three words before it.",
+     "definitionFit": "Badminton is a game played with rackets and a shuttlecock over a high net."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +969,51 @@
     "text": "Drawing power in team's MG in a fancy guise",
     "enumeration": "9"
    },
-   "solution": "MAGNETISM"
+   "solution": "MAGNETISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNETISM",
+    "definitions": [
+     {
+      "text": "Drawing power",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a fancy guise",
+      "for": "anagram",
+      "note": "a fancy guise is a costume or disguise, so the letters appear dressed up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team's MG in",
+      "gives": "TEAMSMGIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAMSMGIN",
+       "gives": "MAGNETISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team's MG sports car in fancy livery has real pulling power with the crowd.",
+     "walkthrough": "MG is a British sports-car make, here used only for its letters.",
+     "definitionFit": "Magnetism is the force by which magnets attract, and figuratively personal charm that draws people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "MG"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1027,43 @@
     "text": "Same thing again defended by pundit today",
     "enumeration": "5"
    },
-   "solution": "DITTO"
+   "solution": "DITTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DITTO",
+    "definitions": [
+     {
+      "text": "Same thing again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defended by",
+      "for": "hidden_word",
+      "note": "defenders surround what they protect, so the letters sit enclosed within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pundit today",
+      "gives": "DITTO",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A television pundit today backs up the same point once more.",
+     "walkthrough": "The letters run across the gap between the two final words.",
+     "definitionFit": "Ditto is used to indicate that something already said applies again, a repetition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "defended"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1077,59 @@
     "text": "Inferior guide's coat has sign of identification",
     "enumeration": "5"
    },
-   "solution": "BADGE"
+   "solution": "BADGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BADGE",
+    "definitions": [
+     {
+      "text": "sign of identification",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coat",
+      "for": "letter_selection",
+      "note": "a coat is an outer layer, so only the outside letters are taken"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inferior",
+      "gives": "BAD",
+      "note": "bad means of poor quality"
+     },
+     {
+      "clueFragment": "guide's",
+      "gives": "GE",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A second-rate tour guide's jacket carries an ID tag.",
+     "walkthrough": "'Coat' looks like a garment, but it means the outer layer of the word before it.",
+     "definitionFit": "A badge is a pin or emblem worn to show who you are or which group you belong to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1143,69 @@
     "text": "Friend wearing gold ring initially like a non-professional?",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "like a non-professional?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing clothes is inside them, so one piece is placed within another"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only a first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "Friend",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MATE",
+      "U",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal wearing a gold ring at first glance looks like a hobbyist.",
+     "walkthrough": "The friend sits inside the gold symbol, and the first letter of ring follows.",
+     "definitionFit": "As an adjective, amateur describes something done unpaid or unskilfully, the way a hobbyist rather than an expert would do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1219,81 @@
     "text": "Journalist left among sheep is beginning to survey mountain plant",
     "enumeration": "9"
    },
-   "solution": "EDELWEISS"
+   "solution": "EDELWEISS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EDELWEISS",
+    "definitions": [
+     {
+      "text": "mountain plant",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "to be among things is to be surrounded by them, so one piece goes inside another"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "an ed. or editor is a journalist"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "EWE",
+      "note": "a ewe is a female sheep"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "survey",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "E",
+      "L",
+      "WE",
+      "IS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter abandoned among a flock is starting to study an alpine flower.",
+     "walkthrough": "The left letter goes inside the sheep, and the result follows the journalist; 'left' reads as abandoned but is just L.",
+     "definitionFit": "Edelweiss is a white woolly-leaved flower native to the high Alps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1307,50 @@
     "text": "Line, say, followed by friendly country in a permissible fashion",
     "enumeration": "7"
    },
-   "solution": "LEGALLY"
+   "solution": "LEGALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGALLY",
+    "definitions": [
+     {
+      "text": "in a permissible fashion",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line, say",
+      "gives": "LEG",
+      "note": "a leg is one stretch of a route, as a line is on a map; 'say' marks the example"
+     },
+     {
+      "clueFragment": "friendly country",
+      "gives": "ALLY",
+      "note": "an ally is a nation on friendly terms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A border line is drawn, then a friendly nation signs off on it lawfully.",
+     "walkthrough": "The first part is loose: a leg of a journey is one line of travel, and 'say' warns the link is by example.",
+     "definitionFit": "Legally means within the law, so done in a way that is allowed or permitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Line"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1364,54 @@
     "text": "Lean son overlooking bank, perhaps",
     "enumeration": "7"
    },
-   "solution": "SLENDER"
+   "solution": "SLENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLENDER",
+    "definitions": [
+     {
+      "text": "Lean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "charade",
+      "note": "in a down entry, a thing overlooking another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "bank, perhaps",
+      "gives": "LENDER",
+      "note": "a bank is one example of a moneylender, as 'perhaps' signals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A thin son looks out over a riverbank.",
+     "walkthrough": "'Bank' suggests a river, but it is the financial kind, which lends money.",
+     "definitionFit": "Slender means slim and thin, a close synonym of lean as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1425,54 @@
     "text": "Bishop introducing different trouble",
     "enumeration": "6"
    },
-   "solution": "BOTHER"
+   "solution": "BOTHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOTHER",
+    "definitions": [
+     {
+      "text": "trouble",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "charade",
+      "note": "to introduce something is to bring it in after you, so the first piece leads the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is bishop in chess notation"
+     },
+     {
+      "clueFragment": "different",
+      "gives": "OTHER",
+      "note": "other means different"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop brings in some new kind of difficulty.",
+     "walkthrough": "'Different' wants to be an anagram signal; here it simply means other.",
+     "definitionFit": "Bother is effort, fuss or annoyance, the same sense as trouble in 'it's no trouble'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 23,
@@ -347,7 +1486,51 @@
     "text": "Anxious racer now after a crash",
     "enumeration": "8"
    },
-   "solution": "CAREWORN"
+   "solution": "CAREWORN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAREWORN",
+    "definitions": [
+     {
+      "text": "Anxious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a crash",
+      "for": "anagram",
+      "note": "a crash leaves things smashed and scattered, so these letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racer now",
+      "gives": "RACERNOW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACERNOW",
+       "gives": "CAREWORN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing driver is nervous after an accident on the track.",
+     "walkthrough": "The definition is slightly loose: careworn is worn out by worry rather than simply anxious.",
+     "definitionFit": "Careworn describes someone showing the strain of prolonged worry, a weary form of being troubled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
+   }
   },
   {
    "number": 24,
@@ -361,7 +1544,43 @@
     "text": "Some began nettling seabird",
     "enumeration": "6"
    },
-   "solution": "GANNET"
+   "solution": "GANNET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GANNET",
+    "definitions": [
+     {
+      "text": "seabird",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the words is needed, a stretch of consecutive letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "began nettling",
+      "gives": "GANNET",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone started irritating a seabird.",
+     "walkthrough": "The letters run across the gap between the two words.",
+     "definitionFit": "The gannet is a large white diving bird of northern coasts and seas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 25,
@@ -375,7 +1594,68 @@
     "text": "Loop shortly arising close to home",
     "enumeration": "5"
    },
-   "solution": "NOOSE"
+   "solution": "NOOSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOOSE",
+    "definitions": [
+     {
+      "text": "Loop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arising",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading upwards, so the letters run backwards"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortly",
+      "gives": "SOON",
+      "note": "soon means shortly, before long"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOS",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SOON",
+       "to": "NOOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circular route that will soon come up near your house.",
+     "walkthrough": "'Close to home' reads as nearby, but means the final letter of home.",
+     "definitionFit": "A noose is a loop of rope with a running knot that tightens when pulled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 26,
@@ -389,7 +1669,43 @@
     "text": "Minor keyboard, maybe",
     "enumeration": "10"
    },
-   "solution": "PERIPHERAL"
+   "solution": "PERIPHERAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERIPHERAL",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     },
+     {
+      "text": "keyboard, maybe",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor",
+      "note": "first meaning: of marginal importance"
+     },
+     {
+      "clueFragment": "keyboard, maybe",
+      "note": "second meaning: a device attached to a computer, of which a keyboard is one example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Minor keyboard' sounds like music, a piano piece in a minor key; the two halves are separate meanings.",
+     "definitionFit": "As an adjective it means marginal or secondary; as a noun it is any add-on computer device such as a mouse or printer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Minor"
+    }
+   }
   },
   {
    "number": 27,
@@ -403,7 +1719,56 @@
     "text": "Chances characterising one leader of students",
     "enumeration": "4"
    },
-   "solution": "ODDS"
+   "solution": "ODDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ODDS",
+    "definitions": [
+     {
+      "text": "Chances",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a group is at the front, so only the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "characterising one",
+      "gives": "ODD",
+      "note": "one is an odd number, so odd is what characterises it"
+     },
+     {
+      "clueFragment": "students",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The prospects of becoming a head student.",
+     "walkthrough": "'Characterising one' is a cryptic hint: the quality that describes the number one is that it is odd.",
+     "definitionFit": "Odds are the likelihood or probability of something happening, as in betting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 28,
@@ -417,7 +1782,56 @@
     "text": "Foremost pair, one linked to Joseph's partner",
     "enumeration": "7"
    },
-   "solution": "PRIMARY"
+   "solution": "PRIMARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIMARY",
+    "definitions": [
+     {
+      "text": "Foremost",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair",
+      "gives": "PR",
+      "note": "pr is the abbreviation for pair"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "Joseph's partner",
+      "gives": "MARY",
+      "note": "Mary was the wife of Joseph in the Nativity story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "I",
+      "MARY"
+     ]
+    },
+    "explanation": {
+     "surface": "The leading couple, one of them married to Joseph, as in a nativity play.",
+     "walkthrough": "PR is a standard abbreviation for pair, as on shoe boxes and price tags.",
+     "definitionFit": "Primary means first in importance or rank, the chief or principal one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 29,
@@ -437,7 +1851,56 @@
      }
     ]
    },
-   "solution": "BYHEART"
+   "solution": "BYHEART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BY HEART",
+    "definitions": [
+     {
+      "text": "from memory",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "found beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "y is the abbreviation for yard"
+     },
+     {
+      "clueFragment": "centre",
+      "gives": "HEART",
+      "note": "the heart of something is its centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "Y",
+      "HEART"
+     ]
+    },
+    "explanation": {
+     "surface": "A British courtyard is located next to the town centre.",
+     "walkthrough": "'Yard' suggests a garden or courtyard, but it is the unit of length abbreviated to Y.",
+     "definitionFit": "To know something by heart is to have learned it so well you can recite it unprompted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yard"
+    }
+   }
   }
  ]
 }
