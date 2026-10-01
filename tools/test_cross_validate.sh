@@ -166,6 +166,28 @@ same("a refile never rewrites a file already taken from the feed",
      cv.refile_independent(cv.Independent(), "independent-12407", "unused", "260714",
                            [{"class": "CLUE"}]), None)
 cv.read_puzzle_file = saved
+same("the feed's CHOCOLOHICS is a known wrong answer (indysunday-1902 7-down)",
+     cv.witness({"id": "indysunday-1902", "entries": [
+         {"number": 7, "direction": "down", "solution": "CHOCOLOHICS"}]})["entries"][0]["solution"],
+     "CHOCOHOLICS")
+fi.FORMAT_FIXES[("260105", "3", "3,3")] = "6"
+same("a count FORMAT_FIXES puts right is read as printed, and a trailing comma is no count",
+     [cv.independent_shape(INDY, "260105")["entries"][2]["clue"]["enumeration"],
+      cv.independent_shape(INDY.replace(b'format="3"', b'format="3,"'), "260105")
+      ["entries"][0]["clue"]["enumeration"]],
+     ["6", "3"])
+del fi.FORMAT_FIXES[("260105", "3", "3,3")]
+import pathlib, tempfile
+cache = pathlib.Path(tempfile.mkdtemp())
+(cache / "c_150607.xml").write_bytes(INDY.replace(b"No. 12,001 by Tester", b"No. 1,320 by Tester"))
+class Cached(cv.Independent):
+    cache = cache
+saved = (cv.held, cv.read_puzzle_file)
+cv.held = lambda adapter: {"indysunday-1320": "a", "independent-12001": "b"}
+cv.read_puzzle_file = lambda path: {"date": {"a": "2015-06-14", "b": "2026-01-05"}[path]}
+same("a puzzle is compared with the key that serves it, not its print date (2015's early Sundays)",
+     Cached().ids(), {"indysunday-1320": "150607", "independent-12001": "260105"})
+cv.held, cv.read_puzzle_file = saved
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
