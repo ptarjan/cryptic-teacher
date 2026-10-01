@@ -711,19 +711,51 @@ def entries_of(pdf, answers, grid):
     return out
 
 
+def backsolve(clues, answers):
+    """(grid, None) when the clue list's numbers and counts fit exactly one
+    grid (reconstruct_grid.unique_grid), else (None, why not). A linked
+    clue's lights, and a "See N" one, go in with no length: the enumeration
+    counts their sum, not each. The write-up's answers go in where they fit
+    their light, so a grid they cross wrongly in is not one of the fits."""
+    linked = {l for c in clues if len(c["lights"]) > 1 for l in c["lights"]}
+    spec, words = {}, {}
+    for c in clues:
+        for light in c["lights"]:
+            spec.setdefault(tuple(light), None)
+        light = tuple(c["lights"][0])
+        if c["enumeration"] is None or light in linked:
+            continue
+        spec[light] = sum(int(n) for n in re.findall(r"\d+", c["enumeration"]))
+        word = (answers or {}).get(light)
+        if word and len(word) == spec[light]:
+            words[light] = word
+    order = sorted(spec, key=lambda l: (l[0], l[1] != "across"))
+    side = tg.SIZE[ft_puzzles.CATEGORY]
+    return rg.unique_grid([(n, d, spec[(n, d)]) for n, d in order], cols=side, rows=side,
+                          words=[words.get(l) for l in order],
+                          max_black_run=tg.MAX_BLACK_RUN[ft_puzzles.CATEGORY],
+                          max_nodes=tg.DEFAULT_MAX_NODES)
+
+
 def assemble(number, pdf, post, date, pdf_url, how):
     """(puzzle, None) or (None, why not)."""
     if pdf["number"] != number:
         return None, f"PDF says No {pdf['number']}"
-    grid = pdf["grid"]
-    if grid is None:
-        return None, "PDF has no vector grid"
-    why = grid_matches(grid, pdf["clues"])
-    if why:
-        return None, why
     # Only the clues are mandatory: with no write-up, or one missing an
     # answer, the puzzle files unsolved and the nightly backfill solves it.
     answers = blog_answers(post["content"]["rendered"], pdf["clues"]) if post else {}
+    grid, backsolved = pdf["grid"], None
+    why = "PDF has no vector grid" if grid is None else grid_matches(grid, pdf["clues"])
+    if why:
+        # The vector art is missing or misread: the clue list's numbers and
+        # counts rebuild the grid, filed only when exactly one fits.
+        grid, rebuilt = backsolve(pdf["clues"], answers)
+        if grid is None:
+            return None, f"{why}; backsolving the clue list: {rebuilt}"
+        backsolved = why
+        why = grid_matches(grid, pdf["clues"])
+        if why:
+            return None, why
     entries = entries_of(pdf, answers, grid) or entries_of(pdf, None, grid)
     unsolved = not entries[0].get("answer")
     rec = {"post_id": f"fifteensquared-{post['id']}" if post else None,
@@ -735,13 +767,17 @@ def assemble(number, pdf, post, date, pdf_url, how):
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         return None, why
-    puzzle["source"] = {"url": pdf_url}
+    puzzle["source"] = {"url": pdf_url,
+                        "gridOrigin": "reconstructed" if backsolved else "published"}
     if unsolved:
         return puzzle, None
     puzzle["solutions"]["check"] = (
-        "grid and clues read from the FT's printable PDF, its numbering matching "
-        "the clue list; every fifteensquared answer written into it with each "
-        "crossing agreeing")
+        (f"clues read from the FT's printable PDF ({backsolved}), the grid "
+         f"backsolved from their numbering, the one grid that fits"
+         if backsolved else
+         "grid and clues read from the FT's printable PDF, its numbering matching "
+         "the clue list")
+        + "; every fifteensquared answer written into it with each crossing agreeing")
     return puzzle, None
 
 
