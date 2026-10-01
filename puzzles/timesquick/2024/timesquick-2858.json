@@ -24,6 +24,9 @@
   "date": "2024-12-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,39 @@
      }
     ]
    },
-   "solution": "POLICESTATION"
+   "solution": "POLICESTATION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POLICE STATION",
+    "definitions": [
+     {
+      "text": "Force people to work here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force people to work here?",
+      "note": "surface reading: a workplace where staff are coerced into labour"
+     },
+     {
+      "clueFragment": "Force people",
+      "note": "setter's reading: members of the constabulary, the police force, and the building they work from"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Force' reads as a verb meaning compel, but here it is a noun: the police are often called the Force, and the question mark flags the pun.",
+     "definitionFit": "It is the local base where officers of a constabulary report for duty and do their jobs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Force"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +92,74 @@
     "text": "Powerful alkali not ultimately found in a shop, surprisingly",
     "enumeration": "6"
    },
-   "solution": "POTASH"
+   "solution": "POTASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "POTASH",
+    "definitions": [
+     {
+      "text": "Powerful alkali",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the word is kept"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so one piece goes within the other"
+     },
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising outcome is unexpected, so the letters turn up in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a shop",
+      "gives": "ASHOP",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of 'not'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "T",
+      "ASH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASHOP",
+       "gives": "POASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper is surprised to find no strong alkali on the shelves.",
+     "walkthrough": "'Not ultimately' looks like a negative, but it just supplies T; that T goes inside POASH, a rearrangement of A SHOP, giving PO-T-ASH.",
+     "definitionFit": "Potash is potassium carbonate or hydroxide, a strongly caustic alkaline compound used in fertiliser and soap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +173,54 @@
     "text": "Sweet, strong tipple on the rocks?",
     "enumeration": "9"
    },
-   "solution": "LIQUORICE"
+   "solution": "LIQUORICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIQUORICE",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one thing placed on another sits above it, so the first part comes before the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong tipple",
+      "gives": "LIQUOR",
+      "note": "liquor is strong alcoholic drink"
+     },
+     {
+      "clueFragment": "the rocks",
+      "gives": "ICE",
+      "note": "a drink served on the rocks comes over ice cubes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIQUOR",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet, strong drink poured over ice.",
+     "walkthrough": "'On the rocks' reads as a serving instruction, but 'on' places LIQUOR above ICE in this down entry.",
+     "definitionFit": "Liquorice is a black chewy confection flavoured with root extract, a classic British sweet or candy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +234,56 @@
     "text": "Belittle chapter provided by each writer",
     "enumeration": "7"
    },
-   "solution": "CHEAPEN"
+   "solution": "CHEAPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEAPEN",
+    "definitions": [
+     {
+      "text": "Belittle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chapter",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for chapter"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the abbreviation for each, as on price lists"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "EA",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An author's chapter is disparaged by every other writer.",
+     "walkthrough": "'Writer' suggests an author, but in crosswords it is often the tool that writes, the PEN.",
+     "definitionFit": "To cheapen something is to lower its worth or dignity, making it seem less important or valuable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +303,51 @@
      }
     ]
    },
-   "solution": "SHADOWCABINET"
+   "solution": "SHADOWCABINET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHADOW CABINET",
+    "definitions": [
+     {
+      "text": "these MPs oppose the government",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "an unfortunate turn of events goes wrong, so the letters fall out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It can be sad how",
+      "gives": "ITCANBESADHOW",
+      "note": "every letter of these four words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITCANBESADHOW",
+       "gives": "SHADOWCABINET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry comment that opposition MPs can make a sorry sight.",
+     "walkthrough": "'It can be sad how' looks like the start of a remark; all thirteen letters are the fodder. The Shadow Cabinet is the official opposition's team of senior MPs in the UK Parliament.",
+     "definitionFit": "Its members are opposition frontbench spokespeople who each mirror and challenge a minister in the governing party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sad"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +361,67 @@
     "text": "Big range also with three ovens at the bottom",
     "enumeration": "5"
    },
-   "solution": "ANDES"
+   "solution": "ANDES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANDES",
+    "definitions": [
+     {
+      "text": "Big range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the bottom",
+      "for": "letter_selection",
+      "note": "the bottom of a word is its end, so only the closing letters are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "'and' adds something, as 'also' does"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of 'three'"
+     },
+     {
+      "clueFragment": "ovens",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of 'ovens'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A large kitchen range that comes with three ovens underneath.",
+     "walkthrough": "'Big range' looks like a cooker, which the ovens reinforce, but it is a range of mountains.",
+     "definitionFit": "The Andes are the long South American mountain chain, and a range is a line of peaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +435,43 @@
     "text": "Somewhat directionless anger",
     "enumeration": "3"
    },
-   "solution": "IRE"
+   "solution": "IRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IRE",
+    "definitions": [
+     {
+      "text": "anger",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means partly, so only part of the following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "directionless",
+      "gives": "IRE",
+      "note": "letters two to four of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A vague, aimless sort of fury.",
+     "walkthrough": "The answer sits just after the D at the start of 'directionless'.",
+     "definitionFit": "Ire is a literary synonym for fury or wrath, common in headlines and crosswords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Somewhat"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +491,62 @@
      }
     ]
    },
-   "solution": "NOSHOW"
+   "solution": "NOSHOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NO-SHOW",
+    "definitions": [
+     {
+      "text": "Absentee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning something up makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy child"
+     },
+     {
+      "clueFragment": "In what way?",
+      "gives": "HOW",
+      "note": "'how?' asks in what way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "HOW"
+     ],
+     "reversals": [
+      {
+       "from": "SON",
+       "to": "NOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A missing boy suddenly appears, and someone asks how.",
+     "walkthrough": "'Turned up' means appeared, the very opposite of the answer; here it reverses SON in the down light.",
+     "definitionFit": "A no-show is someone who books or is expected but fails to attend, so a person absent without notice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +560,51 @@
     "text": "Quote about Edwardian headgear",
     "enumeration": "5"
    },
-   "solution": "TOQUE"
+   "solution": "TOQUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOQUE",
+    "definitions": [
+     {
+      "text": "Edwardian headgear",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' can mean around or all over the place, so the letters are moved round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quote",
+      "gives": "QUOTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUOTE",
+       "gives": "TOQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Citing a passage about what hats people wore in Edwardian times.",
+     "walkthrough": "'About' looks like 'concerning', but it rearranges the five letters of the first word.",
+     "definitionFit": "A toque is a small brimless hat, fashionable among women in the early twentieth century, notably Queen Mary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +618,63 @@
     "text": "Speech given by duke wearing a robe",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whatever is worn surrounds the wearer, so one piece is put inside another"
+     }
+    ],
+    "linkWords": [
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "robe",
+      "gives": "DRESS",
+      "note": "a dress is a robe or gown"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke in ceremonial robes delivers a formal speech.",
+     "walkthrough": "D sits between A and DRESS. 'Given by' is only the link.",
+     "definitionFit": "An address is a formal talk delivered to an audience, such as a keynote or royal oration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "robe"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +688,70 @@
     "text": "Crops scattered alongside one old house",
     "enumeration": "7"
    },
-   "solution": "SCORPIO"
+   "solution": "SCORPIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCORPIO",
+    "definitions": [
+     {
+      "text": "house",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "scattered things are strewn out of order, so these letters are spread in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crops",
+      "gives": "CROPS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCORP",
+      "I",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CROPS",
+       "gives": "SCORP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crops spread out in the fields beside a single old farmhouse.",
+     "walkthrough": "'House' looks like a farm building, but it is a house of the zodiac, one of the twelve astrological signs.",
+     "definitionFit": "In astrology the zodiac is divided into twelve houses or signs, and the scorpion sign is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +765,75 @@
     "text": "Military cap has weirdly kitsch ornamentation on the front",
     "enumeration": "5"
    },
-   "solution": "SHAKO"
+   "solution": "SHAKO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHAKO",
+    "definitions": [
+     {
+      "text": "Military cap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weirdly",
+      "for": "anagram",
+      "note": "something done weirdly is done oddly, so these letters come out in an odd order"
+     },
+     {
+      "text": "on the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its beginning, so only the opening letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "kitsch",
+      "gives": "K",
+      "select": "first",
+      "note": "first letter of 'kitsch'"
+     },
+     {
+      "clueFragment": "ornamentation",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of 'ornamentation'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHA",
+      "K",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "SHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army cap is decorated with tacky ornaments at the front.",
+     "walkthrough": "'On the front' sounds like where the badge goes on the cap, but it picks the first letters of the two words before it.",
+     "definitionFit": "A shako is a tall cylindrical peaked hat with a plume, worn by soldiers in dress uniform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +847,67 @@
     "text": "Rocky Marciano consumes energy drink",
     "enumeration": "9"
    },
-   "solution": "AMERICANO"
+   "solution": "AMERICANO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AMERICANO",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rocky",
+      "for": "anagram",
+      "note": "rocky means unsteady or shaky, so these letters are shaken into a new order"
+     },
+     {
+      "text": "consumes",
+      "for": "container",
+      "note": "what is consumed is taken in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marciano",
+      "gives": "MARCIANO",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "E",
+      "RICANO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARCIANO",
+       "gives": "AMRICANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boxer Rocky Marciano downs an energy drink.",
+     "walkthrough": "Rocky Marciano was a real heavyweight champion, so 'Rocky' reads as his first name and 'energy drink' as one thing; the anagram takes E inside.",
+     "definitionFit": "An Americano is an espresso coffee diluted with hot water, a common order in any café."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rocky"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +921,65 @@
     "text": "Simplicity of resting place long ago sited outside church",
     "enumeration": "9"
    },
-   "solution": "INNOCENCE"
+   "solution": "INNOCENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INNOCENCE",
+    "definitions": [
+     {
+      "text": "Simplicity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sited outside",
+      "for": "container",
+      "note": "a thing placed outside another surrounds it, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resting place",
+      "gives": "INN",
+      "note": "an inn is somewhere travellers stop for the night"
+     },
+     {
+      "clueFragment": "long ago",
+      "gives": "ONCE",
+      "note": "'once' means at some time in the past"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "O",
+      "CE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "The simple charm of an ancient grave sited just outside a church.",
+     "walkthrough": "'Resting place' suggests a grave beside the church, but it is a place travellers stop overnight. CE is the Church of England, a crossword staple.",
+     "definitionFit": "Innocence and simplicity both describe an artless, naive, guileless nature free of worldly cunning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resting"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +993,50 @@
     "text": "No longer close match for item of sleepwear",
     "enumeration": "7"
    },
-   "solution": "NIGHTIE"
+   "solution": "NIGHTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIGHTIE",
+    "definitions": [
+     {
+      "text": "item of sleepwear",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No longer close",
+      "gives": "NIGH",
+      "note": "nigh is an archaic word for near, and 'no longer' marks it as old usage"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "TIE",
+      "note": "a tie is a match or fixture, as in a cup tie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A garment that no longer fits snugly enough to pair with pyjamas.",
+     "walkthrough": "'No longer close match' reads as one phrase about a poor fit; it splits into an archaic 'close' and a 'match' meaning a game.",
+     "definitionFit": "A nightie is a loose nightdress worn in bed, a familiar short form of nightgown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1050,53 @@
     "text": "Public transport that is run with more passengers aboard?",
     "enumeration": "6"
    },
-   "solution": "BUSIER"
+   "solution": "BUSIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSIER",
+    "definitions": [
+     {
+      "text": "with more passengers aboard?",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public transport",
+      "gives": "BUS",
+      "note": "a bus is a form of public transport"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is short for id est, Latin for 'that is'"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A transport service that runs fuller than usual.",
+     "walkthrough": "'Public transport' seems to be the subject of the definition, but it only supplies BUS; the question mark marks the definition as a playful one.",
+     "definitionFit": "A more crowded vehicle is busier, having greater bustle and activity on board than an emptier one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1110,84 @@
     "text": "Shocked at first, actors get heated after several takes",
     "enumeration": "6"
    },
-   "solution": "AGHAST"
+   "solution": "AGHAST",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AGHAST",
+    "definitions": [
+     {
+      "text": "Shocked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' points to the beginnings, so each word gives up only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actors",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "heated",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "several",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "takes",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "H",
+      "A",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "On a film set, the cast lose their tempers after one retake too many.",
+     "walkthrough": "'At first' looks like it goes with 'Shocked', meaning initially taken aback, but it selects the first letters of the six words that follow.",
+     "definitionFit": "Aghast means filled with horror or dismay, struck with astonishment at something unpleasant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1207,63 @@
      }
     ]
    },
-   "solution": "USEUP"
+   "solution": "USEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USE UP",
+    "definitions": [
+     {
+      "text": "Consume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beyond",
+      "for": "charade",
+      "note": "what lies beyond comes after, so this piece is placed at the end"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     },
+     {
+      "clueFragment": "Europe",
+      "gives": "EU",
+      "note": "EU is the European Union"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "EU",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Energy consumption reaching past the Americas and Europe.",
+     "walkthrough": "'Consume power' reads as one phrase about electricity, but the definition stops at the first word; the second is just a physics symbol.",
+     "definitionFit": "To use up something is to exhaust or deplete it completely, which is what consuming fuel or food does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1277,43 @@
     "text": "First-class 11, perhaps",
     "enumeration": "5"
    },
-   "solution": "PRIME"
+   "solution": "PRIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIME",
+    "definitions": [
+     {
+      "text": "First-class",
+      "at": 0
+     },
+     {
+      "text": "11, perhaps",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First-class",
+      "note": "first meaning: of top quality"
+     },
+     {
+      "clueFragment": "11, perhaps",
+      "note": "second meaning: eleven is divisible only by one and itself, an example of this kind of number"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'11' looks like a cross-reference to the clue at 11 across, but it is just the number eleven, and 'perhaps' marks it as one example.",
+     "definitionFit": "The word means excellent or top grade, and also names a whole number with no divisors except one and itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "11"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1327,45 @@
     "text": "The use of wiretaps is annoying",
     "enumeration": "7"
    },
-   "solution": "BUGGING"
+   "solution": "BUGGING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUGGING",
+    "definitions": [
+     {
+      "text": "The use of wiretaps",
+      "at": 0
+     },
+     {
+      "text": "annoying",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The use of wiretaps",
+      "note": "first meaning: secretly listening in with hidden microphones"
+     },
+     {
+      "clueFragment": "annoying",
+      "note": "second meaning: irritating or pestering someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface is a complaint about surveillance; it splits at 'is' into two separate senses of the same word.",
+     "definitionFit": "The word means covert electronic eavesdropping and, informally, pestering or irritating a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1379,79 @@
     "text": "I managed to grasp a new, initially indecipherable language",
     "enumeration": "7"
    },
-   "solution": "IRANIAN"
+   "solution": "IRANIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IRANIAN",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so just the first letter of the word is used"
+     },
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "to grasp is to hold in the hand, so one piece holds the others within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "indecipherable",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of 'indecipherable'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "ANI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of mastering a new language that was at first unreadable.",
+     "walkthrough": "A, N and I go together inside RAN, after its R; 'grasp' is the container, not 'understand'.",
+     "definitionFit": "Iranian is a family of languages including Persian and Kurdish, and the word can also name Persian itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grasp"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1465,52 @@
     "text": "Curved line made by a track periodically",
     "enumeration": "3"
    },
-   "solution": "ARC"
+   "solution": "ARC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ARC",
+    "definitions": [
+     {
+      "text": "Curved line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a track",
+      "gives": "ARC",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARC"
+     ]
+    },
+    "explanation": {
+     "surface": "A curve left on the ground by a running track.",
+     "walkthrough": "The odd letters of 'a track' are taken, skipping the T, A and K.",
+     "definitionFit": "An arc is a segment of a circle's circumference, a smooth bent stretch between two points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1524,62 @@
     "text": "I’m going now to pick up the centrepiece for swish headdress",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "headdress",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the centrepiece for",
+      "for": "letter_selection",
+      "note": "a centrepiece stands in the middle, so only the central letter is taken"
+     },
+     {
+      "text": "to pick up",
+      "for": "container",
+      "note": "to pick up something is to take hold of it, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m going now",
+      "gives": "TARA",
+      "note": "ta-ra is a chatty northern English way of saying goodbye"
+     },
+     {
+      "clueFragment": "swish",
+      "gives": "I",
+      "select": "middle",
+      "note": "middle letter of 'swish'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest leaving a party collects the showpiece for a smart hat.",
+     "walkthrough": "'I'm going now' is a farewell, TA-RA, British slang for bye; it takes in the middle letter of 'swish'.",
+     "definitionFit": "A tiara is a jewelled semicircular band worn on the head, a formal ornamental crown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swish"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1603,59 @@
      }
     ]
    },
-   "solution": "ROCKEDTHEBOAT"
+   "solution": "ROCKEDTHEBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROCKED THE BOAT",
+    "definitions": [
+     {
+      "text": "caused trouble",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nasty",
+      "for": "anagram",
+      "note": "something nasty is unpleasant and disordered, so these letters are thrown into a mess"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crook",
+      "gives": "CROOK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bad teeth",
+      "gives": "BADTEETH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CROOKBADTEETH",
+       "gives": "ROCKEDTHEBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain with rotten teeth stirs up mischief.",
+     "walkthrough": "'Bad' looks like a second anagram signal, but it is part of the fodder; 'Nasty' alone does the job.",
+     "definitionFit": "To rock the boat is an idiom for disturbing a settled situation and upsetting people by making a fuss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nasty"
+    }
+   }
   }
  ]
 }
