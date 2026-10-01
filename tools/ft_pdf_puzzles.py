@@ -200,11 +200,14 @@ def orphans(log=print):
             time.sleep(WAYBACK_PAUSE)
         seen.add(url)
         seen_file.write_text(json.dumps(sorted(seen)))
-        if not number or str(number) in idx["puzzles"]:
+        held = idx["puzzles"].get(str(number))
+        # An entry pointing at an article page Wayback lacks takes the PDF,
+        # keeping the day the crossword page printed beside it.
+        if not number or pdf_path(number).exists() or (held and not held["url"].endswith(".html")):
             continue
         pdf_path(number).write_bytes(data)
         (PDFS / f"{number}.how").write_text("wayback")
-        idx["puzzles"][str(number)] = {"date": None, "url": url}
+        idx["puzzles"][str(number)] = {"date": held and held.get("date"), "url": url}
         INDEX.write_text(json.dumps(idx, indent=0, sort_keys=True))
         got += 1
         log(f"  {number}: {url}")
