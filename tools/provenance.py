@@ -196,6 +196,9 @@ ACQUIRED_BY = {
     "tools/fetch_wayback.py": {
         "channel": "wayback", "what": "a Wayback capture of a Guardian page the "
                                       "paper no longer serves"},
+    "tools/fetch_telegraph.py": {
+        "channel": "publisher",
+        "what": "puzzlesdata.telegraph.co.uk, the Telegraph Puzzles app's data bucket"},
     "tools/fetch_fifteensquared.py": {
         "channel": "blog", "what": "a fifteensquared solution write-up"},
     "tools/acquire_book.py": {
@@ -259,6 +262,10 @@ ACQUISITION_BY_SOURCE = {
     ("independent", "fifteensquared.net"): ("tools/indy_puzzles.py",),
     ("indysunday", "fifteensquared.net"): ("tools/indy_puzzles.py",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py",),
+    ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
+    ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
+    ("sundaytel", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
+    ("sundaytough", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("globeandmail", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
@@ -418,11 +425,16 @@ def solution_origin_from_file(puzzle):
 
 def grid_origin(series, url=None):
     """A book or blog puzzle's geometry was worked out from its clue list;
-    everything else arrives with the grid the source published. A series
-    whose own feed ships grids can still hold puzzles read off a blog (the
-    Independent before its feed began), so the source's host decides too."""
-    if (is_book(series) or "blog" in series_table.meta(series)
-            or host_of(url) in BLOG_FILER):
+    everything else arrives with the grid the source published. The source's
+    host decides as well as the series: a series whose own feed ships grids
+    can hold puzzles read off a blog (the Independent before its feed began),
+    and a blog series can hold puzzles read off its publisher's feed (the
+    Telegraph's bucket, tools/fetch_telegraph.py)."""
+    host = host_of(url)
+    if is_book(series) or host in BLOG_FILER:
+        return "reconstructed"
+    if "blog" in series_table.meta(series) and not any(
+            channel_of(t) == "publisher" for t in ACQUISITION_BY_SOURCE.get((series, host), ())):
         return "reconstructed"
     return GRID_ORIGIN_BY_SERIES.get(series, "published")
 
