@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Felt sorry corralling horse that's difficult",
     "enumeration": "6"
    },
-   "solution": "RUGGED"
+   "solution": "RUGGED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUGGED",
+    "definitions": [
+     {
+      "text": "that's difficult",
+      "at": 28,
+      "note": "a descriptive phrase standing for an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corralling",
+      "for": "container",
+      "note": "to corral animals is to pen them in, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Felt sorry",
+      "gives": "RUED",
+      "note": "to rue is to feel regret"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "gee-gee is a childish word for a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "GG",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets having to pen in a stubborn, awkward horse.",
+     "walkthrough": "GG (gee-gee) is the nursery word for a horse, and the corral fits neatly into the horse picture. RUED opens to hold GG: RU-GG-ED.",
+     "definitionFit": "Rugged terrain or a rugged task is hard going, so rugged describes something tough and demanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corralling"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,49 @@
     "text": "Polish hero crossed by rebellious old Roman",
     "enumeration": "7"
    },
-   "solution": "RUBICON"
+   "solution": "RUBICON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUBICON",
+    "definitions": [
+     {
+      "text": "crossed by rebellious old Roman",
+      "at": 12,
+      "note": "a description of the river, standing for its name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "RUB",
+      "note": "to polish something is to rub it"
+     },
+     {
+      "clueFragment": "hero",
+      "gives": "ICON",
+      "note": "an icon is an idolised figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUB",
+      "ICON"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish hero meets a rebellious ancient Roman who crosses him.",
+     "walkthrough": "'Polish' with its capital looks like the nationality, but it is the verb to shine. The 'rebellious old Roman' is Julius Caesar.",
+     "definitionFit": "Caesar defied the Senate by leading his army over this small Italian river in 49 BC, starting a civil war."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,64 @@
     "text": "Odd ones in law court go back to complain",
     "enumeration": "5"
    },
-   "solution": "GROWL"
+   "solution": "GROWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "GROWL",
+    "definitions": [
+     {
+      "text": "complain",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd ones",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are the first, third, fifth and so on of the phrase"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running in the opposite direction, right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "law court go",
+      "gives": "LWORG",
+      "select": "alternate",
+      "note": "letters 1, 3, 5, 7 and 9 of the three words run together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROWL"
+     ],
+     "reversals": [
+      {
+       "from": "LWORG",
+       "to": "GROWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strange people in a court of law go back to make a complaint.",
+     "walkthrough": "'Odd ones' sounds like eccentric people, but it means the odd-positioned letters. 'go' is part of the source, not a verb in the instruction.",
+     "definitionFit": "To growl is to grumble or speak in an angry, complaining way, like a snarling dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,52 @@
     "text": "Rewrite an overdue essay",
     "enumeration": "9"
    },
-   "solution": "ENDEAVOUR"
+   "solution": "ENDEAVOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENDEAVOUR",
+    "definitions": [
+     {
+      "text": "essay",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rewrite",
+      "for": "anagram",
+      "note": "rewriting reworks text into a fresh arrangement of the same material"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an overdue",
+      "gives": "ANOVERDUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANOVERDUE",
+       "gives": "ENDEAVOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student is told to rewrite a homework essay handed in late.",
+     "walkthrough": "'essay' looks like schoolwork; here it is the older sense of an attempt, as in 'essay a task'.",
+     "definitionFit": "An essay, in its original meaning, is a try at doing something, which is exactly what an endeavour is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "essay"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +291,51 @@
      }
     ]
    },
-   "solution": "LETSLIP"
+   "solution": "LETSLIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET SLIP",
+    "definitions": [
+     {
+      "text": "leak",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sanctions",
+      "gives": "LETS",
+      "note": "to sanction something is to permit it"
+     },
+     {
+      "clueFragment": "mouthpiece",
+      "gives": "LIP",
+      "note": "a lip is part of the mouth; also cheeky talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LETS",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A spokesperson is punished with sanctions for leaking information.",
+     "walkthrough": "'Sanctions' suggests penalties, but here it is the opposite sense, permits. 'mouthpiece' suggests a spokesperson, not a body part.",
+     "definitionFit": "To let slip a secret is to reveal it accidentally, just as a leak passes on information that should stay hidden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sanctions"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +349,58 @@
     "text": "Figure of speech child found in stories — that's an understatement",
     "enumeration": "7"
    },
-   "solution": "LITOTES"
+   "solution": "LITOTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LITOTES",
+    "definitions": [
+     {
+      "text": "Figure of speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, enclosed on both sides"
+     }
+    ],
+    "linkWords": [
+     "that's an understatement"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "stories",
+      "gives": "LIES",
+      "note": "stories in the sense of fibs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "TOT",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A child telling tall tales prompts a dry remark about understatement.",
+     "walkthrough": "'stories' here are fibs, not tales. The closing phrase is a wry tag rather than wordplay: it describes what this figure of speech does.",
+     "definitionFit": "Litotes is a rhetorical device using ironic understatement, such as saying 'not bad' to mean very good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stories"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +414,43 @@
     "text": "Short piece from Pinter series",
     "enumeration": "5"
    },
-   "solution": "TERSE"
+   "solution": "TERSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERSE",
+    "definitions": [
+     {
+      "text": "Short",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece from",
+      "for": "hidden_word",
+      "note": "a piece taken from something is a fragment of it, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinter series",
+      "gives": "TERSE",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A short play from a series by the playwright Harold Pinter.",
+     "walkthrough": "Pinter is apt: his dialogue is famously clipped, so 'Short piece' reads naturally as a brief play.",
+     "definitionFit": "Terse speech is brief and to the point, using few words, which is a sense of short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +470,52 @@
      }
     ]
    },
-   "solution": "LIGHTYEAR"
+   "solution": "LIGHTYEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIGHT YEAR",
+    "definitions": [
+     {
+      "text": "some distance away",
+      "at": 20,
+      "note": "a phrase describing the answer, which is a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifted",
+      "for": "anagram",
+      "note": "things shifted are moved around into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A girl they",
+      "gives": "AGIRLTHEY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGIRLTHEY",
+       "gives": "LIGHTYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's family moved house to somewhere quite far off.",
+     "walkthrough": "'shifted' reads as moved house, which suits 'some distance away', but it signals rearranging the letters.",
+     "definitionFit": "A light year is the distance light travels in a year, used as a unit for vast astronomical lengths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shifted"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +529,53 @@
     "text": "Exercise US prosecutor books? He'll still find fault with it",
     "enumeration": "6"
    },
-   "solution": "PEDANT"
+   "solution": "PEDANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEDANT",
+    "definitions": [
+     {
+      "text": "He'll still find fault with it",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exercise",
+      "gives": "PE",
+      "note": "physical education"
+     },
+     {
+      "clueFragment": "US prosecutor",
+      "gives": "DA",
+      "note": "district attorney"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "the New Testament books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A prosecutor works hard on the case, yet someone will nitpick anyway.",
+     "walkthrough": "The definition follows straight on from the wordplay: whatever the work, 'he'll still find fault with it'. NT for New Testament is a standard crossword abbreviation.",
+     "definitionFit": "A pedant fusses over minor details and rules, criticising tiny errors even in otherwise sound work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +595,61 @@
      }
     ]
    },
-   "solution": "PACMAN"
+   "solution": "PACMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PAC-MAN",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return is a journey back the way one came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "CAP",
+      "note": "an international sportsman earns a cap for playing for his country"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to staff a desk is to man it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAC",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "CAP",
+       "to": "PAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis match's return play, or the comeback of a company's overseas workforce.",
+     "walkthrough": "In Britain a player selected for the national team is 'capped', so a cap is an international. 'staff' is the verb, to MAN.",
+     "definitionFit": "Pac-Man is the classic 1980 arcade video game in which a yellow disc eats dots in a maze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +663,61 @@
     "text": "Show second-rate players taking on course",
     "enumeration": "9"
    },
-   "solution": "BROADCAST"
+   "solution": "BROADCAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BROADCAST",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking on",
+      "for": "container",
+      "note": "to take something on is to take it in and hold it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second-rate",
+      "gives": "B",
+      "note": "B grade is second class"
+     },
+     {
+      "clueFragment": "players",
+      "gives": "CAST",
+      "note": "the actors in a play"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "ROAD",
+      "note": "a road is a route or way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROAD",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A show staged by a mediocre troupe takes on a fresh direction.",
+     "walkthrough": "'second-rate players' is one piece split in two: the grade letter and the actors, with the course slotted between them.",
+     "definitionFit": "A broadcast is a programme sent out on television or radio, which is a show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +731,59 @@
     "text": "Firm hides soldier in shed",
     "enumeration": "5"
    },
-   "solution": "RIGID"
+   "solution": "RIGID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIGID",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits enclosed within it"
+     }
+    ],
+    "linkWords": [
+     "hides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shed",
+      "gives": "RID",
+      "note": "to shed something is to get rid of it"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "GI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A company is concealing a soldier in a garden shed.",
+     "walkthrough": "'Firm' looks like a company and 'shed' like a hut; they are the adjective and the verb to discard.",
+     "definitionFit": "Something rigid is stiff and unbending, which is one sense of firm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +797,67 @@
     "text": "Back smart type of fellow to embrace independent woman",
     "enumeration": "5"
    },
-   "solution": "CELIA"
+   "solution": "CELIA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "CELIA",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "going back means running the letters in the opposite direction"
+     },
+     {
+      "text": "to embrace",
+      "for": "container",
+      "note": "an embrace wraps around, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart type of fellow",
+      "gives": "ALEC",
+      "note": "a smart Alec is a know-all"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "abbreviation for independent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CEL",
+      "I",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AILEC",
+       "to": "CELIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a clever man who takes up with an independent-minded woman.",
+     "walkthrough": "'Back' looks like a verb meaning support, but it is the reversal signal. A smart Alec is a cocky know-it-all; ALEC holds I, then the whole is reversed.",
+     "definitionFit": "Celia is a female given name, so any woman called that fits the general term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +877,68 @@
      }
     ]
    },
-   "solution": "MOTHEATEN"
+   "solution": "MOTHEATEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MOTH-EATEN",
+    "definitions": [
+     {
+      "text": "the worse for wear",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctors",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, altering its form"
+     },
+     {
+      "text": "interrupt",
+      "for": "container",
+      "note": "to interrupt is to break in, so one piece splits another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hate to",
+      "gives": "HATETO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OTHEAT",
+      "EN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HATETO",
+       "gives": "OTHEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Medics dislike breaking in on men who have had too much to drink.",
+     "walkthrough": "'Doctors' looks like the subject noun but is the verb meaning tamper with; 'the worse for wear' suggests drunkenness, not shabby clothes.",
+     "definitionFit": "Moth-eaten clothes have holes chewed by moths, and the word extends to anything shabby and worn out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctors"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +952,39 @@
     "text": "NB: it's just been delivered",
     "enumeration": "7"
    },
-   "solution": "NEWBORN"
+   "solution": "NEWBORN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEWBORN",
+    "definitions": [
+     {
+      "text": "NB: it's just been delivered",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NB: it's just been delivered",
+      "note": "surface reading: a note that a parcel has just arrived"
+     },
+     {
+      "clueFragment": "NB",
+      "note": "setter's reading: the two letters are the initials of a two-part description of a baby that has just been delivered"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "NB normally means 'note well' and 'delivered' suggests the post; but read NB as initials and 'delivered' as a baby's birth.",
+     "definitionFit": "A baby just delivered by a midwife is a newborn infant, only hours or days old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +998,64 @@
     "text": "Offensive type, comfortable with more extended line out",
     "enumeration": "9"
    },
-   "solution": "WARMONGER"
+   "solution": "WARMONGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WARMONGER",
+    "definitions": [
+     {
+      "text": "Offensive type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "something out is gone, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comfortable",
+      "gives": "WARM",
+      "note": "snug and cosy"
+     },
+     {
+      "clueFragment": "more extended",
+      "gives": "LONGER",
+      "note": "stretched further"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WARM",
+      "ONGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude person makes themselves cosy and stretches out on the sofa.",
+     "walkthrough": "'Offensive' suggests rude, but it is the military sense, keen to attack. LONGER loses its L.",
+     "definitionFit": "A warmonger stirs up and favours armed conflict, so they are a person bent on going on the offensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Offensive"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1069,58 @@
     "text": "Leader castigated for holding back something so revered",
     "enumeration": "6"
    },
-   "solution": "SACRED"
+   "solution": "SACRED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SACRED",
+    "definitions": [
+     {
+      "text": "something so revered",
+      "at": 35,
+      "note": "a descriptive phrase standing for an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for holding",
+      "for": "hidden_word",
+      "note": "words that hold something carry it inside them"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leader castigated",
+      "gives": "DERCAS",
+      "note": "letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DERCAS",
+       "to": "SACRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leader is reprimanded for holding back on something treated as holy.",
+     "walkthrough": "'castigated' tempts a synonym hunt, but the answer lies within leaDER CAStigated, read right to left.",
+     "definitionFit": "Something sacred is holy and treated with deep reverence, so it is described as revered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "castigated"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1144,51 @@
      }
     ]
    },
-   "solution": "CESTLAVIE"
+   "solution": "CESTLAVIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "C'EST LA VIE",
+    "definitions": [
+     {
+      "text": "a stoical philosophy",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulating",
+      "for": "anagram",
+      "note": "something circulating moves around, so the letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evil caste",
+      "gives": "EVILCASTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVILCASTE",
+       "gives": "CESTLAVIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked social class spreads a philosophy of grim endurance.",
+     "walkthrough": "The French phrase means 'that's life', said with a shrug when things go wrong.",
+     "definitionFit": "Saying 'that's life' accepts misfortune calmly without complaint, which is the core of Stoic thinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "circulating"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1208,46 @@
      }
     ]
    },
-   "solution": "DRYRUN"
+   "solution": "DRYRUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRY RUN",
+    "definitions": [
+     {
+      "text": "Rehearsal",
+      "at": 0
+     },
+     {
+      "text": "smuggling booze",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rehearsal",
+      "note": "first meaning: a practice before the real thing"
+     },
+     {
+      "clueFragment": "smuggling booze",
+      "note": "second meaning, whimsical: a run (smuggling trip) of drink into a dry, alcohol-free territory"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: a run is a smuggling trip, and a 'dry' state or county bans alcohol, as in US Prohibition.",
+     "definitionFit": "A dry run is a trial performance to test that everything works before the actual event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smuggling"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1267,48 @@
      }
     ]
    },
-   "solution": "NAILGUN"
+   "solution": "NAILGUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAIL GUN",
+    "definitions": [
+     {
+      "text": "it will secure things more quickly",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capture",
+      "gives": "NAIL",
+      "note": "to nail a criminal is to catch them"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "piece is slang for a firearm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAIL",
+      "GUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Take a chess piece and you will lock down your position faster.",
+     "walkthrough": "'Capture piece' sounds like chess, but piece is gangster slang for a gun.",
+     "definitionFit": "A nail gun drives nails in with compressed air, fastening timber far faster than a hammer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1322,54 @@
     "text": "Grit sac evolved — it's involved in digestion",
     "enumeration": "7"
    },
-   "solution": "GASTRIC"
+   "solution": "GASTRIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GASTRIC",
+    "definitions": [
+     {
+      "text": "involved in digestion",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evolved",
+      "for": "anagram",
+      "note": "something evolved has developed into a changed form"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grit sac",
+      "gives": "GRITSAC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRITSAC",
+       "gives": "GASTRIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird's gizzard, a sac for grit, developed to help it digest.",
+     "walkthrough": "The surface is apt: many birds keep grit in a muscular pouch to grind food.",
+     "definitionFit": "Gastric means relating to the stomach, the organ where much of the breaking down of food happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evolved"
+    }
+   }
   },
   {
    "number": 19,
@@ -373,7 +1383,55 @@
     "text": "Arrive at hotel inside poor neighbourhood",
     "enumeration": "6"
    },
-   "solution": "GHETTO"
+   "solution": "GHETTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GHETTO",
+    "definitions": [
+     {
+      "text": "poor neighbourhood",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one thing inside another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrive at",
+      "gives": "GETTO",
+      "note": "to arrive at a place is to get to it"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "H",
+      "ETTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Checking into a hotel in a run-down part of town.",
+     "walkthrough": "H for hotel comes from the radio alphabet (Alpha, Bravo ... Hotel). It goes inside GET TO.",
+     "definitionFit": "A ghetto is a deprived, overcrowded urban district, often home to a minority group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hotel"
+    }
+   }
   },
   {
    "number": 20,
@@ -393,7 +1451,48 @@
      }
     ]
    },
-   "solution": "CROPTOP"
+   "solution": "CROPTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROP TOP",
+    "definitions": [
+     {
+      "text": "it's certainly revealing",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produce",
+      "gives": "CROP",
+      "note": "a crop is farm produce"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "TOP",
+      "note": "a top covers a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROP",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting a cover over farm produce, which nonetheless gives a lot away.",
+     "walkthrough": "'Produce' reads as a verb but is the noun for farm yield; 'revealing' means showing skin, not information.",
+     "definitionFit": "A crop top is a short garment that stops above the waist, leaving the midriff bare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revealing"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1506,63 @@
     "text": "Plant at the heart of pagans' peerless medicine",
     "enumeration": "6"
    },
-   "solution": "GARLIC"
+   "solution": "GARLIC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GARLIC",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the heart of",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pagans'",
+      "gives": "GA",
+      "select": "middle",
+      "note": "the central two of six letters"
+     },
+     {
+      "clueFragment": "peerless",
+      "gives": "RL",
+      "select": "middle",
+      "note": "the central two of eight letters"
+     },
+     {
+      "clueFragment": "medicine",
+      "gives": "IC",
+      "select": "middle",
+      "note": "the central two of eight letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "RL",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A plant central to a heathen people's unrivalled folk remedies.",
+     "walkthrough": "'peerless' looks like a deletion of PEER, but it is just a word whose middle is wanted; the surface fits garlic's role in folk medicine.",
+     "definitionFit": "Garlic is a bulb-forming plant of the onion family, grown for its pungent cloves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peerless"
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1576,55 @@
     "text": "Dealing so unexpectedly to get close",
     "enumeration": "9"
    },
-   "solution": "ALONGSIDE"
+   "solution": "ALONGSIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALONGSIDE",
+    "definitions": [
+     {
+      "text": "close",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something done unexpectedly goes in a surprising way, so the order changes"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dealing so",
+      "gives": "DEALINGSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEALINGSO",
+       "gives": "ALONGSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doing business in a surprising way to clinch a deal.",
+     "walkthrough": "'close' looks like the verb to finish a deal; it is the adverb, near.",
+     "definitionFit": "Alongside means next to or beside, so something alongside is very near at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1638,62 @@
     "text": "Courageous chap accommodating outsiders from Texas",
     "enumeration": "5"
    },
-   "solution": "GUTSY"
+   "solution": "GUTSY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GUTSY",
+    "definitions": [
+     {
+      "text": "Courageous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "to accommodate is to give room to, so one piece is housed by another"
+     },
+     {
+      "text": "outsiders from",
+      "for": "letter_selection",
+      "note": "the outsiders of a word are its edge letters, first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "GUY",
+      "note": "a guy is a man"
+     },
+     {
+      "clueFragment": "Texas",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "TS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave man takes in strangers who have come from Texas.",
+     "walkthrough": "'outsiders' suggests strangers or newcomers, but it means the outer letters of the word.",
+     "definitionFit": "Gutsy means showing guts, informal for nerve and bravery, so a gutsy person is brave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1713,59 @@
      }
     ]
    },
-   "solution": "LETGO"
+   "solution": "LETGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LET GO",
+    "definitions": [
+     {
+      "text": "fire",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "container",
+      "note": "limits are boundaries on either side, so one piece is bounded by another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brick producer",
+      "gives": "LEGO",
+      "note": "the Danish maker of plastic toy bricks"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "T",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A brickworks restricts the hours its kiln may be fired.",
+     "walkthrough": "'Brick producer' suggests a brickworks and 'fire' a kiln; the producer is the toy company, and fire means dismiss.",
+     "definitionFit": "To let an employee go is a euphemism for dismissing them from their job, the same as firing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fire"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1779,48 @@
     "text": "Stuff leading tradesmen use removing paint stains",
     "enumeration": "5"
    },
-   "solution": "TURPS"
+   "solution": "TURPS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TURPS",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "the leading part of a word is its front, so first letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tradesmen use removing paint stains",
+      "gives": "TURPS",
+      "select": "first",
+      "note": "initial letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURPS"
+     ]
+    },
+    "explanation": {
+     "surface": "The material that decorators use to remove paint marks.",
+     "walkthrough": "The surface describes the answer itself: decorators clean brushes and paint spills with turpentine. TURPS is the informal British shortening.",
+     "definitionFit": "Turps is a substance, a solvent liquid, so it is a kind of stuff or material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1834,43 @@
     "text": "Run off in compliance with the rules",
     "enumeration": "5"
    },
-   "solution": "LEGIT"
+   "solution": "LEGIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEGIT",
+    "definitions": [
+     {
+      "text": "Run off",
+      "at": 0
+     },
+     {
+      "text": "in compliance with the rules",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run off",
+      "note": "first meaning: British slang, to flee on foot (two words)"
+     },
+     {
+      "clueFragment": "in compliance with the rules",
+      "note": "second meaning: informal for legal and above board"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The split is LEG IT, British slang for running away; read whole, it is short for legitimate.",
+     "definitionFit": "Legit, clipped from legitimate, describes something lawful and genuine that follows the regulations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 27,
@@ -507,7 +1894,60 @@
      }
     ]
    },
-   "solution": "GETOVERIT"
+   "solution": "GETOVERIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GET OVER IT",
+    "definitions": [
+     {
+      "text": "advice about moving on",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "something silly is foolish and muddled, so the letters get jumbled"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "Here's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to grieve",
+      "gives": "TOGRIEVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOGRIEVET",
+       "gives": "GETOVERIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is foolish to mourn for too long; here is some tough-love counsel.",
+     "walkthrough": "The anagram takes all nine letters, the time's T included. The surface and the answer agree: blunt advice to stop dwelling.",
+     "definitionFit": "Telling someone to get over it is blunt counsel urging them to stop dwelling on a loss and recover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 28,
@@ -527,7 +1967,41 @@
      }
     ]
    },
-   "solution": "CARRYON"
+   "solution": "CARRYON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARRY ON",
+    "definitions": [
+     {
+      "text": "Continue",
+      "at": 0
+     },
+     {
+      "text": "behaviour that started comedy film series",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continue",
+      "note": "first meaning: keep going"
+     },
+     {
+      "clueFragment": "behaviour that started comedy film series",
+      "note": "second meaning: a fuss or rowdy conduct, the phrase that begins every title of a long British film run"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Carry On films are a long-running series of bawdy British comedies (Carry On Nurse, Carry On Camping), every title starting with the phrase.",
+     "definitionFit": "To carry on is to proceed or keep going; as a noun, a carry-on is a commotion or fuss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 29,
@@ -547,7 +2021,63 @@
      }
     ]
    },
-   "solution": "FESSUP"
+   "solution": "FESSUP",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "FESS UP",
+    "definitions": [
+     {
+      "text": "Americans admit to",
+      "at": 0,
+      "note": "an informal American verb phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when swapping",
+      "for": "substitution",
+      "note": "a swap trades one thing for another, so a letter is exchanged"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mistake",
+      "gives": "MESSUP",
+      "note": "a mess-up is a blunder"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "abbreviation for female"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ESSUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Americans own up to having made an error by mixing up the sexes.",
+     "walkthrough": "'Americans' marks the definition as US slang. In MESS UP the M (male) is replaced by F (female).",
+     "definitionFit": "To fess up, from confess, is colloquial US English for owning up to a wrongdoing or error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swapping"
+    }
+   }
   }
  ]
 }
