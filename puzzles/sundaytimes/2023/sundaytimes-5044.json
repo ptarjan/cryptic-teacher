@@ -24,6 +24,9 @@
   "date": "2023-02-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Nasty girl not right about a single complaint",
     "enumeration": "10"
    },
-   "solution": "LARYNGITIS"
+   "solution": "LARYNGITIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LARYNGITIS",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "anagram",
+      "note": "something not right is out of order or deranged, so these letters must be rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nasty girl",
+      "gives": "NASTYGIRL",
+      "note": "both words taken letter for letter as the fodder"
+     },
+     {
+      "clueFragment": "a single",
+      "gives": "I",
+      "note": "I is the Roman numeral one, a single unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARYNG",
+      "I",
+      "TIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NASTYGIRL",
+       "gives": "LARYNGTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful young woman, rather unhinged, is griping about something.",
+     "walkthrough": "'Nasty' looks like the adjective doing the work, but it is part of the letters to be shuffled; 'not right' does the shuffling. The anagram becomes LARYNG...TIS and I slots in to give LARYNGITIS.",
+     "definitionFit": "A complaint in British usage is an illness or ailment, and inflammation of the voice box is one such medical condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nasty"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +114,43 @@
     "text": "What might irritate some smaller gentlemen",
     "enumeration": "8"
    },
-   "solution": "ALLERGEN"
+   "solution": "ALLERGEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALLERGEN",
+    "definitions": [
+     {
+      "text": "What might irritate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' asks for only a portion, so the letters sit as a run inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smaller gentlemen",
+      "gives": "ALLERGEN",
+      "note": "the run starts after the opening letters of the first word and ends partway into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry suggestion that shorter men can be a source of annoyance.",
+     "walkthrough": "The letters run across the word break: sm-ALLER GEN-tlemen.",
+     "definitionFit": "Any substance such as pollen or dust that provokes a bodily reaction like sneezing or itching qualifies, so it is something that may irritate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "irritate"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +164,45 @@
     "text": "Evergreen character on the radio",
     "enumeration": "3"
    },
-   "solution": "YEW"
+   "solution": "YEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "YEW",
+    "definitions": [
+     {
+      "text": "Evergreen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "on the radio we only hear things, so the letters come from what is heard rather than what is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character",
+      "gives": "YEW",
+      "soundsLike": "U",
+      "note": "a character is a letter of the alphabet; this one is the twenty-first"
+     }
+    ],
+    "explanation": {
+     "surface": "A long-running figure on a radio show who never goes away.",
+     "walkthrough": "'Evergreen character' reads like a long-serving soap role; split it, and the character is the letter U, said aloud as the tree.",
+     "definitionFit": "The tree keeps its dark needles all year round, so it is a classic example of an evergreen conifer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +216,56 @@
     "text": "Birds my sage stuffing is not used in",
     "enumeration": "5"
    },
-   "solution": "GEESE"
+   "solution": "GEESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GEESE",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing is not used in",
+      "for": "letter_selection",
+      "note": "the stuffing is the filling, and leaving it out keeps only the outside of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "GEE",
+      "note": "'my!' and 'gee!' are both exclamations of surprise"
+     },
+     {
+      "clueFragment": "sage",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the herb with its middle two letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEE",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook prepares roast birds but leaves out the usual sage stuffing.",
+     "walkthrough": "'my' is not a possessive here but the exclamation, the same as GEE. Sage-and-onion stuffing is a traditional filling for a roast goose, which makes the surface apt.",
+     "definitionFit": "These large waterfowl are birds, the plural of goose, often roasted for a festive meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +285,56 @@
      }
     ]
    },
-   "solution": "TESTBAN"
+   "solution": "TESTBAN",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "TEST BAN",
+    "definitions": [
+     {
+      "text": "Nuclear accord",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially switched",
+      "for": "spoonerism",
+      "note": "switching the initial letters of two words is exactly what the Reverend Spooner famously did"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chief",
+      "gives": "TEST",
+      "soundsLike": "BEST",
+      "note": "the chief one is the BEST; it keeps its body but takes the opening letter of its partner"
+     },
+     {
+      "clueFragment": "whip",
+      "gives": "BAN",
+      "soundsLike": "TAN",
+      "note": "to whip someone is to TAN their hide; it hands its opening letter over and takes the other's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "BAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A nuclear treaty is suddenly changed by a party's chief whip.",
+     "walkthrough": "'chief whip' looks like the parliamentary officer, but the two words are clued separately; swap the first letters of BEST TAN and you get TEST BAN.",
+     "definitionFit": "A treaty forbidding the trial detonation of atomic weapons, such as the 1963 one, is an international agreement of this nuclear kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whip"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +348,51 @@
     "text": "Biology classes sure began badly",
     "enumeration": "9"
    },
-   "solution": "SUBGENERA"
+   "solution": "SUBGENERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBGENERA",
+    "definitions": [
+     {
+      "text": "Biology classes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly comes out wrong, so the letters end up in a jumbled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sure began",
+      "gives": "SUREBEGAN",
+      "note": "both words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUREBEGAN",
+       "gives": "SUBGENERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school's biology lessons certainly got off to a poor start.",
+     "walkthrough": "'classes' suggests school lessons, but here it means categories in biological classification.",
+     "definitionFit": "In taxonomy a genus can be split into smaller ranks, and those ranks are categories or classes used by biologists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "classes"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +406,47 @@
     "text": "A creature that’s immature in more ways than one",
     "enumeration": "4"
    },
-   "solution": "PUPA"
+   "solution": "PUPA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "PUPA",
+    "definitions": [
+     {
+      "text": "A creature that’s immature in more ways than one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creature that’s immature",
+      "gives": "PUP",
+      "note": "a young dog or seal is a juvenile animal"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUP",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal that is childish in several respects.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: a young animal followed by A, and also an insect in its undeveloped stage. 'in more ways than one' flags the double duty.",
+     "definitionFit": "An insect between larva and adult stages is not yet fully developed, so it is an immature creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +466,82 @@
      }
     ]
    },
-   "solution": "POTATOSALAD"
+   "solution": "POTATOSALAD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "POTATO SALAD",
+    "definitions": [
+     {
+      "text": "side dish",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter something is to go inside it, so one piece is placed within another"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "turned over in a down clue means flipped end to end, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "TOP",
+      "note": "the head of something is its top"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "TOSA",
+      "note": "the tosa is a large Japanese fighting breed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "A",
+      "TOSA",
+      "LAD"
+     ],
+     "reversals": [
+      {
+       "from": "TOP",
+       "to": "POT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog knocks over the head boy's plate of salad.",
+     "walkthrough": "'head boy' looks like a school title, but only 'head' is flipped. The tosa, a big Japanese breed, is a dog crosswords love because few solvers know it.",
+     "definitionFit": "Cold boiled potatoes in mayonnaise are served alongside a main course, making them an accompaniment on the plate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +555,44 @@
     "text": "Looked annoyed when called out",
     "enumeration": "6"
    },
-   "solution": "PEEKED"
+   "solution": "PEEKED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PEEKED",
+    "definitions": [
+     {
+      "text": "Looked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when called out",
+      "for": "homophone",
+      "note": "calling something out means saying it aloud, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoyed",
+      "gives": "PEEKED",
+      "soundsLike": "PIQUED",
+      "note": "piqued means irritated or resentful"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone appeared cross after being summoned or criticised.",
+     "walkthrough": "'Looked annoyed' reads as a single phrase, but 'Looked' is the definition and 'annoyed' supplies the sound.",
+     "definitionFit": "To peek is to glance quickly or furtively, so the past tense is a type of having looked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Looked"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +606,47 @@
     "text": "Pure fluorine, unregulated",
     "enumeration": "8"
    },
-   "solution": "FLAWLESS"
+   "solution": "FLAWLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAWLESS",
+    "definitions": [
+     {
+      "text": "Pure",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fluorine",
+      "gives": "F",
+      "note": "F is the chemical symbol for fluorine"
+     },
+     {
+      "clueFragment": "unregulated",
+      "gives": "LAWLESS",
+      "note": "without laws or controls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAWLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert for uncontrolled, undiluted fluorine gas.",
+     "walkthrough": "'Pure fluorine' reads as one chemistry phrase; split it, and 'Pure' is the definition.",
+     "definitionFit": "Something without any blemish or defect is perfect and unspoilt, the sense of pure here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pure"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +660,44 @@
     "text": "Who would place Yankees top?",
     "enumeration": "6"
    },
-   "solution": "BETTER"
+   "solution": "BETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETTER",
+    "definitions": [
+     {
+      "text": "Who would place Yankees",
+      "at": 0
+     },
+     {
+      "text": "top",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who would place Yankees",
+      "note": "first meaning: a gambler; a Yankee is a British bookmakers' wager of eleven bets on four horses"
+     },
+     {
+      "clueFragment": "top",
+      "note": "second meaning: as a verb, to beat or surpass"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about who would rank the New York baseball team first.",
+     "walkthrough": "'Yankees' points at American baseball, but a Yankee is a type of multiple bet on horse races in Britain; 'top' is a verb disguised as an adjective.",
+     "definitionFit": "One who wagers money is a gambler of this name, and to outdo or improve upon something is the verb sense matching top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Yankees"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +711,55 @@
     "text": "Hearts captured by author convulse in pain",
     "enumeration": "6"
    },
-   "solution": "WRITHE"
+   "solution": "WRITHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WRITHE",
+    "definitions": [
+     {
+      "text": "convulse in pain",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "whatever is captured is held inside its captor, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "WRITE",
+      "note": "to author a book is to compose it, a verb here"
+     },
+     {
+      "clueFragment": "Hearts",
+      "gives": "H",
+      "note": "H is the card-game abbreviation for the hearts suit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WRIT",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist seizes the affections of readers, who twist in agony.",
+     "walkthrough": "'author' looks like a noun, a writer, but it works as the verb; H goes inside it.",
+     "definitionFit": "To twist and squirm, as the body does when in agony, is the sense of convulsing in pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +773,39 @@
     "text": "One connected people in exchange for a living",
     "enumeration": "11"
    },
-   "solution": "TELEPHONIST"
+   "solution": "TELEPHONIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TELEPHONIST",
+    "definitions": [
+     {
+      "text": "One connected people in exchange for a living",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "connected people in exchange",
+      "note": "surface reading: someone who networked or traded for money"
+     },
+     {
+      "clueFragment": "exchange",
+      "note": "setter's reading: a switchboard centre, where calls were joined by hand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'exchange' suggests trading or bartering, but it is the building where operators patched calls through.",
+     "definitionFit": "Switchboard operators at a central office plugged in cables so that callers could talk, which was their paid work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +819,69 @@
     "text": "Leader in being stern inspires the rest",
     "enumeration": "8"
    },
-   "solution": "BREATHER"
+   "solution": "BREATHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BREATHER",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader in",
+      "for": "letter_selection",
+      "note": "the leader is whoever goes first, so only the opening letter is kept"
+     },
+     {
+      "text": "inspires",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is drawn inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "stern",
+      "gives": "REAR",
+      "note": "the stern is the rear of a ship"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "REA",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A strict leader motivates the others in the team.",
+     "walkthrough": "'stern' looks like an adjective meaning strict, but it is the back of a boat, and 'inspires' is used in its literal sense of breathing in.",
+     "definitionFit": "A short pause to catch one's breath is a break from effort, so it is a rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stern"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +901,39 @@
      }
     ]
    },
-   "solution": "BELLYDANCERS"
+   "solution": "BELLYDANCERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BELLY DANCERS",
+    "definitions": [
+     {
+      "text": "Shaky performers leaving corporations exposed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shaky performers leaving corporations exposed",
+      "note": "surface reading: unreliable artistes walking out and leaving businesses vulnerable"
+     },
+     {
+      "clueFragment": "corporations",
+      "note": "setter's reading: a corporation is old slang for a paunch, so these performers shimmy with midriffs bare"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'corporations' looks like big companies, but it is a jocular word for a stomach, and 'shaky' is literal: these dancers shake.",
+     "definitionFit": "Dancers in the Middle Eastern style wear costumes baring the midriff and shake their hips, so they are performers who shimmy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporations"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +947,55 @@
     "text": "A deb’s told to get permed locks",
     "enumeration": "9"
    },
-   "solution": "DEADBOLTS"
+   "solution": "DEADBOLTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEADBOLTS",
+    "definitions": [
+     {
+      "text": "locks",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get permed",
+      "for": "anagram",
+      "note": "a perm twists hair into new curls, so these letters are twisted into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "told"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A deb’s told",
+      "gives": "ADEBSTOLD",
+      "note": "all three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADEBSTOLD",
+       "gives": "DEADBOLTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A debutante is instructed to have her hair curled.",
+     "walkthrough": "'locks' sits next to 'permed' to suggest hair, but it means door fastenings. A deb is a debutante, a young upper-class woman entering society.",
+     "definitionFit": "These are bolts on doors moved by a key rather than a spring, so they are a sturdy kind of security fastening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1009,69 @@
     "text": "Last on track are twin high jumpers",
     "enumeration": "8"
    },
-   "solution": "KNITWEAR"
+   "solution": "KNITWEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "KNITWEAR",
+    "definitions": [
+     {
+      "text": "jumpers",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last on",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "high",
+      "for": "anagram",
+      "note": "high can mean intoxicated, and anything intoxicated is in a muddled state"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "track",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "are twin",
+      "gives": "ARETWIN",
+      "note": "both words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NITWEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARETWIN",
+       "gives": "NITWEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two high-jump athletes finish last on the athletics track.",
+     "walkthrough": "'high jumpers' reads as one athletics phrase, but 'high' is the anagram signal. A jumper is British for a sweater.",
+     "definitionFit": "Knitted garments such as sweaters make up this category of clothing, so jumpers are an example of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1091,50 @@
      }
     ]
    },
-   "solution": "PLAINSAILING"
+   "solution": "PLAINSAILING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAIN SAILING",
+    "definitions": [
+     {
+      "text": "easy progress",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prairies",
+      "gives": "PLAINS",
+      "note": "prairies are flat grassland, plains"
+     },
+     {
+      "clueFragment": "Aussie crook",
+      "gives": "AILING",
+      "note": "in Australian slang 'crook' means ill or sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAINS",
+      "AILING"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian criminal on the run across the American grasslands gets on easily.",
+     "walkthrough": "'crook' looks like a criminal, but in Australia it means unwell. 'on' places one piece after the other.",
+     "definitionFit": "The idiom describes smooth progress with no obstacles, as a boat moves on calm waters, so it means easy going."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crook"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1148,55 @@
     "text": "Bulge after feeling one needed to eat like a horse",
     "enumeration": "7"
    },
-   "solution": "NOSEBAG"
+   "solution": "NOSEBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSEBAG",
+    "definitions": [
+     {
+      "text": "one needed to eat like a horse",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' places the piece it follows second, so the order of the clue is flipped in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeling",
+      "gives": "NOSE",
+      "note": "a nose for something is an instinctive feeling for it"
+     },
+     {
+      "clueFragment": "Bulge",
+      "gives": "BAG",
+      "note": "to bag is to bulge or sag, as trousers do at the knee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOSE",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A glutton notices a swelling waistline after eating huge amounts.",
+     "walkthrough": "'eat like a horse' is the idiom for eating hugely, but here it is literal: a horse eats from this.",
+     "definitionFit": "A feed bag hung over a horse's head holds its oats, so it is what an animal of that kind eats from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1210,47 @@
     "text": "Extreme, almost cut off",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Extreme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut off",
+      "gives": "SEVERE",
+      "note": "to cut off a limb is to sever it; the past participle loses its final D"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVERE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being nearly amputated is drastic indeed.",
+     "walkthrough": "'cut off' gives SEVERED, and 'almost' trims the final D.",
+     "definitionFit": "Very harsh or intense conditions, such as bitter weather or grave injury, are the sense of extreme here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1264,51 @@
     "text": "Suspects put by soldiers in strongholds",
     "enumeration": "8"
    },
-   "solution": "REDOUBTS"
+   "solution": "REDOUBTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDOUBTS",
+    "definitions": [
+     {
+      "text": "strongholds",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "put by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a corps of the British Army"
+     },
+     {
+      "clueFragment": "Suspects",
+      "gives": "DOUBTS",
+      "note": "to suspect is to doubt, a verb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DOUBTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Suspected criminals are detained by troops inside fortresses.",
+     "walkthrough": "'Suspects' looks like a noun, people under suspicion, but it is the verb, mistrusts; the soldiers come first.",
+     "definitionFit": "A redoubt is a small fortified outpost or defensive position, so it is a type of fortress or stronghold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspects"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1322,61 @@
     "text": "Relaxed on a chair after daughter moved over",
     "enumeration": "6"
    },
-   "solution": "SEDATE"
+   "solution": "SEDATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SEDATE",
+    "definitions": [
+     {
+      "text": "Relaxed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "deletion",
+      "note": "something moved is taken from where it was, so that letter leaves its spot"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "moving over means hopping across neighbours, so the letter lands back inside the word further along"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on a chair",
+      "gives": "SEATED",
+      "note": "sitting on a chair means being seated"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "D",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unwinds in an armchair once their daughter has gone off to another room.",
+     "walkthrough": "The daughter is already in the seated word: no new letter arrives, the existing D just shifts two places earlier, past A and T.",
+     "definitionFit": "A calm, unhurried, composed manner is the adjective sense, close in meaning to relaxed or placid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1390,43 @@
     "text": "Fish tested for freshness?",
     "enumeration": "5"
    },
-   "solution": "SMELT"
+   "solution": "SMELT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMELT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "tested for freshness",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: a small silvery food fish"
+     },
+     {
+      "clueFragment": "tested for freshness",
+      "note": "second meaning: sniffed, as one checks milk to see whether it has gone off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second meaning is an example rather than a dictionary synonym: you check freshness with your nose.",
+     "definitionFit": "The noun is a little sea and river fish, and the British past tense of the verb meaning to sniff is spelt the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tested"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1440,63 @@
     "text": "Golf, easy to excuse, but not very sociable",
     "enumeration": "6"
    },
-   "solution": "GENIAL"
+   "solution": "GENIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GENIAL",
+    "definitions": [
+     {
+      "text": "sociable",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' says the following item is absent, so its letter is struck out"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf",
+      "gives": "G",
+      "note": "Golf is G in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "easy to excuse",
+      "gives": "VENIAL",
+      "note": "a venial sin is a minor, pardonable one"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ENIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Golf is easily forgiven, though it is not a particularly social game.",
+     "walkthrough": "'not very sociable' reads as one unfriendly phrase, but 'not very' removes V and 'sociable' alone is the definition, the opposite of what the surface implies.",
+     "definitionFit": "A warm, friendly and cheerful person is pleasant company, so the word is a synonym for affable or sociable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1510,55 @@
     "text": "Clothing of a Cavalier king hiding in trees",
     "enumeration": "8"
    },
-   "solution": "BREECHES"
+   "solution": "BREECHES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREECHES",
+    "definitions": [
+     {
+      "text": "Clothing of a Cavalier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "container",
+      "note": "whatever hides in something is concealed inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "BEECHES",
+      "note": "beeches are broadleaf trees"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "EECHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Royalist king hides in an oak tree, as Charles II famously did after Worcester.",
+     "walkthrough": "'Cavalier king' suggests Charles, but the king is just R; 'Cavalier' belongs to the definition. Cavaliers were the Royalist side in the English Civil War.",
+     "definitionFit": "Knee-length trousers fastened below the knee were the standard legwear of seventeenth-century gentlemen, Royalists included."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1572,52 @@
     "text": "Signal that’s pretty timeless",
     "enumeration": "3"
    },
-   "solution": "CUE"
+   "solution": "CUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CUE",
+    "definitions": [
+     {
+      "text": "Signal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "'-less' means without, so the word glued to it names a letter to be taken away"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty",
+      "gives": "CUTE",
+      "note": "pretty and cute are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign or gesture that is lovely and never dates.",
+     "walkthrough": "'timeless' reads as one word meaning classic, but it splits into 'time' and 'less'.",
+     "definitionFit": "An actor's prompt to speak or enter is a sign or hint to act, so it is a signal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "timeless"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1631,42 @@
     "text": "Animal on a farm without water",
     "enumeration": "4"
    },
-   "solution": "NEAT"
+   "solution": "NEAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEAT",
+    "definitions": [
+     {
+      "text": "Animal on a farm",
+      "at": 0
+     },
+     {
+      "text": "without water",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal on a farm",
+      "note": "first meaning: an old word for an ox or cow"
+     },
+     {
+      "clueFragment": "without water",
+      "note": "second meaning: of spirits, served undiluted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a parched farm, but the word is an archaic term for cattle and also how a whisky is ordered straight.",
+     "definitionFit": "Archaic English used the noun for cattle, and a drink served straight with nothing added is described by the same adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1680,50 @@
     "text": "Tourists quote Burns as it is spoken",
     "enumeration": "10"
    },
-   "solution": "SIGHTSEERS"
+   "solution": "SIGHTSEERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIGHTSEERS",
+    "definitions": [
+     {
+      "text": "Tourists",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as it is spoken",
+      "for": "homophone",
+      "note": "spoken words are heard rather than read, so the letters follow the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quote",
+      "gives": "SIGHTS",
+      "soundsLike": "CITES",
+      "note": "to quote a source is to cite it"
+     },
+     {
+      "clueFragment": "Burns",
+      "gives": "SEERS",
+      "soundsLike": "SEARS",
+      "note": "to burn meat on a hot pan is to sear it"
+     }
+    ],
+    "explanation": {
+     "surface": "Visitors recite lines from Robert Burns in a Scots accent.",
+     "walkthrough": "'Burns' with its capital looks like the Scottish poet Robert Burns, but it is the verb; the capital is just camouflage.",
+     "definitionFit": "Visitors who go around looking at famous places and landmarks are holidaymakers, so they are tourists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Burns"
+    }
+   }
   }
  ]
 }
