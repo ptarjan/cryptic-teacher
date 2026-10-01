@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Person representing monarch butterfly",
     "enumeration": "7"
    },
-   "solution": "VICEROY"
+   "solution": "VICEROY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VICEROY",
+    "definitions": [
+     {
+      "text": "Person representing monarch",
+      "at": 0
+     },
+     {
+      "text": "butterfly",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person representing monarch",
+      "note": "first meaning: a governor ruling a colony on the sovereign's behalf"
+     },
+     {
+      "clueFragment": "butterfly",
+      "note": "second meaning: a North American butterfly that mimics the monarch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase, a 'monarch butterfly', but the split falls after 'monarch': a royal stand-in, then an insect that imitates the monarch butterfly.",
+     "definitionFit": "A viceroy governs a province in place of the sovereign, and the viceroy is also an orange American butterfly species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "monarch"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +92,64 @@
      }
     ]
    },
-   "solution": "DAILYPAPER"
+   "solution": "DAILYPAPER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAILY PAPER",
+    "definitions": [
+     {
+      "text": "publication",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been reworked, so these letters are rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two pages",
+      "gives": "PP",
+      "note": "P is the abbreviation for page, so two of them"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "already",
+      "gives": "ALREADY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PPIALREADY",
+       "gives": "DAILYPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor has already revised two pages and sends them off to be published.",
+     "walkthrough": "'Revised for publication' looks like an editing phrase; 'revised' is the anagram signal and 'publication' alone is the definition.",
+     "definitionFit": "A newspaper issued every day is a common kind of printed publication, sold each morning at newsstands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revised"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +163,54 @@
     "text": "With cargo on board, hasn’t left port",
     "enumeration": "4"
    },
-   "solution": "ADEN"
+   "solution": "ADEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADEN",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn’t",
+      "for": "deletion",
+      "note": "what something has not got is missing from it, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With cargo on board",
+      "gives": "LADEN",
+      "note": "a ship carrying cargo is laden"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A loaded cargo ship is still waiting in harbour, not yet departed.",
+     "walkthrough": "'Hasn't left port' reads as a ship still docked; in fact 'left' is just L, taken away from the word for loaded.",
+     "definitionFit": "Aden is a major seaport city in Yemen, at the entrance to the Red Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +224,65 @@
     "text": "Travellers having pain that is contained in seconds",
     "enumeration": "7"
    },
-   "solution": "GYPSIES"
+   "solution": "GYPSIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GYPSIES",
+    "definitions": [
+     {
+      "text": "Travellers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contained in",
+      "for": "container",
+      "note": "to be contained in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pain",
+      "gives": "GYP",
+      "note": "gyp is informal British for pain, as in 'my knee is giving me gyp'"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, 'that is'"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "SS",
+      "note": "S is the abbreviation for second, so two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GYP",
+      "S",
+      "IE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers suffer brief, sharp pains that pass in seconds.",
+     "walkthrough": "Gyp, meaning pain or discomfort, is everyday British slang; 'seconds' gives two S's which wrap the abbreviation for 'that is'.",
+     "definitionFit": "Gypsies are a nomadic people, and in Britain 'Travellers' is a common name for them and other itinerant groups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +296,73 @@
     "text": "Smiley type and a cryptic she reviewed without one",
     "enumeration": "10"
    },
-   "solution": "SPYCATCHER"
+   "solution": "SPYCATCHER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SPYCATCHER",
+    "definitions": [
+     {
+      "text": "Smiley type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "to be without something is to lack it, so a letter is left out"
+     },
+     {
+      "text": "reviewed",
+      "for": "anagram",
+      "note": "something reviewed is gone over again and reworked, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cryptic",
+      "gives": "CRYPTIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "she",
+      "gives": "SHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one, the letter removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACRYPTCSHE",
+       "gives": "SPYCATCHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful sort and a woman she wrote a review of a crossword.",
+     "walkthrough": "'Smiley' looks like a cheerful face; it is George Smiley, John le Carré's spymaster who hunts a Soviet mole, and Spycatcher was also a banned 1980s memoir by an MI5 officer.",
+     "definitionFit": "Smiley is the fictional British intelligence officer who unmasks enemy agents, so he is an example of a counter-espionage hunter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smiley"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +376,47 @@
     "text": "Final 16 victory for partner",
     "enumeration": "4"
    },
-   "solution": "MATE"
+   "solution": "MATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATE",
+    "definitions": [
+     {
+      "text": "Final 16 victory",
+      "at": 0
+     },
+     {
+      "text": "partner",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Final 16 victory",
+      "note": "first meaning: in chess, the last check (16-across) that wins the game"
+     },
+     {
+      "clueFragment": "partner",
+      "note": "second meaning: a companion or spouse"
+     }
+    ],
+    "explanation": {
+     "surface": "A last-sixteen win in a tournament earns a doubles partner a place.",
+     "walkthrough": "16 is a cross-reference to CHECK; the final check that ends a chess game is checkmate, shortened to its second half.",
+     "definitionFit": "In chess the winning move is called mate, and in British usage a mate is also a friend, spouse or partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "16"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +430,72 @@
     "text": "Investments as usual fluctuating over time? Bond’s superior initially",
     "enumeration": "7"
    },
-   "solution": "MUTUALS"
+   "solution": "MUTUALS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MUTUALS",
+    "definitions": [
+     {
+      "text": "Investments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluctuating",
+      "for": "anagram",
+      "note": "something fluctuating keeps shifting about, so the letters move into a different order"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "over",
+     "initially"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond’s superior",
+      "gives": "M",
+      "note": "M is the head of MI6 who gives James Bond his orders"
+     },
+     {
+      "clueFragment": "usual",
+      "gives": "USUAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UTUALS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USUALT",
+       "gives": "UTUALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Investments go up and down as usual over time, as James Bond's boss would know.",
+     "walkthrough": "'Initially' says the Bond boss comes first; in a down clue the reshuffled letters sit under him. 'As usual' is not a phrase here: 'as' just joins.",
+     "definitionFit": "Mutuals are mutual funds or mutual societies, collective savings vehicles owned by members, so they are a type of investment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bond’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +509,64 @@
     "text": "Great skill from expert – start from pub, needing a drink",
     "enumeration": "8"
    },
-   "solution": "WIZARDRY"
+   "solution": "WIZARDRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WIZARDRY",
+    "definitions": [
+     {
+      "text": "Great skill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start from",
+      "for": "deletion",
+      "note": "taking the start from a word means removing its opening letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "WIZ",
+      "note": "a wiz (or whizz) is an informal word for an expert"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub; its first letter goes"
+     },
+     {
+      "clueFragment": "needing a drink",
+      "gives": "DRY",
+      "note": "someone thirsty is dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIZ",
+      "AR",
+      "DRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled expert starts off from the pub because they need a drink.",
+     "walkthrough": "'Start from pub' looks like setting off from the pub; it means take the first letter off a word for pub.",
+     "definitionFit": "Wizardry is extraordinary ability or brilliance, figuratively the magic of a wizard, so it names great skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +580,54 @@
     "text": "Widespread complaint following change of side in this city",
     "enumeration": "6"
    },
-   "solution": "PRAGUE"
+   "solution": "PRAGUE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "PRAGUE",
+    "definitions": [
+     {
+      "text": "this city",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of side",
+      "for": "substitution",
+      "note": "changing side swaps left for right, so one letter is replaced by its opposite"
+     }
+    ],
+    "linkWords": [
+     "following",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Widespread complaint",
+      "gives": "PLAGUE",
+      "note": "a plague is a disease that spreads widely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "AGUE"
+     ]
+    },
+    "explanation": {
+     "surface": "People in a city grumble widely after a political party switches sides.",
+     "walkthrough": "The 'side' is L for left, changed to R for right. The clue's 'complaint' is an illness, not a grievance.",
+     "definitionFit": "'This city' points to the answer itself, which is the capital of the Czech Republic, a central European city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +641,44 @@
     "text": "Optimal routes for those wanting to enter spelling contest",
     "enumeration": "8"
    },
-   "solution": "BEELINES"
+   "solution": "BEELINES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEELINES",
+    "definitions": [
+     {
+      "text": "Optimal routes",
+      "at": 0
+     },
+     {
+      "text": "for those wanting to enter spelling contest",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Optimal routes",
+      "note": "first meaning: the straightest paths between two places"
+     },
+     {
+      "clueFragment": "for those wanting to enter spelling contest",
+      "note": "second meaning, read cryptically: queues for a spelling bee"
+     }
+    ],
+    "explanation": {
+     "surface": "Organisers work out the best routes for entrants arriving at a spelling competition.",
+     "walkthrough": "A spelling bee is a contest, and lines are queues, so lines for a bee is the punning second reading.",
+     "definitionFit": "To make a beeline is to go straight to a place, so such paths are the shortest and therefore best routes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "routes"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +692,45 @@
     "text": "Form of payment native of 9 or 16 announced",
     "enumeration": "6"
    },
-   "solution": "CHEQUE"
+   "solution": "CHEQUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHEQUE",
+    "definitions": [
+     {
+      "text": "Form of payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so we go by the sound of the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "native of 9 or 16",
+      "gives": "CHEQUE",
+      "soundsLike": "CZECH / CHECK",
+      "note": "someone from Prague (9-across) is Czech, and 16-across is CHECK; both are said the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "A citizen of a city pays by some method and declares it publicly.",
+     "walkthrough": "The two cross-references give the setter a choice of sound: a Prague native, or the answer to 16-across, which are pronounced identically.",
+     "definitionFit": "A cheque is a written order telling a bank to pay money, a familiar British method of settling bills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "native"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +744,47 @@
     "text": "How to secure admission in kind way that careless writer might get wrong",
     "enumeration": "15"
    },
-   "solution": "COMPLIMENTARILY"
+   "solution": "COMPLIMENTARILY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMPLIMENTARILY",
+    "definitions": [
+     {
+      "text": "How to secure admission",
+      "at": 0
+     },
+     {
+      "text": "in kind way",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "that careless writer might get wrong"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to secure admission",
+      "note": "first meaning: by getting a free ticket, as a comp"
+     },
+     {
+      "clueFragment": "in kind way",
+      "note": "second meaning: flatteringly, with praise"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice on getting into an event by being nice, a spelling a sloppy writer might botch.",
+     "walkthrough": "The tail is a hint, not wordplay: careless writers confuse this word with its sound-alike spelt with an E, meaning completing.",
+     "definitionFit": "Complimentary tickets are free, so getting in that way costs nothing; speaking with praise or flattery is also doing it in this manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "admission"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +804,62 @@
      }
     ]
    },
-   "solution": "ILLBEHAVED"
+   "solution": "ILLBEHAVED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ILL-BEHAVED",
+    "definitions": [
+     {
+      "text": "Naughty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brendan will",
+      "gives": "ILL",
+      "note": "Brendan is the setter, so in his voice 'Brendan will' is I'LL"
+     },
+     {
+      "clueFragment": "plot",
+      "gives": "BED",
+      "note": "a garden plot or flower bed"
+     },
+     {
+      "clueFragment": "cheat",
+      "gives": "HAVE",
+      "note": "to have someone is to trick or cheat them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "BE",
+      "HAVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The naughty setter confesses that he will cheat within the storyline.",
+     "walkthrough": "Brendan is the setter of this puzzle, so his name stands for I. 'Plot' is a patch of garden, not a storyline.",
+     "definitionFit": "Naughty children are badly behaved, which is exactly what the hyphenated adjective means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +873,74 @@
     "text": "Republican congress upset about one taking new steps to reach other side",
     "enumeration": "10"
    },
-   "solution": "RECROSSING"
+   "solution": "RECROSSING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "RECROSSING",
+    "definitions": [
+     {
+      "text": "taking new steps to reach other side",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is placed around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "congress",
+      "gives": "CONGRESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECROSS",
+      "I",
+      "NG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CONGRESS",
+       "gives": "ECROSSNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upset Republican-led Congress has someone crossing the floor to the other party.",
+     "walkthrough": "'Congress' looks like the US legislature; here it is just eight letters to scramble around the Roman one.",
+     "definitionFit": "Crossing again means going back over to the far side once more, a fresh trip across a road or river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "congress"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +954,42 @@
     "text": "Period charm",
     "enumeration": "5"
    },
-   "solution": "SPELL"
+   "solution": "SPELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPELL",
+    "definitions": [
+     {
+      "text": "Period",
+      "at": 0
+     },
+     {
+      "text": "charm",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Period",
+      "note": "first meaning: a stretch of time"
+     },
+     {
+      "clueFragment": "charm",
+      "note": "second meaning: a magic incantation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two separate meanings of one word; 'period charm' sounds like old-world elegance but splits cleanly in two.",
+     "definitionFit": "A spell can be a short interval of time and also a magic formula that enchants someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Period"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1003,44 @@
     "text": "Inspector is employed to do this arrest",
     "enumeration": "5"
    },
-   "solution": "CHECK"
+   "solution": "CHECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHECK",
+    "definitions": [
+     {
+      "text": "Inspector is employed to do this",
+      "at": 0
+     },
+     {
+      "text": "arrest",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inspector is employed to do this",
+      "note": "first meaning: to inspect or examine"
+     },
+     {
+      "clueFragment": "arrest",
+      "note": "second meaning: to halt or stop"
+     }
+    ],
+    "explanation": {
+     "surface": "A police inspector's job is to make arrests.",
+     "walkthrough": "The police inspector and arrest make one tidy scene, but 'arrest' means stop, as in arresting decline.",
+     "definitionFit": "Inspectors examine things for faults, and to check a spread or advance is to halt or restrain it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arrest"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1054,44 @@
     "text": "Submissive type may be bearer of welcome message",
     "enumeration": "7"
    },
-   "solution": "DOORMAT"
+   "solution": "DOORMAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOORMAT",
+    "definitions": [
+     {
+      "text": "Submissive type",
+      "at": 0
+     },
+     {
+      "text": "may be bearer of welcome message",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Submissive type",
+      "note": "first meaning: a person others walk all over"
+     },
+     {
+      "clueFragment": "may be bearer of welcome message",
+      "note": "second meaning: a mat at the front door often printed with WELCOME"
+     }
+    ],
+    "explanation": {
+     "surface": "A meek person might be the one sent to deliver a friendly greeting.",
+     "walkthrough": "'Bearer of welcome message' sounds like a herald; it is the mat at the entrance with the word printed on it.",
+     "definitionFit": "A person who lets others trample on them is figuratively walked over, like the mat by an entrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bearer"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1105,50 @@
     "text": "Unfamiliar stone on chain",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Unfamiliar",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for stone, the British unit of weight"
+     },
+     {
+      "clueFragment": "chain",
+      "gives": "RANGE",
+      "note": "a chain of mountains is a range"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual gem hung on a necklace chain.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the second. A stone is 14 pounds, abbreviated ST in Britain.",
+     "definitionFit": "Something unfamiliar is new or unknown to us, which is one ordinary sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1162,56 @@
     "text": "Naval officer I’d alarm at sea",
     "enumeration": "7"
    },
-   "solution": "ADMIRAL"
+   "solution": "ADMIRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMIRAL",
+    "definitions": [
+     {
+      "text": "Naval officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "to be at sea is to be confused and all over the place, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "alarm",
+      "gives": "ALARM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDALARM",
+       "gives": "ADMIRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval officer says he would sound the alarm while out on the ocean.",
+     "walkthrough": "'At sea' fits the naval surface perfectly, which hides its role as the scramble signal.",
+     "definitionFit": "An admiral is the highest rank of commander in a navy, so a senior naval officer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1235,44 @@
      }
     ]
    },
-   "solution": "FOURLETTERWORDS"
+   "solution": "FOURLETTERWORDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOUR-LETTER WORDS",
+    "definitions": [
+     {
+      "text": "E.g. minimal answers for today",
+      "at": 0
+     },
+     {
+      "text": "they may not be fully spelt out",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g. minimal answers for today",
+      "note": "first meaning: the shortest entries in this grid, each of four letters"
+     },
+     {
+      "clueFragment": "they may not be fully spelt out",
+      "note": "second meaning: swear words, often printed with asterisks"
+     }
+    ],
+    "explanation": {
+     "surface": "A note on today's short answers, which may be left abbreviated.",
+     "walkthrough": "The shortest answers in this puzzle (ADEN, MATE, AJAX, READ) all have four letters; the second reading is rude words printed as f***.",
+     "definitionFit": "Obscenities are commonly called by this phrase because many are short, and newspapers print them with asterisks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minimal"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1286,40 @@
     "text": "Results of writer’s carelessness, as revealed in slips",
     "enumeration": "6"
    },
-   "solution": "ERRATA"
+   "solution": "ERRATA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ERRATA",
+    "definitions": [
+     {
+      "text": "Results of writer’s carelessness, as revealed in slips",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Results of writer’s carelessness",
+      "note": "surface reading: the mistakes a sloppy author makes"
+     },
+     {
+      "clueFragment": "as revealed in slips",
+      "note": "setter's reading: the printed slips inserted into a book listing its corrected mistakes"
+     }
+    ],
+    "explanation": {
+     "surface": "A careless writer's mistakes show up as slips of the pen.",
+     "walkthrough": "'Slips' suggests slips of the tongue or pen; the setter means the loose paper slips publishers add to list corrections.",
+     "definitionFit": "The Latin plural for errors names a list of printing or writing mistakes, traditionally issued on a separate correction slip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slips"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1333,58 @@
     "text": "High cards followed by a ten and top club",
     "enumeration": "4"
    },
-   "solution": "AJAX"
+   "solution": "AJAX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AJAX",
+    "definitions": [
+     {
+      "text": "top club",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "followed by",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High cards",
+      "gives": "AJ",
+      "note": "ace and jack, two high cards"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AJ",
+      "A",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player lays down high cards, then a ten and the best club.",
+     "walkthrough": "'Top club' looks like the highest card in the clubs suit; it is the Amsterdam football club.",
+     "definitionFit": "Ajax of Amsterdam is one of Europe's most successful football teams, many times Dutch champions and European Cup winners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1398,58 @@
     "text": "Finishes off this kind of clue with mark of approval – it uses initial letters",
     "enumeration": "8"
    },
-   "solution": "ACROSTIC"
+   "solution": "ACROSTIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ACROSTIC",
+    "definitions": [
+     {
+      "text": "it uses initial letters",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finishes off",
+      "for": "deletion",
+      "note": "finishing off each word means cutting its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this kind of clue",
+      "gives": "ACROSS",
+      "note": "this clue is in the across direction"
+     },
+     {
+      "clueFragment": "mark of approval",
+      "gives": "TICK",
+      "note": "a tick is a mark showing something is right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACROS",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter finishes a clue and ticks it as approved.",
+     "walkthrough": "'Finishes' is plural, so both pieces lose their last letter. 'This kind of clue' means one running across the grid.",
+     "definitionFit": "An acrostic is a poem or puzzle in which the first letters of each line spell out a word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Finishes"
+    }
+   }
   },
   {
    "number": 24,
@@ -377,7 +1463,56 @@
     "text": "Forecast being heard as weak person or lefty, depending on tense choice",
     "enumeration": "4"
    },
-   "solution": "READ"
+   "solution": "READ",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "READ",
+    "definitions": [
+     {
+      "text": "Forecast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being heard",
+      "for": "homophone",
+      "note": "what is being heard is spoken, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "or",
+     "depending on tense choice"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weak person",
+      "gives": "READ",
+      "soundsLike": "REED",
+      "note": "a reed is a frail, easily bent person; the present-tense pronunciation"
+     },
+     {
+      "clueFragment": "lefty",
+      "gives": "READ",
+      "soundsLike": "RED",
+      "note": "a red is a left-winger; the past-tense pronunciation"
+     }
+    ],
+    "explanation": {
+     "surface": "A forecast sounds like a description of a weakling or a socialist, depending on how it is phrased.",
+     "walkthrough": "The word is pronounced one way in the present tense and another in the past, so it sounds like both a feeble person and a communist.",
+     "definitionFit": "To read the future, or read the signs, is to predict what will happen, so forecast is a fair sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 25,
@@ -391,7 +1526,56 @@
     "text": "Run article old-fashioned spelling expert goes over",
     "enumeration": "6"
    },
-   "solution": "MANAGE"
+   "solution": "MANAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MANAGE",
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes over",
+      "for": "container",
+      "note": "going over something means covering it on both sides, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old-fashioned spelling expert",
+      "gives": "MAGE",
+      "note": "an archaic word for a magician, an expert in spells"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "AN is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AN",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-school spelling teacher goes through a run-on article.",
+     "walkthrough": "'Spelling expert' suggests a speller; it means someone who casts spells, and 'old-fashioned' says the word is archaic.",
+     "definitionFit": "To run a business or project is to direct and control it, which is the verb's main sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spelling"
+    }
+   }
   },
   {
    "number": 26,
@@ -405,7 +1589,62 @@
     "text": "Satirical publication a university degree-holder pens",
     "enumeration": "8"
    },
-   "solution": "GRAUNIAD"
+   "solution": "GRAUNIAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAUNIAD",
+    "definitions": [
+     {
+      "text": "Satirical publication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "container",
+      "note": "to pen is to enclose, as animals are penned in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "degree-holder",
+      "gives": "GRAD",
+      "note": "a grad is a graduate"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "UNI",
+      "note": "uni is short for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "A",
+      "UNI",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A university graduate writes for a satirical magazine.",
+     "walkthrough": "'Pens' looks like writes; it means encloses. The answer is Private Eye's mocking name for the Guardian, famous for its misprints.",
+     "definitionFit": "The satirical magazine Private Eye coined this misspelt nickname for the Guardian newspaper, so it is a jokey name for a publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pens"
+    }
+   }
   }
  ]
 }
