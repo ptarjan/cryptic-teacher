@@ -743,7 +743,9 @@ BLOG_PREFIX = re.compile(r"^(?:\s*[,/&]\s*\d+\s*[ad]?\b\.?)+\s*|^(?:[ad]|ac|dn)\
 #: A clue the scrape split at its leading number ("25, left defender?" kept as
 #: ", left defender?"): its words are short of ours, no witness.
 BLOG_HEADLESS = re.compile(r"^\s*[,;:.]")
-ENUM_TAIL = re.compile(r"\s*\(([\d\s,.\-–'’]+(?:\s*words?)?)\)\s*$")
+#: A clue's count at its tail; a worded one ("(8, two words)", Mephisto's)
+#: is the total, no witness to where the words break.
+ENUM_TAIL = re.compile(r"\s*\(([\d\s,.\-–'’]+?)(,?\s*(?:\w+\s+)?words?)?\)\s*$")
 
 
 def blog_rows(rec):
@@ -754,6 +756,8 @@ def blog_rows(rec):
         m = ENUM_TAIL.search(clue)
         text, enum = (clue[:m.start()], m.group(1)) if m else (clue, None)
         text = "" if BLOG_HEADLESS.match(BLOG_PREFIX.sub("", text)) else BLOG_PREFIX.sub("", text)
+        if m and m.group(2):
+            enum = None
         out[key] = (text.strip(), enum and re.sub(r"[\s.’']", "", enum).replace("–", "-"),
                     rec.answers.get(key))
     for key, answer in rec.answers.items():

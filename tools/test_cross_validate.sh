@@ -285,6 +285,10 @@ same("georgeho: a row the scrape filed under another light witnesses nothing",
 same("georgeho: a linked number read as one, or our own lights joined, is not MISSING",
      [cv.unplaceable(1813, "RODSTEWART", base), cv.unplaceable(2, "CATTOE", base),
       cv.unplaceable(2, "OWL", base)], [True, True, False])
+same("georgeho: a Mephisto count's words are no clue, and no witness to the split",
+     cv.blog_rows(R("g", "o", clues={(1, "across"): "Lite drink (8, two words)",
+                                     (2, "down"): "Chest (3-4)"}))
+     , {(1, "across"): ("Lite drink", None, None), (2, "down"): ("Chest", "3-4", None)})
 corroborate.georgeho = lambda puzzle: [mistitled]
 same("georgeho: a post holding none of our answers is another puzzle",
      gh.puzzle("telegraph-1", copy.deepcopy(base))["id"].split(":")[0], "another puzzle")
