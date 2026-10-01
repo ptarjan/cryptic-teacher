@@ -9,6 +9,8 @@
     python3 tools/cross_validate.py independent --fetch --refile --limit 1500
                                                            # the same against the Independent's feed
     python3 tools/cross_validate.py indyblog               # its answers against fifteensquared's
+    python3 tools/cross_validate.py globe --fetch --limit 60
+    python3 tools/cross_validate.py globe                  # the Times Quick against the Globe's print
 
 Most of the corpus came off a blog: the blogger retyped the clues, a parser
 read the post, and tools/reconstruct_grid.py rebuilt the grid from the light
@@ -68,6 +70,9 @@ class Adapter:
     ids(), fetch_one() and puzzle()."""
     name = ""
     series = ()
+    #: Whether the source prints the clues we hold verbatim, so punctuation
+    #: counts (diff's `exact`).
+    exact_clues = False
     #: Seconds each worker waits between requests, and how many workers.
     delay = 0.5
     workers = 4
@@ -413,16 +418,161 @@ class IndyBlog(Adapter):
         return (ours.get("source") or {}).get("acquiredBy") != "tools/indy_puzzles.py"
 
 
-ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog)}
+class Globe(Adapter):
+    """The Globe and Mail's copy of the Times Quick Cryptic: Globe No N is
+    Quick No N, printed about seven weeks later from the same grid and clues.
+    tools/fetch_globeandmail.py fetches it; this caches each day's decoded
+    Amuse payload and reads it without that tool's convert().
+
+    The Globe's archive starts at No 3106, where the Times filer stops filing
+    the blog's copy (file_blog_puzzles.reprinted_by), so the blog copies it
+    witnesses are mostly never filed. Each is built here as the filer would
+    build it, from the same grids.jsonl and parsed.jsonl, and compared under
+    its Quick id: a difference is a defect of the converter that built every
+    Quick before 3106. A Quick file we do hold is compared as filed, and so
+    is each globeandmail file, which checks fetch_globeandmail's converter."""
+    name = "globe"
+    series = ("timesquick", "globeandmail")
+    exact_clues = True
+    #: Somebody else's CDN: fetch_globeandmail.REQUEST_GAP, one at a time.
+    delay = 1.0
+    workers = 1
+
+    def __init__(self):
+        self._blog = None
+
+    def ids(self):
+        """{puzzle id: (series, date key)}: each globeandmail file's print
+        day, for its own id and the Quick id of its number."""
+        out = {}
+        for pid, path in held_paths(self.series).items():
+            series, _, num = pid.rpartition("-")
+            if series != "globeandmail":
+                continue
+            ymd = (read_puzzle_file(path).get("date") or "").replace("-", "")
+            if len(ymd) == 8:
+                out[pid] = ("globeandmail", ymd)
+                out[f"timesquick-{num}"] = ("timesquick", ymd)
+        for ymd, num in GLOBE_RENUMBERED.items():
+            out[f"timesquick-{num}"] = ("timesquick", ymd)
+        return out
+
+    def held(self):
+        """The held files, and a blog copy for each Quick the Globe prints
+        and we do not hold, as ("blog", number)."""
+        disk = dict(held_paths(self.series))
+        for pid, (series, _) in self.ids().items():
+            if series == "timesquick" and pid not in disk:
+                disk[pid] = ("blog", int(pid.rsplit("-", 1)[1]))
+        return disk
+
+    def load(self, where):
+        if isinstance(where, tuple):
+            return self.blog_copy(where[1])
+        return read_puzzle_file(where)
+
+    def blog_copy(self, number):
+        """Quick No `number` as tools/file_times_puzzles.py would file it from
+        the blog, or a {"unfilable": why} stand-in."""
+        import file_blog_puzzles as fbp
+        import file_times_puzzles as ftp
+        import times_grids as tg
+        if self._blog is None:
+            recs = {}
+            for line in tg.PARSED.read_text(encoding="utf-8").splitlines():
+                rec = json.loads(line)
+                recs[rec["post_id"]] = rec
+            rows = defaultdict(list)
+            for line in tg.OUT.read_text(encoding="utf-8").splitlines():
+                row = json.loads(line)
+                if row.get("number") and ftp.target(row)[0] == "timesquick":
+                    rows[row["number"]].append(row)
+            self._blog = (recs, rows, fbp.typed_counts(recs.values()))
+        recs, rows, typed = self._blog
+        claim = rows.get(number, [])
+        if len(claim) != 1:
+            return {"unfilable": f"{len(claim)} blog rows"}
+        rec = recs[claim[0]["post_id"]]
+        puzzle, why = fbp.build(rec, claim[0], "timesquick", None,
+                                ftp.setter(rec, "timesquick"), typed)
+        return puzzle or {"unfilable": why}
+
+    def raw_file(self, key):
+        return self.cache / f"{key[1]}.json"
+
+    def fetch_one(self, key):
+        import fetch_globeandmail as fg
+        path = self.raw_file(key)
+        if path.exists() or path.with_suffix(".404").exists():
+            return False
+        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            data = fg.fetch_raw_json(f"{fg.SET}_{key[1]}")
+        except fg.PuzzleNotFound as err:
+            path.with_suffix(".404").write_text(str(err))
+            return True
+        path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        return True
+
+    def puzzle(self, key):
+        path = self.raw_file(key)
+        if not path.exists():
+            return None
+        return globe_shape(json.loads(path.read_text(encoding="utf-8")), key)
+
+    def covers(self, ours):
+        return "unfilable" not in ours
+
+
+#: Days the Globe printed under another Quick's number, {date key: the Quick
+#: it is}: 2026-05-18 is titled "No 3262" like the day before, but its grid
+#: and clues are Quick 3263's.
+GLOBE_RENUMBERED = {"20260518": 3263}
+
+
+def globe_shape(data, key):
+    """A decoded Amuse payload in our shape, read without
+    fetch_globeandmail.convert(): box is column-major (box[x][y]), each
+    placedWord one light, its wordLens the count, its clue's tags stripped."""
+    series, ymd = key
+    m = re.search(r"No\.?\s*([\d,]+)\s*$", (data.get("title") or "").strip())
+    num = GLOBE_RENUMBERED.get(ymd) or (int(m.group(1).replace(",", "")) if m else None)
+    entries = []
+    for pw in data["placedWords"]:
+        across = bool(pw["acrossNotDown"])
+        e = {"number": int(pw["clueNum"]), "direction": "across" if across else "down",
+             "position": {"x": pw["x"], "y": pw["y"]}, "length": pw["nBoxes"]}
+        text = html.unescape(re.sub(r"<[^>]*>", "", pw["clue"]["clue"]))
+        text = " ".join(GUARDIAN_TAIL.sub("", text).split())
+        e["clue"] = {"text": text, "enumeration": ",".join(map(str, pw["wordLens"]))}
+        e["solution"] = "".join(data["box"][x][y] for x, y in cells(e)).upper() or None
+        entries.append(e)
+    return {"id": f"{series}-{num}", "dimensions": {"cols": data["w"], "rows": data["h"]},
+            "entries": entries}
+
+
+ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog, Globe)}
 
 
 def held(adapter):
-    """{puzzle id: path} for every puzzle on disk in the adapter's series."""
+    """{puzzle id: where} for every puzzle the adapter compares: by default
+    each file on disk in its series, read by adapter.load()."""
+    if hasattr(adapter, "held"):
+        return adapter.held()
+    return held_paths(adapter.series)
+
+
+def held_paths(series):
+    """{puzzle id: path} for every puzzle on disk in `series`."""
     out = {}
     for path in puzzle_files():
-        if path.parent.parent.name in adapter.series:
+        if path.parent.parent.name in series:
             out[path.stem] = path
     return out
+
+
+def load(adapter, where):
+    return adapter.load(where) if hasattr(adapter, "load") else read_puzzle_file(where)
 
 
 def fetch(adapter, todo):
@@ -468,6 +618,14 @@ def norm_text(text):
     return re.sub(r"[^a-z0-9]+", "", s.lower())
 
 
+def norm_words(text):
+    """Clue words as printed, only quotes, dashes and spacing made one: for a
+    source that is the paper's own print of the same clue, where a slash, a
+    bracket or a space before a comma is a defect of ours."""
+    s = unicodedata.normalize("NFKC", html.unescape(text or "")).translate(QUOTES)
+    return " ".join(s.split())
+
+
 def norm_enum(enum):
     return re.sub(r"\s+", "", (enum or "").replace(" and ", ",")).replace("-", ",") or None
 
@@ -509,8 +667,10 @@ def where(e):
     return (e["position"]["x"], e["position"]["y"], e["direction"])
 
 
-def diff(ours, theirs):
-    """[{class, ...}] for every way `ours` differs from `theirs`."""
+def diff(ours, theirs, exact=False):
+    """[{class, ...}] for every way `ours` differs from `theirs`; `exact`
+    compares clue words as printed (norm_words), not just the words."""
+    same_words = norm_words if exact else norm_text
     out = []
     if ours.get("dimensions") != theirs.get("dimensions"):
         out.append({"class": "GRID", "detail": "dimensions",
@@ -551,7 +711,7 @@ def diff(ours, theirs):
         if norm_enum(oc.get("enumeration")) != norm_enum(tc.get("enumeration")):
             out.append({"class": "ENUMERATION", "light": light,
                         "ours": oc.get("enumeration"), "theirs": tc.get("enumeration")})
-        if norm_text(oc.get("text")) != norm_text(tc.get("text")):
+        if same_words(oc.get("text")) != same_words(tc.get("text")):
             out.append({"class": "CLUE", "light": light,
                         "ours": oc.get("text"), "theirs": tc.get("text")})
     return out
@@ -576,12 +736,12 @@ def run(adapter, only=None):
         if pid not in disk:
             skipped["not held"] += 1
             continue
-        ours = read_puzzle_file(disk[pid])
+        ours = load(adapter, disk[pid])
         if pid not in keys:
             skipped["source lacks"] += 1
             continue
         if not adapter.covers(ours):
-            skipped["taken from this source"] += 1
+            skipped[ours.get("unfilable") or "taken from this source"] += 1
             continue
         try:
             theirs = adapter.puzzle(keys[pid])
@@ -596,10 +756,12 @@ def run(adapter, only=None):
             skipped["source is another puzzle"] += 1
             rows.append({"id": pid, "unreadable": f"source holds {theirs['id']}"})
             continue
-        found = diff(ours, witness(theirs))
+        found = diff(ours, witness(theirs), exact=adapter.exact_clues)
         tally["compared"] += 1
         if found:
-            rows.append({"id": pid, "path": str(disk[pid].relative_to(disk[pid].parents[3])),
+            path = disk[pid]
+            rows.append({"id": pid, "path": (str(path.relative_to(path.parents[3]))
+                                             if isinstance(path, Path) else "blog copy"),
                          "gridOrigin": (ours.get("source") or {}).get("gridOrigin"),
                          "mismatches": found})
             for cls in {m["class"] for m in found}:
@@ -731,7 +893,8 @@ def refile(adapter, limit=None):
     one = {"guardian": refile_guardian, "independent": refile_independent}.get(adapter.name)
     if one is None:
         raise SystemExit("--refile: the guardian and independent adapters refile here; the "
-                         "Telegraph's is tools/fetch_telegraph.py --holes")
+                         "Telegraph's is tools/fetch_telegraph.py --holes, and the Globe's "
+                         "numbers are filed as globeandmail already")
     keys = adapter.ids()
     disk = held(adapter)
     report = REPORTS / f"{adapter.name}.jsonl"
@@ -768,8 +931,8 @@ def main(argv=None):
     if args.fetch:
         keys = adapter.ids()
         disk = held(adapter)
-        todo = [keys[p] for p in sorted(disk) if p in keys
-                and adapter.covers(read_puzzle_file(disk[p]))]
+        todo = list(dict.fromkeys(keys[p] for p in sorted(disk) if p in keys
+                                  and adapter.covers(load(adapter, disk[p]))))
         print(f"{len(todo)} puzzles held that {adapter.name} also serves", flush=True)
         if args.limit is not None and hasattr(adapter, "raw_file"):
             todo = [k for k in todo if not adapter.raw_file(k).exists()
