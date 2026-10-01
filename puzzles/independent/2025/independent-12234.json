@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Eccentric chap, one working in programming, including games principally",
     "enumeration": "6"
    },
-   "solution": "CODGER"
+   "solution": "CODGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CODGER",
+    "definitions": [
+     {
+      "text": "Eccentric chap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece sits within the other"
+     },
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means first and foremost, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one working in programming",
+      "gives": "CODER",
+      "note": "a programmer writes code"
+     },
+     {
+      "clueFragment": "games",
+      "gives": "G",
+      "select": "first",
+      "note": "the initial letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "G",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A quirky programmer who spends much of the job making video games.",
+     "walkthrough": "The G slips between the D and E of CODER to give CODGER.",
+     "definitionFit": "A codger is an informal word for an old man, usually one thought of as odd or cantankerous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "games"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,48 @@
     "text": "Alloy always only half finished",
     "enumeration": "5"
    },
-   "solution": "INVAR"
+   "solution": "INVAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INVAR",
+    "definitions": [
+     {
+      "text": "Alloy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only half finished",
+      "for": "deletion",
+      "note": "a job only half finished stops midway, so the second half of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "INVARIABLY",
+      "note": "a ten-letter synonym meaning without exception"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INVAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal mixture that never gets more than half made.",
+     "walkthrough": "INVARIABLY has ten letters, so keeping the first five gives INVAR.",
+     "definitionFit": "Invar is a nickel-iron alloy prized because it barely expands with heat, used in clocks and precision instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "always"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +166,75 @@
      }
     ]
    },
-   "solution": "ANDYPANDY"
+   "solution": "ANDYPANDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ANDY PANDY",
+    "definitions": [
+     {
+      "text": "my friend and I will be waving goodbye",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "letter_selection",
+      "note": "limits are boundaries, so only the outermost letters of the word are kept"
+     },
+     {
+      "text": "anticipating",
+      "for": "charade",
+      "note": "to anticipate is to come before, so one piece goes ahead of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With",
+      "gives": "AND",
+      "note": "'with' and 'and' both join one thing to another"
+     },
+     {
+      "clueFragment": "Yard",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for yard"
+     },
+     {
+      "clueFragment": "policy",
+      "gives": "PY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written, sitting between the limits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "Y",
+      "P",
+      "AND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends at Scotland Yard are about to leave, waving goodbye once the policy limits arrive.",
+     "walkthrough": "The 'and' of 'my friend and I' does double duty, sitting inside P...Y. Andy Pandy was a BBC children's puppet show whose closing song was 'Andy is waving goodbye'.",
+     "definitionFit": "Each episode ended with the puppet boy and his friends singing 'Time to go home', the boy waving goodbye to the young viewers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Yard"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +248,43 @@
     "text": "Dog track",
     "enumeration": "6"
    },
-   "solution": "FOLLOW"
+   "solution": "FOLLOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOLLOW",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     },
+     {
+      "text": "track",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "note": "first meaning: to dog someone is to tail them"
+     },
+     {
+      "clueFragment": "track",
+      "note": "second meaning: to track is to trail or pursue"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a greyhound racing venue, but both words are verbs here.",
+     "definitionFit": "Both verbs mean to pursue or shadow someone closely, staying on their trail wherever they go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +298,53 @@
     "text": "Pinter play involving three people: a woman and two men",
     "enumeration": "8"
    },
-   "solution": "BETRAYAL"
+   "solution": "BETRAYAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETRAYAL",
+    "definitions": [
+     {
+      "text": "Pinter play",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "involving",
+     "three people:",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a woman",
+      "gives": "BET",
+      "note": "Bet, short for Elizabeth, is a woman's name"
+     },
+     {
+      "clueFragment": "two men",
+      "gives": "RAYAL",
+      "note": "two men's names, Ray and Al"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "RAY",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Harold Pinter play with a cast of three: one woman and two men.",
+     "walkthrough": "The surface is literally true: the 1978 play is a love triangle between a woman, her husband and his best friend.",
+     "definitionFit": "Betrayal is the title of Harold Pinter's 1978 drama about an adulterous affair, told in reverse chronological order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "three"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +358,55 @@
     "text": "A person that really suits eimi, taking a stimulant drug",
     "enumeration": "7"
    },
-   "solution": "SOMEONE"
+   "solution": "SOMEONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOMEONE",
+    "definitions": [
+     {
+      "text": "A person",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that really suits eimi",
+      "gives": "SOME",
+      "note": "'that's so me' is said of something that really suits the speaker, and eimi is the setter"
+     },
+     {
+      "clueFragment": "taking",
+      "gives": "ON",
+      "note": "a person on a drug is taking it"
+     },
+     {
+      "clueFragment": "a stimulant drug",
+      "gives": "E",
+      "note": "E is slang for ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "ME",
+      "ON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter eimi has found a person ideally suited to them, one who happens to be on drugs.",
+     "walkthrough": "The setter's name stands for ME, as 'this setter' would. 'So me' is the slang compliment for something that fits you perfectly.",
+     "definitionFit": "Someone is a pronoun for an unspecified individual, which is exactly what an indefinite person is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suits"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +420,68 @@
     "text": "Cockney's to give assistance carrying last serving of gefilte fish",
     "enumeration": "7"
    },
-   "solution": "EELPOUT"
+   "solution": "EELPOUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EELPOUT",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cockney's",
+      "for": "deletion",
+      "note": "Cockney speech drops the aitch at the start of words, so an initial H goes"
+     },
+     {
+      "text": "last serving",
+      "for": "letter_selection",
+      "note": "the last serving is the final portion, so only the closing letter is kept"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to give assistance",
+      "gives": "HELPOUT",
+      "note": "to help out is to give assistance"
+     },
+     {
+      "clueFragment": "gefilte",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "E",
+      "LPOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Londoner offering to help by bringing the final portion of gefilte fish, a Jewish dish of poached fish balls.",
+     "walkthrough": "'Gefilte fish' reads as one dish, but only 'fish' is the definition. Dropping the H gives 'ELP OUT, and the E goes in after its first letter.",
+     "definitionFit": "The eelpout is a real species, an elongated eel-like bottom-dwelling sea fish, so it is an example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gefilte"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +495,58 @@
     "text": "No matter who is in first class going around 26",
     "enumeration": "6"
    },
-   "solution": "ANYONE"
+   "solution": "ANYONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANYONE",
+    "definitions": [
+     {
+      "text": "No matter who",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "container",
+      "note": "to go around something is to surround it, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "is in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first class",
+      "gives": "AONE",
+      "note": "A1 means first class, spelt out as A ONE"
+     },
+     {
+      "clueFragment": "26",
+      "gives": "NY",
+      "note": "the answer to 26 is New York, abbreviated NY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NY",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Whoever travels first class on a trip round New York.",
+     "walkthrough": "A1 is the old shipping register's top grade, hence first class. The 26 cross-reference points to NEW YORK, shortened to its usual NY.",
+     "definitionFit": "'No matter who' means any person at all, the indefinite pronoun used when the identity is unimportant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +566,56 @@
      }
     ]
    },
-   "solution": "GALWAYBAY"
+   "solution": "GALWAYBAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GALWAY BAY",
+    "definitions": [
+     {
+      "text": "somewhere in Ireland",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "GAL",
+      "note": "gal is an informal word for a girl"
+     },
+     {
+      "clueFragment": "particular",
+      "gives": "WAY",
+      "note": "a particular is a respect or detail, as in 'in every way' and 'in every particular'"
+     },
+     {
+      "clueFragment": "shade of brown",
+      "gives": "BAY",
+      "note": "bay is a reddish-brown, the colour of a bay horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAL",
+      "WAY",
+      "BAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl acquires a specific brown tan while holidaying somewhere in Ireland.",
+     "walkthrough": "'Particular' looks like an adjective qualifying the shade, but it is a noun meaning a respect or point.",
+     "definitionFit": "Galway Bay is a large inlet of the Atlantic on Ireland's west coast, so it is an Irish location."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +629,70 @@
     "text": "Mathematician from Swiss city university flipping unwell",
     "enumeration": "9"
    },
-   "solution": "BERNOULLI"
+   "solution": "BERNOULLI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BERNOULLI",
+    "definitions": [
+     {
+      "text": "Mathematician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "to flip something is to turn it over, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swiss city",
+      "gives": "BERN",
+      "note": "Bern is the Swiss capital"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "OU",
+      "note": "OU is the Open University, the UK's distance-learning university"
+     },
+     {
+      "clueFragment": "unwell",
+      "gives": "ILL",
+      "note": "ill means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BERN",
+      "OU",
+      "LLI"
+     ],
+     "reversals": [
+      {
+       "from": "ILL",
+       "to": "LLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician from a Swiss university city who is feeling flipping awful.",
+     "walkthrough": "'Flipping' reads as a mild British intensifier, but it is the turnaround signal. The university here is the Open University, not the usual U or UNI.",
+     "definitionFit": "The Bernoullis were a Swiss family of eminent mathematicians, notably Jacob, Johann and Daniel, from Basel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +706,55 @@
     "text": "Reign changing hands, which has some attraction",
     "enumeration": "4"
    },
-   "solution": "LURE"
+   "solution": "LURE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "LURE",
+    "definitions": [
+     {
+      "text": "some attraction",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing hands",
+      "for": "substitution",
+      "note": "the hands are right and left, so each R becomes L and each L becomes R"
+     }
+    ],
+    "linkWords": [
+     "which has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reign",
+      "gives": "RULE",
+      "note": "to reign is to rule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A reign passing to a new holder, which has a certain appeal.",
+     "walkthrough": "'Changing hands' usually means changing owner; here R (right) and L (left) swap places.",
+     "definitionFit": "A lure is something that tempts or entices, a bait or enticement drawing people towards it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +768,52 @@
     "text": "Sing \"The King is in the altogether\" cryptically",
     "enumeration": "5"
    },
-   "solution": "CROON"
+   "solution": "CROON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROON",
+    "definitions": [
+     {
+      "text": "Sing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "cryptically"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The King",
+      "gives": "CR",
+      "note": "CR, Carolus Rex, is King Charles's royal cipher"
+     },
+     {
+      "clueFragment": "is in the altogether",
+      "gives": "OON",
+      "note": "someone in the altogether has nothing on, read as O (nothing) + ON"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A song lyric about a naked monarch, the Emperor's New Clothes set to music.",
+     "walkthrough": "'In the altogether' is a British idiom for naked; 'cryptically' tells you to take it as 'nothing on'. The King could be Elvis, but here he is Charles.",
+     "definitionFit": "To croon is to sing softly and sentimentally, in the low smooth style of Bing Crosby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "altogether"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +827,51 @@
     "text": "Lady in 26 with method to find theatre district",
     "enumeration": "8"
    },
-   "solution": "BROADWAY"
+   "solution": "BROADWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADWAY",
+    "definitions": [
+     {
+      "text": "theatre district",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady in 26",
+      "gives": "BROAD",
+      "note": "broad is American slang for a woman, the kind of word heard in New York"
+     },
+     {
+      "clueFragment": "method",
+      "gives": "WAY",
+      "note": "a way is a method"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman in New York has a technique for locating the theatres.",
+     "walkthrough": "'In 26' qualifies the lady: broad is a New York kind of word for a woman.",
+     "definitionFit": "Broadway is the Manhattan avenue whose surrounding blocks hold New York's major commercial theatres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +891,59 @@
      }
     ]
    },
-   "solution": "ABOUTFACE"
+   "solution": "ABOUTFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOUT-FACE",
+    "definitions": [
+     {
+      "text": "change of policy",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOUT",
+      "note": "a bout is a fight, as in boxing"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in 'p. 12f'"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace is the one in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOUT",
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A row breaking out after a government U-turn.",
+     "walkthrough": "'Following' looks like it sets the order of pieces, but it supplies the F of reference books.",
+     "definitionFit": "An about-face is literally a military turn to face the opposite way, figuratively a complete reversal of stance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +967,60 @@
      }
     ]
    },
-   "solution": "WHITEBLOODCELLS"
+   "solution": "WHITEBLOODCELLS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHITE BLOOD CELLS",
+    "definitions": [
+     {
+      "text": "vital components",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something gone unfortunately has gone wrong, so the letters fall out of order"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clothes",
+      "gives": "CLOTHES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "billowed",
+      "gives": "BILLOWED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLOTHESBILLOWED",
+       "gives": "WHITEBLOODCELLS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gust of wind lifts someone's clothes and exposes their private parts.",
+     "walkthrough": "The fifteen letters of the two words rearrange exactly; 'vital components' are vital to life, not intimate anatomy.",
+     "definitionFit": "Leucocytes are an essential part of the blood, fighting infection, so they are components we cannot live without."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vital"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1034,64 @@
     "text": "Little Jack briefly hugging Philip in dance",
     "enumeration": "8"
    },
-   "solution": "HORNPIPE"
+   "solution": "HORNPIPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HORNPIPE",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something said briefly is cut short, so the final letter is dropped"
+     },
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap your arms round, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little Jack",
+      "gives": "HORNER",
+      "note": "Little Jack Horner is the nursery-rhyme boy who sat in a corner eating pie"
+     },
+     {
+      "clueFragment": "Philip",
+      "gives": "PIP",
+      "note": "Pip is a short form of Philip, as with the hero of Great Expectations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORN",
+      "PIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A small boy called Jack gives Philip a quick cuddle on the dance floor.",
+     "walkthrough": "'Little Jack' looks like a description of a small boy, but it is the nursery-rhyme character, and 'briefly' trims his surname by its last letter.",
+     "definitionFit": "The hornpipe is a lively solo dance traditionally associated with sailors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1105,39 @@
     "text": "A flower opening?",
     "enumeration": "7"
    },
-   "solution": "ESTUARY"
+   "solution": "ESTUARY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ESTUARY",
+    "definitions": [
+     {
+      "text": "A flower opening?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A flower opening?",
+      "note": "surface reading: a bloom unfurling its petals"
+     },
+     {
+      "clueFragment": "flower",
+      "note": "setter's reading: something that flows, a river, and the place where it opens out into the sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flower' is the crossword's favourite trick: read it as flow-er, one that flows, meaning a river.",
+     "definitionFit": "An estuary is the wide tidal mouth where a river widens and meets the sea, its opening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1151,47 @@
     "text": "Call about large drink",
     "enumeration": "8"
    },
-   "solution": "REDOUBLE"
+   "solution": "REDOUBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDOUBLE",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "large drink",
+      "gives": "DOUBLE",
+      "note": "a double is a large measure of spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DOUBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning someone about having a big drink.",
+     "walkthrough": "'Call' is not a phone call but a bid in the card game bridge.",
+     "definitionFit": "In bridge, redouble is a call made after an opponent doubles, increasing the scoring stakes again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1205,67 @@
     "text": "West caught up in cricket review system fantasies",
     "enumeration": "6"
    },
-   "solution": "DREAMS"
+   "solution": "DREAMS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DREAMS",
+    "definitions": [
+     {
+      "text": "fantasies",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "caught",
+      "for": "container",
+      "note": "something caught is held fast, so one piece is trapped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West",
+      "gives": "MAE",
+      "note": "Mae West was the Hollywood actress and wisecracker"
+     },
+     {
+      "clueFragment": "cricket review system",
+      "gives": "DRS",
+      "note": "DRS is the Decision Review System used to check umpires' calls in cricket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EAM",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "MAE",
+       "to": "EAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Batsmen from the West Indies daydreaming about an umpire review going their way.",
+     "walkthrough": "'West' is not a direction but Mae West; turned round she sits inside DRS.",
+     "definitionFit": "Dreams are imaginings or wishful fantasies, things hoped for that may never come true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1279,43 @@
     "text": "Somewhat nautical area of 26",
     "enumeration": "5"
    },
-   "solution": "UTICA"
+   "solution": "UTICA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UTICA",
+    "definitions": [
+     {
+      "text": "area of 26",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only a part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nautical",
+      "gives": "UTICA",
+      "note": "the letters run from the second to the sixth of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A part of New York with a slightly maritime feel.",
+     "walkthrough": "The 26 cross-reference is NEW YORK, here the state, not the city.",
+     "definitionFit": "Utica is a city in central New York State, on the Mohawk River, so it is a place there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nautical"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1329,55 @@
     "text": "Note hidden in singer's toast",
     "enumeration": "6"
    },
-   "solution": "CHEERS"
+   "solution": "CHEERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEERS",
+    "definitions": [
+     {
+      "text": "toast",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden in",
+      "for": "container",
+      "note": "a thing tucked inside something else is held within it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "E",
+      "note": "E is a musical note"
+     },
+     {
+      "clueFragment": "singer's",
+      "gives": "CHERS",
+      "note": "Cher is the American pop singer, with the possessive S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "E",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "A message tucked away in a singer's speech at a celebration.",
+     "walkthrough": "The note is not a written message but a musical letter, which slips into CHER'S after the first E.",
+     "definitionFit": "'Cheers!' is the word said when raising glasses to drink someone's health, a toast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1391,42 @@
     "text": "Overstimulated PR person",
     "enumeration": "5"
    },
-   "solution": "HYPER"
+   "solution": "HYPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HYPER",
+    "definitions": [
+     {
+      "text": "Overstimulated",
+      "at": 0
+     },
+     {
+      "text": "PR person",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overstimulated",
+      "note": "first meaning: excitable and over-energetic"
+     },
+     {
+      "clueFragment": "PR person",
+      "note": "second meaning: one who promotes or puffs things up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is the setter's coinage: someone who hypes, as a publicist does.",
+     "definitionFit": "The adjective means wildly overexcited; the noun is an agent word for someone who generates publicity hype."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1440,43 @@
     "text": "An opening perhaps education provides",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "An opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "provides",
+      "for": "hidden_word",
+      "note": "to provide is to supply from within, so the words themselves supply the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perhaps education",
+      "gives": "APSE",
+      "note": "the letters straddle the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Schooling may give you a start in life.",
+     "walkthrough": "'Perhaps' looks like it qualifies the definition, but it is part of the fodder.",
+     "definitionFit": "An apse is a vaulted semicircular recess in a church wall, a kind of architectural niche or alcove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1496,64 @@
      }
     ]
    },
-   "solution": "FAIRYTALE"
+   "solution": "FAIRYTALE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FAIRY TALE",
+    "definitions": [
+     {
+      "text": "this story",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "altered",
+      "for": "anagram",
+      "note": "something altered has been changed, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "FA",
+      "note": "fa is the fourth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "reality",
+      "gives": "REALITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "IRYTALE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REALITY",
+       "gives": "IRYTALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A story in which the truth has been changed and written down.",
+     "walkthrough": "The whole clue nods to the answer: reality is altered in a fairy tale.",
+     "definitionFit": "A fairy tale is a children's story of magic and make-believe, a narrative where real life is transformed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1567,65 @@
     "text": "Stone fruit left out next to frozen water",
     "enumeration": "6"
    },
-   "solution": "PUMICE"
+   "solution": "PUMICE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PUMICE",
+    "definitions": [
+     {
+      "text": "Stone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "something put out is excluded or omitted, so that letter is removed"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to means beside, so the pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PLUM",
+      "note": "a plum is a stone fruit"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "frozen water",
+      "gives": "ICE",
+      "note": "ice is frozen water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUM",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plum or cherry forgotten beside some ice cubes.",
+     "walkthrough": "'Stone fruit' looks like one phrase for a plum, but 'Stone' alone is the definition.",
+     "definitionFit": "Pumice is a light porous volcanic rock, used for scrubbing hard skin, so it is a kind of stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stone"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1645,43 @@
      }
     ]
    },
-   "solution": "NEWYORK"
+   "solution": "NEWYORK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEW YORK",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     },
+     {
+      "text": "state",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "note": "first meaning: the largest city in the United States"
+     },
+     {
+      "clueFragment": "state",
+      "note": "second meaning: the US state containing that city"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'City-state' suggests an ancient polis like Athens or a modern one like Singapore; the hyphen hides two separate meanings.",
+     "definitionFit": "The same name belongs both to the metropolis on the Hudson and to the American state it sits in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "City"
+    }
+   }
   }
  ]
 }
