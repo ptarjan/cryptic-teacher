@@ -133,6 +133,14 @@ post = {"id": 1, "link": "https://www.fifteensquared.net/x", "date": "2010-06-15
 for name, p in (("UNANSWERED", post), ("NOPOST", None)):
     pz, why = F.assemble(13412, pdf, p, datetime.date(2010, 6, 15), "https://media.ft.com/x.pdf", "live")
     print(name, why, pz["solutions"], any("solution" in e for e in pz["entries"]))
+# No vector grid, or one misread: the clue list's numbering rebuilds it, and
+# the file says the grid was rebuilt rather than read.
+F.tg.SIZE["FT"] = 5
+for name, g in (("BACKSOLVED", None), ("MISREAD", ["#...."] + list(GRID[1:]))):
+    pz, why = F.assemble(13412, dict(pdf, grid=g), post | {"content": {"rendered": POST}},
+                         datetime.date(2010, 6, 15), "https://media.ft.com/x.pdf", "live")
+    print(name, why, pz and pz["source"]["gridOrigin"], pz and pz["dimensions"],
+          pz and "backsolved" in pz["solutions"]["check"])
 PY
 )
 echo "$out" | sed 's/^/  | /'
@@ -156,6 +164,10 @@ check "the grid's numbering matches the clue list" "None" "$(g MATCH)"
 check "an enumeration the grid disagrees with is refused" \
   "1 across's enumeration disagrees with the grid" "$(g MISMATCH)"
 check "a linked clue lists both lights and counts both" "4a,5a None" "$(g LINKED)"
+check "no vector grid: backsolved from the clue list, marked reconstructed" \
+  "None reconstructed {'cols': 5, 'rows': 5} True" "$(g BACKSOLVED)"
+check "a misread vector grid: backsolved from the clue list too" \
+  "None reconstructed {'cols': 5, 'rows': 5} True" "$(g MISREAD)"
 check "answers read by enumeration; prose numbers ignored" \
   "1a=SATIN 1d=SHOOT 2d=TWEEN 3d=NEARS 4a=OPERATENTS" "$(g ANSWERS)"
 check "a linked answer is shared out by the grid's light lengths" \

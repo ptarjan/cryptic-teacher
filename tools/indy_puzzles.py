@@ -179,7 +179,7 @@ def parse(write=True):
 
 
 def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES):
-    return tg.run(limit, None, max_nodes=max_nodes, where=CACHE, solver=ft.solve)
+    return tg.run(limit, None, max_nodes=max_nodes, where=CACHE)
 
 
 def sunday_dates(rows):
@@ -249,7 +249,7 @@ def file(posted, write=True, limit=None):
         elif limit is not None and len(filed) >= limit:
             skipped["past --limit"] += 1
         else:
-            puzzle, why = ftp.build(ft.split_by(rec, row["grid"]), row, series,
+            puzzle, why = ftp.build(rec, row, series,
                                     dates[series].get(number))
             if why:
                 skipped[why] += 1

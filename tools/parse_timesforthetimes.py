@@ -872,9 +872,10 @@ def read_entries(rendered):
         pieces = ([(lights[0], letters)] if len(lights) == 1
                   else link_pieces(lights, printed, enum))
         if pieces is None:            # a linked clue whose split the blog
-            unsplit.append({          # does not settle: reported, not guessed
+            unsplit.append({          # does not settle: the grid splits it
                 "lights": [[n, d] for n, d in lights],
                 "answer": letters, "enumeration": enum,
+                "answer_printed": printed, "clue": tidy(clue) if clue else clue,
             })
             return
         # link_pieces handing back one light for a head that named several is

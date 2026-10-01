@@ -351,32 +351,50 @@ def match(parsed, grid):
     return out, None
 
 
-def rebuild(parsed):
+#: The Canberra Times grid's side, which a rebuild searches.
+SIDE = 15
+#: The most cells a scanned grid may misread and still pick one of several
+#: grids the clue list allows: OCR's grid reader loses a square or two, not a
+#: pattern.
+IMAGE_SLACK = 6
+
+
+def closest(image):
+    """reconstruct_grid.unique_grid's `pick`: the one grid nearest the scan,
+    when it is clearly nearest and near; None without a scan."""
+    if not image:
+        return None
+
+    def pick(grids):
+        def off(g):
+            if len(g) != len(image) or len(g[0]) != len(image[0]):
+                return len(g) * len(g[0])
+            return sum(a != b for ra, rb in zip(g, image) for a, b in zip(ra, rb))
+        ranked = sorted(grids, key=off)
+        best = off(ranked[0])
+        if best <= IMAGE_SLACK and (len(ranked) == 1 or off(ranked[1]) > best):
+            return ranked[0]
+        return None
+    return pick
+
+
+def rebuild(parsed, image=None):
     """The one grid the clue list's numbers and lengths allow, or (None, why).
-    Needs every clue's number and count to be unambiguous."""
+    What the OCR leaves uncertain goes in unknown: a number read several
+    ways, an enumeration read several ways, and each light of a linked clue,
+    whose count is their sum. Several grids are settled by the scan
+    (`image`, the grid read off it even where it disagrees with the clues)."""
     spec = []
     for direction in ("across", "down"):
         for clue in parsed[direction]:
-            if len(clue["tokens"]) > 1 or clue["see"] is not None:
-                return None, "a linked clue: its lights' lengths are not known apart"
-            if len(clue["tokens"][0]) != 1:
-                return None, f"clue number {sorted(clue['tokens'][0])} is ambiguous without a grid"
-            if len(clue["enums"]) > 1:
-                return None, f"enumeration {sorted(clue['enums'])} is ambiguous without a grid"
-            n = next(iter(clue["tokens"][0]))
-            length = count(next(iter(clue["enums"]))) if clue["enums"] else None
+            tokens = clue["tokens"][0]
+            n = next(iter(tokens)) if len(tokens) == 1 else None
+            length = None
+            if len(clue["tokens"]) == 1 and clue["see"] is None and len(clue["enums"]) == 1:
+                length = count(next(iter(clue["enums"])))
             spec.append((n, direction, length))
-    try:
-        found, info = rg.reconstruct(spec, limit=2, max_nodes=REBUILD_NODES)
-    except ValueError as e:
-        return None, f"clue list unusable: {e}"
-    if info.get("gaps"):
-        return None, f"numbers {info['gaps']} lost from the clue list"
-    if len(found) == 1:
-        return list(found[0]), None
-    if found:
-        return None, "more than one grid fits the clue list"
-    return None, "the search " + ("ran out of budget" if info["truncated"] else "found no grid")
+    return rg.unique_grid(spec, cols=SIDE, rows=SIDE, max_nodes=REBUILD_NODES,
+                          pick=closest(image))
 
 
 # ------------------------------------------------------------ the puzzle
@@ -502,9 +520,10 @@ def consider(d, taken):
         if why:
             return {"refused": f"{direction} clues do not parse: {why}"}, None
     verdict = {"clues": sum(len(v) for v in parsed.values())}
-    grid, laid, how = None, None, None
+    grid, laid, how, image = None, None, None, None
     if (d / "grid.jpg").exists():
         g, why = trove_grid.read_grid(d / "grid.jpg")
+        image = g
         if g and not trove_grid.symmetric(g):
             g, why = None, "not 180-degree symmetric"
         if g:
@@ -518,7 +537,7 @@ def consider(d, taken):
     else:
         verdict["imageUnread"] = "no grid image"
     if grid is None:
-        g, why = rebuild(parsed)
+        g, why = rebuild(parsed, image)
         if g is None:
             verdict["pending"] = f"no grid: {why}"
             return verdict, None

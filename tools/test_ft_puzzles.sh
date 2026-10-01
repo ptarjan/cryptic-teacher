@@ -129,7 +129,7 @@ rec = {"entries": [{"number": n, "direction": d, "answer": a, "clue": "c (9)", "
        "unsplit": [{"lights": [list(k) for k in linked], "clue": "Linked (2,3,5)",
                     "enumeration": "2,3,5",
                     "answer_printed": f"{fill[linked[0]][:2]} {fill[linked[0]][2:]} {fill[linked[1]]}"}]}
-split = F.split_by(rec, TINY)
+split = F.tg.split_by(rec, TINY)
 print("SPLIT", [(e["number"], e["answer"], e["clue"]) for e in split["entries"]
                 if (e["number"], e["direction"]) in linked],
       [(k[0], fill[k]) for k in linked])

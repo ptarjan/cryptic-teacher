@@ -26,7 +26,6 @@ import argparse
 import collections
 import datetime
 import html
-import itertools
 import json
 import re
 import sys
@@ -352,61 +351,8 @@ def parse(write=True):
 
 # ------------------------------------------------------------------ grids
 
-#: The most splits of a record's linked answers solve() tries.
-MAX_SPLITS = 16
-
-
-def splits(group):
-    """Every way to share a linked answer's words out among its lights, in
-    order and at word breaks: [[(light, letters), ...], ...]."""
-    words = tftt.answer_words(group["answer_printed"])
-    lights = [tuple(x) for x in group["lights"]]
-    out = []
-    for cuts in itertools.combinations(range(1, len(words)), len(lights) - 1):
-        bounds = (0, *cuts, len(words))
-        out.append([(light, "".join(words[a:b]))
-                    for light, a, b in zip(lights, bounds, bounds[1:])])
-    return out
-
-
-def with_split(rec, choice):
-    """rec with one split of each linked answer the blog left unsplit."""
-    entries = list(rec["entries"])
-    for group, pieces in zip(rec["unsplit"], choice):
-        leader = pieces[0][0][0]
-        for i, ((n, d), letters) in enumerate(pieces):
-            entries.append({"number": n, "direction": d, "answer": letters,
-                            "clue": group["clue"] if i == 0 else f"See {leader}",
-                            "enumeration": group["enumeration"] if i == 0 else None})
-    return dict(rec, entries=entries)
-
-
-def solve(rec, max_nodes=tg.DEFAULT_MAX_NODES):
-    """times_grids.solve, after sharing out any linked answer the post prints
-    whole: every split at a word break is rebuilt, and one split landing on
-    exactly one grid is the split. The chosen split is written into rec's
-    entries, which is what the grid row and the filer read."""
-    if not rec.get("unsplit"):
-        return tg.solve(rec, max_nodes=max_nodes)
-    choices = list(itertools.islice(
-        itertools.product(*(splits(g) for g in rec["unsplit"])), MAX_SPLITS + 1))
-    if len(choices) > MAX_SPLITS:
-        return [], "rejected: too many ways to split its linked answers"
-    found = []
-    for choice in choices:
-        grids, why = tg.solve(with_split(rec, choice), max_nodes=max_nodes)
-        if grids:
-            found.append((choice, grids, why))
-    if len(found) != 1 or len(found[0][1]) != 1:
-        return [], ("no grid fits any split of its linked answers" if not found
-                    else f"shortlist: {len(found)} splits of its linked answers fit")
-    choice, grids, why = found[0]
-    rec["entries"] = with_split(rec, choice)["entries"]
-    return grids, why + ", linked answer split by the grid"
-
-
 def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES):
-    return tg.run(limit, CATEGORY, max_nodes=max_nodes, where=CACHE, solver=solve)
+    return tg.run(limit, CATEGORY, max_nodes=max_nodes, where=CACHE)
 
 
 # ------------------------------------------------------------------ file
@@ -458,17 +404,6 @@ def print_dates(recs):
         dates[n] = day if ok else None
         last = day if ok else last
     return file_blog_puzzles.fit_undated(dates, guess, posted, printing_day)
-
-
-def split_by(rec, grid):
-    """rec with its linked answers shared out as the grid's lights have them."""
-    if not rec.get("unsplit"):
-        return rec
-    for choice in itertools.product(*(splits(g) for g in rec["unsplit"])):
-        whole = with_split(rec, choice)
-        if tg.answers_fit(grid, whole):
-            return whole
-    return rec
 
 
 def held_by_content(series=SERIES):
@@ -528,8 +463,7 @@ def file(write=True, limit=None):
         elif limit is not None and len(filed) >= limit:
             skipped["past --limit"] += 1
         else:
-            rec = split_by(recs[row["post_id"]], row["grid"])
-            puzzle, why = ftp.build(rec, row, SERIES, dates.get(number))
+            puzzle, why = ftp.build(recs[row["post_id"]], row, SERIES, dates.get(number))
             if why:
                 skipped[why] += 1
                 continue

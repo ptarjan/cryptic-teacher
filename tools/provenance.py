@@ -325,7 +325,7 @@ for _series in series_table.SERIES:
 GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 #: Series whose filer says per puzzle whether the grid was read off the page or
 #: rebuilt from the clues, so the file's own gridOrigin is kept.
-GRID_ORIGIN_PER_PUZZLE = {"canberra"}
+GRID_ORIGIN_PER_PUZZLE = {"canberra", "ftcryptic"}
 
 # ------------------------------------------------------ book-sourced puzzles
 #

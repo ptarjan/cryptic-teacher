@@ -88,4 +88,23 @@ def laid(a1):
 print(laid('S')[0]['1-across'][1], laid('I0')[0], laid('6')[1])")
 check "slips decided by the light" "5 None 1-across: the enumeration reads as ['6'], the grid holds 5 letters" "$got"
 
+# Without a picture the rebuild takes what the OCR leaves uncertain as
+# unknown -- a number read two ways, a count read two ways, a linked clue's
+# lights -- and the numbering still pins the grid down.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+F.SIDE = 5
+across, _ = F.clues('1 One (5). 4 Two (5). 5 Three (5).')
+down, _ = F.clues('1 Four (5). 2 Five (5). 3 Six (5).')
+across[1]['tokens'][0] = {4, 9}
+down[0]['enums'] = {'5', '6'}
+print(F.rebuild({'across': across, 'down': down}))
+# Several grids the clues allow: the scan picks the nearest, when clearly so.
+a, b = ('.....', '.#.#.'), ('.....', '#...#')
+print(F.closest(('.....', '.#.##'))([a, b]) == a, F.closest(('.....', '##.##'))([a, b]),
+      F.closest(None))")
+check "uncertain numbers and counts go in unknown; the grid still rebuilds" \
+  "(['.....', '.#.#.', '.....', '.#.#.', '.....'], None)
+True None None" "$got"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

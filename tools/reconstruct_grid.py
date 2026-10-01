@@ -892,6 +892,34 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
                    "truncated": loose.hit_cap or len(found) >= limit}
 
 
+def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
+                max_black_run=None, pick=None, limit=DEFAULT_LIMIT):
+    """(grid, None) when exactly one grid prints these lights and the search
+    finished, else (None, why not): a filer backsolving a grid from its clue
+    list files it only then. `pick`, given every grid of a finished search
+    that found several, returns the one other evidence (a scan of the grid)
+    settles on, or None."""
+    try:
+        found, info = reconstruct(spec, cols=cols, rows=rows,
+                                  limit=limit if pick else 2,
+                                  max_nodes=max_nodes, words=words,
+                                  max_black_run=max_black_run)
+    except ValueError as e:
+        return None, f"clue list unusable: {e}"
+    if info.get("gaps"):
+        return None, f"numbers {info['gaps']} lost from the clue list"
+    if len(found) == 1 and not info["truncated"]:
+        return list(found[0]), None
+    if found and not info["truncated"]:
+        chosen = pick(list(found)) if pick else None
+        if chosen is not None:
+            return list(chosen), None
+        return None, f"{len(found)} grids fit the clue list"
+    if found:
+        return None, f"{len(found)} grids found before the search ran out of budget"
+    return None, "the search " + ("ran out of budget" if info["truncated"] else "found no grid")
+
+
 def lights_of(puzzle, numbered=True):
     """The clue list's own metadata, in printed order: what a reader has."""
     order = {"across": 0, "down": 1}

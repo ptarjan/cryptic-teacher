@@ -43,7 +43,7 @@ for e in rec["entries"]:
                     e["enumeration"] or "", e["clue"] or ""]))
 for u in rec.get("unsplit", []):
     print("|".join(["UNSPLIT", " ".join(f"{n}{d[0]}" for n, d in u["lights"]),
-                    u["answer"], u["enumeration"] or ""]))
+                    u["answer"], u["enumeration"] or "", u.get("clue") or ""]))
 PY
 }
 
@@ -216,15 +216,16 @@ refuse='<p><b>Across</b></p><table>
 <tr><td>SANT ACLAUS &#8211; anagram</td></tr></table>'
 got="$(run "$refuse")"
 check "refusal: more words than lights names no break, so none is chosen" \
-  "UNSPLIT|23a 24a|COMEHELLORHIGHWATER|4,4,2,4,5" "$(echo "$got" | sed -n 1p)"
+  "UNSPLIT|23a 24a|COMEHELLORHIGHWATER|4,4,2,4,5|Is drunk with alcohol, emerge healthier (4,4,2,4,5)" \
+  "$(echo "$got" | sed -n 1p)"
 # A light of one or two letters is not a light in any of these puzzles, so a
 # split that produces one has found a word break that is not a light break.
 check "refusal: a piece too short to be a light is not a split" \
-  "UNSPLIT|4a 5a|GOSLOWLY|" "$(echo "$got" | sed -n 2p)"
+  "UNSPLIT|4a 5a|GOSLOWLY||" "$(echo "$got" | sed -n 2p)"
 # The enumeration and the answer are read off different lines. When they count
 # the same letters into different words, one of them was misread.
 check "refusal: enumeration and answer disagreeing about the words" \
-  "UNSPLIT|30a 48a|SANTACLAUS|5,5" "$(echo "$got" | sed -n 3p)"
+  "UNSPLIT|30a 48a|SANTACLAUS|5,5|Red-suited caller (5,5)" "$(echo "$got" | sed -n 3p)"
 check "refusal: a refused clue puts no entry in the record at all" "0" \
   "$(echo "$got" | grep -vc UNSPLIT || true)"
 
@@ -247,7 +248,7 @@ got="$(run "$gloss")"
 check "gloss: a '(= ...)' with nothing after it still ends the answer there" \
   "18|across|FAT||" "$(echo "$got" | sed -n 1p)"
 check "gloss: a '(= ...)' the answer runs past is not where it truncates" \
-  "UNSPLIT|12a 21a|TURNOVERANEWLEAF|" "$(echo "$got" | sed -n 2p)"
+  "UNSPLIT|12a 21a|TURNOVERANEWLEAF||" "$(echo "$got" | sed -n 2p)"
 
 # A line can open with numbers and not be a linked head. Fewer words than
 # lights cannot be a split answer — a light cannot be part of a word — so this

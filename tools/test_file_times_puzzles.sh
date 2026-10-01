@@ -198,6 +198,16 @@ print("UNRECOUNTABLE", B.build(typo, row(typo), "times", None, None)[1])
 linked = dict(typo, unsplit=[{"lights": [[1, "across"], [25, "across"]],
                                              "answer": "HANDLEBARMOUSTACHE", "enumeration": "9,9"}])
 print("UNSPLIT", B.build(linked, row(linked), "times", None, None)[1])
+# One the grid does split files: the leader takes the clue, the rest See N.
+pair = [k for k in cells if k[1] == "across" and len(cells[k]) == 5]
+whole = rec(12, 107, "2026-01-15")
+whole["entries"] = [e for e in whole["entries"] if (e["number"], e["direction"]) not in pair]
+whole["unsplit"] = [{"lights": [list(k) for k in pair], "answer": answer[pair[0]] + answer[pair[1]],
+                     "enumeration": "5,5", "clue": "Linked words (5,5)"}]
+built, why = B.build(whole, row(whole), "times", None, None)
+by_id = {entry_id(e): e for e in built["entries"]} if built else {}
+print("SPLIT_FILED", why, [enumeration.printed(by_id[f"{n}-{d}"]["clue"]) for n, d in pair],
+      by_id[f"{pair[0][0]}-across"].get("group"))
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -240,6 +250,8 @@ check "a count with more words than the answers hold is refused" \
   "$(got UNRECOUNTABLE)"
 check "a linked clue the blog does not split refuses the puzzle, not its grid without it" \
   "a linked clue the blog does not split" "$(got UNSPLIT)"
+check "a linked answer the grid splits files, the leader holding the clue" \
+  "None ['Linked words (5,5)', 'See 5'] ['5-across', '8-across']" "$(got SPLIT_FILED)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are
 # printed, so their post date is not their date; filing one by it put
