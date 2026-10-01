@@ -24,6 +24,9 @@
   "date": "2026-06-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Spot boy not entirely ready initially",
     "enumeration": "6"
    },
-   "solution": "CORNER"
+   "solution": "CORNER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CORNER",
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "something not entirely there is incomplete, so the final letter is cut away"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "CORNEL",
+      "note": "Cornel is a boy's name, as in the actor Cornel Wilde"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORNE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a lad who is not quite prepared at the outset.",
+     "walkthrough": "Spot reads as a verb meaning notice, but it is a noun, as in a tight spot. The boy is the actor Cornel Wilde's first name, an uncommon one solvers rarely think of.",
+     "definitionFit": "Being in a tight corner and being in a tight spot are the same awkward situation, so the words are synonyms here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +109,66 @@
     "text": "Leading couples in court meet and support return to former position",
     "enumeration": "8"
    },
-   "solution": "COMEBACK"
+   "solution": "COMEBACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COMEBACK",
+    "definitions": [
+     {
+      "text": "return to former position",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leading couples in",
+      "for": "letter_selection",
+      "note": "leading couples are the front pairs, so the first two letters of each word are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CO",
+      "select": "first",
+      "note": "the leading pair of letters of the word, an operation not an abbreviation"
+     },
+     {
+      "clueFragment": "meet",
+      "gives": "ME",
+      "select": "first",
+      "note": "the leading pair of letters of the word, an operation not an abbreviation"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back someone is to support them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ME",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Dancers or tennis pairs gather on court, backing a player returning to their old rank.",
+     "walkthrough": "The 'couples' are pairs of letters, not people: the first two of court and of meet, followed by a word for support.",
+     "definitionFit": "A comeback is a recovery of an earlier standing, as when a retired athlete or faded star wins back status."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couples"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +182,72 @@
     "text": "Dazzling new present with advance inside?",
     "enumeration": "11"
    },
-   "solution": "RESPLENDENT"
+   "solution": "RESPLENDENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RESPLENDENT",
+    "definitions": [
+     {
+      "text": "Dazzling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of a word is a remade one, so its letters come in a fresh order"
+     },
+     {
+      "text": "with",
+      "for": "container",
+      "note": "paired with inside, this says one word sits within the other"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one word within the other, splitting it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present",
+      "gives": "PRESENT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "advance",
+      "gives": "LEND",
+      "note": "to advance money is to lend it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESP",
+      "LEND",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRESENT",
+       "gives": "RESPENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dazzling new gift arrives with a cash advance tucked inside.",
+     "walkthrough": "'Present' reads as a gift, and 'advance' as a cash loan; the question mark admits the surface is a stretch.",
+     "definitionFit": "Something resplendent is splendid and brilliantly shining, which matches the sense of dazzling in appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +261,48 @@
     "text": "Your race on water, they say, for money?",
     "enumeration": "4"
    },
-   "solution": "EURO"
+   "solution": "EURO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EURO",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "what they say is what is spoken, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your race on water",
+      "gives": "EURO",
+      "soundsLike": "YOUR ROW",
+      "note": "a race on water is a row, so 'your row' said quickly gives the sound"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether your rowing race is being run for prize money.",
+     "walkthrough": "A row is a boat race; spoken as 'your row', the two words run together into the name of a currency.",
+     "definitionFit": "The euro is the currency shared by many European Union countries, so it is a kind of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +316,70 @@
     "text": "Shows worry about airline tickets after vacation",
     "enumeration": "8"
    },
-   "solution": "CABARETS"
+   "solution": "CABARETS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CABARETS",
+    "definitions": [
+     {
+      "text": "Shows",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word is wrapped round another"
+     },
+     {
+      "text": "after vacation",
+      "for": "letter_selection",
+      "note": "a vacated word has been emptied, leaving only its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worry",
+      "gives": "CARE",
+      "note": "care is anxiety or worry"
+     },
+     {
+      "clueFragment": "airline",
+      "gives": "BA",
+      "note": "BA is British Airways"
+     },
+     {
+      "clueFragment": "tickets",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BA",
+      "RE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller frets over flight tickets once the holiday is over.",
+     "walkthrough": "Shows reads as a verb, but it is a plural noun. 'Vacation' looks like a holiday but means emptying out the word.",
+     "definitionFit": "A cabaret is a nightclub entertainment of songs and sketches, so cabarets are kinds of stage shows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +393,57 @@
     "text": "Correctness of account supported by religious office",
     "enumeration": "8"
    },
-   "solution": "ACCURACY"
+   "solution": "ACCURACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCURACY",
+    "definitions": [
+     {
+      "text": "Correctness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue, being supported means sitting on top, so the first word comes above the second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     },
+     {
+      "clueFragment": "religious office",
+      "gives": "CURACY",
+      "note": "a curacy is the post held by a curate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CURACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A church office vouches for the correctness of a set of accounts.",
+     "walkthrough": "A curate is an assistant priest in the Church of England, and the curacy is his or her office.",
+     "definitionFit": "Accuracy is the quality of being exact and free of error, which is what correctness describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +457,51 @@
     "text": "Expert on star — more flexible",
     "enumeration": "10"
    },
-   "solution": "ASTRONOMER"
+   "solution": "ASTRONOMER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASTRONOMER",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flexible",
+      "for": "anagram",
+      "note": "something flexible bends into other shapes, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on star — more",
+      "gives": "ONSTARMORE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONSTARMORE",
+       "gives": "ASTRONOMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist on a celebrity is said to be more adaptable.",
+     "walkthrough": "'Expert on star' wants to be the whole definition, but only 'Expert' defines; 'on star more' is the material, and the surface hints at the answer's field.",
+     "definitionFit": "An astronomer is a scientific specialist, a person with expert knowledge of stars and planets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flexible"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +515,42 @@
     "text": "Period in Copper Age",
     "enumeration": "3"
    },
-   "solution": "ERA"
+   "solution": "ERA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERA",
+    "definitions": [
+     {
+      "text": "Period",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit within the following words, spanning the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper Age",
+      "gives": "ERA",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A history lesson names a stage within the Copper Age.",
+     "walkthrough": "The Copper Age is itself a period, which makes the surface feel like a straight definition.",
+     "definitionFit": "An era is a distinct span of history, so it is a period of time in the same sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +564,58 @@
     "text": "Coy about slip in drink?",
     "enumeration": "6"
    },
-   "solution": "SHERRY"
+   "solution": "SHERRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHERRY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word is wrapped round another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coy",
+      "gives": "SHY",
+      "note": "coy and shy both mean bashful"
+     },
+     {
+      "clueFragment": "slip",
+      "gives": "ERR",
+      "note": "to err is to slip up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ERR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is bashful about a blunder made while drinking.",
+     "walkthrough": "'In' is the link here, joining the wordplay to the definition at the end.",
+     "definitionFit": "Sherry is a fortified wine from southern Spain, so it is one kind of alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +629,43 @@
     "text": "Code word for a dominant person",
     "enumeration": "5"
    },
-   "solution": "ALPHA"
+   "solution": "ALPHA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALPHA",
+    "definitions": [
+     {
+      "text": "Code word for a",
+      "at": 0
+     },
+     {
+      "text": "dominant person",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Code word for a",
+      "note": "first meaning: the word used for the letter A in the radio spelling alphabet"
+     },
+     {
+      "clueFragment": "dominant person",
+      "note": "second meaning: the leading member of a group"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 'a' at the end looks like a throwaway article; it is the letter A that the code word stands for.",
+     "definitionFit": "The NATO phonetic alphabet spells A this way, and the top animal in a pack is likewise called the alpha."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +679,57 @@
     "text": "Recalling some classical arts, impressive feature of southwest Europe",
     "enumeration": "7"
    },
-   "solution": "MISTRAL"
+   "solution": "MISTRAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MISTRAL",
+    "definitions": [
+     {
+      "text": "feature of southwest Europe",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part, so a run of letters is taken from inside the words"
+     },
+     {
+      "text": "Recalling",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classical arts, impressive",
+      "gives": "LARTSIM",
+      "note": "a run spanning the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LARTSIM",
+       "to": "MISTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer recalls classical culture as a striking part of southern Europe's heritage.",
+     "walkthrough": "'Impressive feature' reads as one phrase, but the adjective only lends its first two letters. The mistral is a strong cold wind blowing down the Rhône valley in southern France.",
+     "definitionFit": "The mistral is a powerful regional wind of southern France, a notable weather characteristic of that corner of Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "impressive"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +743,54 @@
     "text": "Small house, somewhere to sleep time and time again?",
     "enumeration": "7"
    },
-   "solution": "COTTAGE"
+   "solution": "COTTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COTTAGE",
+    "definitions": [
+     {
+      "text": "Small house",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somewhere to sleep",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "and time again",
+      "gives": "AGE",
+      "note": "an age is a long time; 'and' just carries on the list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COT",
+      "T",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy little house where someone can sleep over again and again.",
+     "walkthrough": "'Time and time again' looks like an idiom for repeatedly, but time is used twice: once as a letter, once as a longer span.",
+     "definitionFit": "A cottage is a modest dwelling, typically in the countryside, so it is a little house by definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "again"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +804,45 @@
     "text": "Call good-looker, we hear",
     "enumeration": "4"
    },
-   "solution": "BELL"
+   "solution": "BELL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BELL",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken aloud, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good-looker",
+      "gives": "BELL",
+      "soundsLike": "BELLE",
+      "note": "a belle is a beautiful woman"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to phone the attractive person they keep hearing about.",
+     "walkthrough": "In British slang, to give someone a bell is to phone them.",
+     "definitionFit": "Informally a bell is a telephone call, as in 'give me a bell later', so the noun matches call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +856,61 @@
     "text": "More cautious about remote, half-forgotten, driver from past",
     "enumeration": "10"
    },
-   "solution": "CHARIOTEER"
+   "solution": "CHARIOTEER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHARIOTEER",
+    "definitions": [
+     {
+      "text": "driver from past",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-forgotten",
+      "for": "deletion",
+      "note": "forgetting half of something drops that share of its letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word is wrapped round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More cautious",
+      "gives": "CHARIER",
+      "note": "chary means cautious, so charier is more cautious"
+     },
+     {
+      "clueFragment": "remote",
+      "gives": "OTE",
+      "note": "the second half of the six-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARI",
+      "OTE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wary viewer half forgets the TV remote, like some old-time driver.",
+     "walkthrough": "'Remote' suggests a TV controller, but it only supplies its back half.",
+     "definitionFit": "A charioteer drove a horse-drawn chariot in ancient races and battles, so he was a driver of former times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "remote"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +924,51 @@
     "text": "Retail again stirring — just",
     "enumeration": "11"
    },
-   "solution": "EGALITARIAN"
+   "solution": "EGALITARIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGALITARIAN",
+    "definitions": [
+     {
+      "text": "just",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirring",
+      "for": "anagram",
+      "note": "stirring mixes things around, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retail again",
+      "gives": "RETAILAGAIN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RETAILAGAIN",
+       "gives": "EGALITARIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shops are just starting to stir back into life.",
+     "walkthrough": "'Just' looks like the adverb 'only', but it is the adjective meaning fair.",
+     "definitionFit": "An egalitarian approach treats all people as equals, which is a fair and even-handed one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +982,51 @@
     "text": "Good for you, nice ale? Fib, unfortunately!",
     "enumeration": "10"
    },
-   "solution": "BENEFICIAL"
+   "solution": "BENEFICIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BENEFICIAL",
+    "definitions": [
+     {
+      "text": "Good for you",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice ale? Fib",
+      "gives": "NICEALEFIB",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NICEALEFIB",
+       "gives": "BENEFICIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub boast that a nice pint is healthy is sadly exposed as a lie.",
+     "walkthrough": "The question mark and exclamation break the clue into a little exchange, hiding that the middle words are pure letter material.",
+     "definitionFit": "Something beneficial does you good, bringing health or advantage, so the phrase is a direct paraphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1040,56 @@
     "text": "Communicate argument against valuing every year from the outset",
     "enumeration": "6"
    },
-   "solution": "CONVEY"
+   "solution": "CONVEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CONVEY",
+    "definitions": [
+     {
+      "text": "Communicate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the outset",
+      "for": "letter_selection",
+      "note": "the outset is the beginning, so only the opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "argument against",
+      "gives": "CON",
+      "note": "a con is a point against, as in pros and cons"
+     },
+     {
+      "clueFragment": "valuing every year",
+      "gives": "VEY",
+      "select": "first",
+      "note": "the first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "VEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone voices an objection to valuing things annually from the start.",
+     "walkthrough": "'Argument against' reads as a whole phrase about opposition; it is just the short noun from pros and cons.",
+     "definitionFit": "To convey an idea is to get it across to someone, which is what communicating does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "valuing"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1103,55 @@
     "text": "One studying Church participating in type of panel",
     "enumeration": "7"
    },
-   "solution": "SCHOLAR"
+   "solution": "SCHOLAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCHOLAR",
+    "definitions": [
+     {
+      "text": "One studying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "participating in",
+      "for": "container",
+      "note": "to participate in something is to be inside it, so one word goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "type of panel",
+      "gives": "SOLAR",
+      "note": "a solar panel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CH",
+      "OLAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A student of the Church sits on some kind of panel discussion.",
+     "walkthrough": "'Panel' suggests a committee, but the type meant is the solar panel on a roof.",
+     "definitionFit": "A scholar is a learned person or student engaged in academic study, so is one who studies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "panel"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1165,59 @@
     "text": "Self-indulgent in 1960s maybe, nihilist — extremely",
     "enumeration": "8"
    },
-   "solution": "DECADENT"
+   "solution": "DECADENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DECADENT",
+    "definitions": [
+     {
+      "text": "Self-indulgent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the outermost letters at either end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1960s maybe",
+      "gives": "DECADE",
+      "note": "the 1960s are an example of a ten-year span"
+     },
+     {
+      "clueFragment": "nihilist",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECADE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hedonist from the swinging Sixties turns out to be a thoroughgoing nihilist.",
+     "walkthrough": "'Maybe' marks the 1960s as an example of the category wanted. 'Extremely' looks like an intensifier but selects the word's ends.",
+     "definitionFit": "Decadent describes a life given over to luxury and pleasure, which is self-indulgent behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1231,56 @@
     "text": "Money put aside (not popular) for specialist clothing",
     "enumeration": "8"
    },
-   "solution": "VESTMENT"
+   "solution": "VESTMENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VESTMENT",
+    "definitions": [
+     {
+      "text": "specialist clothing",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us to leave something out of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money put aside",
+      "gives": "INVESTMENT",
+      "note": "money set aside to grow is an investment"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something in fashion is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VESTMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Funds saved up, though unpopular, go toward buying uniforms.",
+     "walkthrough": "The bracket reads as an aside, but it is the instruction to drop IN from the front.",
+     "definitionFit": "A vestment is a ceremonial robe worn by clergy, so it is clothing for a particular role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1294,62 @@
     "text": "Official notes about iron, European",
     "enumeration": "7"
    },
-   "solution": "REFEREE"
+   "solution": "REFEREE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REFEREE",
+    "definitions": [
+     {
+      "text": "Official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the outer letters wrap round the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notes",
+      "gives": "RERE",
+      "note": "re is a note of the sol-fa scale, used twice"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FE",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A European official writes memos about iron.",
+     "walkthrough": "'Official notes' looks like memoranda, but 'Official' is the definition and the notes are musical ones from do-re-mi.",
+     "definitionFit": "A referee is the official who enforces rules during a game, an umpire or judge of play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1363,61 @@
     "text": "Instructions about famous work brought over",
     "enumeration": "6"
    },
-   "solution": "RECIPE"
+   "solution": "RECIPE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RECIPE",
+    "definitions": [
+     {
+      "text": "Instructions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought over",
+      "for": "reversal",
+      "note": "bringing something over flips it, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "famous work",
+      "gives": "EPIC",
+      "note": "an epic is a great work, often a long poem or film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CIPE"
+     ],
+     "reversals": [
+      {
+       "from": "EPIC",
+       "to": "CIPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guidance on a celebrated piece of writing has been carried across from abroad.",
+     "walkthrough": "'About' here supplies letters rather than acting as a container signal.",
+     "definitionFit": "A recipe is a set of directions for preparing a dish, so it is a list of instructions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1431,57 @@
     "text": "Basic rule about temperature in Swiss region",
     "enumeration": "6"
    },
-   "solution": "CANTON"
+   "solution": "CANTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANTON",
+    "definitions": [
+     {
+      "text": "Swiss region",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word is wrapped round another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Basic rule",
+      "gives": "CANON",
+      "note": "a canon is a fundamental principle"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A basic temperature regulation applies in one area of Switzerland.",
+     "walkthrough": "Switzerland is divided into 26 cantons, such as Geneva and Zurich.",
+     "definitionFit": "A canton is one of the federal states making up Switzerland, so it is a region of that country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1495,55 @@
     "text": "Lager arranged for scorer",
     "enumeration": "5"
    },
-   "solution": "ELGAR"
+   "solution": "ELGAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELGAR",
+    "definitions": [
+     {
+      "text": "scorer",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into a new order, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lager",
+      "gives": "LAGER",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAGER",
+       "gives": "ELGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beer is laid on for whoever scores the goal.",
+     "walkthrough": "'Scorer' suggests a footballer, but a scorer here writes scores: Edward Elgar, the English composer. 'Arranged' fits music too.",
+     "definitionFit": "Elgar wrote orchestral scores such as the Enigma Variations, so as a composer he is a writer of scores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scorer"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1557,65 @@
     "text": "Dining, say, having assumed home, first-class, is within reach?",
     "enumeration": "10"
    },
-   "solution": "ATTAINABLE"
+   "solution": "ATTAINABLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ATTAINABLE",
+    "definitions": [
+     {
+      "text": "within reach",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having assumed",
+      "for": "container",
+      "note": "to assume something is to take it on board, so the letters are taken inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dining, say",
+      "gives": "ATTABLE",
+      "note": "someone dining is, for example, at table"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "first-class",
+      "gives": "A",
+      "note": "A is a top grade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTA",
+      "IN",
+      "A",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner has moved into a first-class home and wonders if it is affordable.",
+     "walkthrough": "'At table' is the formal phrase for sitting down to a meal; IN and A go inside it after its fourth letter.",
+     "definitionFit": "Something attainable can be achieved or obtained, so it is close enough to grasp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assumed"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1629,56 @@
     "text": "Mother’s introduction to totem pole",
     "enumeration": "4"
    },
-   "solution": "MAST"
+   "solution": "MAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MAST",
+    "definitions": [
+     {
+      "text": "pole",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes first, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother’s",
+      "gives": "MAS",
+      "note": "Ma is mother, with the possessive s"
+     },
+     {
+      "clueFragment": "totem",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is introducing someone to a carved totem pole.",
+     "walkthrough": "'Totem pole' looks like one phrase, but it is split: totem gives a letter and pole is the definition.",
+     "definitionFit": "A mast is a tall upright post, as on a ship carrying sails, so it is a kind of pole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "totem"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1692,54 @@
     "text": "Sound of surprise about learner’s delight",
     "enumeration": "4"
    },
-   "solution": "GLEE"
+   "solution": "GLEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLEE",
+    "definitions": [
+     {
+      "text": "delight",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word is wrapped round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound of surprise",
+      "gives": "GEE",
+      "note": "gee is an exclamation of surprise"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner driver plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gasp of surprise greets a student's joy.",
+     "walkthrough": "In Britain, learner drivers display an L plate, which is why L stands for learner.",
+     "definitionFit": "Glee is great joy or merriment, which is a synonym for delight in its noun sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1753,56 @@
     "text": "Given to touching diplomacy, yielded at regular intervals",
     "enumeration": "7"
    },
-   "solution": "TACTILE"
+   "solution": "TACTILE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TACTILE",
+    "definitions": [
+     {
+      "text": "Given to touching",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "regular intervals means evenly spaced letters, so every second one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diplomacy",
+      "gives": "TACT",
+      "note": "tact is diplomatic sensitivity"
+     },
+     {
+      "clueFragment": "yielded",
+      "gives": "ILE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACT",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A touchy-feely negotiator gives ground every so often.",
+     "walkthrough": "'Given to touching diplomacy' reads as one phrase, but the definition ends at 'touching'.",
+     "definitionFit": "A tactile person tends to show affection physically, by hugging or patting, so is inclined to touch others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touching"
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1816,51 @@
     "text": "Diving equipment with edges trimmed for newcomer",
     "enumeration": "3"
    },
-   "solution": "CUB"
+   "solution": "CUB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CUB",
+    "definitions": [
+     {
+      "text": "newcomer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with edges trimmed",
+      "for": "letter_selection",
+      "note": "trimming the edges cuts off both ends, keeping only the inner letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diving equipment",
+      "gives": "CUB",
+      "select": "middle",
+      "note": "scuba gear is used for diving; the inner three of its five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUB"
+     ]
+    },
+    "explanation": {
+     "surface": "Diving gear with its edges trimmed is handed to a beginner.",
+     "walkthrough": "A cub reporter is a novice journalist, hence the sense of beginner.",
+     "definitionFit": "A cub is a raw beginner, as in a cub reporter, so it fits newcomer as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -449,7 +1880,53 @@
      }
     ]
    },
-   "solution": "ALLTIME"
+   "solution": "ALLTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALL-TIME",
+    "definitions": [
+     {
+      "text": "unsurpassed",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doubly large",
+      "gives": "LL",
+      "note": "L is large, as on clothing sizes, used twice"
+     },
+     {
+      "clueFragment": "term in prison",
+      "gives": "TIME",
+      "note": "doing time is serving a prison term"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LL",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict gets an unbeatable double-length sentence.",
+     "walkthrough": "'A doubly large term' sounds like a long sentence, but A and two Ls are separate pieces before TIME.",
+     "definitionFit": "An all-time record is the best ever recorded, so it is one never beaten or surpassed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doubly"
+    }
+   }
   },
   {
    "number": 30,
@@ -463,7 +1940,62 @@
     "text": "Dignity — charm, easily seen in New York",
     "enumeration": "8"
    },
-   "solution": "NOBILITY"
+   "solution": "NOBILITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NOBILITY",
+    "definitions": [
+     {
+      "text": "Dignity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one set of letters inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charm",
+      "gives": "OBI",
+      "note": "obi is a West Indian charm or fetish, a variant of obeah"
+     },
+     {
+      "clueFragment": "easily seen",
+      "gives": "LIT",
+      "note": "something lit up is easily seen"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OBI",
+      "LIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Grace and charm are on full view in New York.",
+     "walkthrough": "'Charm' suggests charisma, but here it is a magic object, an obi.",
+     "definitionFit": "Nobility of bearing means a noble, stately manner, which is the same quality as dignity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charm"
+    }
+   }
   },
   {
    "number": 31,
@@ -477,7 +2009,43 @@
     "text": "Some hype a nutritious item?",
     "enumeration": "6"
    },
-   "solution": "PEANUT"
+   "solution": "PEANUT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "PEANUT",
+    "definitions": [
+     {
+      "text": "Some hype a nutritious item?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part, so a run of letters is taken from within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hype a nutritious",
+      "gives": "PEANUT",
+      "note": "the letters run across the end of one word, the next, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Certain people promote a particular healthy snack.",
+     "walkthrough": "The whole clue doubles as the definition: some people do talk up this protein-rich snack as a health food.",
+     "definitionFit": "A peanut is a protein-rich legume eaten as a snack, so it is a nourishing food item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
