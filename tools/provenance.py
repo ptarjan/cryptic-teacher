@@ -201,6 +201,9 @@ ACQUIRED_BY = {
         "what": "puzzlesdata.telegraph.co.uk, the Telegraph Puzzles app's data bucket"},
     "tools/fetch_fifteensquared.py": {
         "channel": "blog", "what": "a fifteensquared solution write-up"},
+    "tools/file_cyclops_christmas.py": {
+        "channel": "blog",
+        "what": "a fifteensquared write-up's clues over the Eye's Christmas grid image"},
     "tools/acquire_book.py": {
         "channel": "book",
         "what": "an archive.org book scan taken all the way to filed puzzles "
@@ -261,7 +264,7 @@ ACQUISITION_BY_SOURCE = {
     # Before the feed began (No 8,978) the only clue lists are fifteensquared's.
     ("independent", "fifteensquared.net"): ("tools/indy_puzzles.py",),
     ("indysunday", "fifteensquared.net"): ("tools/indy_puzzles.py",),
-    ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py",),
+    ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("sundaytel", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
