@@ -253,6 +253,15 @@ else
   alert "tools/ft_puzzles.py failed, so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
 fi
 rm -f "$ft_out"
+# The FT's own printable PDFs, 2006-12 (tools/ft_pdf_puzzles.py's cache), are
+# the primary source for their numbers: a PDF the reader can now read is
+# filed, and tools/cross_validate.py ft compares every FT file a PDF covers
+# and refiles from the PDF a blog-rebuilt file, or a PDF-filed one the reader
+# now reads otherwise. The archive is closed, so nothing is fetched.
+if [ -f "$HOME/cryptic-setter-data/ft-pdf/index.json" ]; then
+  blog_chain FT "ft_pdf_puzzles.py file" "cross_validate.py ft --refile" \
+    && python3 tools/fetch_puzzle.py --reindex
+fi
 
 # --- 1c2. The Canberra Times, filed off the Trove scans in ~/.cache/trove ---
 # tools/fetch_trove.py fills the cache; this files the cryptics among the
