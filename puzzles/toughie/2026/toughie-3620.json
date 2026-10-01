@@ -24,6 +24,9 @@
   "date": "2026-01-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,57 @@
     "text": "Covering several eventualities after hospital’s suppressed complaint in theatre?",
     "enumeration": "7"
    },
-   "solution": "CATCALL"
+   "solution": "CATCALL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CATCALL",
+    "definitions": [
+     {
+      "text": "complaint in theatre",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppressed",
+      "for": "deletion",
+      "note": "what is suppressed is kept quiet and out of sight, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Covering several eventualities",
+      "gives": "CATCHALL",
+      "note": "a catch-all covers every possibility"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATC",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A clause in a policy covering lots of eventualities, after a hospital hushed up a complaint made at a theatre.",
+     "walkthrough": "Take CATCH-ALL and suppress the hospital's H to leave CATCALL. 'Theatre' leans towards hospital operating theatres, but here it is the playhouse.",
+     "definitionFit": "A catcall is a shrill whistle or jeer from an audience, a noisy complaint about a stage performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +104,51 @@
     "text": "Chap conveying bearing of celebrity?",
     "enumeration": "8"
    },
-   "solution": "ALISTAIR"
+   "solution": "ALISTAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALISTAIR",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "conveying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "ALIST",
+      "note": "the A-list is the top tier of celebrities, so an A-list star"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "AIR",
+      "note": "an air is a manner or bearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIST",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who carries himself with the bearing of a celebrity.",
+     "walkthrough": "'Bearing of celebrity' is read as an A-list air: A-LIST + AIR. The question mark flags that the celebrity is an adjective, not a person.",
+     "definitionFit": "Alistair is a male first name, and crosswords use 'chap' to clue any man's given name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +162,56 @@
     "text": "Trustworthy contractor’s housing OK for consumer",
     "enumeration": "8"
    },
-   "solution": "CREDIBLE"
+   "solution": "CREDIBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CREDIBLE",
+    "definitions": [
+     {
+      "text": "Trustworthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "letter_selection",
+      "note": "a housing is the outer casing of something, so only the outside letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contractor’s",
+      "gives": "CR",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "OK for consumer",
+      "gives": "EDIBLE",
+      "note": "fit to be eaten, fine for whoever consumes it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "EDIBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reliable builder's house that a buyer would be happy with.",
+     "walkthrough": "'Housing' looks like a container indicator, but it means the contractor's outer shell, C and R, followed by EDIBLE.",
+     "definitionFit": "Someone credible can be believed and relied upon, which is what trustworthy means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +225,82 @@
     "text": "Start of Little Brown Jug initially accompanies naked feller?",
     "enumeration": "10"
    },
-   "solution": "LUMBERJACK"
+   "solution": "LUMBERJACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "LUMBERJACK",
+    "definitions": [
+     {
+      "text": "feller",
+      "at": 54,
+      "note": "a pun: one who fells trees"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so just the first letter"
+     },
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "naked means stripped of clothing, so the word loses its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "UMBER",
+      "note": "umber is a brown earth pigment"
+     },
+     {
+      "clueFragment": "Jug",
+      "gives": "J",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "accompanies",
+      "gives": "BACKS",
+      "note": "to back a singer is to accompany them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UMBER",
+      "J",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Little Brown Jug, the Glenn Miller tune, opens with a naked man joining in.",
+     "walkthrough": "'Naked' seems to describe the feller, but it strips a word of its outer letters. The song title must be split into three separate pieces of wordplay.",
+     "definitionFit": "A lumberjack cuts down trees for a living, and someone who fells trees is literally a feller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +314,68 @@
     "text": "Fair delay upset arrivals to begin with",
     "enumeration": "4"
    },
-   "solution": "GALA"
+   "solution": "GALA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GALA",
+    "definitions": [
+     {
+      "text": "Fair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "to upset is to knock over, so in a down clue the word is turned upside down"
+     },
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points at the opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delay",
+      "gives": "LAG",
+      "note": "a lag is a delay"
+     },
+     {
+      "clueFragment": "arrivals",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "LAG",
+       "to": "GAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A delay at a fair upsets the people arriving early.",
+     "walkthrough": "'Fair' could be an adjective meaning just, but it is the noun for a festive event.",
+     "definitionFit": "A gala is a festive public occasion with stalls and entertainment, much like a fair or fete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fair"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +389,57 @@
     "text": "Part of Venice trip’s centrepiece scored quite highly?",
     "enumeration": "6"
    },
-   "solution": "RIALTO"
+   "solution": "RIALTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RIALTO",
+    "definitions": [
+     {
+      "text": "Part of Venice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centrepiece",
+      "for": "letter_selection",
+      "note": "the centrepiece sits in the middle, so only the middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trip’s",
+      "gives": "RI",
+      "select": "middle",
+      "note": "middle letters"
+     },
+     {
+      "clueFragment": "scored quite highly",
+      "gives": "ALTO",
+      "note": "alto is a part written for a fairly high voice, though below soprano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "ALTO"
+     ]
+    },
+    "explanation": {
+     "surface": "The highlight of a trip to Venice earned good marks from the tourists.",
+     "walkthrough": "'Scored quite highly' sounds like good marks, but scored means written in a musical score, and alto is a voice part pitched high but not highest.",
+     "definitionFit": "The Rialto is the old commercial district of Venice, famous for its bridge across the Grand Canal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +453,68 @@
     "text": "Hard cheese about backing up estimate",
     "enumeration": "7"
    },
-   "solution": "COMPUTE"
+   "solution": "COMPUTE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "COMPUTE",
+    "definitions": [
+     {
+      "text": "estimate",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the word runs in the opposite direction"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard cheese",
+      "gives": "COMTE",
+      "note": "Comte is a hard French cheese"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PU",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "'Hard cheese' is a dismissive 'tough luck' said to someone backing up an estimate.",
+     "walkthrough": "'Hard cheese' reads as the British idiom for bad luck, but it is a literal hard cheese, Comte.",
+     "definitionFit": "To compute is to calculate a figure, and to estimate is to calculate one roughly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +528,42 @@
     "text": "Engraver (Dürer) captures green vegetation",
     "enumeration": "7"
    },
-   "solution": "VERDURE"
+   "solution": "VERDURE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VERDURE",
+    "definitions": [
+     {
+      "text": "green vegetation",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captures",
+      "for": "hidden_word",
+      "note": "to capture is to hold inside, so the letters sit within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engraver (Dürer)",
+      "gives": "VERDURE",
+      "note": "the end of the first word runs into the start of the name, the umlaut ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "Albrecht Dürer, the engraver, depicts lush green plants in his work.",
+     "walkthrough": "The bracketed name looks like a gloss on the engraver, but the letters run across it; crossword convention ignores the accent on the U.",
+     "definitionFit": "Verdure means lush greenery, the fresh growth of plants, from the French for green."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +577,63 @@
     "text": "Something eccentric: Penny once absconding in Tristan’s beloved underwear",
     "enumeration": "8"
    },
-   "solution": "CAMISOLE"
+   "solution": "CAMISOLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CAMISOLE",
+    "definitions": [
+     {
+      "text": "underwear",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absconding",
+      "for": "deletion",
+      "note": "someone absconding runs off, so a letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something eccentric",
+      "gives": "CAM",
+      "note": "a cam is an eccentric wheel in machinery"
+     },
+     {
+      "clueFragment": "Penny once",
+      "gives": "D",
+      "note": "D was the symbol for the old pre-decimal penny"
+     },
+     {
+      "clueFragment": "Tristan’s beloved",
+      "gives": "ISOLDE",
+      "note": "in the legend and Wagner's opera, Tristan loves Isolde"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "ISOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange tale: a woman called Penny runs off wearing the underwear of Tristan's lover.",
+     "walkthrough": "'Penny' looks like a woman's name, but 'once' marks the old D for a penny, removed from ISOLDE. An eccentric is a mechanical part as well as an odd person.",
+     "definitionFit": "A camisole is a light sleeveless top worn as women's underwear beneath a blouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +647,64 @@
     "text": "Turned back cover – novel is Catch-22",
     "enumeration": "7"
    },
-   "solution": "DILEMMA"
+   "solution": "DILEMMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DILEMMA",
+    "definitions": [
+     {
+      "text": "Catch-22",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned back",
+      "for": "reversal",
+      "note": "turned back means facing the opposite way, so the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid covers a pot"
+     },
+     {
+      "clueFragment": "novel",
+      "gives": "EMMA",
+      "note": "Emma is the Jane Austen novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIL",
+      "EMMA"
+     ],
+     "reversals": [
+      {
+       "from": "LID",
+       "to": "DIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns back the cover of a book to find the novel is Catch-22.",
+     "walkthrough": "Catch-22 is itself a novel, which makes 'novel' look like its description; here Catch-22 is the definition and the novel is Emma.",
+     "definitionFit": "A Catch-22 is a no-win situation where every option is blocked, and a dilemma is a choice between bad alternatives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +718,77 @@
     "text": "Beaten in a vote count returned in 24 hours",
     "enumeration": "8"
    },
-   "solution": "WALLOPED"
+   "solution": "WALLOPED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "WALLOPED",
+    "definitions": [
+     {
+      "text": "Beaten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within another, so these letters sit inside the next piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vote count",
+      "gives": "POLL",
+      "note": "a poll is a count of votes"
+     },
+     {
+      "clueFragment": "24 hours",
+      "gives": "WED",
+      "note": "Wednesday, abbreviated, lasts 24 hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "LLOP",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "POLL",
+       "to": "LLOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate was beaten in an election once the recount came back within a day.",
+     "walkthrough": "Any day of the week can be clued as 24 hours; here it is WED, abbreviated Wednesday, holding A and POLL reversed.",
+     "definitionFit": "To wallop someone is to hit them hard or defeat them heavily, so walloped is a vivid synonym for beaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +808,50 @@
      }
     ]
    },
-   "solution": "WHITELEAD"
+   "solution": "WHITELEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHITE LEAD",
+    "definitions": [
+     {
+      "text": "something found in paint",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "identifies"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "WHITE",
+      "note": "white is a kind of wine"
+     },
+     {
+      "clueFragment": "guide",
+      "gives": "LEAD",
+      "note": "to lead is to guide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITE",
+      "LEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine guide reveals a nasty additive in a bottle, its exclamation suggesting a scandal.",
+     "walkthrough": "The exclamation mark hints at a scandalous discovery about wine, but the wine and the guide are simply two words placed side by side.",
+     "definitionFit": "White lead, a basic lead carbonate, was for centuries the standard white pigment mixed into house paints."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guide"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +865,49 @@
     "text": "Second means of transport on which one won’t go to work",
     "enumeration": "6"
    },
-   "solution": "STRIKE"
+   "solution": "STRIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIKE",
+    "definitions": [
+     {
+      "text": "on which one won’t go to work",
+      "at": 26,
+      "note": "a descriptive phrase standing for the noun: a stoppage that workers are on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "means of transport",
+      "gives": "TRIKE",
+      "note": "a trike is a tricycle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A second vehicle, the one you don't use for commuting.",
+     "walkthrough": "The phrase seems to describe a vehicle left at home, but it defines the stoppage: workers who are on strike do not go to work.",
+     "definitionFit": "Being on strike means refusing to work as a protest, so a strike is something staff are on instead of working."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +927,65 @@
      }
     ]
    },
-   "solution": "RAINDOCTOR"
+   "solution": "RAINDOCTOR",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RAIN-DOCTOR",
+    "definitions": [
+     {
+      "text": "Weatherman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "torn",
+      "for": "anagram",
+      "note": "something torn is ripped apart, so its letters are rearranged"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "to cut into something is to enter it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "radio torn",
+      "gives": "RADIOTORN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RADIOTORNC",
+       "gives": "RAINDOCTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio weather forecaster is torn about cutting carbon emissions.",
+     "walkthrough": "'Weatherman' suggests a broadcaster, and the radio fits the scene, but the definition is older: a person who claims to bring rain.",
+     "definitionFit": "A rain-doctor is a rainmaker, someone believed to produce rain by magic, so a man who controls the weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Weatherman"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +999,84 @@
     "text": "Superficial arty types, ultimately deluded, allowed to be taken in by fake Titian",
     "enumeration": "10"
    },
-   "solution": "DILETTANTI"
+   "solution": "DILETTANTI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "DILETTANTI",
+    "definitions": [
+     {
+      "text": "Superficial arty types",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "fake",
+      "for": "anagram",
+      "note": "a fake is not the genuine article, so these letters are rearranged into a counterfeit"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "to be taken in is to be drawn inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deluded",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "Titian",
+      "gives": "TITIAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "LET",
+      "TANTI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITIAN",
+       "gives": "ITANTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shallow, deluded art lovers are happily fooled by a forged Titian painting.",
+     "walkthrough": "D comes first, then LET sits inside ITANTI, the rearranged painter's name, after its first letter.",
+     "definitionFit": "Dilettanti, the Italian plural, are amateurs who dabble in the arts without serious knowledge or commitment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fake"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1090,71 @@
     "text": "Desire progressive characters in When Eight Bells Toll",
     "enumeration": "4"
    },
-   "solution": "WILL"
+   "solution": "WILL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "WILL",
+    "definitions": [
+     {
+      "text": "Desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "progressive characters in",
+      "for": "letter_selection",
+      "note": "progressive means advancing step by step, so each word gives a letter one place further along"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Eight",
+      "gives": "I",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "Bells",
+      "gives": "L",
+      "select": 3,
+      "note": "third letter"
+     },
+     {
+      "clueFragment": "Toll",
+      "gives": "L",
+      "select": 4,
+      "note": "fourth letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "I",
+      "L",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A wish to see the characters in the Alistair MacLean thriller When Eight Bells Toll.",
+     "walkthrough": "'Characters' looks like the people in the novel, but it means letters: the first of the first word, the second of the second, and so on.",
+     "definitionFit": "Will can mean wish or intention, as in 'against her will', which is a desire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1168,62 @@
     "text": "Superficially glossy fashion magazine covering famous daughter",
     "enumeration": "9"
    },
-   "solution": "ENAMELLED"
+   "solution": "ENAMELLED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ENAMELLED",
+    "definitions": [
+     {
+      "text": "Superficially glossy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes around what it protects, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion magazine",
+      "gives": "ELLE",
+      "note": "Elle is the fashion magazine"
+     },
+     {
+      "clueFragment": "famous",
+      "gives": "NAME",
+      "note": "a name is a famous person, as in a big name"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NAME",
+      "LLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A glossy fashion magazine features a famous person's daughter on its cover.",
+     "walkthrough": "The glossy magazine sets the scene, but 'glossy' belongs to the definition; the magazine wraps a famous name, then the daughter's D follows.",
+     "definitionFit": "Something enamelled has a hard shiny coating over its surface, so it is glossy only on the outside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "glossy"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1237,69 @@
     "text": "Did Peter out of victory in major cup having played first",
     "enumeration": "8"
    },
-   "solution": "DWINDLED"
+   "solution": "DWINDLED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DWINDLED",
+    "definitions": [
+     {
+      "text": "Did Peter out",
+      "at": 0,
+      "note": "past tense phrase; Peter is capitalised for disguise"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts one thing within another, so these letters sit inside"
+     },
+     {
+      "text": "having",
+      "for": "charade",
+      "note": "having means possessing as an addition, so the next piece follows on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     },
+     {
+      "clueFragment": "major cup",
+      "gives": "DD",
+      "note": "DD is a large bra cup size"
+     },
+     {
+      "clueFragment": "played first",
+      "gives": "LED",
+      "note": "in cards, the player who plays first has led"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WIN",
+      "D",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer named Peter missed out on winning a major cup after playing first.",
+     "walkthrough": "The capital P makes 'Peter' a name, but 'peter out' means fade away. The major cup is a bra size, not a trophy.",
+     "definitionFit": "To peter out is to diminish gradually to nothing, which is exactly what dwindling describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Peter"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1313,77 @@
     "text": "What might result in foul backlog above base of pipe",
     "enumeration": "8"
    },
-   "solution": "BLOCKAGE"
+   "solution": "BLOCKAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "BLOCKAGE",
+    "definitions": [
+     {
+      "text": "What might result in foul backlog above base of pipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foul",
+      "for": "anagram",
+      "note": "foul means fouled up or tangled, so the letters are jumbled"
+     },
+     {
+      "text": "base of",
+      "for": "letter_selection",
+      "note": "the base of a word in a down clue is its bottom, its last letter"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down clue what is above comes first, so the pieces are stacked in order"
+     }
+    ],
+    "linkWords": [
+     "What might result in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backlog",
+      "gives": "BACKLOG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOCKAG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BACKLOG",
+       "gives": "BLOCKAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foul build-up of waste sitting above the bottom of a drainpipe.",
+     "walkthrough": "The whole clue describes the answer and also builds it: BACKLOG jumbled, then the last letter of pipe at the bottom.",
+     "definitionFit": "A blockage is an obstruction, the very thing a foul accumulation of waste in a pipe would cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "foul"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1397,45 @@
     "text": "Milestone score that’s not raised?",
     "enumeration": "7"
    },
-   "solution": "CENTURY"
+   "solution": "CENTURY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CENTURY",
+    "definitions": [
+     {
+      "text": "Milestone score",
+      "at": 0
+     },
+     {
+      "text": "that’s not raised",
+      "at": 16,
+      "note": "an indirect definition: the word written upwards is a slang name for the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Milestone score",
+      "note": "first meaning: a hundred runs, a landmark for a batsman in cricket"
+     },
+     {
+      "clueFragment": "that’s not raised",
+      "note": "second meaning: the word not, raised in a down clue, reads as the slang word ton, a hundred"
+     }
+    ],
+    "explanation": {
+     "surface": "A landmark score that didn't get raised any further.",
+     "walkthrough": "TON is British slang for a hundred; written upward in this down clue it becomes NOT, so 'that's not raised' is a ton, a hundred runs.",
+     "definitionFit": "In cricket a batsman's hundred runs is a celebrated landmark, called a century or, in slang, a ton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1449,72 @@
     "text": "Bound dictionary left in large stores? On the contrary",
     "enumeration": "7"
    },
-   "solution": "OBLIGED"
+   "solution": "OBLIGED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OBLIGED",
+    "definitions": [
+     {
+      "text": "Bound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts one thing within another, so these letters sit inside"
+     },
+     {
+      "text": "stores",
+      "for": "container",
+      "note": "to store something is to keep it inside, so one piece holds another"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "on the contrary says the roles are swapped, so the holder becomes the held"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictionary",
+      "gives": "OED",
+      "note": "the OED is the Oxford English Dictionary"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "big means large"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "L",
+      "IG",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A bound dictionary is left in a large shop.",
+     "walkthrough": "Read literally, the dictionary goes inside 'large', which holds 'left'; 'on the contrary' swaps every holder and held, so the dictionary does the storing.",
+     "definitionFit": "To be obliged to do something is to be required by duty or law, which is what bound to means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1528,62 @@
     "text": "Passionate with 11 Down upon discarding braces regularly",
     "enumeration": "4"
    },
-   "solution": "WILD"
+   "solution": "WILD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WILD",
+    "definitions": [
+     {
+      "text": "Passionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarding braces regularly",
+      "for": "letter_selection",
+      "note": "a brace is a pair, so two letters are thrown away at regular intervals"
+     },
+     {
+      "text": "upon",
+      "for": "charade",
+      "note": "upon means resting on top, so one piece comes before the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "11 Down",
+      "gives": "ILD",
+      "select": "regular",
+      "note": "the cross-referenced answer, keeping every third letter after dropping each pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ILD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets passionate when wearing fewer braces.",
+     "walkthrough": "11 Down is WHITE LEAD; throwing away the pairs WH, TE and EA leaves I, L and D. 'Braces' looks like trouser straps but means pairs.",
+     "definitionFit": "Wild can describe strong uncontrolled feelings, as in wild about someone, which is being passionate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "braces"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1597,76 @@
     "text": "Rely on measure used by police force sealing north London station",
     "enumeration": "10"
    },
-   "solution": "EMBANKMENT"
+   "solution": "EMBANKMENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EMBANKMENT",
+    "definitions": [
+     {
+      "text": "London station",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one thing on another in an across clue follows it, so the order flips"
+     },
+     {
+      "text": "sealing",
+      "for": "container",
+      "note": "to seal is to close around something, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "measure",
+      "gives": "EM",
+      "note": "an em is a printer's measure"
+     },
+     {
+      "clueFragment": "Rely",
+      "gives": "BANK",
+      "note": "to bank on something is to rely on it"
+     },
+     {
+      "clueFragment": "police force",
+      "gives": "MET",
+      "note": "the Met is London's Metropolitan Police"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BANK",
+      "ME",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A London police force relies on a measure that seals off a station in the north of the city.",
+     "walkthrough": "'Rely on' reads as one phrase meaning bank on; here 'on' also places the measure first. Embankment is a London Underground station by the Thames.",
+     "definitionFit": "Embankment is the name of a London Underground station beside the Victoria Embankment on the Thames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rely"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1686,58 @@
      }
     ]
    },
-   "solution": "NOWNOW"
+   "solution": "NOWNOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOW NOW",
+    "definitions": [
+     {
+      "text": "Don’t bicker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "two",
+      "for": "charade",
+      "note": "two of something means the same piece is used twice in a row"
+     }
+    ],
+    "linkWords": [
+     "you’ve got"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "presents",
+      "gives": "NOW",
+      "note": "first present: the present moment is now"
+     },
+     {
+      "clueFragment": "presents",
+      "gives": "NOW",
+      "note": "second present: the same word again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOW",
+      "NOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent tells squabbling children to stop, since they each got a present.",
+     "walkthrough": "'Presents' suggests gifts, but it means the present time, and two of it gives the soothing phrase.",
+     "definitionFit": "'Now, now' is a mild reproof used to calm people down and tell them to stop quarrelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "presents"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1751,54 @@
     "text": "Combination of two cards?",
     "enumeration": "6"
    },
-   "solution": "TENACE"
+   "solution": "TENACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "TENACE",
+    "definitions": [
+     {
+      "text": "Combination of two cards?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "two",
+      "for": "charade",
+      "note": "two signals a pair of separate pieces set side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cards",
+      "gives": "TEN",
+      "note": "first card: a ten"
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "ACE",
+      "note": "second card: an ace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what you get when two playing cards are put together.",
+     "walkthrough": "The clue both defines the bridge term and builds it: the two cards are a ten and an ace, combined.",
+     "definitionFit": "In bridge and whist, a tenace is a holding of two high cards in one suit separated by a gap, such as ace and queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1812,56 @@
     "text": "Turn on dog that could improve sprint time?",
     "enumeration": "8"
    },
-   "solution": "TAILWIND"
+   "solution": "TAILWIND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILWIND",
+    "definitions": [
+     {
+      "text": "that could improve sprint time",
+      "at": 12,
+      "note": "a relative clause standing for the noun: something that could help a sprinter"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one thing on another in an across clue comes after it, so the order flips"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to tail or follow them"
+     },
+     {
+      "clueFragment": "Turn",
+      "gives": "WIND",
+      "note": "to wind is to turn, as with a key or handle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "WIND"
+     ]
+    },
+    "explanation": {
+     "surface": "A sprinter's dog turns on them, which might make them run faster.",
+     "walkthrough": "'Dog' looks like the animal but is the verb to follow. Wind rhymes with kind here, as in winding a clock.",
+     "definitionFit": "A tailwind blows from behind a runner, pushing them along and lowering their time over a short race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1875,67 @@
     "text": "Ingenuous climbing devotee one stops",
     "enumeration": "4"
    },
-   "solution": "NAIF"
+   "solution": "NAIF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NAIF",
+    "definitions": [
+     {
+      "text": "Ingenuous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing goes upward, so in a down clue the letters read bottom to top"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "devotee",
+      "gives": "FAN",
+      "note": "a fan is a devotee"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "I",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "FAN",
+       "to": "NAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naive climbing enthusiast stops on the way up.",
+     "walkthrough": "'Climbing devotee' reads as a mountaineer, but climbing is the instruction to reverse the fan upwards.",
+     "definitionFit": "Naif is an adjective meaning naive or artless, which is what ingenuous means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1949,59 @@
     "text": "Ambiguous small shift in possessing WMD?",
     "enumeration": "7"
    },
-   "solution": "UNCLEAR"
+   "solution": "UNCLEAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNCLEAR",
+    "definitions": [
+     {
+      "text": "Ambiguous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "small shift",
+      "for": "anagram",
+      "note": "a small shift moves things a little, so two neighbouring letters change places"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possessing WMD",
+      "gives": "NUCLEAR",
+      "note": "a nuclear state is one possessing weapons of mass destruction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "CLEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NU",
+       "gives": "UN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small change in policy over who holds weapons of mass destruction leaves things murky.",
+     "walkthrough": "Only the first two letters swap places. WMD stands for weapons of mass destruction, and nuclear arms are the classic example.",
+     "definitionFit": "Something unclear is open to more than one reading or hard to make out, so it is ambiguous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +2015,54 @@
     "text": "Showy expression using “thrice” or otherwise",
     "enumeration": "8"
    },
-   "solution": "RHETORIC"
+   "solution": "RHETORIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHETORIC",
+    "definitions": [
+     {
+      "text": "Showy expression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in a different way, so the letters are arranged differently"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "“thrice” or",
+      "gives": "THRICEOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THRICEOR",
+       "gives": "RHETORIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flowery turn of phrase that relies on the archaic word thrice, or something like it.",
+     "walkthrough": "The quotation marks make 'thrice' look like an example of showy language, which it is, but it is also raw material.",
+     "definitionFit": "Rhetoric is language designed to impress or persuade, often criticised as grand but empty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "otherwise"
+    }
+   }
   },
   {
    "number": 29,
@@ -461,7 +2076,72 @@
     "text": "Attitude encountered when taking in godson, essentially",
     "enumeration": "7"
    },
-   "solution": "MINDSET"
+   "solution": "MINDSET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "MINDSET",
+    "definitions": [
+     {
+      "text": "Attitude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one piece contains others"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence lies at the heart, so only the central letters are kept"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "met means encountered"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "godson",
+      "gives": "DS",
+      "select": "middle",
+      "note": "middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "DS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "The attitude someone met with when taking in a godson, basically.",
+     "walkthrough": "'Taking in' reads as one phrase, but 'taking' does the containing and 'in' is a piece of the answer.",
+     "definitionFit": "A mindset is a settled way of thinking about things, which is one's attitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
