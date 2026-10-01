@@ -14,9 +14,10 @@ Usage:
 
 Layout under --out:
   jar.txt                 cookies (the Anubis pass lasts ~7 days)
-  index/<year>.jsonl      one search hit per line: id, date, page, title, snippet
+  index/<year>.jsonl      one search hit per line (id, date, page, title, snippet,
+                          query), the union of every query run for that year
   <id>/meta.json          date, page id, article zones (page pixel boxes), grid box
-  <id>/ocr.txt            Trove's OCR text, one zone per paragraph
+  <id>/ocr.txt            Trove's OCR text, one printed line per line
   <id>/grid.jpg           the grid zone cut from the page scan (see --grid-width)
 
 No account and no API key. Three anonymous mechanisms, all plain HTTP:
@@ -225,9 +226,18 @@ def main():
         total, hits = tv.search(a.query, a.title, year)
         os.makedirs(os.path.join(a.out, "index"), exist_ok=True)
         path = os.path.join(a.out, "index", f"{year}.jsonl")
+        # A year's index is the union of every query run for it, keyed by id.
+        known = {}
+        if os.path.exists(path):
+            with open(path) as f:
+                known = {h["id"]: h for h in map(json.loads, f)}
+        new = [h for h in hits if h["id"] not in known]
+        for h in new:
+            h["query"] = a.query
+            known[h["id"]] = h
         with open(path, "w") as f:
-            f.writelines(json.dumps(h) + "\n" for h in hits)
-        print(f"{year} {a.query}: {total} hits, {len(hits)} written to {path}")
+            f.writelines(json.dumps(h) + "\n" for h in known.values())
+        print(f"{year} {a.query}: {total} hits, {len(new)} new, {len(known)} in {path}")
     else:
         ids = list(a.args)
         if a.year:
