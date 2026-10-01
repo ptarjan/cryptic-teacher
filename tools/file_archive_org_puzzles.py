@@ -416,6 +416,8 @@ def reconcile(laid, stream):
             blank[lid] = "no count read"
             out[lid] = ("", enum, group)
             continue
+        # A word the paper hyphenated over a line end keeps its hyphen.
+        text = re.sub(r"(?<=[a-z])- (?=[a-z])", "-", text)
         got, how = agree(text, other)
         if got is None:
             blank[lid] = how
@@ -726,12 +728,14 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     for d in dirs:
         rel = f"{d.parent.name}/{d.name}"
         row = known.get(rel)
-        h = input_hash(d, code)
-        if row and row.get("hash") == h and "scan" in row:
+        # The headings depend on the files alone: a change of code does not
+        # make every edition's djvu.xml worth parsing again.
+        fh = input_hash(d, "")
+        if row and row.get("filesHash") == fh and "scan" in row:
             scans[rel] = row["scan"]
         else:
             scans[rel] = scan(d)
-            known[rel] = {"edition": rel, "scan": scans[rel]}
+            known[rel] = {"edition": rel, "scan": scans[rel], "filesHash": fh}
     solutions = {}
     for d in dirs:
         for s in scans[f"{d.parent.name}/{d.name}"]["solutions"]:
@@ -770,7 +774,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                         verdict["wrote"] = True
                         held.add(hit["number"])
             verdicts.append(verdict)
-        known[rel] = {"edition": rel, "hash": h, "scan": scans[rel],
+        known[rel] = {"edition": rel, "hash": h, "scan": scans[rel], "filesHash": input_hash(d, ""),
                       "solutionsSeen": sol_seen, "verdicts": verdicts}
         if write:
             save(ledger, known)
