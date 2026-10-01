@@ -262,6 +262,29 @@ notes = cv.refile_ft(adapter, "ftcryptic-13412", Path("x.json"), 13412, [])
 same("a post whose answers fail files the PDF with the held answers",
      ([e["solution"] for e in written["puzzle"]["entries"]], written["puzzle"]["solutions"]["origin"],
       written["generator"]), (["CAT", "TOE", "CAB", "TEE"], "writeup", "tools/ft_pdf_puzzles.py"))
+# georgeho: the blog's rows over our own puzzle, every scrape defect no witness.
+import corroborate
+R = corroborate.Record
+post = R("georgeho:bigdave44", "bigdave44", "u1", answers={
+    (1, "across"): "CAT", (1, "down"): "CAB", (2, "down"): "TOE", (3, "across"): "BEA",
+    (5, "across"): "OWL"}, clues={
+    (1, "across"): "a Tom’s pet (3)", (1, "down"): ", taxi (3)", (2, "down"): ", 4. Digit",
+    (3, "across"): "Buzzing (3)", (5, "across"): "Hooter (3)"})
+mistitled = R("georgeho:bigdave44", "bigdave44", "u2", answers={
+    (1, "across"): "DOG", (1, "down"): "DIG", (2, "down"): "GAP", (3, "across"): "PIG"})
+corroborate.georgeho = lambda puzzle: [mistitled, post]
+gh = cv.GeorgeHo()
+theirs = gh.puzzle("telegraph-1", copy.deepcopy(base))
+found = {(m["class"], m["light"]): m.get("theirs") for m in cv.diff(copy.deepcopy(base), theirs)}
+same("georgeho: the post that agrees with ours, its direction letter and a clue split at "
+     "its number no witness, a missing count no witness, a light we lack MISSING",
+     found, {("ANSWER", "3-across"): "BEA", ("CLUE", "3-across"): "Buzzing",
+             ("MISSING", "5-across"): "OWL"})
+same("georgeho: a row the scrape filed under another light witnesses nothing",
+     cv.misfiled(("Taxi", "3", "CAB"), base["entries"][0], {"CAT", "CAB"}, set()), True)
+corroborate.georgeho = lambda puzzle: [mistitled]
+same("georgeho: a post holding none of our answers is another puzzle",
+     gh.puzzle("telegraph-1", copy.deepcopy(base))["id"].split(":")[0], "another puzzle")
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
