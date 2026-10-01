@@ -149,7 +149,7 @@ def puzzles():
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
-    # time and make prev/next hop between series.
+    # time.
     out.sort(key=lambda t: (series_meta.puzzle_day(t[1]) or date.min,
                             t[1].get("series", "cryptic") == "cryptic",
                             t[1]["number"]), reverse=True)
@@ -576,8 +576,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
                  f'{puz["dimensions"]["rows"]}</strong> squares')
 
-    # The neighbours are by date across every series, so each link names its
-    # paper: "No 3,374" beside a Guardian number reads as the same series.
+    # The neighbours are this puzzle's own series (see series_neighbours); the
+    # link names the paper all the same, since a book shelf spans volumes.
     nav = []
     if prev_p:
         nav.append(f'<a rel="prev" href="{BASE}/puzzles/{prev_p["id"]}/">'
@@ -1505,16 +1505,11 @@ def homepage_nav(idx):
 
     Without these the static pages exist but nothing points at them except the
     sitemap, and a sitemap-only URL is treated as a much weaker signal than one
-    that is actually linked. Visible to readers too — it is a real index.
+    that is actually linked. The archive link reaches every puzzle through the
+    series listings; no puzzle is linked by name, because a reader in the middle
+    of one puzzle reads a list of others as random.
     """
     solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
-    # Each link names its paper: the list mixes every series by date, and
-    # "No 3,374" beside "No 30,120" says nothing about which is which.
-    items = "".join(
-        f'<li><a href="{BASE}/puzzles/{p["id"]}/">{esc(named(p))}'
-        + (f' &middot; {esc(s)}' if (s := p.get("setter"))
-           and s != kind(p) and s != publisher(p) else "")
-        + "</a></li>" for p in solved[:12])
     return f"""{NAV_START}
 <section class="seo-nav">
   <h2>Answers and explanations</h2>
@@ -1525,8 +1520,7 @@ def homepage_nav(idx):
      the <a href="{BASE}/abbreviations/">common abbreviations</a> and
      <a href="{BASE}/indicators/">indicators</a>, read
      <a href="{BASE}/difficulty/">how difficulty is rated</a>, or browse
-     <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>. The newest:</p>
-  <ul>{items}</ul>
+     <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>.</p>
 </section>
 {NAV_END}"""
 
@@ -1663,9 +1657,24 @@ def legacy_redirects(solved):
 
 # ------------------------------------------------------------------------ run
 
-#: (solved, meta, check) for puzzle_page_job(), set by outputs() before its
-#: workers fork.
+#: (solved, neighbours, meta, check) for puzzle_page_job(), set by outputs()
+#: before its workers fork.
 _PAGES = None
+
+
+def series_neighbours(stubs):
+    """[(newer, older)] for each stub of the newest-first list: the adjacent
+    puzzle of the same series, or None. A pager that steps to whatever another
+    paper printed the same day is a link to a random puzzle."""
+    out, last = [None] * len(stubs), {}
+    for i, p in enumerate(stubs):
+        s = p.get("series") or "cryptic"
+        j = last.get(s)
+        out[i] = [stubs[j] if j is not None else None, None]
+        if j is not None:
+            out[j][1] = p
+        last[s] = i
+    return [tuple(n) for n in out]
 
 
 def puzzle_page_job(i):
@@ -1676,11 +1685,10 @@ def puzzle_page_job(i):
     outputs() merges in page order into exactly what one serial pass builds.
     The text stays in the worker, so no page crosses a pipe.
     """
-    solved, meta, check = _PAGES
+    solved, neighbours, meta, check = _PAGES
     puz = with_blog_facts(read_puzzle_file(solved[i][0]))
     # The list is newest-first, so "next" is the older neighbour.
-    prev_p = solved[i - 1][1] if i > 0 else None
-    next_p = solved[i + 1][1] if i + 1 < len(solved) else None
+    prev_p, next_p = neighbours[i]
     page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
     blocks, found = {}, {}
     clue_blocks(blocks, puz, page)
@@ -1732,7 +1740,7 @@ def outputs(check=False):
         claimed.add(p)
 
     blocks, found = {}, {}
-    _PAGES = solved, meta, check
+    _PAGES = solved, series_neighbours(stubs), meta, check
     for path, stale, page_blocks, page_found in parallel.pmap(puzzle_page_job,
                                                               range(len(solved))):
         for key, cands in page_blocks.items():
