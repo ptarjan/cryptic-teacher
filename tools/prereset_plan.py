@@ -28,6 +28,9 @@ REPO = Path(__file__).resolve().parent.parent
 # its reset, so the need sets the width. The margin covers the per-run rate,
 # which is measured within about ±10% interval to interval.
 NEED_MARGIN = 1.25
+# The five-hour window. A reset the meter puts in the past means the window has
+# turned over since it was read: the whole of a fresh one is left to spend.
+WINDOW_HOURS = 5.0
 # The width when neither the meter nor the last logged width can be read.
 DEFAULT_WIDTH = 14
 # The ceiling when memory cannot be read: ~6 GB of runs.
@@ -83,9 +86,12 @@ def per_run_rate(lines):
 
 def need(pct, hours_left, rate):
     """Runs that would spend the five-hour window's remainder by its reset, with
-    NEED_MARGIN, at least 1. None when any input is missing or unusable."""
+    NEED_MARGIN, at least 1. A reset already passed is a fresh window, all of it
+    left. None when any input is missing or unusable."""
     try:
-        if hours_left <= 0 or rate <= 0:
+        if pct is not None and hours_left <= 0:
+            pct, hours_left = 0, WINDOW_HOURS
+        if rate <= 0:
             return None
         return max(1, math.ceil((100 - pct) * NEED_MARGIN / (hours_left * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
@@ -242,8 +248,9 @@ NEED_CASES = [
     ((60, 1.0, 1.95), 26),    # 40 points in 1h
     ((100, 1.0, 1.95), 1),    # window spent
     ((None, 1.0, 1.95), None),
-    ((50, 0.0, 1.95), None),  # reset unread or passed
-    ((50, -1.0, 1.95), None),
+    ((50, 0.0, 1.95), 13),    # reset passed: a fresh window, 100 points in 5h
+    ((100, -0.1, 1.95), 13),  # the meter still shows the window just spent
+    ((50, None, 1.95), None), # reset unread
 ]
 GB = 1024 * 1024
 # (meminfo, RSS of runs in flight) -> memory cap
