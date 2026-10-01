@@ -660,15 +660,6 @@ annotate_alert() {  # $1 = puzzle, $2 = what happened, $3 = session id
 # `ann_rc = 124` branch — but the night still has to say it happened.
 lost_ids=""
 
-# Both meters before any of tonight's spend, so the run can price a five-hour
-# window on its way out. What a window is worth is the number the pre-reset burn
-# starts on, and until now it was only ever measured DURING a burn — once a
-# week, on the night it was already too late to move the start. It moved by a
-# factor of 1.7 between two of those on 2026-09-08 and nothing here noticed for
-# six days. An empty reading just makes the pair unusable below.
-spend_weekly_before=$(python3 tools/weekly_usage.py --group weekly 2>/dev/null)
-spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null)
-
 # --- 2c. learn from the misses step 2 graded ---
 # A graded miss is a sample of a class: the reading, rule or check that let a
 # wrong answer through will let the next one through too. Each miss gets one
@@ -1132,22 +1123,6 @@ else
 nobody is seeing them. No solver is quoted below — this is why the read failed:
 
 $bad_hints"
-fi
-
-# Price the window off everything claude spent above. The planner refuses the
-# pair unless both meters really moved, so a quiet night, a five-hour turnover
-# mid-run (session falls) and a weekly reset (weekly falls) all read as no
-# measurement rather than as a wrong one.
-if [ -n "$spend_weekly_before" ] && [ -n "$spend_session_before" ]; then
-  spend_weekly_after=$(python3 tools/weekly_usage.py --group weekly 2>/dev/null)
-  spend_session_after=$(python3 tools/weekly_usage.py --group session 2>/dev/null)
-  if [ -n "$spend_weekly_after" ] && [ -n "$spend_session_after" ]; then
-    priced=$(python3 tools/prereset_plan.py --observe-yield \
-      "$((spend_weekly_after - spend_weekly_before))" \
-      "$((spend_session_after - spend_session_before))" 2>/dev/null)
-    echo "five-hour window now priced at ${priced:-unknown} weekly points" \
-      "(planning on $(python3 tools/prereset_plan.py --planning-yield 2>/dev/null))"
-  fi
 fi
 
 # --- 4. validate, reindex, commit ---

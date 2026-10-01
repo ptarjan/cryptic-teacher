@@ -22,9 +22,9 @@
 # exists for the length of one claude call and is deleted by the grading pass;
 # committed, it would publish the very key the run is pretending not to have.
 .blind/
-# Everything the pre-reset backfill leaves behind: its log, its run lock, and the
-# two rates it measures for itself (.prereset_rate, .prereset_yield). One glob so
-# the next thing it learns to measure cannot arrive untracked-but-committable.
+# Everything the pre-reset backfill leaves behind: its log, its run lock and its
+# landing note. One glob so the next file it writes cannot arrive
+# untracked-but-committable.
 .prereset*
 # The hourly archive.org book reader's transcript, same reasoning as .update.log.
 .books.log
