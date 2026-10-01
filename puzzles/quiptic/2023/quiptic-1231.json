@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Eat whole amount in thing holding ice cream",
     "enumeration": "7"
    },
-   "solution": "CONSUME"
+   "solution": "CONSUME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONSUME",
+    "definitions": [
+     {
+      "text": "Eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it, so a piece sits inside the frame"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing holding ice cream",
+      "gives": "CONE",
+      "note": "a wafer cone holds a scoop of ice cream"
+     },
+     {
+      "clueFragment": "whole amount",
+      "gives": "SUM",
+      "note": "a sum is a total, the whole amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SUM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to finish every last bit of an ice cream, cone and all.",
+     "walkthrough": "The ice-cream cone is opened up to hold the total, giving CON-SUM-E.",
+     "definitionFit": "To consume food is a formal synonym for eating it, swallowing it down entirely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thing"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,69 @@
     "text": "Dated pair in our neighbourhood originally",
     "enumeration": "7"
    },
-   "solution": "OUTWORN"
+   "solution": "OUTWORN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "OUTWORN",
+    "definitions": [
+     {
+      "text": "Dated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something that is in another is enclosed by it, so one piece sits inside"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally comes at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "TWO",
+      "note": "a pair is two of something"
+     },
+     {
+      "clueFragment": "neighbourhood",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "TWO",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned couple living locally, as remembered from long ago.",
+     "walkthrough": "The pair goes inside OUR, then the first letter of neighbourhood is added at the end: OU-TWO-R-N.",
+     "definitionFit": "Something outworn has become obsolete through long use, just as dated things are old-fashioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dated"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +174,46 @@
     "text": "Swagger, showing part of a framework",
     "enumeration": "5"
    },
-   "solution": "STRUT"
+   "solution": "STRUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRUT",
+    "definitions": [
+     {
+      "text": "Swagger",
+      "at": 0
+     },
+     {
+      "text": "part of a framework",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swagger",
+      "note": "first meaning: to walk in a proud, showy way"
+     },
+     {
+      "clueFragment": "part of a framework",
+      "note": "second meaning: a rod or bar that braces a structure"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a building's frame showing off; the two halves are unrelated meanings of one short word.",
+     "definitionFit": "The word is both a verb for walking with arrogant pride and a noun for a supporting brace in a structure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "showing"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +227,84 @@
     "text": "Unstable times around capitals of Delaware and Washington or another part of the US?",
     "enumeration": "7"
    },
-   "solution": "MIDWEST"
+   "solution": "MIDWEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "MIDWEST",
+    "definitions": [
+     {
+      "text": "another part of the US?",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unstable",
+      "for": "anagram",
+      "note": "something unstable will not hold its shape, so the letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around something is to surround it, so one piece is wrapped about the other"
+     },
+     {
+      "text": "capitals of",
+      "for": "letter_selection",
+      "note": "capitals here are capital letters, the initial letters of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "times",
+      "gives": "TIMES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Delaware",
+      "gives": "D",
+      "select": "first",
+      "note": "the initial letter of the US state"
+     },
+     {
+      "clueFragment": "Washington",
+      "gives": "W",
+      "select": "first",
+      "note": "the initial letter of the US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "D",
+      "W",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIMES",
+       "gives": "MIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled era spreads across Delaware, Washington or some other region of America.",
+     "walkthrough": "'Capitals' tempts you toward Dover and Olympia, but here it means capital letters. TIMES rearranged as MI-EST holds D and W.",
+     "definitionFit": "Delaware and Washington are both parts of the US, so the Midwest is another region of that country, hence 'another'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "capitals"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +318,68 @@
     "text": "Agent carrying papers, here essentially marked with angular lines?",
     "enumeration": "7"
    },
-   "solution": "SPIDERY"
+   "solution": "SPIDERY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SPIDERY",
+    "definitions": [
+     {
+      "text": "marked with angular lines?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it, so one piece holds the others inside"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a thing is its core, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agent",
+      "gives": "SPY",
+      "note": "a secret agent is a spy"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers are ID"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ID",
+      "ER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret agent carries documents marked with suspicious angular lines.",
+     "walkthrough": "The spy opens to hold ID and ER together: SP-ID-ER-Y.",
+     "definitionFit": "Spidery describes thin, sprawling handwriting or lines resembling a spider's long legs, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +393,64 @@
     "text": "Infestation in place with row overlooking river",
     "enumeration": "6"
    },
-   "solution": "PLAGUE"
+   "solution": "PLAGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PLAGUE",
+    "definitions": [
+     {
+      "text": "Infestation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "to overlook something is to ignore or miss it, so a letter is left out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the standard abbreviation for place, as in street names"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "ARGUE",
+      "note": "to row (rhyming with cow) is to quarrel"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the usual abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "AGUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pests have overrun a riverside terrace of houses.",
+     "walkthrough": "'Overlooking' paints a view of the water, but it means ignoring: ARGUE loses its R. 'Row' is the quarrel, not a line of houses.",
+     "definitionFit": "A plague of locusts or rats is an infestation, a sudden swarm of pests in great numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +464,39 @@
     "text": "Lower rating given to a quilt material supplier?",
     "enumeration": "9"
    },
-   "solution": "DOWNGRADE"
+   "solution": "DOWNGRADE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DOWNGRADE",
+    "definitions": [
+     {
+      "text": "Lower rating",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lower rating",
+      "note": "surface reading: a reduction in someone's grade or ranking"
+     },
+     {
+      "clueFragment": "given to a quilt material supplier?",
+      "note": "setter's reading: the soft feathers that fill a quilt, and a mark awarded to whoever supplies them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half splits the answer into two words: the feathery quilt filling plus a mark or rating, the sort a duck might be given.",
+     "definitionFit": "A reduction to a lower rank or status is a demotion, the opposite of a promotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supplier"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +510,65 @@
     "text": "European element occupying Parisian street as a set of followers?",
     "enumeration": "7"
    },
-   "solution": "RETINUE"
+   "solution": "RETINUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RETINUE",
+    "definitions": [
+     {
+      "text": "set of followers",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy a place is to sit within it, so these letters go inside another word"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian street",
+      "gives": "RUE",
+      "note": "rue is French for street"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "element",
+      "gives": "TIN",
+      "note": "tin is a chemical element"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "TIN",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A European figure settles into a Paris street along with an entourage.",
+     "walkthrough": "E and TIN together sit inside the French street: R-E-TIN-UE.",
+     "definitionFit": "A retinue is the entourage of attendants accompanying an important person, a group of hangers-on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +588,56 @@
      }
     ]
    },
-   "solution": "LAUGHINGSTOCK"
+   "solution": "LAUGHINGSTOCK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAUGHING STOCK",
+    "definitions": [
+     {
+      "text": "One that's ridiculed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "haphazardly",
+      "for": "anagram",
+      "note": "done haphazardly means done at random, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talks",
+      "gives": "TALKS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "coughing",
+      "gives": "COUGHING",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALKSCOUGHING",
+       "gives": "LAUGHINGSTOCK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker who splutters through a speech becomes a figure of fun.",
+     "walkthrough": "Both words, all thirteen letters, are mixed together.",
+     "definitionFit": "A laughing stock is a person everyone mocks, an object of general derision and scorn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coughing"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +651,45 @@
     "text": "Controversy in prison",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "Controversy",
+      "at": 0
+     },
+     {
+      "text": "prison",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Controversy",
+      "note": "first meaning: a commotion or fuss"
+     },
+     {
+      "clueFragment": "prison",
+      "note": "second meaning: slang for jail"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a scandal behind bars; the two words are separate meanings, the second being old British slang for jail.",
+     "definitionFit": "Causing a stir means creating a fuss or public uproar, and being in stir means being locked up in jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +713,65 @@
      }
     ]
    },
-   "solution": "DOAWAYWITH"
+   "solution": "DOAWAYWITH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DO AWAY WITH",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be round it, so one piece encircles the rest"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expression of error",
+      "gives": "DOH",
+      "note": "Homer Simpson's cry on making a mistake"
+     },
+     {
+      "clueFragment": "a course",
+      "gives": "AWAY",
+      "note": "A plus WAY, a course or route"
+     },
+     {
+      "clueFragment": "ingenuity",
+      "gives": "WIT",
+      "note": "wit is cleverness or inventiveness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "AWAY",
+      "WIT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eliminates the embarrassing gaffe in a creative course.",
+     "walkthrough": "DOH, Homer Simpson's cry of 'oops', has become standard in crosswords; its final H is split off to close the phrase.",
+     "definitionFit": "To do away with something means to abolish or eliminate it, so the phrase is an idiom for discarding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +785,77 @@
     "text": "Lots mill about in fringes of jamboree or push and shove",
     "enumeration": "6"
    },
-   "solution": "JOSTLE"
+   "solution": "JOSTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "JOSTLE",
+    "definitions": [
+     {
+      "text": "push and shove",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mill about",
+      "for": "anagram",
+      "note": "a crowd that mills about moves aimlessly, so these letters swirl into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is inside it, so these letters sit within the frame"
+     },
+     {
+      "text": "fringes of",
+      "for": "letter_selection",
+      "note": "the fringes of something are its edges, so only the outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jamboree",
+      "gives": "JE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Lots",
+      "gives": "LOTS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "OSTL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOTS",
+       "gives": "OSTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds mill around the edges of a big gathering, pushing and shoving.",
+     "walkthrough": "'Lots' is the fodder, not a quantity word, and its rearranged letters sit between J and E.",
+     "definitionFit": "To jostle is to bump and elbow others roughly in a crowd, exactly the rough physical barging described."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lots"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +869,55 @@
     "text": "Disinclined Greek moving a bit with face obscured",
     "enumeration": "8"
    },
-   "solution": "GRUDGING"
+   "solution": "GRUDGING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GRUDGING",
+    "definitions": [
+     {
+      "text": "Disinclined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with face obscured",
+      "for": "deletion",
+      "note": "a face is the front of something, and hiding it means losing the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "GR is the abbreviation for Greek"
+     },
+     {
+      "clueFragment": "moving a bit",
+      "gives": "BUDGING",
+      "note": "budging is shifting slightly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "UDGING"
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant Greek shuffles along with a covered face.",
+     "walkthrough": "'Face' looks like a person's face, but here it means the front letter of the word.",
+     "definitionFit": "Grudging means given reluctantly or unwillingly, matching someone disinclined to do something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +931,70 @@
     "text": "Amuse American captivated by playing with internet",
     "enumeration": "9"
    },
-   "solution": "ENTERTAIN"
+   "solution": "ENTERTAIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENTERTAIN",
+    "definitions": [
+     {
+      "text": "Amuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "someone captivated is held captive, so one piece is held inside the other"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing with something means fiddling with it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "internet",
+      "gives": "INTERNET",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTERT",
+      "A",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTERNET",
+       "gives": "ENTERTIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American is enthralled by messing about online, which keeps them amused.",
+     "walkthrough": "INTERNET is rearranged to ENTERT-IN with A held inside.",
+     "definitionFit": "To entertain people is to keep them pleasantly occupied and diverted, a near synonym of amuse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captivated"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +1008,65 @@
     "text": "A German among five bridge players showing enthusiasm",
     "enumeration": "9"
    },
-   "solution": "EAGERNESS"
+   "solution": "EAGERNESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EAGERNESS",
+    "definitions": [
+     {
+      "text": "enthusiasm",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "something among others is surrounded by them, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "five bridge players",
+      "gives": "ENESS",
+      "note": "bridge seats are North, South, East and West, here E, N, E, S, S"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "GER is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "GER",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A German visitor joins a bridge table and shows real keenness.",
+     "walkthrough": "Bridge players are known by compass points; five of them, E N E S S, hold A GER after the first E.",
+     "definitionFit": "Eagerness is keen desire or zeal, the same feeling as enthusiasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1080,58 @@
     "text": "Exercise in estate, perhaps, as a prank",
     "enumeration": "5"
    },
-   "solution": "CAPER"
+   "solution": "CAPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAPER",
+    "definitions": [
+     {
+      "text": "prank",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "estate, perhaps",
+      "gives": "CAR",
+      "note": "an estate is a British estate car, a station wagon; 'perhaps' marks it as one example"
+     },
+     {
+      "clueFragment": "Exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "PE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone does exercises on a country estate as a joke.",
+     "walkthrough": "'Estate' suggests land, but here it is a kind of car, a British station wagon, holding PE.",
+     "definitionFit": "A caper is a playful escapade or mischievous trick, a lighthearted bit of fun like a prank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "estate"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1145,65 @@
     "text": "Doctor, say, close to bottles and what's left of drinks?",
     "enumeration": "5"
    },
-   "solution": "DREGS"
+   "solution": "DREGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DREGS",
+    "definitions": [
+     {
+      "text": "what's left of drinks?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of something is its end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, just as 'say' does"
+     },
+     {
+      "clueFragment": "bottles",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor stands near some bottles and the remains of drinks.",
+     "walkthrough": "'Close to' looks like nearness, but it means the end letter of bottles.",
+     "definitionFit": "Dregs are the sediment and last remnants at the bottom of a glass or bottle once it is drunk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1217,55 @@
     "text": "Take the place of actor Christopher (around 51)",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELIEVE",
+    "definitions": [
+     {
+      "text": "Take the place of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to be around something is to surround it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor Christopher",
+      "gives": "REEVE",
+      "note": "Christopher Reeve, the American actor who played Superman"
+     },
+     {
+      "clueFragment": "51",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LI",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An understudy stands in for the actor Christopher.",
+     "walkthrough": "The actor's surname wraps around the Roman numeral: RE-LI-EVE.",
+     "definitionFit": "To relieve someone on duty is to take over their post so they can rest, replacing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "51"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1279,68 @@
     "text": "Woman that was first to be in a good network feeling resentment?",
     "enumeration": "9"
    },
-   "solution": "AGGRIEVED"
+   "solution": "AGGRIEVED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGGRIEVED",
+    "definitions": [
+     {
+      "text": "feeling resentment",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be in",
+      "for": "container",
+      "note": "something that is in another sits inside it, so it is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "network",
+      "gives": "GRID",
+      "note": "a grid is a network of lines"
+     },
+     {
+      "clueFragment": "Woman that was first",
+      "gives": "EVE",
+      "note": "in the Bible Eve was the first woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "GRI",
+      "EVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who was once top of a good social network now feels bitter.",
+     "walkthrough": "'First' suggests a first letter, but the woman that was first is the biblical Eve, placed inside GRID after A and G.",
+     "definitionFit": "Aggrieved means feeling wronged or hurt by unfair treatment, a state of resentment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1354,60 @@
     "text": "One on board early regularly to see breeding colony",
     "enumeration": "7"
    },
-   "solution": "ROOKERY"
+   "solution": "ROOKERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROOKERY",
+    "definitions": [
+     {
+      "text": "breeding colony",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other one, so alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One on board",
+      "gives": "ROOK",
+      "note": "a rook is a piece on a chess board"
+     },
+     {
+      "clueFragment": "early",
+      "gives": "ERY",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOK",
+      "ERY"
+     ]
+    },
+    "explanation": {
+     "surface": "An early passenger on a boat gets to watch nesting birds.",
+     "walkthrough": "'On board' suggests a ship, but the board is a chessboard.",
+     "definitionFit": "A rookery is a colony of nesting rooks, and by extension seals or penguins gathering to breed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1421,67 @@
     "text": "Greek character fiddled with pen describing storage site",
     "enumeration": "7"
    },
-   "solution": "EPSILON"
+   "solution": "EPSILON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EPSILON",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fiddled with",
+      "for": "anagram",
+      "note": "something fiddled with has been tampered with, so the letters are rearranged"
+     },
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw around it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen",
+      "gives": "PEN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "storage site",
+      "gives": "SILO",
+      "note": "a silo stores grain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "SILO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEN",
+       "gives": "EPN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek person tampers with a pen while describing a warehouse.",
+     "walkthrough": "'Describing' is used as in geometry, where to describe a circle is to draw it round something.",
+     "definitionFit": "Epsilon is the fifth letter of the Greek alphabet, so it is one character of that script."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1495,62 @@
     "text": "Gradually introduce in street first signs of improvements locally",
     "enumeration": "6"
    },
-   "solution": "INSTIL"
+   "solution": "INSTIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSTIL",
+    "definitions": [
+     {
+      "text": "Gradually introduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first signs of",
+      "for": "letter_selection",
+      "note": "the first sign of a word is its opening letter, so initials are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "improvements locally",
+      "gives": "IL",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ST",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A council slowly brings in neighbourhood upgrades, the first signs appearing on the street.",
+     "walkthrough": "Here 'in' is a letter source, not a container signal.",
+     "definitionFit": "To instil an idea is to implant it in someone's mind steadily over time, drop by drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "signs"
+    }
+   }
   },
   {
    "number": 23,
@@ -357,7 +1564,55 @@
     "text": "Music maker at home immersed in red wine",
     "enumeration": "8"
    },
-   "solution": "CLARINET"
+   "solution": "CLARINET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLARINET",
+    "definitions": [
+     {
+      "text": "Music maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "immersed in",
+      "for": "container",
+      "note": "something immersed is submerged inside a liquid, so it goes within another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red wine",
+      "gives": "CLARET",
+      "note": "claret is red Bordeaux wine"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAR",
+      "IN",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician relaxes at home soaking up a glass of red.",
+     "walkthrough": "'Music maker' sounds like a person, but it is the instrument. Claret is the British name for red Bordeaux.",
+     "definitionFit": "A clarinet is a woodwind instrument, so it literally produces music when played."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "maker"
+    }
+   }
   },
   {
    "number": 24,
@@ -371,7 +1626,57 @@
     "text": "Unfriendly old fellow and school member",
     "enumeration": "6"
    },
-   "solution": "OFFISH"
+   "solution": "OFFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFISH",
+    "definitions": [
+     {
+      "text": "Unfriendly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "school member",
+      "gives": "FISH",
+      "note": "fish swim in a school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "F",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy elderly teacher and a pupil at the school.",
+     "walkthrough": "'School' suggests pupils, but it is a shoal of fish.",
+     "definitionFit": "Offish means aloof and distant in manner, so cold and standoffish toward others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 25,
@@ -385,7 +1690,74 @@
     "text": "English golfer following a line beginning to dominate round",
     "enumeration": "5"
    },
-   "solution": "FALDO"
+   "solution": "FALDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FALDO",
+    "definitions": [
+     {
+      "text": "English golfer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "dominate",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "L",
+      "D",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An English golfer follows a line and starts to dominate the round.",
+     "walkthrough": "Nick Faldo is the English golfer who won six major championships. 'Round' is not golf here but the round letter O.",
+     "definitionFit": "Nick Faldo is a celebrated English professional golfer, so the name is an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 26,
@@ -399,7 +1771,59 @@
     "text": "Place Crete developed for vessel",
     "enumeration": "10"
    },
-   "solution": "RECEPTACLE"
+   "solution": "RECEPTACLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECEPTACLE",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "PLACE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Crete",
+      "gives": "CRETE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLACECRETE",
+       "gives": "RECEPTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A site on the Greek island of Crete is built up for a ship.",
+     "walkthrough": "'Vessel' suggests a ship to go with an island, but it means a container.",
+     "definitionFit": "A receptacle is any container that holds things, as a vessel such as a bowl or jar does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 27,
@@ -413,7 +1837,57 @@
     "text": "Bulbous plant making a comeback in Rhyl, I learn",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LILY",
+    "definitions": [
+     {
+      "text": "Bulbous plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the letters travel back the other way"
+     },
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters needed are contained in the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rhyl, I learn",
+      "gives": "YLIL",
+      "note": "spanning the end of the town and the next two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "YLIL",
+       "to": "LILY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener finds a bulb plant reviving in the Welsh resort of Rhyl.",
+     "walkthrough": "Rhyl is a seaside town in north Wales. Read backwards across its last letter and the next words.",
+     "definitionFit": "Lilies grow from bulbs, so the plant is one example of a bulbous plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 28,
@@ -427,7 +1901,72 @@
     "text": "Very unpleasant engineer least seen in British yard",
     "enumeration": "7"
    },
-   "solution": "BEASTLY"
+   "solution": "BEASTLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BEASTLY",
+    "definitions": [
+     {
+      "text": "Very unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineer",
+      "for": "anagram",
+      "note": "to engineer something is to construct or contrive it, so the letters are rebuilt"
+     },
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "something seen in a place is inside it, so it is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "least",
+      "gives": "LEAST",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EASTL",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAST",
+       "gives": "EASTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty engineer is barely spotted in a British dockyard.",
+     "walkthrough": "'Engineer' looks like a person, but it is a verb telling you to rebuild LEAST.",
+     "definitionFit": "Beastly is an informal British word meaning nasty or horrid, extremely disagreeable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 29,
@@ -441,7 +1980,77 @@
     "text": "Outsiders in tiny company working with first of several magnates",
     "enumeration": "7"
    },
-   "solution": "TYCOONS"
+   "solution": "TYCOONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TYCOONS",
+    "definitions": [
+     {
+      "text": "magnates",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outsiders in",
+      "for": "letter_selection",
+      "note": "outsiders stand on the outside, so only the outermost letters are kept"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     },
+     {
+      "clueFragment": "several",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "CO",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Newcomers at a small firm work alongside several business bosses.",
+     "walkthrough": "'Outsiders' sounds like strangers, but it means the outer letters of tiny.",
+     "definitionFit": "Tycoons are wealthy, powerful business leaders, the same people called magnates in industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outsiders"
+    }
+   }
   }
  ]
 }
