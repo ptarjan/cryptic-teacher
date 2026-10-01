@@ -659,6 +659,9 @@ tools/backlog_burndown.py                    the annotation backlog over time, r
 tools/test_prereset_paths.sh                 resolves the bridge path the burn's alerts build
                                              at runtime, instead of matching the text of the
                                              line that builds it
+tools/test_prereset_plan.sh                  runs the burn planner's self-test: the bridge's
+                                             measured spend coming off the need, the idle cores
+                                             capping the width, and the queue order
 tools/test_prereset_pool.sh                  drives the burn's rolling pool with a stub run:
                                              never past the width, a freed slot refilled at
                                              once, launches spaced, a width change taking effect
