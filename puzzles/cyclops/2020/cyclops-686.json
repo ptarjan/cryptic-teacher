@@ -24,6 +24,9 @@
   "date": "2020-10-05",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,56 @@
     "text": "'Toilet' article about Reagan shortened",
     "enumeration": "6"
    },
-   "solution": "THRONE"
+   "solution": "THRONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THRONE",
+    "definitions": [
+     {
+      "text": "'Toilet'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Reagan shortened",
+      "gives": "RON",
+      "note": "Ronald Reagan's first name cut to its familiar short form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A satirical piece about Reagan has been trimmed and labelled with a rude word.",
+     "walkthrough": "'Shortened' looks like it applies to the article, but it turns Ronald into Ron; the quotation marks flag 'Toilet' as slang to be defined.",
+     "definitionFit": "Throne is jokey colloquial slang for a lavatory, the seat one sits upon in the bathroom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shortened"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +103,72 @@
     "text": "Provocative, coarse inner city ad (Time Out)",
     "enumeration": "10"
    },
-   "solution": "INCENDIARY"
+   "solution": "INCENDIARY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INCENDIARY",
+    "definitions": [
+     {
+      "text": "Provocative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Out",
+      "for": "deletion",
+      "note": "something put out is removed, so a letter is taken away"
+     },
+     {
+      "text": "coarse",
+      "for": "anagram",
+      "note": "coarse means rough and unrefined, so the letters are roughly reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inner",
+      "gives": "INNER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "CITY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ad",
+      "gives": "AD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time, and it is removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INNERCIYAD",
+       "gives": "INCENDIARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crude billboard in a deprived urban area, listed in the London listings magazine Time Out, causes offence.",
+     "walkthrough": "Time Out looks like the London listings magazine, but it tells you to remove the abbreviation for time before the letters are rearranged.",
+     "definitionFit": "Incendiary remarks are inflammatory ones, deliberately stirring up anger or conflict, a figurative sense taken from starting fires."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Out"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +182,62 @@
     "text": "Prone to outbursts against \"laconic\" screwing",
     "enumeration": "8"
    },
-   "solution": "VOLCANIC"
+   "solution": "VOLCANIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VOLCANIC",
+    "definitions": [
+     {
+      "text": "Prone to outbursts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screwing",
+      "for": "anagram",
+      "note": "screwing twists things round, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "V for versus, meaning against"
+     },
+     {
+      "clueFragment": "\"laconic\"",
+      "gives": "LACONIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "OLCANIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LACONIC",
+       "gives": "OLCANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hot-tempered rails against terse speech, with a cheeky Private Eye double meaning on screwing.",
+     "walkthrough": "'Screwing' reads as innuendo but only signals rearranging the letters of 'laconic'.",
+     "definitionFit": "A volcanic temper erupts suddenly and violently, so a person described this way is liable to explosive fits of rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screwing"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +257,60 @@
      }
     ]
    },
-   "solution": "PENNAME"
+   "solution": "PENNAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEN NAME",
+    "definitions": [
+     {
+      "text": "George Eliot?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pound",
+      "gives": "PEN",
+      "note": "a pound is an enclosure for animals, as is a pen"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "Cyclops",
+      "gives": "ME",
+      "note": "the setter refers to themselves, so Cyclops is me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "N",
+      "A",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of literary names: Eliot, the poet Ezra Pound, and the setter himself.",
+     "walkthrough": "Pound looks like the poet next to another writer, but it is an enclosure; Cyclops is the setter's own pseudonym, so it is both ME and an example of the answer.",
+     "definitionFit": "George Eliot was the pseudonym used by novelist Mary Ann Evans, a classic example of an author's assumed name; the question mark signals the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +324,56 @@
     "text": "A tiresome thing to read, Starmer's main set of principles",
     "enumeration": "6"
    },
-   "solution": "SCREED"
+   "solution": "SCREED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCREED",
+    "definitions": [
+     {
+      "text": "A tiresome thing to read",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "main",
+      "for": "letter_selection",
+      "note": "the main part is the head, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Starmer's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "set of principles",
+      "gives": "CREED",
+      "note": "a creed is a set of beliefs or principles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREED"
+     ]
+    },
+    "explanation": {
+     "surface": "Keir Starmer's lengthy statement of values is a dull document to plough through.",
+     "walkthrough": "'Starmer's main set of principles' reads as one phrase, but 'main' only takes the first letter of Starmer.",
+     "definitionFit": "A screed is a long, tedious piece of writing, typically a rant or harangue that wearies the reader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +387,49 @@
     "text": "Eddy goes topless – sexual desire?",
     "enumeration": "4"
    },
-   "solution": "URGE"
+   "solution": "URGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URGE",
+    "definitions": [
+     {
+      "text": "sexual desire?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes topless",
+      "for": "deletion",
+      "note": "losing one's top means losing the head, so the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eddy",
+      "gives": "SURGE",
+      "note": "an eddy or surge is a swirling rush of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Eddy strips off his shirt, which hints at lust.",
+     "walkthrough": "Eddy reads as a man's name but is a swirl of water; removing the first letter of SURGE leaves the answer.",
+     "definitionFit": "An urge is a strong impulse or craving; the question mark admits that sexual longing is only one kind of such impulse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Eddy"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +443,73 @@
     "text": "For someone who likes to lie about Corbyn's main row with right",
     "enumeration": "8"
    },
-   "solution": "RECLINER"
+   "solution": "RECLINER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RECLINER",
+    "definitions": [
+     {
+      "text": "someone who likes to lie",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "main",
+      "for": "letter_selection",
+      "note": "the main part is the head, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "For",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin-derived for about or concerning"
+     },
+     {
+      "clueFragment": "Corbyn's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a row is a line"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "C",
+      "LINE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A habitual liar spreads untruths about Jeremy Corbyn's big quarrel with the political right.",
+     "walkthrough": "'Lie' suggests telling untruths, but the person lies back; 'row' is a line, not a quarrel.",
+     "definitionFit": "A recliner leans back or lounges at rest, being one who reposes horizontally rather than one who deceives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lie"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +523,57 @@
     "text": "Shut up, accepted shag, US-style, showing a bit of leg",
     "enumeration": "8"
    },
-   "solution": "SHINBONE"
+   "solution": "SHINBONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHINBONE",
+    "definitions": [
+     {
+      "text": "a bit of leg",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shut up",
+      "gives": "SH",
+      "note": "sh is the call for silence"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "IN",
+      "note": "accepted into a group is in"
+     },
+     {
+      "clueFragment": "shag, US-style",
+      "gives": "BONE",
+      "note": "bone is American slang for having sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "IN",
+      "BONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy scene: a silenced lover agrees to American-style sex while flashing some leg.",
+     "walkthrough": "Shag is British slang for sex, and its American slang equivalent is bone.",
+     "definitionFit": "The shinbone, or tibia, is the large front bone of the lower leg, so it is literally part of a limb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +587,70 @@
     "text": "State right to sanction backing for criminal organisation?",
     "enumeration": "6"
    },
-   "solution": "CARTEL"
+   "solution": "CARTEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CARTEL",
+    "definitions": [
+     {
+      "text": "criminal organisation?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards runs the letters from end to start"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "CA",
+      "note": "CA is the abbreviation for California"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "to sanction",
+      "gives": "LET",
+      "note": "to sanction is to allow, to let"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "R",
+      "TEL"
+     ],
+     "reversals": [
+      {
+       "from": "LET",
+       "to": "TEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government's right to approve support for organised crime is questioned.",
+     "walkthrough": "'Backing' looks like support for the organisation, but it turns the word for sanction round.",
+     "definitionFit": "A cartel is a group of firms colluding to fix prices, and drug cartels are notorious crime syndicates, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +668,85 @@
    "group": [
     "10-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "VOTE MEDDLING",
+    "definitions": [
+     {
+      "text": "Russian speciality",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of a word, so only the closing letter is kept"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "to be all about is to be turned around in disorder, so the letters are rearranged"
+     },
+     {
+      "text": "to tuck into",
+      "for": "container",
+      "note": "to tuck into something is to go inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "Kate",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the name"
+     },
+     {
+      "clueFragment": "Middleton's",
+      "gives": "MIDDLETON",
+      "note": "the surname taken as written, the 's meaning is"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "OTEMEDDLIN",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMIDDLETON",
+       "gives": "OTEMEDDLIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Princess of Wales is about to tuck into a fine Russian delicacy.",
+     "walkthrough": "'Middleton's about' reads as 'Middleton is about to', but the 's is just 'is' and 'about' scrambles the name with Kate's last letter; that sits between V and G.",
+     "definitionFit": "Russia is widely accused of interfering in foreign elections, so tampering with ballots is ironically called its national specialty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "speciality"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +760,52 @@
     "text": "Bit of fire shown by singer – what a pantomime!",
     "enumeration": "10"
    },
-   "solution": "CINDERELLA"
+   "solution": "CINDERELLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CINDERELLA",
+    "definitions": [
+     {
+      "text": "pantomime",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "shown by",
+     "what a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of fire",
+      "gives": "CINDER",
+      "note": "a cinder is a fragment of burnt fuel from a fire"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "ELLA",
+      "note": "Ella Fitzgerald, the jazz singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINDER",
+      "ELLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer shows a flash of fiery temper, and an onlooker sighs at the theatrical fuss.",
+     "walkthrough": "'What a pantomime!' sounds like exasperation at a fuss; pantomime is the British Christmas stage show for families, and this story is a favourite.",
+     "definitionFit": "The rags-to-riches fairy tale is among the most frequently staged British Christmas family theatre shows, with ugly sisters and a glass slipper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pantomime"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +819,67 @@
     "text": "Fibrous tissue not about to cramp butt",
     "enumeration": "6"
    },
-   "solution": "TENDON"
+   "solution": "TENDON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TENDON",
+    "definitions": [
+     {
+      "text": "Fibrous tissue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about faces the other way, so the letters run backwards"
+     },
+     {
+      "text": "to cramp",
+      "for": "container",
+      "note": "to cramp is to hem in tightly, so one piece is squeezed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "butt",
+      "gives": "END",
+      "note": "a butt is the end of something, as in a cigarette butt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "END",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sinew that will not give your backside a cramp.",
+     "walkthrough": "'Cramp' suggests a muscle spasm, but it only signals one piece pressed inside another.",
+     "definitionFit": "A tendon is the tough band of connective collagen that attaches muscle to bone, a classic example of such tissue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cramp"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +913,52 @@
      }
     ]
    },
-   "solution": "LOWERHOUSE"
+   "solution": "LOWERHOUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOWER HOUSE",
+    "definitions": [
+     {
+      "text": "MPs collectively",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise",
+      "gives": "LOWER",
+      "note": "the opposite of raise, as the closing instruction demands"
+     },
+     {
+      "clueFragment": "the roof",
+      "gives": "HOUSE",
+      "note": "a roof over one's head is a home, so roof stands for a house"
+     },
+     {
+      "clueFragment": "On the contrary",
+      "note": "an instruction rather than letters: swap the idiom's verb for its opposite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOWER",
+      "HOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Do MPs all together make a rowdy din? Quite the reverse.",
+     "walkthrough": "To raise the roof is to make a racket; 'On the contrary' flips raise to its opposite, while roof stands for the whole building, as in a roof over your head.",
+     "definitionFit": "The Commons, where elected Members of Parliament sit, is the lower chamber of the British legislature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +972,70 @@
     "text": "Loan from a former Secretary of State cut by Donald at first",
     "enumeration": "7"
    },
-   "solution": "ADVANCE"
+   "solution": "ADVANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADVANCE",
+    "definitions": [
+     {
+      "text": "Loan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the beginning, so only the opening letter is kept"
+     },
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "something cut by another is split open with it inserted in the gap"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Donald",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "former Secretary of State",
+      "gives": "VANCE",
+      "note": "Cyrus Vance, US Secretary of State under President Carter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A loan from an ex-Secretary of State is slashed by Donald Trump.",
+     "walkthrough": "Donald suggests Trump, but only his initial is used, splitting A from VANCE.",
+     "definitionFit": "An advance is money paid or lent ahead of time, such as a payment against future wages or royalties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Donald"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1049,46 @@
     "text": "Ridiculed and kicked out of bed?",
     "enumeration": "8"
    },
-   "solution": "DEBUNKED"
+   "solution": "DEBUNKED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEBUNKED",
+    "definitions": [
+     {
+      "text": "Ridiculed",
+      "at": 0
+     },
+     {
+      "text": "kicked out of bed?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ridiculed",
+      "note": "first meaning: exposed as false and made to look foolish"
+     },
+     {
+      "clueFragment": "kicked out of bed?",
+      "note": "second meaning, whimsical: removed from one's bunk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning splits the word as DE- (removed from) plus BUNKED; the question mark flags the invented sense.",
+     "definitionFit": "To debunk a claim is to expose it as hollow or sham, which holds it up to scorn and mockery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1102,55 @@
     "text": "Ornate arch imprisons debtor",
     "enumeration": "7"
    },
-   "solution": "FLOWERY"
+   "solution": "FLOWERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLOWERY",
+    "definitions": [
+     {
+      "text": "Ornate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisons",
+      "for": "container",
+      "note": "a prison holds someone inside it, so one piece is locked within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arch",
+      "gives": "FLY",
+      "note": "arch and fly both mean knowing or sly"
+     },
+     {
+      "clueFragment": "debtor",
+      "gives": "OWER",
+      "note": "a debtor is one who owes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "OWER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A decorated archway serves as a jail for a man who cannot pay, like an old debtors' prison.",
+     "walkthrough": "Arch looks like the architectural curve, but it is the adjective meaning cunning, as is fly in British slang.",
+     "definitionFit": "Flowery language or decoration is elaborate and full of embellishment, florid rather than plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arch"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1164,70 @@
     "text": "Perceived duration of Brexit and Coronavirus? I (and millions) feel pissed with it!",
     "enumeration": "8"
    },
-   "solution": "LIFETIME"
+   "solution": "LIFETIME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIFETIME",
+    "definitions": [
+     {
+      "text": "Perceived duration of Brexit and Coronavirus?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pissed",
+      "for": "anagram",
+      "note": "pissed is British slang for drunk, and drunk things lurch into disorder"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "feel",
+      "gives": "FEEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMFEELIT",
+       "gives": "LIFETIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brexit and the pandemic seem to have lasted forever, and the setter and millions more are fed up.",
+     "walkthrough": "In British slang pissed means drunk, not angry as in American usage; either way it signals the shuffle.",
+     "definitionFit": "Both ordeals dragged on so long they seemed to occupy a whole existence, a jokey exaggeration of their length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pissed"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1241,79 @@
     "text": "Republican wants gene modification and city emptied – that's the style!",
     "enumeration": "7"
    },
-   "solution": "REGENCY"
+   "solution": "REGENCY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REGENCY",
+    "definitions": [
+     {
+      "text": "that's the style!",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "modification",
+      "for": "anagram",
+      "note": "a modification alters the form, so the letters are changed round"
+     },
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "emptying removes the contents, leaving only the outside letters"
+     }
+    ],
+    "linkWords": [
+     "wants",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "gene",
+      "gives": "GENE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "CY",
+      "select": "outer",
+      "note": "only the first and last letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EGEN",
+      "CY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENE",
+       "gives": "EGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican politician backs genetic engineering and clearing a city, calling it his preferred way.",
+     "walkthrough": "'That's the style!' sounds like approval, but it defines a named style of design.",
+     "definitionFit": "Regency is the elegant early nineteenth-century British style of architecture, furniture and dress, named after the Prince Regent's rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "style"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1327,75 @@
     "text": "Suspended state of a singer-songwriter, giving away sod all and taking one in",
     "enumeration": "8"
    },
-   "solution": "ABEYANCE"
+   "solution": "ABEYANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "ABEYANCE",
+    "definitions": [
+     {
+      "text": "Suspended state",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving away",
+      "for": "substitution",
+      "note": "to give something away is to part with it, so a letter leaves"
+     },
+     {
+      "text": "taking",
+      "for": "substitution",
+      "note": "taking in brings something new inside, so a replacement letter enters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "singer-songwriter",
+      "gives": "BEYONCE",
+      "note": "Beyoncé, the American singer-songwriter"
+     },
+     {
+      "clueFragment": "sod all",
+      "gives": "O",
+      "note": "sod all is British slang for nothing, which is O"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "A means one, as in a single thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BEY",
+      "A",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer-songwriter's career is on hold, losing everything but gaining a newcomer.",
+     "walkthrough": "Sod all is British slang for nothing at all; that zero becomes O, which Beyoncé swaps for A.",
+     "definitionFit": "Something held in abeyance is temporarily suspended or put on hold, not cancelled but inactive for now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer-songwriter"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1409,55 @@
     "text": "Barely adequate food books dumped in river",
     "enumeration": "6"
    },
-   "solution": "NIBBLE"
+   "solution": "NIBBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NIBBLE",
+    "definitions": [
+     {
+      "text": "Barely adequate food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dumped in",
+      "for": "container",
+      "note": "something dumped in a place is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "NILE",
+      "note": "the river Nile"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "BB",
+      "note": "B is book, so two of them make books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "BB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Meagre rations and a pile of books thrown into a river.",
+     "walkthrough": "'Food' looks like a separate item in the list, but the whole opening phrase defines a light snack.",
+     "definitionFit": "A nibble is a small bite or snack, a morsel hardly enough to satisfy anyone's hunger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dumped"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1477,66 @@
      }
     ]
    },
-   "solution": "FARCRY"
+   "solution": "FARCRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FAR CRY",
+    "definitions": [
+     {
+      "text": "a long way",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pursuing",
+      "for": "charade",
+      "note": "pursuing means following behind, so this piece comes after the other"
+     },
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the letters go wild into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "carry",
+      "gives": "CARRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ARCRY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARRY",
+       "gives": "ARCRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man chasing a woman carries nuts a great distance, perhaps as a gift.",
+     "walkthrough": "'Carry nuts' looks like transporting snacks, but nuts tells you to rearrange carry.",
+     "definitionFit": "To be a far cry from something is to be very remote or different from it, an idiom for great distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1550,40 @@
     "text": "Which hosts dodgy union discussions",
     "enumeration": "6"
    },
-   "solution": "RELATE"
+   "solution": "RELATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RELATE",
+    "definitions": [
+     {
+      "text": "Which hosts dodgy union discussions",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dodgy union discussions",
+      "note": "surface reading: shady talks in a trade union, perhaps with crooked officials"
+     },
+     {
+      "clueFragment": "Which hosts",
+      "note": "setter's reading: an organisation that counsels couples whose marriage, a union, is in trouble"
+     }
+    ],
+    "explanation": {
+     "surface": "Something plays host to murky trade union negotiations.",
+     "walkthrough": "The answer is the name of a British charity that offers marriage and relationship counselling; union means a marriage, and dodgy means in difficulty.",
+     "definitionFit": "The British charity offers counselling sessions to couples whose partnerships are struggling, hosting talks between troubled spouses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1597,73 @@
     "text": "Crazy mom bent on a little amusement comes to a monumental ending",
     "enumeration": "10"
    },
-   "solution": "ENTOMBMENT"
+   "solution": "ENTOMBMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTOMBMENT",
+    "definitions": [
+     {
+      "text": "a monumental ending",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crazy",
+      "for": "anagram",
+      "note": "crazy means wildly disordered, so the letters are jumbled"
+     },
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little means only part, so just a few letters are kept"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "comes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mom bent",
+      "gives": "MOMBENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "amusement",
+      "gives": "ENT",
+      "select": "last",
+      "note": "the tail end of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTOMBM",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOMBENT",
+       "gives": "ENTOMBM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged mother intent on some fun meets a grand finale.",
+     "walkthrough": "Only the closing three letters of amusement are taken; 'on' places them after the rearranged letters.",
+     "definitionFit": "Entombment is burial in a tomb, and a tomb is a monument, so it is the end of life marked by a memorial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "monumental"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1681,43 @@
    "group": [
     "25-down",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ONCE ONLY",
+    "definitions": [
+     {
+      "text": "\"Never again!\"",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the letters are a part of a longer stretch"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ponce on Lycra",
+      "gives": "ONCEONLY",
+      "note": "a run of letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An onlooker vows never again after seeing a vain man in tight cycling gear.",
+     "walkthrough": "Ponce is British slang for a vain, showy man; the answer runs across his outfit.",
+     "definitionFit": "Saying something happens once only means it will not be repeated, the same as vowing it will never happen a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ponce"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1745,40 @@
     "text": "Member firmly has lead in this",
     "enumeration": "6"
    },
-   "solution": "PENCIL"
+   "solution": "PENCIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PENCIL",
+    "definitions": [
+     {
+      "text": "Member firmly has lead in this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member firmly has lead in this",
+      "note": "surface reading: a smutty boast about a man's virility"
+     },
+     {
+      "clueFragment": "lead in this",
+      "note": "setter's reading: a writing tool with graphite firmly fixed inside it"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky boast about male potency, in Private Eye's schoolboy style.",
+     "walkthrough": "The idiom 'lead in your pencil' means sexual vigour, so Member hints at the body; read literally, the clue describes what the graphite is held in.",
+     "definitionFit": "A writing implement holds a graphite core, traditionally called lead, set firmly inside its wooden casing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1792,75 @@
     "text": "Temporary housing location – state politician: \"It's bursting with energy!\"",
     "enumeration": "8"
    },
-   "solution": "CAMPSITE"
+   "solution": "CAMPSITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CAMPSITE",
+    "definitions": [
+     {
+      "text": "Temporary housing location",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bursting",
+      "for": "anagram",
+      "note": "bursting breaks something apart, so the letters are scattered and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "CA",
+      "note": "CA is the abbreviation for California"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP, a Member of Parliament"
+     },
+     {
+      "clueFragment": "It's",
+      "gives": "ITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "MP",
+      "SITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSE",
+       "gives": "SITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A state politician promotes a site for temporary homes as full of vigour.",
+     "walkthrough": "'Bursting with energy' reads as enthusiasm, but bursting rearranges the letters of 'it's' together with E.",
+     "definitionFit": "A campsite is a place where tents or caravans are pitched, giving short-term shelter rather than permanent homes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bursting"
+    }
+   }
   }
  ]
 }
