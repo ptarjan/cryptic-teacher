@@ -405,6 +405,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/cross_validate.py", "check our puzzles against another copy of the same puzzle, class by class"),
     ("tables everything else reads", "tools/test_cross_validate.sh", "does tools/cross_validate.py name each way two copies of a puzzle differ?"),
     ("tables everything else reads", "tools/test_clue_counts.sh", "does a clue that carries its own letter count, or a stray letter, get refused?"),
+    ("tables everything else reads", "tools/trove_solution_ocr.py", "read a Canberra Times puzzle's answers off the paper's printed solution grid"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
