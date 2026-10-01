@@ -66,7 +66,7 @@ same("a Guardian page is read without the converter: tags, entities and the coun
 same("a Guardian pointer has no count", got["entries"][1]["clue"]["enumeration"], None)
 same("a source clue with no words is no witness",
      sorted(m["class"] for m in cv.diff(base, {**base, "entries": [
-         {**base["entries"][0], "clue": {"text": "", "enumeration": "3"}}, *base["entries"][1:]]})),
+         {**base["entries"][0], "clue": {"text": "", "enumeration": "1,2"}}, *base["entries"][1:]]})),
      [])
 
 import fetch_puzzle as fp
