@@ -190,7 +190,8 @@ CHANGED_TO = re.compile(r"\b(?:changed|amended)\b[^:]{0,40}?\bto(?:\s+read)?\s*:
 #: The blogger's mark between definition and wordplay, "Better / lake in North
 #: America": a slash with a space beside it. A slash between two words,
 #: "AC/DC", "and/or", is the setter's and stays.
-DEF_SLASH = re.compile(r"\s*(?:\s/+|/+\s)\s*")
+#: The whole run goes at once, "Dance/ /attire" too, so tidying is idempotent.
+DEF_SLASH = re.compile(r"\s*(?:\s/+|/+\s)[\s/]*")
 #: A space the markup left before punctuation: "<strong>Unhappy</strong> </em>,"
 #: reads "Unhappy , sulky"; "<strong>bishop</strong> </em>?" reads "bishop ?".
 #: An ellipsis is left alone: ". . ." is how some clues print it; so is a
