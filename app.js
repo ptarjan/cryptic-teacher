@@ -5064,7 +5064,22 @@
   function renderHintPanel() {
     const e = currentEntry();
     const panel = $("hint-panel");
-    if (!e) { panel.classList.add("hidden"); return; }
+    if (!e) {
+      // A square only an unclued light covers has no clue to hint at, but it
+      // still has the escape hatch.
+      const light = currentLight();
+      if (!light) { panel.classList.add("hidden"); return; }
+      panel.classList.remove("hidden");
+      guessing = null;
+      ["hint-pattern", "hint-meter", "hint-body", "hint-vote"].forEach((id) => setHTML($(id), ""));
+      setHTML($("hint-clue"), `<span class="entry-tag">Unclued</span>`);
+      setButtons($("hint-next"), []);
+      const open = canCheck() && !paperHides() && light.some((c) => c.letter !== c.sol);
+      if (setHTML($("hint-escape"), open ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>` : "") && open) {
+        $("hx-letter").onclick = revealLetter;
+      }
+      return;
+    }
     panel.classList.remove("hidden");
 
     const holder = holderOf(e);
@@ -6192,6 +6207,13 @@
     puz.entries.forEach((e) => {
       for (let i = 0; i < e.length; i++) want[squareOf(e, i)] = e.solution ? e.solution[i] : null;
     });
+    // Squares only an unclued light covers are in the grid too; printed ones are
+    // given, never saved, so they are not the solver's to fill.
+    (puz.unclued || []).forEach((u) => u.cells.forEach(({ x, y }, i) => {
+      const k = x + "," + y;
+      if (!want[k]) want[k] = u.solution[i];
+    }));
+    (puz.printed || []).forEach(({ x, y }) => { delete want[x + "," + y]; });
     const squares = Object.keys(want);
     // letters[k] is "A" or "A!" — a revealed letter still counts as done. You
     // used the escape hatch; the scorebar inside the puzzle is where that costs
