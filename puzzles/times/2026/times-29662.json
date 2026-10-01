@@ -23,6 +23,9 @@
   "date": "2026-10-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,63 @@
     "text": "Most unbalanced club matches end in rout",
     "enumeration": "8"
    },
-   "solution": "BATTIEST"
+   "solution": "BATTIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BATTIEST",
+    "definitions": [
+     {
+      "text": "Most unbalanced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end in",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "BAT",
+      "note": "a bat is a club used in cricket or baseball"
+     },
+     {
+      "clueFragment": "matches",
+      "gives": "TIES",
+      "note": "in sport, ties are matches, especially cup fixtures"
+     },
+     {
+      "clueFragment": "rout",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "TIES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan grumbles that the most lopsided games end with one club routed.",
+     "walkthrough": "'Unbalanced' looks like a comment on mismatched teams, but it means mentally unbalanced; TIES is the British word for knockout fixtures.",
+     "definitionFit": "Batty is informal for crazy, and the superlative describes someone the craziest of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "unbalanced"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +115,64 @@
      }
     ]
    },
-   "solution": "BONECHINA"
+   "solution": "BONECHINA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BONE CHINA",
+    "definitions": [
+     {
+      "text": "Fine baked goods",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "letter_selection",
+      "note": "stuffing is what sits inside, so only the inner letters of the word are taken"
+     },
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish or disordered, so the letters fall into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chef’s",
+      "gives": "HE",
+      "select": "middle",
+      "note": "the two middle letters of the word"
+     },
+     {
+      "clueFragment": "bacon in",
+      "gives": "BACONIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEBACONIN",
+       "gives": "BONECHINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daft chef is stuffing bacon into fancy pastries, apparently.",
+     "walkthrough": "The final 'in' is part of the letters to rearrange, not a link: HE plus BACON plus IN gives BONE CHINA. 'Baked goods' suggests a bakery, but the goods are fired in a kiln.",
+     "definitionFit": "Porcelain is fired in a kiln, so fine tableware made with bone ash is literally a set of baked goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "baked"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +186,62 @@
     "text": "Name best applied to York Minster, initially",
     "enumeration": "7"
    },
-   "solution": "TOPONYM"
+   "solution": "TOPONYM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TOPONYM",
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each word gives only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "top means the very best"
+     },
+     {
+      "clueFragment": "applied to",
+      "gives": "ON",
+      "note": "something applied to a surface is on it"
+     },
+     {
+      "clueFragment": "York Minster",
+      "gives": "YM",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "ON",
+      "YM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone decides which title suits York Minster, the great cathedral in northern England.",
+     "walkthrough": "The clue reads as a fitting example: York Minster is itself a place name.",
+     "definitionFit": "A toponym is a word that is the label of a place, such as a town or river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +255,68 @@
     "text": "Part of upper spine fused — time to separate it?",
     "enumeration": "6"
    },
-   "solution": "INSTEP"
+   "solution": "INSTEP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INSTEP",
+    "definitions": [
+     {
+      "text": "Part of upper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fused",
+      "for": "anagram",
+      "note": "fused things are melted down and set in a new form, so the letters are recast"
+     },
+     {
+      "text": "to separate",
+      "for": "container",
+      "note": "to separate a thing is to come between its parts, so one letter goes in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spine",
+      "gives": "SPINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "T",
+      "EP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPINE",
+       "gives": "INSEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical question about fused vertebrae in the upper back: is it time to separate them?",
+     "walkthrough": "'Upper spine' looks like anatomy, but the definition breaks after 'upper', the top part of a shoe; 'it' is the rearranged spine, split by T.",
+     "definitionFit": "The upper is the top section of a shoe, and the instep is the part covering the arch of the foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upper"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +330,61 @@
     "text": "Unfairly blame head after second attack",
     "enumeration": "9"
    },
-   "solution": "SCAPEGOAT"
+   "solution": "SCAPEGOAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAPEGOAT",
+    "definitions": [
+     {
+      "text": "Unfairly blame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the following piece is placed behind the one before, fixing their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "CAPE",
+      "note": "a cape is a headland"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "GOAT",
+      "note": "to go at someone is to attack them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAPE",
+      "GO",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss is wrongly blamed after a second assault.",
+     "walkthrough": "'Head' looks like a person in charge; here it is a headland, such as Cape Horn.",
+     "definitionFit": "To scapegoat someone is to make them carry the blame for others' wrongdoing, used here as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +398,61 @@
     "text": "Mark and The Times in meeting connected with competition puzzle",
     "enumeration": "6"
    },
-   "solution": "BEMUSE"
+   "solution": "BEMUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BEMUSE",
+    "definitions": [
+     {
+      "text": "puzzle",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these pieces inside another word, which wraps round them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "M",
+      "note": "M is the abbreviation for the German mark"
+     },
+     {
+      "clueFragment": "The Times",
+      "gives": "US",
+      "note": "the newspaper speaking of itself says us"
+     },
+     {
+      "clueFragment": "meeting connected with competition",
+      "gives": "BEE",
+      "note": "a bee is a gathering for a contest, as in a spelling bee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EMUS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice about a gathering connected with the newspaper's prize crossword.",
+     "walkthrough": "'Competition puzzle' looks like one phrase, the prize crossword; the definition is just the last word, used as a verb. The Times setters use US for the paper itself.",
+     "definitionFit": "To bemuse is to perplex or confuse, which is what puzzling someone does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzle"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +466,61 @@
     "text": "Throne bishop is on by mistake",
     "enumeration": "7"
    },
-   "solution": "BLOOPER"
+   "solution": "BLOOPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOOPER",
+    "definitions": [
+     {
+      "text": "mistake",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is on",
+      "for": "charade",
+      "note": "in a down entry, sitting on something means coming above it, which sets the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "Throne",
+      "gives": "LOO",
+      "note": "the throne is a jokey name for the toilet, the loo in British slang"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "PER",
+      "note": "per means by, as in per post"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOO",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop has been seated on the throne by accident.",
+     "walkthrough": "'Throne' suggests a cathedral seat for the bishop; it is the toilet, LOO in British usage.",
+     "definitionFit": "A blooper is an embarrassing error, especially a broadcasting slip or gaffe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Throne"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +534,51 @@
     "text": "Need SIM or mobile update?",
     "enumeration": "9"
    },
-   "solution": "MODERNISE"
+   "solution": "MODERNISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MODERNISE",
+    "definitions": [
+     {
+      "text": "update",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mobile",
+      "for": "anagram",
+      "note": "mobile means able to move, so the letters move into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Need SIM or",
+      "gives": "NEEDSIMOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEEDSIMOR",
+       "gives": "MODERNISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phone user wonders whether a new SIM card or a whole new phone is needed.",
+     "walkthrough": "'Mobile' looks like the phone itself, but it is the signal to rearrange the letters before it.",
+     "definitionFit": "To modernise is to bring something up to date, the same verb as update."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +592,66 @@
     "text": "Expand free entertainment setting aside area in school",
     "enumeration": "7"
    },
-   "solution": "STRETCH"
+   "solution": "STRETCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STRETCH",
+    "definitions": [
+     {
+      "text": "Expand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setting aside",
+      "for": "deletion",
+      "note": "setting something aside removes it, so a letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the remainder inside another word that surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free entertainment",
+      "gives": "TREAT",
+      "note": "a treat is something enjoyable paid for by another"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRET",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A school widens its free activities by giving up a space.",
+     "walkthrough": "In British usage a treat is something paid for by someone else, so 'free entertainment' is fair; SCH is a standard crossword abbreviation for school.",
+     "definitionFit": "To stretch is to extend or enlarge something, a straightforward synonym for the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +665,55 @@
     "text": "Fluff pot on the double?",
     "enumeration": "3"
    },
-   "solution": "NAP"
+   "solution": "NAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NAP",
+    "definitions": [
+     {
+      "text": "Fluff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the double",
+      "for": "reversal",
+      "note": "doubling something over folds it back on itself, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot",
+      "gives": "PAN",
+      "note": "a pan is a cooking pot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAN",
+       "to": "NAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to finish a pot shot, or mess one up, at speed.",
+     "walkthrough": "'On the double' normally means quickly; here it is read as doubling back.",
+     "definitionFit": "Nap is the raised fuzzy surface on cloth such as velvet, the soft fibres one might call fluff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +727,40 @@
     "text": "One climbing frame that’s come off the back of a lorry?",
     "enumeration": "10"
    },
-   "solution": "SCAFFOLDER"
+   "solution": "SCAFFOLDER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCAFFOLDER",
+    "definitions": [
+     {
+      "text": "One climbing frame that’s come off the back of a lorry?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One climbing frame that’s come off the back of a lorry?",
+      "note": "surface reading: a child's climbing frame of dubious origin, as goods that fell off a lorry are stolen"
+     },
+     {
+      "clueFragment": "One climbing frame",
+      "note": "setter's reading: a worker who climbs a frame of poles and boards, unloaded from a truck at a building site"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is offered a cut-price playground climbing frame of suspicious origin.",
+     "walkthrough": "In Britain, goods that 'fell off the back of a lorry' are stolen; here the frame really was unloaded from a lorry, and 'one climbing' is a person.",
+     "definitionFit": "A tradesperson who erects the temporary pole structures on buildings climbs them as part of the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +774,61 @@
     "text": "Fraud never twitched, meeting organiser",
     "enumeration": "8"
    },
-   "solution": "CONVENER"
+   "solution": "CONVENER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CONVENER",
+    "definitions": [
+     {
+      "text": "meeting organiser",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twitched",
+      "for": "anagram",
+      "note": "a twitch is a jerky movement, so the letters are jolted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fraud",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "never",
+      "gives": "NEVER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "VENER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEVER",
+       "gives": "VENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cool con artist kept a straight face while meeting the event organiser.",
+     "walkthrough": "'Fraud' looks like a person who stays calm; it is the swindle itself.",
+     "definitionFit": "A convener is the person who calls people together and arranges a gathering or committee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twitched"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +842,59 @@
     "text": "Function requiring division by one to give equivalence",
     "enumeration": "6"
    },
-   "solution": "PARITY"
+   "solution": "PARITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARITY",
+    "definitions": [
+     {
+      "text": "equivalence",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requiring division by",
+      "for": "container",
+      "note": "dividing something splits it so another piece can sit in the gap"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Function",
+      "gives": "PARTY",
+      "note": "a function is a social gathering"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "I",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A maths exercise in which a function must be divided by one.",
+     "walkthrough": "'Function' and 'division' sound mathematical, but the function is a social occasion split open by I.",
+     "definitionFit": "Parity means being equal in status or value, so it matches equivalence as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Function"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +908,53 @@
     "text": "Foot whatever’s left of injured American’s medical bills",
     "enumeration": "4"
    },
-   "solution": "IAMB"
+   "solution": "IAMB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IAMB",
+    "definitions": [
+     {
+      "text": "Foot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whatever’s left of",
+      "for": "letter_selection",
+      "note": "the left side of a word is where it begins, so only opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "injured American’s medical bills",
+      "gives": "IAMB",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "A",
+      "M",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "An injured American pays their hospital bills with whatever money they have left.",
+     "walkthrough": "'Foot' looks like the verb, as in footing the bill; it is a unit of metre in verse.",
+     "definitionFit": "In poetry a metrical unit of one unstressed then one stressed syllable is called an iamb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Foot"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +968,55 @@
     "text": "Small volume retailer unlikely to carry reserves",
     "enumeration": "9"
    },
-   "solution": "BOOKSTALL"
+   "solution": "BOOKSTALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOKSTALL",
+    "definitions": [
+     {
+      "text": "Small volume retailer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to carry",
+      "for": "charade",
+      "note": "in a down entry, whatever is carried sits on top of the carrier, which fixes the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserves",
+      "gives": "BOOKS",
+      "note": "to reserve a table or seat is to book it"
+     },
+     {
+      "clueFragment": "unlikely",
+      "gives": "TALL",
+      "note": "a tall story is an unlikely one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOKS",
+      "TALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A small shop selling low quantities is unlikely to keep stock in reserve.",
+     "walkthrough": "'Small volume' suggests low sales but means little books; 'reserves' looks like spare stock but is a verb meaning books.",
+     "definitionFit": "A stand at a station or market selling printed reading matter is a small shop dealing in volumes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reserves"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +1036,45 @@
      }
     ]
    },
-   "solution": "GOSTRAIGHT"
+   "solution": "GOSTRAIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GO STRAIGHT",
+    "definitions": [
+     {
+      "text": "move away from crime",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In report",
+      "for": "homophone",
+      "note": "a report is something spoken, so the words are taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "SPECTRE assess",
+      "gives": "GOSTRAIGHT",
+      "soundsLike": "GHOST RATE",
+      "note": "a spectre is a ghost, and to assess is to rate"
+     }
+    ],
+    "explanation": {
+     "surface": "A report says the villainous SPECTRE organisation, from the James Bond films, must reconsider its criminal ways.",
+     "walkthrough": "The capitals make SPECTRE look like the Bond villains' organisation, but it is just a ghost; said quickly, ghost rate sounds like the answer.",
+     "definitionFit": "Going straight is an idiom for a former criminal turning honest and living within the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "SPECTRE"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +1094,56 @@
      }
     ]
    },
-   "solution": "TALKINGTO"
+   "solution": "TALKINGTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TALKING-TO",
+    "definitions": [
+     {
+      "text": "Censure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corners",
+      "for": "container",
+      "note": "to corner someone is to trap them, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "developing a taste for",
+      "gives": "TAKINGTO",
+      "note": "taking to something is starting to like it"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "a learner driver displays an L plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "L",
+      "KINGTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A learner who has begun enjoying taking corners at speed gets told off.",
+     "walkthrough": "'Corners' looks like driving round bends; it is a verb meaning traps, with the second phrase trapping the L.",
+     "definitionFit": "A talking-to is a scolding or reprimand, so it fits censure as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "corners"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1163,45 @@
      }
     ]
    },
-   "solution": "TWOSHAKES"
+   "solution": "TWOSHAKES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWO SHAKES",
+    "definitions": [
+     {
+      "text": "Repetition of “wobble”",
+      "at": 0
+     },
+     {
+      "text": "in Just a Minute",
+      "at": 23,
+      "note": "the idiom is 'in two shakes', so the answer stands for the phrase without 'in'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repetition of “wobble”",
+      "note": "first meaning: a wobble is a shake, so saying it again gives a pair of them"
+     },
+     {
+      "clueFragment": "in Just a Minute",
+      "note": "second meaning: an idiom for very soon"
+     }
+    ],
+    "explanation": {
+     "surface": "A contestant on Just a Minute, the BBC radio panel game that penalises repetition, says 'wobble' twice.",
+     "walkthrough": "The capitals point to the radio show, where repeating a word loses points; read plainly, the words mean 'very shortly'.",
+     "definitionFit": "The idiom 'in two shakes' is short for two shakes of a lamb's tail, meaning almost at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1215,55 @@
     "text": "Well contains dissolved chemical for sure",
     "enumeration": "10"
    },
-   "solution": "ABSOLUTELY"
+   "solution": "ABSOLUTELY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSOLUTELY",
+    "definitions": [
+     {
+      "text": "for sure",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "to contain is to hold inside, so one word wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Well",
+      "gives": "ABLY",
+      "note": "doing something well is doing it competently"
+     },
+     {
+      "clueFragment": "dissolved chemical",
+      "gives": "SOLUTE",
+      "note": "a solute is the substance dissolved in a solution"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SOLUTE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A water well is certainly holding some chemical in solution.",
+     "walkthrough": "'Well' looks like a source of water; it is the adverb.",
+     "definitionFit": "Absolutely is an emphatic yes, meaning certainly, so it can replace the phrase in a reply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1277,47 @@
     "text": "Hold long hairy creature",
     "enumeration": "7"
    },
-   "solution": "BEARDIE"
+   "solution": "BEARDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEARDIE",
+    "definitions": [
+     {
+      "text": "hairy creature",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold",
+      "gives": "BEAR",
+      "note": "to bear is to carry or support"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "DIE",
+      "note": "to long for something is to be dying for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAR",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to keep hold of a long-haired animal.",
+     "walkthrough": "'Long hairy' reads as one description, but 'long' is a verb, as in dying to do something.",
+     "definitionFit": "A beardie is a bearded collie, a shaggy-coated sheepdog breed, so a very hairy animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1331,64 @@
     "text": "American sailors taking break for north wind to ease",
     "enumeration": "7"
    },
-   "solution": "UNSCREW"
+   "solution": "UNSCREW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNSCREW",
+    "definitions": [
+     {
+      "text": "wind to ease",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking break",
+      "for": "container",
+      "note": "a break is a gap opened up, and taking one in means holding a letter inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "CREW",
+      "note": "a crew is a ship's company"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "SCREW"
+     ]
+    },
+    "explanation": {
+     "surface": "American seamen take a break when the north wind lets up.",
+     "walkthrough": "'North wind' reads as weather, but 'wind' starts the definition and rhymes with 'find'; 'break' tells N to split the first two pieces.",
+     "definitionFit": "To unscrew is to turn a fastening so that it loosens, winding it to slacken it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1402,47 @@
     "text": "Our last head of state quit because of that",
     "enumeration": "4"
    },
-   "solution": "ERGO"
+   "solution": "ERGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERGO",
+    "definitions": [
+     {
+      "text": "because of that",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our last head of state",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, was the previous British monarch"
+     },
+     {
+      "clueFragment": "quit",
+      "gives": "GO",
+      "note": "to go is to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A British reader suggests the late Queen stepped down for a particular reason.",
+     "walkthrough": "ER stands for Elizabeth Regina, the cipher of Queen Elizabeth II, predecessor of the current king.",
+     "definitionFit": "Ergo is Latin for therefore, used to introduce a conclusion drawn from what came before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quit"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1456,65 @@
     "text": "Parent remains inside for wet spring again",
     "enumeration": "7"
    },
-   "solution": "REARISE"
+   "solution": "REARISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REARISE",
+    "definitions": [
+     {
+      "text": "spring again",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "letter_selection",
+      "note": "the inside of a short word is its middle, so only the central letter is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parent",
+      "gives": "REAR",
+      "note": "to parent a child is to rear it"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "IS",
+      "note": "something that remains still is, in the sense of continuing to exist"
+     },
+     {
+      "clueFragment": "wet",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of the three"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAR",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent stays indoors during a rainy spring.",
+     "walkthrough": "'Wet spring' looks like the weather, but 'wet' supplies a letter and 'spring' belongs to the definition, used as a verb.",
+     "definitionFit": "To arise is to spring up, and the RE prefix makes it happen a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1528,61 @@
     "text": "Desire urban speed limit reduced to protect society",
     "enumeration": "6"
    },
-   "solution": "THIRST"
+   "solution": "THIRST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "THIRST",
+    "definitions": [
+     {
+      "text": "Desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the last letter is lopped off"
+     },
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "protecting something means shielding it on all sides, so one letter sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urban speed limit",
+      "gives": "THIRTY",
+      "note": "30 mph is the usual speed limit in British towns"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIR",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A campaign wants town speed limits lowered to keep the community safe.",
+     "walkthrough": "Cut THIRTY to THIRT, then put S inside.",
+     "definitionFit": "Thirst is a craving or longing, used figuratively as in a thirst for knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1596,48 @@
     "text": "Many minute noodles",
     "enumeration": "6"
    },
-   "solution": "MASSES"
+   "solution": "MASSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASSES",
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "M is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "noodles",
+      "gives": "ASSES",
+      "note": "a noodle is a fool, as is an ass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of instant noodles, the kind ready in a minute.",
+     "walkthrough": "'Minute noodles' looks like a snack ready in a minute, but noodles here are fools.",
+     "definitionFit": "Masses, as in 'masses of food', is an informal way of saying a great quantity or lots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "noodles"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1651,73 @@
     "text": "Miles tossed his mother’s hospital stuff in jumble",
     "enumeration": "8"
    },
-   "solution": "MISHMASH"
+   "solution": "MISHMASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MISHMASH",
+    "definitions": [
+     {
+      "text": "stuff in jumble",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed",
+      "for": "anagram",
+      "note": "tossed things are thrown about and land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miles",
+      "gives": "M",
+      "note": "M is the abbreviation for miles"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother’s",
+      "gives": "MAS",
+      "note": "Ma is mother, with the possessive s"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ISH",
+      "MAS",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Miles throws his mother's hospital things into a heap.",
+     "walkthrough": "'Miles' looks like a man's name; it is just M.",
+     "definitionFit": "A mishmash is a confused mixture, a jumble of assorted stuff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Miles"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1737,49 @@
      }
     ]
    },
-   "solution": "DEADRINGER"
+   "solution": "DEADRINGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEAD RINGER",
+    "definitions": [
+     {
+      "text": "whose features can’t be distinguished",
+      "at": 12,
+      "note": "a descriptive clause for a person rather than a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Late",
+      "gives": "DEAD",
+      "note": "the late So-and-so is a person who has died"
+     },
+     {
+      "clueFragment": "caller",
+      "gives": "RINGER",
+      "note": "one who rings, or calls, on the telephone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "RINGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A night-time visitor arrives whose face cannot be made out in the dark.",
+     "walkthrough": "'Late' looks like the time of a visit; it means deceased. The definition is a description of someone who looks exactly like another person.",
+     "definitionFit": "The idiom names a person who looks exactly like someone else, so their faces cannot be told apart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Late"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1793,43 @@
     "text": "Get a load of Sir Keir",
     "enumeration": "3"
    },
-   "solution": "IRK"
+   "solution": "IRK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IRK",
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a load of",
+      "for": "hidden_word",
+      "note": "a load of something is a portion of it, so the letters are a part of the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sir Keir",
+      "gives": "IRK",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "'Get a load of him' — a jibe at Sir Keir Starmer, the British Prime Minister.",
+     "walkthrough": "'Get a load of' reads as one slang phrase meaning 'look at'; split it, and 'Get' is the definition.",
+     "definitionFit": "Get can mean annoy, as in 'it really gets me', which is the sense of irk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1843,56 @@
     "text": "Large parts down there sound bull-like",
     "enumeration": "6"
    },
-   "solution": "BELLOW"
+   "solution": "BELLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BELLOW",
+    "definitions": [
+     {
+      "text": "sound bull-like",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "to part something is to split it open, letting a letter sit between the halves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down there",
+      "gives": "BELOW",
+      "note": "below means further down"
+     },
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEL",
+      "L",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude remark about big body parts below the waist making a bovine noise.",
+     "walkthrough": "'Parts' looks like a plural noun; it is the verb, splitting the second piece.",
+     "definitionFit": "To bellow is to roar loudly and deeply, the noise a bull makes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1906,48 @@
     "text": "Beneficial to lock building that should be secure",
     "enumeration": "8"
    },
-   "solution": "FORTRESS"
+   "solution": "FORTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORTRESS",
+    "definitions": [
+     {
+      "text": "building that should be secure",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beneficial to",
+      "gives": "FOR",
+      "note": "something that is for you is good for you"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a lock of hair is a tress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A good lock is a help for a building that needs to be secure.",
+     "walkthrough": "'Lock' looks like a door fastening, apt beside 'secure'; it is a lock of hair.",
+     "definitionFit": "A fortress is a heavily fortified stronghold, designed above all to be safe from attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lock"
+    }
+   }
   }
  ]
 }
