@@ -38,6 +38,8 @@ import re
 #   Sunday Times sits with the Times while its publisher stays "Sunday Times".
 # bylined — the source names the setter on every puzzle, so a null setter is
 #   one the fetcher failed to read (tools/puzzle_integrity.py SETTER).
+# renumberedBelow — the series started its numbering again: numbers below this
+#   are the newer run, and each run is its own sequence.
 # datedFromNeighbours — the source prints no date, so the filer derives each
 #   from the numbers either side and may be unable to yet. Every other series
 #   must carry a date (tools/puzzle_integrity.py SHAPE and DATE).
@@ -180,11 +182,14 @@ SERIES = {
     },
     # The Times Crossword Club's monthly puzzle, numbered from 20,000 on its
     # own and harder than the daily. A blocked 15x15 like the daily, filed
-    # from the same blog; it prints no date, so its date stays null.
+    # from the same blog; it prints no date, so it is dated by its post.
     "timesclub": {
         "kind": "Club Monthly Special",
         "publisher": "Times",
         "badge": "times club",
+        # It ran from 20,000 to 20,278 (November 2023); from 274 (May 2024) it
+        # is numbered afresh. Each numbering's dates rise on their own.
+        "renumberedBelow": 20000,
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
         "datedFromNeighbours": True,

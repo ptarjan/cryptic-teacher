@@ -1238,13 +1238,16 @@ def date_of(puzzle):
 def check_dates(held, flags):
     """A series' dates rise with its numbers: one puzzle per issue, numbered in
     the order they are printed. A later number dated on or before an earlier
-    one is a date read off the wrong day. `held` is (series, number, day, id)
+    one is a date read off the wrong day. A series that renumbered
+    (series.py renumberedBelow) is checked one numbering at a time. `held` is (series, number, day, id)
     per puzzle, the day a datetime.date or None."""
     by_series = defaultdict(list)
     for series, number, date, pid in held:
         if not series_meta.is_book(series):
-            by_series[series].append((number, date, pid))
-    for series, rows in by_series.items():
+            restart = series_meta.meta(series).get("renumberedBelow")
+            run = (series, bool(restart and number < restart))
+            by_series[run].append((number, date, pid))
+    for (series, _), rows in by_series.items():
         rows.sort()
         dated = [(n, d, pid) for n, d, pid in rows if d is not None]
         for (a, da, _), (_b, db, pid) in pairwise(dated):
