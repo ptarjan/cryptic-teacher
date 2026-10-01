@@ -47,6 +47,23 @@
 # Set CT_NO_WORKTREE=1 to run in place — for testing a change to one of these
 # scripts before it is pushed, since the worktree only ever runs committed code.
 
+# The tree is leased to one run of a job at a time, however the run was
+# started: the reset below discards whatever a live run has not committed yet,
+# and a run started inside the worktree (CT_IN_WORKTREE=1) or in place
+# (CT_NO_WORKTREE=1) writes there just the same. The lock file lives in the main
+# checkout, found through the shared .git from any tree. fd 9 survives the exec,
+# so a run that inherits it already holds the lease and keeps it until the run
+# and every child it started have exited.
+_ct_lease="$(cd "$(dirname "${BASH_SOURCE[0]}")" &&
+  dirname "$(git rev-parse --path-format=absolute --git-common-dir)")/.$(basename "$0" .sh).tree.lock"
+if [ "$(readlink "/proc/$$/fd/9" 2>/dev/null)" != "$_ct_lease" ]; then
+  exec 9>"$_ct_lease"
+fi
+if ! flock -n 9; then
+  echo "another $(basename "$0" .sh) run holds its tree — leaving it alone"
+  exit 0
+fi
+
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
   _ct_job="$(basename "$0" .sh)"
@@ -69,15 +86,6 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     fi
     rm -f "$_ct_log.trim"
   done
-
-  # The tree is leased to one run at a time: the reset below discards whatever
-  # a live run has not committed yet. fd 9 survives the exec, so the lease
-  # lasts until the run and every child it started have exited.
-  exec 9>"$_ct_main/.$_ct_job.tree.lock"
-  if ! flock -n 9; then
-    echo "another $_ct_job run holds $_ct_tree — leaving it alone"
-    exit 0
-  fi
 
   if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
     # Quiet: the first run checks out 600 files and the progress meter writes a
