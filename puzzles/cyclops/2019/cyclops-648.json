@@ -24,6 +24,9 @@
   "date": "2019-04-15",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,69 @@
     "text": "Celeb initially involved with A-list – the runs a big feature of this",
     "enumeration": "9"
    },
-   "solution": "ATHLETICS"
+   "solution": "ATHLETICS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ATHLETICS",
+    "definitions": [
+     {
+      "text": "runs a big feature of this",
+      "at": 43,
+      "note": "a descriptive phrase for the sport rather than a plain synonym"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "what comes initially is at the very start, so only the opening letter is kept"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "things involved are tangled up together, so these letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celeb",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "A-list",
+      "gives": "ALIST",
+      "note": "taken as written, hyphen dropped"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CALISTTHE",
+       "gives": "ATHLETICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity mixes with the A-list crowd at a big sporting event.",
+     "walkthrough": "The dash marks where the wordplay stops: everything after it describes the sport, in which track races are a central part.",
+     "definitionFit": "Track and field competition is built around sprints and distance races, so running events are a major part of the sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +116,60 @@
     "text": "Scrap, with Labour leader moving a bit to the right – should get a medal!",
     "enumeration": "6"
    },
-   "solution": "SILVER"
+   "solution": "SILVER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SILVER",
+    "definitions": [
+     {
+      "text": "a medal",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Labour leader moving a bit to the right",
+      "for": "reversal",
+      "note": "shifting one letter a single step rightwards swaps it with its neighbour, turning that pair around"
+     }
+    ],
+    "linkWords": [
+     "should get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrap",
+      "gives": "SLIVER",
+      "note": "a sliver is a small scrap or splinter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IL",
+      "VER"
+     ],
+     "reversals": [
+      {
+       "from": "LI",
+       "to": "IL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praises a fight, or a Labour leader edging rightwards politically, as worthy of an award.",
+     "walkthrough": "The Labour leader is the first letter L of SLIVER; moving it one place right past the I gives SILVER. The surface sneers at a party leader drifting to the political right.",
+     "definitionFit": "Second place in a competition earns the silver award, so the precious metal names that particular prize."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +183,72 @@
     "text": "Hackneyed load of balls due to be recycled with Sun's involvement",
     "enumeration": "8"
    },
-   "solution": "OVERUSED"
+   "solution": "OVERUSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OVERUSED",
+    "definitions": [
+     {
+      "text": "Hackneyed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycled",
+      "for": "anagram",
+      "note": "recycled material is broken down and remade, so these letters are reformed in a fresh order"
+     },
+     {
+      "text": "with Sun's involvement",
+      "for": "anagram",
+      "note": "involvement brings an extra element into the mix, so one more letter joins the jumble"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "load of balls",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "note": "S is the abbreviation for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "USED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUES",
+       "gives": "USED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tired story, nonsense due to be rehashed with help from the Sun tabloid.",
+     "walkthrough": "'Load of balls' reads as rubbish, but in cricket an over is six deliveries. The Sun suggests the newspaper; here it is just S.",
+     "definitionFit": "A hackneyed phrase is one worn out through repetition, so it has been employed far too often."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +268,61 @@
      }
     ]
    },
-   "solution": "BOILINGPOINT"
+   "solution": "BOILINGPOINT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOILING POINT",
+    "definitions": [
+     {
+      "text": "When you're ready to erupt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuff",
+      "for": "anagram",
+      "note": "to stuff is to cram things in roughly, leaving the letters jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lion",
+      "gives": "LION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "big top",
+      "gives": "BIGTOP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIONINBIGTOP",
+       "gives": "BOILINGPOINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus act where an angry lion is crammed into the tent, about to explode.",
+     "walkthrough": "'In' looks like a positional word putting the lion inside the tent, but it is part of the letters being rearranged.",
+     "definitionFit": "Figuratively, reaching this stage means your temper is at the limit and you are about to lose control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +336,56 @@
     "text": "Fish – royal tucked into seconds",
     "enumeration": "6"
    },
-   "solution": "SKATES"
+   "solution": "SKATES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKATES",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into a place is put inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "royal",
+      "gives": "KATE",
+      "note": "Kate is the Princess of Wales"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "SS",
+      "note": "S is the abbreviation for second, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal tucking into a second helping of fish.",
+     "walkthrough": "'Tucked into' suggests eating; here it means placed inside. KATE goes between the two S's.",
+     "definitionFit": "Skate is a flat ray-like fish eaten widely in Britain, and fish can be read as a plural noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +403,59 @@
    "group": [
     "6-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPOT CASH",
+    "definitions": [
+     {
+      "text": "immediate payment",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off is wrong or disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toss",
+      "gives": "TOSS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "CHAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOSSCHAP",
+       "gives": "SPOTCASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paying someone off on the spot to get rid of him.",
+     "walkthrough": "'Toss' looks like a verb acting on the chap, but both words simply supply letters to be rearranged.",
+     "definitionFit": "Money handed over at the moment of sale, without credit or delay, is the commercial term for payment on delivery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Toss"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +469,67 @@
     "text": "Article about that is very appropriate",
     "enumeration": "6"
    },
-   "solution": "THIEVE"
+   "solution": "THIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THIEVE",
+    "definitions": [
+     {
+      "text": "appropriate",
+      "at": 27,
+      "note": "a verb here, to take for oneself"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the others"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "IE",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece on a topic that is just right.",
+     "walkthrough": "'Appropriate' reads as an adjective meaning suitable but is the verb meaning to take; i.e. is the standard abbreviation for 'that is'.",
+     "definitionFit": "To appropriate something is to take it without permission, which is stealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "appropriate"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +549,57 @@
      }
     ]
    },
-   "solution": "WORKEDUP"
+   "solution": "WORKEDUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WORKED UP",
+    "definitions": [
+     {
+      "text": "excited",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "gives": "WORK",
+      "note": "labour is work"
+     },
+     {
+      "clueFragment": "Balls",
+      "gives": "ED",
+      "note": "Ed Balls is a former Labour politician"
+     },
+     {
+      "clueFragment": "hoisted",
+      "gives": "UP",
+      "note": "something hoisted is raised up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORK",
+      "ED",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A Labour politician rising in the party makes members excited.",
+     "walkthrough": "Ed Balls was a Labour shadow chancellor; his first name stands for him. 'After' places ED UP behind WORK.",
+     "definitionFit": "Being agitated or emotionally aroused is the idiomatic meaning of this phrasal adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +613,55 @@
     "text": "Make out with promiscuous 'Cinders'",
     "enumeration": "7"
    },
-   "solution": "DISCERN"
+   "solution": "DISCERN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISCERN",
+    "definitions": [
+     {
+      "text": "Make out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "promiscuous",
+      "for": "anagram",
+      "note": "promiscuous means indiscriminate and mixed up, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cinders",
+      "gives": "CINDERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CINDERS",
+       "gives": "DISCERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Snogging a loose Cinderella.",
+     "walkthrough": "'Make out' suggests kissing, but it means to perceive. Cinders is Cinderella's nickname, used here only for its letters.",
+     "definitionFit": "To make out a distant shape is to perceive or recognise it with some effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +675,56 @@
     "text": "Lord, the PM's active on Right Bank!",
     "enumeration": "9"
    },
-   "solution": "LIVERPOOL"
+   "solution": "LIVERPOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIVERPOOL",
+    "definitions": [
+     {
+      "text": "Lord, the PM",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "active",
+      "gives": "LIVE",
+      "note": "live means active or switched on"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "Bank",
+      "gives": "POOL",
+      "note": "a pool is a shared fund or bank of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVE",
+      "R",
+      "POOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A peer who is prime minister is busy on the Paris Right Bank.",
+     "walkthrough": "'Right Bank' suggests Paris; the two words separate into R and POOL. Lord Liverpool was British prime minister from 1812 to 1827.",
+     "definitionFit": "The Earl of Liverpool held the premiership for fifteen years, so the title names that former head of government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +758,51 @@
      }
     ]
    },
-   "solution": "TVSET"
+   "solution": "TVSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TV SET",
+    "definitions": [
+     {
+      "text": "box",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unconventional dresser",
+      "gives": "TV",
+      "note": "TV is short for transvestite"
+     },
+     {
+      "clueFragment": "fixed",
+      "gives": "SET",
+      "note": "set means fixed or settled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TV",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with odd taste in clothes owns a built-in cupboard.",
+     "walkthrough": "'Dresser' suggests a piece of furniture beside a box, but it is a person who dresses oddly. 'The box' is British slang for television.",
+     "definitionFit": "Box is informal slang for a television receiver, from the shape of early sets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dresser"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +816,66 @@
     "text": "Amazingly, Trump's giving away millions, getting thinner!",
     "enumeration": "5"
    },
-   "solution": "TURPS"
+   "solution": "TURPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TURPS",
+    "definitions": [
+     {
+      "text": "thinner",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving away",
+      "for": "deletion",
+      "note": "to give something away is to part with it, so a letter is dropped"
+     },
+     {
+      "text": "Amazingly",
+      "for": "anagram",
+      "note": "something amazing defies expectation, so the letters end up in a surprising order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's",
+      "gives": "TRUMPS",
+      "note": "taken as written, the apostrophe dropped"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUPS",
+       "gives": "TURPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miracle: Trump is donating his fortune and losing weight.",
+     "walkthrough": "Remove M from TRUMPS and rearrange. 'Thinner' looks like slimming but is the paint solvent; turps is short for turpentine.",
+     "definitionFit": "Turpentine is used to dilute oil paint and clean brushes, which makes it a paint solvent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "thinner"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +889,67 @@
     "text": "Net is controlled, in the clutches of titled person – shady",
     "enumeration": "8"
    },
-   "solution": "SINISTER"
+   "solution": "SINISTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SINISTER",
+    "definitions": [
+     {
+      "text": "shady",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "controlled",
+      "for": "anagram",
+      "note": "something controlled is manipulated, so the letters are worked into another order"
+     },
+     {
+      "text": "in the clutches of",
+      "for": "container",
+      "note": "to be in someone's clutches is to be held by them, so one piece lies inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Net is",
+      "gives": "NETIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "titled person",
+      "gives": "SIR",
+      "note": "a knight is addressed as Sir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "NISTE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NETIS",
+       "gives": "NISTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The internet is in the grip of some aristocrat, which seems dodgy.",
+     "walkthrough": "The holder does not have to split evenly: here the rearranged letters go in after the title's second letter.",
+     "definitionFit": "Shady and sinister both describe something suspicious or menacing, suggesting dishonest intent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Net"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +963,79 @@
     "text": "In the Eye, Blair's back in as a dry alternative competitor",
     "enumeration": "9"
    },
-   "solution": "ADVERSARY"
+   "solution": "ADVERSARY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "ADVERSARY",
+    "definitions": [
+     {
+      "text": "competitor",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running the other way, so the letters are turned round"
+     },
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative version is a different arrangement of the same letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the Eye, Blair's",
+      "gives": "REV",
+      "note": "Private Eye ran Blair as the Rev Tony, vicar of St Albion's"
+     },
+     {
+      "clueFragment": "as a dry",
+      "gives": "ASADRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VER",
+      "SARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASADRY",
+       "gives": "ADSARY"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Private Eye says Tony Blair is back as a rival standing for temperance.",
+     "walkthrough": "Private Eye is a British satirical magazine whose long-running parody cast Blair as a trendy vicar, so his title is REV. Reversed, it goes inside a rearrangement of AS A DRY.",
+     "definitionFit": "An adversary is an opponent or rival, the person you compete against."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1049,59 @@
     "text": "Castle, possibly getting laid etc, erupted",
     "enumeration": "7"
    },
-   "solution": "CITADEL"
+   "solution": "CITADEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CITADEL",
+    "definitions": [
+     {
+      "text": "Castle, possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erupted",
+      "for": "anagram",
+      "note": "an eruption throws material everywhere, leaving the letters scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laid",
+      "gives": "LAID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAIDETC",
+       "gives": "CITADEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Castle, a person's name perhaps, getting lucky and so on, then blowing up.",
+     "walkthrough": "'Possibly' marks the castle as one example of the answer rather than an exact synonym.",
+     "definitionFit": "A citadel is a fortress guarding a city, so a castle is one kind of stronghold that fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "laid"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1115,67 @@
     "text": "Liberal peer, corseted in a bit, got thinner",
     "enumeration": "7"
    },
-   "solution": "TAPERED"
+   "solution": "TAPERED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TAPERED",
+    "definitions": [
+     {
+      "text": "got thinner",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liberal",
+      "for": "anagram",
+      "note": "a liberal reading takes freedoms, so the letters are freely rearranged"
+     },
+     {
+      "text": "corseted in",
+      "for": "container",
+      "note": "a corset encloses the body, so one piece is wrapped by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer",
+      "gives": "PEER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a bit",
+      "gives": "TAD",
+      "note": "a tad is a small amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "PERE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEER",
+       "gives": "PERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Lib Dem lord squeezed into a corset slims down a bit.",
+     "walkthrough": "'Liberal peer' looks like a Lib Dem lord, but Liberal is the rearrangement signal and the peer supplies only letters.",
+     "definitionFit": "To taper is to narrow gradually towards one end, so tapered means became narrower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1193,56 @@
    "group": [
     "18-across",
     "11-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLANNED OBSOLESCENCE",
+    "definitions": [
+     {
+      "text": "Apple policy?",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "determined to crack",
+      "for": "anagram",
+      "note": "something cracked is broken into pieces, so the letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NB. colossal need",
+      "gives": "NBCOLOSSALNEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Trump's replacement",
+      "gives": "PENCE",
+      "note": "Mike Pence, Trump's vice-president, would have replaced him"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NBCOLOSSALNEEDPENCE",
+       "gives": "PLANNEDOBSOLESCENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge craving to break Trump's successor, then a jab at Apple's business practice.",
+     "walkthrough": "Pence was vice-president under Trump. The question mark flags that the definition is a pointed example: Apple is often accused of designing phones to go out of date.",
+     "definitionFit": "Designing products with a deliberately limited lifespan so customers must buy again is the practice Apple is often accused of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Apple"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1256,68 @@
     "text": "One time politician strangles north eastern lawyer",
     "enumeration": "8"
    },
-   "solution": "ATTORNEY"
+   "solution": "ATTORNEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ATTORNEY",
+    "definitions": [
+     {
+      "text": "lawyer",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangles",
+      "for": "container",
+      "note": "strangling grips round the throat, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a Conservative"
+     },
+     {
+      "clueFragment": "north eastern",
+      "gives": "NE",
+      "note": "NE is the abbreviation for north-east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TOR",
+      "NE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A former politician attacks a lawyer from the north-east.",
+     "walkthrough": "'One time' looks like 'one-time', meaning former, but splits into A and T.",
+     "definitionFit": "An attorney is a legal representative, the American term for a practising solicitor or advocate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1337,72 @@
      }
     ]
    },
-   "solution": "APRESSKI"
+   "solution": "APRESSKI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "APRES-SKI",
+    "definitions": [
+     {
+      "text": "time to relax",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     },
+     {
+      "text": "Chaotic",
+      "for": "anagram",
+      "note": "chaos is total disorder, so the letters are thrown into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "ends with",
+     "-off"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "P",
+      "select": "last",
+      "note": "last letter of the word"
+     },
+     {
+      "clueFragment": "era",
+      "gives": "ERA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "KISS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERAKISS",
+       "gives": "APRESSKI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The messy close of Trump's presidency ends with a dismissal, and now everyone can unwind.",
+     "walkthrough": "'Kiss-off' means a dismissal, but only KISS is used for letters.",
+     "definitionFit": "Après-ski is the drinking and socialising at a resort after a day on the slopes, a period of leisure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kiss-off"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1416,39 @@
     "text": "The thinking bather's ejaculation",
     "enumeration": "6"
    },
-   "solution": "EUREKA"
+   "solution": "EUREKA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EUREKA",
+    "definitions": [
+     {
+      "text": "The thinking bather's ejaculation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The thinking bather's ejaculation",
+      "note": "surface reading: something smutty about a man in the bath"
+     },
+     {
+      "clueFragment": "ejaculation",
+      "note": "setter's reading: an ejaculation is an exclamation, the cry of Archimedes in his bath on solving a problem"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Archimedes supposedly leapt from his bath crying out on discovering the principle of displacement. 'Ejaculation' in its old sense means a sudden exclamation.",
+     "definitionFit": "The Greek cry meaning 'I have found it' is the classic shout of a thinker making a discovery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ejaculation"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1462,73 @@
     "text": "Bill having Lewinsky mainly on end of the desk",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "desk",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "letter_selection",
+      "note": "mainly here points to the head of the word, so its leading letter is taken"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "TAB",
+      "note": "a tab is a bill, as in a bar tab"
+     },
+     {
+      "clueFragment": "Lewinsky",
+      "gives": "L",
+      "select": "first",
+      "note": "leading letter of the name"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAB",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Bill Clinton and Monica Lewinsky on the Oval Office desk.",
+     "walkthrough": "Bill looks like Clinton, but it is a tab, as in a restaurant bill.",
+     "definitionFit": "A desk is a piece of furniture with a flat working surface, essentially a writing table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1542,43 @@
     "text": "Nebuchadnezzar's guts?",
     "enumeration": "6"
    },
-   "solution": "BOTTLE"
+   "solution": "BOTTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOTTLE",
+    "definitions": [
+     {
+      "text": "Nebuchadnezzar",
+      "at": 0
+     },
+     {
+      "text": "guts",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nebuchadnezzar",
+      "note": "first meaning: a very large wine container holding twenty standard measures"
+     },
+     {
+      "clueFragment": "guts",
+      "note": "second meaning: courage, in British slang, as in losing your nerve"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The king of Babylon is a red herring: a nebuchadnezzar is a giant champagne size. In British slang, having the guts to do something is having bottle.",
+     "definitionFit": "The word names both a glass container for wine and, informally in Britain, nerve or courage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nebuchadnezzar"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1592,52 @@
     "text": "One who tends to precede Brenda with \"banger\"",
     "enumeration": "5"
    },
-   "solution": "CARER"
+   "solution": "CARER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARER",
+    "definitions": [
+     {
+      "text": "One who tends",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to precede",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banger",
+      "gives": "CAR",
+      "note": "a banger is an old, battered car"
+     },
+     {
+      "clueFragment": "Brenda",
+      "gives": "ER",
+      "note": "Brenda is Private Eye's nickname for the Queen, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who usually walks ahead of a woman called Brenda, carrying a sausage.",
+     "walkthrough": "'Tends' looks like 'is inclined', but it means looks after. Private Eye, a satirical British magazine, calls the late Queen Brenda, giving ER; a banger is British slang for a clapped-out car.",
+     "definitionFit": "A carer looks after the sick, elderly or disabled, so tending to others is the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tends"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1665,56 @@
     "text": "Inflammatory condition means record sex lives",
     "enumeration": "9"
    },
-   "solution": "ENTERITIS"
+   "solution": "ENTERITIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTERITIS",
+    "definitions": [
+     {
+      "text": "Inflammatory condition",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "means"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "ENTER",
+      "note": "to enter data is to record it"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is slang for sex or sex appeal"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "to live is to be, so lives gives is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER",
+      "IT",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical condition flares up in people who keep a record of their sex lives.",
+     "walkthrough": "'Lives' looks like a plural noun after 'sex', but it is a verb meaning exists.",
+     "definitionFit": "Enteritis is an inflammation of the intestine, so it is a medical swelling disorder of the gut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1728,58 @@
     "text": "Mate with Punch, showing arrogance at first",
     "enumeration": "8"
    },
-   "solution": "SIDEKICK"
+   "solution": "SIDEKICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDEKICK",
+    "definitions": [
+     {
+      "text": "Mate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "what comes at first is placed in front, fixing which piece leads"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrogance",
+      "gives": "SIDE",
+      "note": "side is an old word for swagger or pretentiousness"
+     },
+     {
+      "clueFragment": "Punch",
+      "gives": "KICK",
+      "note": "a drink's punch is its kick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "KICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend throws a punch, behaving arrogantly from the start.",
+     "walkthrough": "To put on side is a British idiom for acting superior, so side means swagger; the punch is the kick of a drink or a blow.",
+     "definitionFit": "A sidekick is a close companion or assistant, a friend who goes everywhere with you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Punch"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1793,39 @@
     "text": "Half of this groper's payment for service",
     "enumeration": "6"
    },
-   "solution": "FEELER"
+   "solution": "FEELER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FEELER",
+    "definitions": [
+     {
+      "text": "groper",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Half of this groper's payment for service",
+      "note": "surface reading: a lecher handing over money for a sexual service"
+     },
+     {
+      "clueFragment": "Half of this",
+      "note": "setter's reading: the first three letters of the answer form a charge for professional work, and the whole word means a groper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The groper is the definition; the rest notes that the front half of the answer, FEE, is a payment for service.",
+     "definitionFit": "A groper is someone who touches with the hands, literally one who feels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   }
  ]
 }
