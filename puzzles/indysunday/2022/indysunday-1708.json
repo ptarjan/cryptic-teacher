@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Shower naked, holding cloth",
     "enumeration": "7"
    },
-   "solution": "BARRAGE"
+   "solution": "BARRAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARRAGE",
+    "definitions": [
+     {
+      "text": "Shower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to grip it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naked",
+      "gives": "BARE",
+      "note": "naked means bare, uncovered"
+     },
+     {
+      "clueFragment": "cloth",
+      "gives": "RAG",
+      "note": "a rag is a piece of cloth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "RAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a shower without clothes, clutching a flannel.",
+     "walkthrough": "'Shower' reads as washing, but it is the noun for a heavy volley, as in a shower of arrows.",
+     "definitionFit": "A barrage is a heavy, continuous outpouring of missiles or questions, which a shower of them describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shower"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,69 @@
     "text": "Mental image interrupted by extremely sexy companion",
     "enumeration": "7"
    },
-   "solution": "PSYCHIC"
+   "solution": "PSYCHIC",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PSYCHIC",
+    "definitions": [
+     {
+      "text": "Mental",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "an interruption breaks into the middle of something, so the other letters go inside"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "image",
+      "gives": "PIC",
+      "note": "a pic is a picture or image"
+     },
+     {
+      "clueFragment": "sexy",
+      "gives": "SY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH stands for Companion of Honour, a British order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SY",
+      "CH",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A daydream is broken into by a very attractive partner.",
+     "walkthrough": "'Mental image' looks like one phrase, but 'Mental' alone is the definition and 'image' starts the wordplay.",
+     "definitionFit": "Psychic describes things relating to the mind or soul, a standard sense of mental."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mental"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +174,88 @@
     "text": "Article about unknown American soldiers by the cut-off Israeli city",
     "enumeration": "8"
    },
-   "solution": "NAZARETH"
+   "solution": "NAZARETH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "deletion"
+    ],
+    "answer": "NAZARETH",
+    "definitions": [
+     {
+      "text": "Israeli city",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so these letters are read backwards"
+     },
+     {
+      "text": "cut-off",
+      "for": "deletion",
+      "note": "something cut off has lost its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an indefinite article"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "algebra uses x, y and z for unknowns"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "TH",
+      "note": "the word with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "Z",
+      "A",
+      "RE",
+      "TH"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news article covers mysterious US troops near some isolated city in Israel.",
+     "walkthrough": "'American soldiers' looks like GIs, but American gives only A and soldiers are the Royal Engineers.",
+     "definitionFit": "Nazareth, the town where Jesus grew up, lies in northern Israel and is one of its larger Arab cities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +269,51 @@
     "text": "Hit at random, unfortunately I fall",
     "enumeration": "5"
    },
-   "solution": "FLAIL"
+   "solution": "FLAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLAIL",
+    "definitions": [
+     {
+      "text": "Hit at random",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "an unfortunate outcome is one where things went wrong, so the letters come out in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I fall",
+      "gives": "IFALL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFALL",
+       "gives": "FLAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lashing out wildly admits they are going down.",
+     "walkthrough": "The anagram is complete in the last two words.",
+     "definitionFit": "To flail is to strike or swing wildly without aim, so blows land haphazardly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +327,70 @@
     "text": "Rabbi's love for one prepared to learn",
     "enumeration": "6"
    },
-   "solution": "ABSORB"
+   "solution": "ABSORB",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "ABSORB",
+    "definitions": [
+     {
+      "text": "learn",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means swapped in its place, so a letter is replaced"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "to prepare something is to work it into shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rabbi's",
+      "gives": "RABBIS",
+      "note": "taken as written, with the possessive s"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the shape of O"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RABBOS",
+       "gives": "ABSORB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rabbi's devotion goes to a student ready to study.",
+     "walkthrough": "Put O in place of the I in RABBIS to get RABBOS, then rearrange it.",
+     "definitionFit": "To absorb information is to take it in and understand it thoroughly, which is what learning means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +404,71 @@
     "text": "Minister starts to embarrass Rishi Sunak with a large U-turn?",
     "enumeration": "8"
    },
-   "solution": "REVERSAL"
+   "solution": "REVERSAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REVERSAL",
+    "definitions": [
+     {
+      "text": "U-turn",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only first letters are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minister",
+      "gives": "REV",
+      "note": "Rev, the Reverend, is a minister of religion"
+     },
+     {
+      "clueFragment": "embarrass Rishi Sunak",
+      "gives": "ERS",
+      "select": "first",
+      "note": "the opening letters of each of the three words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "ERS",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister humiliates the Prime Minister with a big policy climbdown.",
+     "walkthrough": "'Minister' looks like a politician, given Rishi Sunak, but it is a clergyman. The question mark flags that U-turn is used in its political sense.",
+     "definitionFit": "A political U-turn is a complete change of policy, a turning back on what was said before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +482,80 @@
     "text": "Can drinking whiskey after French garlic ultimately yield gust from behind?",
     "enumeration": "8"
    },
-   "solution": "TAILWIND"
+   "solution": "TAILWIND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TAILWIND",
+    "definitions": [
+     {
+      "text": "gust from behind",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something inside, so one set of letters swallows another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed later in the sequence, fixing the order of two parts"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French garlic",
+      "gives": "AIL",
+      "note": "ail is the French word for garlic"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "W is whiskey in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "yield",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AILW",
+      "IN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A curious question about whether swigging whisky after eating garlic leads to wind.",
+     "walkthrough": "The surface is a schoolboy joke about flatulence; whiskey spelt with an e signals the phonetic alphabet's W.",
+     "definitionFit": "A tailwind blows in the same direction a vehicle or person is travelling, pushing from the rear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +569,61 @@
     "text": "Writer's covering President endlessly, as before",
     "enumeration": "6"
    },
-   "solution": "IBIDEM"
+   "solution": "IBIDEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "IBIDEM",
+    "definitions": [
+     {
+      "text": "as before",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is lost"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap around it, so one piece goes outside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer's",
+      "gives": "IM",
+      "note": "the writer is I, so the writer's (writer is) is I'M"
+     },
+     {
+      "clueFragment": "President",
+      "gives": "BIDE",
+      "note": "Joe Biden, US President, without his last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIDE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A columnist writes about the President once again, as usual.",
+     "walkthrough": "Setters refer to themselves as the writer, so 'Writer's' is I'M; the apostrophe-s stands for 'is'.",
+     "definitionFit": "Ibidem is Latin for in the same place, used in footnotes to cite the source given in the previous note."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer's"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +637,59 @@
     "text": "Appliances from Q's successor in antithesis of Bond film?",
     "enumeration": "6"
    },
-   "solution": "DRYERS"
+   "solution": "DRYERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRYERS",
+    "definitions": [
+     {
+      "text": "Appliances",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it, so the letter is enclosed"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Q's successor",
+      "gives": "R",
+      "note": "R comes after Q in the alphabet"
+     },
+     {
+      "clueFragment": "antithesis of Bond film",
+      "gives": "DRYES",
+      "note": "Dr No is the first James Bond film; its opposite would be Dr Yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRYE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Gadgets supplied by the next quartermaster in a Bond film parody.",
+     "walkthrough": "Q is the gadget-maker in Bond films, so 'Appliances from Q' feels like one phrase; here Q is just the letter, followed by R.",
+     "definitionFit": "Hair dryers and tumble dryers are household electrical machines, which is what appliances are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Q's"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +703,42 @@
     "text": "Manure always contains organic compound",
     "enumeration": "4"
    },
-   "solution": "UREA"
+   "solution": "UREA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UREA",
+    "definitions": [
+     {
+      "text": "organic compound",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "to contain is to hold inside, so the letters sit within the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manure always",
+      "gives": "UREA",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A fact about dung always having a certain chemical in it.",
+     "walkthrough": "The surface is literally true: manure does contain this compound, which helps hide the hidden word.",
+     "definitionFit": "Urea is a nitrogen-rich compound excreted in urine, the first organic substance made from inorganic materials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +752,58 @@
     "text": "City traveller must circumnavigate to get back",
     "enumeration": "7"
    },
-   "solution": "RECOVER"
+   "solution": "RECOVER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECOVER",
+    "definitions": [
+     {
+      "text": "get back",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must circumnavigate",
+      "for": "container",
+      "note": "to circumnavigate is to go all the way round, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode of the City of London"
+     },
+     {
+      "clueFragment": "traveller",
+      "gives": "ROVER",
+      "note": "a rover is a wanderer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EC",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller has to go around the world to make it home.",
+     "walkthrough": "The City is London's financial district, whose postcodes start EC.",
+     "definitionFit": "To recover something lost is to regain or retrieve it, the same as getting it back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +817,71 @@
     "text": "A gold plate conducting current with variable physical property",
     "enumeration": "7"
    },
-   "solution": "AGILITY"
+   "solution": "AGILITY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AGILITY",
+    "definitions": [
+     {
+      "text": "physical property",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conducting",
+      "for": "container",
+      "note": "to conduct is to carry or lead along, so one piece carries another inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gold plate",
+      "gives": "GILT",
+      "note": "gilt is a thin layer of gold applied as plating"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "variable",
+      "gives": "Y",
+      "note": "algebra uses y as a variable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIL",
+      "I",
+      "T",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A gold-coated plate carries electricity, with some changeable physical characteristic.",
+     "walkthrough": "The surface is all physics, and 'physical property' sounds like conductivity, but physical here means bodily.",
+     "definitionFit": "Agility, nimbleness of movement, is a bodily quality, so it counts as a property of the physique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "physical"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +901,65 @@
      }
     ]
    },
-   "solution": "GRIMREAPER"
+   "solution": "GRIMREAPER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GRIM REAPER",
+    "definitions": [
+     {
+      "text": "Death",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to slice",
+      "for": "container",
+      "note": "a slicing blade cuts into the middle, so these letters go inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "edge",
+      "gives": "RIM",
+      "note": "a rim is an edge"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "one looking stunned",
+      "gives": "GAPER",
+      "note": "a gaper stares open-mouthed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIM",
+      "RE",
+      "APER"
+     ]
+    },
+    "explanation": {
+     "surface": "The edge of a deathly blade is about to cut someone frozen in shock.",
+     "walkthrough": "The 's after Death stands for is, joining definition to wordplay.",
+     "definitionFit": "The Grim Reaper is the traditional personification of death, a hooded skeleton carrying a scythe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +973,55 @@
     "text": "Inappropriate looking dance, in retrospect",
     "enumeration": "4"
    },
-   "solution": "LEER"
+   "solution": "LEER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LEER",
+    "definitions": [
+     {
+      "text": "Inappropriate looking",
+      "at": 0,
+      "note": "a noun phrase here: an inappropriate look"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "retrospect means looking backward, so the letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "REEL",
+      "note": "a reel is a lively Scottish dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEER"
+     ],
+     "reversals": [
+      {
+       "from": "REEL",
+       "to": "LEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back, a dance move seems a bit unsuitable.",
+     "walkthrough": "'Inappropriate looking' seems to describe the dance, but it is the definition.",
+     "definitionFit": "A leer is a lecherous or sly glance, an improper way of eyeing someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "looking"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +1035,60 @@
     "text": "Allow doing away with European era voting rights",
     "enumeration": "8"
    },
-   "solution": "SUFFRAGE"
+   "solution": "SUFFRAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUFFRAGE",
+    "definitions": [
+     {
+      "text": "voting rights",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doing away with",
+      "for": "deletion",
+      "note": "to do away with something is to get rid of it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allow",
+      "gives": "SUFFER",
+      "note": "suffer in its old sense of permit"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "the letter taken out"
+     },
+     {
+      "clueFragment": "era",
+      "gives": "AGE",
+      "note": "an age is an era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUFFR",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to scrap a Europe-era electoral system.",
+     "walkthrough": "Suffer means allow in the biblical 'Suffer the little children'; drop its second E.",
+     "definitionFit": "Suffrage is the right to vote in elections, as in the suffragettes' campaign for women's votes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Allow"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1108,69 @@
      }
     ]
    },
-   "solution": "HAPPYHOUR"
+   "solution": "HAPPYHOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HAPPY HOUR",
+    "definitions": [
+     {
+      "text": "drink now at a discount",
+      "at": 38,
+      "note": "a time, defined by what happens in it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "to receive is to take in, so one letter goes inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "program",
+      "gives": "APP",
+      "note": "an app is a computer program"
+     },
+     {
+      "clueFragment": "reader's",
+      "gives": "YOUR",
+      "note": "addressing the reader, belonging to you"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the tap abbreviation for hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "APP",
+      "Y",
+      "H",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel app tells guests a hot drink is now cheaper.",
+     "walkthrough": "'Hot drink' looks like tea or coffee, but hot is only H and the definition starts at 'drink'.",
+     "definitionFit": "Happy hour is a period, usually early evening, when a bar sells alcohol at reduced prices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1190,45 @@
      }
     ]
    },
-   "solution": "PLAYNICE"
+   "solution": "PLAYNICE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PLAY NICE",
+    "definitions": [
+     {
+      "text": "Don't be cruel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "talking about",
+      "for": "homophone",
+      "note": "talking means speaking out loud, so the sound counts rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flavourless dessert",
+      "gives": "PLAYNICE",
+      "soundsLike": "PLAIN ICE",
+      "note": "a plain ice is an unflavoured ice cream"
+     }
+    ],
+    "explanation": {
+     "surface": "A plea not to mock someone's bland pudding.",
+     "walkthrough": "Said quickly, the two words for an unflavoured ice run together into the instruction.",
+     "definitionFit": "To play nice is to behave kindly and fairly towards others, the opposite of being cruel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cruel"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1242,55 @@
     "text": "Noisily eat cold late morning meal without starter",
     "enumeration": "6"
    },
-   "solution": "CRUNCH"
+   "solution": "CRUNCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRUNCH",
+    "definitions": [
+     {
+      "text": "Noisily eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without starter",
+      "for": "deletion",
+      "note": "a starter is what comes first, so losing it drops the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the tap abbreviation for cold"
+     },
+     {
+      "clueFragment": "late morning meal",
+      "gives": "RUNCH",
+      "note": "brunch, minus its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loudly munching a cold brunch that skipped the first course.",
+     "walkthrough": "'Starter' looks like a first course of the meal, but it means the first letter of the word.",
+     "definitionFit": "To crunch food is to chew it with a loud crushing noise, so it is eating noisily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1304,67 @@
     "text": "Muse vaguely about a liberal prophet",
     "enumeration": "6"
    },
-   "solution": "SAMUEL"
+   "solution": "SAMUEL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SAMUEL",
+    "definitions": [
+     {
+      "text": "prophet",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the others"
+     },
+     {
+      "text": "vaguely",
+      "for": "anagram",
+      "note": "something vague has no fixed shape, so the letters are loosely rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muse",
+      "gives": "MUSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUSALE",
+       "gives": "SAMUEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone idly reflects on a progressive seer.",
+     "walkthrough": "MUSE goes round A and L, and the whole lot is rearranged.",
+     "definitionFit": "Samuel is an Old Testament prophet who anointed Saul and David as kings of Israel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Muse"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1378,55 @@
     "text": "Obstacle arranged to block coffin bearer",
     "enumeration": "7"
    },
-   "solution": "BARRIER"
+   "solution": "BARRIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARRIER",
+    "definitions": [
+     {
+      "text": "Obstacle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "something that blocks sits inside a passage, so these letters are lodged within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arranged",
+      "gives": "ARR",
+      "note": "arr. is the abbreviation for arranged, as on sheet music"
+     },
+     {
+      "clueFragment": "coffin bearer",
+      "gives": "BIER",
+      "note": "a bier is the stand a coffin rests on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARR",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "An obstruction is set up to stop a pallbearer.",
+     "walkthrough": "'Coffin bearer' suggests a pallbearer, but the bearer is the frame that holds the coffin, and 'arranged' is an abbreviation, not an anagram signal.",
+     "definitionFit": "A barrier is anything that blocks the way, so it is a synonym for an obstacle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1440,63 @@
     "text": "Nothing to support idea propagated by books and film",
     "enumeration": "7"
    },
-   "solution": "MEMENTO"
+   "solution": "MEMENTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEMENTO",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue a support goes underneath, so this piece comes after the rest"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idea propagated",
+      "gives": "MEME",
+      "note": "a meme is an idea or image spread from person to person"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "the New Testament, a set of books of the Bible"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "zero, nothing, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEME",
+      "NT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "No evidence backs an idea spread by books and cinema.",
+     "walkthrough": "'Film' looks like part of the list of media, but it is the definition, the 2000 Christopher Nolan thriller.",
+     "definitionFit": "Memento is a 2000 psychological thriller directed by Christopher Nolan, told in reverse order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1510,50 @@
     "text": "Run boat's propeller and make a din",
     "enumeration": "4"
    },
-   "solution": "ROAR"
+   "solution": "ROAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROAR",
+    "definitions": [
+     {
+      "text": "make a din",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "boat's propeller",
+      "gives": "OAR",
+      "note": "an oar propels a rowing boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Starting a boat engine makes a loud racket.",
+     "walkthrough": "'Propeller' suggests a motorboat's screw, but an oar is what propels a rowing boat.",
+     "definitionFit": "To roar is to make a loud deep noise, which is a way of making a racket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "propeller"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1567,59 @@
     "text": "Hide in Magaluf with Eco novel",
     "enumeration": "10"
    },
-   "solution": "CAMOUFLAGE"
+   "solution": "CAMOUFLAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAMOUFLAGE",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are made into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magaluf",
+      "gives": "MAGALUF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Eco",
+      "gives": "ECO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAGALUFECO",
+       "gives": "CAMOUFLAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hides away in a Spanish resort with an Umberto Eco book.",
+     "walkthrough": "Magaluf is a Majorcan party resort and Umberto Eco an Italian novelist, so 'novel' looks like a noun.",
+     "definitionFit": "To camouflage something is to disguise it so it blends in and cannot be seen, which hides it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1633,53 @@
     "text": "Rings husband's dropped - how clumsy!",
     "enumeration": "4"
    },
-   "solution": "OOPS"
+   "solution": "OOPS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OOPS",
+    "definitions": [
+     {
+      "text": "how clumsy!",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped",
+      "for": "deletion",
+      "note": "something dropped has been let go, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rings",
+      "gives": "HOOPS",
+      "note": "hoops are rings"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband has let the wedding rings fall, to everyone's dismay.",
+     "walkthrough": "The 's after husband stands for has, as in husband has dropped.",
+     "definitionFit": "Oops is the exclamation people make after a minor accident or blunder, expressing embarrassment at clumsiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rings"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1693,60 @@
     "text": "Bird ascending east German mountain",
     "enumeration": "5"
    },
-   "solution": "GREBE"
+   "solution": "GREBE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GREBE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ascending",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the order is reversed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the compass abbreviation"
+     },
+     {
+      "clueFragment": "German mountain",
+      "gives": "BERG",
+      "note": "Berg is German for mountain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREBE"
+     ],
+     "reversals": [
+      {
+       "from": "EBERG",
+       "to": "GREBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird flies up an eastern Alpine peak.",
+     "walkthrough": "The reversal covers both pieces together.",
+     "definitionFit": "The grebe is a diving waterbird with lobed toes, such as the great crested grebe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ascending"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1760,70 @@
     "text": "Newton with true confusion concerning particle",
     "enumeration": "7"
    },
-   "solution": "NEUTRON"
+   "solution": "NEUTRON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEUTRON",
+    "definitions": [
+     {
+      "text": "particle",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confusion",
+      "for": "anagram",
+      "note": "confusion means disorder, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newton",
+      "gives": "N",
+      "note": "N is the symbol for the newton, the unit of force"
+     },
+     {
+      "clueFragment": "true",
+      "gives": "TRUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "ON",
+      "note": "on means concerning, as in a book on birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EUTR",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRUE",
+       "gives": "EUTR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Isaac Newton is genuinely puzzled about some subatomic particle.",
+     "walkthrough": "Newton is the physicist in the surface, but in the wordplay it is the unit of force, symbol N.",
+     "definitionFit": "A neutron is an uncharged subatomic particle found in the nucleus of an atom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Newton"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1837,65 @@
     "text": "Plain, quiet, less stuffy royal brought to the fore",
     "enumeration": "7"
    },
-   "solution": "PRAIRIE"
+   "solution": "PRAIRIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "PRAIRIE",
+    "definitions": [
+     {
+      "text": "Plain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought to the fore",
+      "for": "cycling",
+      "note": "bringing something to the front moves it from the back, so the last letter goes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is quiet in music"
+     },
+     {
+      "clueFragment": "less stuffy",
+      "gives": "AIRIER",
+      "note": "airier means better ventilated"
+     },
+     {
+      "clueFragment": "royal",
+      "note": "R stands for royal; it names the final R of the previous piece, the letter that moves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAIRIE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIRIER",
+       "gives": "RAIRIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of an unpretentious royal who has become more open.",
+     "walkthrough": "The final R of AIRIER, standing for royal, is moved to the front to give RAIRIE.",
+     "definitionFit": "A prairie is a vast flat grassland in North America, which is a kind of plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 28,
@@ -435,7 +1915,56 @@
      }
     ]
    },
-   "solution": "HOLDBACK"
+   "solution": "HOLDBACK",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "HOLD BACK",
+    "definitions": [
+     {
+      "text": "show restraint",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to trade leaders",
+      "for": "spoonerism",
+      "note": "trading leaders swaps the first sounds of two words between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fearless",
+      "gives": "HOLD",
+      "soundsLike": "BOLD",
+      "note": "bold means fearless; it takes the H from the next word"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "BACK",
+      "soundsLike": "HACK",
+      "note": "a hack is a journalist; it takes the B from the first word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOLD",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave reporter is told to swap bosses and calm down.",
+     "walkthrough": "Swap the opening B and H of the two words.",
+     "definitionFit": "To hold back is to restrain oneself from acting or speaking, which is showing restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 29,
@@ -449,7 +1978,58 @@
     "text": "Briefly put off by court notice",
     "enumeration": "6"
    },
-   "solution": "DETECT"
+   "solution": "DETECT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DETECT",
+    "definitions": [
+     {
+      "text": "notice",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "a brief version is cut short, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put off",
+      "gives": "DETE",
+      "note": "deter means put off, without its last letter"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETE",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hearing is postponed for a short while because of a court notice.",
+     "walkthrough": "'Court notice' reads as a legal summons, but notice is the verb and the definition.",
+     "definitionFit": "To detect something is to discover or perceive it, which is what noticing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notice"
+    }
+   }
   }
  ]
 }
