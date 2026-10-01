@@ -328,7 +328,10 @@ def build(rec, row, series, date, setter, typed=None):
     date, or None where nothing proves one; `typed` is typed_counts()."""
     entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
                for e in tg.answers(rec, row)]
-    if not tg.answers_fit(row["grid"], {"entries": entries}):
+    # Only the clues are mandatory: a record with no answers at all files
+    # unsolved, and the nightly backfill solves it.
+    unsolved = not any(e.get("answer") for e in entries)
+    if not unsolved and not tg.answers_fit(row["grid"], {"entries": entries}):
         return None, "answers disagree with the grid"
     lights = rg.light_cells(row["grid"])
     by_key = {(e["number"], e["direction"]): e for e in entries}
@@ -401,7 +404,9 @@ def build(rec, row, series, date, setter, typed=None):
         e["clue"] = enumeration.clue(e["clue"], separators=seps)
         if groups.get(entry_id(e), [None])[0] == entry_id(e):
             e["group"] = list(groups[entry_id(e)])
-        e["solution"] = e.pop("solution")  # last, as every other series writes it
+        solution = e.pop("solution")
+        if solution:
+            e["solution"] = solution  # last, as every other series writes it
 
     number = row["number"]
     fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())]
@@ -430,9 +435,10 @@ def build(rec, row, series, date, setter, typed=None):
         "bars": list(row["grid"]) if barred else None,
         "source": {"url": rec["link"]},
         # The blog's own name: "timesforthetimes", "bigdave44".
-        "solutions": {"blog": blog_name(series, rec["link"]),
-                     "url": rec["link"],
-                     "date": rec["date"], "check": check},
+        "solutions": ({"origin": "unsolved"} if unsolved else
+                      {"blog": blog_name(series, rec["link"]),
+                       "url": rec["link"],
+                       "date": rec["date"], "check": check}),
         "entries": out,
     }, None
 

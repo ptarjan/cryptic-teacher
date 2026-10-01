@@ -107,6 +107,13 @@ print("SEE", entries[2]["clue"])
 
 missing = F.blog_answers(POST.replace("NEARS", "Nears"), linked["clues"])
 print("MISSING", F.entries_of(linked, missing, GRID))
+import datetime
+pdf = dict(linked, number=13412, setter="Crux", grid=GRID)
+post = {"id": 1, "link": "https://www.fifteensquared.net/x", "date": "2010-06-15",
+        "content": {"rendered": POST.replace("NEARS", "Nears")}}
+for name, p in (("UNANSWERED", post), ("NOPOST", None)):
+    pz, why = F.assemble(13412, pdf, p, datetime.date(2010, 6, 15), "https://media.ft.com/x.pdf", "live")
+    print(name, why, pz["solutions"], any("solution" in e for e in pz["entries"]))
 PY
 )
 echo "$out" | sed 's/^/  | /'
@@ -133,7 +140,11 @@ check "answers read by enumeration; prose numbers ignored" \
 check "a linked answer is shared out by the grid's light lengths" \
   "1a=SATIN 4a=OPERA 5a=TENTS 1d=SHOOT 2d=TWEEN 3d=NEARS" "$(g ENTRIES)"
 check "the second light of a link points at its leader" "See 4" "$(g SEE)"
-check "a light the blog does not answer leaves the puzzle unfiled" "None" "$(g MISSING)"
+check "a light the blog does not answer gets no entries from it" "None" "$(g MISSING)"
+check "a light the blog does not answer files the puzzle unsolved" \
+  "None {'origin': 'unsolved'} False" "$(g UNANSWERED)"
+check "no write-up at all files the puzzle unsolved" \
+  "None {'origin': 'unsolved'} False" "$(g NOPOST)"
 
 check "a header with no \"No.\"" "13422 Mudd" "$(g ODDHEAD)"
 check "\"2 A manner\" is 2 down, not 2 across; a link's second light is listed once" \

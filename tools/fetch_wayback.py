@@ -40,11 +40,13 @@ for about a week even when it still hosted these, so the capture nearest
 publication day has entries with no solutions. A later-year capture usually
 does — YEAR=2023 was good for numbers 3550-3910 (measured); 4090 has
 captures but was never seen solved even that late, so this walks a list of
-years, escalating, and only accepts a capture where every entry has one.
+years, escalating, and prefers a capture where every entry has one.
 Guardian cryptic solutions publish same-day (weekday) or ~1 week later
 (Saturday prize), so the same escalation logic applies without extra cases.
 
-A puzzle with any blank answer is never written — see has_full_solutions.
+Only the clues are mandatory. When no year tried has every answer, the
+earliest capture is filed UNSOLVED (fetch_puzzle.convert stores no
+solutions), and the nightly backfill solves it.
 
 COVERAGE. Patchy in both directions and both series; a 404 just means "not
 archived", never "does not exist" — measured samples: Everyman 3550-3910
@@ -144,12 +146,14 @@ def has_full_solutions(data):
 
 def fetch_one(series, num, years=YEARS_TO_TRY):
     """Try each year in turn; return a converted puzzle dict for the first
-    capture with every entry solved, or None if none qualified. Never raises
+    capture with every entry solved, else the first capture filed unsolved,
+    or None if nothing was captured. Never raises
     on a 404 (not archived) — those are printed and skipped like every other
     fetcher's walk() does; anything else (a throttle after every retry, a
     malformed page) is printed and treated the same way rather than stopping
     the whole range for one bad number."""
     last_reason = "not archived in any year tried"
+    unsolved = None
     for year in years:
         try:
             data, archive_url = fetch_capture(series, num, year)
@@ -165,11 +169,15 @@ def fetch_one(series, num, years=YEARS_TO_TRY):
         if not has_full_solutions(data):
             print(f"  {series}-{num} capture {year} ({archive_url}): "
                   f"no solutions in this capture — trying a later year")
-            last_reason = "captured, but no solutions in any year tried"
+            unsolved = unsolved or (data, archive_url)
             continue
         puzzle = convert(data)
         print(f"{series}-{num}: recovered from {archive_url} (capture year {year})")
         return puzzle, archive_url
+    if unsolved:
+        data, archive_url = unsolved
+        print(f"{series}-{num}: no solved capture; filing UNSOLVED from {archive_url}")
+        return convert(data), archive_url
     print(f"SKIP {series}-{num}: {last_reason}")
     return None, None
 
@@ -229,7 +237,7 @@ def main(argv):
     if recovered and not args.dry_run and is_live_dir:
         reindex()
     print(f"done: {recovered} recovered, {already} already on disk, "
-          f"{skipped} unavailable (404 or no solutions in any year tried)")
+          f"{skipped} unavailable (not archived in any year tried)")
     return 0
 
 
