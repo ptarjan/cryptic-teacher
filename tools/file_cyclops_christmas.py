@@ -65,8 +65,15 @@ SPECIALS = {
     743: (1588, 168681, "Running clockwise around the shaded squares, starting top left, is an extract (with",
           "W W W Y"),
     768: (1613, 179769, "A quote appearing in Commentatorballs", "U W Y"),
+    615: (1460, 115938, "Running clockwise around the shaded squares, starting top left, is a question",
+          "TTT U WW"),
+    692: (1537, 147401, "Running clockwise around the perimeter, starting top left, is a quote", "UUU WWW Y"),
+    718: (1563, 158046, "Running clockwise around the shaded squares, starting top left, is an extract (with "
+          "a minor change) from our regular feature, Nursery", "W YY"),
     794: (1639, 191222, "Running clockwise round the shaded squares from the top LH corner",
           "AAAABDEEEEEEEGHHIIIIIKLLLMNNNOOOPRRRSSSTTTTTUY"),
+    820: (1665, 203362, "Running clockwise round the shaded squares from the top LH corner is part of a 2025",
+          "U U W Y Y"),
 }
 
 TAG = re.compile(r"<[^>]+>")
@@ -390,19 +397,26 @@ def build(num, image_dir):
         else:
             near = near_quote(pattern, letters, ring)
             if near is None:
-                raise ValueError(f"no quotation in the post fits the {len(path)}-cell unclued light")
+                # Only the clues are mandatory: a ring no quotation in the post
+                # fits files unsolved, its squares in place and its letters
+                # left for the backfill.
+                unclued.append({"cells": [{"x": x, "y": y} for x, y in path]})
+                continue
             _, r, quote = near
         path = path[r:] + path[:r]
         # Checked cells take the grid's letter: a disagreement there is the post's typo.
         solution = "".join(at.get(c, ch) for c, ch in zip(path, quote))
         unchecked.update(ch for c, ch in zip(path, solution) if c not in at)
         unclued.append({"cells": [{"x": x, "y": y} for x, y in path], "solution": solution})
-    if listed is not None and unchecked != listed:
+    ring_unsolved = any("solution" not in u for u in unclued)
+    if listed is not None and not ring_unsolved and unchecked != listed:
         raise ValueError(f"unchecked letters {sorted(unchecked.elements())} differ from the preamble's list")
 
-    printed = [{"x": x, "y": y, "letter": at.get((x, y)) or next(
-        u["solution"][i] for u in unclued for i, c in enumerate(u["cells"]) if (c["x"], c["y"]) == (x, y))}
-        for y, row in enumerate(grid) for x, c in enumerate(row) if c.endswith("G")]
+    ring_letter = {(c["x"], c["y"]): u["solution"][i]
+                   for u in unclued if "solution" in u for i, c in enumerate(u["cells"])}
+    printed = [{"x": x, "y": y, "letter": at.get((x, y)) or ring_letter[(x, y)]}
+               for y, row in enumerate(grid) for x, c in enumerate(row)
+               if c.endswith("G") and (at.get((x, y)) or ring_letter.get((x, y)))]
 
     puzzle["preamble"] = preamble
     puzzle["source"] = {"url": IMAGE_URL.format(issue=issue)}
@@ -413,7 +427,9 @@ def build(num, image_dir):
     puzzle["solutions"] = provenance.with_solution_detail(puzzle, {
         "blog": "fifteensquared", "url": post["link"], "date": post["date"][:10],
         "check": f"{len(solutions)} entries verified against the grid image (lengths, crossings, "
-                 "linked-clue mapping); unclued letters checked against the preamble's list",
+                 "linked-clue mapping); "
+                 + ("the unclued ring is unsolved: no quotation in the post fits it" if ring_unsolved
+                    else "unclued letters checked against the preamble's list"),
     })["solutions"]
     return puzzle
 

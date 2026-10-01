@@ -1130,7 +1130,8 @@ def entry_letters(puzzle):
 def check_extra_cells(puzzle, flags):
     """The squares that are not entries' own: `unclued` lights and `printed`
     letters. An unclued light lies on the board, one letter per square, no
-    square twice, and agrees with every answered entry it crosses. A printed
+    square twice, and agrees with every answered entry it crosses; one with
+    no solution is unsolved, and only its squares are checked. A printed
     letter sits on a white square, an entry's or an unclued light's, and is
     the solution's letter there."""
     pid = puzzle.get("id")
@@ -1139,7 +1140,7 @@ def check_extra_cells(puzzle, flags):
     for n, light in enumerate(puzzle.get("unclued") or [], 1):
         cells = [(c.get("x"), c.get("y")) for c in light.get("cells") or []]
         sol = light.get("solution") or ""
-        if len(sol) != len(cells):
+        if "solution" in light and len(sol) != len(cells):
             flags.append(("CELLS", pid, f"unclued light {n}: solution {sol!r} has "
                           f"{len(sol)} letters for {len(cells)} squares"))
         if len(set(cells)) != len(cells):

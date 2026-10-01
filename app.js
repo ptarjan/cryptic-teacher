@@ -1769,7 +1769,7 @@
       const c = cells[y][x];
       if (c.light === undefined) c.light = n;
       c.unclued = true;
-      c.sol = c.sol || u.solution[i];
+      c.sol = c.sol || (u.solution ? u.solution[i] : null);
       return c;
     }));
     applyPrinted();
@@ -1807,7 +1807,8 @@
     else if (!c[cur.dir]) cur.dir = c.across ? "across" : "down";
     refreshAll();
   }
-  const uncluedSolved = () => unclued.every((l) => l.every((c) => c.letter === c.sol));
+  // A square no source answered counts once it is filled.
+  const uncluedSolved = () => unclued.every((l) => l.every((c) => (c.sol ? c.letter === c.sol : !!c.letter)));
 
   // ---------- grid rendering ----------
   function renderGrid() {
@@ -6211,7 +6212,7 @@
     // given, never saved, so they are not the solver's to fill.
     (puz.unclued || []).forEach((u) => u.cells.forEach(({ x, y }, i) => {
       const k = x + "," + y;
-      if (!want[k]) want[k] = u.solution[i];
+      if (!want[k]) want[k] = u.solution ? u.solution[i] : null;
     }));
     (puz.printed || []).forEach(({ x, y }) => { delete want[x + "," + y]; });
     const squares = Object.keys(want);
