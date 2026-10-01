@@ -410,6 +410,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/trove_solution_ocr.py", "read a Canberra Times puzzle's answers off the paper's printed solution grid"),
     ("tables everything else reads", "tools/file_georgeho_puzzles.py", "file the puzzles only georgeho's ODbL clue database holds into puzzles/"),
     ("tables everything else reads", "tools/test_file_georgeho_puzzles.sh", "does tools/file_georgeho_puzzles.py read georgeho's rows into the record the grid rebuild and file_blog_puzzles.build take?"),
+    ("tables everything else reads", "tools/fetch_archive_org_editions.py", "fetch archive.org newspaper editions' OCR, word positions and crossword page scans"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
