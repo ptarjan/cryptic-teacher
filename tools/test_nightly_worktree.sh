@@ -35,6 +35,7 @@ cat > "$tmp/main/tools/faketask.sh" <<'JOB'
 echo "RAN IN $(cd "$(dirname "$0")/.." && pwd)"
 JOB
 chmod +x "$tmp/main/tools/faketask.sh"
+printf ".*.tree.lock\n" > "$tmp/main/.gitignore"
 git -C "$tmp/main" add -A
 git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm init
 git -C "$tmp/main" remote add origin "$tmp/origin.git"
@@ -71,6 +72,18 @@ check "a stale index.lock is cleared, not waited on" \
   "$(echo "$out" | grep -c 'clearing an index.lock')" "1"
 check "and the job still gets its worktree" \
   "$(echo "$out" | grep '^RAN IN ')" "RAN IN $tmp/trees/faketask"
+
+# 2b. A run in flight holds its tree. A second fire must not reset it: the reset
+#     discards everything the live run has written but not yet committed.
+echo inflight >> "$tmp/trees/faketask/tools/faketask.sh"
+exec 8>"$tmp/main/.faketask.tree.lock"
+flock -n 8
+out="$(run "$tmp/trees")"
+exec 8>&-
+check "a second fire leaves a held tree alone" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+check "and the live run's uncommitted edit survives" \
+  "$(grep -c inflight "$tmp/trees/faketask/tools/faketask.sh")" "1"
+git -C "$tmp/trees/faketask" checkout -q -- tools/faketask.sh
 
 # 3. With no worktree to be had, nothing runs. The main checkout is the only
 #    other tree, and it is refused in the state that looks safest too: clean and
