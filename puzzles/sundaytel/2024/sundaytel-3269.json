@@ -23,6 +23,9 @@
   "date": "2024-06-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Risky reaching for razor then?",
     "enumeration": "5"
    },
-   "solution": "HAIRY"
+   "solution": "HAIRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAIRY",
+    "definitions": [
+     {
+      "text": "Risky",
+      "at": 0
+     },
+     {
+      "text": "reaching for razor then?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risky",
+      "note": "first meaning: dangerous, a slang word for perilous"
+     },
+     {
+      "clueFragment": "reaching for razor then?",
+      "note": "second meaning: someone grabbing a razor is presumably covered in stubble"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: a person reaching for a razor must need a shave.",
+     "definitionFit": "The slang adjective means dangerous or frightening, and literally it describes someone covered in growth needing a shave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Risky"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +89,67 @@
     "text": "Make-up tips scattered in lap",
     "enumeration": "8"
    },
-   "solution": "LIPSTICK"
+   "solution": "LIPSTICK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LIPSTICK",
+    "definitions": [
+     {
+      "text": "Make-up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "things scattered are thrown about in no particular order, so the letters get rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tips",
+      "gives": "TIPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lap",
+      "gives": "LICK",
+      "note": "to lap is to lick, as a cat laps milk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "PSTI",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIPS",
+       "gives": "PSTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cosmetic applicators have spilled across someone's lap.",
+     "walkthrough": "'Lap' looks like the part of the body you sit things on, but it is the verb, as when a dog laps water from a bowl.",
+     "definitionFit": "Lipstick is one example of cosmetics, the coloured stuff applied to the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lap"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +163,75 @@
     "text": "A country with capital in Brasilia turning up – South American capital!",
     "enumeration": "6"
    },
-   "solution": "BOGOTA"
+   "solution": "BOGOTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "BOGOTA",
+    "definitions": [
+     {
+      "text": "South American capital",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital in",
+      "for": "letter_selection",
+      "note": "a capital letter is the one at the head of a word, so only the opening letter is wanted"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning something upward makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "TOGO",
+      "note": "Togo is a country in West Africa"
+     },
+     {
+      "clueFragment": "Brasilia",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of the Brazilian city's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOGOTA"
+     ],
+     "reversals": [
+      {
+       "from": "ATOGOB",
+       "to": "BOGOTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation whose seat of government is Brasilia, Brazil's capital, is named, ending in a cheer for another capital.",
+     "walkthrough": "'Capital' is used twice: first the city sense misleads, then it means a capital letter, the B of Brasilia.",
+     "definitionFit": "Bogota is the seat of government of Colombia, a nation on the South American continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +245,64 @@
     "text": "Part of tree in meadow on top of fence",
     "enumeration": "4"
    },
-   "solution": "LEAF"
+   "solution": "LEAF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEAF",
+    "definitions": [
+     {
+      "text": "Part of tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word written downward is its opening letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one piece placed on another sits above it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meadow",
+      "gives": "LEA",
+      "note": "lea is a poetic word for a meadow"
+     },
+     {
+      "clueFragment": "fence",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree in a field has a branch hanging over the top of a fence.",
+     "walkthrough": "LEA, meaning meadow, is a crossword staple worth remembering.",
+     "definitionFit": "Leaves are the flat green growths on branches, one component of any deciduous plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +316,46 @@
     "text": "Tape on rope",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECORD",
+    "definitions": [
+     {
+      "text": "Tape",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning, as in business letters"
+     },
+     {
+      "clueFragment": "rope",
+      "gives": "CORD",
+      "note": "a cord is a thin rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CORD"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Tape' is the verb here: to tape a programme is to capture it for later; RE for 'on' or 'about' is a common convention.",
+     "definitionFit": "To tape something is to capture sound or pictures for playback later, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tape"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +375,43 @@
      }
     ]
    },
-   "solution": "COMEAGAIN"
+   "solution": "COMEAGAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COME AGAIN",
+    "definitions": [
+     {
+      "text": "Return",
+      "at": 0
+     },
+     {
+      "text": "what?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Return",
+      "note": "first meaning: arrive back at a place a second time"
+     },
+     {
+      "clueFragment": "what?",
+      "note": "second meaning: a colloquial request to repeat something not heard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two-word clue reads like a puzzled question, but each word is its own definition of the same phrase.",
+     "definitionFit": "The phrase literally means to visit once more, and colloquially is said when asking someone to repeat themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Return"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +425,51 @@
     "text": "On air, best new singers",
     "enumeration": "9"
    },
-   "solution": "BARITONES"
+   "solution": "BARITONES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BARITONES",
+    "definitions": [
+     {
+      "text": "singers",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new has been remade, so the letters take a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On air, best",
+      "gives": "ONAIRBEST",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONAIRBEST",
+       "gives": "BARITONES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio broadcast showcases the finest fresh vocal talent.",
+     "walkthrough": "The broadcasting picture hides that 'On air, best' is simply the raw material to rearrange.",
+     "definitionFit": "Baritones are male vocalists whose range lies between tenor and bass, a kind of singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +483,48 @@
     "text": "Figure connected to joint",
     "enumeration": "5"
    },
-   "solution": "TENON"
+   "solution": "TENON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENON",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 20,
+      "note": "a tenon is part of a mortise-and-tenon joint rather than the whole joint"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figure",
+      "gives": "TEN",
+      "note": "a figure is a number, here ten"
+     },
+     {
+      "clueFragment": "connected to",
+      "gives": "ON",
+      "note": "on can mean attached to, as a lid on a jar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A shape is attached to a hinge or knuckle.",
+     "walkthrough": "'Figure' as a number is a standard trick; 'joint' is carpentry, not anatomy.",
+     "definitionFit": "In woodworking, the projecting tongue fits into a mortise slot, forming one half of that carpentry connection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +538,48 @@
     "text": "Winter vehicle where murder reported?",
     "enumeration": "6"
    },
-   "solution": "SLEIGH"
+   "solution": "SLEIGH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SLEIGH",
+    "definitions": [
+     {
+      "text": "Winter vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is spoken news, so what follows is heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "murder",
+      "gives": "SLEIGH",
+      "soundsLike": "SLAY",
+      "note": "to slay is to murder"
+     }
+    ],
+    "explanation": {
+     "surface": "A snowy-season ride becomes the scene of a reported killing.",
+     "walkthrough": "The vehicle's name is pronounced exactly like the verb meaning to kill.",
+     "definitionFit": "A sleigh is a sledge pulled over snow by horses or reindeer, used in cold months."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "murder"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +593,54 @@
     "text": "Mysterious forces in painting",
     "enumeration": "6"
    },
-   "solution": "FRESCO"
+   "solution": "FRESCO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRESCO",
+    "definitions": [
+     {
+      "text": "painting",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mysterious",
+      "for": "anagram",
+      "note": "something mysterious is puzzling and unclear, so these letters come jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forces",
+      "gives": "FORCES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORCES",
+       "gives": "FRESCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strange supernatural powers lurk within a work of art.",
+     "walkthrough": "'Mysterious forces' reads as one spooky phrase, but the adjective is the signal to rearrange the noun.",
+     "definitionFit": "A fresco is a mural made by applying pigment to wet plaster, one kind of artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mysterious"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +654,66 @@
     "text": "Cow behind young horse, not a sheep!",
     "enumeration": "8"
    },
-   "solution": "FOLLOWER"
+   "solution": "FOLLOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FOLLOWER",
+    "definitions": [
+     {
+      "text": "sheep",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "saying not a letter means leaving that letter out"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "one piece placed behind another comes after it in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young horse",
+      "gives": "FOAL",
+      "note": "a foal is a young horse"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, the letter dropped"
+     },
+     {
+      "clueFragment": "Cow",
+      "gives": "LOWER",
+      "note": "a cow lows, so it is a thing that lows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOL",
+      "LOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cow trails a foal, and the exclamation insists it is no sheep.",
+     "walkthrough": "'Cow' is read whimsically as one who lows, i.e. moos; 'sheep' at the end is the definition, not part of the farmyard.",
+     "definitionFit": "Calling someone a sheep means they meekly copy others, which is just what a conformist disciple does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cow"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +727,42 @@
     "text": "Terrific magician",
     "enumeration": "6"
    },
-   "solution": "WIZARD"
+   "solution": "WIZARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WIZARD",
+    "definitions": [
+     {
+      "text": "Terrific",
+      "at": 0
+     },
+     {
+      "text": "magician",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terrific",
+      "note": "first meaning: a dated British exclamation of approval"
+     },
+     {
+      "clueFragment": "magician",
+      "note": "second meaning: a sorcerer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "As an adjective the word is old-fashioned British schoolboy slang for excellent.",
+     "definitionFit": "The word works as a slang adjective meaning marvellous and as a noun for a sorcerer casting spells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terrific"
+    }
+   }
   },
   {
    "number": 13,
@@ -210,7 +776,64 @@
     "text": "Ruby’s brought up near English city",
     "enumeration": "5"
    },
-   "solution": "DERBY"
+   "solution": "DERBY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DERBY",
+    "definitions": [
+     {
+      "text": "English city",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruby",
+      "gives": "RED",
+      "note": "ruby is a deep red colour"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means near, as in standing by the door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DER",
+      "BY"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Ruby was raised close to a city in England.",
+     "walkthrough": "Ruby looks like a girl's name but stands for the colour; the 's is short for 'is'. Derby is a city in the English Midlands.",
+     "definitionFit": "Derby is a cathedral city in Derbyshire in the Midlands of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ruby"
+    }
+   }
   },
   {
    "number": 14,
@@ -224,7 +847,62 @@
     "text": "Shade I like, certainly not going outside",
     "enumeration": "6"
    },
-   "solution": "INDIGO"
+   "solution": "INDIGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INDIGO",
+    "definitions": [
+     {
+      "text": "Shade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going outside",
+      "for": "container",
+      "note": "something going outside wraps around whatever is within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "DIG",
+      "note": "to dig something is slang for liking it"
+     },
+     {
+      "clueFragment": "certainly not",
+      "gives": "NO",
+      "note": "an emphatic refusal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "DIG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone likes a colour but refuses to go out of doors.",
+     "walkthrough": "I stands alone at the front, and the refusal wraps round the slang verb. DIG for 'like' is dated slang, as in 'I dig that music'.",
+     "definitionFit": "Indigo is a deep blue-violet colour, so it is a hue in the sense of shade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 15,
@@ -238,7 +916,66 @@
     "text": "Demo supports liberation of a nut, of course",
     "enumeration": "9"
    },
-   "solution": "NATURALLY"
+   "solution": "NATURALLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NATURALLY",
+    "definitions": [
+     {
+      "text": "of course",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberation",
+      "for": "anagram",
+      "note": "letters set free are released from their order and can be rearranged"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue, a piece that supports another sits below it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nut",
+      "gives": "ANUT",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "Demo",
+      "gives": "RALLY",
+      "note": "a demo, short for demonstration, is a protest rally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NATU",
+      "RALLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANUT",
+       "gives": "NATU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protest march backs freedom for an eccentric, as you'd expect.",
+     "walkthrough": "'A nut' suggests a crank being freed, but its letters are the fodder; the demo goes underneath them.",
+     "definitionFit": "Both phrases are adverbs expressing that something is obvious or to be expected, a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 16,
@@ -252,7 +989,42 @@
     "text": "Support vertebral area",
     "enumeration": "4"
    },
-   "solution": "BACK"
+   "solution": "BACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BACK",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "vertebral area",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "first meaning: to endorse or champion"
+     },
+     {
+      "clueFragment": "vertebral area",
+      "note": "second meaning: the rear part of the body where the spine runs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as spinal support, like a brace, but the two parts define one word separately.",
+     "definitionFit": "The word is a verb meaning to endorse and a noun for the rear of the torso along the spine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 17,
@@ -266,7 +1038,51 @@
     "text": "Circumference, right around!",
     "enumeration": "5"
    },
-   "solution": "GIRTH"
+   "solution": "GIRTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GIRTH",
+    "definitions": [
+     {
+      "text": "Circumference",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "letters moved around are shifted from their places into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "RIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIGHT",
+       "gives": "GIRTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone measures the distance all the way round something.",
+     "walkthrough": "'Right around' tempts you to put R around something; instead the whole word is rearranged.",
+     "definitionFit": "Girth is the measurement round the middle of a body or object, the same as its perimeter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1096,61 @@
     "text": "Flashy cut bags run, one",
     "enumeration": "6"
    },
-   "solution": "GARISH"
+   "solution": "GARISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GARISH",
+    "definitions": [
+     {
+      "text": "Flashy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bags",
+      "for": "container",
+      "note": "to bag something is to capture it and hold it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "GASH",
+      "note": "a gash is a deep cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "RI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A showy haircut gives a runner a bag-like look, or so it seems.",
+     "walkthrough": "'Bags' looks like a noun, but it is the verb meaning captures; R for run comes from cricket scorecards.",
+     "definitionFit": "Both words describe something showy and brash, tastelessly bright or loud in appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1164,42 @@
     "text": "Token potato?",
     "enumeration": "4"
    },
-   "solution": "CHIP"
+   "solution": "CHIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHIP",
+    "definitions": [
+     {
+      "text": "Token",
+      "at": 0
+     },
+     {
+      "text": "potato?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Token",
+      "note": "first meaning: a counter used for betting in a casino"
+     },
+     {
+      "clueFragment": "potato?",
+      "note": "second meaning: a fried strip or slice of potato"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark admits that a potato is only one form the second meaning takes; in Britain a chip is a French fry.",
+     "definitionFit": "A gambling counter and a fried strip of potato share this name, two unrelated senses of one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Token"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1213,72 @@
     "text": "Plant in arboretum ultimately secured by elastic, surprisingly",
     "enumeration": "8"
    },
-   "solution": "CLEMATIS"
+   "solution": "CLEMATIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "CLEMATIS",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter is kept"
+     },
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held fast within it"
+     },
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising result comes out unexpectedly, so the combined letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arboretum",
+      "gives": "M",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "elastic",
+      "gives": "ELASTIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELASTICM",
+       "gives": "CLEMATIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a tree garden, a plant is unexpectedly tied up with an elastic band.",
+     "walkthrough": "The final M goes inside ELASTIC and the whole lot is then rearranged.",
+     "definitionFit": "Clematis is a climbing flowering vine popular in gardens, one example of the broad category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secured"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1292,43 @@
     "text": "One or two, say, experiencing effect of anaesthetic?",
     "enumeration": "6"
    },
-   "solution": "NUMBER"
+   "solution": "NUMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBER",
+    "definitions": [
+     {
+      "text": "One or two, say",
+      "at": 0
+     },
+     {
+      "text": "experiencing effect of anaesthetic?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One or two, say",
+      "note": "first meaning: these are examples of numerals"
+     },
+     {
+      "clueFragment": "experiencing effect of anaesthetic?",
+      "note": "second meaning: more lacking in feeling, comparative of an adjective"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading is pronounced differently: num-er, more deadened, the comparative of numb.",
+     "definitionFit": "One and two are numerals, and someone growing more deadened after an anaesthetic becomes more numb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1342,39 @@
     "text": "Surface of bread, say – for this?",
     "enumeration": "6"
    },
-   "solution": "BUTTER"
+   "solution": "BUTTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BUTTER",
+    "definitions": [
+     {
+      "text": "Surface of bread, say – for this?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surface of bread, say",
+      "note": "surface reading: the crust or top of a loaf"
+     },
+     {
+      "clueFragment": "for this?",
+      "note": "setter's reading: 'surface' as a verb, meaning what you coat a slice with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Surface' looks like a noun but is a verb: the answer is the spread with which you cover a slice.",
+     "definitionFit": "This dairy spread is what people coat the top of a slice with, so it surfaces bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Surface"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1388,43 @@
     "text": "Delivery in Tipperary or Kerry",
     "enumeration": "6"
    },
-   "solution": "YORKER"
+   "solution": "YORKER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YORKER",
+    "definitions": [
+     {
+      "text": "Delivery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the wanted letters sit within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tipperary or Kerry",
+      "gives": "YORKER",
+      "note": "the letters run across the end of the first place name, the joining word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A parcel is dropped off in one of two Irish counties.",
+     "walkthrough": "'Delivery' suggests the post, but it is cricket: a yorker is a ball bowled to land at the batter's feet.",
+     "definitionFit": "In cricket a bowl is called a delivery, and a yorker is a ball pitched right at the batter's toes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Delivery"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1438,46 @@
     "text": "Big noise in fraud?",
     "enumeration": "6"
    },
-   "solution": "RACKET"
+   "solution": "RACKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RACKET",
+    "definitions": [
+     {
+      "text": "Big noise",
+      "at": 0
+     },
+     {
+      "text": "fraud?",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big noise",
+      "note": "first meaning: a loud din"
+     },
+     {
+      "clueFragment": "fraud?",
+      "note": "second meaning: a dishonest money-making scheme"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Big noise' suggests an important person behind a scam, but it simply means a din.",
+     "definitionFit": "The word means a loud clamour and also an illegal scheme for making money by swindling people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "noise"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1491,43 @@
     "text": "Coffee in Palermo, charming",
     "enumeration": "5"
    },
-   "solution": "MOCHA"
+   "solution": "MOCHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MOCHA",
+    "definitions": [
+     {
+      "text": "Coffee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the wanted letters sit within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Palermo, charming",
+      "gives": "MOCHA",
+      "note": "the letters straddle the end of the Sicilian city and the start of the adjective"
+     }
+    ],
+    "explanation": {
+     "surface": "A cup of espresso in a Sicilian city proves delightful.",
+     "walkthrough": "The Italian setting makes the coffee feel real, which helps hide the letters across the two words.",
+     "definitionFit": "Mocha is a type of coffee, originally a fine Arabian bean, now often mixed with chocolate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charming"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1541,51 @@
     "text": "Prejudiced revolutionary in Sparta",
     "enumeration": "8"
    },
-   "solution": "PARTISAN"
+   "solution": "PARTISAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARTISAN",
+    "definitions": [
+     {
+      "text": "Prejudiced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the existing order, so the letters are overturned too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Sparta",
+      "gives": "INSPARTA",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSPARTA",
+       "gives": "PARTISAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biased rebel stirs up trouble in ancient Greece.",
+     "walkthrough": "'Revolutionary' reads as a noun for a rebel, which is close to the answer's other sense, but here it is the anagram signal.",
+     "definitionFit": "As an adjective it means strongly biased towards one side or faction, synonymous with bigoted or one-sided."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1599,64 @@
     "text": "One strange name for gas",
     "enumeration": "4"
    },
-   "solution": "NEON"
+   "solution": "NEON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEON",
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is odd and out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "NEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has an odd label for a vapour.",
+     "walkthrough": "N for name is a standard abbreviation, as on forms.",
+     "definitionFit": "Neon is a noble element, an inert vapour that glows red in advertising signs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1670,58 @@
     "text": "Coloured stick that’s light stolen by criminal",
     "enumeration": "6"
    },
-   "solution": "CRAYON"
+   "solution": "CRAYON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRAYON",
+    "definitions": [
+     {
+      "text": "Coloured stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stolen by",
+      "for": "container",
+      "note": "something stolen is taken and held by the thief, so one piece ends up inside another"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAY",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lightweight coloured rod has been pinched by a crook.",
+     "walkthrough": "'Light' looks like an adjective for weight, but it is the noun, a beam.",
+     "definitionFit": "A crayon is a stick of coloured wax or chalk used for drawing, especially by children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1735,42 @@
     "text": "Swift group of vehicles",
     "enumeration": "5"
    },
-   "solution": "FLEET"
+   "solution": "FLEET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLEET",
+    "definitions": [
+     {
+      "text": "Swift",
+      "at": 0
+     },
+     {
+      "text": "group of vehicles",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swift",
+      "note": "first meaning: fast, nimble"
+     },
+     {
+      "clueFragment": "group of vehicles",
+      "note": "second meaning: a set of ships, cars or buses under one owner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Swift' could be the bird or the writer, but here it is the adjective meaning quick.",
+     "definitionFit": "The word is a literary adjective for quick-moving and a noun for a company's collection of cars or ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swift"
+    }
+   }
   },
   {
    "number": 28,
@@ -448,7 +1784,52 @@
     "text": "Being reckless, forget his prudence!",
     "enumeration": "9"
    },
-   "solution": "FORESIGHT"
+   "solution": "FORESIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FORESIGHT",
+    "definitions": [
+     {
+      "text": "prudence",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Being reckless",
+      "for": "anagram",
+      "note": "reckless behaviour is wild and careless, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forget his",
+      "gives": "FORGETHIS",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORGETHIS",
+       "gives": "FORESIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rash person is urged to abandon caution.",
+     "walkthrough": "The answer is the very quality the reckless person lacks, which makes the surface neatly ironic.",
+     "definitionFit": "Both nouns describe careful thinking ahead, planning sensibly to avoid future trouble or risk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "reckless"
+    }
+   }
   }
  ]
 }
