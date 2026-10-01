@@ -77,6 +77,15 @@ data = {"id": "crosswords/quiptic/1090", "number": 1090, "name": "Quiptic No 1,0
                      "clue": " Tom’s pet (3)", "solution": "CAT"}]}
 same("a clue the page prints with a space in front converts without it",
      fp.convert(data)["entries"][0]["clue"]["text"], "Tom’s pet")
+data["entries"][0]["clue"] = "\u2002\u2002\u2002\u2002\u2002 9 (5)"
+same("a typeset gap in front is the setter's and stays (cryptic-30059 14-down, SPACE)",
+     fp.convert(data)["entries"][0]["clue"]["text"], "\u2002\u2002\u2002\u2002\u2002 9")
+import json, puzzle_schema
+held = json.load(open("puzzles/cryptic/2026/cryptic-30059.json", encoding="utf-8"))
+gap = [e for e in held["entries"] if (e["number"], e["direction"]) == (14, "down")][0]
+same("the schema takes the typeset gap", puzzle_schema.validate(held), [])
+gap["clue"]["text"] = " 9"
+same("and refuses a stray plain space", len(puzzle_schema.validate(held)), 1)
 same("a note's sentences that are only a link are not kept",
      [fp.preamble("Eight solutions are of a kind.Click here for annotated solutions."),
       fp.preamble("For a printable version of this crossword, click here."),
