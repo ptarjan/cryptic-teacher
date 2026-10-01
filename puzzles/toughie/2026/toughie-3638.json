@@ -24,6 +24,9 @@
   "date": "2026-02-18",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,68 @@
     "text": "Far from lively bouncer dismissing one of pair opening in test",
     "enumeration": "7"
    },
-   "solution": "DORMANT"
+   "solution": "DORMANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DORMANT",
+    "definitions": [
+     {
+      "text": "Far from lively",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "to dismiss is to send away, so something is removed from the word"
+     },
+     {
+      "text": "opening in",
+      "for": "letter_selection",
+      "note": "an opening is the start of something, so only the first letter of the following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bouncer",
+      "gives": "DOORMAN",
+      "note": "a bouncer is a doorman at a club"
+     },
+     {
+      "clueFragment": "one of pair",
+      "gives": "O",
+      "note": "one of the doubled O letters in the bouncer word"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DORMAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket commentary: a sluggish short-pitched ball removes one of the opening pair in a Test match.",
+     "walkthrough": "In cricket a bouncer is a short ball and the opening pair are batsmen, but here bouncer is a doorman who loses one of his two Os.",
+     "definitionFit": "Something dormant is inactive or asleep, which is the very opposite of being lively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bouncer"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +115,68 @@
     "text": "Argue case for escapologist in sack being turned upside-down",
     "enumeration": "6"
    },
-   "solution": "DEBATE"
+   "solution": "DEBATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEBATE",
+    "definitions": [
+     {
+      "text": "Argue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case for",
+      "for": "letter_selection",
+      "note": "a case is the outside of something, so only the outer letters are kept"
+     },
+     {
+      "text": "being turned upside-down",
+      "for": "reversal",
+      "note": "in a down entry, turning upside-down makes the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escapologist",
+      "gives": "ET",
+      "select": "outer",
+      "note": "first and last letters of escapologist"
+     },
+     {
+      "clueFragment": "in sack",
+      "gives": "ABED",
+      "note": "sack is slang for bed, so in sack is abed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEBA",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "ETABED",
+       "to": "DEBATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trick act: an escapologist tied in a sack and hung upside-down, with someone arguing his case.",
+     "walkthrough": "Sack is informal for bed, so 'in sack' gives ABED. The whole string ET+ABED is then read upwards.",
+     "definitionFit": "To debate is to discuss or dispute a point, the same thing as arguing over it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +190,44 @@
     "text": "Increasingly not considered part of a full English",
     "enumeration": "6"
    },
-   "solution": "RASHER"
+   "solution": "RASHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RASHER",
+    "definitions": [
+     {
+      "text": "Increasingly not considered",
+      "at": 0
+     },
+     {
+      "text": "part of a full English",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Increasingly not considered",
+      "note": "first meaning: more hasty, comparative of rash"
+     },
+     {
+      "clueFragment": "part of a full English",
+      "note": "second meaning: a slice of bacon on a cooked breakfast"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone muses that a full cooked breakfast is increasingly seen as unhealthy and unwise.",
+     "walkthrough": "A full English is a British cooked breakfast of bacon, eggs, sausage and so on; 'increasingly' marks a comparative adjective.",
+     "definitionFit": "Rash means reckless or ill-considered, so rasher is more so; and a rasher is a thin bacon slice served at breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +241,73 @@
     "text": "Take in area behind fencing I fail to get over",
     "enumeration": "10"
    },
-   "solution": "ASSIMILATE"
+   "solution": "ASSIMILATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "ASSIMILATE",
+    "definitions": [
+     {
+      "text": "Take in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fencing",
+      "for": "container",
+      "note": "a fence runs around its enclosure, so the outer letters wrap the inner ones"
+     },
+     {
+      "text": "to get over",
+      "for": "reversal",
+      "note": "in a down entry, getting something over flips it so it reads upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "LATE",
+      "note": "behind schedule means late"
+     },
+     {
+      "clueFragment": "I fail",
+      "gives": "IMISS",
+      "note": "to fail to hit is to miss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSIMI",
+      "LATE"
+     ],
+     "reversals": [
+      {
+       "from": "IMISS",
+       "to": "SSIMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated athlete laments failing to clear the fence surrounding a field.",
+     "walkthrough": "A+LATE wraps around 'I miss' turned upwards; behind and late both mean overdue.",
+     "definitionFit": "To assimilate information is to absorb and understand it, which is exactly taking it in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fencing"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +321,62 @@
     "text": "Time bar served up more than a single gin",
     "enumeration": "5"
    },
-   "solution": "TRAPS"
+   "solution": "TRAPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRAPS",
+    "definitions": [
+     {
+      "text": "more than a single gin",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, serving something up lifts it so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "SPAR",
+      "note": "a spar is a pole or bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPAR",
+       "to": "RAPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At closing time a bar serves somebody more than one gin.",
+     "walkthrough": "Gin here is not the drink but a snare for catching animals, so several gins are traps.",
+     "definitionFit": "A gin is an old word for a snare or trap, so more than one gin means several traps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +390,68 @@
     "text": "Bum cleavage seen from behind embarrassed nurses",
     "enumeration": "7"
    },
-   "solution": "DRIFTER"
+   "solution": "DRIFTER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DRIFTER",
+    "definitions": [
+     {
+      "text": "Bum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen from behind",
+      "for": "reversal",
+      "note": "viewing something from behind shows it back to front"
+     },
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold something close, so one word cradles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "embarrassed people go red"
+     },
+     {
+      "clueFragment": "cleavage",
+      "gives": "RIFT",
+      "note": "a cleavage is a split or rift"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RIFT",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An embarrassed nurse catches sight of a patient's bum cleavage from behind.",
+     "walkthrough": "Bum is the American sense of a tramp, not a backside; cleavage is a split, not anatomy.",
+     "definitionFit": "A bum in American usage is a vagrant or idler, someone who drifts without settled home or work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bum"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +465,60 @@
     "text": "The stage I’m at with cards to be distributed",
     "enumeration": "9"
    },
-   "solution": "DRAMATICS"
+   "solution": "DRAMATICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRAMATICS",
+    "definitions": [
+     {
+      "text": "The stage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be distributed",
+      "for": "anagram",
+      "note": "distributing things spreads them about, so the letters are dealt out in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m at",
+      "gives": "IMAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "CARDS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMATCARDS",
+       "gives": "DRAMATICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player announces how far the game has got as the cards are about to be dealt.",
+     "walkthrough": "'The stage' looks like a point in a process, but it means the theatre; distributed fits the dealing of cards.",
+     "definitionFit": "The stage, meaning theatre as an art or profession, is what dramatics covers: acting and putting on plays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +532,47 @@
     "text": "Thought drug peddler’s confession incomplete",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDEA",
+    "definitions": [
+     {
+      "text": "Thought",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing its end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug peddler’s confession",
+      "gives": "IDEAL",
+      "note": "a drug peddler would confess 'I deal'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer's admission to police is cut short.",
+     "walkthrough": "The confession is 'I deal', and dropping its last letter leaves IDEA.",
+     "definitionFit": "An idea is a notion or concept formed in the mind, which is a thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +586,65 @@
     "text": "Letter stirred anger in youth doing seven years?",
     "enumeration": "8"
    },
-   "solution": "TEENAGER"
+   "solution": "TEENAGER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TEENAGER",
+    "definitions": [
+     {
+      "text": "youth doing seven years?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred",
+      "for": "anagram",
+      "note": "stirring mixes things up, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter",
+      "gives": "TEE",
+      "note": "the spelt-out name of the letter T"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "NAGER",
+      "note": "the word anger, mixed up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "NAGER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGER",
+       "gives": "NAGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter provokes fury in a young man serving a seven-year prison sentence.",
+     "walkthrough": "Doing seven years sounds like a jail term, but it is ages thirteen to nineteen.",
+     "definitionFit": "The teenage years run from thirteen through nineteen, seven years in all, which a young person passes through."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "doing"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +658,73 @@
     "text": "Stalwart United player who’s unsuccessful about covering for teammate",
     "enumeration": "8"
    },
-   "solution": "RESOLUTE"
+   "solution": "RESOLUTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "RESOLUTE",
+    "definitions": [
+     {
+      "text": "Stalwart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about faces the other way, so the letters run backwards"
+     },
+     {
+      "text": "covering for",
+      "for": "letter_selection",
+      "note": "a covering is the outside layer, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United"
+     },
+     {
+      "clueFragment": "player who’s unsuccessful",
+      "gives": "LOSER",
+      "note": "a player who does not win"
+     },
+     {
+      "clueFragment": "teammate",
+      "gives": "TE",
+      "select": "outer",
+      "note": "first and last letters of teammate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESOLU",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "ULOSER",
+       "to": "RESOLU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal football player whose team keeps losing still covers for a colleague.",
+     "walkthrough": "U+LOSER is turned about to give RESOLU, and the outside of teammate is added.",
+     "definitionFit": "A stalwart is firm, loyal and unwavering, just as a resolute person is determined and steadfast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +738,54 @@
     "text": "Sinks, wanting new foundation",
     "enumeration": "5"
    },
-   "solution": "BASIS"
+   "solution": "BASIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BASIS",
+    "definitions": [
+     {
+      "text": "foundation",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sinks",
+      "gives": "BASINS",
+      "note": "washbasins are sinks"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A bathroom fitter notes that the sinks need a new base.",
+     "walkthrough": "Sinks are nouns here, not a verb; take the N out of BASINS.",
+     "definitionFit": "A basis is the underlying support or starting point on which something rests, its foundation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sinks"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +799,67 @@
     "text": "Bishop in a state of undress overcome by women’s appreciation",
     "enumeration": "9"
    },
-   "solution": "AWARENESS"
+   "solution": "AWARENESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "AWARENESS",
+    "definitions": [
+     {
+      "text": "appreciation",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overcome by",
+      "for": "substitution",
+      "note": "to be overcome is to be supplanted, so one letter is replaced by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "state of undress",
+      "gives": "BARENESS",
+      "note": "the condition of being bare"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "women’s",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "ARENESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Women are amused to find a bishop caught without his clothes on.",
+     "walkthrough": "In A BARENESS, the B (bishop) is replaced by W for women.",
+     "definitionFit": "Appreciation of a situation means understanding or recognising it, which is awareness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "overcome"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +873,79 @@
     "text": "Regulator which covers energy facing fresh storm",
     "enumeration": "10"
    },
-   "solution": "THERMOSTAT"
+   "solution": "THERMOSTAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "THERMOSTAT",
+    "definitions": [
+     {
+      "text": "Regulator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh means new, so the letters take a new form"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "covering something wraps around it, so one part goes outside"
+     },
+     {
+      "text": "facing",
+      "for": "charade",
+      "note": "facing something is standing in front of it, so one part comes before the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which",
+      "gives": "THAT",
+      "note": "that is a relative pronoun like which"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "RMOST",
+      "note": "the word storm, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "E",
+      "RMOST",
+      "AT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STORM",
+       "gives": "RMOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A device that protects the power supply in the face of a fresh storm.",
+     "walkthrough": "THAT goes around E followed by STORM rearranged.",
+     "definitionFit": "A thermostat is a device that automatically controls temperature, so it is a regulator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +959,44 @@
     "text": "Neck sore due to rubbing",
     "enumeration": "4"
    },
-   "solution": "GALL"
+   "solution": "GALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GALL",
+    "definitions": [
+     {
+      "text": "Neck",
+      "at": 0
+     },
+     {
+      "text": "sore due to rubbing",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neck",
+      "note": "first meaning: cheek or impudence"
+     },
+     {
+      "clueFragment": "sore due to rubbing",
+      "note": "second meaning: a chafed sore, as on a horse"
+     }
+    ],
+    "explanation": {
+     "surface": "A collar has rubbed someone's neck raw.",
+     "walkthrough": "Neck is not the body part but British slang for brazen cheek, as in 'the brass neck'.",
+     "definitionFit": "Gall means impudent boldness, like neck; it is also a skin sore caused by chafing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Neck"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +1010,65 @@
     "text": "Cold fish with a great deal tucked away?",
     "enumeration": "10"
    },
-   "solution": "CHEAPSKATE"
+   "solution": "CHEAPSKATE",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "CHEAPSKATE",
+    "definitions": [
+     {
+      "text": "Cold fish with a great deal tucked away?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked away",
+      "for": "container",
+      "note": "something tucked away is stowed inside, so one part goes within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold"
+     },
+     {
+      "clueFragment": "a great deal",
+      "gives": "HEAP",
+      "note": "a heap is a great deal"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "the skate is a flat fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEAP",
+      "SKATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unfriendly person who has a lot of money hidden away.",
+     "walkthrough": "The whole clue does double duty: read straight, it describes a chilly, stingy hoarder sitting on a fortune.",
+     "definitionFit": "A cheapskate is a mean, ungenerous person, the sort who is chilly and keeps a fortune stashed rather than spending."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1082,68 @@
     "text": "Send in ham spread for filling sandwich, laying it on thick",
     "enumeration": "12"
    },
-   "solution": "BLANDISHMENT"
+   "solution": "BLANDISHMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLANDISHMENT",
+    "definitions": [
+     {
+      "text": "laying it on thick",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spreading things scatters them, so the letters are rearranged"
+     },
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling goes inside, so these letters sit within another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Send in ham",
+      "gives": "SENDINHAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sandwich",
+      "gives": "BLT",
+      "note": "a BLT is a bacon, lettuce and tomato sandwich"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BL",
+      "ANDISHMEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SENDINHAM",
+       "gives": "ANDISHMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for making a ham sandwich with generous filling.",
+     "walkthrough": "'Laying it on thick' sounds like more sandwich instructions, but it is the idiom for heavy flattery.",
+     "definitionFit": "Blandishment is coaxing flattery, and laying it on thick is the idiom for exaggerated praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1157,68 @@
     "text": "Nobody turning in, not yet close to eleven",
     "enumeration": "9"
    },
-   "solution": "NONENTITY"
+   "solution": "NONENTITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NONENTITY",
+    "definitions": [
+     {
+      "text": "Nobody",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning things around churns them, so the letters change order"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not yet",
+      "gives": "NOTYET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of eleven"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INNOTYETN",
+       "gives": "NONENTITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody is going to bed yet, as it is not quite eleven o'clock.",
+     "walkthrough": "'Turning in' looks like going to bed, but turning is the anagram signal working on the words after it.",
+     "definitionFit": "A nonentity is an unimportant person of no significance, which is what calling someone a nobody means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1232,53 @@
     "text": "Villa’s base amounts to hard floor",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTONISH",
+    "definitions": [
+     {
+      "text": "floor",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Villa’s base",
+      "gives": "ASTON",
+      "note": "Aston Villa football club is named after and based in Aston, Birmingham"
+     },
+     {
+      "clueFragment": "amounts to",
+      "gives": "IS",
+      "note": "amounts to means is"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTON",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "An English football club's stadium needs a hard pitch.",
+     "walkthrough": "Aston Villa is an English football club from Aston, a district of Birmingham.",
+     "definitionFit": "To floor someone is to stun or amaze them, knocking them flat with surprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1292,68 @@
     "text": "Taking down fancy trousers raised cheers",
     "enumeration": "8"
    },
-   "solution": "NOTATION"
+   "solution": "NOTATION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NOTATION",
+    "definitions": [
+     {
+      "text": "Taking down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trousers",
+      "for": "container",
+      "note": "to trouser something is to pocket it, so one part is held inside another"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising letters makes them read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fancy",
+      "gives": "NOTION",
+      "note": "a fancy is a whim or notion"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks, like cheers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "AT",
+      "ION"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pulls down a pair of fancy trousers and there are cheers.",
+     "walkthrough": "Trousers is a verb meaning pockets; ta and cheers are both British informal thanks.",
+     "definitionFit": "Notation is the act of writing something down or recording it, the same as taking it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1373,44 @@
      }
     ]
    },
-   "solution": "SHOOTINGSTAR"
+   "solution": "SHOOTINGSTAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOOTING STAR",
+    "definitions": [
+     {
+      "text": "Tell, perhaps",
+      "at": 0
+     },
+     {
+      "text": "one will have brief but brilliant career",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tell, perhaps",
+      "note": "first meaning: William Tell, a star at shooting"
+     },
+     {
+      "clueFragment": "one will have brief but brilliant career",
+      "note": "second meaning: a meteor that flashes briefly across the sky"
+     }
+    ],
+    "explanation": {
+     "surface": "A prediction that someone will enjoy a short but dazzling career.",
+     "walkthrough": "William Tell, the Swiss folk hero, shot an apple off his son's head; career here also means rushing through the sky.",
+     "definitionFit": "A meteor blazes across the night sky briefly, and Tell was a celebrated marksman, a star of shooting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tell"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1424,67 @@
     "text": "Sheen, Charlie, released from agreement regarding article",
     "enumeration": "6"
    },
-   "solution": "PATINA"
+   "solution": "PATINA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PATINA",
+    "definitions": [
+     {
+      "text": "Sheen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "released from",
+      "for": "deletion",
+      "note": "something released from another is let out, so a letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "PACT",
+      "note": "a pact is an agreement"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "IN",
+      "note": "in, as in 'in that matter', means regarding"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The actor Charlie Sheen is freed from a contract over a newspaper article.",
+     "walkthrough": "Sheen and Charlie look like the actor's name, but Sheen is the definition and Charlie is the letter C.",
+     "definitionFit": "A patina is the glossy surface film that forms on bronze or old wood, giving a soft lustre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sheen"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1498,54 @@
     "text": "Position Lady Chatterley maybe hasn’t taken against",
     "enumeration": "6"
    },
-   "solution": "STANCE"
+   "solution": "STANCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STANCE",
+    "definitions": [
+     {
+      "text": "Position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn’t taken",
+      "for": "deletion",
+      "note": "not having taken something means it is missing, so letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady Chatterley maybe",
+      "gives": "CONSTANCE",
+      "note": "Constance is Lady Chatterley's first name in D H Lawrence's novel"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "con means against, as in pros and cons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sexual position Lady Chatterley has apparently not tried.",
+     "walkthrough": "Lady Chatterley's Lover is D H Lawrence's once-banned novel; its heroine is Constance, and removing CON leaves the answer.",
+     "definitionFit": "A stance is a way of standing or an attitude held on an issue, both senses of position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Position"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1559,53 @@
     "text": "Said of the country ignoring its past",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "Said",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the country",
+      "gives": "PASTORAL",
+      "note": "pastoral means relating to the countryside"
+     },
+     {
+      "clueFragment": "its past",
+      "gives": "PAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment made about a nation that turns its back on its history.",
+     "walkthrough": "The country is countryside, not a nation, and PAST is literally removed from the word.",
+     "definitionFit": "Oral means spoken rather than written, which is what said means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1619,60 @@
     "text": "Model sat with us in the buff",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIAST"
+   "solution": "ENTHUSIAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTHUSIAST",
+    "definitions": [
+     {
+      "text": "buff",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Model",
+      "for": "anagram",
+      "note": "to model is to shape, so the letters are moulded into a new form"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sat",
+      "gives": "SAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "us in the",
+      "gives": "USINTHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SATUSINTHE",
+       "gives": "ENTHUSIAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's model posed with us, naked.",
+     "walkthrough": "'In the buff' means naked, but buff alone is the definition.",
+     "definitionFit": "A buff is a keen fan of some subject, like a film buff, which is an enthusiast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buff"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1686,56 @@
     "text": "Layer cake wants filling thus",
     "enumeration": "5"
    },
-   "solution": "HENCE"
+   "solution": "HENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HENCE",
+    "definitions": [
+     {
+      "text": "thus",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wants filling",
+      "for": "deletion",
+      "note": "to want is to lack, so the inside letters are missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Layer",
+      "gives": "HEN",
+      "note": "a hen is a bird that lays eggs"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "CAKE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A layer cake ought to have a filling, and that is how it should be.",
+     "walkthrough": "Layer is one who lays, a hen, not a tier of sponge.",
+     "definitionFit": "Hence and thus both mean for this reason or as a consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Layer"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1749,54 @@
     "text": "9 – 1? It could be double",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "It could be double",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "–",
+      "for": "deletion",
+      "note": "a minus sign means subtraction, so something is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "9",
+      "gives": "BASIS",
+      "note": "the answer to 9 across"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the numeral one is the Roman I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An arithmetic sum, nine minus one, which could give double.",
+     "walkthrough": "The 9 refers to the answer at 9 across, not the number.",
+     "definitionFit": "A double bass is the largest instrument of the violin family, so bass could be preceded by double."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "9"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1810,53 @@
     "text": "Mock failing bar student",
     "enumeration": "9"
    },
-   "solution": "IMITATION"
+   "solution": "IMITATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IMITATION",
+    "definitions": [
+     {
+      "text": "Mock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "deletion",
+      "note": "failing that means without it, so something is omitted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "LIMITATION",
+      "note": "a bar is a restriction or limitation"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is for learner, a student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMITATION"
+     ]
+    },
+    "explanation": {
+     "surface": "People ridicule a student who failed the Bar exam.",
+     "walkthrough": "Mock is an adjective here, meaning fake, not a verb; failing means lacking.",
+     "definitionFit": "Mock as an adjective means fake or sham, as in mock leather, which is imitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1870,68 @@
     "text": "Buzz A’s colleague backing film about astronauts",
     "enumeration": "5"
    },
-   "solution": "ALIEN"
+   "solution": "ALIEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ALIEN",
+    "definitions": [
+     {
+      "text": "film about astronauts",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving in reverse, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Buzz",
+      "note": "surface padding pointing to Buzz Aldrin, whose colleague is meant"
+     },
+     {
+      "clueFragment": "colleague",
+      "gives": "NEIL",
+      "note": "Buzz Aldrin's Apollo 11 colleague was Neil Armstrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEIL",
+       "to": "LIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Buzz Aldrin's fellow moonwalker supports a space film.",
+     "walkthrough": "Buzz A is Buzz Aldrin and his colleague Neil Armstrong; A also stands alone in the answer.",
+     "definitionFit": "Alien is the 1979 Ridley Scott science-fiction film about a spaceship crew menaced by a creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1945,67 @@
     "text": "Frank speaking to new, shy cooks after losing weight",
     "enumeration": "7"
    },
-   "solution": "HONESTY"
+   "solution": "HONESTY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HONESTY",
+    "definitions": [
+     {
+      "text": "Frank speaking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooks",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are mixed"
+     },
+     {
+      "text": "after losing",
+      "for": "deletion",
+      "note": "losing something means it is gone, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new, shy",
+      "gives": "NEWSHY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TONESHY",
+       "gives": "HONESTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speaking frankly to timid new chefs about losing weight.",
+     "walkthrough": "Frank is an adjective, not a name; the W leaves before the shuffle.",
+     "definitionFit": "Honesty is candour or truthfulness, the quality shown when speaking frankly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooks"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +2019,63 @@
     "text": "Braun possibly replacing one as part of exclusive upgrade",
     "enumeration": "7"
    },
-   "solution": "ELEVATE"
+   "solution": "ELEVATE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ELEVATE",
+    "definitions": [
+     {
+      "text": "upgrade",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing means taking the place of, so one item is swapped for another"
+     }
+    ],
+    "linkWords": [
+     "as part of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exclusive",
+      "gives": "ELITE",
+      "note": "elite means select or exclusive"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman I"
+     },
+     {
+      "clueFragment": "Braun possibly",
+      "gives": "EVA",
+      "note": "Eva Braun was Hitler's companion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "EVA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Braun product being swapped for another as part of a luxury upgrade.",
+     "walkthrough": "Braun looks like the appliance brand, but it is Eva Braun; EVA takes the place of I in ELITE.",
+     "definitionFit": "To elevate is to raise to a higher rank or level, which is what an upgrade does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Braun"
+    }
+   }
   }
  ]
 }
