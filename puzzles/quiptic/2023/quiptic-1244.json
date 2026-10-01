@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,53 @@
      }
     ]
    },
-   "solution": "ALLOVER"
+   "solution": "ALLOVER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALL OVER",
+    "definitions": [
+     {
+      "text": "Finished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "deletion",
+      "note": "what follows a letter is everything after it, so only the part after the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trip",
+      "gives": "FALLOVER",
+      "note": "to trip is to fall over"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade and abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLOVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip that went well has just come to an end.",
+     "walkthrough": "The answer is the part of FALL OVER that follows F: knock the fine off the trip and ALL OVER remains.",
+     "definitionFit": "When something is all over it has ended completely, the same idea as being finished."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +102,56 @@
     "text": "Country road ran randomly",
     "enumeration": "7"
    },
-   "solution": "ANDORRA"
+   "solution": "ANDORRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANDORRA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "randomly",
+      "for": "anagram",
+      "note": "done at random means in no fixed order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "ROAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROADRAN",
+       "gives": "ANDORRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country road that wanders about with no clear direction.",
+     "walkthrough": "'Country road' reads as a rural lane, but 'Country' stands alone as the definition.",
+     "definitionFit": "Andorra is a small independent principality in the Pyrenees between France and Spain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +171,47 @@
      }
     ]
    },
-   "solution": "LAGBEHIND"
+   "solution": "LAGBEHIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAG BEHIND",
+    "definitions": [
+     {
+      "text": "Drop back",
+      "at": 0
+     },
+     {
+      "text": "keep seat warm",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop back",
+      "note": "first meaning: fall behind the others"
+     },
+     {
+      "clueFragment": "keep seat warm",
+      "note": "second, playful meaning: to lag is to insulate, and one's behind is one's seat"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone slips back a place in a queue just to keep their chair warm.",
+     "walkthrough": "The question mark flags the joke: to lag pipes is to wrap them against the cold, and a behind is the body's seat, so lagging your behind keeps it warm.",
+     "definitionFit": "To lag behind is the idiom for trailing slower than others, which is dropping back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +225,57 @@
     "text": "Upsetting part of sermon evoked rancour",
     "enumeration": "5"
    },
-   "solution": "VENOM"
+   "solution": "VENOM",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "VENOM",
+    "definitions": [
+     {
+      "text": "rancour",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "a part of something is a piece inside it, so the letters lie within the words that follow"
+     },
+     {
+      "text": "Upsetting",
+      "for": "reversal",
+      "note": "to upset something is to turn it over, so in a down clue the letters run bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sermon evoked",
+      "gives": "MONEV",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "MONEV",
+       "to": "VENOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sermon so upsetting that parts of it stirred up bitterness in the congregation.",
+     "walkthrough": "The letters sit across serMON EVoked and read upwards to give VENOM.",
+     "definitionFit": "Venom in speech is spiteful bitterness, a close synonym for rancour or deep-seated ill will."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upsetting"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +295,48 @@
      }
     ]
    },
-   "solution": "RIGHTHAND"
+   "solution": "RIGHTHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGHT-HAND",
+    "definitions": [
+     {
+      "text": "a man indispensable to the boss",
+      "at": 15,
+      "note": "the phrase defines the full expression right-hand man, of which the answer is the adjective"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proper",
+      "gives": "RIGHT",
+      "note": "proper and right both mean correct or fitting"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A proper worker is the kind of employee a boss cannot do without.",
+     "walkthrough": "The definition leans on the familiar phrase right-hand man, the boss's most trusted helper.",
+     "definitionFit": "A right-hand man is a chief assistant whom a leader relies on more than anyone else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +350,50 @@
     "text": "Guide for riverside in Italy",
     "enumeration": "7"
    },
-   "solution": "POINTER"
+   "solution": "POINTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POINTER",
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riverside",
+      "gives": "PO",
+      "note": "the river half of this word: read with 'in Italy', it is the Po, Italy's longest river"
+     },
+     {
+      "clueFragment": "in Italy",
+      "gives": "INTER",
+      "note": "with the side half of the word before: a side in Italy is Inter Milan, the football club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "INTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour guide who shows visitors the riverside in Italy.",
+     "walkthrough": "'Riverside' looks like one word to define, but it splits: the river, then a side, meaning a football team.",
+     "definitionFit": "A pointer is a hint or indicator that steers someone in the right direction, which is a guide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "riverside"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +407,56 @@
     "text": "Criticise extremely idiotic hysteria",
     "enumeration": "5"
    },
-   "solution": "PANIC"
+   "solution": "PANIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PANIC",
+    "definitions": [
+     {
+      "text": "hysteria",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of something are its two ends, so only the outer letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "to pan a show is to criticise it harshly"
+     },
+     {
+      "clueFragment": "idiotic",
+      "gives": "IC",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone condemns a bout of hysteria as utterly idiotic.",
+     "walkthrough": "'Extremely' reads as an intensifier for 'idiotic', but it selects that word's ends.",
+     "definitionFit": "Panic is sudden uncontrollable fear or anxiety, which is a form of hysteria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +470,57 @@
     "text": "Popular oath can be impossible to say",
     "enumeration": "9"
    },
-   "solution": "INEFFABLE"
+   "solution": "INEFFABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INEFFABLE",
+    "definitions": [
+     {
+      "text": "impossible to say",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     },
+     {
+      "clueFragment": "oath",
+      "gives": "EFF",
+      "note": "eff is a euphemism for a well-known swear word"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "ABLE",
+      "note": "to be able is to be capable of doing, so can"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "EFF",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A favourite swear word can be too rude to utter.",
+     "walkthrough": "There is a joke in the surface: the effing oath really is unsayable in polite company, which suits a word meaning too great to express.",
+     "definitionFit": "Ineffable describes something too great or extreme to be expressed in words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "oath"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +534,60 @@
     "text": "Conviction for injecting double energy into high explosive",
     "enumeration": "5"
    },
-   "solution": "TENET"
+   "solution": "TENET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TENET",
+    "definitions": [
+     {
+      "text": "Conviction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injecting",
+      "for": "container",
+      "note": "to inject is to put something inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "high explosive",
+      "gives": "TNT",
+      "note": "TNT is the standard high explosive"
+     },
+     {
+      "clueFragment": "double energy",
+      "gives": "EE",
+      "note": "E for energy, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "E",
+      "N",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal conviction for supercharging explosives with extra energy.",
+     "walkthrough": "The two Es go into TNT separately, one after each of the first two letters, to give T-E-N-E-T.",
+     "definitionFit": "A tenet is a principle or belief firmly held, which is a conviction in the sense of creed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conviction"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +601,64 @@
     "text": "Win support for essential truth from small part of England",
     "enumeration": "7"
    },
-   "solution": "RUTLAND"
+   "solution": "RUTLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RUTLAND",
+    "definitions": [
+     {
+      "text": "small part of England",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essential",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the middle letters are taken"
+     },
+     {
+      "text": "support for",
+      "for": "charade",
+      "note": "in a down clue a support goes underneath, so one piece is written below the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "truth",
+      "gives": "RUT",
+      "select": "middle",
+      "note": "the three central letters of the word"
+     },
+     {
+      "clueFragment": "Win",
+      "gives": "LAND",
+      "note": "to land a prize is to win it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUT",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Winning backing for a basic truth from a small corner of England.",
+     "walkthrough": "Though 'Win' comes first in the clue, it supports the other piece, so it goes at the bottom. RUTLAND is the smallest historic county of England.",
+     "definitionFit": "Rutland is England's smallest county, so it is literally a small part of the country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +678,46 @@
      }
     ]
    },
-   "solution": "DIGIN"
+   "solution": "DIGIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIG IN",
+    "definitions": [
+     {
+      "text": "Become defensive",
+      "at": 0
+     },
+     {
+      "text": "start eating",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "when told to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Become defensive",
+      "note": "first meaning: entrench, like soldiers digging trenches"
+     },
+     {
+      "clueFragment": "start eating",
+      "note": "second meaning: the informal invitation to tuck into food"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone bristles when ordered to begin a meal.",
+     "walkthrough": "The ellipsis links this clue to the next one for surface flow only; each answer is solved alone.",
+     "definitionFit": "To dig in is both to hold a fortified position stubbornly and the idiom urging diners to begin a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defensive"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +737,50 @@
      }
     ]
    },
-   "solution": "GINGERNUT"
+   "solution": "GINGERNUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GINGER NUT",
+    "definitions": [
+     {
+      "text": "a biscuit",
+      "at": 3
+     }
+    ],
+    "linkWords": [
+     "produced"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "GINGER",
+      "note": "ginger is the colour of red hair"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NUT",
+      "note": "nut is slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GINGER",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A redhead brings out a biscuit to eat.",
+     "walkthrough": "'Red head' looks like a person with red hair, but it is two words giving two pieces. A ginger nut is a hard British ginger-flavoured biscuit, a ginger snap.",
+     "definitionFit": "A ginger nut is a crisp spiced cookie, a standard variety of British biscuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +794,56 @@
     "text": "Irate chum suffering with stiff joints",
     "enumeration": "9"
    },
-   "solution": "RHEUMATIC"
+   "solution": "RHEUMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHEUMATIC",
+    "definitions": [
+     {
+      "text": "with stiff joints",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad way, so its letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irate",
+      "gives": "IRATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chum",
+      "gives": "CHUM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRATECHUM",
+       "gives": "RHEUMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend is in a bad temper because their joints are stiff and painful.",
+     "walkthrough": "'Suffering with stiff joints' reads as one phrase, but 'suffering' is the anagram signal and only the last three words define.",
+     "definitionFit": "Rheumatic describes someone affected by rheumatism, a condition causing painful, stiff joints and muscles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +857,59 @@
     "text": "Authoritative ruling from soccer body that wants active leaders",
     "enumeration": "5"
    },
-   "solution": "FATWA"
+   "solution": "FATWA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FATWA",
+    "definitions": [
+     {
+      "text": "Authoritative ruling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders go at the front, so each word gives only its first letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soccer body",
+      "gives": "FA",
+      "note": "the FA is the Football Association, which governs English soccer"
+     },
+     {
+      "clueFragment": "that wants active",
+      "gives": "TWA",
+      "select": "first",
+      "note": "the first letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "TWA"
+     ]
+    },
+    "explanation": {
+     "surface": "A football association issues a ruling that it wants energetic captains.",
+     "walkthrough": "'Active leaders' looks like a phrase about captains, but 'leaders' takes the initials of the three words before it.",
+     "definitionFit": "A fatwa is a formal legal opinion issued by an Islamic scholar, an authoritative religious ruling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +923,63 @@
     "text": "Cutting head of weed off when growing",
     "enumeration": "5"
    },
-   "solution": "AXING"
+   "solution": "AXING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "AXING",
+    "definitions": [
+     {
+      "text": "Cutting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head is the top, so only the first letter is meant"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "something taken off is removed, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weed",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "growing",
+      "gives": "WAXING",
+      "note": "the moon waxes as it grows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AXING"
+     ]
+    },
+    "explanation": {
+     "surface": "Snipping the top off a weed while it is still growing.",
+     "walkthrough": "Remove the W from WAXING. The surface sounds like gardening, but 'Cutting' is the definition and 'head of weed' is a single letter.",
+     "definitionFit": "Axing means chopping with an axe, or cutting jobs and budgets, so it is a synonym of cutting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +999,58 @@
      }
     ]
    },
-   "solution": "GROWINGUP"
+   "solution": "GROWINGUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GROWING UP",
+    "definitions": [
+     {
+      "text": "getting older",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the first piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Division",
+      "gives": "WING",
+      "note": "a wing is a division of an army, party or building"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "GROUP",
+      "note": "a band of people or musicians is a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRO",
+      "WING",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A split within a pop band whose members are ageing.",
+     "walkthrough": "'Division in band' reads like a rift between musicians; in fact the military or political sense of division gives a piece that sits inside the band.",
+     "definitionFit": "Growing up is the process of maturing from child to adult, so it means getting older."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Division"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1064,62 @@
     "text": "Embittered expert judged to have stolen book",
     "enumeration": "9"
    },
-   "solution": "ACERBATED"
+   "solution": "ACERBATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ACERBATED",
+    "definitions": [
+     {
+      "text": "Embittered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to have stolen",
+      "for": "container",
+      "note": "a thief who has stolen something holds it, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     },
+     {
+      "clueFragment": "judged",
+      "gives": "RATED",
+      "note": "to rate something is to judge it"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "R",
+      "B",
+      "ATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A bitter specialist was found to have taken a book.",
+     "walkthrough": "'Stolen' suggests a theft story, but it only signals that the book letter is held inside another piece. Acerbated is a rare word; exacerbated is its familiar cousin.",
+     "definitionFit": "Acerbated means made bitter or harsh, an uncommon synonym of embittered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stolen"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1133,56 @@
     "text": "Alternative theatre is most indecent",
     "enumeration": "9"
    },
-   "solution": "EARTHIEST"
+   "solution": "EARTHIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTHIEST",
+    "definitions": [
+     {
+      "text": "most indecent",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Alternative",
+      "for": "anagram",
+      "note": "an alternative is a different version, so the letters take another form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre",
+      "gives": "THEATRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEATREIS",
+       "gives": "EARTHIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fringe theatre is the crudest kind of show around.",
+     "walkthrough": "'Alternative theatre' is a real genre, which hides that 'Alternative' is the anagram signal.",
+     "definitionFit": "Earthy humour is coarse and bawdy, so the superlative earthiest means the crudest or most indecent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alternative"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1202,40 @@
      }
     ]
    },
-   "solution": "THEBEAGLE"
+   "solution": "THEBEAGLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THE BEAGLE",
+    "definitions": [
+     {
+      "text": "Dog at sea enabled Darwin to develop his evolutionary theory",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog at sea",
+      "note": "surface reading: a hound adrift on the ocean"
+     },
+     {
+      "clueFragment": "enabled Darwin to develop his evolutionary theory",
+      "note": "setter's reading: the survey ship, named after a dog breed, that carried Darwin to the Galapagos"
+     }
+    ],
+    "explanation": {
+     "surface": "A dog at sea somehow helped Darwin arrive at evolution.",
+     "walkthrough": "The dog is a ship: HMS Beagle took Charles Darwin on the voyage whose observations led to his theory of natural selection.",
+     "definitionFit": "HMS Beagle was the naval survey vessel carrying Darwin around the world from 1831 to 1836."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1255,59 @@
      }
     ]
    },
-   "solution": "SIDEORDER"
+   "solution": "SIDEORDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDE ORDER",
+    "definitions": [
+     {
+      "text": "an addition to main course",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dried",
+      "gives": "DRIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rose",
+      "gives": "ROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRIEDROSE",
+       "gives": "SIDEORDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef serves dried rose petals alongside the main dish.",
+     "walkthrough": "'Cooked' fits the food theme so neatly that it hides its job as the anagram signal.",
+     "definitionFit": "A side order is an extra dish such as fries or salad served alongside the principal meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 18,
@@ -367,7 +1327,54 @@
      }
     ]
    },
-   "solution": "SEMIPRO"
+   "solution": "SEMIPRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMI-PRO",
+    "definitions": [
+     {
+      "text": "Player needing second income source",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so the letters are put back together differently"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promise",
+      "gives": "PROMISE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROMISE",
+       "gives": "SEMIPRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete forced into a second job after a contract promise falls through.",
+     "walkthrough": "The definition is long and descriptive: such a player is paid for sport but not enough to live on.",
+     "definitionFit": "A semi-professional plays for money but part-time, so also needs a regular day job to earn a living."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "promise"
+    }
+   }
   },
   {
    "number": 19,
@@ -381,7 +1388,39 @@
     "text": "Odds, oddly, may be this!",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "Odds, oddly, may be this!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odds, oddly",
+      "note": "surface reading: a play on odd numbers, as if odds must be odd"
+     },
+     {
+      "clueFragment": "may be this",
+      "note": "setter's reading: betting odds of one to one carry the paradoxical name of their opposite"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Betting odds are quoted as prices, and a one-to-one price has a name that sounds like the opposite of odd, hence 'oddly'.",
+     "definitionFit": "In betting, evens means odds of one to one, where a winning stake is doubled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Odds"
+    }
+   }
   },
   {
    "number": 20,
@@ -401,7 +1440,56 @@
      }
     ]
    },
-   "solution": "SENTOUT"
+   "solution": "SENTOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SENT OUT",
+    "definitions": [
+     {
+      "text": "dispatched",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stern",
+      "gives": "SEN",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     },
+     {
+      "clueFragment": "solicitor",
+      "gives": "TOUT",
+      "note": "a tout solicits custom, for instance selling tickets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer who is sometimes severe has been sent away.",
+     "walkthrough": "'Solicitor' suggests a British lawyer, but here it means anyone who solicits business.",
+     "definitionFit": "To send something out is to dispatch it, as with letters or invitations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solicitor"
+    }
+   }
   },
   {
    "number": 21,
@@ -415,7 +1503,65 @@
     "text": "Nomads use trails central for these tribes people",
     "enumeration": "5"
    },
-   "solution": "MASAI"
+   "solution": "MASAI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MASAI",
+    "definitions": [
+     {
+      "text": "tribes people",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central",
+      "for": "letter_selection",
+      "note": "what is central is in the middle, so only the middle letters count"
+     }
+    ],
+    "linkWords": [
+     "for these"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nomads",
+      "gives": "MA",
+      "select": "middle",
+      "note": "the two central letters"
+     },
+     {
+      "clueFragment": "use",
+      "gives": "S",
+      "select": "middle",
+      "note": "the central letter"
+     },
+     {
+      "clueFragment": "trails",
+      "gives": "AI",
+      "select": "middle",
+      "note": "the two central letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "S",
+      "AI"
+     ]
+    },
+    "explanation": {
+     "surface": "Nomadic tribes follow paths that are central to their way of life.",
+     "walkthrough": "Take the middle of every word before 'central'. The Masai, also spelt Maasai, are semi-nomadic herders of Kenya and Tanzania.",
+     "definitionFit": "The Masai are an East African people, traditionally cattle-herding tribesmen of Kenya and Tanzania."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -429,7 +1575,46 @@
     "text": "Small border plant",
     "enumeration": "5"
    },
-   "solution": "SEDGE"
+   "solution": "SEDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEDGE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "EDGE",
+      "note": "a border is an edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Border plant' reads as something for a flower border; 'border' is in the wordplay and 'plant' alone defines.",
+     "definitionFit": "Sedge is a grass-like plant growing in wet ground, so it is a kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 23,
@@ -443,7 +1628,63 @@
     "text": "Oxford museum compiled article on tree growth",
     "enumeration": "9"
    },
-   "solution": "ASHMOLEAN"
+   "solution": "ASHMOLEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHMOLEAN",
+    "definitions": [
+     {
+      "text": "Oxford museum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another follows it, so this piece comes last"
+     }
+    ],
+    "linkWords": [
+     "compiled"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     },
+     {
+      "clueFragment": "growth",
+      "gives": "MOLE",
+      "note": "a mole is a growth on the skin"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "MOLE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An Oxford museum has put together a paper on how trees grow.",
+     "walkthrough": "The article is placed after the other two pieces. The Ashmolean is Oxford University's museum of art and archaeology, Britain's oldest public museum.",
+     "definitionFit": "The Ashmolean Museum in Oxford, founded in 1683, is the university's renowned collection of art and antiquities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 23,
@@ -457,7 +1698,58 @@
     "text": "Specialist language used to describe advance in painting?",
     "enumeration": "5"
    },
-   "solution": "ARGOT"
+   "solution": "ARGOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARGOT",
+    "definitions": [
+     {
+      "text": "Specialist language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another is enclosed by it, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "used to describe"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advance",
+      "gives": "GO",
+      "note": "to go is to move forward"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "ART",
+      "note": "painting is a form of art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "GO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The jargon critics use to talk about a breakthrough in painting.",
+     "walkthrough": "'Advance in painting' sounds like an artistic breakthrough; 'advance' is simply the verb to move on, and 'in' places it inside.",
+     "definitionFit": "Argot is the jargon or slang of a particular group, a specialised vocabulary used by insiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 24,
@@ -471,7 +1763,56 @@
     "text": "Historical centre of holy study",
     "enumeration": "5"
    },
-   "solution": "OLDEN"
+   "solution": "OLDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OLDEN",
+    "definitions": [
+     {
+      "text": "Historical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre is the middle, so only the inner letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holy",
+      "gives": "OL",
+      "select": "middle",
+      "note": "the two central letters"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a small private room, a study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OL",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Seminary studies once centred on holy matters.",
+     "walkthrough": "'Centre of holy study' sounds like a seminary, but it splits into the middle of one word plus a room.",
+     "definitionFit": "Olden is an old-fashioned adjective meaning of a past era, as in olden days, so historical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 25,
@@ -485,7 +1826,62 @@
     "text": "Exercise expected to captivate eager teacher",
     "enumeration": "9"
    },
-   "solution": "PEDAGOGUE"
+   "solution": "PEDAGOGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PEDAGOGUE",
+    "definitions": [
+     {
+      "text": "teacher",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to captivate",
+      "for": "container",
+      "note": "to captivate is literally to take captive, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "something due is expected"
+     },
+     {
+      "clueFragment": "eager",
+      "gives": "AGOG",
+      "note": "agog means eagerly excited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "D",
+      "AGOG",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "Workouts are supposed to enthuse a keen instructor.",
+     "walkthrough": "'Eager teacher' reads as one phrase, but 'eager' belongs to the wordplay and 'teacher' alone defines. PE is the school subject, physical education.",
+     "definitionFit": "A pedagogue is a schoolmaster or instructor, often with a hint of pedantry, so a teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eager"
+    }
+   }
   },
   {
    "number": 26,
@@ -499,7 +1895,50 @@
     "text": "Pursue game that's hiding quietly",
     "enumeration": "5"
    },
-   "solution": "DOGGO"
+   "solution": "DOGGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGGO",
+    "definitions": [
+     {
+      "text": "hiding quietly",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pursue",
+      "gives": "DOG",
+      "note": "to dog someone is to follow them closely"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "GO",
+      "note": "Go is the Japanese board game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Hunters stalk game animals that are lying low.",
+     "walkthrough": "'Game' looks like quarry for hunters, but it is the board game. Doggo is British slang, used in the phrase 'lie doggo', for keeping still and hidden.",
+     "definitionFit": "To lie doggo is informal British slang for staying motionless and out of sight, so hiding quietly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 27,
@@ -519,7 +1958,57 @@
      }
     ]
    },
-   "solution": "OPENPIT"
+   "solution": "OPENPIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPEN PIT",
+    "definitions": [
+     {
+      "text": "mine",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Abandoned",
+      "for": "anagram",
+      "note": "abandoned can mean wild and unrestrained, so the letters run riot into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pipe",
+      "gives": "PIPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIPENOT",
+       "gives": "OPENPIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone disowns a discarded pipe, insisting it isn't theirs.",
+     "walkthrough": "'Not mine' reads as a denial of ownership; 'mine' is the definition, the noun for a place where minerals are dug.",
+     "definitionFit": "An open pit is a surface excavation for extracting coal or ore, a type of mine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 28,
@@ -533,7 +2022,47 @@
     "text": "Beat chap — it's not the main issue",
     "enumeration": "7"
    },
-   "solution": "TANGENT"
+   "solution": "TANGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGENT",
+    "definitions": [
+     {
+      "text": "it's not the main issue",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent is a man or chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Hitting a fellow is beside the point of the argument.",
+     "walkthrough": "The definition is a whole phrase describing the thing rather than a synonym.",
+     "definitionFit": "A tangent is a digression that strays from the central topic of a discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Beat"
+    }
+   }
   }
  ]
 }
