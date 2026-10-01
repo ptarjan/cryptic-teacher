@@ -639,6 +639,8 @@ ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 annotated_ok=0
 annotated_nums=""
 stop_reason=""
+# Set when the stop is the five-hour gate: a budget decision, never an alert.
+stop_budget=""
 # Set when a dead puzzle has already been reported WITH its post-mortem, so the
 # run-level summary below does not say the same failure again as a headline.
 stop_alerted=""
@@ -761,6 +763,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     session=$(python3 tools/weekly_usage.py --group session)
     if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
       stop_reason="five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — solving $num waits for the reset"
+      stop_budget=1
       break
     fi
     fill="${TMPDIR:-/tmp}/cryptic-fill-$num.json"
@@ -852,6 +855,7 @@ if [ -n "$pending" ]; then
       session=$(python3 tools/weekly_usage.py --group session)
       if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
         stop_reason="five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — $num waits for the reset"
+        stop_budget=1
         break
       fi
       echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
@@ -1052,12 +1056,13 @@ if [ -n "$stop_reason" ]; then
     # Already sent, with the transcript's own post-mortem attached. Repeating it
     # here as a headline is the same failure twice in a channel with one reader.
     echo "annotated $annotated_ok puzzle(s); the failure above went out with its post-mortem"
-  elif [ "$annotated_ok" -eq 0 ]; then
+  elif [ "$annotated_ok" -eq 0 ] && [ -z "$stop_budget" ]; then
     alert "no puzzle got hints today — $stop_reason. If that mentions authentication the CLI needs a fresh /login; see the CLAUDE_CONFIG_DIR note in daily_update.sh. Full output: .update.log."
   else
     # Reached when the run stopped on purpose rather than on a failure — the
     # five-hour window filling up is a budget decision, not something to wake
-    # anybody for.
+    # anybody for, even with nothing annotated; the backfill burn picks the
+    # puzzle up after the reset.
     echo "annotated $annotated_ok puzzle(s), then stopped: $stop_reason"
   fi
 fi
