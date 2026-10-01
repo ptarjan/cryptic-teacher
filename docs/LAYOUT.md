@@ -1112,5 +1112,7 @@ tools/file_georgeho_puzzles.py               file the puzzles only georgeho's OD
 tools/test_file_georgeho_puzzles.sh          does tools/file_georgeho_puzzles.py read
                                              georgeho's rows into the record the grid rebuild
                                              and file_blog_puzzles.build take?
+tools/fetch_archive_org_editions.py          fetch archive.org newspaper editions' OCR, word
+                                             positions and crossword page scans
 ```
 <!-- LAYOUT-END -->
