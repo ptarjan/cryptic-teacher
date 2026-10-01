@@ -292,6 +292,24 @@ if [ -d "$HOME/.cache/trove" ]; then
   rm -f "$trove_out"
 fi
 
+# --- 1c2b. The Times 1974-99, filed off archive.org's scans ---
+# tools/fetch_archive_org_editions.py fills ~/.cache/archive_org_editions;
+# this files the daily cryptics in the editions it has not read yet (its
+# ledger makes the rest free), then names the Times puzzle each canberra file
+# reprints. Bounded: RapidOCR reads an edition's clue columns in ~20s.
+ARCHIVE_ORG_PER_NIGHT="${ARCHIVE_ORG_PER_NIGHT:-150}"
+if [ -d "$HOME/.cache/archive_org_editions" ]; then
+  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org.XXXXXX")"
+  if python3 tools/file_archive_org_puzzles.py --limit "$ARCHIVE_ORG_PER_NIGHT" >"$aorg_out" 2>&1; then
+    cat "$aorg_out"
+    git status --porcelain -- puzzles/times puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
+  else
+    cat "$aorg_out"
+    alert "tools/file_archive_org_puzzles.py failed, so no Times puzzle is filed off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
+  rm -f "$aorg_out"
+fi
+
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---
 # Each pair above compares ours with one other copy. This puts every copy we
 # hold to a vote: the paper's own feed, app or page, fifteensquared,
