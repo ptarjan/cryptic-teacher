@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Travel permit American lost ahead of Italian excursion",
     "enumeration": "5"
    },
-   "solution": "VISIT"
+   "solution": "VISIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VISIT",
+    "definitions": [
+     {
+      "text": "excursion",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost has gone missing, so a letter is removed from the word in front of it"
+     },
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "being ahead of something means coming before it, so the first piece is placed in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Travel permit",
+      "gives": "VISA",
+      "note": "a visa is the stamp that lets you enter a country"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is the abbreviation for Italian, as in It vermouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIS",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller's paperwork goes missing just before a trip around Italy.",
+     "walkthrough": "'Italian excursion' reads as one phrase, but the definition is the last word alone; 'Italian' only supplies its usual two-letter abbreviation.",
+     "definitionFit": "A short trip somewhere, such as a day out to see a place, is a synonym for an excursion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,66 @@
     "text": "Is half of North African dish underneath very sticky?",
     "enumeration": "7"
    },
-   "solution": "VISCOUS"
+   "solution": "VISCOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VISCOUS",
+    "definitions": [
+     {
+      "text": "sticky",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "taking only half of a word means the other half is thrown away"
+     },
+     {
+      "text": "underneath",
+      "for": "charade",
+      "note": "in a down entry, something placed underneath another piece is written below it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the usual abbreviation for very"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "North African dish",
+      "gives": "COUSCOUS",
+      "note": "a steamed semolina dish from the Maghreb, whose two halves are identical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IS",
+      "COUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a plate of North African food has a gluey mess under it.",
+     "walkthrough": "The dish is conveniently made of two identical halves, so 'half of' it is easy to take. In a down entry, 'underneath' puts the rest below the abbreviation for very.",
+     "definitionFit": "Viscous describes a thick, slow-flowing liquid like syrup or glue, which is what sticky means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "underneath"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +181,45 @@
     "text": "Bet someone was burned here",
     "enumeration": "5"
    },
-   "solution": "STAKE"
+   "solution": "STAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAKE",
+    "definitions": [
+     {
+      "text": "Bet",
+      "at": 0
+     },
+     {
+      "text": "someone was burned here",
+      "at": 4,
+      "note": "a descriptive phrase for a noun: the post where the burning happened"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet",
+      "note": "first meaning: money put down on a wager"
+     },
+     {
+      "clueFragment": "someone was burned here",
+      "note": "second meaning: the post to which heretics and witches were tied for execution by fire"
+     }
+    ],
+    "explanation": {
+     "surface": "A gambler's wager leads to someone getting burnt.",
+     "walkthrough": "The two parts look like one sentence about a losing bet, but they are separate meanings of the same word.",
+     "definitionFit": "A wager is called this in betting, and historically heretics were tied to this wooden post and executed by fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "burned"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +233,69 @@
     "text": "Notices Dorothy's dog eats regular bites of foulest fungi",
     "enumeration": "10"
    },
-   "solution": "TOADSTOOLS"
+   "solution": "TOADSTOOLS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOADSTOOLS",
+    "definitions": [
+     {
+      "text": "fungi",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "whatever eats something takes it inside, so one piece goes into the other"
+     },
+     {
+      "text": "regular bites of",
+      "for": "letter_selection",
+      "note": "bites taken at regular intervals means every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dorothy's dog",
+      "gives": "TOTO",
+      "note": "Toto is Dorothy's dog in The Wizard of Oz"
+     },
+     {
+      "clueFragment": "Notices",
+      "gives": "ADS",
+      "note": "ads are notices, as in newspaper advertisements"
+     },
+     {
+      "clueFragment": "foulest",
+      "gives": "OLS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ADS",
+      "TO",
+      "OLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices the dog from Oz chewing on nasty mushrooms.",
+     "walkthrough": "'Notices' looks like a verb, but it is a plural noun, swallowed by the famous terrier; the even letters of 'foulest' follow.",
+     "definitionFit": "Toadstools are mushroom-like growths, usually poisonous ones, which are a common kind of fungi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Notices"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +319,63 @@
      }
     ]
    },
-   "solution": "UPTOSPEED"
+   "solution": "UPTOSPEED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UP TO SPEED",
+    "definitions": [
+     {
+      "text": "as fast as possible",
+      "at": 21,
+      "note": "the clue gives a phrase meaning at full speed; the answer is a phrase meaning at full pace"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exploding",
+      "for": "anagram",
+      "note": "something exploding is blown apart, so its letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spout",
+      "gives": "SPOUT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "went",
+      "gives": "PEED",
+      "note": "'went' is a coy euphemism for urinated, which is PEED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPTOS",
+      "PEED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPOUT",
+       "gives": "UPTOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burst pipe gushes out at top speed.",
+     "walkthrough": "'went' looks like it belongs with the definition, but it is the cheeky PEED, as in 'went to the loo'.",
+     "definitionFit": "Reaching full rate of movement, the maximum a thing can manage, is what being at this level of pace describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "went"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +389,60 @@
     "text": "Free amusing sheep fellows no longer needed",
     "enumeration": "6"
    },
-   "solution": "UNLOCK"
+   "solution": "UNLOCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "UNLOCK",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer needed",
+      "for": "deletion",
+      "note": "things no longer needed are discarded, so these letters are dropped from the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amusing",
+      "gives": "FUN",
+      "note": "something amusing is fun"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "FLOCK",
+      "note": "a flock is a group of sheep"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "FF",
+      "note": "F is the abbreviation for fellow, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "LOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd lets the comic flock go now the farmhands are surplus.",
+     "walkthrough": "FUN plus FLOCK, with both F's taken out, one from each word.",
+     "definitionFit": "To set something loose by opening its lock is to release it, the verb sense of free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +456,59 @@
     "text": "Bet on three racers in TT race and F1 broadcast",
     "enumeration": "8"
    },
-   "solution": "TRIFECTA"
+   "solution": "TRIFECTA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIFECTA",
+    "definitions": [
+     {
+      "text": "Bet on three racers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast is to scatter widely, as seed, so the letters are flung into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TT race",
+      "gives": "TTRACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "F1",
+      "gives": "FI",
+      "note": "the digit 1 is read as the letter I"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TTRACEFI",
+       "gives": "TRIFECTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter backs three riders at once while the TT and Formula One are on television.",
+     "walkthrough": "The TT is the Isle of Man motorbike race. The 1 in F1 is read as I to complete the letters.",
+     "definitionFit": "A trifecta is a wager that picks the first three finishers in a race in the correct order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +522,41 @@
     "text": "Wine bag",
     "enumeration": "4"
    },
-   "solution": "SACK"
+   "solution": "SACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SACK",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     },
+     {
+      "text": "bag",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "note": "first meaning: an old name for dry white wine from Spain, Falstaff's favourite"
+     },
+     {
+      "clueFragment": "bag",
+      "note": "second meaning: a large coarse carrying pouch, as for coal or potatoes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a wine box, but the two words are separate meanings.",
+     "definitionFit": "The noun names both a historic fortified Spanish drink, as in sherris sack, and a large coarse carrying pouch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +570,81 @@
     "text": "Perhaps set books and papers up to support English article",
     "enumeration": "9"
    },
-   "solution": "EDITORIAL"
+   "solution": "EDITORIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EDITORIAL",
+    "definitions": [
+     {
+      "text": "article",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perhaps",
+      "for": "charade",
+      "note": "perhaps marks an example, so the word that follows is one instance of a wider word"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top"
+     },
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down entry, what supports another piece holds it up from below"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "LAIR",
+      "note": "a badger's set is its lair"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, the books of the Hebrew Bible"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID is identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DITORIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAIROTID",
+       "to": "DITORIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Course books and exam papers are arranged to back up an English essay.",
+     "walkthrough": "'set books' looks like a school syllabus, but 'set' is a badger's home, LAIR. LAIR, OT and ID run upwards beneath E.",
+     "definitionFit": "An editorial is a newspaper's opinion piece, one particular kind of article written by the editor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +658,65 @@
     "text": "Reactionary detective caught dropping heroin",
     "enumeration": "7"
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DIEHARD",
+    "definitions": [
+     {
+      "text": "Reactionary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "anagram",
+      "note": "dropping here means falling a place lower, so one letter moves down the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "HEARD",
+      "note": "to catch someone's words is to hear them; its first letter will move"
+     },
+     {
+      "clueFragment": "heroin",
+      "note": "H is slang for heroin; it names the letter that moves, adding nothing new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "EHARD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEARD",
+       "gives": "EHARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A right-wing policeman gets caught after giving up drugs.",
+     "walkthrough": "'dropping heroin' looks like quitting the drug, but H (slang for heroin) simply slips one place lower in its word, which suits a down entry.",
+     "definitionFit": "A diehard is someone who stubbornly resists change, so a conservative who opposes reform is this sort of person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +736,61 @@
      }
     ]
    },
-   "solution": "SEAWALL"
+   "solution": "SEAWALL",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "SEA WALL",
+    "definitions": [
+     {
+      "text": "Defensive structure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "to circle something is to go all round it, so one piece surrounds the other"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, a word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hawk",
+      "gives": "SELL",
+      "note": "to hawk goods is to sell them in the street"
+     },
+     {
+      "clueFragment": "at a distance",
+      "gives": "AWAY",
+      "note": "something at a distance is away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "AWA",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird of prey wheels far off above a fortification.",
+     "walkthrough": "'hawk' looks like the bird but is the verb, to peddle wares in the street.",
+     "definitionFit": "A sea wall is an embankment built to protect the coast against waves, a barrier that keeps the sea out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hawk"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +804,69 @@
     "text": "Tilt one square, checking finishing touches of cyclic quadrilateral",
     "enumeration": "7"
    },
-   "solution": "INCLINE"
+   "solution": "INCLINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INCLINE",
+    "definitions": [
+     {
+      "text": "Tilt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishing touches of",
+      "for": "letter_selection",
+      "note": "the finishing touch is the last thing done, so the last letter of each word is kept"
+     },
+     {
+      "text": "checking",
+      "for": "container",
+      "note": "to check something is to hold it back, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "NINE",
+      "note": "nine is a square number, three times three"
+     },
+     {
+      "clueFragment": "cyclic quadrilateral",
+      "gives": "CL",
+      "select": "last",
+      "note": "the final letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "CL",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A geometry lesson about tilting a square and finishing off a cyclic quadrilateral.",
+     "walkthrough": "'square' sounds like a shape in this geometry scene, but it stands for a square number, NINE, which holds CL after its first letter.",
+     "definitionFit": "An incline is a slope, and as a verb to incline is to lean or slant, which is what tilt means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +886,72 @@
      }
     ]
    },
-   "solution": "OPENSECRET"
+   "solution": "OPENSECRET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OPEN SECRET",
+    "definitions": [
+     {
+      "text": "common knowledge?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crowding",
+      "for": "charade",
+      "note": "to crowd something is to press up close against it, so the pieces are pushed together side by side"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "Swans",
+      "gives": "PENS",
+      "note": "a pen is a female swan"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "CRETE",
+      "note": "Crete is the large Greek island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PENS",
+      "E",
+      "CRET"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone knows the swans crowd around some English island.",
+     "walkthrough": "In cricket an over is a set of six balls, hence O. The question mark admits the definition is loose: an open secret is something supposedly secret but widely known.",
+     "definitionFit": "An open secret is a supposed confidence that everybody is in fact aware of, so it is widely shared information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Swans"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +965,46 @@
     "text": "Fish tooth incomplete",
     "enumeration": "4"
    },
-   "solution": "MOLA"
+   "solution": "MOLA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MOLA",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing its end, so the last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tooth",
+      "gives": "MOLAR",
+      "note": "a back grinding tooth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOLA"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "MOLAR without its final letter.",
+     "definitionFit": "The mola, or ocean sunfish, is a huge flat-bodied species that swims in the open ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +1018,67 @@
     "text": "Mother drinks dodgy retsina - typical",
     "enumeration": "10"
    },
-   "solution": "MAINSTREAM"
+   "solution": "MAINSTREAM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MAINSTREAM",
+    "definitions": [
+     {
+      "text": "typical",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable and suspect, so the letters cannot be trusted in their order"
+     },
+     {
+      "text": "drinks",
+      "for": "container",
+      "note": "whatever drinks something takes it inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MAM",
+      "note": "mam is an informal word for mother"
+     },
+     {
+      "clueFragment": "retsina",
+      "gives": "RETSINA",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "INSTREA",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETSINA",
+       "gives": "INSTREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is knocking back cheap Greek wine, as she usually does.",
+     "walkthrough": "Retsina is a Greek white wine flavoured with pine resin. MAM, a northern and Welsh word for mum, swallows its scrambled letters.",
+     "definitionFit": "Mainstream means following the ordinary, dominant trend, so it describes what is normal or conventional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1092,59 @@
     "text": "Blinded strongman succeeded in wrestling mason",
     "enumeration": "6"
    },
-   "solution": "SAMSON"
+   "solution": "SAMSON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAMSON",
+    "definitions": [
+     {
+      "text": "Blinded strongman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrestling",
+      "for": "anagram",
+      "note": "wrestling twists and throws bodies about, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded"
+     },
+     {
+      "clueFragment": "mason",
+      "gives": "MASON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SMASON",
+       "gives": "SAMSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blinded strongman wins a bout against a stonemason.",
+     "walkthrough": "S joins MASON in the mix, and the six letters are rearranged together.",
+     "definitionFit": "In the Bible, Samson's great strength came from his hair; the Philistines captured him and put out his eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrestling"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1164,62 @@
      }
     ]
    },
-   "solution": "MARCHHARE"
+   "solution": "MARCHHARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "MARCH HARE",
+    "definitions": [
+     {
+      "text": "being considered mad",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put money first",
+      "for": "cycling",
+      "note": "putting something first moves it from its place to the front, so the last letter goes to the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shrewd",
+      "gives": "ARCH",
+      "note": "arch means knowing, cunning"
+     },
+     {
+      "clueFragment": "lot of wives",
+      "gives": "HAREM",
+      "note": "a harem is a group of wives or concubines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARCH",
+      "HARE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARCHHAREM",
+       "gives": "MARCHHARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A canny polygamist puts cash first and is thought to have lost his mind.",
+     "walkthrough": "ARCH and HAREM are joined, then the M at the end, which also stands for money, moves to the front.",
+     "definitionFit": "The idiom 'mad as a March hare' comes from hares' wild behaviour in the breeding season, and Carroll gave it a character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1233,74 @@
     "text": "Made stable lad heading away head in immediately to stop horse",
     "enumeration": "8"
    },
-   "solution": "STEADIED"
+   "solution": "STEADIED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STEADIED",
+    "definitions": [
+     {
+      "text": "Made stable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading away",
+      "for": "deletion",
+      "note": "with the heading gone, a word loses its first letter"
+     },
+     {
+      "text": "head in",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so the pieces fill the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad",
+      "gives": "AD",
+      "note": "LAD without its first letter"
+     },
+     {
+      "clueFragment": "immediately",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "STEED",
+      "note": "a steed is a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "ADI",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A stable lad hurries off to stop a runaway horse.",
+     "walkthrough": "'stable lad' looks like one phrase, but 'Made stable' is the definition, and the lad himself only lends two letters.",
+     "definitionFit": "To steady something is to make it firm and still, so the past tense means made stable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1314,62 @@
     "text": "May prisoner like to be confined as islander?",
     "enumeration": "8"
    },
-   "solution": "MALAGASY"
+   "solution": "MALAGASY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MALAGASY",
+    "definitions": [
+     {
+      "text": "islander",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be confined",
+      "for": "container",
+      "note": "something confined is shut inside, so these pieces go within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "LAG",
+      "note": "an old lag is a long-serving convict"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "like and as both mean in the manner of"
+     },
+     {
+      "clueFragment": "May",
+      "gives": "MAY",
+      "note": "taken as written; it holds the rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "LAG",
+      "AS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether an inmate might wish to be shut away like a castaway.",
+     "walkthrough": "'May' looks like a verb of permission but is just the outer word. 'Old lag' is British slang for a habitual convict.",
+     "definitionFit": "A Malagasy is a native of Madagascar, the large island off south-east Africa, so an inhabitant of that island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1389,78 @@
      }
     ]
    },
-   "solution": "CERULEAN"
+   "solution": "CERULEAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CERULEAN",
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the last letter goes"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "a word's beginning is its first letter"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "running wild is out of control, so the letters are in disorder"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clues",
+      "gives": "CLUE",
+      "note": "CLUES with its last letter removed"
+     },
+     {
+      "clueFragment": "episode's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLUEERAN",
+       "gives": "CERULEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An episode of the children's TV show Blue's Clues was cut and its opening ran out of control.",
+     "walkthrough": "The italic title is a famous programme, but 'Blue' alone is the definition, joined by 's (is). Everything else is mixed together.",
+     "definitionFit": "Cerulean is a deep sky-coloured shade, the clear colour of a summer sky, so it names one tone of the colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blue's"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1474,62 @@
     "text": "Pass fool eating black bread",
     "enumeration": "7"
    },
-   "solution": "COBLOAF"
+   "solution": "COBLOAF",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COBLOAF",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats something takes it inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "COL",
+      "note": "a col is a mountain pass"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "OAF",
+      "note": "an oaf is a clumsy fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "B",
+      "L",
+      "OAF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands over a dark loaf to a silly person eating it.",
+     "walkthrough": "A cob loaf is a round, crusty British loaf; 'Pass' is the mountain kind, not a verb.",
+     "definitionFit": "A cob loaf is a round, domed loaf with a crusty top, so it is a type of bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1549,67 @@
      }
     ]
    },
-   "solution": "ENBLOC"
+   "solution": "ENBLOC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EN BLOC",
+    "definitions": [
+     {
+      "text": "together",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "something rolling turns over, so the word is turned back to front"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "going through something means passing into the middle of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volcanic area",
+      "gives": "CONE",
+      "note": "a volcano's cone is the mound around its vent"
+     },
+     {
+      "clueFragment": "Barrel",
+      "gives": "BL",
+      "note": "BL is a dictionary abbreviation for barrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "BL",
+      "OC"
+     ],
+     "reversals": [
+      {
+       "from": "CONE",
+       "to": "ENOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone charges headlong across rolling volcanic country with company.",
+     "walkthrough": "'Barrel' looks like a verb, to charge, but it is the noun abbreviation BL. CONE turns round to ENOC, and BL goes into it.",
+     "definitionFit": "En bloc is a French phrase meaning all as one group, as a single unit, which is what together means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Barrel"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1623,62 @@
     "text": "Trimmed piece of meat at the edges really silver",
     "enumeration": "7"
    },
-   "solution": "CUTLERY"
+   "solution": "CUTLERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUTLERY",
+    "definitions": [
+     {
+      "text": "silver",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Trimmed",
+      "for": "deletion",
+      "note": "trimming something takes a little off its end, so the last letter goes"
+     },
+     {
+      "text": "at the edges",
+      "for": "letter_selection",
+      "note": "the edges of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of meat",
+      "gives": "CUTLET",
+      "note": "a cutlet is a chop or slice of meat"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "RY",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUTLE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher trims a chop round the edges with a fine silver blade.",
+     "walkthrough": "CUTLET loses its last letter, then the outside letters of 'really' follow.",
+     "definitionFit": "Silver is used as a collective name for knives, forks and spoons, as in the family silver, which is tableware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1692,58 @@
     "text": "Heart expert necromancer boxes up",
     "enumeration": "6"
    },
-   "solution": "CENTRE"
+   "solution": "CENTRE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CENTRE",
+    "definitions": [
+     {
+      "text": "Heart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxes",
+      "for": "hidden_word",
+      "note": "something that boxes holds a thing enclosed within it, so the letters are inside the phrase"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert necromancer",
+      "gives": "ERTNEC",
+      "note": "the letters spanning the two words, read from the end of 'expert'"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ERTNEC",
+       "to": "CENTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cardiac specialist and a wizard who raises the dead come to blows.",
+     "walkthrough": "'Heart expert' looks like a cardiologist, but 'Heart' alone is the definition.",
+     "definitionFit": "The heart of something is its middle point or core, a common figurative sense meaning the same thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1757,57 @@
     "text": "I don't like this starter of toasted Asian bread",
     "enumeration": "4"
    },
-   "solution": "BAHT"
+   "solution": "BAHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BAHT",
+    "definitions": [
+     {
+      "text": "Asian bread",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "the starter is what comes first, so the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don't like this",
+      "gives": "BAH",
+      "note": "bah is an exclamation of disgust"
+     },
+     {
+      "clueFragment": "toasted",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner complains about the first course of toasted Asian bread.",
+     "walkthrough": "'bread' looks like food in this restaurant scene, but it is slang for money.",
+     "definitionFit": "The baht is Thailand's currency, and bread is old slang for money, so it is an Asian unit of cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1821,51 @@
     "text": "Fighting with target lacking weakness",
     "enumeration": "10"
    },
-   "solution": "WATERTIGHT"
+   "solution": "WATERTIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATERTIGHT",
+    "definitions": [
+     {
+      "text": "lacking weakness",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fighting",
+      "for": "anagram",
+      "note": "things fighting are in a tangle and thrown about, so the letters end up rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with target",
+      "gives": "WITHTARGET",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WITHTARGET",
+       "gives": "WATERTIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer attacking an opponent without any flaws.",
+     "walkthrough": "The word 'with' is part of the fodder, not a link.",
+     "definitionFit": "A watertight argument or plan has no flaws or loopholes, just as a sealed container has no leaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1879,57 @@
     "text": "Government think to scrap border walls? No problem for me!",
     "enumeration": "5"
    },
-   "solution": "GECKO"
+   "solution": "GECKO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GECKO",
+    "definitions": [
+     {
+      "text": "walls? No problem for me!",
+      "at": 33,
+      "note": "a cryptic description of a creature that climbs walls with ease"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to scrap border",
+      "for": "deletion",
+      "note": "scrapping the border throws away the edges, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     },
+     {
+      "clueFragment": "think",
+      "gives": "RECKON",
+      "note": "to reckon is to think"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ECKO"
+     ]
+    },
+    "explanation": {
+     "surface": "A government considers taking down its border walls, and someone declares it no trouble at all.",
+     "walkthrough": "The border-wall politics is a decoy: 'walls?' begins the definition, spoken by a lizard that walks up them.",
+     "definitionFit": "Geckos have sticky toe pads that let them run up vertical surfaces and across ceilings, so walls pose no difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "walls"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1943,53 @@
     "text": "Challenges pictures lacking flash",
     "enumeration": "4"
    },
-   "solution": "VIES"
+   "solution": "VIES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VIES",
+    "definitions": [
+     {
+      "text": "Challenges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means being without it, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pictures",
+      "gives": "MOVIES",
+      "note": "movies are pictures, as in going to the pictures"
+     },
+     {
+      "clueFragment": "flash",
+      "gives": "MO",
+      "note": "a mo is a moment, as is a flash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer struggles taking photos without a flash.",
+     "walkthrough": "'flash' looks like camera gear, but it means an instant, MO, which is removed from MOVIES.",
+     "definitionFit": "To vie is to compete or contend, so the verb means much the same as the verb challenges in a contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flash"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +2003,75 @@
     "text": "Instrument on wheels I put in auditorium at the front",
     "enumeration": "7"
    },
-   "solution": "OCARINA"
+   "solution": "OCARINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "OCARINA",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means placed inside, so these pieces go within another"
+     },
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written; it holds the next pieces"
+     },
+     {
+      "clueFragment": "wheels",
+      "gives": "CAR",
+      "note": "wheels is slang for a car"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "auditorium",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CAR",
+      "I",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician wheels an instrument into the front of a concert hall.",
+     "walkthrough": "'on wheels' looks like one phrase meaning mobile, but 'on' is the outer word and 'wheels' is casual slang for a motor vehicle.",
+     "definitionFit": "An ocarina is a small egg-shaped wind instrument with finger holes, usually made of clay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wheels"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +2085,76 @@
     "text": "Mush a chef originally left in box?",
     "enumeration": "7"
    },
-   "solution": "TREACLE"
+   "solution": "TREACLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TREACLE",
+    "definitions": [
+     {
+      "text": "Mush",
+      "at": 0,
+      "note": "the clue's noun means sentimental slush; the answer is the noun for cloying sentiment"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what something was originally is how it began, so the first letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so these pieces go within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chef",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "TREE",
+      "note": "box is an evergreen shrub or tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "A",
+      "C",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook leaves some mushy food in a container.",
+     "walkthrough": "'box' looks like a container, but it is the box tree, TREE, which holds A, C and L. Treacle is British for molasses or golden syrup.",
+     "definitionFit": "Treacle is used figuratively for cloying sentimentality, as is mush, so the two are synonyms in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +2168,80 @@
     "text": "Rap battle's conclusion after fine dance includes spot of filth",
     "enumeration": "9"
    },
-   "solution": "FREESTYLE"
+   "solution": "FREESTYLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "FREESTYLE",
+    "definitions": [
+     {
+      "text": "Rap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece goes within another"
+     },
+     {
+      "text": "conclusion",
+      "for": "letter_selection",
+      "note": "a word's conclusion is its last letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means being placed behind it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "REEL",
+      "note": "a reel is a lively Scottish dance"
+     },
+     {
+      "clueFragment": "spot of filth",
+      "gives": "STY",
+      "note": "a sty is a filthy place, a pigsty"
+     },
+     {
+      "clueFragment": "battle's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "REE",
+      "STY",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rap battle ends with a dance that gets dirty.",
+     "walkthrough": "'Rap battle' reads as one phrase, but 'Rap' alone is the definition. F REEL holds STY, and E comes last.",
+     "definitionFit": "Freestyle is improvised rapping, made up on the spot rather than written in advance, a central form of the genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "battle's"
+    }
+   }
   },
   {
    "number": 29,
@@ -507,7 +2255,60 @@
     "text": "Maiden wanting a baby leaves bedroom feeling sullen",
     "enumeration": "5"
    },
-   "solution": "MOODY"
+   "solution": "MOODY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MOODY",
+    "definitions": [
+     {
+      "text": "feeling sullen",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whatever leaves goes away, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "wanting a baby",
+      "gives": "BROODY",
+      "note": "broody means longing to have a child"
+     },
+     {
+      "clueFragment": "bedroom",
+      "gives": "BR",
+      "note": "BR is the estate agents' abbreviation for bedroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OODY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman who longs for a child walks out of the bedroom in a sulk.",
+     "walkthrough": "'leaves' looks like walking out, but BR is removed from BROODY. A maiden is an over with no runs conceded.",
+     "definitionFit": "Moody describes someone given to gloomy, sulky spells, which matches sullen in sense and part of speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   }
  ]
 }
