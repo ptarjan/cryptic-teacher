@@ -13,7 +13,7 @@ The queue order is the round-robin tools/prereset_backfill.sh builds, with the
 puzzles a lockout cut off first, then Cracking the Cryptic's puzzles, then the
 indicator cover (tools/indicator_cover.py).
 
-    tools/prereset_plan.py --width [CURRENT]              # runs to keep in flight
+    tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --self-test
 """
@@ -108,16 +108,16 @@ def per_run_rate(lines):
 
 def need(pct, hours_left, rate, bridge_rate=0.0):
     """Runs that would spend, by the reset, what the five-hour window has left
-    after the bridge's projected spend (bridge_rate points an hour), at least 1.
-    A reset already passed is a fresh window, all of it left. None when any
-    input is missing or unusable."""
+    after the bridge's projected spend (bridge_rate points an hour), 0 when the
+    bridge alone spends it. A reset already passed is a fresh window, all of it
+    left. None when any input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS
         if rate <= 0:
             return None
         left = 100 - pct - max(0.0, bridge_rate or 0.0) * hours_left
-        return max(1, round(left / (hours_left * rate)))
+        return max(0, round(left / (hours_left * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
 
@@ -252,14 +252,15 @@ def cpu_cap(others, burn, cores, runs):
     return max(0, int((cores - others) / (burn / runs)))
 
 
-def width_for(runs_needed, mem, cpu, current):
+def width_for(runs_needed, mem, cpu, current, floor=1):
     """The need (else the current width, else DEFAULT_WIDTH), capped by memory
-    (else DEFAULT_CEILING) and by the idle cores (when measured). At least 1."""
-    w = runs_needed or current or DEFAULT_WIDTH
+    (else DEFAULT_CEILING) and by the idle cores (when measured). At least
+    floor: 0 for a shell that naps at width 0 (--may-pause), else 1."""
+    w = runs_needed if runs_needed is not None else current or DEFAULT_WIDTH
     w = min(w, DEFAULT_CEILING if mem is None else mem)
     if cpu is not None:
         w = min(w, cpu)
-    return max(1, w)
+    return max(floor, w)
 
 
 def current_width(arg, lines):
@@ -378,7 +379,7 @@ def bridge_spend(now=None):
                                                now - rise[1] * 3600, now))
 
 
-def width(arg=None):
+def width(arg=None, floor=1):
     """The width to keep in flight, from the live five-hour meter and reset, the
     bridge's measured spend, the burn's rate and last width, and the machine.
     The inputs go to stderr."""
@@ -399,7 +400,7 @@ def width(arg=None):
     mem = mem_cap(_read("/proc/meminfo"), rss)
     load = cpu_load(home / CPU_STATE)
     cpu = cpu_cap(*load, os.cpu_count(), len(rss)) if load else None
-    w = width_for(runs_needed, mem, cpu, current)
+    w = width_for(runs_needed, mem, cpu, current, floor)
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
     cores = (f"others {load[0]:.2f} burn {load[1]:.2f} of {os.cpu_count()} cores"
              if load else "cores unread")
@@ -448,12 +449,15 @@ WIDTH_CASES = [
     ((60, None, 40, 14), DEFAULT_CEILING),      # memory unread
     ((26, 0, 40, 14), 1),          # no memory free: still one run
     ((26, 40, 0, 14), 1),          # no core idle: still one run
+    ((0, 40, 40, 14), 1),          # bridge spends the window: one run, for an old shell
+    ((0, 40, 40, 14, 0), 0),       # ...and none for one that naps at 0
+    ((26, 40, 0, 14, 0), 0),       # no core idle, for one that naps
 ]
 # (pct, hours to reset, per-run rate, bridge points an hour) -> need
 NEED_CASES = [
     ((90, 2.0, 1.95, 0), 3),      # 10 points over 3.9 run-hours
     ((60, 1.0, 1.95, 0), 21),     # 40 points in 1h
-    ((100, 1.0, 1.95, 0), 1),     # window spent
+    ((100, 1.0, 1.95, 0), 0),     # window spent
     ((None, 1.0, 1.95, 0), None),
     ((50, 0.0, 1.95, 0), 10),     # reset passed: a fresh window, 100 points in 5h
     ((100, -0.1, 1.95, 0), 10),   # the meter still shows the window just spent
@@ -461,7 +465,8 @@ NEED_CASES = [
     # The bridge's projected spend comes off the top: the burn takes the surplus.
     ((60, 1.0, 1.95, 20), 10),    # bridge takes 20 of the 40 points left
     ((40, 4.0, 1.95, 10), 3),     # 60 left, bridge 40 of it by the reset
-    ((40, 4.0, 1.95, 15), 1),     # bridge alone spends the window: one run
+    ((40, 4.0, 1.95, 15), 0),     # bridge alone spends the window: nothing to take
+    ((48, 4.0, 4.4, 38), 0),      # 2026-10-01 08:40: bridge at 38 points an hour
     ((50, 0.0, 1.95, 10), 5),     # fresh window: 100 - 50 over 5h
     ((60, 1.0, 1.95, None), 21),  # bridge unmeasured: nothing subtracted
 ]
@@ -679,7 +684,8 @@ def main():
         return self_test()
     if "--width" in sys.argv:
         at = sys.argv.index("--width")
-        print(width(sys.argv[at + 1] if at + 1 < len(sys.argv) else None))
+        print(width(sys.argv[at + 1] if at + 1 < len(sys.argv) else None,
+                    0 if "--may-pause" in sys.argv else 1))
         return 0
     print(__doc__, file=sys.stderr)
     return 2
