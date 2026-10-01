@@ -82,6 +82,10 @@ check("both readers' one non-word is not kept", None, f.agree("Nurse hoiding not
 
 check("a capital only one reader saw inside the clue dropped", ("What is stated", "settled by the dictionary"),
       f.agree("What Is stated", f.tokens("27 What is stated (9)")))
+got, _ = f.reconcile({"25-across": ("As worn by agitator in back- street", "8", None)},
+                     "25 As worn by agitator in back-\nstreet (8)")
+check("a word hyphenated over a line end keeps its hyphen, no space", "As worn by agitator in back-street",
+      got["25-across"][0])
 check("the clue's first word keeps its capital", ("Bottom of a ship", "agree"),
       f.agree("Bottom of a ship", f.tokens("bottom of a ship")))
 
