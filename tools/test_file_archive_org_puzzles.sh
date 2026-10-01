@@ -105,11 +105,12 @@ check("clues laid on their own lights, a number read two ways on the one light i
       ({k: v[0] for k, v in loose.items()}, bad))
 
 laid = {"1-across": ("Bottom of a ship", "3", None), "2-across": ("Bottom of a ship", None, None),
-        "3-across": ("Smoothed it 18 Warning of one", "7", None), "4-down": ("See 1", None, None)}
+        "3-across": ("Smoothed it 18 Warning of one", "7", None), "4-down": ("See 1", None, None),
+        "5-down": ("s about a ship", "3", None)}
 got, blank = f.reconcile(laid, "Bottom of a ship (3)")
-check("a clue without a count, or holding another clue's number, filed blank; See kept",
-      ({"1-across": "Bottom of a ship", "2-across": "", "3-across": "", "4-down": "See 1"},
-       ["2-across", "3-across"]),
+check("a clue without a count, holding another clue's number, or starting mid-clue filed blank; See kept",
+      ({"1-across": "Bottom of a ship", "2-across": "", "3-across": "", "4-down": "See 1", "5-down": ""},
+       ["2-across", "3-across", "5-down"]),
       ({k: v[0] for k, v in got.items()}, sorted(blank)))
 
 # edition_dirs(): the years in turn, so a capped run reaches every decade.
@@ -141,6 +142,29 @@ misread = [clues[0].replace("abx", "abz"), clues[1], clues[2]]
 import io
 got = f.match_canberra(src, write=False, out=io.StringIO(), canberra=can)
 check("a reprint matched through a misread; another grid, or a print before the London one, is not", {"canberra-750101": "times-13677"}, got)
+
+# read_solution(): the solution grid under its heading, answers keyed as
+# trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.
+from PIL import Image, ImageDraw
+ed = Path(os.environ["TMP"]) / "ed"; ed.mkdir()
+im = Image.new("L", (1200, 1400), 255)
+ImageDraw.Draw(im).rectangle((110, 160, 460, 510), fill=0)
+im.save(ed / "leaf_0003.jpg")
+f.CROPS = Path(os.environ["TMP"]) / "crops"
+import trove_solution_ocr
+seen = []
+def fake(path, grid):
+    seen.append(Image.open(path).size)
+    return {(1, "across"): "ABC"}, {"blocks": stats_blocks}
+trove_solution_ocr.read_answers = fake
+sol = {"dir": ed, "leaf": 3, "number": 7, "box": (100, 100, 400, 140)}
+stats_blocks = 1.0
+got, _ = f.read_solution(sol, ["..."])
+check("solution answers keyed as fill() reads them, the grid cropped tight at 3x",
+      ({"1-across": "ABC"}, (352 * 3, 352 * 3)), (got, seen[0]))
+stats_blocks = 0.9
+got, info = f.read_solution(sol, ["..."])
+check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
 
 import cross_validate
 a = cross_validate.ArchiveOrg()
