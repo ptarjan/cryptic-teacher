@@ -6,6 +6,9 @@
     python3 tools/cross_validate.py telegraph --show telegraph-28936
     python3 tools/cross_validate.py guardian --fetch --refile --limit 1500
                                                            # cache 1500 more pages, diff, refile
+    python3 tools/cross_validate.py independent --fetch --refile --limit 1500
+                                                           # the same against the Independent's feed
+    python3 tools/cross_validate.py indyblog               # its answers against fifteensquared's
 
 Most of the corpus came off a blog: the blogger retyped the clues, a parser
 read the post, and tools/reconstruct_grid.py rebuilt the grid from the light
@@ -32,10 +35,10 @@ by class:
 The report goes to ~/cryptic-setter-data/cross-validate/<source>.jsonl, one
 line per puzzle with mismatches, and a tally prints per class.
 
---refile (the guardian adapter) then rewrites, from the page, each file whose
+--refile (the guardian and independent adapters) then rewrites, from the source, each file whose
 only differences are CLUE, ENUMERATION or ANSWER, each clean file taken from
-somewhere other than the page, and each file lacking the note the page prints
-above the clues; see refile_guardian().
+somewhere other than the source, and (the Guardian) each file lacking the note
+the page prints above the clues; see refile_guardian() and refile_independent().
 """
 import argparse
 import html
@@ -253,7 +256,136 @@ def guardian_shape(data, url):
             "dimensions": data["dimensions"], "entries": entries}
 
 
-ADAPTERS = {a.name: a for a in (Telegraph, Guardian)}
+class Independent(Adapter):
+    """The Independent's own Arkadium feed, one Crossword Compiler XML per
+    date key, for both series it carries; see tools/fetch_independent.py.
+
+    The XML is read here without fetch_independent.parse()'s converter (only
+    the puzzle's id is taken from it, since the number fixes and the two
+    series' weekday rule live there): what differs is then what the converter
+    or a later edit did to the feed's data. A file rebuilt from fifteensquared
+    for a date the feed also serves is compared too, and --refile makes the
+    feed its primary source."""
+    name = "independent"
+    series = ("independent", "indysunday")
+    #: The CDN is quick; one request a second each from two workers is polite.
+    delay = 1.0
+    workers = 2
+
+    def ids(self):
+        import fetch_independent as fi
+        out = {}
+        for pid, path in held(self).items():
+            day = read_puzzle_file(path).get("date") or ""
+            ymd = day[2:4] + day[5:7] + day[8:10]
+            if len(ymd) == 6 and ymd not in fi.REPEATS:
+                out[pid] = ymd
+        return out
+
+    def raw_file(self, ymd):
+        return self.cache / f"c_{ymd}.xml"
+
+    def fetch_one(self, ymd):
+        import fetch_independent as fi
+        path = self.raw_file(ymd)
+        if path.exists() or path.with_suffix(".404").exists():
+            return False
+        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            body = fi.http_get(fi.FEED.format(ymd=ymd))
+        except urllib.error.HTTPError as err:
+            if err.code in (403, 404):
+                path.with_suffix(".404").write_text(str(err.code))
+                return True
+            raise
+        path.write_bytes(body)
+        return True
+
+    def puzzle(self, ymd):
+        path = self.raw_file(ymd)
+        if not path.exists():
+            return None
+        return independent_shape(path.read_bytes(), ymd)
+
+
+def independent_shape(xml_bytes, ymd):
+    """The feed's XML in our shape, its entries read without
+    fetch_independent's converter: the grid's white cells and letters, each
+    <word>'s runs, each clue's words and its format attribute as printed."""
+    import xml.etree.ElementTree as ET
+
+    import fetch_independent as fi
+    pid = fi.parse(xml_bytes, ymd)["id"]
+    ns = fi.NS
+    puz = ET.fromstring(fi.clean_xml_bytes(xml_bytes)).find(f".//{ns}rectangular-puzzle")
+    grid = puz.find(f"{ns}crossword/{ns}grid")
+    sol = {(int(c.get("x")) - 1, int(c.get("y")) - 1): c.get("solution").upper()
+           for c in grid.findall(f"{ns}cell") if c.get("solution")}
+    runs = {}
+    for word in puz.findall(f"{ns}crossword/{ns}word"):
+        runs[word.get("id")] = [(fi.span(s.get("x")), fi.span(s.get("y")))
+                                for s in [word, *word.findall(f"{ns}cells")]]
+    entries = []
+    for clue in puz.iter(f"{ns}clue"):
+        if clue.get("is-link"):
+            continue
+        nums = [int(n.rstrip("ADad")) for n in (clue.get("number") or "").split("/") if n.strip()]
+        text = " ".join(html.unescape("".join(clue.itertext())).split())
+        enum = re.sub(r"[./]", ",", (clue.get("format") or "").strip()) or None
+        for i, (num, ((x1, x2), (y1, y2))) in enumerate(zip(nums, runs[clue.get("word")])):
+            across = x2 > x1 or y1 == y2
+            length = (x2 - x1 if across else y2 - y1) + 1
+            e = {"number": num, "direction": "across" if across else "down",
+                 "position": {"x": x1 - 1, "y": y1 - 1}, "length": length,
+                 "clue": ({"text": text, "enumeration": enum} if i == 0
+                          else {"text": f"See {nums[0]}", "enumeration": None})}
+            e["solution"] = "".join(sol.get(c, "") for c in cells(e)) or None
+            entries.append(e)
+    return {"id": pid, "dimensions": {"cols": int(grid.get("width")),
+                                      "rows": int(grid.get("height"))},
+            "entries": entries}
+
+
+class IndyBlog(Adapter):
+    """fifteensquared's answers for the Independent's two series: the post
+    cache tools/fetch_fifteensquared.py fills, then georgeho's scrape of the
+    same blog, read through tools/corroborate.py. Offline; --fetch is a no-op.
+
+    A blog prints no grid and retypes the clues, so the source puzzle is ours
+    with only each answer the blog prints in full for the light swapped in: it
+    witnesses ANSWER alone. Where the feed's key is wrong in one cell, both
+    crossing lights differ from ours there and agree with each other."""
+    name = "indyblog"
+    series = ("independent", "indysunday")
+
+    def ids(self):
+        return held(self)
+
+    def fetch_one(self, path):
+        return False
+
+    def puzzle(self, path):
+        import copy
+
+        import corroborate
+        ours = read_puzzle_file(path)
+        said = {}
+        for rec in corroborate.fifteensquared(ours) + corroborate.georgeho(ours):
+            for light, answer in rec.answers.items():
+                said.setdefault(light, answer)
+        theirs = copy.deepcopy(ours)
+        fits = 0
+        for e in theirs["entries"]:
+            got = said.get((e["number"], e["direction"]))
+            e["solution"] = got if got and len(got) == e["length"] else None
+            fits += bool(e["solution"])
+        return theirs if fits else None
+
+    def covers(self, ours):
+        return (ours.get("source") or {}).get("acquiredBy") != "tools/indy_puzzles.py"
+
+
+ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog)}
 
 
 def held(adapter):
@@ -397,6 +529,14 @@ def diff(ours, theirs):
     return out
 
 
+def witness(theirs):
+    """The source's copy with the answers fetch_puzzle.SOURCE_ANSWER_WRONG
+    proves the paper got wrong put right, as every write to the corpus puts
+    them right: a known error in the source's key is not a finding."""
+    import corroborate
+    return corroborate.known_wrong(theirs)
+
+
 def run(adapter, only=None):
     keys = adapter.ids()
     disk = held(adapter)
@@ -428,7 +568,7 @@ def run(adapter, only=None):
             skipped["source is another puzzle"] += 1
             rows.append({"id": pid, "unreadable": f"source holds {theirs['id']}"})
             continue
-        found = diff(ours, theirs)
+        found = diff(ours, witness(theirs))
         tally["compared"] += 1
         if found:
             rows.append({"id": pid, "path": str(disk[pid].relative_to(disk[pid].parents[3])),
@@ -479,22 +619,7 @@ def refile_guardian(adapter, pid, path, url, found):
     if new["id"] != pid or not all(e.get("solution") for e in new["entries"]):
         return None
     fp.carry_recovered_clues(new, old)
-    notes = []
-    held = {where(e): e for e in old["entries"]}
-    for row in diff(old, new):
-        if row["class"] != "ANSWER":
-            continue
-        checked, agree = row["theirsCross"]
-        ours_checked, ours_agree = row.get("oursCross") or (0, 0)
-        if checked and agree == checked and ours_agree < ours_checked:
-            notes.append(f"{row['light']}: the page's {row['theirs']} over our "
-                         f"{row['ours']}, the crossings agree")
-            continue
-        for e in new["entries"]:
-            if groups.entry_id(e) == row["light"]:
-                e["solution"] = held[where(e)]["solution"]
-        notes.append(f"{row['light']}: kept our {row['ours']} over the page's "
-                     f"{row['theirs']}, the crossings do not back it")
+    notes = keep_backed_answers(old, new)
     notes_by = {groups.entry_id(e): e["clue"].get("missingNote") for e in old["entries"]}
     for e in new["entries"]:
         if notes_by.get(groups.entry_id(e)):
@@ -508,11 +633,75 @@ def refile_guardian(adapter, pid, path, url, found):
     return notes + more
 
 
+def keep_backed_answers(old, new):
+    """Put our answer back over `new`'s wherever the crossing letters do not
+    back the source's against ours, since a paper's key can be wrong
+    (cryptic-23053). Returns notes."""
+    notes = []
+    held_at = {where(e): e for e in old["entries"]}
+    for row in diff(old, new):
+        if row["class"] != "ANSWER":
+            continue
+        checked, agree = row["theirsCross"]
+        ours_checked, ours_agree = row.get("oursCross") or (0, 0)
+        if checked and agree == checked and ours_agree < ours_checked:
+            notes.append(f"{row['light']}: the source's {row['theirs']} over our "
+                         f"{row['ours']}, the crossings agree")
+            continue
+        for e in new["entries"]:
+            if groups.entry_id(e) == row["light"]:
+                e["solution"] = held_at[where(e)]["solution"]
+        notes.append(f"{row['light']}: kept our {row['ours']} over the source's "
+                     f"{row['theirs']}, the crossings do not back it")
+    return notes
+
+
+def refile_independent(adapter, pid, path, ymd, found):
+    """Refile one puzzle from the Independent's feed through
+    fetch_independent.parse(). Returns notes, or None when left alone.
+
+    A file rebuilt from fifteensquared for a day the feed serves is refiled
+    whatever differs: the feed is the printed puzzle, so it becomes the
+    primary source. A file already from the feed is refiled when its only
+    differences are CLUE, ENUMERATION or ANSWER, which a later edit or an
+    older converter made. Either way the converter's output must match the
+    feed as read here; where it does not, refiling would write the
+    converter's defect again, so the puzzle is named and left alone."""
+    import fetch_independent as fi
+    import fetch_puzzle as fp
+    import fetch_telegraph as ft
+    classes = {m["class"] for m in found}
+    old = read_puzzle_file(path)
+    rebuilt = (old.get("source") or {}).get("acquiredBy") != "tools/fetch_independent.py"
+    if not rebuilt and (not classes or classes - REFILED):
+        return None
+    xml = adapter.raw_file(ymd).read_bytes()
+    new = fi.parse(xml, ymd)
+    if new["id"] != pid:
+        return None
+    defect = diff(new, independent_shape(xml, ymd))
+    if defect:
+        raise ValueError("fetch_independent.parse() differs from the feed: "
+                         + "; ".join(f"{m['class']} {m.get('light', m.get('detail'))}"
+                                     for m in defect[:3]))
+    notes = [] if rebuilt and "GRID" in classes else keep_backed_answers(old, new)
+    if rebuilt:
+        notes.append(f"the feed's printed puzzle over the file {old['source'].get('acquiredBy')} "
+                     f"built ({', '.join(sorted(classes)) or 'no differences'})")
+    fp.merge_annotations(new, old)
+    if old.get("preamble") and not new.get("preamble"):
+        new["preamble"] = old["preamble"]
+    new, more = ft.refile(new, old)
+    fp.write_puzzle_file(path, new, generator="tools/fetch_independent.py")
+    return notes + more
+
+
 def refile(adapter, limit=None):
     """Refile every puzzle the last report names whose differences refile
     settles, and every clean copy taken from elsewhere, up to `limit`."""
-    if adapter.name != "guardian":
-        raise SystemExit("--refile: only the guardian adapter refiles here; the "
+    one = {"guardian": refile_guardian, "independent": refile_independent}.get(adapter.name)
+    if one is None:
+        raise SystemExit("--refile: the guardian and independent adapters refile here; the "
                          "Telegraph's is tools/fetch_telegraph.py --holes")
     keys = adapter.ids()
     disk = held(adapter)
@@ -525,7 +714,7 @@ def refile(adapter, limit=None):
         if not adapter.raw_file(keys[pid]).exists() or found.get(pid, []) is None:
             continue
         try:
-            notes = refile_guardian(adapter, pid, disk[pid], keys[pid], found.get(pid, []))
+            notes = one(adapter, pid, disk[pid], keys[pid], found.get(pid, []))
         except Exception as err:  # noqa: BLE001 — one refused write, named, not the run
             print(f"{pid}: not refiled: {err}")
             done["refused"] += 1
@@ -543,7 +732,7 @@ def main(argv=None):
     ap.add_argument("--fetch", action="store_true", help="top up the cache first")
     ap.add_argument("--limit", type=int, help="fetch or refile at most this many")
     ap.add_argument("--refile", action="store_true",
-                    help="refile from the source what the last report found (guardian)")
+                    help="refile from the source what the last report found (guardian, independent)")
     ap.add_argument("--show", nargs="+", metavar="ID", help="diff these puzzles and print")
     args = ap.parse_args(argv)
     adapter = ADAPTERS[args.source]()
