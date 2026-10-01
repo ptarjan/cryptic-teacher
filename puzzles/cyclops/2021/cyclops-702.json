@@ -24,6 +24,9 @@
   "date": "2021-05-24",
   "check": "32 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,68 @@
     "text": "Undermining Boris, Whitehall sources appear in e.g. Metro?",
     "enumeration": "6"
    },
-   "solution": "SUBWAY"
+   "solution": "SUBWAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SUBWAY",
+    "definitions": [
+     {
+      "text": "Metro",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sources",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so only the opening letter of each word is wanted"
+     },
+     {
+      "text": "appear in",
+      "for": "container",
+      "note": "to appear inside something is to sit within it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g.",
+      "gives": "SA",
+      "note": "e.g. means 'say', supplying its outer letters around the inserted piece"
+     },
+     {
+      "clueFragment": "Undermining Boris, Whitehall",
+      "gives": "UBW",
+      "select": "first",
+      "note": "the opening letters of the three words"
+     },
+     {
+      "clueFragment": "e.g.",
+      "gives": "Y",
+      "note": "the end of 'say'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UBW",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaked Whitehall stories damaging Boris Johnson turn up in a free newspaper such as the Metro.",
+     "walkthrough": "Metro looks like the London freesheet, but the Paris Metro is an underground railway. 'e.g.' is read as SAY, and S-AY wraps UBW to give SUBWAY.",
+     "definitionFit": "The Metro in Paris is an underground railway, which Americans call a subway, so it is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Metro"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +115,51 @@
     "text": "Sperm donor's thing to be small and rather bulky?",
     "enumeration": "6"
    },
-   "solution": "SAMPLE"
+   "solution": "SAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAMPLE",
+    "definitions": [
+     {
+      "text": "Sperm donor's thing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "rather bulky",
+      "gives": "AMPLE",
+      "note": "ample means generously sized or plump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty question about whether a sperm donor's equipment is small or on the large side.",
+     "walkthrough": "The surface invites a rude reading of 'thing'; it is really what the donor hands over at the clinic.",
+     "definitionFit": "A sperm donor provides a specimen collected for the clinic, which is called a sample."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thing"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +179,51 @@
      }
     ]
    },
-   "solution": "BETTEROFF"
+   "solution": "BETTEROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER OFF",
+    "definitions": [
+     {
+      "text": "not so broke",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gambler",
+      "gives": "BETTER",
+      "note": "one who bets"
+     },
+     {
+      "clueFragment": "Dicky",
+      "gives": "OFF",
+      "note": "dicky is British slang for unwell or faulty, as is off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler called Dicky has had some luck and is no longer quite so short of money.",
+     "walkthrough": "Dicky looks like a name, but here it is the British adjective for shaky or out of sorts, as in 'a dicky heart'.",
+     "definitionFit": "Someone in an improved financial position is less poor, the everyday sense of the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +237,54 @@
     "text": "A southern female fond of a lay – ghastly!",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHEN",
+    "definitions": [
+     {
+      "text": "ghastly",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "female fond of a lay",
+      "gives": "HEN",
+      "note": "a hen is a female bird that lays eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "HEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude remark about a woman from the south who enjoys sex, followed by a horrified exclamation.",
+     "walkthrough": "The 'lay' is an egg-laying, not sex; ghastly is used in its older sense of deathly pale.",
+     "definitionFit": "Ghastly can mean pale as a corpse, and a face drained of colour from shock is called ashen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lay"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +298,60 @@
     "text": "Victoria is said to have been a large body a male took advantage of",
     "enumeration": "8"
    },
-   "solution": "UNAMUSED"
+   "solution": "UNAMUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNAMUSED",
+    "definitions": [
+     {
+      "text": "Victoria is said to have been",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a large body",
+      "gives": "UN",
+      "note": "the UN, the United Nations, is a large international body"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "took advantage of",
+      "gives": "USED",
+      "note": "to use someone is to exploit them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "A",
+      "M",
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "A scandalous claim that Queen Victoria, a big woman, was exploited by some man.",
+     "walkthrough": "'Large body' seems to describe the Queen herself; it is the United Nations. Victoria is famously quoted as saying 'We are not amused'.",
+     "definitionFit": "Queen Victoria's legendary remark 'We are not amused' means she is reputed to have been displeased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +365,80 @@
     "text": "Old duffer, Noel, awful without make-up",
     "enumeration": "6"
    },
-   "solution": "NOODLE"
+   "solution": "NOODLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "NOODLE",
+    "definitions": [
+     {
+      "text": "Old duffer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, back to front"
+     },
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a terrible state, so these letters are jumbled"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noel",
+      "gives": "NOEL",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "make",
+      "gives": "DO",
+      "note": "to make something is to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OD",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOEL",
+       "gives": "NOLE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insult aimed at an elderly man called Noel, who looks dreadful without his cosmetics.",
+     "walkthrough": "'make-up' looks like cosmetics but must be split into two words, and in a down clue 'up' turns the first one over.",
+     "definitionFit": "Noodle is an old informal word for a silly person or fool, much like duffer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "make-up"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +452,54 @@
     "text": "If the mask agitates, it's only for the short term?",
     "enumeration": "9"
    },
-   "solution": "MAKESHIFT"
+   "solution": "MAKESHIFT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAKESHIFT",
+    "definitions": [
+     {
+      "text": "only for the short term",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "agitates",
+      "for": "anagram",
+      "note": "to agitate is to stir or shake up, so these letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "If the mask",
+      "gives": "IFTHEMASK",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFTHEMASK",
+       "gives": "MAKESHIFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about face masks during the pandemic: if wearing one stirs people up, is it just a temporary measure?",
+     "walkthrough": "The surface reads as Covid-era mask politics; the mask itself is only the raw letters.",
+     "definitionFit": "Makeshift describes a temporary substitute used until something better is available, a stopgap measure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agitates"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +513,67 @@
     "text": "Labour leader cuts free medication",
     "enumeration": "5"
    },
-   "solution": "SALVE"
+   "solution": "SALVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SALVE",
+    "definitions": [
+     {
+      "text": "medication",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader is the one at the front, so only the first letter is kept"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "to cut into something is to go inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "SA",
+      "note": "to free someone is to save them; this is its start"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the party name"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "VE",
+      "note": "the end of save"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "L",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Labour's leader slashes the provision of free medicine, a political headline.",
+     "walkthrough": "'free' reads as an adjective (free prescriptions) but is the verb save; L goes inside it.",
+     "definitionFit": "A salve is a soothing ointment applied to wounds or sore skin, a kind of remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +587,51 @@
     "text": "Possible new boyfriend has row? Get over it –it will be a different day",
     "enumeration": "8"
    },
-   "solution": "DATELINE"
+   "solution": "DATELINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DATELINE",
+    "definitions": [
+     {
+      "text": "Get over it –it will be a different day",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possible new boyfriend",
+      "gives": "DATE",
+      "note": "someone you go on a date with"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a row is a line of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DATE",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice after a quarrel with a new man: move on, tomorrow is another day.",
+     "walkthrough": "'row' tempts as a quarrel but is a line; 'Get over it' then means literally crossing the International Date Line.",
+     "definitionFit": "Crossing the International Date Line moves the calendar forward or back a whole day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +645,48 @@
     "text": "Expose a hunter's balls",
     "enumeration": "7"
    },
-   "solution": "UNEARTH"
+   "solution": "UNEARTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNEARTH",
+    "definitions": [
+     {
+      "text": "Expose",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "UN",
+      "note": "un is French for 'a'"
+     },
+     {
+      "clueFragment": "hunter's balls",
+      "gives": "EARTH",
+      "note": "an earth is a fox's den, which a hunter seeks; the Earth is also a ball, hence the cheeky plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "EARTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude threat to reveal a hunting man's testicles.",
+     "walkthrough": "The wordplay is loose, in the Private Eye manner: a hunter is after the fox in its earth, and the Earth is a globe or ball.",
+     "definitionFit": "To expose something hidden is to dig it up and bring it to light, the sense of unearth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +706,70 @@
      }
     ]
    },
-   "solution": "MATTHANCOCK"
+   "solution": "MATTHANCOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATT HANCOCK",
+    "definitions": [
+     {
+      "text": "Senior politician",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to be augmented with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull",
+      "gives": "MATT",
+      "note": "a matt finish is dull, not glossy"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "COCK",
+      "note": "member is slang for the penis, as is cock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATT",
+      "H",
+      "A",
+      "N",
+      "COCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician's boring husband is due to be enhanced with a new member, in both senses.",
+     "walkthrough": "'member' sounds parliamentary but is Private Eye smut. Matt Hancock was the UK Health Secretary during the Covid pandemic.",
+     "definitionFit": "Matt Hancock was a Cabinet minister, Health Secretary from 2018 to 2021, so a senior politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +803,54 @@
      }
     ]
    },
-   "solution": "LIEIN"
+   "solution": "LIEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE-IN",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something places this piece second in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whopper",
+      "gives": "LIE",
+      "note": "a whopper is a big lie"
+     },
+     {
+      "clueFragment": "Elected",
+      "gives": "IN",
+      "note": "a candidate who is elected is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Having won the election on the back of a huge falsehood, the victor takes a break.",
+     "walkthrough": "The surface reads as a political scandal; 'Elected' is the second piece despite coming first in the clue.",
+     "definitionFit": "A lie-in is a British term for staying in bed later than usual in the morning, a rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whopper"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +874,67 @@
      }
     ]
    },
-   "solution": "ALLISWELL"
+   "solution": "ALLISWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALL IS WELL",
+    "definitions": [
+     {
+      "text": "Nothing to worry about",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something places this piece later in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "double large",
+      "gives": "LL",
+      "note": "L for large, twice"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Have an erection",
+      "gives": "SWELL",
+      "note": "to swell is to grow larger and stand out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LL",
+      "I",
+      "SWELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man gets aroused after a large double drink, and reassures himself all is fine.",
+     "walkthrough": "'a double large one' sounds like a stiff drink, but it is three tiny pieces: an article, two size abbreviations and a Roman numeral.",
+     "definitionFit": "The phrase is a stock reassurance that everything is fine and there are no problems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +948,67 @@
     "text": "Smart set, therefore drug-taking large community",
     "enumeration": "7"
    },
-   "solution": "SOCIETY"
+   "solution": "SOCIETY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SOCIETY",
+    "definitions": [
+     {
+      "text": "Smart set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "SO",
+      "note": "so means therefore"
+     },
+     {
+      "clueFragment": "large community",
+      "gives": "CI",
+      "note": "a city is a large town; this is its start"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for ecstasy"
+     },
+     {
+      "clueFragment": "large community",
+      "gives": "TY",
+      "note": "the end of city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "CI",
+      "E",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashionable people, and therefore a big town full of drug users.",
+     "walkthrough": "'drug-taking' reads as one adjective, but it splits: the drug is taken inside the community. E for ecstasy is standard slang.",
+     "definitionFit": "High society is the fashionable elite, the smart set of wealthy people seen at grand events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1022,67 @@
     "text": "Stimulus of working in TV: nice to go over Eamonn's head",
     "enumeration": "9"
    },
-   "solution": "INCENTIVE"
+   "solution": "INCENTIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "INCENTIVE",
+    "definitions": [
+     {
+      "text": "Stimulus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means being processed or worked on, so these letters are rearranged"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head is the top, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "to go over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in TV: nice",
+      "gives": "INTVNICE",
+      "note": "eight letters to be rearranged"
+     },
+     {
+      "clueFragment": "Eamonn's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTVNICEE",
+       "gives": "INCENTIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being nice on television as a way to get ahead of breakfast presenter Eamonn Holmes.",
+     "walkthrough": "Eamonn Holmes is a British breakfast-TV presenter; his initial joins the jumble.",
+     "definitionFit": "An incentive is something that motivates or encourages action, the same as a stimulus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1102,82 @@
      }
     ]
    },
-   "solution": "TINCAN"
+   "solution": "TINCAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TIN CAN",
+    "definitions": [
+     {
+      "text": "full of beans maybe",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prancing",
+      "for": "anagram",
+      "note": "prancing is leaping about, so these letters jump into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to surround it, so one piece encloses another"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end is the final part, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "CAT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IN",
+      "CA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAT",
+       "gives": "TCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat leaping about a trendy part of town, bursting with energy.",
+     "walkthrough": "'full of beans' looks like a lively cat; it is a can of baked beans.",
+     "definitionFit": "A container made of tinplate commonly holds baked beans, so it may be full of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beans"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1191,88 @@
     "text": "Queen gives Cameron initial sign: \"Party almost broken by one\"",
     "enumeration": "9"
    },
-   "solution": "CLEOPATRA"
+   "solution": "CLEOPATRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CLEOPATRA",
+    "definitions": [
+     {
+      "text": "Queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "initial means the first, so only the opening letter is wanted"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so these letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "LEO",
+      "note": "Leo is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "PARTY",
+      "note": "taken as written, then shortened"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEO",
+      "PATRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PARTA",
+       "gives": "PATRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen gives David Cameron a first sign that his party is nearly split by one person.",
+     "walkthrough": "Queen looks like Elizabeth II; it is the Egyptian one. PARTY loses its last letter, then PART and A are jumbled.",
+     "definitionFit": "Cleopatra was the last ruling monarch of ancient Ptolemaic Egypt, a famous historical queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1286,70 @@
     "text": "Invasive coronavirus starts after performance by TV presenter – \"Mega!\"",
     "enumeration": "8"
    },
-   "solution": "GIGANTIC"
+   "solution": "GIGANTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GIGANTIC",
+    "definitions": [
+     {
+      "text": "Mega!",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the opening letters are kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after places this piece later in the sequence"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "GIG",
+      "note": "a gig is a live musical performance"
+     },
+     {
+      "clueFragment": "TV presenter",
+      "gives": "ANT",
+      "note": "Ant McPartlin, of the British presenting duo Ant and Dec"
+     },
+     {
+      "clueFragment": "Invasive coronavirus",
+      "gives": "IC",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIG",
+      "ANT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV presenter's show is interrupted by a spreading virus, and someone exclaims how huge it is.",
+     "walkthrough": "Ant McPartlin is half of Ant and Dec, the best-known presenting duo on British television.",
+     "definitionFit": "Mega is slang meaning enormous or huge, as in a mega deal, which is what gigantic means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1363,61 @@
     "text": "Upper-class Conservative, coddled by governess – bizarre",
     "enumeration": "7"
    },
-   "solution": "UNCANNY"
+   "solution": "UNCANNY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNCANNY",
+    "definitions": [
+     {
+      "text": "bizarre",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coddled by",
+      "for": "container",
+      "note": "to be coddled is to be cuddled and wrapped up protectively, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upper-class",
+      "gives": "U",
+      "note": "U is the abbreviation for upper-class"
+     },
+     {
+      "clueFragment": "governess",
+      "gives": "NANNY",
+      "note": "a nanny looks after children, like a governess"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "C",
+      "ANNY"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh Tory still pampered by his old nanny: how odd.",
+     "walkthrough": "The posh Tory raised by a nanny fits the surface perfectly; U is the old label for upper-class speech and manners.",
+     "definitionFit": "Uncanny means strange in an unsettling, mysterious way, which matches bizarre closely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1431,61 @@
     "text": "Pass on coronavirus data, etc falsely?",
     "enumeration": "6"
    },
-   "solution": "INFECT"
+   "solution": "INFECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INFECT",
+    "definitions": [
+     {
+      "text": "Pass on coronavirus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falsely",
+      "for": "anagram",
+      "note": "something presented falsely is distorted, so these letters are misarranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "data",
+      "gives": "INF",
+      "note": "inf. is an abbreviation for information"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "ECT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETC",
+       "gives": "ECT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spreading false data about the coronavirus, as a misinformation complaint.",
+     "walkthrough": "'Pass on' looks like 'share' for the data; it belongs with coronavirus as the definition.",
+     "definitionFit": "To transmit a disease to another person is to give it to them, the meaning of infect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1499,51 @@
     "text": "One more bastard on earth",
     "enumeration": "7"
    },
-   "solution": "ANOTHER"
+   "solution": "ANOTHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANOTHER",
+    "definitions": [
+     {
+      "text": "One more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bastard",
+      "for": "anagram",
+      "note": "as an adjective, bastard means corrupted or not genuine, so these letters are debased into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on earth",
+      "gives": "ONEARTH",
+      "note": "seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEARTH",
+       "gives": "ANOTHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weary complaint that the world has gained yet one more rotter.",
+     "walkthrough": "'bastard' reads as a noun, a nasty person, but works as an adjective meaning corrupted.",
+     "definitionFit": "Another means an additional one of the same kind, exactly what one more says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bastard"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1557,64 @@
     "text": "Stylish top moves to bottom on getting high – a setback",
     "enumeration": "6"
    },
-   "solution": "HICCUP"
+   "solution": "HICCUP",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "HICCUP",
+    "definitions": [
+     {
+      "text": "a setback",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top moves to bottom",
+      "for": "cycling",
+      "note": "in a down entry the top letter shifting to the bottom means the first letter goes to the end"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stylish",
+      "gives": "CHIC",
+      "note": "chic means stylish"
+     },
+     {
+      "clueFragment": "getting high",
+      "gives": "UP",
+      "note": "up means high, raised"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HICC",
+      "UP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHIC",
+       "gives": "HICC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable figure falls from the top to the bottom after getting high on drugs.",
+     "walkthrough": "'getting high' suggests drugs, as a careless celebrity might; it simply means UP.",
+     "definitionFit": "A hiccup is informal for a minor problem or temporary snag, a small setback."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1628,58 @@
     "text": "Go apoplectic green? Yes!",
     "enumeration": "6"
    },
-   "solution": "ENERGY"
+   "solution": "ENERGY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "ENERGY",
+    "definitions": [
+     {
+      "text": "Go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apoplectic",
+      "for": "anagram",
+      "note": "an apoplectic person is beside themselves with rage, so these letters fly into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "GREEN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Yes",
+      "gives": "Y",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREENY",
+       "gives": "ENERGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to turn green with rage and is told to go ahead.",
+     "walkthrough": "'Go' looks like a verb opening the sentence; it is the noun meaning vigour. Taking just the first letter of 'Yes' is a loose Private Eye touch.",
+     "definitionFit": "Go as a noun means vigour or drive, as in 'full of go', which is energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1693,70 @@
     "text": "Sad Reagan has to carry the can for the nation",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARGENTINA",
+    "definitions": [
+     {
+      "text": "the nation",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sad",
+      "for": "anagram",
+      "note": "something sad is in a sorry state, so these letters are knocked out of order"
+     },
+     {
+      "text": "has to carry",
+      "for": "container",
+      "note": "to carry something is to hold it inside, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reagan",
+      "gives": "REAGAN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "the can",
+      "gives": "TIN",
+      "note": "a can is a tin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGEN",
+      "TIN",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAGAN",
+       "gives": "ARGENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dejected President Reagan must take the blame on behalf of his country.",
+     "walkthrough": "'carry the can' is a British idiom for taking the blame, but here 'the can' is a piece to be carried inside the jumble. 'the nation' looks like America; it is the country Britain fought in the Falklands.",
+     "definitionFit": "Argentina is a South American country, so it is simply an example of a nation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1770,61 @@
     "text": "After Gove's opening, have an inclination to cull!",
     "enumeration": "5"
    },
-   "solution": "GLEAN"
+   "solution": "GLEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLEAN",
+    "definitions": [
+     {
+      "text": "cull",
+      "at": 45,
+      "note": "cull is used in its sense of gather or pick, not slaughter"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so only the first letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gove's",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "have an inclination",
+      "gives": "LEAN",
+      "note": "to lean is to tilt or tend towards something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Michael Gove opens up and reveals an urge to purge his rivals.",
+     "walkthrough": "'cull' suggests a political purge, but it is used in the older sense of picking or gathering. Michael Gove is a senior British Conservative politician.",
+     "definitionFit": "To cull can mean to select and gather, as with gathering leftover grain from a field, which is gleaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cull"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1838,50 @@
     "text": "A fattened victim of castration, so headwear in place",
     "enumeration": "5"
    },
-   "solution": "CAPON"
+   "solution": "CAPON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPON",
+    "definitions": [
+     {
+      "text": "A fattened victim of castration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headwear",
+      "gives": "CAP",
+      "note": "a cap is worn on the head"
+     },
+     {
+      "clueFragment": "in place",
+      "gives": "ON",
+      "note": "something worn and in place is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A castrated, plumped-up creature with a hat fitted firmly on.",
+     "walkthrough": "The definition is a playful description rather than a dictionary one.",
+     "definitionFit": "A capon is a cockerel castrated and then fattened for the table, so a victim of castration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1895,51 @@
     "text": "A painter needs firm balls",
     "enumeration": "5"
    },
-   "solution": "COROT"
+   "solution": "COROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COROT",
+    "definitions": [
+     {
+      "text": "A painter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     },
+     {
+      "clueFragment": "balls",
+      "gives": "ROT",
+      "note": "balls is slang for nonsense, as is rot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude claim that an artist requires a firm pair of testicles.",
+     "walkthrough": "'firm' reads as an adjective with 'balls'; it is a company, and balls means nonsense.",
+     "definitionFit": "Jean-Baptiste-Camille Corot was a nineteenth-century French landscape artist, so he is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1957,69 @@
    "group": [
     "27-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "THE LOT",
+    "definitions": [
+     {
+      "text": "Everything",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "taking refuge in",
+      "for": "container",
+      "note": "to take refuge in a place is to shelter inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "T",
+      "note": "a tot is a small drink; this is its first letter"
+     },
+     {
+      "clueFragment": "fiery torment",
+      "gives": "HELL",
+      "note": "hell is the place of fiery torment, then shortened"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "OT",
+      "note": "the rest of tot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEL",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bleak drinker's lament: everything is near-hellish, and the only escape is the bottle.",
+     "walkthrough": "HELL loses its last letter and sits inside TOT, a small measure of spirits.",
+     "definitionFit": "The lot is an informal idiom for the whole amount or all of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "refuge"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +2033,70 @@
     "text": "Being cool, ran with erotic movement – it certainly hots things up",
     "enumeration": "11"
    },
-   "solution": "INCINERATOR"
+   "solution": "INCINERATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INCINERATOR",
+    "definitions": [
+     {
+      "text": "it certainly hots things up",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "movement",
+      "for": "anagram",
+      "note": "movement means things shifting position, so these letters are moved around"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Being cool",
+      "gives": "IN",
+      "note": "something cool and fashionable is in"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "erotic",
+      "gives": "EROTIC",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CINERATOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RANEROTIC",
+       "gives": "CINERATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trendy tries some sexy dance moves that really get the temperature rising.",
+     "walkthrough": "'hots things up' looks like more erotica; the definition is literal, a furnace for burning rubbish.",
+     "definitionFit": "An incinerator is a furnace that burns waste at high temperature, so it heats whatever goes in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hots"
+    }
+   }
   },
   {
    "number": 29,
@@ -495,7 +2110,49 @@
     "text": "Scorn political party's diminished allure",
     "enumeration": "8"
    },
-   "solution": "CONTEMPT"
+   "solution": "CONTEMPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTEMPT",
+    "definitions": [
+     {
+      "text": "Scorn",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political party",
+      "gives": "CON",
+      "note": "Con is the short form of Conservative"
+     },
+     {
+      "clueFragment": "diminished allure",
+      "gives": "TEMPT",
+      "note": "temptation, which is allure, cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TEMPT"
+     ]
+    },
+    "explanation": {
+     "surface": "Derision for a political party whose appeal has faded.",
+     "walkthrough": "The Tory party's waning appeal fits the surface; 'diminished' trims a long word for allure down to its first five letters.",
+     "definitionFit": "Scorn and contempt are close synonyms, both meaning a feeling that someone is worthless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -509,7 +2166,71 @@
     "text": "Group in the outskirts of Stepney getting hot and damp",
     "enumeration": "6"
    },
-   "solution": "STEAMY"
+   "solution": "STEAMY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STEAMY",
+    "definitions": [
+     {
+      "text": "hot and damp",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts are the edges, so only the outer letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stepney",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word, one of its outskirts"
+     },
+     {
+      "clueFragment": "Group",
+      "gives": "TEAM",
+      "note": "a team is a group"
+     },
+     {
+      "clueFragment": "Stepney",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of the word, the other outskirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEAM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A gang on the edge of Stepney, in London's East End, getting hot and sweaty.",
+     "walkthrough": "Stepney is a district of East London; only its outer letters wrap around TEAM.",
+     "definitionFit": "Steamy describes air full of steam, warm and humid, and also hints at the erotic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Group"
+    }
+   }
   }
  ]
 }
