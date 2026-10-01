@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "World of possibility unknown in nurse short of capital",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "World of possibility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within the other"
+     },
+     {
+      "text": "short of capital",
+      "for": "deletion",
+      "note": "a capital is a leading letter, so being short of it means the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nurse",
+      "gives": "FOSTER",
+      "note": "to foster is to nurse or bring up"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is one of the algebraic unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "Y",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse, short of money, wonders what possibilities remain unknown to her.",
+     "walkthrough": "FOSTER drops its capital F to leave OSTER, and the unknown Y goes inside to make OYSTER.",
+     "definitionFit": "The idiom 'the world is your oyster' means every opportunity lies open, so the shellfish stands for a world of possibility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +110,57 @@
      }
     ]
    },
-   "solution": "ONEDOWN"
+   "solution": "ONEDOWN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ONE DOWN",
+    "definitions": [
+     {
+      "text": "It’s done now, having been worked out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked out",
+      "for": "anagram",
+      "note": "something worked out has been processed and reshaped, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "It’s",
+     "having been"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done now",
+      "gives": "DONENOW",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DONENOW",
+       "gives": "ONEDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sigh of relief that a task is finished now it has been solved.",
+     "walkthrough": "'It' is this clue itself: once solved, the solver has 'one down', the first clue in the grid.",
+     "definitionFit": "Solving this clue completes one entry, and 1-down is also its own position in the grid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "It’s"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +174,44 @@
     "text": "Asian capital someone discussed?",
     "enumeration": "5"
    },
-   "solution": "SEOUL"
+   "solution": "SEOUL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEOUL",
+    "definitions": [
+     {
+      "text": "Asian capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken about, so the word is judged by how it is pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone",
+      "gives": "SEOUL",
+      "soundsLike": "SOUL",
+      "note": "a soul is a person, as in 'not a soul'"
+     }
+    ],
+    "explanation": {
+     "surface": "A capital city in Asia being mentioned in conversation.",
+     "walkthrough": "A soul means someone in phrases like 'not a living soul'.",
+     "definitionFit": "Seoul is the capital city of South Korea, in East Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "someone"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +225,63 @@
     "text": "Dead nice, oddly, poking something akin to a dead parrot?",
     "enumeration": "7"
    },
-   "solution": "EXTINCT"
+   "solution": "EXTINCT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EXTINCT",
+    "definitions": [
+     {
+      "text": "Dead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, so alternate letters are kept"
+     },
+     {
+      "text": "poking",
+      "for": "container",
+      "note": "to poke is to push into a thing, so one piece goes inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something akin to a dead parrot",
+      "gives": "EXTIT",
+      "note": "Monty Python's dead parrot is an 'ex-parrot', and a tit is another bird, so a dead one is an ex-tit"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "NC",
+      "select": "alternate",
+      "note": "the first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTI",
+      "NC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy joke about a dead parrot that is oddly rather nice.",
+     "walkthrough": "In Monty Python's famous comedy sketch a customer complains that his parrot is dead: 'This is an ex-parrot!'.",
+     "definitionFit": "Extinct means no longer living, a species wiped out, so it is a fair synonym for dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parrot"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +295,55 @@
     "text": "Spice girl on the ball",
     "enumeration": "6"
    },
-   "solution": "NUTMEG"
+   "solution": "NUTMEG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUTMEG",
+    "definitions": [
+     {
+      "text": "Spice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing placed on another follows it, so the two pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the ball",
+      "gives": "NUT",
+      "note": "a nut is slang for a testicle, a ball"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MEG",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "MEG"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spice Girl showing her skill with a football.",
+     "walkthrough": "The surface suggests the pop group the Spice Girls and a footballer; 'Spice' is the definition and the girl sits after the ball.",
+     "definitionFit": "Nutmeg is the hard aromatic seed grated as a kitchen spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ball"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +357,66 @@
     "text": "Sent up, quote on sporting union – leaked?",
     "enumeration": "6"
    },
-   "solution": "URETIC"
+   "solution": "URETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "URETIC",
+    "definitions": [
+     {
+      "text": "leaked?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one thing on another sits above it, so the pieces stack together"
+     },
+     {
+      "text": "Sent up",
+      "for": "reversal",
+      "note": "sending something up in a down answer makes it read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quote",
+      "gives": "CITE",
+      "note": "to cite is to quote"
+     },
+     {
+      "clueFragment": "sporting union",
+      "gives": "RU",
+      "note": "RU stands for Rugby Union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URETIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITERU",
+       "to": "URETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports union's quote has been leaked to the press and sent up.",
+     "walkthrough": "'Leaked' reads as a news story getting out, but it is slang for urinating; the question mark flags the loose definition.",
+     "definitionFit": "Uretic means relating to urine, and to take a leak is British slang for urinating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaked"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +430,74 @@
     "text": "Fed narcotics originally, rum I claimed – having similar effect?",
     "enumeration": "9"
    },
-   "solution": "MEDICINAL"
+   "solution": "MEDICINAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "MEDICINAL",
+    "definitions": [
+     {
+      "text": "having similar effect?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "the origin is the start, so only the first letter is kept"
+     },
+     {
+      "text": "rum",
+      "for": "anagram",
+      "note": "rum means strange or odd, so the letters come out in an odd order"
+     },
+     {
+      "text": "Fed",
+      "for": "container",
+      "note": "something fed is put into another thing, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narcotics",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "I claimed",
+      "gives": "ICLAIMED",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDICI",
+      "N",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICLAIMED",
+       "gives": "MEDICIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits a fondness for rum after being fed drugs, claiming it works the same way.",
+     "walkthrough": "The definition leans on the rest of the clue: something with an effect similar to narcotics.",
+     "definitionFit": "Narcotics are drugs, and something medicinal acts like a drug on the body, so its effect is similar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +521,58 @@
    "group": [
     "7-down",
     "16-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GORILLA SUIT",
+    "definitions": [
+     {
+      "text": "fancy dress",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "against",
+      "for": "charade",
+      "note": "against means beside or next to, so the pieces are placed together"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thug",
+      "gives": "GORILLA",
+      "note": "a gorilla is slang for a brutish thug"
+     },
+     {
+      "clueFragment": "Case",
+      "gives": "SUIT",
+      "note": "a suit is a legal case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GORILLA",
+      "SUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A court case brought against a thug who turned up in costume.",
+     "walkthrough": "The case is a lawsuit, placed after the thug although the clue mentions it first.",
+     "definitionFit": "A gorilla suit is a classic hairy costume worn to fancy-dress parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +596,81 @@
      }
     ]
    },
-   "solution": "PISTOLSATDAWN"
+   "solution": "PISTOLSATDAWN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PISTOLS AT DAWN",
+    "definitions": [
+     {
+      "text": "what then?",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put right",
+      "for": "anagram",
+      "note": "putting something right means sorting and rearranging it, so the letters are reordered"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spat",
+      "gives": "SPAT",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "in-laws",
+      "gives": "INLAWS",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "the usual abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PISTOLSAT",
+      "D",
+      "AWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPATINLAWSTO",
+       "gives": "PISTOLSATAWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a quarrel with the in-laws, how do you settle it at daybreak?",
+     "walkthrough": "The definition is the question: after a spat at break of day, what comes next? A duel. 'Day breaking' suggests dawn, which helps the surface.",
+     "definitionFit": "Pistols at dawn was the traditional duel used to settle a quarrel of honour, the escalation that follows a spat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +684,69 @@
     "text": "Australian’s arrested on backing loser",
     "enumeration": "4"
    },
-   "solution": "ZERO"
+   "solution": "ZERO",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ZERO",
+    "definitions": [
+     {
+      "text": "loser",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested",
+      "for": "container",
+      "note": "to arrest is to take hold of, so one piece holds the other inside it"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means the letters run from right to left"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "OZ",
+      "note": "Oz is the informal name for Australia"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZERO"
+     ],
+     "reversals": [
+      {
+       "from": "OREZ",
+       "to": "ZERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian has been arrested for betting on a losing horse.",
+     "walkthrough": "OZ holds RE to make OREZ, which is then read backwards. The 's is 'has', a link.",
+     "definitionFit": "A zero is a nobody, a person of no account, which is the slang sense of a loser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +766,55 @@
      }
     ]
    },
-   "solution": "TAILENDERS"
+   "solution": "TAILENDERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAIL-ENDERS",
+    "definitions": [
+     {
+      "text": "those finally going in",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bids",
+      "gives": "TENDERS",
+      "note": "tenders are formal bids for a contract"
+     },
+     {
+      "clueFragment": "Trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AIL",
+      "ENDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble breaks out over bids, with the last ones finally submitted.",
+     "walkthrough": "In cricket the tail is the weakest batsmen at the end of the order; 'going in' means going in to bat, not entering a building.",
+     "definitionFit": "Tail-enders are the lower-order batsmen in cricket, the last players of a side who come out to bat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +828,45 @@
     "text": "Pooka chowin’ down in the audience?",
     "enumeration": "6"
    },
-   "solution": "GOBLIN"
+   "solution": "GOBLIN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GOBLIN",
+    "definitions": [
+     {
+      "text": "Pooka",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the audience",
+      "for": "homophone",
+      "note": "an audience hears rather than reads, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chowin’ down",
+      "gives": "GOBLIN",
+      "soundsLike": "GOBBLIN'",
+      "note": "gobbling is eating greedily, chowing down, with the dropped g mirrored in the clue"
+     }
+    ],
+    "explanation": {
+     "surface": "A sprite in a theatre crowd munching snacks during the show.",
+     "walkthrough": "A pooka is a mischievous spirit of Irish folklore. The apostrophe in 'chowin'' signals the clipped pronunciation the sound-alike needs.",
+     "definitionFit": "The pooka is a shape-shifting Irish sprite, so a mischievous goblin is a fair general term for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +880,51 @@
     "text": "Fool in cult, or out",
     "enumeration": "8"
    },
-   "solution": "TRINCULO"
+   "solution": "TRINCULO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRINCULO",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "something out is put out of place or disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in cult, or",
+      "gives": "INCULTOR",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCULTOR",
+       "gives": "TRINCULO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish person who is either a member of a cult or has left it.",
+     "walkthrough": "Trinculo is the jester in Shakespeare's The Tempest. 'Fool' reads as a common insult but names a stage clown.",
+     "definitionFit": "Trinculo is the court jester of Shakespeare's The Tempest, a professional fool in the theatrical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +938,53 @@
     "text": "Voguish, cooler hat for a baby",
     "enumeration": "9"
    },
-   "solution": "INFANTILE"
+   "solution": "INFANTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFANTILE",
+    "definitions": [
+     {
+      "text": "for a baby",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Voguish",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "cooler",
+      "gives": "FAN",
+      "note": "a fan is a device that cools"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "TILE",
+      "note": "tile is old slang for a hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FAN",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Recommending a trendy sun hat to keep a baby cool.",
+     "walkthrough": "'Cooler' looks like an adjective comparing hats, but it is a noun: a thing that cools.",
+     "definitionFit": "Infantile describes anything relating to or suited to infants, the earliest stage of childhood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1008,46 @@
      }
     ]
    },
-   "solution": "ABITTHICK"
+   "solution": "ABITTHICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A BIT THICK",
+    "definitions": [
+     {
+      "text": "Quite slow",
+      "at": 0
+     },
+     {
+      "text": "not cricket",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quite slow",
+      "note": "first meaning: rather stupid"
+     },
+     {
+      "clueFragment": "not cricket",
+      "note": "second meaning: unfair, more than one should have to put up with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Not cricket' is a British idiom for unfair behaviour; the surface pretends to describe a slow game that is not cricket.",
+     "definitionFit": "The phrase means rather dim-witted, and in British idiom it also means unreasonable or unfair, as conduct that breaks the spirit of sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1061,44 @@
     "text": "Empire builder where 2 is, with 25 at the 25, say?",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INCA",
+    "definitions": [
+     {
+      "text": "Empire builder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "to say something is to speak it, so the result is judged by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where 2 is, with 25 at the 25",
+      "gives": "INCA",
+      "soundsLike": "IN KOREA",
+      "note": "Seoul (2) is in Korea; tack REAR (25) on the rear of the four letters and they sound like that phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling riddle asking where an empire builder belongs.",
+     "walkthrough": "Cross-references: 2 is SEOUL, which is in Korea, and 25 is REAR. The four letters followed by REAR sound roughly like 'in Korea', said without a final r.",
+     "definitionFit": "The Incas built a vast Andean empire in South America before the Spanish conquest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +1125,67 @@
     "text": "Drive a coach that’s emptied – then leaves",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPINACH",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "something emptied has lost its contents, leaving just its outside letters"
+     }
+    ],
+    "linkWords": [
+     "that’s",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drive",
+      "gives": "SPIN",
+      "note": "a spin is a drive in a car"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "CH",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "A",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach empties of passengers, who then leave.",
+     "walkthrough": "'Leaves' reads as a verb for departing passengers but is a noun for a leafy vegetable.",
+     "definitionFit": "Spinach is a vegetable eaten for its dark green edible foliage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 17,
@@ -340,7 +1213,54 @@
    "group": [
     "17-across",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAUREL AND HARDY",
+    "definitions": [
+     {
+      "text": "Couple on trail of solitary tree",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perennial",
+      "gives": "LAUREL",
+      "note": "the laurel is an evergreen perennial shrub"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "and means also"
+     },
+     {
+      "clueFragment": "able to survive wintry conditions",
+      "gives": "HARDY",
+      "note": "a hardy plant survives frost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAUREL",
+      "AND",
+      "HARDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's description of hardy perennials along a woodland path.",
+     "walkthrough": "The comedy duo sang 'The Trail of the Lonesome Pine' in their film Way Out West, so the definition is a coded song title.",
+     "definitionFit": "Stan Laurel and Oliver Hardy were the comic double act famous for performing 'On the Trail of the Lonesome Pine'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1280,63 @@
      }
     ]
    },
-   "solution": "ROEDEER"
+   "solution": "ROEDEER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROE DEER",
+    "definitions": [
+     {
+      "text": "Eurasian native",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "to be short of something is to lack it, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public school",
+      "gives": "ROEDEAN",
+      "note": "Roedean is an English girls' boarding school near Brighton"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written, and removed"
+     },
+     {
+      "clueFragment": "emergency room",
+      "gives": "ER",
+      "note": "the usual abbreviation for an emergency room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROEDE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A private school lacking a sick bay for a pupil from Eurasia.",
+     "walkthrough": "In Britain a public school is a private fee-paying one. 'Native' reads as a person but is an animal native to the region.",
+     "definitionFit": "The roe deer is a small deer whose natural range spans Europe and much of Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "native"
+    }
+   }
   },
   {
    "number": 19,
@@ -374,7 +1350,61 @@
     "text": "Describe vermin in trap having lifted lid",
     "enumeration": "7"
    },
-   "solution": "NARRATE"
+   "solution": "NARRATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NARRATE",
+    "definitions": [
+     {
+      "text": "Describe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within the other"
+     },
+     {
+      "text": "having lifted lid",
+      "for": "deletion",
+      "note": "the lid is the top, and lifting it off in a down answer removes the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trap",
+      "gives": "SNARE",
+      "note": "a snare is a trap"
+     },
+     {
+      "clueFragment": "vermin",
+      "gives": "RAT",
+      "note": "a rat is vermin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAR",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Recounting how a rat got into a trap after its lid was lifted.",
+     "walkthrough": "In a down answer the lid is the top letter, so lifting it off removes the first letter of the trap.",
+     "definitionFit": "To narrate is to tell a story or give an account, which is a sense of describe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 20,
@@ -388,7 +1418,54 @@
     "text": "Sweet VIPs on the rise",
     "enumeration": "6"
    },
-   "solution": "BONBON"
+   "solution": "BONBON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BONBON",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "rising in a down answer means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "VIPs",
+      "gives": "NOBNOB",
+      "note": "nobs are important people, and the plural gives two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BONBON"
+     ],
+     "reversals": [
+      {
+       "from": "NOBNOB",
+       "to": "BONBON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pleasant news that very important people are gaining in status.",
+     "walkthrough": "The plural VIPs supplies two nobs, which rise together.",
+     "definitionFit": "A bonbon is a small piece of confectionery, a type of sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 21,
@@ -408,7 +1485,75 @@
      }
     ]
    },
-   "solution": "DIRTROAD"
+   "solution": "DIRTROAD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIRT ROAD",
+    "definitions": [
+     {
+      "text": "unpaved track",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "to be over something is to cover it, so one piece wraps the other"
+     },
+     {
+      "text": "Reversing",
+      "for": "reversal",
+      "note": "going in reverse means the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "DART",
+      "note": "to dart is to run"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIR",
+      "TROAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAORTRID",
+       "to": "DIRTROAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car backing up and running freely over an old, rough track.",
+     "walkthrough": "'Reversing' at the start applies to everything that follows, not just the first word; the whole assembled string is read backwards.",
+     "definitionFit": "A dirt road has a surface of bare earth, with no tarmac or paving on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 22,
@@ -422,7 +1567,67 @@
     "text": "Prompt review of other banking times",
     "enumeration": "6"
    },
-   "solution": "EXHORT"
+   "solution": "EXHORT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EXHORT",
+    "definitions": [
+     {
+      "text": "Prompt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "review of",
+      "for": "anagram",
+      "note": "a review revises and reworks material, so the letters are rearranged"
+     },
+     {
+      "text": "banking",
+      "for": "container",
+      "note": "banking means depositing for safekeeping, so one piece is held within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other",
+      "gives": "OTHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "X",
+      "note": "x is the multiplication sign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "HORT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTHER",
+       "gives": "EHORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quick look over the accounts of other banks at various times.",
+     "walkthrough": "The rearranged letters hold X between their first and second letters.",
+     "definitionFit": "To exhort is to urge someone strongly to act, which is the verb sense of prompt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banking"
+    }
+   }
   },
   {
    "number": 23,
@@ -455,7 +1660,66 @@
      }
     ]
    },
-   "solution": "DAVIDBOWIE"
+   "solution": "DAVIDBOWIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DAVID BOWIE",
+    "definitions": [
+     {
+      "text": "Pop star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline",
+      "gives": "DIE",
+      "note": "to die is to decline, fade away"
+     },
+     {
+      "clueFragment": "passionate",
+      "gives": "AVID",
+      "note": "avid means passionate and eager"
+     },
+     {
+      "clueFragment": "violin player",
+      "gives": "BOW",
+      "note": "the bow is what plays a violin's strings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AVID",
+      "BOW",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop star watches a passionate violinist whose career is fading.",
+     "walkthrough": "'Violin player' suggests a person, but it is the bow drawn across the strings.",
+     "definitionFit": "David Bowie was the hugely successful English rock and pop singer behind Ziggy Stardust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1733,43 @@
     "text": "Lift up buttocks",
     "enumeration": "4"
    },
-   "solution": "REAR"
+   "solution": "REAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REAR",
+    "definitions": [
+     {
+      "text": "Lift up",
+      "at": 0
+     },
+     {
+      "text": "buttocks",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lift up",
+      "note": "first meaning: raise upright, as a horse does"
+     },
+     {
+      "clueFragment": "buttocks",
+      "note": "second meaning: the backside"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface sounds like an exercise instruction; the two halves are separate meanings, one a verb and one a noun.",
+     "definitionFit": "The word works as a verb for raising something upright and as a noun for a person's bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lift"
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1783,50 @@
     "text": "Good day, man, for outdoor pursuit",
     "enumeration": "6"
    },
-   "solution": "HIKING"
+   "solution": "HIKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIKING",
+    "definitions": [
+     {
+      "text": "outdoor pursuit",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good day",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "KING",
+      "note": "a king is a chess man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheery greeting to a fellow walker on a country trail.",
+     "walkthrough": "'Man' is a piece in chess, of which the king is one.",
+     "definitionFit": "Hiking is long-distance walking in the countryside, a popular open-air recreation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 27,
@@ -497,7 +1840,61 @@
     "text": "Not all there, unlikely granny will return diamond",
     "enumeration": "6"
    },
-   "solution": "ARGYLE"
+   "solution": "ARGYLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ARGYLE",
+    "definitions": [
+     {
+      "text": "diamond",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all there",
+      "for": "hidden_word",
+      "note": "only part of the phrase is present, so the letters sit inside other words"
+     },
+     {
+      "text": "will return",
+      "for": "reversal",
+      "note": "returning means coming back the other way, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unlikely granny",
+      "gives": "ELYGRA",
+      "note": "the letters running across the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGYLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELYGRA",
+       "to": "ARGYLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confused old lady is unlikely to give back a diamond ring.",
+     "walkthrough": "'Not all there' suggests a muddled granny, but it says only part of the words is used. The definition is loose: argyle is a diamond pattern.",
+     "definitionFit": "Argyle is a knitting pattern of interlocking diamond shapes, seen on Scottish socks and jumpers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "diamond"
+    }
+   }
   }
  ]
 }
