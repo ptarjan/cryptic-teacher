@@ -340,6 +340,12 @@ tools/times_grids.py                         runs the numbering backwards on eit
                                              the answers cross
 tools/test_times_grids.sh                    holds that rebuilder to a hand-built grid, because
                                              a wrong grid looks exactly like a right one
+tools/barred_grid.py                         rebuilds a barred grid's bars (the Mephisto) from
+                                             the blog's numbered answers, where every cell
+                                             holds a letter
+tools/test_barred_grid.sh                    holds that rebuilder to a hand-built barred grid:
+                                             the bars that come back are the bars it was
+                                             numbered from
 tools/fetch_times_listing.py                 caches the Wayback Machine's copies of the Times's
                                              own puzzle listing, the one first-party record of
                                              the day each number was printed; what dates the
