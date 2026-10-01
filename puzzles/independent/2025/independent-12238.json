@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Oddly sign urgent message about secretary being drunk",
     "enumeration": "9"
    },
-   "solution": "INCAPABLE"
+   "solution": "INCAPABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "INCAPABLE",
+    "definitions": [
+     {
+      "text": "being drunk",
+      "at": 42,
+      "note": "a phrase meaning 'drunk'; the answer is the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "doing something oddly means doing it every other time, so only alternate letters of the word are kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "IN",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     },
+     {
+      "clueFragment": "urgent message",
+      "gives": "CABLE",
+      "note": "a cable is a telegram, the old way to send urgent news"
+     },
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "PA is a personal assistant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CA",
+      "PA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sends a garbled, urgent telegram about a secretary who has been drinking.",
+     "walkthrough": "Strictly the kept letters of 'sign' are the even ones; setters use 'oddly' loosely for alternate letters. A cable is an old-fashioned telegram.",
+     "definitionFit": "Incapable is a polite or legal euphemism for someone so intoxicated they cannot look after themselves, as in 'drunk and incapable'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +113,57 @@
     "text": "Suggests cancelling half of time for prisoners",
     "enumeration": "7"
    },
-   "solution": "INMATES"
+   "solution": "INMATES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INMATES",
+    "definitions": [
+     {
+      "text": "prisoners",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cancelling",
+      "for": "deletion",
+      "note": "to cancel something is to strike it out, so letters are removed from the longer word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suggests",
+      "gives": "INTIMATES",
+      "note": "to intimate is to hint or suggest"
+     },
+     {
+      "clueFragment": "half of time",
+      "gives": "TI",
+      "note": "the first two of the four letters of 'time'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "MATES"
+     ]
+    },
+    "explanation": {
+     "surface": "A proposal to halve the time served by prisoners.",
+     "walkthrough": "Take TI out of INTIMATES and INMATES remains.",
+     "definitionFit": "Inmates are people confined in an institution, most commonly those held in a jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suggests"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +177,65 @@
     "text": "Filleted main courses cooked for patrons",
     "enumeration": "9"
    },
-   "solution": "CONSUMERS"
+   "solution": "CONSUMERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CONSUMERS",
+    "definitions": [
+     {
+      "text": "patrons",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Filleted",
+      "for": "deletion",
+      "note": "filleting removes the bones from the middle, so the inner letters of the word are taken out"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms raw ingredients, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "MN",
+      "note": "the word with its middle letters A and I removed"
+     },
+     {
+      "clueFragment": "courses",
+      "gives": "COURSES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MNCOURSES",
+       "gives": "CONSUMERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant serves boned main courses prepared for its customers.",
+     "walkthrough": "'Main courses' reads as one dish, but only 'main' is filleted; its remains, MN, join COURSES as the letters to rearrange.",
+     "definitionFit": "Patrons are customers of a business, and consumers are the people who buy and use goods or services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Filleted"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +249,77 @@
     "text": "Weird father organised topless model attending ball every now and then",
     "enumeration": "10"
    },
-   "solution": "PARANORMAL"
+   "solution": "PARANORMAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PARANORMAL",
+    "definitions": [
+     {
+      "text": "Weird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top means the first letter is lost from the word"
+     },
+     {
+      "text": "every now and then",
+      "for": "letter_selection",
+      "note": "something done now and then happens at intervals, so only alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "PA is an informal word for father"
+     },
+     {
+      "clueFragment": "organised",
+      "gives": "RAN",
+      "note": "to run an event is to organise it"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "ORM",
+      "note": "NORM, a standard or model, without its first letter"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "AL",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RAN",
+      "ORM",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange tale of a dad who arranged for a topless model to go to a dance.",
+     "walkthrough": "'Topless model' looks like a person in the scene, but the model is NORM, a standard, which loses its N.",
+     "definitionFit": "Paranormal describes events beyond scientific explanation, such as ghosts, which are commonly called weird or uncanny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +333,66 @@
     "text": "With funds finally invested, boom or bust",
     "enumeration": "5"
    },
-   "solution": "BOSOM"
+   "solution": "BOSOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BOSOM",
+    "definitions": [
+     {
+      "text": "bust",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "the final part of a word is its last letter, which alone is kept"
+     },
+     {
+      "text": "invested",
+      "for": "container",
+      "note": "money invested is put into something, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funds",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "boom",
+      "gives": "BOOM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "S",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial headline about investment and the cycle of boom and bust.",
+     "walkthrough": "'Boom or bust' is the familiar economic phrase, but 'bust' is the definition: a woman's chest, not a crash.",
+     "definitionFit": "Both words name the human chest, particularly a woman's breasts, so they are straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +406,59 @@
     "text": "Risk adding nitrogen to exploding grenade",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENDANGER",
+    "definitions": [
+     {
+      "text": "Risk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "something that explodes is blown apart, so the letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "adding",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nitrogen",
+      "gives": "N",
+      "note": "N is the chemical symbol for nitrogen"
+     },
+     {
+      "clueFragment": "grenade",
+      "gives": "GRENADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NGRENADE",
+       "gives": "ENDANGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about the danger of putting nitrogen into a live grenade.",
+     "walkthrough": "N is added to the letters of GRENADE and the eight letters are then rearranged.",
+     "definitionFit": "To risk something is to put it in danger or jeopardy, which is exactly what endanger means as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +472,45 @@
     "text": "Gets ready to fire sailor verbally",
     "enumeration": "5"
    },
-   "solution": "COCKS"
+   "solution": "COCKS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COCKS",
+    "definitions": [
+     {
+      "text": "Gets ready to fire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "verbally",
+      "for": "homophone",
+      "note": "something done verbally is spoken, so the word is judged by how it is said rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "COCKS",
+      "soundsLike": "COX",
+      "note": "a cox steers a boat, a crew member on the water"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor is being readied to fire a gun, or perhaps to be fired from a job.",
+     "walkthrough": "COX, short for coxswain, the person who steers a boat, is said aloud and spelt the other way.",
+     "definitionFit": "To cock a gun is to pull back its hammer so that it is primed and set to shoot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fire"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +524,43 @@
     "text": "Taking part in Monica Seles's action",
     "enumeration": "4"
    },
-   "solution": "CASE"
+   "solution": "CASE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CASE",
+    "definitions": [
+     {
+      "text": "action",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking part in",
+      "for": "hidden_word",
+      "note": "to take part in something is to be inside it, so the letters sit within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monica Seles's",
+      "gives": "CASE",
+      "note": "inside the tennis player's name, across the gap between first name and surname"
+     }
+    ],
+    "explanation": {
+     "surface": "Being involved in the tennis star Monica Seles's play on court.",
+     "walkthrough": "'Action' sounds like tennis play, but here it is legal action.",
+     "definitionFit": "A legal action is a lawsuit brought in court, and a case is the usual name for one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +574,55 @@
     "text": "Hook applauds pair at the bottom exchanging places",
     "enumeration": "5"
    },
-   "solution": "CLASP"
+   "solution": "CLASP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "CLASP",
+    "definitions": [
+     {
+      "text": "Hook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pair at the bottom exchanging places",
+      "for": "reversal",
+      "note": "two items at the foot that exchange places swap their order, so the final two letters are turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "applauds",
+      "gives": "CLAPS",
+      "note": "to applaud is to clap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLA",
+      "SP"
+     ],
+     "reversals": [
+      {
+       "from": "PS",
+       "to": "SP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing hook, applause, and two people at the bottom of the table swapping positions.",
+     "walkthrough": "The 'pair at the bottom' is the last two letters of CLAPS, P and S, which swap to give CLASP.",
+     "definitionFit": "A clasp is a fastening device, such as a hook and eye, that holds two parts of something together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hook"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +636,75 @@
     "text": "Catches up with Cilla leaving Los Angeles with drawing aid",
     "enumeration": "7"
    },
-   "solution": "STENCIL"
+   "solution": "STENCIL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "STENCIL",
+    "definitions": [
+     {
+      "text": "drawing aid",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the letters from bottom to top"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something that leaves is no longer there, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catches",
+      "gives": "NETS",
+      "note": "to net is to catch"
+     },
+     {
+      "clueFragment": "Cilla",
+      "gives": "CILLA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "LA is the standard abbreviation for Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEN",
+      "CIL"
+     ],
+     "reversals": [
+      {
+       "from": "NETS",
+       "to": "STEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip item: someone catches up with the singer Cilla Black as she leaves LA.",
+     "walkthrough": "'Catches up' looks like a single phrase, but 'up' reverses NETS; 'with' then joins it to CILLA minus LA.",
+     "definitionFit": "A stencil is a cut-out template through which paint or ink is applied, helping someone draw shapes or letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +718,80 @@
     "text": "Repeated prayers of model captured by a photographer scratching backside at shrine's opening",
     "enumeration": "7"
    },
-   "solution": "MANTRAS"
+   "solution": "MANTRAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MANTRAS",
+    "definitions": [
+     {
+      "text": "Repeated prayers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching backside",
+      "for": "deletion",
+      "note": "to scratch is to strike out, and the backside is the end, so the last letter goes"
+     },
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "something captured is held inside its captor, so one piece goes within another"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "a",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photographer",
+      "gives": "MANRAY",
+      "note": "Man Ray was a famous American surrealist photographer"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     },
+     {
+      "clueFragment": "shrine's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "T",
+      "RA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer snaps a model at a shrine where people recite prayers.",
+     "walkthrough": "MAN RAY loses his last letter to give MANRA, which holds T; then S follows. 'Model' is the Ford Model T, not a sitter.",
+     "definitionFit": "A mantra is a sacred word or chant repeated in meditation or worship, especially in Hindu and Buddhist practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +805,58 @@
     "text": "Pass over vast areas creating disorder",
     "enumeration": "7"
    },
-   "solution": "DISEASE"
+   "solution": "DISEASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISEASE",
+    "definitions": [
+     {
+      "text": "disorder",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "something placed over another covers it, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "DIE",
+      "note": "to pass, as in pass away, is to die"
+     },
+     {
+      "clueFragment": "vast areas",
+      "gives": "SEAS",
+      "note": "seas are vast stretches of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SEAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Flying over huge regions and causing chaos.",
+     "walkthrough": "'Pass over' looks like one verb meaning to skip, but 'pass' alone means to die, and 'over' is the container signal.",
+     "definitionFit": "A disorder in the medical sense is an illness or ailment, so disease is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +870,77 @@
     "text": "Our fellow recalled entering temporary residence's contest",
     "enumeration": "10"
    },
-   "solution": "TOURNAMENT"
+   "solution": "TOURNAMENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "TOURNAMENT",
+    "definitions": [
+     {
+      "text": "contest",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters are taken back to front"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter is to go inside, so these letters sit within another piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "temporary residence",
+      "gives": "TENT",
+      "note": "a tent is a temporary home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OUR",
+      "NAM",
+      "ENT"
+     ],
+     "reversals": [
+      {
+       "from": "MAN",
+       "to": "NAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Our colleague, called back to the camp, takes part in a competition.",
+     "walkthrough": "Both 'Our' and the reversed fellow go inside together, and the 's after residence just links to the definition.",
+     "definitionFit": "A tournament is a sporting or games competition with many rounds and players, so it is a kind of contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +954,46 @@
     "text": "Huge electronic image",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the standard abbreviation for electronic, as in email"
+     },
+     {
+      "clueFragment": "image",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A giant digital picture.",
+     "walkthrough": "E as in email, then PIC for a picture.",
+     "definitionFit": "Epic describes something on a grand, heroic or vast scale, so it works as an adjective for very large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +1007,71 @@
     "text": "Media chats when Bury compete with Stoke initially",
     "enumeration": "10"
    },
-   "solution": "INTERVIEWS"
+   "solution": "INTERVIEWS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INTERVIEWS",
+    "definitions": [
+     {
+      "text": "Media chats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "something taken initially comes from the start, so only the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bury",
+      "gives": "INTER",
+      "note": "to inter is to bury"
+     },
+     {
+      "clueFragment": "compete",
+      "gives": "VIE",
+      "note": "to vie is to compete"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     },
+     {
+      "clueFragment": "Stoke",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "VIE",
+      "W",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Post-match press conferences when the football clubs Bury and Stoke City meet.",
+     "walkthrough": "Bury and Stoke are English football towns, but 'Bury' is the verb to bury, and the capital letter is camouflage.",
+     "definitionFit": "Interviews are question-and-answer conversations conducted by journalists for newspapers, radio or television."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1085,50 @@
     "text": "Range collapsing is rare",
     "enumeration": "6"
    },
-   "solution": "SIERRA"
+   "solution": "SIERRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIERRA",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collapsing",
+      "for": "anagram",
+      "note": "something collapsing falls to pieces, so the letters tumble into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is rare",
+      "gives": "ISRARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISRARE",
+       "gives": "SIERRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain range falling down is an unusual event.",
+     "walkthrough": "The six letters of 'is rare' are reordered.",
+     "definitionFit": "A sierra is a long jagged chain of mountains, as in the Sierra Nevada, so it is a mountain range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1142,62 @@
     "text": "Dealing with newly delivered type of light at ends of sea wall",
     "enumeration": "8"
    },
-   "solution": "NEONATAL"
+   "solution": "NEONATAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEONATAL",
+    "definitions": [
+     {
+      "text": "Dealing with newly delivered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last letter of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type of light",
+      "gives": "NEON",
+      "note": "a neon light is a glowing gas tube"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sea wall",
+      "gives": "AL",
+      "select": "last",
+      "note": "the final letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEON",
+      "AT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Handling newly arrived goods, a kind of lamp shines at the far ends of a harbour wall.",
+     "walkthrough": "'Delivered' suggests parcels, but it means born: the definition is about newborn babies.",
+     "definitionFit": "Neonatal refers to the care of babies in their first weeks after birth, and a newborn has just been delivered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1211,65 @@
     "text": "Director's pitch supported by excited nation",
     "enumeration": "9"
    },
-   "solution": "TARANTINO"
+   "solution": "TARANTINO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TARANTINO",
+    "definitions": [
+     {
+      "text": "Director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "something excited is stirred up, so the letters are agitated into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitch",
+      "gives": "TAR",
+      "note": "pitch is a black tar-like substance"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "NATION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "ANTINO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NATION",
+       "gives": "ANTINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film director makes a sales pitch backed by an enthusiastic country.",
+     "walkthrough": "In a down clue the supported piece sits on top, so TAR comes first; 'pitch' looks like a sales pitch but is the sticky black substance.",
+     "definitionFit": "Quentin Tarantino is an American film director known for Pulp Fiction and Reservoir Dogs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1283,56 @@
     "text": "Shipping hazards kill barnacles, eiders, razorbills, gannets and seagulls in the beginning",
     "enumeration": "8"
    },
-   "solution": "ICEBERGS"
+   "solution": "ICEBERGS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ICEBERGS",
+    "definitions": [
+     {
+      "text": "Shipping hazards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only initial letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kill",
+      "gives": "ICE",
+      "note": "to ice someone is slang for killing them"
+     },
+     {
+      "clueFragment": "barnacles, eiders, razorbills, gannets and seagulls",
+      "gives": "BERGS",
+      "select": "first",
+      "note": "the initials of the five sea creatures; 'and' is skipped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "BERGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of seaside wildlife killed off, alongside the hazards facing shipping.",
+     "walkthrough": "ICE is slang, mainly American, for murder.",
+     "definitionFit": "Icebergs are floating masses of ice that can sink vessels at sea, famously the Titanic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kill"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1346,64 @@
     "text": "During which readers learn periodically about investigation",
     "enumeration": "8"
    },
-   "solution": "RESEARCH"
+   "solution": "RESEARCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "RESEARCH",
+    "definitions": [
+     {
+      "text": "investigation",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something happening periodically recurs at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the other way, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "During"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which readers learn",
+      "gives": "HCRAESER",
+      "select": "alternate",
+      "note": "the even-placed letters, starting with the second, run straight across the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESEARCH"
+     ],
+     "reversals": [
+      {
+       "from": "HCRAESER",
+       "to": "RESEARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A time when readers learn something now and then about an inquiry.",
+     "walkthrough": "The alternate letters H C R A E S E R are taken across the word gaps, then read backwards. 'During' only links, suggesting the letters come from within the phrase.",
+     "definitionFit": "Research is systematic study and inquiry into a subject, which is exactly what an investigation involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1417,54 @@
     "text": "Multi-coloured sun god's funky weapon",
     "enumeration": "7"
    },
-   "solution": "RAINBOW"
+   "solution": "RAINBOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAINBOW",
+    "definitions": [
+     {
+      "text": "Multi-coloured",
+      "at": 0,
+      "note": "an adjective defining a noun used attributively, as in rainbow colours"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun god's",
+      "gives": "RA",
+      "note": "Ra was the Egyptian sun god"
+     },
+     {
+      "clueFragment": "funky",
+      "gives": "IN",
+      "note": "in means fashionable or trendy"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "BOW",
+      "note": "a bow fires arrows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "IN",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A colourful, trendy weapon belonging to the Egyptian sun god.",
+     "walkthrough": "'Funky' looks like an anagram signal, but it simply means trendy.",
+     "definitionFit": "Used as an adjective, rainbow describes something with many bright colours, like the arc of seven hues in the sky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funky"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1478,72 @@
     "text": "In Illinois metropolis get wind back after gym workout's over",
     "enumeration": "6"
    },
-   "solution": "PEORIA"
+   "solution": "PEORIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PEORIA",
+    "definitions": [
+     {
+      "text": "Illinois metropolis",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "In",
+     "after",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gym workout",
+      "gives": "PE",
+      "note": "PE is physical education, school gym lessons"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "AIR",
+      "note": "air is a moving breeze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "O",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a city in Illinois, someone gets their breath back once their gym session is finished.",
+     "walkthrough": "'Get wind back' reads as recovering breath; in fact AIR is reversed. Over, a set of six balls in cricket, is O on scorecards.",
+     "definitionFit": "Peoria is a sizeable city in the American state of Illinois, on the Illinois River."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1557,71 @@
     "text": "Astonishing disappointment expressed over phone company ringing unspecified number endlessly",
     "enumeration": "7"
    },
-   "solution": "AWESOME"
+   "solution": "AWESOME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "AWESOME",
+    "definitions": [
+     {
+      "text": "Astonishing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ringing",
+      "for": "container",
+      "note": "a ring encircles, so one piece goes around another"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is lost"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disappointment expressed",
+      "gives": "AW",
+      "note": "'aw' is the sound people make when let down"
+     },
+     {
+      "clueFragment": "phone company",
+      "gives": "EE",
+      "note": "EE is a British mobile network"
+     },
+     {
+      "clueFragment": "unspecified number",
+      "gives": "SOME",
+      "note": "some is an unstated quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AW",
+      "E",
+      "SOM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone voices letdown at a phone firm that keeps calling an unidentified number.",
+     "walkthrough": "In a down clue 'over' means placed above the rest. EE is a British mobile phone network.",
+     "definitionFit": "Awesome means inspiring wonder or amazement, so it is a direct synonym of astonishing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1635,56 @@
     "text": "Dodgy condition, flimsy on the outside",
     "enumeration": "4"
    },
-   "solution": "IFFY"
+   "solution": "IFFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IFFY",
+    "definitions": [
+     {
+      "text": "Dodgy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the outside",
+      "for": "letter_selection",
+      "note": "the outside of a word is its two ends, so only first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "condition",
+      "gives": "IF",
+      "note": "if introduces a condition"
+     },
+     {
+      "clueFragment": "flimsy",
+      "gives": "FY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IF",
+      "FY"
+     ]
+    },
+    "explanation": {
+     "surface": "A suspect state of affairs, weak at the edges.",
+     "walkthrough": "'Condition' sounds like a state of health, but it is the conditional word IF.",
+     "definitionFit": "Dodgy and iffy are both informal words for doubtful, unreliable or of questionable quality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "condition"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1698,62 @@
     "text": "Knock down priest carrying large doughnuts",
     "enumeration": "5"
    },
-   "solution": "FLOOR"
+   "solution": "FLOOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLOOR",
+    "definitions": [
+     {
+      "text": "Knock down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it, so one piece holds the others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "doughnuts",
+      "gives": "OO",
+      "note": "ring doughnuts are shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "OO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flattens a priest who is laden with a big bag of doughnuts.",
+     "walkthrough": "The doughnuts are ring-shaped, so they become O's.",
+     "definitionFit": "To floor someone is to send them to the ground with a punch, so it is a verb meaning to fell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "doughnuts"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1767,65 @@
     "text": "Ceremony where tailored robes placed before vice-president",
     "enumeration": "10"
    },
-   "solution": "OBSERVANCE"
+   "solution": "OBSERVANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OBSERVANCE",
+    "definitions": [
+     {
+      "text": "Ceremony",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailored",
+      "for": "anagram",
+      "note": "something tailored is cut and refashioned, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "placed before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robes",
+      "gives": "ROBES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vice-president",
+      "gives": "VANCE",
+      "note": "J D Vance became US vice-president in 2025"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBSER",
+      "VANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROBES",
+       "gives": "OBSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At an inauguration, custom-made gowns are laid out ahead of the vice-president.",
+     "walkthrough": "'Vice-president' tempts VP, but it is the particular holder of the office, JD Vance.",
+     "definitionFit": "An observance is a rite or customary ritual performed on a religious or formal occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vice-president"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1839,59 @@
     "text": "John for one is a long time impressing army officer",
     "enumeration": "5"
    },
-   "solution": "ELTON"
+   "solution": "ELTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELTON",
+    "definitions": [
+     {
+      "text": "John for one",
+      "at": 0,
+      "note": "Elton John is one bearer of this first name"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impressing",
+      "for": "container",
+      "note": "to impress is to press into, so one piece is set inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long time",
+      "gives": "EON",
+      "note": "an eon is an age"
+     },
+     {
+      "clueFragment": "army officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Some person called John has been impressing a soldier for ages.",
+     "walkthrough": "'John' is the singer's surname, and the answer is the first name that goes with it.",
+     "definitionFit": "Elton John, the British pop singer, is an example of someone with this first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "impressing"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1905,70 @@
     "text": "Like this article on America expelling Eritrean leader",
     "enumeration": "4"
    },
-   "solution": "THUS"
+   "solution": "THUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "THUS",
+    "definitions": [
+     {
+      "text": "Like this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelling",
+      "for": "deletion",
+      "note": "to expel is to throw out, so a letter is removed"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Eritrean",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A news report about America deporting the head of Eritrea.",
+     "walkthrough": "'Article' could be A or AN; it is the definite one. In a down clue, 'on' means sitting above.",
+     "definitionFit": "Thus means in this way or in this manner, so it substitutes for 'like this' as an adverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1982,57 @@
     "text": "Relative getting Republican into trouble",
     "enumeration": "7"
    },
-   "solution": "BROTHER"
+   "solution": "BROTHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROTHER",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "something put into another goes inside it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "BOTHER",
+      "note": "bother is trouble or fuss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member drags a Republican politician into a mess.",
+     "walkthrough": "R goes inside BOTHER.",
+     "definitionFit": "A brother is a male sibling, one of the most familiar examples of a family relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +2046,48 @@
     "text": "Roman fountain therefore could be source of Prosecco",
     "enumeration": "7"
    },
-   "solution": "TREVISO"
+   "solution": "TREVISO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREVISO",
+    "definitions": [
+     {
+      "text": "could be source of Prosecco",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman fountain",
+      "gives": "TREVI",
+      "note": "the Trevi Fountain is Rome's most famous fountain"
+     },
+     {
+      "clueFragment": "therefore",
+      "gives": "SO",
+      "note": "so means therefore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREVI",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian travel note: a famous Roman fountain might be where Prosecco flows from.",
+     "walkthrough": "The Trevi Fountain plus SO gives the town name.",
+     "definitionFit": "Treviso is a province and city in northern Italy where Prosecco sparkling wine is produced, hence 'could be'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "source"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +2101,63 @@
     "text": "500 replaced by 1,000 in accounts functions",
     "enumeration": "5"
    },
-   "solution": "WORKS"
+   "solution": "WORKS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WORKS",
+    "definitions": [
+     {
+      "text": "functions",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "one thing replaced by another is swapped out, so a letter changes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "1,000",
+      "gives": "K",
+      "note": "K stands for a thousand, as in 10K"
+     },
+     {
+      "clueFragment": "accounts",
+      "gives": "WORDS",
+      "note": "an account is a spoken report, and to have words is to give one's account"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "K",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "In a company's books, the figure 500 has been changed to 1,000.",
+     "walkthrough": "'Accounts' suggests bookkeeping, but it means WORDS, as in spoken accounts; its D swaps for K.",
+     "definitionFit": "Works as a verb means operates or does its job properly, which is what something that functions does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accounts"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +2177,50 @@
      }
     ]
    },
-   "solution": "SANDSTONE"
+   "solution": "SANDSTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SANDSTONE",
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "SS",
+      "gives": "SANDS",
+      "note": "read literally, the two letters are S and S"
+     },
+     {
+      "clueFragment": "Resonance",
+      "gives": "TONE",
+      "note": "tone is the quality or resonance of a sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AND",
+      "S",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "The italics make it a ship's name: the steamship Resonance rocks on the waves.",
+     "walkthrough": "SS looks like the prefix for a steamship, but it is spelt out as 'S and S'.",
+     "definitionFit": "Sandstone is a sedimentary rock made of compressed sand grains, widely used as a building stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "SS"
+    }
+   }
   }
  ]
 }
