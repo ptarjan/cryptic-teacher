@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Run in fabulous area",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRE",
+    "definitions": [
+     {
+      "text": "area",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fabulous",
+      "gives": "ACE",
+      "note": "ace is slang for excellent or fabulous"
+     },
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner sprinting through some wonderful stretch of land.",
+     "walkthrough": "'Run' looks like the action of the surface, but it is the cricket abbreviation; ace is informal for excellent.",
+     "definitionFit": "An acre is a unit of land measurement, so it names a specific extent of ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,61 @@
     "text": "Wild horse, breed mostly seen around North Carolina",
     "enumeration": "6"
    },
-   "solution": "BRONCO"
+   "solution": "BRONCO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BRONCO",
+    "definitions": [
+     {
+      "text": "Wild horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "seen around",
+      "for": "container",
+      "note": "to be seen around something is to surround it, so one part wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breed",
+      "gives": "BROO",
+      "note": "to brood is to breed or hatch young; its last letter goes"
+     },
+     {
+      "clueFragment": "North Carolina",
+      "gives": "NC",
+      "note": "NC is the US postal code for the state, its two initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRO",
+      "NC",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild horse being bred on a ranch in North Carolina.",
+     "walkthrough": "'Breed' must be read as a verb for its synonym brood; 'mostly' trims that synonym before the state goes inside.",
+     "definitionFit": "A bronco is an untamed or half-broken horse of the American West, famous from rodeo riding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breed"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +166,48 @@
     "text": "Concerned with valuable clothing? This will get oil out",
     "enumeration": "8"
    },
-   "solution": "REFINERY"
+   "solution": "REFINERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFINERY",
+    "definitions": [
+     {
+      "text": "This will get oil out",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerned with",
+      "gives": "RE",
+      "note": "re means regarding or concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "valuable clothing",
+      "gives": "FINERY",
+      "note": "finery is showy, expensive dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FINERY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fretting about an oil stain on their best clothes and looking for a cleaner.",
+     "walkthrough": "The surface suggests stain removal from fine garments; the definition is really about an industrial plant processing crude.",
+     "definitionFit": "A refinery is the plant where crude petroleum is processed and its usable products are separated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "oil"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +221,57 @@
     "text": "Skin disease found in seven cases retrospectively",
     "enumeration": "4"
    },
-   "solution": "ACNE"
+   "solution": "ACNE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ACNE",
+    "definitions": [
+     {
+      "text": "Skin disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "something found in a phrase is tucked inside its letters"
+     },
+     {
+      "text": "retrospectively",
+      "for": "reversal",
+      "note": "looking back in time suggests reading backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seven cases",
+      "gives": "ENCA",
+      "note": "the letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ENCA",
+       "to": "ACNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor reviewing seven case histories of a skin complaint.",
+     "walkthrough": "sevEN CAses holds ENCA, which read backwards gives ACNE.",
+     "definitionFit": "Acne is a common inflammatory skin condition producing pimples, especially in teenagers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +285,50 @@
     "text": "Support former queen as appropriate",
     "enumeration": "6"
    },
-   "solution": "PROPER"
+   "solution": "PROPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROPER",
+    "definitions": [
+     {
+      "text": "appropriate",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "PROP",
+      "note": "a prop is a support"
+     },
+     {
+      "clueFragment": "former queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the late Queen Elizabeth II"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing the old monarch because it seems the right thing to do.",
+     "walkthrough": "ER is the royal cipher of Elizabeth II, hence 'former queen'.",
+     "definitionFit": "Proper and appropriate are synonyms, both meaning suitable or fitting for the situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +342,50 @@
     "text": "Condemn study with little weight",
     "enumeration": "8"
    },
-   "solution": "DENOUNCE"
+   "solution": "DENOUNCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DENOUNCE",
+    "definitions": [
+     {
+      "text": "Condemn",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private room for reading or work"
+     },
+     {
+      "clueFragment": "little weight",
+      "gives": "OUNCE",
+      "note": "an ounce is a small unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "OUNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Dismissing a piece of research as carrying hardly any weight.",
+     "walkthrough": "'Study' reads as research, but it is the room.",
+     "definitionFit": "To denounce is to criticise publicly and strongly, the same as to condemn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +399,50 @@
     "text": "Seldom met with Mark before church",
     "enumeration": "6"
    },
-   "solution": "SCARCE"
+   "solution": "SCARCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARCE",
+    "definitions": [
+     {
+      "text": "Seldom met with",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "SCAR",
+      "note": "a scar is a mark left on the skin"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rarely meeting their friend Mark ahead of the Sunday service.",
+     "walkthrough": "'Mark' looks like a man's name but is a blemish; the definition swallows the 'met with' that seems to belong to Mark.",
+     "definitionFit": "Something scarce is rarely encountered because there is little of it about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +456,50 @@
     "text": "Reprimand coach standing by favourite",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARPET",
+    "definitions": [
+     {
+      "text": "Reprimand",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "standing by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coach",
+      "gives": "CAR",
+      "note": "a coach is a railway carriage, a car"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a teacher's pet is a favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports coach scolded for sticking by a favoured player.",
+     "walkthrough": "'Coach' sounds like a trainer, but here it is a rail carriage. To carpet someone is British informal for calling them in to be told off.",
+     "definitionFit": "To carpet someone is an idiom for summoning and scolding them, from being called onto the boss's carpet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +513,61 @@
     "text": "Intervening period led to EMI going west",
     "enumeration": "8"
    },
-   "solution": "MEANTIME"
+   "solution": "MEANTIME",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MEANTIME",
+    "definitions": [
+     {
+      "text": "Intervening period",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going west",
+      "for": "reversal",
+      "note": "in an across entry, heading west is moving right to left, so letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "led to",
+      "gives": "MEANT",
+      "note": "if one thing led to another it meant it as a consequence"
+     },
+     {
+      "clueFragment": "EMI",
+      "gives": "EMI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEANT",
+      "IME"
+     ],
+     "reversals": [
+      {
+       "from": "EMI",
+       "to": "IME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gap in a band's career before their record label EMI moved operations westward.",
+     "walkthrough": "EMI is the record company; 'going west' also suggests failing, but here it just turns the letters round.",
+     "definitionFit": "The meantime is the interval between two events, the time in between."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +581,54 @@
     "text": "Circle round pub game",
     "enumeration": "4"
    },
-   "solution": "POOL"
+   "solution": "POOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "POOL",
+    "definitions": [
+     {
+      "text": "pub game",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circle",
+      "gives": "LOOP",
+      "note": "a loop is a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOOP",
+       "to": "POOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circle of players around a game in the bar.",
+     "walkthrough": "'Circle round' reads as a single phrase, but the second word works on the first.",
+     "definitionFit": "Pool is a cue game played on a pocketed table, a fixture in many bars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +642,56 @@
     "text": "Sing into main microphone finally",
     "enumeration": "6"
    },
-   "solution": "INTONE"
+   "solution": "INTONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INTONE",
+    "definitions": [
+     {
+      "text": "Sing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only each word's closing letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "main microphone",
+      "gives": "NE",
+      "select": "last",
+      "note": "the closing letter of each of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTO",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer being told to sing into the main mic at last.",
+     "walkthrough": "'Finally' applies to both 'main' and 'microphone', not just the second.",
+     "definitionFit": "To intone is to chant or recite in a sustained musical voice, a form of singing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +705,55 @@
     "text": "Part of air in mobile ringtone",
     "enumeration": "8"
    },
-   "solution": "NITROGEN"
+   "solution": "NITROGEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NITROGEN",
+    "definitions": [
+     {
+      "text": "Part of air",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mobile",
+      "for": "anagram",
+      "note": "mobile means able to move, so the letters move about"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ringtone",
+      "gives": "RINGTONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RINGTONE",
+       "gives": "NITROGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snatch of a tune heard in a phone's ringtone.",
+     "walkthrough": "'Air' poses as a tune and 'mobile' as a phone; the definition is chemical.",
+     "definitionFit": "Nitrogen gas makes up about four fifths of the atmosphere we breathe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +767,50 @@
     "text": "Father meets new femme fatale",
     "enumeration": "5"
    },
-   "solution": "SIREN"
+   "solution": "SIREN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIREN",
+    "definitions": [
+     {
+      "text": "femme fatale",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "SIRE",
+      "note": "to sire is to father; a sire is a male parent"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIRE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A dad being introduced to a dangerous seductress.",
+     "walkthrough": "'Father' is a verb-noun for a male parent, especially of a horse; N for new is a standard abbreviation.",
+     "definitionFit": "A siren is a beautiful, dangerously alluring woman, named after the mythical singers who lured sailors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +824,67 @@
     "text": "Check back of car concealed by street corner",
     "enumeration": "8"
    },
-   "solution": "STRANGLE"
+   "solution": "STRANGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STRANGLE",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "concealed by",
+      "for": "container",
+      "note": "to be concealed by something is to be covered and enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "corner",
+      "gives": "ANGLE",
+      "note": "a corner is an angle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspecting the rear of a car hidden around a street corner.",
+     "walkthrough": "R is enclosed by STANGLE, the street abbreviation followed by the corner.",
+     "definitionFit": "To strangle growth or a sound is to suppress or restrain it, one sense of check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +898,43 @@
     "text": "In truth, humdrum existence",
     "enumeration": "3"
    },
-   "solution": "RUT"
+   "solution": "RUT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RUT",
+    "definitions": [
+     {
+      "text": "humdrum existence",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in means inside, so the letters sit within a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "truth",
+      "gives": "RUT",
+      "note": "the middle letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Admitting that, honestly, one's life is dull.",
+     "walkthrough": "'In truth' reads as 'honestly', but it is a hiding place.",
+     "definitionFit": "Being in a rut means living a dull, unchanging routine one cannot escape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +948,50 @@
     "text": "Correspond with tango partner",
     "enumeration": "5"
    },
-   "solution": "TALLY"
+   "solution": "TALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALLY",
+    "definitions": [
+     {
+      "text": "Correspond",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tango",
+      "gives": "T",
+      "note": "Tango is T in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "ALLY",
+      "note": "an ally is a partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping in touch with one's dance partner from tango classes.",
+     "walkthrough": "'Tango partner' reads as a dancer, but tango only supplies its letter.",
+     "definitionFit": "When two accounts tally they agree or match, which is to correspond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1005,55 @@
     "text": "Clingy individual allowed to hold naughty child",
     "enumeration": "6"
    },
-   "solution": "LIMPET"
+   "solution": "LIMPET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMPET",
+    "definitions": [
+     {
+      "text": "Clingy individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "holding something means enclosing it, so one part wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "naughty child",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IMP",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A needy person permitted to look after a badly behaved youngster.",
+     "walkthrough": "'Clingy individual' is figurative: the definition is a sea creature used as a metaphor for a hanger-on.",
+     "definitionFit": "A limpet is a shellfish that clings hard to rocks, so figuratively someone who will not let go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "allowed"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1067,53 @@
     "text": "What’s cutting criminal charge — that is right",
     "enumeration": "6"
    },
-   "solution": "RAPIER"
+   "solution": "RAPIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAPIER",
+    "definitions": [
+     {
+      "text": "What’s cutting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal charge",
+      "gives": "RAP",
+      "note": "a rap is a criminal charge, as in beating the rap"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for 'that is'"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking which part of a criminal charge is being dropped, and agreeing it is correct.",
+     "walkthrough": "'What's cutting' looks like a question about reductions; it describes a blade.",
+     "definitionFit": "A rapier is a slender sword, a weapon with a cutting and thrusting edge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1127,54 @@
     "text": "Earth? Tons supporting tree",
     "enumeration": "6"
    },
-   "solution": "PLANET"
+   "solution": "PLANET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANET",
+    "definitions": [
+     {
+      "text": "Earth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, what supports something sits underneath it, so that piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "PLANE",
+      "note": "the plane is a broad-leaved tree common in city streets"
+     },
+     {
+      "clueFragment": "Tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLANE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Tonnes of soil holding up a tree.",
+     "walkthrough": "In a down answer, a piece supporting another sits beneath it, so T comes last. 'Earth' looks like soil but is our world.",
+     "definitionFit": "Earth is an example of the class: it is the third world orbiting the Sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Earth"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1188,54 @@
     "text": "Ruin atmosphere when returning",
     "enumeration": "4"
    },
-   "solution": "DOOM"
+   "solution": "DOOM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DOOM",
+    "definitions": [
+     {
+      "text": "Ruin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atmosphere",
+      "gives": "MOOD",
+      "note": "a mood is the atmosphere or feeling of a place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOOM"
+     ],
+     "reversals": [
+      {
+       "from": "MOOD",
+       "to": "DOOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming home to find the atmosphere spoilt.",
+     "walkthrough": "'Atmosphere' suggests air or weather, but here it is the feeling in a room.",
+     "definitionFit": "Doom means destruction or a dreadful fate, the same as ruin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "atmosphere"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1249,43 @@
     "text": "SHAPE military headquarters",
     "enumeration": "8"
    },
-   "solution": "PENTAGON"
+   "solution": "PENTAGON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PENTAGON",
+    "definitions": [
+     {
+      "text": "SHAPE",
+      "at": 0
+     },
+     {
+      "text": "military headquarters",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "SHAPE",
+      "note": "first meaning: a five-sided figure"
+     },
+     {
+      "clueFragment": "military headquarters",
+      "note": "second meaning: the US Department of Defense building in Arlington, Virginia"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "SHAPE in capitals looks like the NATO acronym for Supreme Headquarters Allied Powers Europe, which makes the whole clue read as one military definition; it is just a shape.",
+     "definitionFit": "A pentagon is a five-sided polygon, and the five-sided American defence building is named after that form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "SHAPE"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1299,51 @@
     "text": "Cause for regret is mine over years",
     "enumeration": "4"
    },
-   "solution": "PITY"
+   "solution": "PITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PITY",
+    "definitions": [
+     {
+      "text": "Cause for regret",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is the abbreviation for years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lamenting a sorrow that has been theirs for years.",
+     "walkthrough": "'Mine' looks like a possessive but is a pit; in a down entry, over means placed above.",
+     "definitionFit": "A pity is something unfortunate that one is sorry about, as in 'it's a pity'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1357,54 @@
     "text": "Gemstone ring carried by friend",
     "enumeration": "4"
    },
-   "solution": "OPAL"
+   "solution": "OPAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPAL",
+    "definitions": [
+     {
+      "text": "Gemstone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "what is carried is held inside the carrier"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round, shaped like the letter O"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A jewelled ring being brought along by a friend.",
+     "walkthrough": "The ring sits at the very front of PAL, a container with nothing before it.",
+     "definitionFit": "Opal is a precious stone known for its shifting play of colours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1418,43 @@
     "text": "What could be Kalahari rat",
     "enumeration": "6"
    },
-   "solution": "DESERT"
+   "solution": "DESERT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DESERT",
+    "definitions": [
+     {
+      "text": "What could be Kalahari",
+      "at": 0
+     },
+     {
+      "text": "rat",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What could be Kalahari",
+      "note": "first meaning: an arid region, the Kalahari being one in southern Africa"
+     },
+     {
+      "clueFragment": "rat",
+      "note": "second meaning: to abandon or betray, as in ratting on someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Kalahari rat' sounds like a desert rodent; 'rat' is really a verb for leaving one's side.",
+     "definitionFit": "The Kalahari is an example of an arid wilderness, and to rat on people is to abandon them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1468,54 @@
     "text": "Path following sheltered margin",
     "enumeration": "6"
    },
-   "solution": "LEEWAY"
+   "solution": "LEEWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEEWAY",
+    "definitions": [
+     {
+      "text": "margin",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "what follows comes after, so the piece named first is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheltered",
+      "gives": "LEE",
+      "note": "the lee is the side sheltered from the wind"
+     },
+     {
+      "clueFragment": "Path",
+      "gives": "WAY",
+      "note": "a way is a path"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEE",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A footpath running alongside a protected edge of land.",
+     "walkthrough": "'Following' puts the path after the sheltered side, though it comes first in the clue.",
+     "definitionFit": "Leeway is extra room or allowance for error, a margin to work within."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "margin"
+    }
+   }
   }
  ]
 }
