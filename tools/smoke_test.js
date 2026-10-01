@@ -2986,7 +2986,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
-    assert(repeatedDefs.length, "the sweep saw a clue whose definition's words occur twice in it");
+    // A statement about the whole corpus: the nightly's sample can hold none.
+    assert(!FULL || repeatedDefs.length, "the sweep saw a clue whose definition's words occur twice in it");
     // Five rungs exist, so five names exist. A sixth means a branch phrased a
     // label for its clue type, whatever the wording turned out to be.
     const LABEL_SET = LADDER.map((r) => r.label);
