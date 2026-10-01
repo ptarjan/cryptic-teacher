@@ -736,13 +736,44 @@ def field_disputes(puzzle, records):
     return out
 
 
-def resolve(puzzle, sources=None):
+def records_for(puzzle, sources=None):
+    """What every source says about this grid."""
+    return [r for source in (SOURCES if sources is None else sources) for r in source(puzzle)
+            if same_puzzle(puzzle, r)]
+
+
+def resolve(puzzle, sources=None, records=None):
     """Every dispute and fill the sources raise over `puzzle`."""
-    records = [r for source in (SOURCES if sources is None else sources) for r in source(puzzle)
-               if same_puzzle(puzzle, r)]
+    records = records_for(puzzle, sources) if records is None else records
     if not records:
         return []
     return answer_disputes(puzzle, records) + field_disputes(puzzle, records)
+
+
+def source_orders(puzzle, records):
+    """{leader id: lights} for each linked answer a source prints as the
+    group's own letters taken in another order of its lights: the answer is
+    right and the group's order is not. Compared as answers instead, the grid
+    rule would keep the misordered one, since the source's letters do not fit
+    the lights in the stored order: independent-8407's A NICE LITTLE EARNER
+    over A NICE + EARNER + LITTLE, where every order reads as words."""
+    import fetch_puzzle
+    out = {}
+    for lead, members in units(puzzle).items():
+        ids = [entry_id(m) for m in members]
+        own = unit_value(members)
+        if (own is None or len(members) < 3 or len(set(ids)) != len(ids)
+                or len(members) > fetch_puzzle.ORDER_LIMIT
+                or (puzzle["id"], lead) in fetch_puzzle.GROUP_ORDER):
+            continue
+        said = {rec.answers.get((members[0]["number"], members[0]["direction"]))
+                for rec in records} - {None, own}
+        orders = {tuple(ids[:1] + [entry_id(m) for m in tail])
+                  for tail in itertools.permutations(members[1:])
+                  if members[0]["solution"] + "".join(m["solution"] for m in tail) in said}
+        if len(orders) == 1:
+            out[lead] = list(orders.pop())
+    return out
 
 
 def apply(puzzle, disputes):
@@ -826,7 +857,12 @@ def corroborate(puzzle, sources=None, ledger=None):
     puzzle = known_wrong(puzzle)
     if not all("position" in e and e.get("length") for e in puzzle["entries"]):
         return puzzle           # no grid to read a source's answers against
-    disputes = resolve(puzzle, sources)
+    records = records_for(puzzle, sources)
+    orders = source_orders(puzzle, records)
+    if orders:
+        import fetch_puzzle
+        puzzle = fetch_puzzle.order_groups(puzzle, orders)
+    disputes = resolve(puzzle, records=records)
     if not disputes:
         return puzzle
     record(puzzle["id"], disputes, ledger)

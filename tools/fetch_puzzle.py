@@ -397,6 +397,117 @@ def enumeration_separators(entries):
     return entries
 
 
+LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
+
+# Past this many lights a linked answer's orders are not tried: 7! tails.
+ORDER_LIMIT = 8
+
+# Linked answers the lexicon cannot put in order, because more than one
+# arrangement of the lights spells words and only the phrase says which:
+# (puzzle id, leader) -> the answer's lights in order. Read by group_orders.
+GROUP_ORDER = {
+    ("cryptic-22037", "21-across"): ["21-across", "9-across", "23-down", "11-across"],
+    ("cryptic-22069", "16-across"): ["16-across", "19-across", "22-across", "23-across"],
+    ("cryptic-22333", "3-down"): ["3-down", "24-across", "16-across", "22-across",
+                                  "10-across", "23-across"],
+    ("cryptic-22779", "4-down"): ["4-down", "21-across", "8-down", "22-down", "25-across",
+                                  "17-down"],
+    ("cryptic-22847", "11-across"): ["11-across", "20-across", "1-across", "26-across",
+                                     "13-across", "27-across"],
+    ("cryptic-22983", "9-across"): ["9-across", "20-across", "25-across", "6-down",
+                                    "17-across", "19-across", "22-across", "5-down"],
+    ("cryptic-23104", "5-down"): ["5-down", "1-down", "21-across", "23-down", "6-down"],
+    ("cryptic-23332", "13-across"): ["13-across", "14-across", "16-down", "19-across",
+                                     "24-across", "27-down", "20-across", "11-across"],
+    ("cryptic-23610", "18-down"): ["18-down", "9-across", "10-across", "22-down", "12-across"],
+    ("cryptic-24261", "24-across"): ["24-across", "19-down", "23-down", "10-across", "1-down"],
+}
+
+
+@functools.lru_cache(maxsize=None)
+def lexicon_words():
+    """Every word in tools/data/lexicon.tsv, and the one-letter words it
+    leaves out (a grid filler's list has no use for them; a phrase does)."""
+    with LEXICON.open(encoding="utf-8") as f:
+        return frozenset({"A", "I", "O"}).union(
+            line.split("\t", 1)[0] for line in f if not line.startswith("#"))
+
+
+def spells_words(counts, letters):
+    """Does `letters`, cut by an enumeration's `counts`, read as lexicon words?"""
+    words, i = lexicon_words(), 0
+    for n in counts:
+        if letters[i:i + n] not in words:
+            return False
+        i += n
+    return i == len(letters)
+
+
+def group_orders(puzzle):
+    """{leader id: the order its lights belong in} for each linked answer whose
+    group lists them in another.
+
+    A group's order is the answer's word order, and the paper's data does not
+    always say it: the Guardian's pre-2015 markup gives each continuation a
+    pair naming the leader and itself, so reconcile_groups has only a guess
+    for the rest, and a blog-reconstructed grid knows the lights but not their
+    sequence. The enumeration cannot settle it when it cuts every arrangement:
+    cryptic-24447's ALL, AND, SUN, DRY under "(3,3,6)" cut as ALL SUN ANDDRY
+    as readily as ALL AND SUNDRY. The words can: the leader's enumeration cut
+    over the joined letters must read as lexicon words, and a stored order that
+    does not, against exactly one other order that does, is the wrong order.
+    GROUP_ORDER pins the answers where several orders read as words."""
+    by_id = {entry_id(e): e for e in puzzle.get("entries") or []}
+    out = {}
+    for lead, g in groups.leaders(puzzle.get("entries") or []).items():
+        if g[0] != lead or len(g) < 3 or len(set(g)) != len(g) or not set(g) <= set(by_id):
+            continue
+        pinned = GROUP_ORDER.get((puzzle.get("id"), lead))
+        if pinned:
+            if pinned != g and sorted(pinned) == sorted(g):
+                out[lead] = list(pinned)
+            continue
+        if len(g) > ORDER_LIMIT or not all(by_id[m].get("solution") for m in g):
+            continue
+        counts = enumeration.counts((by_id[lead].get("clue") or {}).get("enumeration"))
+        if sum(counts) != sum(len(by_id[m]["solution"]) for m in g):
+            continue
+        if spells_words(counts, "".join(by_id[m]["solution"] for m in g)):
+            continue
+        fits = [tail for tail in itertools.permutations(g[1:]) if list(tail) != g[1:]
+                and spells_words(counts, "".join(by_id[m]["solution"] for m in (lead, *tail)))]
+        if len(fits) == 1:
+            out[lead] = [lead, *fits[0]]
+    return out
+
+
+def order_groups(puzzle, orders=None):
+    """`puzzle` with every group in `orders` ({leader id: lights}, by default
+    group_orders') and its word breaks split across the lights again in that
+    order. Run on every write."""
+    orders = group_orders(puzzle) if orders is None else orders
+    if not orders:
+        return puzzle
+    puzzle = {**puzzle, "entries": [dict(e) for e in puzzle["entries"]]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    for lead, order in orders.items():
+        print(f"WARNING: {puzzle.get('id')} {lead}: group "
+              f"{' + '.join(by_id[lead]['group'])} reordered to "
+              f"{' + '.join(order)}", file=sys.stderr)
+        by_id[lead]["group"] = order
+        fmt = by_id[lead]["clue"].get("enumeration", "")
+        if not CLUE_ENUMERATION.fullmatch(fmt):
+            continue
+        fmt = re.sub(r"(\d+)'(\d+)", lambda g: str(int(g[1]) + int(g[2])), fmt)
+        members = [by_id[m] for m in order]
+        for m, seps in zip(members, separators(fmt, [m["length"] for m in members])):
+            clue = {k: v for k, v in m["clue"].items() if k != "separators"}
+            if seps:
+                clue["separators"] = seps
+            m["clue"] = {k: clue[k] for k in CLUE_KEYS if k in clue}
+    return puzzle
+
+
 def flatten_clue(s):
     """HTML clue text -> (plain text, italic ranges into that text as
     [{"at": start, "length": n}]).
@@ -759,6 +870,9 @@ def write_puzzle_file(path, puzzle, generator=None):
     # real corpus: the caches describe the real puzzles and the ledger records
     # them, so a fixture written anywhere else is neither looked up nor ledgered.
     # See tools/corroborate.py.
+    # A linked answer's lights in the order that reads as words, before the
+    # sources are compared against the joined answer.
+    puzzle = order_groups(puzzle)
     if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
         puzzle = corroborate.corroborate(puzzle)
     # A puzzle built fresh from a page names only its url; the file's own
@@ -887,8 +1001,9 @@ def reconcile_groups(entries):
     cuts into is the answer's own word order: (6,8,9) over LONDON 6, SYMPHONY 8,
     ORCHESTRA 9 admits 3-down, 13-across, 21-across and nothing else. If the
     enumeration leaves it open the leader's stated order is kept and the
-    newcomers are appended in grid reading order, which is a guess — but a
-    guess about display order only, after the membership is already right.
+    newcomers are appended in grid reading order, which is a guess, and the
+    order is the answer's spelling: order_groups replaces it on write wherever
+    the words settle it (group_orders).
     """
     by_id = {entry_id(e): e for e in entries}
     closure = {}
@@ -1351,8 +1466,8 @@ def reconstruct_groups(entries, series):
 
     Order comes from the enumeration too when it is settled, and otherwise from
     reconcile_groups' rule — the stated order kept and the newcomers appended in
-    grid reading order. Ambiguous ORDER is a display question, asked only after
-    membership is already right.
+    grid reading order, which order_groups replaces on write wherever the words
+    settle it.
 
     Gated off for PER_LIGHT_ENUMERATION series, where a leg's count is its own
     light's and says nothing about the rest of the answer, so there is no
@@ -1424,8 +1539,8 @@ def reconstruct_groups(entries, series):
                 # _cuts_into is a word-boundary test, so it can only refuse these;
                 # the arithmetic is what settles membership. Order is then the
                 # arrangement that splits the fewest words, and a tie falls through
-                # to the stated order as everywhere else — a display question, asked
-                # after membership is already right.
+                # to the stated order as everywhere else, for order_groups to settle
+                # on write.
                 extra = (next(iter(adds_up)) if len(adds_up) == 1
                          else _continues_it(lead, adds_up, by_id))
                 if extra is None:
