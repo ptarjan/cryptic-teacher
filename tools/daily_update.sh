@@ -222,8 +222,8 @@ blog_chain Telegraph "fetch_telegraph.py --holes $TELEGRAPH_BUCKET_PER_NIGHT" &&
 GUARDIAN_XVAL_PER_NIGHT="${GUARDIAN_XVAL_PER_NIGHT:-1500}"
 blog_chain Guardian "cross_validate.py guardian --fetch --refile --limit $GUARDIAN_XVAL_PER_NIGHT" && blog_filed=1
 # The Independent's own feed witnesses both Independent series the same way: a
-# slice more of its date keys cached each night, and the files the feed settles
-# refiled from it.
+# slice more of its date keys cached each night, the differences reported, and
+# a file rebuilt from fifteensquared for a day the feed serves refiled from it.
 INDY_XVAL_PER_NIGHT="${INDY_XVAL_PER_NIGHT:-1500}"
 blog_chain Independent "cross_validate.py independent --fetch --refile --limit $INDY_XVAL_PER_NIGHT" && blog_filed=1
 [ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
