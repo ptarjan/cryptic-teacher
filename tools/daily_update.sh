@@ -212,6 +212,10 @@ TELEGRAPH_PER_NIGHT="${TELEGRAPH_PER_NIGHT:-40}"
 blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
   "times_grids.py --blog bigdave44 --limit $TELEGRAPH_PER_NIGHT" \
   file_telegraph_puzzles.py && blog_filed=1
+# From 2015 the Telegraph's own bucket is the primary source: tonight's
+# puzzles, and blog-rebuilt files of the numbers it serves, refiled as printed.
+TELEGRAPH_BUCKET_PER_NIGHT="${TELEGRAPH_BUCKET_PER_NIGHT:-200}"
+blog_chain Telegraph "fetch_telegraph.py --holes $TELEGRAPH_BUCKET_PER_NIGHT" && blog_filed=1
 [ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
 
 # --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---

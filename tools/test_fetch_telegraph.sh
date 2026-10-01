@@ -102,6 +102,16 @@ same("Windows-1252 punctuation read as latin-1 is decoded",
      [x["clue"]["text"] for x in ft.parse(dash, "cryptic-crossword-1")["entries"]
       if x["number"] == 3], ["Buzz \u2013 or hum"])
 
+acc = doc("Cryptic Crossword No 6", "Monday, 03 August 2026")
+acc["json"]["copy"]["words"][0]["solution"] = "C&Agrave;T"
+acc["json"]["copy"]["clues"][0]["clues"][0]["format"] = "1'2"
+got = {f"{e['number']}-{e['direction']}": e for e in ft.parse(acc, "cryptic-crossword-1")["entries"]}
+acc["json"]["copy"]["words"][1]["solution"] = "BEACUTEE"
+got = {f"{e['number']}-{e['direction']}": e for e in ft.parse(acc, "cryptic-crossword-1")["entries"]}
+same("an accent's entity left without & and ; is dropped", got["3-across"]["solution"], "BEE")
+same("an accented answer is its letters, an apostrophe a break",
+     (got["1-across"]["solution"], got["1-across"]["clue"]["enumeration"]), ("CAT", "1'2"))
+
 d = datetime.date
 rows = [("telegraph", 26895, d(2015, 8, 18), "v", "z"),
         ("telegraph", 26896, d(2015, 8, 19), "v", "a"),
@@ -119,6 +129,35 @@ same("a slug names its variant",
 same("the calendar's two papers split on the day",
      [ft.series_for("cryptic-crossword-1", d(2020, 2, 16)),
       ft.series_for("cryptic-crossword-1", d(2020, 2, 17))], ["sundaytel", "telegraph"])
+# Refiling a blog-built file: the bucket's printed puzzle wins, except a typo
+# the blog corrected, a clue the bucket garbles or an enumeration that does
+# not count its own answer; an annotation travels only while it still fits.
+import copy
+new = ft.parse(doc("Cryptic Crossword No 5", "Monday, 03 August 2026"), "cryptic-crossword-1")
+old = copy.deepcopy(new)
+by = {f"{e['number']}-{e['direction']}": e for e in old["entries"]}
+fresh = {f"{e['number']}-{e['direction']}": e for e in new["entries"]}
+by["1-across"]["clue"]["text"] = "Tom's pet animal"
+by["1-across"]["annotation"] = {"answer": "CAT", "definitions": [{"text": "pet animal"}]}
+by["1-down"]["clue"]["text"] = "Car hired by the hour, briefly"
+by["1-down"]["annotation"] = {"answer": "CAB", "definitions": [{"text": "Car hired"}]}
+fresh["1-down"]["clue"]["text"] = "Car hired by the hour, brCar hired by the hour, brieflyiefly"
+by["3-across"]["clue"]["text"] = "Buzzing insect"
+fresh["3-across"]["clue"]["text"] = "Buzing insect"
+by["3-across"]["clue"]["enumeration"] = "3"
+fresh["3-across"]["clue"]["enumeration"] = "4"
+got, notes = ft.refile(new, old)
+g = {f"{e['number']}-{e['direction']}": e for e in got["entries"]}
+same("an annotation whose words left the clue is dropped", "annotation" in g["1-across"], False)
+same("a garbled bucket clue keeps ours, and its annotation",
+     ("annotation" in g["1-down"], g["1-down"]["clue"]["text"] == by["1-down"]["clue"]["text"]),
+     (True, True))
+same("a bucket typo keeps our spelling", g["3-across"]["clue"]["text"], "Buzzing insect")
+same("an enumeration not counting its answer keeps ours", g["3-across"]["clue"]["enumeration"], "3")
+same("each kept or dropped thing is noted", len(notes), 4)
+same("the bucket's era is its own", [ft.served("telegraph", 27737), ft.served("telegraph", 27738),
+                                     ft.served("toughie", 2486), ft.served("times", 30000)],
+     [False, True, True, False])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
