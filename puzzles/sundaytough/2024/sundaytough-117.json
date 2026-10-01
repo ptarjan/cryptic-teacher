@@ -24,6 +24,9 @@
   "date": "2024-05-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "First half of Eliot novel in the first person?",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADAM",
+    "definitions": [
+     {
+      "text": "First half of Eliot novel",
+      "at": 0
+     },
+     {
+      "text": "the first person",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First half of Eliot novel",
+      "note": "first meaning: the opening word of a two-word George Eliot title, a carpenter's name"
+     },
+     {
+      "clueFragment": "the first person",
+      "note": "second meaning: in Genesis, the first human being created"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'First person' looks like grammar (I, me) but means the first human in the Bible; the question mark flags that twist.",
+     "definitionFit": "George Eliot's novel is titled after a carpenter who shares his name with the first man in Genesis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "person"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +90,62 @@
     "text": "Harry Styles less content drilling well",
     "enumeration": "6"
    },
-   "solution": "HASSLE"
+   "solution": "HASSLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HASSLE",
+    "definitions": [
+     {
+      "text": "Harry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less content",
+      "for": "letter_selection",
+      "note": "the contents of a word are its inner letters, so taking them away leaves only the outside pair"
+     },
+     {
+      "text": "drilling",
+      "for": "container",
+      "note": "a drill bores its way into something, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well",
+      "gives": "HALE",
+      "note": "hale means healthy, in good health"
+     },
+     {
+      "clueFragment": "Styles",
+      "gives": "SS",
+      "select": "outer",
+      "note": "just the first and last letters of the singer's surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "SS",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pop star Harry Styles, minus anything worthwhile to say, is digging into a well.",
+     "walkthrough": "Harry Styles reads as one name, but Harry is the verb defining the answer and Styles is the fodder.",
+     "definitionFit": "To harry someone is to pester or torment them repeatedly, and to hassle is the same nagging persecution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +165,66 @@
      }
     ]
    },
-   "solution": "ALBERTHALL"
+   "solution": "ALBERTHALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALBERT HALL",
+    "definitions": [
+     {
+      "text": "round building",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "charade",
+      "note": "in a down clue whatever is carried sits on top of its bearer, so this piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BERTH",
+      "note": "a berth is a bed on a ship or train"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "BERTH",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A big bed with something being carried by everyone around a building, like a removal job.",
+     "walkthrough": "The Royal Albert Hall is a circular concert venue in London. 'Large bed' reads as one thing, but splits into a size letter and a sleeping place.",
+     "definitionFit": "London's famous concert venue in Kensington is built on an oval, rotunda plan, so it is a round building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +238,51 @@
     "text": "Cause of stiffness in lead taps",
     "enumeration": "6"
    },
-   "solution": "STARCH"
+   "solution": "STARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARCH",
+    "definitions": [
+     {
+      "text": "Cause of stiffness",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "STAR",
+      "note": "the lead in a show is its star"
+     },
+     {
+      "clueFragment": "taps",
+      "gives": "CH",
+      "note": "the two taps on a basin are marked C (cold) and H (hot)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Something wrong with the lead plumbing makes the taps stiff to turn.",
+     "walkthrough": "'Lead' looks like the metal of old pipes, but it is the main role; taps give their two labels rather than a word.",
+     "definitionFit": "Starch is applied to collars and shirts when laundering to make the fabric rigid and crisp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +296,56 @@
     "text": "Small round object is very sharp",
     "enumeration": "8"
    },
-   "solution": "SCATHING"
+   "solution": "SCATHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCATHING",
+    "definitions": [
+     {
+      "text": "very sharp",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "CA",
+      "note": "round as in 'about', which is circa, abbreviated CA"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "THING",
+      "note": "an object is a thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CA",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny ball turns out to be extremely sharp, perhaps a hazard underfoot.",
+     "walkthrough": "'Small round object' paints a ball, but round here means approximately, as in 'round about ten'.",
+     "definitionFit": "Scathing criticism is harsh and cutting, so a very sharp remark or review earns that description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +359,56 @@
     "text": "Daydreamers gather this court official’s back",
     "enumeration": "4"
    },
-   "solution": "WOOL"
+   "solution": "WOOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WOOL",
+    "definitions": [
+     {
+      "text": "Daydreamers gather this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "WOO",
+      "note": "to court someone is to woo them"
+     },
+     {
+      "clueFragment": "official’s",
+      "gives": "L",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Idle dreamers collect something belonging to a law-court official.",
+     "walkthrough": "'Court official' reads as one legal figure, but court is a verb for romancing and official only lends its last letter.",
+     "definitionFit": "The idiom wool-gathering means daydreaming, so absent-minded dreamers are said to gather this fibre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +422,65 @@
     "text": "One with weight put on, after capital Italian food",
     "enumeration": "8"
    },
-   "solution": "RIGATONI"
+   "solution": "RIGATONI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGATONI",
+    "definitions": [
+     {
+      "text": "Italian food",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down clue something put on another lies above it, so it is written first"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following something means coming later in the line, so this goes behind what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital",
+      "gives": "RIGA",
+      "note": "Riga is the capital of Latvia"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "TON",
+      "note": "a ton is a unit of weight"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGA",
+      "TON",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has gained weight after eating Italian food in the capital.",
+     "walkthrough": "'Weight put on' suggests getting fatter, but it places a unit of weight above the numeral; the whole pairing then follows a Baltic capital.",
+     "definitionFit": "Rigatoni is a ridged tube-shaped pasta, a staple dish of Italian cuisine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +494,71 @@
     "text": "Guides in uniform and that lady upset me",
     "enumeration": "10"
    },
-   "solution": "USHERETTES"
+   "solution": "USHERETTES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "USHERETTES",
+    "definitions": [
+     {
+      "text": "Guides",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the letters run bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is the NATO alphabet word for U"
+     },
+     {
+      "clueFragment": "that lady",
+      "gives": "SHE",
+      "note": "she is the pronoun for that woman"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "SETTER",
+      "note": "in a crossword, 'me' is the setter who wrote it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SHE",
+      "RETTES"
+     ],
+     "reversals": [
+      {
+       "from": "SETTER",
+       "to": "RETTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uniformed guides and some woman have annoyed the speaker.",
+     "walkthrough": "'Guides in uniform' looks like a whole definition (Girl Guides), but uniform is the letter U. Me as the setter is a common crossword self-reference.",
+     "definitionFit": "Usherettes are women who show cinema or theatre patrons to their seats, guiding them through the dark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +572,63 @@
     "text": "DHL disheartened about unskilled kind of delivery",
     "enumeration": "5"
    },
-   "solution": "DRAWL"
+   "solution": "DRAWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRAWL",
+    "definitions": [
+     {
+      "text": "kind of delivery",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "letter_selection",
+      "note": "losing heart means losing the middle, so only the outer letters survive"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DHL",
+      "gives": "DL",
+      "select": "outer",
+      "note": "the courier's initials without the central letter"
+     },
+     {
+      "clueFragment": "unskilled",
+      "gives": "RAW",
+      "note": "a raw recruit is untrained or unskilled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAW",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A discouraged courier firm grumbles about an amateurish parcel delivery.",
+     "walkthrough": "With a courier firm in the clue, 'delivery' suggests parcels, but it means a manner of speaking.",
+     "definitionFit": "A drawl is a slow, lengthened way of speaking, so it is a style of vocal delivery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +642,56 @@
     "text": "Detective’s receiving boost investigating faults etc",
     "enumeration": "9"
    },
-   "solution": "TECTONICS"
+   "solution": "TECTONICS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TECTONICS",
+    "definitions": [
+     {
+      "text": "investigating faults etc",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "whatever receives something takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detective’s",
+      "gives": "TECS",
+      "note": "tec is short for detective, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "boost",
+      "gives": "TONIC",
+      "note": "a tonic gives a lift or boost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEC",
+      "TONIC",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective gets a lift while looking into people's failings.",
+     "walkthrough": "Faults look like human flaws under investigation, but they are geological fractures in the earth's crust.",
+     "definitionFit": "Plate tectonics is the branch of geology that studies the crust's structure, including faults, folds and plate movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "faults"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +705,43 @@
     "text": "Erroneously catch some hoodlum — is he arrested?",
     "enumeration": "7"
    },
-   "solution": "MISHEAR"
+   "solution": "MISHEAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MISHEAR",
+    "definitions": [
+     {
+      "text": "Erroneously catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following text is used, a run of consecutive letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hoodlum — is he arrested",
+      "note": "the letters run across the end of the first word, two whole words, and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A gangster may have been caught in error; is he now under arrest?",
+     "walkthrough": "'Catch' suggests an arrest, fitting the hoodlum, but it means hearing what someone says.",
+     "definitionFit": "To mishear is to hear wrongly; catching a word is idiomatic for hearing it, so catching erroneously fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +755,56 @@
     "text": "Preparing the ground in time, I’m going to get older",
     "enumeration": "7"
    },
-   "solution": "TILLAGE"
+   "solution": "TILLAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TILLAGE",
+    "definitions": [
+     {
+      "text": "Preparing the ground",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "I’m going to",
+      "gives": "ILL",
+      "note": "I'll, the contraction of I will, with the apostrophe dropped"
+     },
+     {
+      "clueFragment": "get older",
+      "gives": "AGE",
+      "note": "to age is to get older"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ILL",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener digging the soil in good time muses about growing old.",
+     "walkthrough": "'In time' looks like a phrase meaning eventually; in is just the link and time a single letter.",
+     "definitionFit": "Tillage is the ploughing and cultivating of soil before planting crops, which readies the earth for sowing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +818,56 @@
     "text": "Kid might utter one line, boring Trump",
     "enumeration": "5"
    },
-   "solution": "BLEAT"
+   "solution": "BLEAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLEAT",
+    "definitions": [
+     {
+      "text": "Kid might utter one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "to bore is to drill into, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "BEAT",
+      "note": "to trump is to beat"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A child might come out with a dull line about the US president.",
+     "walkthrough": "The kid is a young goat, not a child, and 'one' belongs to the definition. Trump is the card-game verb, not the politician.",
+     "definitionFit": "A bleat is the cry of a goat or sheep, so a young goat might let out one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kid"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +887,66 @@
      }
     ]
    },
-   "solution": "BUDDYHOLLY"
+   "solution": "BUDDYHOLLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUDDY HOLLY",
+    "definitions": [
+     {
+      "text": "Crickets played with this individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, the first and the last"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little flower",
+      "gives": "BUD",
+      "note": "a bud is an unopened flower"
+     },
+     {
+      "clueFragment": "dewy",
+      "gives": "DY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "shrub",
+      "gives": "HOLLY",
+      "note": "holly is an evergreen shrub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUD",
+      "DY",
+      "HOLLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Insects hop about a single small flower on a dewy bush.",
+     "walkthrough": "Crickets look like insects in a garden, but The Crickets were the backing band of the 1950s rock'n'roll singer.",
+     "definitionFit": "The American rock'n'roll star fronted a band named The Crickets, so he was the person they played alongside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crickets"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +960,60 @@
     "text": "Mixture of ethanol is in a drop of the hard stuff?",
     "enumeration": "9"
    },
-   "solution": "HAILSTONE"
+   "solution": "HAILSTONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAILSTONE",
+    "definitions": [
+     {
+      "text": "a drop of the hard stuff",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mixture of",
+      "for": "anagram",
+      "note": "a mixture blends its ingredients together, so the letters get stirred into new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ethanol",
+      "gives": "ETHANOL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETHANOLIS",
+       "gives": "HAILSTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail containing alcohol hides inside a dram of strong spirits.",
+     "walkthrough": "'A drop of the hard stuff' is slang for a shot of spirits, which the ethanol encourages; here it is literally a hard drop falling from the sky.",
+     "definitionFit": "Hail falls as pellets of ice, so each pellet is a frozen solid drop of precipitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1033,55 @@
      }
     ]
    },
-   "solution": "SEETHROUGH"
+   "solution": "SEETHROUGH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEE-THROUGH",
+    "definitions": [
+     {
+      "text": "Concealing nothing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get angry",
+      "gives": "SEETH",
+      "note": "to seethe is to get angry, here with its last letter cut"
+     },
+     {
+      "clueFragment": "violent",
+      "gives": "ROUGH",
+      "note": "rough play is violent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEETH",
+      "ROUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holding nothing back nearly loses their temper and turns aggressive.",
+     "walkthrough": "'Concealing nothing' sounds like honesty about feelings, but describes fabric you can see through.",
+     "definitionFit": "Transparent material hides nothing behind it, which is what see-through clothing or glass is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Concealing"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1101,62 @@
      }
     ]
    },
-   "solution": "DENTALHYGIENIST"
+   "solution": "DENTALHYGIENIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DENTAL HYGIENIST",
+    "definitions": [
+     {
+      "text": "One may care for canines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, and crazy letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lengthiest",
+      "gives": "LENGTHIEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "DAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INLENGTHIESTDAY",
+       "gives": "DENTALHYGIENIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog-sitter looks after barking hounds all through the longest day.",
+     "walkthrough": "Canines and barking conjure dogs, but canines are pointed teeth; barking is British slang for crazy.",
+     "definitionFit": "A hygienist cleans and looks after patients' teeth, and canines are the pointed teeth beside the incisors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "canines"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1176,64 @@
      }
     ]
    },
-   "solution": "NILEBLUE"
+   "solution": "NILEBLUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NILE BLUE",
+    "definitions": [
+     {
+      "text": "shade",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "charade",
+      "note": "in a down clue the wearer sits beneath what it wears, like a head under a hat"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NIL",
+      "note": "nil means nothing"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "indecent",
+      "gives": "BLUE",
+      "note": "blue jokes or films are indecent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIL",
+      "E",
+      "BLUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A naked European behaving improperly while lounging in the shade.",
+     "walkthrough": "'In the shade' sounds like out of the sun, but shade is the definition, a colour.",
+     "definitionFit": "Nile blue is a pale greenish-blue colour named after the river, so it is a shade or hue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1247,39 @@
     "text": "People who break forcefully into others’ addresses?",
     "enumeration": "8"
    },
-   "solution": "HECKLERS"
+   "solution": "HECKLERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HECKLERS",
+    "definitions": [
+     {
+      "text": "People who break forcefully into others’ addresses?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People who break forcefully into others’ addresses?",
+      "note": "surface reading: burglars smashing their way into people's homes"
+     },
+     {
+      "clueFragment": "break forcefully into others’ addresses",
+      "note": "setter's reading: addresses are speeches, and these people loudly interrupt them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An address is a home but also a formal speech; breaking in is burglary but also interrupting.",
+     "definitionFit": "Hecklers shout rude interruptions at speakers during their speeches, cutting in forcefully on what they say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "addresses"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1299,47 @@
      }
     ]
    },
-   "solution": "YALELOCKS"
+   "solution": "YALELOCKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YALE LOCKS",
+    "definitions": [
+     {
+      "text": "security devices",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "YALE",
+      "note": "Yale is an American university"
+     },
+     {
+      "clueFragment": "head’s covering",
+      "gives": "LOCKS",
+      "note": "locks are the hair covering a head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YALE",
+      "LOCKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A university principal is protecting the campus security equipment.",
+     "walkthrough": "'University head' looks like a vice-chancellor, but head's covering is hair.",
+     "definitionFit": "Yale is a brand of cylinder door lock, so these are mechanisms that keep doors secure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head’s"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1353,58 @@
     "text": "Cross after student’s expelled for ridicule",
     "enumeration": "6"
    },
-   "solution": "SATIRE"
+   "solution": "SATIRE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SATIRE",
+    "definitions": [
+     {
+      "text": "ridicule",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelled",
+      "for": "deletion",
+      "note": "someone expelled is thrown out, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "gives": "SALTIRE",
+      "note": "a saltire is an X-shaped cross, as on the Scottish flag"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, a student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher grows cross after a pupil is thrown out for mockery.",
+     "walkthrough": "'Cross' wants to be angry (IRATE, which nearly fits); it is a noun, the diagonal cross of St Andrew.",
+     "definitionFit": "Satire uses mockery, irony and exaggeration to expose folly, so it is a form of ridicule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1418,54 @@
     "text": "Decaying matter Mike extracted from dip",
     "enumeration": "5"
    },
-   "solution": "HUMUS"
+   "solution": "HUMUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HUMUS",
+    "definitions": [
+     {
+      "text": "Decaying matter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "deletion",
+      "note": "something extracted is pulled out and taken away, leaving the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dip",
+      "gives": "HUMMUS",
+      "note": "hummus is a chickpea dip"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is the NATO alphabet word for M"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Mike pulls rotting stuff out of a dish of dip.",
+     "walkthrough": "Mike looks like a person, but stands for one letter of the NATO alphabet.",
+     "definitionFit": "Humus is the dark organic soil material formed when leaves and plant remains decompose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mike"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1479,65 @@
     "text": "Servants carrying paper — Times is something on hand",
     "enumeration": "6"
    },
-   "solution": "MITTEN"
+   "solution": "MITTEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MITTEN",
+    "definitions": [
+     {
+      "text": "something on hand",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "whatever carries something holds it within, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Servants",
+      "gives": "MEN",
+      "note": "men as in servants or staff"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "I",
+      "note": "the i is a British daily newspaper"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "TT",
+      "note": "T for time, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "TT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Servants bring in the newspaper; The Times is always to hand.",
+     "walkthrough": "Paper and Times look like one newspaper; they are two pieces, a British daily called i and a doubled abbreviation.",
+     "definitionFit": "A mitten is a glove without separate fingers, so it is literally worn on your hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1551,55 @@
     "text": "Kind of road test including some information",
     "enumeration": "7"
    },
-   "solution": "ORBITAL"
+   "solution": "ORBITAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORBITAL",
+    "definitions": [
+     {
+      "text": "Kind of road",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken exam"
+     },
+     {
+      "clueFragment": "some information",
+      "gives": "BIT",
+      "note": "a bit is a small unit of information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A driving test that covers a bit of theory about the rules of the road.",
+     "walkthrough": "'Road test' suggests a driving exam; the test is a spoken one. An orbital is a British ring road, such as the M25 around London.",
+     "definitionFit": "An orbital road circles a city, so it describes a type of highway built as a ring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1613,60 @@
     "text": "Picked up tea and rum for really bad hairdresser",
     "enumeration": "4"
    },
-   "solution": "TODD"
+   "solution": "TODD",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TODD",
+    "definitions": [
+     {
+      "text": "really bad hairdresser",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "to pick something up is to hear it, so the word gives a letter that matches its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "T",
+      "soundsLike": "TEA",
+      "note": "the letter T is said exactly like the drink"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "ODD",
+      "note": "rum is old British slang for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ODD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collects tea and rum for a terrible hairdresser.",
+     "walkthrough": "'Rum' looks like the drink beside tea, but means strange. Sweeney Todd, the demon barber of Fleet Street, murdered his customers.",
+     "definitionFit": "The fictional barber killed his clients and had them baked into pies, so he is a murderously bad one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1680,60 @@
     "text": "What Napoleon stands on is tail of desert rat?",
     "enumeration": "7"
    },
-   "solution": "TROTTER"
+   "solution": "TROTTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROTTER",
+    "definitions": [
+     {
+      "text": "What Napoleon stands on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail of a word is its last letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desert",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "ROTTER",
+      "note": "a rat and a rotter are both a contemptible person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Napoleon's stand compared to a Desert Rat, a British soldier of the North African campaign.",
+     "walkthrough": "Napoleon looks like the French emperor but is the pig who rules Orwell's Animal Farm.",
+     "definitionFit": "A pig's foot is called a trotter, and the boar in Orwell's novel walks on four of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Napoleon"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1747,51 @@
     "text": "Gospel needs no introduction — it’s part of the Bible",
     "enumeration": "4"
    },
-   "solution": "RUTH"
+   "solution": "RUTH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUTH",
+    "definitions": [
+     {
+      "text": "part of the Bible",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs no introduction",
+      "for": "deletion",
+      "note": "with no introduction there is no opening, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gospel",
+      "gives": "TRUTH",
+      "note": "gospel truth: something stated as gospel is the truth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUTH"
+     ]
+    },
+    "explanation": {
+     "surface": "The Gospel is so famous it needs no introduction, being part of scripture.",
+     "walkthrough": "Gospel points at Matthew, Mark, Luke or John, but here it means truth.",
+     "definitionFit": "The Book of Ruth is a short Old Testament book, so it is one section of scripture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gospel"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1805,71 @@
     "text": "Returned outfit from Madrid without reporting to cleaner",
     "enumeration": "9"
    },
-   "solution": "LAUNDERER"
+   "solution": "LAUNDERER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LAUNDERER",
+    "definitions": [
+     {
+      "text": "cleaner",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece wraps round another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outfit from Madrid",
+      "gives": "REAL",
+      "note": "Real Madrid is the Spanish football club, an outfit being a team"
+     },
+     {
+      "clueFragment": "reporting",
+      "gives": "UNDER",
+      "note": "if you report to a boss you work under them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UNDER",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REAL",
+       "to": "LAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clothes brought back from Madrid without being reported to the dry cleaner.",
+     "walkthrough": "'Outfit' suggests clothes beside a cleaner, but it is a football team; without means outside, not lacking.",
+     "definitionFit": "A launderer washes and presses clothes or linen professionally, which makes them a cleaner by trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outfit"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1883,44 @@
     "text": "For eavesdroppers, supposed one receives hospitality",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "one receives hospitality",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For eavesdroppers",
+      "for": "homophone",
+      "note": "eavesdroppers only listen, so what matters is how the word sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supposed",
+      "gives": "GUEST",
+      "soundsLike": "GUESSED",
+      "note": "supposed means guessed, which is pronounced identically"
+     }
+    ],
+    "explanation": {
+     "surface": "Eavesdroppers assume someone is being entertained by their hosts.",
+     "walkthrough": "The homophone works on the past tense of guess, not the noun.",
+     "definitionFit": "A guest is a visitor who is entertained, fed or housed by a host."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supposed"
+    }
+   }
   }
  ]
 }
