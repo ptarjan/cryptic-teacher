@@ -24,6 +24,9 @@
   "date": "2022-07-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,57 @@
     "text": "Summit some eastbound nomads topped",
     "enumeration": "7"
    },
-   "solution": "POTSDAM"
+   "solution": "POTSDAM",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "POTSDAM",
+    "definitions": [
+     {
+      "text": "Summit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' asks for only part of the words that follow, a run of letters inside them"
+     },
+     {
+      "text": "eastbound",
+      "for": "reversal",
+      "note": "in an across clue, heading east-to-west against reading direction means the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nomads topped",
+      "gives": "MADSTOP",
+      "note": "seven letters running across the word break, from the M of the first word to the P of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "MADSTOP",
+       "to": "POTSDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wandering herders have reached the top of a mountain while travelling east.",
+     "walkthrough": "Reading 'nomads topped' backwards gives DEPPOTSDAMON, with POTSDAM sitting in the middle; 'eastbound' is the reversal, since an across answer normally runs west to east.",
+     "definitionFit": "The Potsdam Conference of 1945 was the meeting of Allied leaders, so the town's name stands for that famous summit by association."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Summit"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +104,56 @@
     "text": "Splendid display by English side City",
     "enumeration": "7"
    },
-   "solution": "POMPEII"
+   "solution": "POMPEII",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POMPEII",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Splendid display",
+      "gives": "POMP",
+      "note": "pomp is grand ceremonial display"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "II",
+      "note": "a side is a team of eleven, and 11 written out looks like II"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POMP",
+      "E",
+      "II"
+     ]
+    },
+    "explanation": {
+     "surface": "An English football team puts on a splendid show against City.",
+     "walkthrough": "The side is a team of eleven players; the setter writes 11 as two upright strokes, II, a visual trick rather than true Roman numerals.",
+     "definitionFit": "Pompeii was the ancient Roman town buried by the eruption of Vesuvius in 79 AD."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +167,45 @@
     "text": "Knackered as most bangers, I’m told",
     "enumeration": "5"
    },
-   "solution": "TIRED"
+   "solution": "TIRED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIRED",
+    "definitions": [
+     {
+      "text": "Knackered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I’m told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as most bangers",
+      "gives": "TIRED",
+      "soundsLike": "TYRED",
+      "note": "bangers here are old cars, and most cars are fitted with tyres"
+     }
+    ],
+    "explanation": {
+     "surface": "Worn-out old cars are mostly exhausted, someone says.",
+     "walkthrough": "A banger is British slang for a battered old car (also a sausage); a car fitted with tyres is 'tyred', which sounds the same as the answer.",
+     "definitionFit": "Knackered is British slang for utterly exhausted, worn out after effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bangers"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +219,60 @@
     "text": "Discredit duke and Archbishop taking heroin",
     "enumeration": "8"
    },
-   "solution": "DISGRACE"
+   "solution": "DISGRACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISGRACE",
+    "definitions": [
+     {
+      "text": "Discredit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "to take something is to carry it off, so the drug is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "standard abbreviation for duke"
+     },
+     {
+      "clueFragment": "Archbishop",
+      "gives": "HIS GRACE",
+      "note": "the formal style used for an archbishop"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISGRACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke and an archbishop disgraced by being caught on heroin.",
+     "walkthrough": "An archbishop (like a duke) is addressed as His Grace; 'taking' heroin means removing its H, leaving IS GRACE after the D.",
+     "definitionFit": "To disgrace someone is to bring shame on them, ruining their reputation, which is what discredit means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +286,56 @@
     "text": "Bob Mortimer’s one to catch zero carp",
     "enumeration": "4"
    },
-   "solution": "MOAN"
+   "solution": "MOAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOAN",
+    "definitions": [
+     {
+      "text": "carp",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "catching something means taking hold of it, so one piece closes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bob Mortimer’s one",
+      "gives": "MAN",
+      "note": "the comedian Bob Mortimer is a man"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "O",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Comedian Bob Mortimer, on his fishing show, fails to land a single carp.",
+     "walkthrough": "Mortimer co-presents the TV angling series Gone Fishing, so 'carp' looks like a fish; it is the verb meaning complain.",
+     "definitionFit": "To carp is to grumble or find fault persistently, which is what a moan is when used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "carp"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +349,52 @@
     "text": "Fancy urinals surrounded by water",
     "enumeration": "7"
    },
-   "solution": "INSULAR"
+   "solution": "INSULAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSULAR",
+    "definitions": [
+     {
+      "text": "surrounded by water",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or fanciful, so the letters are worked into a new pattern"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urinals",
+      "gives": "URINALS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "URINALS",
+       "gives": "INSULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elaborate public toilets in a moated setting.",
+     "walkthrough": "'Fancy' reads as an adjective praising the urinals, but it is the instruction to rearrange them.",
+     "definitionFit": "Insular comes from the Latin insula, island, and literally describes land enclosed by sea on every side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +414,46 @@
      }
     ]
    },
-   "solution": "ILLFEELING"
+   "solution": "ILLFEELING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ILL FEELING",
+    "definitions": [
+     {
+      "text": "Hatred",
+      "at": 0
+     },
+     {
+      "text": "nausea",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hatred",
+      "note": "first meaning: animosity or resentment"
+     },
+     {
+      "clueFragment": "nausea",
+      "note": "second meaning, read literally: a sensation of being sick"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second sense is a literal reading of the phrase: feeling ill.",
+     "definitionFit": "The phrase normally means resentment or animosity between people, but taken word by word it describes being unwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nausea"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +467,54 @@
     "text": "Pale singer draining first whiskey",
     "enumeration": "6"
    },
-   "solution": "SALLOW"
+   "solution": "SALLOW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SALLOW",
+    "definitions": [
+     {
+      "text": "Pale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "draining first",
+      "for": "deletion",
+      "note": "draining empties something out, and 'first' says the earlier of two matching letters is the one let out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "SWALLOW",
+      "note": "a songbird"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "whiskey is W in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A pallid vocalist knocking back a whiskey.",
+     "walkthrough": "The bird has two Ws; 'first' says the earlier one goes. 'Singer' for a bird is a common crossword trick.",
+     "definitionFit": "Sallow describes an unhealthy yellowish pallor of the skin, so it is a synonym for wan or pasty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +528,62 @@
     "text": "I dressed down after 50, being thus",
     "enumeration": "9"
    },
-   "solution": "LIBERATED"
+   "solution": "LIBERATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "LIBERATED",
+    "definitions": [
+     {
+      "text": "I dressed down after 50, being thus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following on, so the pieces are placed in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dressed down",
+      "gives": "BERATED",
+      "note": "to dress someone down is to scold them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "BERATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who started dressing casually at fifty feels freed.",
+     "walkthrough": "'Dressed down' suggests casual clothes but means told off; the whole clue also describes the answer, a person freed of formality in later life.",
+     "definitionFit": "Being liberated means set free from convention or constraint, which is how dressing casually at fifty might feel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +597,67 @@
     "text": "Connected pusher sent up? About time!",
     "enumeration": "7"
    },
-   "solution": "RELATED"
+   "solution": "RELATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RELATED",
+    "definitions": [
+     {
+      "text": "Connected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent up",
+      "for": "reversal",
+      "note": "in a down clue, sending something upwards makes it read bottom to top"
+     },
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pusher",
+      "gives": "DEALER",
+      "note": "a pusher is a drug dealer"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELA",
+      "T",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "DEALER",
+       "to": "RELAED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-connected drug pusher has finally been jailed.",
+     "walkthrough": "'Sent up' sounds like a prison sentence but is the reversal in a down clue; 'About time!' reads as relief but wraps the T.",
+     "definitionFit": "Related means linked or associated, the same sense as connected, whether of ideas or family members."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pusher"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +677,46 @@
      }
     ]
    },
-   "solution": "MARESTAIL"
+   "solution": "MARESTAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARES-TAIL",
+    "definitions": [
+     {
+      "text": "A thin trailing cloud",
+      "at": 0
+     },
+     {
+      "text": "fly repellent",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A thin trailing cloud",
+      "note": "first meaning: a wispy streak of high cirrus cloud"
+     },
+     {
+      "clueFragment": "fly repellent",
+      "note": "second meaning, read literally: what a horse swishes to drive off flies"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark marks the playful second sense: a female horse's tail literally swats flies away.",
+     "definitionFit": "Mare's tails are long wispy cirrus clouds, named because they resemble the flowing tail of a horse swishing at insects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "repellent"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +730,55 @@
     "text": "Tag lines written about Lincoln, say",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LABEL",
+    "definitions": [
+     {
+      "text": "Tag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "about means around, so one piece is written either side of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "LL is the abbreviation for lines"
+     },
+     {
+      "clueFragment": "Lincoln, say",
+      "gives": "ABE",
+      "note": "Abraham Lincoln was known as Abe; 'say' marks him as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ABE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Captioning some lines composed about the city of Lincoln.",
+     "walkthrough": "Lincoln could be the English city, but 'say' points to a person called Abe.",
+     "definitionFit": "A tag and a label are both small attached tickets giving information, such as a price or a name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lincoln"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +792,53 @@
     "text": "Those joining together to oust Welsh leaders",
     "enumeration": "6"
    },
-   "solution": "ELDERS"
+   "solution": "ELDERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELDERS",
+    "definitions": [
+     {
+      "text": "leaders",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to oust",
+      "for": "deletion",
+      "note": "ousting someone means expelling them, so a letter is thrown out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those joining together",
+      "gives": "WELDERS",
+      "note": "welders join metal parts together"
+     },
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "standard abbreviation for Welsh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "People uniting in a coalition to topple the leaders of Wales.",
+     "walkthrough": "'Welsh leaders' looks like one phrase; the split is after Welsh, and leaders is the definition.",
+     "definitionFit": "Elders are senior figures of a community or church who govern and guide it, so they act as its leaders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joining"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +852,64 @@
     "text": "Protest singer on coke’s a party type",
     "enumeration": "8"
    },
-   "solution": "DEMOCRAT"
+   "solution": "DEMOCRAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEMOCRAT",
+    "definitions": [
+     {
+      "text": "a party type",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another is placed after it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protest",
+      "gives": "DEMO",
+      "note": "a demo is a protest march"
+     },
+     {
+      "clueFragment": "coke",
+      "gives": "C",
+      "note": "C is slang for cocaine"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "RAT",
+      "note": "an informer 'sings' to the police, and so is a rat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "C",
+      "RAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A protest singer high on cocaine is a real party animal.",
+     "walkthrough": "'Protest singer' reads as one musician, but splits: protest is one piece and singer, an informer, another. 'Party type' suggests a reveller, but means a member of a political party.",
+     "definitionFit": "A Democrat is a member of the US Democratic Party, one kind of political party member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +923,56 @@
     "text": "Final bill up on energy … perfect",
     "enumeration": "10"
    },
-   "solution": "INFALLIBLE"
+   "solution": "INFALLIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INFALLIBLE",
+    "definitions": [
+     {
+      "text": "perfect",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "something that is up is in disarray, stirred out of its settled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Final bill",
+      "gives": "FINALBILL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FINALBILLE",
+       "gives": "INFALLIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The last energy bill has gone up, and it is just perfect.",
+     "walkthrough": "'Up' looks like a price rise but is the anagram signal; 'on energy' adds E to the mix.",
+     "definitionFit": "Infallible means incapable of error, so flawless in the way that something perfect is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +986,51 @@
     "text": "Deny client fools around in this way?",
     "enumeration": "10"
    },
-   "solution": "INDECENTLY"
+   "solution": "INDECENTLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "INDECENTLY",
+    "definitions": [
+     {
+      "text": "Deny client fools around in this way?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fools around",
+      "for": "anagram",
+      "note": "fooling around is messing about, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deny client",
+      "gives": "DENYCLIENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENYCLIENT",
+       "gives": "INDECENTLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional rebuffs a client who is behaving improperly.",
+     "walkthrough": "The whole clue also describes the answer: a client who fools around does so improperly, and the question mark signals that double duty.",
+     "definitionFit": "Indecently means in an improper or offensive manner, the way someone who fools around inappropriately behaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1044,39 @@
     "text": "Type of mask used in pits?",
     "enumeration": "9"
    },
-   "solution": "DEODORANT"
+   "solution": "DEODORANT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEODORANT",
+    "definitions": [
+     {
+      "text": "Type of mask used in pits?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of mask used in pits?",
+      "note": "surface reading: a breathing mask worn by miners down a coal pit"
+     },
+     {
+      "clueFragment": "pits",
+      "note": "setter's reading: pits are armpits, and the mask covers up smells there"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pits suggests coal mines and a gas mask, but it is the armpits, and the thing masked is body odour.",
+     "definitionFit": "A product applied under the arms masks unpleasant body smells, so it works as a mask for odour in the armpits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pits"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1090,43 @@
     "text": "A man who will easily put out boss",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "A man who will easily put out",
+      "at": 0
+     },
+     {
+      "text": "boss",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A man who will easily put out",
+      "note": "first meaning: a sexually prolific man"
+     },
+     {
+      "clueFragment": "boss",
+      "note": "second meaning: a raised knob or ornamental rivet head on a surface"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Boss looks like a manager, but here it is the raised knob on a shield or ceiling.",
+     "definitionFit": "Slang uses the word for a virile, promiscuous man, and in hardware it names a round projecting knob, also called a boss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1140,67 @@
     "text": "New garment you must put on Barney",
     "enumeration": "8"
    },
-   "solution": "ARGUMENT"
+   "solution": "ARGUMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARGUMENT",
+    "definitions": [
+     {
+      "text": "Barney",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new has been made afresh, so the letters are remade in another order"
+     },
+     {
+      "text": "must put on",
+      "for": "container",
+      "note": "putting on clothing means getting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garment",
+      "gives": "GARMENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U sounds like 'you', as in text-speak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARG",
+      "U",
+      "MENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GARMENT",
+       "gives": "ARGMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telling Barney he has to wear a new outfit.",
+     "walkthrough": "Barney looks like a person's name; it is British slang for a noisy quarrel.",
+     "definitionFit": "In British English a barney is a heated row or squabble, which is a quarrel or dispute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Barney"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1214,67 @@
     "text": "God contrary men spotted in Kent area",
     "enumeration": "4"
    },
-   "solution": "EROS"
+   "solution": "EROS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EROS",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contrary",
+      "for": "reversal",
+      "note": "contrary means going the opposite way, so the letters run backwards"
+     },
+     {
+      "text": "spotted in",
+      "for": "container",
+      "note": "something spotted in a place is seen inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR is 'other ranks', soldiers who are not officers"
+     },
+     {
+      "clueFragment": "Kent area",
+      "gives": "SE",
+      "note": "Kent is a county in the south-east of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RO",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god of contrarian men has been sighted in Kent.",
+     "walkthrough": "Kent is an English county in the south-east corner, abbreviated SE; the reversed soldiers sit between those two letters.",
+     "definitionFit": "Eros is the Greek god of love and desire, the counterpart of the Roman Cupid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1288,53 @@
     "text": "Euphoria provided by a topless Bond",
     "enumeration": "7"
    },
-   "solution": "ELATION"
+   "solution": "ELATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELATION",
+    "definitions": [
+     {
+      "text": "Euphoria",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top means the first letter of a down answer is cut off"
+     }
+    ],
+    "linkWords": [
+     "provided by",
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond",
+      "gives": "RELATION",
+      "note": "a relation is a bond or connection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELATION"
+     ]
+    },
+    "explanation": {
+     "surface": "The thrill of a topless scene in a James Bond film.",
+     "walkthrough": "Bond, capitalised, suggests 007, but it is the ordinary noun for a tie or connection.",
+     "definitionFit": "Elation is a state of great happiness and exhilaration, the same intense joy that euphoria describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1348,62 @@
     "text": "Censor cross about one famous author",
     "enumeration": "10"
    },
-   "solution": "BAINBRIDGE"
+   "solution": "BAINBRIDGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BAINBRIDGE",
+    "definitions": [
+     {
+      "text": "famous author",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Censor",
+      "gives": "BAN",
+      "note": "to censor is to ban"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "BRIDGE",
+      "note": "to bridge a gap is to cross it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "I",
+      "N",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry censor sounds off about a well-known writer.",
+     "walkthrough": "'Cross' wants to mean angry; it is the verb, to span something. Beryl Bainbridge was an English novelist, five times shortlisted for the Booker Prize.",
+     "definitionFit": "Beryl Bainbridge was a celebrated English novelist, author of Master Georgie and The Bottle Factory Outing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1417,60 @@
     "text": "Fuss in different cities in the country",
     "enumeration": "7"
    },
-   "solution": "ECUADOR"
+   "solution": "ECUADOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ECUADOR",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "different cities",
+      "gives": "ECUR",
+      "note": "two different cities: EC, the City of London postcode, and UR, the ancient Mesopotamian city"
+     },
+     {
+      "clueFragment": "Fuss",
+      "gives": "ADO",
+      "note": "ado is fuss or bother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "U",
+      "ADO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Commotion in various cities across the nation.",
+     "walkthrough": "'Different' wants to signal an anagram, but it says two separate cities are wanted: EC, the postcode of the City of London, and UR, Abraham's city. The fuss goes inside the second.",
+     "definitionFit": "Ecuador is a South American republic on the equator, which gives it its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1484,55 @@
     "text": "Musical effect always used in R&B",
     "enumeration": "6"
    },
-   "solution": "REVERB"
+   "solution": "REVERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVERB",
+    "definitions": [
+     {
+      "text": "Musical effect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in a thing is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in 'ever hopeful'"
+     },
+     {
+      "clueFragment": "R&B",
+      "gives": "RB",
+      "note": "the letters R and B taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "An echo effect that is a constant feature of rhythm and blues records.",
+     "walkthrough": "R&B reads as the music genre, which suits the surface, but only its two letters are used.",
+     "definitionFit": "Reverb, short for reverberation, is an echoing sound effect added to recordings and amplified instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "always"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1552,43 @@
      }
     ]
    },
-   "solution": "ABOVEALL"
+   "solution": "ABOVEALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABOVE ALL",
+    "definitions": [
+     {
+      "text": "Primarily",
+      "at": 0
+     },
+     {
+      "text": "where dictionaries list alkyne",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Primarily",
+      "note": "first meaning: chiefly, most importantly"
+     },
+     {
+      "clueFragment": "where dictionaries list alkyne",
+      "note": "second meaning, read literally: alphabetically, ALK- sorts just before the three-letter word for everything, so it sits over that entry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An alkyne is a hydrocarbon with a carbon triple bond, a red herring; what matters is its spelling, which sorts it directly before the three-letter word for everything.",
+     "definitionFit": "The phrase means most importantly or chiefly, an adverbial synonym for primarily or first and foremost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alkyne"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1602,55 @@
     "text": "Male love hanging around your office",
     "enumeration": "6"
    },
-   "solution": "BUREAU"
+   "solution": "BUREAU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BUREAU",
+    "definitions": [
+     {
+      "text": "office",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hanging around",
+      "for": "container",
+      "note": "to hang around something is to surround it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male love",
+      "gives": "BEAU",
+      "note": "a beau is a boyfriend"
+     },
+     {
+      "clueFragment": "your",
+      "gives": "UR",
+      "note": "UR is text-speak for your"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UR",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A boyfriend loitering around your workplace.",
+     "walkthrough": "'Male love' must be read together as one person, a male sweetheart, not as two words.",
+     "definitionFit": "A bureau is an office or agency department, as in a travel bureau or the Federal Bureau of Investigation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hanging"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1664,57 @@
     "text": "Duck and cover, but not towards the ground!",
     "enumeration": "5"
    },
-   "solution": "EIDER"
+   "solution": "EIDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EIDER",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "'but not' means except, so part of the word is excluded"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "EIDERDOWN",
+      "note": "an eiderdown is a quilt covering a bed"
+     },
+     {
+      "clueFragment": "towards the ground",
+      "gives": "DOWN",
+      "note": "downwards means towards the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EIDER"
+     ]
+    },
+    "explanation": {
+     "surface": "'Duck and cover' is the drill for an attack, yet the advice is not to go down.",
+     "walkthrough": "'Duck and cover' is a fixed safety phrase, but duck is the bird and cover a quilt filled with that bird's feathers; take away the word for 'towards the ground'.",
+     "definitionFit": "The eider is a large sea duck of northern coasts whose soft breast feathers fill quilts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1728,49 @@
     "text": "A fish and seaweed jelly",
     "enumeration": "4"
    },
-   "solution": "AGAR"
+   "solution": "AGAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAR",
+    "definitions": [
+     {
+      "text": "seaweed jelly",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "GAR",
+      "note": "the gar is a long-snouted fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A seafood dish of fish served with a seaweed jelly.",
+     "walkthrough": "The gar, or garfish, is a common crossword fish.",
+     "definitionFit": "Agar is a gelatinous substance extracted from red algae, used for setting foods and growing bacterial cultures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1784,55 @@
     "text": "Copy that’s all over publication",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "Copy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over",
+      "for": "container",
+      "note": "to be all over something is to cover it on every side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that’s",
+      "gives": "IE",
+      "note": "i.e., Latin id est, means 'that is'"
+     },
+     {
+      "clueFragment": "publication",
+      "gives": "MAG",
+      "note": "a mag is a magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Copy text that has been spread right across a publication.",
+     "walkthrough": "'Copy' is the journalists' word for text, which suits the surface, but here it means a likeness.",
+     "definitionFit": "An image is a likeness or replica, as in 'the spitting image', so it serves as a copy of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copy"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1846,46 @@
     "text": "Arrogant as a Mount Rushmore president?",
     "enumeration": "9"
    },
-   "solution": "BIGHEADED"
+   "solution": "BIGHEADED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BIGHEADED",
+    "definitions": [
+     {
+      "text": "Arrogant",
+      "at": 0
+     },
+     {
+      "text": "a Mount Rushmore president",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrogant",
+      "note": "first meaning: conceited"
+     },
+     {
+      "clueFragment": "a Mount Rushmore president",
+      "note": "second meaning, read literally: carved into the mountain with an enormous stone face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mount Rushmore in South Dakota bears the giant carved heads of four US presidents, so each is literally a huge head.",
+     "definitionFit": "Someone with an inflated opinion of themselves is called conceited in idiom, and the carved presidents have literally enormous heads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "president"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1899,61 @@
     "text": "Somebody coming back on board",
     "enumeration": "7"
    },
-   "solution": "NOTABLE"
+   "solution": "NOTABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTABLE",
+    "definitions": [
+     {
+      "text": "Somebody",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means returning the way it came, so letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a board is a table, as in board and lodging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TABLE"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important person is rejoining the company's board.",
+     "walkthrough": "'Coming back on board' reads as one phrase about rejoining; the reversal applies only to 'on'.",
+     "definitionFit": "A notable is a prominent, important person, just as calling someone 'a somebody' means they are someone of standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1967,55 @@
     "text": "One headed for sack after abusing terrier",
     "enumeration": "7"
    },
-   "solution": "RETIRER"
+   "solution": "RETIRER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETIRER",
+    "definitions": [
+     {
+      "text": "One headed for sack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abusing",
+      "for": "anagram",
+      "note": "abusing something means mistreating it, knocking it out of shape"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrier",
+      "gives": "TERRIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TERRIER",
+       "gives": "RETIRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An employee facing dismissal after mistreating a terrier.",
+     "walkthrough": "'Headed for sack' sounds like being fired; the sack is slang for bed.",
+     "definitionFit": "Hitting the sack is idiom for going to bed, and someone who retires is one who goes off to bed for the night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sack"
+    }
+   }
   }
  ]
 }
