@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Everyone is wearing blue around American city",
     "enumeration": "6"
    },
-   "solution": "DALLAS"
+   "solution": "DALLAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DALLAS",
+    "definitions": [
+     {
+      "text": "American city",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around faces something the other way, so the letters run backwards"
+     },
+     {
+      "text": "is wearing",
+      "for": "container",
+      "note": "whatever is worn sits inside the clothing, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "SAD",
+      "note": "feeling blue is feeling sad"
+     },
+     {
+      "clueFragment": "Everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ALL",
+      "AS"
+     ],
+     "reversals": [
+      {
+       "from": "SAD",
+       "to": "DAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everybody dressed in blue, perhaps fans of a Texan sports team.",
+     "walkthrough": "'Around' looks like it describes where everyone is, but it turns the blue word back to front before everyone goes inside it.",
+     "definitionFit": "Dallas is a large city in Texas in the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,59 @@
     "text": "Gather moderate Democrat will oust Republican",
     "enumeration": "6"
    },
-   "solution": "DEDUCE"
+   "solution": "DEDUCE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DEDUCE",
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will oust",
+      "for": "substitution",
+      "note": "ousting someone means pushing them out and taking their place, so one letter replaces another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moderate",
+      "gives": "REDUCE",
+      "note": "to moderate something is to reduce it"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the standard abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EDUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A centrist Democrat gathers support and pushes out a Republican, like a US election story.",
+     "walkthrough": "Start from REDUCE and swap its R for D to get DEDUCE. 'Gather' looks like a verb about collecting people but here means infer.",
+     "definitionFit": "To gather can mean to understand or conclude from evidence, which is what deducing is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gather"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +182,62 @@
      }
     ]
    },
-   "solution": "LIFEBELTS"
+   "solution": "LIFEBELTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIFE BELTS",
+    "definitions": [
+     {
+      "text": "They could help rescue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "career",
+      "gives": "LIFE",
+      "note": "a career can be called one's working life"
+     },
+     {
+      "clueFragment": "hit hard",
+      "gives": "BELT",
+      "note": "to belt someone is to hit them hard"
+     },
+     {
+      "clueFragment": "recession",
+      "gives": "S",
+      "select": "middle",
+      "note": "the fifth of nine letters is the middle one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFE",
+      "BELT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A career badly damaged by an economic downturn, needing something to save it.",
+     "walkthrough": "The surface suggests a bailout for a ruined career; the definition is literal, the rings thrown to someone drowning.",
+     "definitionFit": "Lifebelts are buoyant rings thrown to people in the water so they can be pulled to safety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +257,68 @@
      }
     ]
    },
-   "solution": "ATLARGE"
+   "solution": "ATLARGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AT LARGE",
+    "definitions": [
+     {
+      "text": "In general",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being evacuated",
+      "for": "letter_selection",
+      "note": "an evacuated building is emptied of everything inside, so only the outer letters stay"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about can mean surrounding, so one piece wraps round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "something that worried you ate at you"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "risking",
+      "gives": "RG",
+      "select": "outer",
+      "note": "only the first and last letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "LA",
+      "RG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Generally people are anxious about an American city at risk and having to be evacuated.",
+     "walkthrough": "'Worried' is past tense of a different idiom: what worried you ate (at) you.",
+     "definitionFit": "The phrase at large can mean as a whole, taken generally, as in society at large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "evacuated"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +332,58 @@
     "text": "Enterprise possibly shown by trendy celebrities previously",
     "enumeration": "8"
    },
-   "solution": "STARSHIP"
+   "solution": "STARSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARSHIP",
+    "definitions": [
+     {
+      "text": "Enterprise possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "previously",
+      "for": "charade",
+      "note": "something done previously comes earlier, so that piece is placed in front"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrities",
+      "gives": "STARS",
+      "note": "celebrities are stars"
+     },
+     {
+      "clueFragment": "trendy",
+      "gives": "HIP",
+      "note": "hip means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STARS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A business venture being shown off by fashionable famous people.",
+     "walkthrough": "Enterprise looks like a business; it is the spacecraft from Star Trek, hence 'possibly' marking an example.",
+     "definitionFit": "The USS Enterprise is the famous fictional spacecraft of Star Trek, one example of such a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Enterprise"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +403,72 @@
      }
     ]
    },
-   "solution": "TABLETENNIS"
+   "solution": "TABLETENNIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TABLE TENNIS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be upset",
+      "for": "reversal",
+      "note": "upset means turned over, which in a down clue flips the letters"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after something places this part later in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a board is a table, as in board and lodging"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLE",
+      "TEN",
+      "NIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A count is miscalled, causing upset after a board game.",
+     "walkthrough": "'Board game' reads as one phrase, but the board is one piece of wordplay and 'game' alone is the definition.",
+     "definitionFit": "Table tennis, or ping-pong, is a sport played with bats and a small ball over a net."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +482,52 @@
     "text": "Problems heading off getting ready for Moscow trip?",
     "enumeration": "7"
    },
-   "solution": "ROUBLES"
+   "solution": "ROUBLES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROUBLES",
+    "definitions": [
+     {
+      "text": "ready for Moscow trip?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the heading is the top, so taking it off removes the first letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problems",
+      "gives": "TROUBLES",
+      "note": "problems are troubles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUBLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Difficulties setting off while preparing for a journey to Moscow.",
+     "walkthrough": "'Ready' looks like an adjective meaning prepared, but it is British slang for cash, as in 'the ready'.",
+     "definitionFit": "The rouble is Russian currency, the cash a traveller to Moscow would need to take."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +541,60 @@
     "text": "Holidaymakers' initial destination perhaps in Lesotho not so awful?",
     "enumeration": "5"
    },
-   "solution": "HOTEL"
+   "solution": "HOTEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HOTEL",
+    "definitions": [
+     {
+      "text": "Holidaymakers' initial destination perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not so",
+      "for": "deletion",
+      "note": "saying not with a word strips those letters out of the longer word"
+     },
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a terrible state, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lesotho",
+      "gives": "LETHO",
+      "note": "the country name with S and O removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LETHO",
+       "gives": "HOTEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a holidaymaker's first stop in Lesotho is less awful than feared.",
+     "walkthrough": "Take SO out of LESOTHO and rearrange the five letters left. Lesotho is a small kingdom in southern Africa.",
+     "definitionFit": "Travellers usually check into lodgings on arrival, so it is often their first port of call abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +608,55 @@
     "text": "Having fun at celebration, saying goodbye hugging unknown character",
     "enumeration": "8"
    },
-   "solution": "PARTYING"
+   "solution": "PARTYING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARTYING",
+    "definitions": [
+     {
+      "text": "Having fun at celebration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap your arms round, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saying goodbye",
+      "gives": "PARTING",
+      "note": "a parting is a farewell"
+     },
+     {
+      "clueFragment": "unknown character",
+      "gives": "Y",
+      "note": "x, y and z are unknowns in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "Y",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoying a party, embracing a stranger as they bid farewell.",
+     "walkthrough": "'Unknown character' sounds like a stranger at the party, but it is a letter used as an unknown in maths.",
+     "definitionFit": "Partying means enjoying oneself at a party or similar festive gathering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +670,66 @@
     "text": "Pollute river that will carry scum miles away",
     "enumeration": "6"
    },
-   "solution": "DEFILE"
+   "solution": "DEFILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DEFILE",
+    "definitions": [
+     {
+      "text": "Pollute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "when something is away it is gone, so that letter is dropped"
+     },
+     {
+      "text": "will carry",
+      "for": "container",
+      "note": "carrying something holds it within, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river that",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     },
+     {
+      "clueFragment": "scum",
+      "gives": "FILM",
+      "note": "scum is a film on a liquid's surface"
+     },
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "M is the abbreviation for miles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FIL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dirty river carries floating scum for miles downstream.",
+     "walkthrough": "'Miles away' reads as distance, but it tells you to remove the M from the scum word.",
+     "definitionFit": "To defile is to make dirty or impure, the same as to contaminate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +743,47 @@
     "text": "Kidnapper is muscular type",
     "enumeration": "8"
    },
-   "solution": "ABDUCTOR"
+   "solution": "ABDUCTOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABDUCTOR",
+    "definitions": [
+     {
+      "text": "Kidnapper",
+      "at": 0
+     },
+     {
+      "text": "muscular type",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kidnapper",
+      "note": "first meaning: someone who carries a person off by force"
+     },
+     {
+      "clueFragment": "muscular type",
+      "note": "second meaning: a muscle that draws a limb away from the body"
+     }
+    ],
+    "explanation": {
+     "surface": "The kidnapper turns out to be a big, burly sort.",
+     "walkthrough": "'Muscular type' suggests a bodybuilder; it means a kind of muscle.",
+     "definitionFit": "Someone who abducts carries off victims, and anatomists name a muscle moving a limb outward the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "muscular"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +797,40 @@
     "text": "Place to go surfing and then have lunch?",
     "enumeration": "9"
    },
-   "solution": "CYBERCAFE"
+   "solution": "CYBERCAFE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CYBERCAFE",
+    "definitions": [
+     {
+      "text": "Place to go surfing and then have lunch?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place to go surfing",
+      "note": "surface reading: a beach where you ride the waves"
+     },
+     {
+      "clueFragment": "and then have lunch?",
+      "note": "setter's reading: surfing the internet at a place that also serves food"
+     }
+    ],
+    "explanation": {
+     "surface": "A beach spot where you can surf and then grab some lunch.",
+     "walkthrough": "Surfing is the web kind, not the waves kind.",
+     "definitionFit": "Such establishments offered internet access on computers alongside coffee and food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surfing"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +844,81 @@
     "text": "Erotic chap dancing round pole, Tim's rival occasionally",
     "enumeration": "11"
    },
-   "solution": "APHRODISIAC"
+   "solution": "APHRODISIAC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "APHRODISIAC",
+    "definitions": [
+     {
+      "text": "Erotic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing moves around freely, so these letters are rearranged"
+     },
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "only now and then, so every other letter is kept"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it, so the rest sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "CHAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "ROD",
+      "note": "a pole is a rod"
+     },
+     {
+      "clueFragment": "Tim's rival",
+      "gives": "ISIA",
+      "select": "alternate",
+      "note": "the even letters of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APH",
+      "ROD",
+      "ISIA",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAP",
+       "gives": "APHC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man doing a pole dance as something sexy, perhaps competing with a rival called Tim.",
+     "walkthrough": "The scrambled chap goes round both the pole and the alternate letters taken from the last two words.",
+     "definitionFit": "Aphrodisiac as an adjective means arousing sexual desire, which is close to erotic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Tim's"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +932,62 @@
     "text": "Money in stupidity female's withdrawn for student",
     "enumeration": "5"
    },
-   "solution": "LOLLY"
+   "solution": "LOLLY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "LOLLY",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawn for",
+      "for": "substitution",
+      "note": "something withdrawn in favour of another leaves its place to the newcomer"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupidity",
+      "gives": "FOLLY",
+      "note": "folly is foolishness"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on British L-plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OLLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Money tied up in a woman's foolishness is taken out to pay for a student.",
+     "walkthrough": "Swap the F of FOLLY for L. LOLLY is British slang for money.",
+     "definitionFit": "Lolly is informal British slang for cash, the same sense as dosh or dough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "withdrawn"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1001,62 @@
     "text": "Almost entitle Chinese to run country?",
     "enumeration": "13"
    },
-   "solution": "LIECHTENSTEIN"
+   "solution": "LIECHTENSTEIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LIECHTENSTEIN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "to run",
+      "for": "anagram",
+      "note": "letters that run are set loose and move about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entitle",
+      "gives": "ENTITL",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "Chinese",
+      "gives": "CHINESE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTITLCHINESE",
+       "gives": "LIECHTENSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether China should be allowed to govern a nation.",
+     "walkthrough": "'To run' looks like governing, but it signals rearrangement of the thirteen letters.",
+     "definitionFit": "Liechtenstein is a small principality in the Alps between Switzerland and Austria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1070,60 @@
     "text": "Provokes female perhaps to divide English and Poles",
     "enumeration": "9"
    },
-   "solution": "ENGENDERS"
+   "solution": "ENGENDERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENGENDERS",
+    "definitions": [
+     {
+      "text": "Provokes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to divide",
+      "for": "container",
+      "note": "dividing splits something apart, so one piece sits in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Poles",
+      "gives": "NS",
+      "note": "north and south are the two poles"
+     },
+     {
+      "clueFragment": "female perhaps",
+      "gives": "GENDER",
+      "note": "female is an example of a gender"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "GENDER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman stirs up trouble to split the English from the Polish.",
+     "walkthrough": "'Poles' looks like people from Poland; it is the north and south poles.",
+     "definitionFit": "To engender is to cause or give rise to something, much as provoking does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1137,55 @@
     "text": "Dead cute criminal is well-read",
     "enumeration": "8"
    },
-   "solution": "EDUCATED"
+   "solution": "EDUCATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDUCATED",
+    "definitions": [
+     {
+      "text": "well-read",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "a criminal arrangement is a crooked one, so the letters are twisted"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead cute",
+      "gives": "DEADCUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEADCUTE",
+       "gives": "EDUCATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very attractive criminal turns out to be bookish.",
+     "walkthrough": "'Dead cute' is colloquial for very cute, but the two words are just the letters to rearrange.",
+     "definitionFit": "Someone well-read has broad knowledge from books, so is learned or cultured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1199,70 @@
     "text": "Engineer said soft mortar between bricks is inadequate",
     "enumeration": "13"
    },
-   "solution": "DISAPPOINTING"
+   "solution": "DISAPPOINTING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DISAPPOINTING",
+    "definitions": [
+     {
+      "text": "inadequate",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineer",
+      "for": "anagram",
+      "note": "to engineer is to construct or contrive, so the letters are rebuilt"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "said",
+      "gives": "SAID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, soft in music"
+     },
+     {
+      "clueFragment": "mortar between bricks",
+      "gives": "POINTING",
+      "note": "pointing is the mortar filling the joints of brickwork"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISA",
+      "P",
+      "POINTING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAID",
+       "gives": "DISA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer says the weak mortar in a wall isn't good enough.",
+     "walkthrough": "'Engineer' looks like the person speaking, but it is a verb telling you to rearrange the next word.",
+     "definitionFit": "Something that disappoints falls short of expectations, which is what inadequate means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1276,48 @@
     "text": "Heard maybe description of nun's childhood to be accepted",
     "enumeration": "7"
    },
-   "solution": "PREVAIL"
+   "solution": "PREVAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PREVAIL",
+    "definitions": [
+     {
+      "text": "be accepted",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "what is heard is perceived by sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maybe description of nun's childhood",
+      "gives": "PREVAIL",
+      "soundsLike": "PRE-VEIL",
+      "note": "before a nun takes the veil, playfully her childhood"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's account of a nun's early years is to be believed.",
+     "walkthrough": "A nun takes the veil when professed, so her childhood was 'pre-veil'; 'maybe' flags the whimsy.",
+     "definitionFit": "A view or custom that prevails becomes generally established and is widely held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "childhood"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1331,72 @@
     "text": "Crooked European visits sick former prisoner in retirement",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ILLEGAL",
+    "definitions": [
+     {
+      "text": "Crooked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visits",
+      "for": "charade",
+      "note": "a visitor arrives after the host, so this piece is placed next in line"
+     },
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing backwards, so these letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "sick means ill"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "former prisoner",
+      "gives": "LAG",
+      "note": "an old lag is a former convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "E",
+      "GAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAG",
+       "to": "GAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest European calls on an ailing ex-convict in his old age.",
+     "walkthrough": "Lag is British slang for a convict, usually as 'old lag'.",
+     "definitionFit": "Crooked means dishonest or against the law, which is what unlawful conduct is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1410,67 @@
     "text": "Prime US prosecutor occupies two years going after ambassador",
     "enumeration": "6"
    },
-   "solution": "HEYDAY"
+   "solution": "HEYDAY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HEYDAY",
+    "definitions": [
+     {
+      "text": "Prime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupies",
+      "for": "container",
+      "note": "to occupy a place is to sit within it, so one piece goes inside another"
+     },
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "what goes after something follows it, so this part comes later"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE is His Excellency, an ambassador's title"
+     },
+     {
+      "clueFragment": "two years",
+      "gives": "YY",
+      "note": "Y is the abbreviation for year, twice"
+     },
+     {
+      "clueFragment": "US prosecutor",
+      "gives": "DA",
+      "note": "a DA is a district attorney"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "Y",
+      "DA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior American prosecutor spends two years pursuing an envoy.",
+     "walkthrough": "'Prime' reads as an adjective for the top prosecutor, but it is a noun meaning one's best period.",
+     "definitionFit": "One's prime is the period of greatest success or vigour, the same as one's heyday."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Prime"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1484,55 @@
     "text": "Old man sacked by competent guy?",
     "enumeration": "5"
    },
-   "solution": "CABLE"
+   "solution": "CABLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CABLE",
+    "definitions": [
+     {
+      "text": "guy?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacked by",
+      "for": "deletion",
+      "note": "someone sacked is thrown out, so those letters are removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "competent",
+      "gives": "CAPABLE",
+      "note": "capable means competent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An older employee fired by a capable young man.",
+     "walkthrough": "'Guy' looks like a man; here it is a rope, and the question mark warns of the trick.",
+     "definitionFit": "A guy is a rope or wire stretched to steady something, such as a tent or mast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1546,42 @@
     "text": "Poet feels terribly hot",
     "enumeration": "5"
    },
-   "solution": "BURNS"
+   "solution": "BURNS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BURNS",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     },
+     {
+      "text": "feels terribly hot",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "note": "first meaning: the Scottish national poet, author of Auld Lang Syne"
+     },
+     {
+      "clueFragment": "feels terribly hot",
+      "note": "second meaning: is scorching, as with a fever"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Robert Burns wrote Auld Lang Syne and is celebrated on Burns Night in Scotland.",
+     "definitionFit": "The surname of Scotland's best-known writer of verse, and a verb for being painfully overheated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poet"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1595,59 @@
     "text": "Rudeness from oddball seen with Colin",
     "enumeration": "9"
    },
-   "solution": "INSOLENCE"
+   "solution": "INSOLENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSOLENCE",
+    "definitions": [
+     {
+      "text": "Rudeness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddball",
+      "for": "anagram",
+      "note": "an oddball is eccentric, so the letters take a strange new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Colin",
+      "gives": "COLIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEENCOLIN",
+       "gives": "INSOLENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad manners from an eccentric person spotted with a man called Colin.",
+     "walkthrough": "'Oddball' looks like a person in the scene, but it is the signal to rearrange.",
+     "definitionFit": "Insolence is rude, disrespectful behaviour, so it is a synonym of impertinence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddball"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1661,62 @@
     "text": "Source of protein to feed country creature",
     "enumeration": "8"
    },
-   "solution": "TERRAPIN"
+   "solution": "TERRAPIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TERRAPIN",
+    "definitions": [
+     {
+      "text": "creature",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Source of",
+      "for": "letter_selection",
+      "note": "a source is where things begin, so the first letter is taken"
+     },
+     {
+      "text": "to feed",
+      "for": "container",
+      "note": "feeding puts something inside, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protein",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "TERRAIN",
+      "note": "country as in open land or terrain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERRA",
+      "P",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Giving a farm animal some protein-rich food.",
+     "walkthrough": "'Country' looks like a nation, but means land, as in rough country.",
+     "definitionFit": "A terrapin is a freshwater turtle, one kind of animal or living being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1730,64 @@
     "text": "Elderly drinking wine endlessly? It's okay",
     "enumeration": "6"
    },
-   "solution": "AGREED"
+   "solution": "AGREED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AGREED",
+    "definitions": [
+     {
+      "text": "okay",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the last letter is removed"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elderly",
+      "gives": "AGED",
+      "note": "elderly means aged"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is a wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "RE",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An old person asks if it's fine to keep drinking wine endlessly.",
+     "walkthrough": "'Endlessly' looks like drinking without stopping, but it trims the wine.",
+     "definitionFit": "Saying okay signals assent, and agreed is the same exclamation of acceptance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1801,43 @@
     "text": "Move from Hell?",
     "enumeration": "8"
    },
-   "solution": "DISPLACE"
+   "solution": "DISPLACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISPLACE",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     },
+     {
+      "text": "from Hell?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "note": "first meaning: shift something from its usual position"
+     },
+     {
+      "clueFragment": "from Hell?",
+      "note": "second meaning, playfully: a place from Dis, the classical underworld"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dis is the Roman god of the underworld and a name for Hell, so a 'Dis place' is a hellish location; the question mark marks the pun.",
+     "definitionFit": "To displace something is to shift it out of its usual position, which is moving it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hell"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1851,43 @@
     "text": "Meaty waffles hypermarket stocks",
     "enumeration": "6"
    },
-   "solution": "FLESHY"
+   "solution": "FLESHY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FLESHY",
+    "definitions": [
+     {
+      "text": "Meaty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocks",
+      "for": "hidden_word",
+      "note": "a shop that stocks goods keeps them within, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waffles hypermarket",
+      "gives": "FLESHY",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A large supermarket sells meat-filled waffles.",
+     "walkthrough": "'Waffles' looks like a verb about rambling; it simply holds the start of the answer.",
+     "definitionFit": "Meaty and fleshy both describe something with plenty of flesh or substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waffles"
+    }
+   }
   }
  ]
 }
