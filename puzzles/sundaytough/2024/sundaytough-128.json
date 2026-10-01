@@ -24,6 +24,9 @@
   "date": "2024-07-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,75 @@
     "text": "Briefly check case for police about vice in America",
     "enumeration": "4"
    },
-   "solution": "VEEP"
+   "solution": "VEEP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "VEEP",
+    "definitions": [
+     {
+      "text": "vice in America",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "said briefly, a word is cut short, so its final letter is dropped"
+     },
+     {
+      "text": "case for",
+      "for": "letter_selection",
+      "note": "a case is the outside of something, so only the outer letters are wanted"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "check",
+      "gives": "VE",
+      "note": "to vet is to check; cut short it loses its T"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "PE",
+      "select": "outer",
+      "note": "the first and last letters of police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "EP"
+     ],
+     "reversals": [
+      {
+       "from": "PE",
+       "to": "EP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quick inspection of how American police handle a vice investigation.",
+     "walkthrough": "'Vice' looks like crime for the police to check, but it is vice as in vice-president. VEEP is American slang for the vice-president.",
+     "definitionFit": "Veep is informal American slang for a vice-president, the deputy who stands in for the president."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vice"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +122,65 @@
     "text": "Where father’s put up with cold, cutting through storm",
     "enumeration": "8"
    },
-   "solution": "VICARAGE"
+   "solution": "VICARAGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VICARAGE",
+    "definitions": [
+     {
+      "text": "Where father’s put up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something that cuts into a word sits inside it, splitting it in two"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "through",
+      "gives": "VIA",
+      "note": "via means by way of, or through"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "RAGE",
+      "note": "to storm about is to rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "C",
+      "A",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A father caught out in bad weather has to shelter somewhere through the storm.",
+     "walkthrough": "'Through' reads as part of 'cutting through', but it is the word VIA that the cold letter cuts. The father is a priest, not a parent.",
+     "definitionFit": "A vicarage is the house provided for a parish vicar, a clergyman who may be addressed as Father."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "father’s"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +194,76 @@
     "text": "Same rickety fences in ground lord lands for nobles",
     "enumeration": "8"
    },
-   "solution": "EARLDOMS"
+   "solution": "EARLDOMS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EARLDOMS",
+    "definitions": [
+     {
+      "text": "lands for nobles",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rickety",
+      "for": "anagram",
+      "note": "something rickety is falling apart, so its letters are in disorder"
+     },
+     {
+      "text": "fences in",
+      "for": "container",
+      "note": "to fence something in is to enclose it on every side"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed in a mill, so the letters are broken up and remixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Same",
+      "gives": "SAME",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "lord",
+      "gives": "LORD",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "RLDO",
+      "MS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAME",
+       "gives": "EAMS"
+      },
+      {
+       "fodder": "LORD",
+       "gives": "RLDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tumbledown fence encloses the grounds of a lord's estate.",
+     "walkthrough": "'Ground' looks like land to go with 'lands', but it is the past tense of grind, and it scrambles the word beside it.",
+     "definitionFit": "An earldom is the territory or title held by an earl, so earldoms are estates belonging to members of the peerage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +277,62 @@
     "text": "Accomplished rook move in chess without problem",
     "enumeration": "10"
    },
-   "solution": "CONSUMMATE"
+   "solution": "CONSUMMATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONSUMMATE",
+    "definitions": [
+     {
+      "text": "Accomplished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so the other letters stand around this one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rook",
+      "gives": "CON",
+      "note": "to rook someone is to swindle or con them"
+     },
+     {
+      "clueFragment": "move in chess",
+      "gives": "MATE",
+      "note": "mate is the winning move in chess"
+     },
+     {
+      "clueFragment": "problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SUM",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled player moves a rook and wins at chess without any difficulty.",
+     "walkthrough": "'Rook' is not the chess piece but the verb meaning to cheat. 'Without' means outside, so the problem sits between the other two pieces.",
+     "definitionFit": "Consummate as an adjective describes someone supremely skilled, the same as calling them highly accomplished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +346,51 @@
     "text": "Approving of old man sometimes undergoing checks",
     "enumeration": "5"
    },
-   "solution": "OKING"
+   "solution": "OKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OKING",
+    "definitions": [
+     {
+      "text": "Approving",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "man sometimes undergoing checks",
+      "gives": "KING",
+      "note": "the king is the chess man that is put in check"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man approves of his medical check-ups.",
+     "walkthrough": "'Man' is a chess piece and 'checks' are the chess threats it faces. OKING is the informal verb OK with -ing.",
+     "definitionFit": "To OK something is informal for giving it approval, so okaying or OKing means approving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +404,60 @@
     "text": "Cantonese verb I messed up, penning note",
     "enumeration": "9"
    },
-   "solution": "SEMIBREVE"
+   "solution": "SEMIBREVE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SEMIBREVE",
+    "definitions": [
+     {
+      "text": "note",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "hidden_word",
+      "note": "penning means enclosing, so the wanted letters are held inside the words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from bottom to top, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cantonese verb I messed",
+      "gives": "EVERBIMES",
+      "note": "letters spanning the end of the first word to the middle of the last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEMIBREVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVERBIMES",
+       "to": "SEMIBREVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A learner of Cantonese admits getting a verb wrong while writing a note.",
+     "walkthrough": "'Messed up' looks like an anagram signal, but 'up' alone reverses the run of letters hidden across the words, read backwards: SEMIBREVE.",
+     "definitionFit": "A semibreve is a musical note lasting four beats, the whole note in American usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "messed"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +471,68 @@
     "text": "Yearn for drink during one’s irrational state",
     "enumeration": "11"
    },
-   "solution": "MISSISSIPPI"
+   "solution": "MISSISSIPPI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MISSISSIPPI",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during an event falls within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yearn for",
+      "gives": "MISS",
+      "note": "to miss someone is to yearn for them"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "IS",
+      "note": "one is I, plus the 'S"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SIP",
+      "note": "a sip is a small drink"
+     },
+     {
+      "clueFragment": "irrational",
+      "gives": "PI",
+      "note": "pi is the best-known irrational number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISS",
+      "IS",
+      "SIP",
+      "PI"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone craves a drink while in an unreasonable frame of mind.",
+     "walkthrough": "'State' seems to mean a frame of mind, but it is a US state. Pi is irrational in the mathematical sense: it cannot be written as a fraction.",
+     "definitionFit": "Mississippi is one of the fifty United States, in the Deep South along the great river of that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "irrational"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +546,75 @@
     "text": "Company accountant turned up unknown investing info",
     "enumeration": "6"
    },
-   "solution": "AGENCY"
+   "solution": "AGENCY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "AGENCY",
+    "definitions": [
+     {
+      "text": "Company",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means flipped to read bottom to top"
+     },
+     {
+      "text": "investing",
+      "for": "container",
+      "note": "to invest is to clothe or surround, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accountant",
+      "gives": "CA",
+      "note": "CA is a chartered accountant"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     },
+     {
+      "clueFragment": "info",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEN",
+      "C",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "CA",
+       "to": "AC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's accountant has emerged as an unknown figure putting money into information.",
+     "walkthrough": "'Investing' looks financial beside 'accountant', but it means wrapping around. Gen is everyday British slang for information.",
+     "definitionFit": "An agency is a business providing a service, such as a travel or advertising firm, so it is a company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +628,60 @@
     "text": "Gent not covered on e.g. plane fare’s first instalment",
     "enumeration": "6"
    },
-   "solution": "ENTREE"
+   "solution": "ENTREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTREE",
+    "definitions": [
+     {
+      "text": "fare’s first instalment",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not covered",
+      "for": "letter_selection",
+      "note": "uncovered means stripped of its outer layer, leaving only the inside"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gent",
+      "gives": "EN",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "e.g. plane",
+      "gives": "TREE",
+      "note": "the plane is a kind of tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bareheaded gentleman pays the first part of his airfare.",
+     "walkthrough": "'Plane' and 'fare' suggest flying, but the plane is a tree and the fare is food. In a down clue 'on' puts the first piece above the second.",
+     "definitionFit": "An entrée is a dish served as an early course of a meal, so it is the opening portion of the food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +695,54 @@
     "text": "Undesirable task, extracting hydrogen nucleus",
     "enumeration": "4"
    },
-   "solution": "CORE"
+   "solution": "CORE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CORE",
+    "definitions": [
+     {
+      "text": "nucleus",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracting",
+      "for": "deletion",
+      "note": "to extract something is to pull it out and take it away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Undesirable task",
+      "gives": "CHORE",
+      "note": "a chore is a tedious job"
+     },
+     {
+      "clueFragment": "hydrogen",
+      "gives": "H",
+      "note": "H is the chemical symbol for hydrogen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty lab job: removing the nucleus from a hydrogen atom.",
+     "walkthrough": "'Hydrogen nucleus' reads as one physics phrase; the clue splits it, with hydrogen as the letter removed and nucleus as the definition.",
+     "definitionFit": "A core is the central part of something, the same as its nucleus or heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nucleus"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +762,64 @@
      }
     ]
    },
-   "solution": "LITMUSTEST"
+   "solution": "LITMUSTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LITMUS TEST",
+    "definitions": [
+     {
+      "text": "one reacts to acid",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "by",
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intoxicated",
+      "gives": "LIT",
+      "note": "lit is slang for drunk"
+     },
+     {
+      "clueFragment": "essential",
+      "gives": "MUST",
+      "note": "a must is something essential"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "ES",
+      "note": "E is ecstasy, so drugs are Es"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "MUST",
+      "ES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone high on hard drugs takes a dose of acid and waits to see the effect.",
+     "walkthrough": "'Acid' looks like the drug LSD, keeping up the drugs theme, but it is the chemical. Es are ecstasy tablets.",
+     "definitionFit": "A litmus test uses dyed paper that turns red in acidic solution, so it is a check which shows a reaction to acid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "acid"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +839,44 @@
      }
     ]
    },
-   "solution": "REDFLAG"
+   "solution": "REDFLAG",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "RED FLAG",
+    "definitions": [
+     {
+      "text": "symbol for the left",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner swapped the opening sounds of words, so the starts trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taken off cheap paper",
+      "gives": "RED FLAG",
+      "soundsLike": "FLED RAG",
+      "note": "taken off is fled, ran away; a rag is a cheap newspaper; swap their opening sounds"
+     }
+    ],
+    "explanation": {
+     "surface": "Spooner has run off with a cheap newspaper's emblem of left-wing politics.",
+     "walkthrough": "'The left' is the political left, not a direction. A rag is slang for a poor-quality newspaper.",
+     "definitionFit": "The red flag is the traditional banner of socialism and communism, so it stands for left-wing politics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +900,63 @@
      }
     ]
    },
-   "solution": "LAWANDORDER"
+   "solution": "LAWANDORDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAW AND ORDER",
+    "definitions": [
+     {
+      "text": "this prevents anarchy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocks",
+      "for": "container",
+      "note": "a shop that stocks goods holds them inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food store",
+      "gives": "LARDER",
+      "note": "a larder is a cool room for storing food"
+     },
+     {
+      "clueFragment": "pasty",
+      "gives": "WAN",
+      "note": "pasty-faced means pale, or wan"
+     },
+     {
+      "clueFragment": "gathering",
+      "gives": "DO",
+      "note": "a do is a party or social gathering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "WAN",
+      "DO",
+      "RDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A food shop sells pasties, and the crowd that gathers stops things getting out of hand.",
+     "walkthrough": "'Pasty' looks like the pie a food store sells, but it is the adjective meaning pale. A do is British slang for a party.",
+     "definitionFit": "Law and order is the state where rules are obeyed and enforced, the opposite of lawless anarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pasty"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +970,74 @@
     "text": "Hard, firm rolls around filling cheese for breakfast?",
     "enumeration": "7"
    },
-   "solution": "BRIOCHE"
+   "solution": "BRIOCHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "BRIOCHE",
+    "definitions": [
+     {
+      "text": "for breakfast?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolls around",
+      "for": "reversal",
+      "note": "something that rolls around turns over, so the letters face the other way"
+     },
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling sits inside something else, like jam in a doughnut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the pencil grade for hard"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is short for company, a firm"
+     },
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "Brie is a soft French cheese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "OCH",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "HCO",
+       "to": "OCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crusty rolls stuffed with cheese, eaten in the morning.",
+     "walkthrough": "'Rolls' looks like bread for breakfast, but it is the signal to turn the letters round. The question mark warns that the definition is only an example of a breakfast food.",
+     "definitionFit": "Brioche is a rich sweet French bread, often eaten in the morning, so it is one thing you might have at breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rolls"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1057,84 @@
      }
     ]
    },
-   "solution": "GAMEWARDENS"
+   "solution": "GAMEWARDENS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "GAME WARDENS",
+    "definitions": [
+     {
+      "text": "Park Rangers",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "letters that are moved are shifted into new positions"
+     },
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes guests in, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fixture",
+      "gives": "GAME",
+      "note": "a sports fixture is a game"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "Danes",
+      "gives": "DANES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R is for Regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAME",
+      "W",
+      "A",
+      "R",
+      "DENS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DANES",
+       "gives": "ADENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football match against Denmark is rescheduled and played at Queen's Park Rangers, a London club.",
+     "walkthrough": "Queen's Park Rangers is a London football club, but the clue breaks the name apart: Queen gives a letter and 'Park Rangers' is the definition.",
+     "definitionFit": "Game wardens are officials who patrol parks and reserves protecting wildlife, the same job as park rangers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen’s"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1148,73 @@
     "text": "Left in control, defending major general’s van",
     "enumeration": "9"
    },
-   "solution": "REMAINING"
+   "solution": "REMAINING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "REMAINING",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defenders surround what they protect, so one piece goes around another"
+     },
+     {
+      "text": "van",
+      "for": "letter_selection",
+      "note": "the van is the vanguard, the front of an army, so the opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "to rein in is to control"
+     },
+     {
+      "clueFragment": "major",
+      "gives": "MAIN",
+      "note": "main means chief or major"
+     },
+     {
+      "clueFragment": "general’s",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of general"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MAIN",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A major general's vehicle is left in someone's charge.",
+     "walkthrough": "'Major general' is one rank, but the clue splits it: major gives a word and the general supplies its front letter. Van means the front, as in vanguard.",
+     "definitionFit": "Remaining as an adjective describes what is still there after the rest has gone, which is what is left over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1228,68 @@
     "text": "When dancing, hula skirts somewhat common",
     "enumeration": "8"
    },
-   "solution": "HABITUAL"
+   "solution": "HABITUAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HABITUAL",
+    "definitions": [
+     {
+      "text": "common",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "When dancing",
+      "for": "anagram",
+      "note": "a dancer moves about, so these letters move into a new order"
+     },
+     {
+      "text": "skirts",
+      "for": "container",
+      "note": "to skirt something is to go around its edge"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hula",
+      "gives": "HULA",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "somewhat",
+      "gives": "ABIT",
+      "note": "somewhat means a bit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ABIT",
+      "UAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HULA",
+       "gives": "HUAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grass skirts are fairly ordinary when dancing the hula.",
+     "walkthrough": "'Skirts' looks like the grass skirts of hula dancers, but it is a verb meaning goes round.",
+     "definitionFit": "Habitual means done regularly or as a habit, so it is usual or common."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1309,68 @@
      }
     ]
    },
-   "solution": "HENNIGHT"
+   "solution": "HENNIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEN NIGHT",
+    "definitions": [
+     {
+      "text": "do without men",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places one piece behind another, in order"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "to gather something is to take it in and hold it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "H is the abbreviation for hour"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "EIGHT",
+      "note": "a rowing eight is a boat's crew"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "NN",
+      "note": "N is new, so news is two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "NN",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "After hours, a film crew gathers news but does without the men.",
+     "walkthrough": "'Do' looks like a verb but is a noun, a party. A hen night is the British bride's party before a wedding, with no men invited.",
+     "definitionFit": "A hen night is a women-only party held for a bride-to-be, the female counterpart of a stag night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1390,54 @@
      }
     ]
    },
-   "solution": "NUMBERPLATE"
+   "solution": "NUMBERPLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUMBER PLATE",
+    "definitions": [
+     {
+      "text": "Where Reg is",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeling less",
+      "gives": "NUMBER",
+      "note": "numb means unable to feel, so feeling less is more numb"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "missing deadlines",
+      "gives": "LATE",
+      "note": "missing a deadline means being late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUMBER",
+      "P",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Reg relaxes, less stressed now that he has stopped worrying about deadlines.",
+     "walkthrough": "'Reg' looks like a man's name, but in Britain it is short for a vehicle's registration mark. NUMBER is to be read as NUMB-ER.",
+     "definitionFit": "A number plate is the sign on a vehicle showing its registration, the mark the British call its reg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reg"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1451,74 @@
     "text": "E.g. Plaid Cymru’s leader behind top Tories, at heart",
     "enumeration": "6"
    },
-   "solution": "FABRIC"
+   "solution": "FABRIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FABRIC",
+    "definitions": [
+     {
+      "text": "E.g. Plaid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so this means the opening letter"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places this piece after the others, in sequence"
+     },
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "FAB",
+      "note": "top and fab both mean excellent"
+     },
+     {
+      "clueFragment": "Tories",
+      "gives": "RI",
+      "select": "middle",
+      "note": "the two central letters of Tories"
+     },
+     {
+      "clueFragment": "Cymru’s",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of Cymru"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAB",
+      "RI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "The head of Plaid Cymru, the Welsh nationalist party, trails the leading Conservatives.",
+     "walkthrough": "Plaid Cymru is a Welsh political party, but plaid here is the tartan cloth. Top and fab are both slang for excellent.",
+     "definitionFit": "Plaid is a checked woollen cloth, so it is an example of a fabric or textile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plaid"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1532,58 @@
     "text": "Restoration writer of French lines boring Newton",
     "enumeration": "6"
    },
-   "solution": "DRYDEN"
+   "solution": "DRYDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRYDEN",
+    "definitions": [
+     {
+      "text": "Restoration writer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boring",
+      "gives": "DRY",
+      "note": "something dry is dull and boring"
+     },
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "lines",
+      "note": "surface padding: it supports the picture of a poet's verse and supplies no letters in this parse"
+     },
+     {
+      "clueFragment": "Newton",
+      "gives": "N",
+      "note": "N is the symbol for a newton, the unit of force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "DE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A Restoration-era writer finds French verse tedious for Isaac Newton.",
+     "walkthrough": "'Boring' looks like drilling into something, but it simply means dull. Newton is the unit of force, not the scientist; 'lines' fits the surface of a poet's verse.",
+     "definitionFit": "John Dryden was the leading English poet and playwright of the Restoration period after 1660."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1603,55 @@
      }
     ]
    },
-   "solution": "APRIORI"
+   "solution": "APRIORI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "A PRIORI",
+    "definitions": [
+     {
+      "text": "Using hypotheses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "a probe goes inside something to examine it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "PRIOR",
+      "note": "prior means before"
+     },
+     {
+      "clueFragment": "ChatGPT etc",
+      "gives": "AI",
+      "note": "ChatGPT is a form of artificial intelligence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PRIOR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Researchers form theories before investigating chatbots like ChatGPT.",
+     "walkthrough": "'Probing' looks like research on AI, but it puts one word inside the other.",
+     "definitionFit": "A priori reasoning works from theoretical assumptions rather than observed evidence, so it starts from premises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "probing"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1665,53 @@
     "text": "Instinctive sense lacking in education",
     "enumeration": "7"
    },
-   "solution": "TUITION"
+   "solution": "TUITION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TUITION",
+    "definitions": [
+     {
+      "text": "education",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "something lacking is missing, so letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instinctive sense",
+      "gives": "INTUITION",
+      "note": "intuition is knowing by instinct"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, the letters to drop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUITION"
+     ]
+    },
+    "explanation": {
+     "surface": "Gut feeling is something education fails to provide.",
+     "walkthrough": "'In' looks like a preposition linking the clue but is the pair of letters removed from the front.",
+     "definitionFit": "Tuition is teaching or instruction, especially paid lessons, so it is a form of education."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1725,56 @@
     "text": "Son perfectly protects your health, say",
     "enumeration": "5"
    },
-   "solution": "TOAST"
+   "solution": "TOAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOAST",
+    "definitions": [
+     {
+      "text": "your health, say",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protects",
+      "for": "container",
+      "note": "a protector shields something on all sides, so it surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfectly",
+      "gives": "TOAT",
+      "note": "to a T means perfectly"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOA",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A son looks after his parent's health flawlessly.",
+     "walkthrough": "'Your health' is not about wellbeing; it is the words said when raising a glass.",
+     "definitionFit": "Your health is a phrase spoken when drinking to someone, so it is an example of a toast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "health"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1794,52 @@
      }
     ]
    },
-   "solution": "REDADMIRAL"
+   "solution": "REDADMIRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED ADMIRAL",
+    "definitions": [
+     {
+      "text": "One may be seen on the wing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something rearranges it into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Real Madrid",
+      "gives": "REALMADRID",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALMADRID",
+       "gives": "REDADMIRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A winger is spotted playing for Real Madrid, the Spanish football club.",
+     "walkthrough": "'On the wing' suggests a football winger, but it means flying.",
+     "definitionFit": "The red admiral is a common butterfly, so it is an insect often seen in flight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1853,50 @@
     "text": "Chuck Berry using new guitar, wanting only number ones",
     "enumeration": "4"
    },
-   "solution": "BUNG"
+   "solution": "BUNG",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BUNG",
+    "definitions": [
+     {
+      "text": "Chuck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting only number ones",
+      "for": "letter_selection",
+      "note": "number ones are the first in each line-up, so only the opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Berry using new guitar",
+      "gives": "BUNG",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNG"
+     ]
+    },
+    "explanation": {
+     "surface": "Chuck Berry, the rock and roll star, plays a new guitar and wants only chart-topping hits.",
+     "walkthrough": "Chuck Berry looks like one name, but Chuck is the definition, as a verb. Bung is British slang for toss.",
+     "definitionFit": "To bung something is British slang for throwing it carelessly, which is what chucking it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chuck"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1910,69 @@
     "text": "Collect a lot of ice cream, say, in jar",
     "enumeration": "10"
    },
-   "solution": "CONGREGATE"
+   "solution": "CONGREGATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "CONGREGATE",
+    "definitions": [
+     {
+      "text": "Collect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the end is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in a container is held within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice cream",
+      "gives": "CON",
+      "note": "an ice-cream cone, shortened"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example, means say"
+     },
+     {
+      "clueFragment": "jar",
+      "gives": "GRATE",
+      "note": "to jar on the nerves is to grate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "GR",
+      "EG",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gather up a big stash of ice cream and put it in a jar.",
+     "walkthrough": "'Jar' looks like a container, but it is a verb meaning grate. The ice cream is a cone with its last letter lost.",
+     "definitionFit": "To congregate is to gather together in a group, which is a sense of collect used of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jar"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1986,59 @@
     "text": "Large blocks heavier than desirable in plane",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAT",
+    "definitions": [
+     {
+      "text": "plane",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocks",
+      "for": "container",
+      "note": "to block something is to get in its way, sitting in the middle"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "heavier than desirable",
+      "gives": "FAT",
+      "note": "fat means overweight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Big luggage makes an aircraft heavier than it should be.",
+     "walkthrough": "'Plane' looks like an aircraft, but it is the geometric sense: a level surface.",
+     "definitionFit": "A plane is a perfectly level surface, so as an adjective plane and flat both mean level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   }
  ]
 }
