@@ -129,6 +129,23 @@ rows = [("telegraph", 26895, d(2015, 8, 18), "v", "z"),
         ("sundaytel", 2800, d(2015, 8, 23), "v", "f")]
 same("reprints and specials leave the running order",
      sorted(r[1] for r in ft.in_order(rows)), [2800, 26895, 26896, 26898, 27000])
+# The app's calendar for April 2016 gives 28085-28089 to two weeks running, the
+# second week's documents titled with them too: neither copy is that puzzle.
+rows = ([("telegraph", 28084, d(2016, 4, 9), "v", "a")]
+        + [("telegraph", 28085 + i, d(2016, 4, 11 + i), "v", f"w1{i}") for i in range(5)]
+        + [("telegraph", 28085 + i, d(2016, 4, 18 + i), "v", f"w2{i}") for i in range(5)]
+        + [("telegraph", 28097, d(2016, 4, 25), "v", "z")])
+same("a number the calendar gives twice is dropped on both days",
+     sorted(r[1] for r in ft.in_order(rows)), [28084, 28097])
+reprint = [("telegraph", 29595, d(2021, 2, 10), "v", "a"), ("telegraph", 29596, d(2021, 2, 11), "v", "b"),
+           ("telegraph", 29597, d(2021, 2, 12), "v", "c"), ("telegraph", 29596, d(2017, 11, 28), "v", "r"),
+           ("telegraph", 28600, d(2017, 11, 27), "v", "p"), ("telegraph", 28602, d(2017, 11, 29), "v", "q")]
+same("a reprint under an old number years away doubles nothing",
+     sorted(r[1] for r in ft.in_order(reprint)), [28600, 28602, 29595, 29596, 29597])
+ft._repeated[:] = [ft.runs(rows)[1]]
+same("a repeated number is the blog's to file, its neighbours the bucket's",
+     [ft.served("telegraph", 28085), ft.served("telegraph", 28097)], [False, True])
+ft._repeated.clear()
 same("a slug names its variant",
      [ft.variant_of(s) for s in ("cryptic-crossword-37195", "prize-cryptic-39201",
                                  "toughie-crossword-93439", "prize-toughie-93445")],

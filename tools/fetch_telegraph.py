@@ -73,7 +73,8 @@ DELAY = 2.0
 CACHE = Path.home() / "cryptic-setter-data" / "telegraph-source"
 #: The first number each series' calendar serves. From here on the bucket is
 #: the primary source and bigdave44.com is read only for its hints:
-#: tools/file_telegraph_puzzles.py files nothing at or past these.
+#: tools/file_telegraph_puzzles.py files nothing at or past these but the
+#: numbers the calendar repeats (served()).
 FIRST_NUMBER = {"telegraph": 27738, "sundaytel": 2786, "toughie": 2486, "sundaytough": 24}
 #: The bucket's variant -> the series on a weekday and on a Sunday.
 VARIANTS = {
@@ -99,8 +100,24 @@ def http_json(url):
 
 
 def served(series, number):
-    """Whether the bucket is this puzzle's primary source."""
-    return series in FIRST_NUMBER and number >= FIRST_NUMBER[series]
+    """Whether the bucket is this puzzle's primary source: from its series'
+    first calendared number on, except a number the calendar gives twice in
+    sequence, which in_order() drops and the blog files."""
+    return (series in FIRST_NUMBER and number >= FIRST_NUMBER[series]
+            and (series, number) not in repeated())
+
+
+_repeated = []
+
+
+def repeated():
+    """{(series, number)} the cached calendars give twice in sequence."""
+    if not _repeated:
+        rows = []
+        for path in sorted((CACHE / "calendar").glob("*.json")):
+            rows += calendar_rows(json.loads(path.read_text(encoding="utf-8")))
+        _repeated.append(runs(rows)[1])
+    return _repeated[0]
 
 
 def bucket_puzzle(variant, slug):
@@ -159,11 +176,27 @@ def in_order(rows):
     """Each series' longest run of numbers rising with the date, and nothing
     else: a special numbered from 100,000 or a reprint under an old number is
     never the puzzle the sequence says is due, and dropping the fewest rows
-    that break the order is what leaves only those out."""
+    that break the order is what leaves only those out.
+
+    Nor is a number the calendar gives twice in sequence (runs()): the app
+    titles the second copy with the repeated number too (cryptic-crossword-37490,
+    18 April 2016, "No 28085", is No 28091), so both copies are dropped and the
+    number stays a hole for the blog to file."""
+    kept, doubles = runs(rows)
+    return [r for r in kept if (r[0], r[1]) not in doubles]
+
+
+#: How far a dropped row's number may sit from the run's number on the nearest
+#: day and still be in sequence (a misnumbered copy), not a reprint: a week.
+IN_SEQUENCE = 7
+
+
+def runs(rows):
+    """(each series' longest rising run, {(series, number)} doubled in it)."""
     by_series = {}
     for row in sorted(rows, key=lambda r: (r[0], r[2])):
         by_series.setdefault(row[0], []).append(row)
-    out = []
+    out, doubles = [], set()
     for seq in by_series.values():
         tails, back = [], [None] * len(seq)  # tails[k]: index ending the best run of k+1
         for i, row in enumerate(seq):
@@ -171,10 +204,22 @@ def in_order(rows):
             back[i] = tails[k - 1] if k else None
             tails[k:k + 1] = [i]
         i = tails[-1] if tails else None
+        run = []
         while i is not None:
-            out.append(seq[i])
+            run.append(seq[i])
             i = back[i]
-    return out
+        run.reverse()
+        out += run
+        days = [r[2] for r in run]
+        numbers = {r[1] for r in run}
+        for row in set(seq) - set(run):
+            j = bisect.bisect_left(days, row[2])
+            near = min((run[x] for x in (j - 1, j) if 0 <= x < len(run)),
+                       key=lambda r: abs((r[2] - row[2]).days), default=None)
+            if (near and row[1] in numbers
+                    and abs(near[1] - row[1]) <= IN_SEQUENCE):
+                doubles.add((row[0], row[1]))
+    return out, doubles
 
 
 def cp1252(text):

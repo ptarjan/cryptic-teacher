@@ -1200,7 +1200,8 @@ def check_puzzle(puzzle, today, flags):
 
 
 def check_rewrite(old, new, flags):
-    """What writing `new` over the file's `old` may not lose: a clue's words.
+    """What writing `new` over the file's `old` may not lose: a clue's words,
+    and the puzzle itself (most of its answers gone is another puzzle).
     A re-fetch of a page that serves the grid without the text (the Guardian's
     2005-08 prizes) would otherwise undo a recovery; see
     fetch_puzzle.carry_recovered_clues."""
@@ -1210,6 +1211,13 @@ def check_rewrite(old, new, flags):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
                           f"{was[entry_id(e)]!r} with a blank one; carry it across "
                           f"(fetch_puzzle.merge_annotations)"))
+    held = [e.get("solution") for e in old.get("entries") or [] if e.get("solution")]
+    now = {e.get("solution") for e in new.get("entries") or [] if e.get("solution")}
+    kept = sum(a in now for a in held)
+    if len(held) >= 4 and len(now) >= 4 and kept * 2 < len(held):
+        flags.append(("FILED", new["id"], f"would replace the held puzzle with another: "
+                      f"{kept} of its {len(held)} answers kept; a source under a misprinted "
+                      f"number is not this puzzle"))
 
 
 class RefusedWrite(ValueError):
