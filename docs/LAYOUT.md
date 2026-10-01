@@ -1096,5 +1096,7 @@ tools/test_cross_validate.sh                 does tools/cross_validate.py name e
                                              copies of a puzzle differ?
 tools/test_clue_counts.sh                    does a clue that carries its own letter count, or
                                              a stray letter, get refused?
+tools/trove_solution_ocr.py                  read a Canberra Times puzzle's answers off the
+                                             paper's printed solution grid
 ```
 <!-- LAYOUT-END -->
