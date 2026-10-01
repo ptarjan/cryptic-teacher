@@ -199,12 +199,19 @@ def word_image(cells, gap=4):
 BLOCK_PAPER = 0.22
 
 
+def opened(a, k):
+    """Morphological opening of a 0/1 image by a k x k square: erase every
+    patch of 1s narrower than k, keep the rest at its own size."""
+    win = np.lib.stride_tricks.sliding_window_view
+    p, q = k // 2, k - 1 - k // 2
+    eroded = win(np.pad(a, ((p, q), (p, q)), constant_values=1), (k, k)).min((2, 3))
+    return win(np.pad(eroded, ((p, q), (p, q)), constant_values=0), (k, k)).max((2, 3))
+
+
 def blocks_read(gray, lat, n):
     """{(row, col): True where the solution image has a block} for n x n."""
-    import cv2
     paper = (gray >= trove_grid.otsu(gray)).astype(np.uint8)
-    k = max(2, round(min(lat[2], lat[3]) / 12))
-    paper = cv2.morphologyEx(paper, cv2.MORPH_OPEN, np.ones((k, k), np.uint8))
+    paper = opened(paper, max(2, round(min(lat[2], lat[3]) / 12)))
     out = {}
     for r in range(n):
         for c in range(n):
