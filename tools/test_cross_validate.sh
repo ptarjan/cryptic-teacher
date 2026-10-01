@@ -210,6 +210,58 @@ same("against the paper's own print a blogger's slash is a clue difference",
 same("while quotes and spacing still are not",
      cv.diff({**base, "entries": [{**base["entries"][0], "clue": {"text": "Tom's  pet",
                                   "enumeration": "3"}}, *base["entries"][1:]]}, base, exact=True), [])
+# The FT's PDF, as ft_pdf_puzzles.read_pdf reads it: a 3x3 frame with a
+# block in its middle, CAT/TOE across, CAB/TEE down.
+pdf = {"number": 13412, "grid": ["...", ".#.", "..."],
+       "clues": [{"lights": [(1, "across")], "clue": "Tom’s far-reaching pet (3)", "enumeration": "3"},
+                 {"lights": [(3, "across")], "clue": "Digit (3)", "enumeration": "3"},
+                 {"lights": [(1, "down")], "clue": "Taxi (3)", "enumeration": "3"},
+                 {"lights": [(2, "down")], "clue": "Golf peg (3)", "enumeration": "3"}]}
+ft = cv.ft_shape(pdf)
+same("the PDF's lights take their cells from its grid, the count off the clue",
+     [(e["number"], e["direction"], e["position"], e["length"], e["clue"]["text"]) for e in ft["entries"]],
+     [(1, "across", {"x": 0, "y": 0}, 3, "Tom’s far-reaching pet"), (3, "across", {"x": 0, "y": 2}, 3, "Digit"),
+      (1, "down", {"x": 0, "y": 0}, 3, "Taxi"), (2, "down", {"x": 2, "y": 0}, 3, "Golf peg")])
+ours = {"id": "ftcryptic-13412", "dimensions": {"cols": 3, "rows": 3}, "entries": [
+    entry(1, "across", 0, 0, "CAT", "Tom’s farreaching pet"), entry(3, "across", 0, 2, "TOE", "Digit"),
+    entry(1, "down", 0, 0, "CAB", "Taxi"), entry(2, "down", 2, 0, "TEE", "Golf peg")]}
+same("a blogger's dropped hyphen differs from the print",
+     [m["class"] for m in cv.diff(ours, ft, exact=True)], ["CLUE"])
+gridless = cv.ft_shape({**pdf, "grid": None}, ours)
+same("a PDF with no grid is compared on our geometry, for its clues",
+     [m["class"] for m in cv.diff(ours, gridless, exact=True)], ["CLUE"])
+kept = copy.deepcopy(ours)
+kept["entries"][0]["annotation"] = {"definition": "Tom’s farreaching pet"}
+notes = cv.reprint_marks(kept, {cv.where(e): e["clue"]["text"] for e in ft["entries"]})
+same("a refile puts the printed marks back over ours, the annotation's quotation with them",
+     (kept["entries"][0]["clue"]["text"], kept["entries"][0]["annotation"]["definition"], notes),
+     ("Tom’s far-reaching pet", "Tom’s far-reaching pet", []))
+# A refile from the PDF whose post's answers fail against its clues files the
+# PDF unsolved and keeps the held answers, the grid being the same.
+import fetch_puzzle, fetch_telegraph, ft_pdf_puzzles as fpp
+from pathlib import Path
+held = {**copy.deepcopy(ours), "date": "2010-06-15", "source": {"acquiredBy": "tools/ft_puzzles.py"},
+        "solutions": {"origin": "writeup"}}
+def assemble(number, pdf_, post, date, url, how):
+    if post is not None:
+        return None, "answers disagree with the grid"
+    blank = copy.deepcopy(ours)
+    for e in blank["entries"]:
+        e["solution"] = None
+    return {**blank, "solutions": {"origin": "unsolved"}}, None
+fpp.assemble, fpp.read_pdf = assemble, lambda path: pdf
+cv.read_puzzle_file = lambda path: copy.deepcopy(held)
+written = {}
+fetch_puzzle.write_puzzle_file = lambda path, puzzle, **kw: written.update(puzzle=puzzle, **kw)
+fetch_puzzle.merge_annotations = lambda new, old: None
+fetch_telegraph.refile = lambda new, old: (new, [])
+adapter = cv.FT()
+adapter.posts, adapter.index = {13412: {"id": 1}}, {}
+adapter.raw_file = lambda number: Path("/nonexistent.pdf")
+notes = cv.refile_ft(adapter, "ftcryptic-13412", Path("x.json"), 13412, [])
+same("a post whose answers fail files the PDF with the held answers",
+     ([e["solution"] for e in written["puzzle"]["entries"]], written["puzzle"]["solutions"]["origin"],
+      written["generator"]), (["CAT", "TOE", "CAB", "TEE"], "writeup", "tools/ft_pdf_puzzles.py"))
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
