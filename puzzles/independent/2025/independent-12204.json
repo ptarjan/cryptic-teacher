@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,77 @@
      }
     ]
    },
-   "solution": "LIGHTYEAR"
+   "solution": "LIGHTYEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LIGHT-YEAR",
+    "definitions": [
+     {
+      "text": "Distance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dashed",
+      "for": "anagram",
+      "note": "to dash about is to rush in all directions, so these letters are scattered into a new order"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a small bit taken from the front of a word means keeping just its opening letter"
+     },
+     {
+      "text": "back from",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, which is the only one kept"
+     }
+    ],
+    "linkWords": [
+     "carrying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raleigh",
+      "gives": "RALEIGH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tobacco",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of tobacco"
+     },
+     {
+      "clueFragment": "colony",
+      "gives": "Y",
+      "select": "last",
+      "note": "closing letter of colony"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RALEIGHTY",
+       "gives": "LIGHTYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sir Walter Raleigh rushes home from the American colony with a sample of tobacco.",
+     "walkthrough": "Raleigh is famous for bringing tobacco back from Virginia, so the surface feels historical; the name is simply anagram fodder. LIGHT-YEAR is the result.",
+     "definitionFit": "A light-year is the span light travels in a year, a unit astronomers use for measuring length, not time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dashed"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +126,73 @@
     "text": "Australia's tail-ender, bowled in Test ground, chucked up in sink",
     "enumeration": "6"
    },
-   "solution": "LAVABO"
+   "solution": "LAVABO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "LAVABO",
+    "definitions": [
+     {
+      "text": "sink",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one pair of letters sits inside the larger word, so this preposition places them within it"
+     },
+     {
+      "text": "chucked up",
+      "for": "reversal",
+      "note": "in a down clue, throwing something upward turns the letters so they read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowled",
+      "gives": "B",
+      "note": "B is the cricket scorecard abbreviation for bowled"
+     },
+     {
+      "clueFragment": "Australia's tail-ender",
+      "gives": "A",
+      "note": "the last letter of Australia"
+     },
+     {
+      "clueFragment": "Test ground",
+      "gives": "OVAL",
+      "note": "the Oval is a London cricket ground that hosts Test matches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAV",
+      "AB",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OBAVAL",
+       "to": "LAVABO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian lower-order batsman is bowled at a Test venue and someone hurls the ball into a basin.",
+     "walkthrough": "The cricket vocabulary is all wordplay: B and A go inside OVAL after its O, giving OBAVAL, which read upwards is LAVABO.",
+     "definitionFit": "A lavabo is a washbasin, from the Latin for 'I will wash', used in churches and also for an ordinary wash-hand basin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chucked"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +206,57 @@
     "text": "Brace of 50s bagged by male cricketer",
     "enumeration": "5"
    },
-   "solution": "GULLY"
+   "solution": "GULLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GULLY",
+    "definitions": [
+     {
+      "text": "cricketer",
+      "at": 28,
+      "note": "gully is strictly a fielding position; here it stands for the fielder placed there"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagged by",
+      "for": "container",
+      "note": "something bagged is held inside a sack, so one piece is wrapped by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brace of 50s",
+      "gives": "LL",
+      "note": "L is the Roman numeral for fifty, and a brace is two"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "GUY",
+      "note": "a guy is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "LL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman scores two half-centuries, a brace of fifties.",
+     "walkthrough": "The cricket surface hides a Roman numeral: 50 is L. A brace is a pair, as of game birds.",
+     "definitionFit": "Gully is a close catching position on the off side in cricket, and the fielder stationed there is called by the position's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "50s"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +270,66 @@
     "text": "Lodgers attempt to adopt French child female abandoned",
     "enumeration": "8"
    },
-   "solution": "TENANTRY"
+   "solution": "TENANTRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TENANTRY",
+    "definitions": [
+     {
+      "text": "Lodgers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to adopt",
+      "for": "container",
+      "note": "adopting means taking someone into the household, so one piece is taken inside another"
+     },
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "what is abandoned is left behind, so that letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     },
+     {
+      "clueFragment": "French child",
+      "gives": "ENFANT",
+      "note": "enfant is French for child"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ENANT",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Lodgers try to adopt a French girl but give her up.",
+     "walkthrough": "Child and female look like the same girl in the surface, but they are separate instructions: one supplies a French word, the other the letter that comes out of it.",
+     "definitionFit": "Tenantry is a collective noun for the tenants of an estate, the people who rent and occupy its properties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +343,46 @@
     "text": "PM's somewhat divided England",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only to a degree, so just part of the following words is used"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "divided England",
+      "gives": "EDEN",
+      "note": "sits across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A prime minister presides over a split nation.",
+     "walkthrough": "The 's stands for 'is'. Anthony Eden was the British prime minister at the time of the Suez crisis, which did divide the country.",
+     "definitionFit": "Sir Anthony Eden served as British prime minister from 1955 to 1957, so the abbreviation for that office identifies him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "divided"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +396,44 @@
     "text": "Boxer underwear brand purchased by hipster down under",
     "enumeration": "5"
    },
-   "solution": "ROCKY"
+   "solution": "ROCKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKY",
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     },
+     {
+      "text": "underwear brand purchased by hipster down under",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boxer",
+      "note": "first meaning: the fictional prizefighter played by Sylvester Stallone"
+     },
+     {
+      "clueFragment": "underwear brand purchased by hipster down under",
+      "note": "second meaning: an Australian label of men's briefs, of the kind a hipster in Australia might buy"
+     }
+    ],
+    "explanation": {
+     "surface": "A trendy Australian buys a particular brand of boxer shorts.",
+     "walkthrough": "Boxer reads as a type of underpants alongside 'underwear', but it is the fighter; down under means Australia, where the brand is sold.",
+     "definitionFit": "Rocky Balboa is the film boxer, and Rocky is also the name of an Australian menswear and underwear label."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boxer"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +447,62 @@
     "text": "Sullen Frenchman yielding to wife must be tough",
     "enumeration": "5"
    },
-   "solution": "WOODY"
+   "solution": "WOODY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WOODY",
+    "definitions": [
+     {
+      "text": "tough",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "yielding to",
+      "for": "substitution",
+      "note": "to yield is to give way, so one letter steps aside and another takes its place"
+     }
+    ],
+    "linkWords": [
+     "must be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sullen",
+      "gives": "MOODY",
+      "note": "moody means sulky"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is the abbreviation of Monsieur"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OODY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky Frenchman who gives in to his wife needs to be resilient.",
+     "walkthrough": "Swap the M of MOODY for W.",
+     "definitionFit": "Woody describes stems or fibres that are hard and fibrous like timber, so the word can mean tough in texture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frenchman"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +522,58 @@
      }
     ]
    },
-   "solution": "WARCRY"
+   "solution": "WARCRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WAR CRY",
+    "definitions": [
+     {
+      "text": "fighting talk?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word goes round the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suspicious",
+      "gives": "WARY",
+      "note": "wary means suspicious or cautious"
+     },
+     {
+      "clueFragment": "Catholic",
+      "gives": "RC",
+      "note": "RC is short for Roman Catholic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "RC",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is wary of a Catholic's belligerent rhetoric.",
+     "walkthrough": "The 's stands for 'is'. The question mark admits the definition is loose: a battle shout is fighting talk in a literal sense.",
+     "definitionFit": "A war cry is the shout raised by soldiers charging into battle, so it is literally talk used while fighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Catholic"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +587,70 @@
     "text": "Killer crossing street when visiting the woman that plays music",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "that plays music",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something is to span it from one side to the other, so the outer word stretches around"
+     },
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside someone's home, so one piece enters another"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Killer",
+      "gives": "ORCA",
+      "note": "the orca is the killer whale"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     },
+     {
+      "clueFragment": "the woman",
+      "gives": "HER",
+      "note": "her is the pronoun for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORC",
+      "HE",
+      "ST",
+      "R",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer crosses a road on the way to see a woman who plays music.",
+     "walkthrough": "There are two layers of insertion, the inner one made first. The 'killer' is a whale, not a criminal.",
+     "definitionFit": "An orchestra is the ensemble of instrumentalists that performs symphonic works, so it is the body whose job is performing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Killer"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +664,53 @@
     "text": "The old country in Middle East tracks former militia",
     "enumeration": "8"
    },
-   "solution": "YEOMANRY"
+   "solution": "YEOMANRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YEOMANRY",
+    "definitions": [
+     {
+      "text": "former militia",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The old",
+      "gives": "YE",
+      "note": "ye is the archaic spelling of the"
+     },
+     {
+      "clueFragment": "country in Middle East",
+      "gives": "OMAN",
+      "note": "Oman is a sultanate on the Arabian peninsula"
+     },
+     {
+      "clueFragment": "tracks",
+      "gives": "RY",
+      "note": "RY is short for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "OMAN",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "An old nation in the Middle East keeps watch on an ex-militia.",
+     "walkthrough": "'Tracks' looks like a verb but is the noun railway, abbreviated RY.",
+     "definitionFit": "The Yeomanry were volunteer cavalry regiments raised in Britain from the 1790s, a historical home-defence force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tracks"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +724,62 @@
     "text": "Spirit leaves traitor midway through hanging",
     "enumeration": "7"
    },
-   "solution": "VALANCE"
+   "solution": "VALANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "VALANCE",
+    "definitions": [
+     {
+      "text": "hanging",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "to leave is to depart, so that letter goes away"
+     },
+     {
+      "text": "midway through",
+      "for": "letter_selection",
+      "note": "the midpoint of a seven-letter word is its fourth letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirit",
+      "gives": "VALIANCE",
+      "note": "valiance is courage or spirit"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "I",
+      "select": "middle",
+      "note": "the central letter of traitor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAL",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spirit abandons a traitor halfway through his execution.",
+     "walkthrough": "'Spirit leaves' reads as a ghost departing, but 'leaves' means drops: VALIANCE loses the I at the centre of traitor.",
+     "definitionFit": "A valance is a short drapery hung around a bed frame or across the top of a window, so it is a kind of hanging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hanging"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +793,70 @@
     "text": "Drink drivers arrested by copper beside a roundabout",
     "enumeration": "7"
    },
-   "solution": "CURACAO"
+   "solution": "CURACAO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CURACAO",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested by",
+      "for": "container",
+      "note": "someone arrested is held in custody, so this piece is held inside the others"
+     }
+    ],
+    "linkWords": [
+     "beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "drivers",
+      "gives": "RAC",
+      "note": "the RAC is the Royal Automobile Club, a British motoring organisation for drivers"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roundabout",
+      "gives": "O",
+      "note": "O is round, the shape of a roundabout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "RAC",
+      "A",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Drink-drivers are caught by a policeman beside a traffic roundabout.",
+     "walkthrough": "'Drink drivers' reads as one phrase, but Drink is the definition. Copper is the metal, not a policeman.",
+     "definitionFit": "Curaçao is an orange-flavoured liqueur named after the Caribbean island where its bitter oranges grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +870,62 @@
     "text": "Past 007 George Lazenby finally splits",
     "enumeration": "6"
    },
-   "solution": "BEYOND"
+   "solution": "BEYOND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEYOND",
+    "definitions": [
+     {
+      "text": "Past",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of each word, so only closing letters are kept"
+     },
+     {
+      "text": "splits",
+      "for": "container",
+      "note": "to split something is to break into it, so one piece goes into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "007",
+      "gives": "BOND",
+      "note": "007 is James Bond's code number"
+     },
+     {
+      "clueFragment": "George Lazenby",
+      "gives": "EY",
+      "select": "last",
+      "note": "the closing letters of both names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EY",
+      "OND"
+     ]
+    },
+    "explanation": {
+     "surface": "A former James Bond actor, George Lazenby, eventually breaks up with someone.",
+     "walkthrough": "Lazenby played Bond once, in 1969, so 'Past 007' looks like a description of him; Past is the definition.",
+     "definitionFit": "Beyond and past are prepositional synonyms, both meaning further than or on the far side of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Past"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +939,77 @@
     "text": "Life Science's top hack to cut bad UVA rays almost completely",
     "enumeration": "8"
    },
-   "solution": "AYURVEDA"
+   "solution": "AYURVEDA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "AYURVEDA",
+    "definitions": [
+     {
+      "text": "Life Science",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost completely",
+      "for": "deletion",
+      "note": "almost all of something means one bit short, so the final letter goes"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad things are disordered or corrupted, so these letters are rearranged"
+     },
+     {
+      "text": "to cut",
+      "for": "container",
+      "note": "cutting into something means entering it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UVA rays",
+      "gives": "UVARAY",
+      "note": "the phrase without its last letter"
+     },
+     {
+      "clueFragment": "top hack",
+      "gives": "ED",
+      "note": "the editor is the most senior journalist, and hack is slang for a journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AYURV",
+      "ED",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UVARAY",
+       "gives": "AYURVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A science magazine's best life hack for blocking harmful ultraviolet light.",
+     "walkthrough": "'Life Science' is a literal translation of the Sanskrit name. 'Top hack' is ED, the editor; it goes into the rearranged UVARAY.",
+     "definitionFit": "Ayurveda is the traditional Indian system of medicine, whose Sanskrit name combines ayus, life, and veda, knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hack"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1029,44 @@
      }
     ]
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MESH",
+    "definitions": [
+     {
+      "text": "Network",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saved by",
+      "for": "hidden_word",
+      "note": "what is saved is kept safe inside, so the letters are held within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Showtime's Homeland",
+      "gives": "MESH",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV network rescued by the success of the spy drama Homeland on Showtime.",
+     "walkthrough": "Network suggests a broadcaster, matching the TV surface; here it means a net.",
+     "definitionFit": "A mesh is an interlaced structure of threads or wires, the literal meaning of network as a net."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Network"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1080,81 @@
     "text": "King, inspired by Quiet American author, starts to eagerly read Steel?",
     "enumeration": "9"
    },
-   "solution": "SHARPENER"
+   "solution": "SHARPENER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SHARPENER",
+    "definitions": [
+     {
+      "text": "Steel?",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "to be inspired is literally to be breathed in, so a letter is drawn inside"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R stands for Rex, Latin for king"
+     },
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "PEN",
+      "note": "a pen is what an author writes with, and in crosswords pen can stand for writer"
+     },
+     {
+      "clueFragment": "eagerly read",
+      "gives": "ER",
+      "select": "first",
+      "note": "first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "A",
+      "R",
+      "PEN",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Stephen King, influenced by the author of The Quiet American, keenly begins reading Danielle Steel.",
+     "walkthrough": "The Quiet American is a novel by Graham Greene and Danielle Steel a novelist, but neither name matters: Quiet, American and author are separate pieces.",
+     "definitionFit": "A steel is a ridged rod used for honing kitchen knives, so it is one kind of blade sharpener; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Steel"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1168,54 @@
     "text": "Desperate for a short? It’s a sign of winter!",
     "enumeration": "9"
    },
-   "solution": "HOARFROST"
+   "solution": "HOARFROST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOARFROST",
+    "definitions": [
+     {
+      "text": "a sign of winter",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Desperate",
+      "for": "anagram",
+      "note": "a desperate person is in a frantic state, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a short",
+      "gives": "FORASHORT",
+      "note": "the three words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORASHORT",
+       "gives": "HOARFROST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone craving a short drink of spirits, a classic sign of cold weather.",
+     "walkthrough": "A short is a small measure of spirits, so the surface reads as a drinker on a cold day; 'Desperate' rearranges the three words after it.",
+     "definitionFit": "Hoarfrost is the white feathery ice crystals that form on surfaces on cold nights, a visible mark of the coldest season."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1229,52 @@
     "text": "Get topless to make an impression",
     "enumeration": "4"
    },
-   "solution": "ETCH"
+   "solution": "ETCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETCH",
+    "definitions": [
+     {
+      "text": "make an impression",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "in a down clue the top is the first letter, and without it that letter is gone"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "FETCH",
+      "note": "to fetch is to go and get"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Going topless to get noticed.",
+     "walkthrough": "'Get topless' reads as an instruction to strip; it means FETCH minus its first letter.",
+     "definitionFit": "To etch is to cut lines into a surface with acid or a tool, literally leaving a mark pressed into it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1294,48 @@
      }
     ]
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Celebrity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to finish",
+      "for": "deletion",
+      "note": "not reaching the finish means the last letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron Man",
+      "gives": "STARK",
+      "note": "Tony Stark is the superhero Iron Man's real identity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous athlete drops out of an Ironman triathlon.",
+     "walkthrough": "The italics make Iron Man the Marvel film, whose hero is Tony STARK; the triathlon reading is the false scent.",
+     "definitionFit": "A star is a famous performer or public figure, the same sense as a celebrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1349,66 @@
     "text": "Henry needs to separate dog and Siamese once here",
     "enumeration": "8"
    },
-   "solution": "THAILAND"
+   "solution": "THAILAND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "THAILAND",
+    "definitions": [
+     {
+      "text": "Siamese once here",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to separate",
+      "for": "container",
+      "note": "separating two things means coming between them, so one letter goes into the middle"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to follow or tail them"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "AIL",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "Henry must break up a fight between a dog and a Siamese cat.",
+     "walkthrough": "Siamese looks like the cat in a dog fight, but it is the people of Siam. 'dog' is the verb, to follow.",
+     "definitionFit": "Thailand was called Siam until 1939, so it is the country where the Siamese people lived under the old name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Siamese"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1422,51 @@
     "text": "They're against work performed in theatre by models",
     "enumeration": "8"
    },
-   "solution": "OPPOSERS"
+   "solution": "OPPOSERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPOSERS",
+    "definitions": [
+     {
+      "text": "They're against",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work performed in theatre",
+      "gives": "OP",
+      "note": "an op is a surgical operation, carried out in an operating theatre"
+     },
+     {
+      "clueFragment": "models",
+      "gives": "POSERS",
+      "note": "models pose, so they are posers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "POSERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Objectors to a piece staged in a theatre by fashion models.",
+     "walkthrough": "'Theatre' means an operating theatre, not a playhouse; 'work performed' there is an operation.",
+     "definitionFit": "Opposers are people who take a stand in opposition, the same people a sentence would describe as being against something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1480,46 @@
     "text": "NUT's general secretary?",
     "enumeration": "4"
    },
-   "solution": "HEAD"
+   "solution": "HEAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEAD",
+    "definitions": [
+     {
+      "text": "NUT",
+      "at": 0
+     },
+     {
+      "text": "general secretary?",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NUT",
+      "note": "first meaning: nut is slang for the top of the body above the neck"
+     },
+     {
+      "clueFragment": "general secretary?",
+      "note": "second meaning: the general secretary is the leader of an organisation such as a trade union"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capitals suggest the NUT, Britain's former National Union of Teachers; read in lower case it is the slang word. Head is also a school title, apt for teachers.",
+     "definitionFit": "Nut is a colloquial term for one's skull, and a general secretary is the chief officer leading a union or party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "NUT"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1533,63 @@
     "text": "Spooner's favourite source of protein is seeds",
     "enumeration": "9"
    },
-   "solution": "CHICKPEAS"
+   "solution": "CHICKPEAS",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CHICKPEAS",
+    "definitions": [
+     {
+      "text": "seeds",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourite",
+      "gives": "PICK",
+      "note": "your pick is your favourite choice"
+     },
+     {
+      "clueFragment": "source of protein",
+      "gives": "CHEESE",
+      "note": "cheese is a protein-rich food"
+     },
+     {
+      "clueFragment": "favourite source of protein",
+      "gives": "CHICKPEAS",
+      "soundsLike": "PICK CHEESE",
+      "note": "exchanging the initial P and CH sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHICK",
+      "PEAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner's preferred protein comes from seeds.",
+     "walkthrough": "The surface is nearly literal, since chickpeas are a protein source; the swap turns pick cheese into the answer.",
+     "definitionFit": "Chickpeas are the edible seeds of a leguminous plant, eaten dried or cooked like other pulses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1603,57 @@
     "text": "Scandal created by popular football managers on motor yacht",
     "enumeration": "6"
    },
-   "solution": "INFAMY"
+   "solution": "INFAMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFAMY",
+    "definitions": [
+     {
+      "text": "Scandal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "created by",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "football managers",
+      "gives": "FA",
+      "note": "the FA, the Football Association, runs English football"
+     },
+     {
+      "clueFragment": "motor yacht",
+      "gives": "MY",
+      "note": "MY is the prefix for a motor yacht's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FA",
+      "MY"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known football manager causes outrage by partying on a luxury yacht.",
+     "walkthrough": "Football managers suggests club bosses; it is the governing body, the Football Association.",
+     "definitionFit": "Infamy is notoriety for something shameful, the kind of public disgrace a scandal brings about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "managers"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1673,56 @@
      }
     ]
    },
-   "solution": "BOPEEP"
+   "solution": "BOPEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BO-PEEP",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into a place means entering it, so one piece is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disco",
+      "gives": "BOP",
+      "note": "a bop is an informal dance party"
+     },
+     {
+      "clueFragment": "to go",
+      "gives": "PEE",
+      "note": "to go is a polite way of saying to urinate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "PEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Is it a good idea to head into the dance?",
+     "walkthrough": "'To go' reads as setting off, but it is the euphemism for relieving oneself; the question mark flags the cheeky reading.",
+     "definitionFit": "Bo-peep is the nursery game of hiding one's face and suddenly reappearing to amuse a small child, also called peekaboo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1736,72 @@
     "text": "Isn’t it common to take motorsport trailer to Kentucky’s vast state?",
     "enumeration": "8"
    },
-   "solution": "INFINITY"
+   "solution": "INFINITY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INFINITY",
+    "definitions": [
+     {
+      "text": "vast state?",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "taking something in means holding it, so one piece sits inside another"
+     },
+     {
+      "text": "trailer to",
+      "for": "letter_selection",
+      "note": "a trailer is towed at the rear, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Isn’t it common",
+      "gives": "INNIT",
+      "note": "innit is the slangy contraction of isn't it"
+     },
+     {
+      "clueFragment": "motorsport",
+      "gives": "FI",
+      "note": "Formula One, F1, with the digit read as the letter I"
+     },
+     {
+      "clueFragment": "Kentucky",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter of Kentucky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FI",
+      "NIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether it is vulgar to drive a racing trailer across a big American state.",
+     "walkthrough": "Common here means non-standard speech: INNIT. F1, Formula One, is written FI. Kentucky and state suggest America, but only the last letter of Kentucky is used.",
+     "definitionFit": "Infinity is the condition of being boundless or endless, so it is the ultimate example of a vast state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "common"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1815,60 @@
     "text": "Strip of tuna niçoise on base of veg",
     "enumeration": "5"
    },
-   "solution": "THONG"
+   "solution": "THONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THONG",
+    "definitions": [
+     {
+      "text": "Strip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base of",
+      "for": "letter_selection",
+      "note": "in a down clue the base is the bottom, the final letter"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tuna niçoise",
+      "gives": "THON",
+      "note": "thon is French for tuna, and niçoise means from Nice"
+     },
+     {
+      "clueFragment": "veg",
+      "gives": "G",
+      "select": "last",
+      "note": "the closing letter of veg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of salade niçoise tuna placed on top of some vegetables.",
+     "walkthrough": "Niçoise looks like the name of the salad; it means 'in Nice', so tuna is put into French.",
+     "definitionFit": "A thong is a narrow strip of leather used as a strap or lace, which is the word's original meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "niçoise"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1882,82 @@
     "text": "Bear briefly capturing, from the outset, the heart of late British Queen?",
     "enumeration": "6"
    },
-   "solution": "POTATO"
+   "solution": "POTATO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "POTATO",
+    "definitions": [
+     {
+      "text": "British Queen?",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "said briefly means cut short, so the last letter goes"
+     },
+     {
+      "text": "from the outset",
+      "for": "letter_selection",
+      "note": "the outset is the start, so only the opening letter is kept"
+     },
+     {
+      "text": "the heart of",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letters are kept"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "a captor holds a prisoner, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear",
+      "gives": "POOH",
+      "note": "Winnie-the-Pooh is a famous bear"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the"
+     },
+     {
+      "clueFragment": "late",
+      "gives": "AT",
+      "select": "middle",
+      "note": "the two central letters of late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "T",
+      "AT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A tribute to the late Queen Elizabeth, whose heart was captured by a bear.",
+     "walkthrough": "POOH is shortened to POO, which captures T and AT. British Queen is an old variety of potato, not a monarch; the question mark admits the trick.",
+     "definitionFit": "British Queen is a heritage potato variety from the 1890s, so the answer names the vegetable of which it is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1971,48 @@
     "text": "Warning sign Gascoigne initially ignored",
     "enumeration": "5"
    },
-   "solution": "AMBER"
+   "solution": "AMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMBER",
+    "definitions": [
+     {
+      "text": "Warning sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially ignored",
+      "for": "deletion",
+      "note": "what comes initially is the first letter, and ignoring it leaves it out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gascoigne",
+      "gives": "BAMBER",
+      "note": "Bamber Gascoigne was the long-time host of the TV quiz University Challenge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Paul Gascoigne ignoring a warning at the outset.",
+     "walkthrough": "Gascoigne suggests Gazza, the footballer Paul Gascoigne; the one needed is Bamber Gascoigne, the quizmaster.",
+     "definitionFit": "Amber is the traffic-light colour shown between green and red, cautioning drivers to stop if it is safe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gascoigne"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2026,43 @@
     "text": "Fly close to drone",
     "enumeration": "4"
    },
-   "solution": "BUZZ"
+   "solution": "BUZZ",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUZZ",
+    "definitions": [
+     {
+      "text": "Fly close to",
+      "at": 0
+     },
+     {
+      "text": "drone",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fly close to",
+      "note": "first meaning: an aircraft flying low and near something, to intimidate or show off"
+     },
+     {
+      "clueFragment": "drone",
+      "note": "second meaning: a continuous low humming noise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a fly near a male bee or an unmanned aircraft; drone is the noise, not the insect or the machine.",
+     "definitionFit": "Pilots are said to buzz a ship or tower when skimming near it, and a buzz is also a steady humming sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +2076,69 @@
     "text": "Green Party's pursuing a mission that's only half complete",
     "enumeration": "7"
    },
-   "solution": "AVOCADO"
+   "solution": "AVOCADO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AVOCADO",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only half complete",
+      "for": "deletion",
+      "note": "half done means half the letters are missing"
+     },
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "to pursue is to come after, so one piece is placed behind the others"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mission",
+      "gives": "VOCA",
+      "note": "the front half of vocation, a calling or mission"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VOCA",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "The Green Party is chasing a policy goal it has only half achieved.",
+     "walkthrough": "Green Party reads as one political name; Green is the definition and Party is DO. The 's stands for 'is'.",
+     "definitionFit": "Avocado is the name of a pale yellowish-green shade, taken from the flesh of the fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2152,74 @@
     "text": "Slinky blue trousers trimmed bottom? Handy!",
     "enumeration": "7"
    },
-   "solution": "USEABLE"
+   "solution": "USEABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "USEABLE",
+    "definitions": [
+     {
+      "text": "Handy!",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "something trimmed has had its end cut off, so the last letter goes"
+     },
+     {
+      "text": "Slinky",
+      "for": "anagram",
+      "note": "slinky suggests sinuous movement, so these letters wriggle into a new order"
+     },
+     {
+      "text": "trousers",
+      "for": "container",
+      "note": "to trouser something is to pocket it, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "BLUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "SEA",
+      "note": "seat, a bottom, without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SEA",
+      "BLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLUE",
+       "gives": "UBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sleek blue trousers that show off a toned bottom: very convenient.",
+     "walkthrough": "'Trousers' looks like a garment but is the verb, to pocket; 'trimmed bottom' is a cut-down SEAT.",
+     "definitionFit": "Something useable can be put to practical use, the same sense as describing an object as handy or convenient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 31,
@@ -511,7 +2233,43 @@
     "text": "Speckled cuckoo",
     "enumeration": "5"
    },
-   "solution": "DOTTY"
+   "solution": "DOTTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOTTY",
+    "definitions": [
+     {
+      "text": "Speckled",
+      "at": 0
+     },
+     {
+      "text": "cuckoo",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speckled",
+      "note": "first meaning: covered in small spots"
+     },
+     {
+      "clueFragment": "cuckoo",
+      "note": "second meaning: slightly crazy or eccentric"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Speckled cuckoo looks like a bird with a spotted breast; cuckoo is the informal adjective for mad.",
+     "definitionFit": "The word means marked with spots, and is also British slang for a person who is eccentric or a bit mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 32,
@@ -541,7 +2299,79 @@
      }
     ]
    },
-   "solution": "GAZASTRIP"
+   "solution": "GAZASTRIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "GAZA STRIP",
+    "definitions": [
+     {
+      "text": "territory",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "a head is the top, so only the first letter is kept"
+     },
+     {
+      "text": "excitedly",
+      "for": "anagram",
+      "note": "excitement is agitation, so these letters are stirred up"
+     },
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grazia",
+      "gives": "GRAZIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "printing",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter of printing"
+     },
+     {
+      "clueFragment": "InStyle's core",
+      "gives": "ST",
+      "note": "the central pair of letters of the magazine name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAZA",
+      "ST",
+      "RIP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAZIAP",
+       "gives": "GAZARIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The editor of Grazia magazine eagerly secures the central pages of rival InStyle.",
+     "walkthrough": "Grazia and InStyle are fashion magazines; 'Grazia's head' looks like its editor, but the whole name is fodder and 'head of' goes with printing.",
+     "definitionFit": "The Gaza Strip is a narrow coastal area on the Mediterranean, a Palestinian territory bordering Israel and Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
