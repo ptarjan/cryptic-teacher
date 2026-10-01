@@ -52,14 +52,15 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-te
 PDFS = {1: "1930-04-02", 3: "1930-04-16", 29: "1930-10-15", 93: "1932-01-06",
         111: "1932-05-11"}
 
-#: Puzzles read and deliberately not filed: their entries are not their answers.
+#: Puzzles read and deliberately not filed, and why.
 SKIP = {
     3: "shaped grid: the outline of India, and a barred grid here has no "
        "squares outside it",
-    29: "entries altered: Latin quotation words entered reversed, truncated or "
-        "with letters transposed or omitted",
-    93: "entries altered: several lights are entered reversed or as anagrams "
-        "(rev., anag., mixed)",
+    29: "blocked grid that leaves two-letter runs unnumbered and unclued: a "
+        "grid here is either blocked, where every run of two is a numbered "
+        "light, or barred, where every square is a letter",
+    93: "black squares and bars in one grid, with runs only the downs clue: "
+        "a barred grid here has no black squares",
     111: "numerical: every light is a number",
 }
 
@@ -426,6 +427,13 @@ TIMES = {
 }
 
 
+#: Times pages read and not filed, and why.
+TIMES_SKIP = {
+    3985: "the notes' answers fit no 12x12 or 13x13 barred grid: it holds "
+          "unclued thematic lights the notes neither list nor place",
+}
+
+
 def _moves(word, run, way=0):
     """[(entry, steps)]: `word` with one `run` cut out and put back elsewhere,
     only rightwards for way 1, leftwards for -1."""
@@ -590,6 +598,8 @@ def assemble_times(number, page, notes):
 
 def file_times(write=True, log=print):
     filed = []
+    for number in sorted(TIMES_SKIP):
+        log(f"  {number}: skipped, {TIMES_SKIP[number]}")
     for number in sorted(TIMES):
         try:
             page = (CACHE / "times" / f"{number}.html").read_text(encoding="utf-8", errors="replace")
