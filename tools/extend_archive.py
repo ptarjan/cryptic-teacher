@@ -51,6 +51,8 @@ SOURCES = [
     ("independent", ["python3", "tools/fetch_independent.py", "--extend", "{n}"]),
     ("indysunday", ["python3", "tools/fetch_independent.py", "--extend-sundays", "{n}"]),
     ("everyman", ["python3", "tools/fetch_observer.py", "--extend", "{n}"]),
+    # Not deeper: the holes bigdave44.com's partial hints left, back to 2015.
+    ("telegraph", ["python3", "tools/fetch_telegraph.py", "--holes", "{n}", "--reindex"]),
 ]
 CHUNK = 20
 WINDOW_DAYS = 60
