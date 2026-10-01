@@ -24,6 +24,9 @@
   "date": "2025-01-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "Found out daughter has valid insurance policy?",
     "enumeration": "10"
    },
-   "solution": "DISCOVERED"
+   "solution": "DISCOVERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCOVERED",
+    "definitions": [
+     {
+      "text": "Found out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "has valid insurance policy",
+      "gives": "ISCOVERED",
+      "note": "someone with valid insurance 'is covered'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "COVERED"
+     ]
+    },
+    "explanation": {
+     "surface": "An investigator learns that a daughter's insurance is genuinely in force.",
+     "walkthrough": "The question mark flags that the insurance phrase is a cryptic paraphrase rather than a literal definition; 'Found out' is the real definition.",
+     "definitionFit": "To discover something is to learn or detect it, so the past tense matches a verb meaning detected or learned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +96,51 @@
     "text": "Thoughts tossed aside",
     "enumeration": "5"
    },
-   "solution": "IDEAS"
+   "solution": "IDEAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDEAS",
+    "definitions": [
+     {
+      "text": "Thoughts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed",
+      "for": "anagram",
+      "note": "things tossed are flung about and land jumbled, so the letters come back rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aside",
+      "gives": "ASIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASIDE",
+       "gives": "IDEAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's musings are dismissed without a second look.",
+     "walkthrough": "'Tossed aside' reads as one idiom meaning discarded; split it and the second word is the raw material.",
+     "definitionFit": "Ideas and thoughts are plain synonyms, both being notions or concepts formed in the mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tossed"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +154,57 @@
     "text": "Investigation in which baddie falls?",
     "enumeration": "7"
    },
-   "solution": "CASCADE"
+   "solution": "CASCADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASCADE",
+    "definitions": [
+     {
+      "text": "falls",
+      "at": 30,
+      "note": "plural-looking noun for a singular answer; 'falls' here means a waterfall"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "'in which' says the next item sits inside the thing just named, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Investigation",
+      "gives": "CASE",
+      "note": "a police case is an investigation"
+     },
+     {
+      "clueFragment": "baddie",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man, a rotter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "CAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective story in which the villain finally comes to grief.",
+     "walkthrough": "'Falls' looks like a verb about the baddie's downfall, but it is a noun: a waterfall. CAD is an old-fashioned word for a man who behaves badly.",
+     "definitionFit": "A cascade is a small waterfall or series of them, and the word falls is used for a waterfall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "falls"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +218,45 @@
     "text": "Animal doctor providing check",
     "enumeration": "3"
    },
-   "solution": "VET"
+   "solution": "VET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VET",
+    "definitions": [
+     {
+      "text": "Animal doctor",
+      "at": 0
+     },
+     {
+      "text": "check",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal doctor",
+      "note": "first meaning: short for veterinary surgeon"
+     },
+     {
+      "clueFragment": "check",
+      "note": "second meaning: to examine carefully, screen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a doctor handing over a cheque; the two halves are a noun and a verb that share one spelling.",
+     "definitionFit": "The noun is the short form of veterinary surgeon, and the verb means to scrutinise someone or something thoroughly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "check"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +270,62 @@
     "text": "Official back to cover essential point, right",
     "enumeration": "9"
    },
-   "solution": "REGISTRAR"
+   "solution": "REGISTRAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REGISTRAR",
+    "definitions": [
+     {
+      "text": "Official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "covering something means going round it, so one piece is wrapped about the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "REAR",
+      "note": "the rear is the back"
+     },
+     {
+      "clueFragment": "essential point",
+      "gives": "GIST",
+      "note": "the gist is the main point of something"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "GIST",
+      "R",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A functionary goes back over the key point and agrees it is correct.",
+     "walkthrough": "'Back' looks like a verb meaning support, but it is a noun for the rear, which wraps round everything else.",
+     "definitionFit": "A registrar is an official who keeps records, such as births, marriages and deaths, or university enrolments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +339,61 @@
     "text": "Terrible Russian supporting head of dynastic seat",
     "enumeration": "5"
    },
-   "solution": "DIVAN"
+   "solution": "DIVAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIVAN",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, which is its opening letter"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, whatever supports something sits beneath it, fixing the order of the parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dynastic",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of dynastic"
+     },
+     {
+      "clueFragment": "Terrible Russian",
+      "gives": "IVAN",
+      "note": "Ivan the Terrible was a Russian tsar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IVAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful Russian props up the leader of a ruling family.",
+     "walkthrough": "'Terrible' looks like an adjective but stands for the tsar Ivan the Terrible. In a down clue, supporting means coming underneath.",
+     "definitionFit": "A divan is a low backless couch or sofa, a piece of furniture for sitting on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terrible"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +407,55 @@
     "text": "Minister annoying individual about religious instruction",
     "enumeration": "6"
    },
-   "solution": "PRIEST"
+   "solution": "PRIEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRIEST",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' can mean around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoying individual",
+      "gives": "PEST",
+      "note": "a pest is an annoying person"
+     },
+     {
+      "clueFragment": "religious instruction",
+      "gives": "RI",
+      "note": "RI is the abbreviation for religious instruction, a school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RI",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman is an irritating person when it comes to teaching the faith.",
+     "walkthrough": "'About' looks like 'concerning', but it means going round. RI was the old British school name for religious education.",
+     "definitionFit": "A priest is a minister of religion, a member of the clergy who leads worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +475,57 @@
      }
     ]
    },
-   "solution": "TEASET"
+   "solution": "TEASET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEA SET",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, which is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "TEASE",
+      "note": "to guy someone is to mock or tease them"
+     },
+     {
+      "clueFragment": "enlist",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of enlist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEASE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is the final recruit to join the armed forces.",
+     "walkthrough": "'Guy' looks like a noun for a man, but it is a verb meaning to ridicule. 'Service' reads as military service but means a set of crockery.",
+     "definitionFit": "A tea service is the matching cups, saucers and pot used for serving tea, so service is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +539,43 @@
     "text": "Some pondering over nation’s rule",
     "enumeration": "6"
    },
-   "solution": "GOVERN"
+   "solution": "GOVERN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GOVERN",
+    "definitions": [
+     {
+      "text": "rule",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' means only part of what follows, so a stretch of the letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pondering over nation’s",
+      "gives": "GOVERN",
+      "note": "the letters run across the ends and middle of these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Thinking hard about how a country should be run.",
+     "walkthrough": "The letters start at the end of pondering, take all of over, and finish with the start of nation's.",
+     "definitionFit": "To rule a country is to govern it, exercising authority over its people and affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +589,56 @@
     "text": "Like one with a vast tract of land",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASIA",
+    "definitions": [
+     {
+      "text": "vast tract of land",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "like and as both mean similar to"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Resembling a landowner with a huge estate.",
+     "walkthrough": "The surface suggests a wealthy landowner; the vast tract is in fact a whole continent.",
+     "definitionFit": "Asia is the largest continent on Earth, so it is truly an enormous expanse of territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tract"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +652,62 @@
     "text": "Removed a piece of furniture guards delivered",
     "enumeration": "8"
    },
-   "solution": "ABSENTED"
+   "solution": "ABSENTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABSENTED",
+    "definitions": [
+     {
+      "text": "Removed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "to guard something is to surround and protect it, so one part of the answer encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "piece of furniture",
+      "gives": "BED",
+      "note": "a bed is a piece of furniture"
+     },
+     {
+      "clueFragment": "delivered",
+      "gives": "SENT",
+      "note": "something delivered has been sent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "SENT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A removal firm took away a piece of furniture that security men had brought.",
+     "walkthrough": "'Guards' looks like a noun for security staff but is a verb: the bed surrounds the word for delivered.",
+     "definitionFit": "To absent oneself is to withdraw or stay away, so absented means took oneself away, kept out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +721,61 @@
     "text": "Stain a pot cooking Italian food",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTO"
+   "solution": "ANTIPASTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIPASTO",
+    "definitions": [
+     {
+      "text": "Italian food",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms raw ingredients into something new, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stain",
+      "gives": "STAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "POT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STAINAPOT",
+       "gives": "ANTIPASTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Messy cooking leaves marks on a saucepan while preparing an Italian dish.",
+     "walkthrough": "The kitchen picture hides that 'cooking' is the signal for rearranging the first three words.",
+     "definitionFit": "Antipasto is the Italian starter course of cold meats, cheeses and vegetables served before the main meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +789,55 @@
     "text": "You and I occupying home most recently built?",
     "enumeration": "6"
    },
-   "solution": "NEWEST"
+   "solution": "NEWEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEWEST",
+    "definitions": [
+     {
+      "text": "most recently built",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "something occupying a place is inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You and I",
+      "gives": "WE",
+      "note": "you and I together make us, or we"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a nest is a home, especially a cosy family one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "WE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple moving into a brand-new house.",
+     "walkthrough": "The question mark admits that the definition fits the newly built home in the surface too.",
+     "definitionFit": "Newest is the superlative of new, describing whatever was made or completed most recently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +851,50 @@
     "text": "Old lover to mention thrill",
     "enumeration": "6"
    },
-   "solution": "EXCITE"
+   "solution": "EXCITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCITE",
+    "definitions": [
+     {
+      "text": "thrill",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "mention",
+      "gives": "CITE",
+      "note": "to cite is to mention or quote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing up a former partner's name gives someone a frisson.",
+     "walkthrough": "'Old lover' gives the familiar short word for a former partner; 'to' merely links the parts to the definition.",
+     "definitionFit": "To excite and to thrill are synonymous verbs, both meaning to arouse strong pleasurable feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrill"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +908,42 @@
     "text": "Distant electronic device",
     "enumeration": "6"
    },
-   "solution": "REMOTE"
+   "solution": "REMOTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REMOTE",
+    "definitions": [
+     {
+      "text": "Distant",
+      "at": 0
+     },
+     {
+      "text": "electronic device",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distant",
+      "note": "first meaning: far away, isolated"
+     },
+     {
+      "clueFragment": "electronic device",
+      "note": "second meaning: a handset that controls a television from afar"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase about a faraway gadget, but the two parts are an adjective and a noun.",
+     "definitionFit": "The adjective means far off, and the noun is the everyday short name for a remote control handset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Distant"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +957,67 @@
     "text": "We’d perished in fog in part of USA",
     "enumeration": "7"
    },
-   "solution": "MIDWEST"
+   "solution": "MIDWEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MIDWEST",
+    "definitions": [
+     {
+      "text": "part of USA",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perished",
+      "for": "anagram",
+      "note": "something perished has decayed and fallen apart, so its letters break up and regroup"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We’d",
+      "gives": "WED",
+      "note": "the contraction without its apostrophe"
+     },
+     {
+      "clueFragment": "fog",
+      "gives": "MIST",
+      "note": "mist is a thin fog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "DWE",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WED",
+       "gives": "DWE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller fears they would have died lost in a fog somewhere in America.",
+     "walkthrough": "'Perished' looks like 'died' in the surface but signals that the letters of we'd are jumbled before going inside the fog.",
+     "definitionFit": "The Midwest is the region of the north-central United States, including states such as Illinois and Iowa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perished"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1031,47 @@
     "text": "Small amount for each fighter",
     "enumeration": "8"
    },
-   "solution": "SCRAPPER"
+   "solution": "SCRAPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAPPER",
+    "definitions": [
+     {
+      "text": "fighter",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small amount",
+      "gives": "SCRAP",
+      "note": "a scrap is a small piece or amount"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in per person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAP",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "Each boxer receives only a tiny purse.",
+     "walkthrough": "'Small amount for each' looks like a rationing phrase; it splits neatly into two everyday words.",
+     "definitionFit": "A scrapper is someone who likes a scrap, which is informal for a fight, so a pugnacious person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amount"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1091,47 @@
      }
     ]
    },
-   "solution": "ATEUP"
+   "solution": "ATEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATE UP",
+    "definitions": [
+     {
+      "text": "totally demolished",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Troublemaking female",
+      "gives": "ATE",
+      "note": "Ate is the Greek goddess of mischief and ruin"
+     },
+     {
+      "clueFragment": "at uni",
+      "gives": "UP",
+      "note": "a student at university is said to be up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellious woman student wrecked everything completely.",
+     "walkthrough": "Ate, the Greek goddess of folly and mischief, is a crossword regular. Being up at university, as at Oxford or Cambridge, is British usage for being in residence.",
+     "definitionFit": "To eat something up is to consume it entirely, so the phrase works figuratively for utterly demolishing food or opponents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1145,46 @@
     "text": "Bird to get down suddenly",
     "enumeration": "4"
    },
-   "solution": "DUCK"
+   "solution": "DUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUCK",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     },
+     {
+      "text": "get down suddenly",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "note": "first meaning: a waterfowl"
+     },
+     {
+      "clueFragment": "get down suddenly",
+      "note": "second meaning: to lower the head or body quickly to avoid something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a bird landing; the second meaning is the quick crouch to avoid a missile.",
+     "definitionFit": "The noun is the familiar waterbird, and the verb means to bob down quickly to dodge a blow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1198,50 @@
     "text": "Presiding officer in church broadcast",
     "enumeration": "5"
    },
-   "solution": "CHAIR"
+   "solution": "CHAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIR",
+    "definitions": [
+     {
+      "text": "Presiding officer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting leader is in a church that is being televised.",
+     "walkthrough": "'In' looks like it puts something inside, but here it only links the definition to the wordplay.",
+     "definitionFit": "The chair is the person who presides over a meeting, a committee or a board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1255,46 @@
     "text": "Force small lock",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a lock of hair is a tress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Lock' suggests a door fastening that could be forced, but it is a lock of hair.",
+     "definitionFit": "In physics and engineering stress is the force acting on a material, and also emphasis or pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1308,62 @@
     "text": "Facing of plaster on great housing unit",
     "enumeration": "6"
    },
-   "solution": "PREFAB"
+   "solution": "PREFAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PREFAB",
+    "definitions": [
+     {
+      "text": "housing unit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Facing of",
+      "for": "letter_selection",
+      "note": "a facing is the front surface, so only the leading letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plaster",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of plaster"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "FAB",
+      "note": "fab is slang for fabulous, great"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RE",
+      "FAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A plaster facing looks great on a building.",
+     "walkthrough": "'Facing' sounds like a builder's term for a wall finish but just takes the first letter. A prefab is a factory-built house, common in post-war Britain.",
+     "definitionFit": "A prefab is a prefabricated dwelling assembled on site from parts made elsewhere, so a unit of housing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Facing"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1377,45 @@
     "text": "Person involved in public relations is no amateur",
     "enumeration": "3"
    },
-   "solution": "PRO"
+   "solution": "PRO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRO",
+    "definitions": [
+     {
+      "text": "Person involved in public relations",
+      "at": 0
+     },
+     {
+      "text": "no amateur",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person involved in public relations",
+      "note": "first meaning: a public relations officer, abbreviated"
+     },
+     {
+      "clueFragment": "no amateur",
+      "note": "second meaning: a professional"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface praises a publicist's expertise; the two halves are separate senses of one short word.",
+     "definitionFit": "The abbreviation stands for public relations officer, and the same word is short for a professional, someone paid for their skill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amateur"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1429,54 @@
     "text": "Concert going over politician’s head",
     "enumeration": "10"
    },
-   "solution": "PROMONTORY"
+   "solution": "PROMONTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROMONTORY",
+    "definitions": [
+     {
+      "text": "head",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concert",
+      "gives": "PROM",
+      "note": "a prom is a promenade concert, as at the BBC Proms"
+     },
+     {
+      "clueFragment": "going over",
+      "gives": "ON",
+      "note": "on means placed above or atop"
+     },
+     {
+      "clueFragment": "politician’s",
+      "gives": "TORY",
+      "note": "a Tory is a British Conservative politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROM",
+      "ON",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A concert that leaves a party leader baffled or is staged without consulting them.",
+     "walkthrough": "'Going over someone's head' is an idiom for bypassing them or baffling them, but here head means a headland. The Proms are a famous London summer concert series.",
+     "definitionFit": "A promontory is a high point of land jutting into the sea, which is also called a head or headland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
