@@ -24,6 +24,9 @@
   "date": "2026-05-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,70 @@
     "text": "Dairy product delivered by Dutch airline travelling west across India",
     "enumeration": "4"
    },
-   "solution": "MILK"
+   "solution": "MILK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MILK",
+    "definitions": [
+     {
+      "text": "Dairy product",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling west",
+      "for": "reversal",
+      "note": "across reads left to right, so heading west means running right to left, backwards"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means straddling it, so one piece spans another"
+     }
+    ],
+    "linkWords": [
+     "delivered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch airline",
+      "gives": "KLM",
+      "note": "KLM is the Dutch national airline"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "LK"
+     ],
+     "reversals": [
+      {
+       "from": "KLM",
+       "to": "MLK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A milk delivery arrives on a KLM flight heading west over India.",
+     "walkthrough": "The airline's initials turn round to MLK, then straddle I for India to give M-I-LK.",
+     "definitionFit": "Milk is the basic dairy item from which cheese, butter and cream are all made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +117,55 @@
     "text": "Force male boat crew to jettison leader",
     "enumeration": "5"
    },
-   "solution": "MIGHT"
+   "solution": "MIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MIGHT",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to jettison leader",
+      "for": "deletion",
+      "note": "jettisoning the leader means throwing off whatever stands at the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "boat crew",
+      "gives": "EIGHT",
+      "note": "a rowing eight is a crew of eight oarsmen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach forces the men's rowing crew to throw their captain overboard.",
+     "walkthrough": "An eight in rowing is both the boat and its crew; dropping its first letter leaves IGHT after M.",
+     "definitionFit": "Might is power or strength, as in the saying that might makes right, so it matches force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +179,77 @@
     "text": "Following regular rejections, client with cute bum leaves",
     "enumeration": "7"
    },
-   "solution": "LETTUCE"
+   "solution": "LETTUCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LETTUCE",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regular rejections",
+      "for": "letter_selection",
+      "note": "rejecting at regular intervals throws out every other letter, keeping the rest"
+     },
+     {
+      "text": "bum",
+      "for": "anagram",
+      "note": "as an adjective bum means faulty or worthless, so the letters are in poor order"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so one piece is simply set next to another"
+     }
+    ],
+    "linkWords": [
+     "Following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "client",
+      "gives": "LET",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of client"
+     },
+     {
+      "clueFragment": "cute",
+      "gives": "CUTE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "TUCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUTE",
+       "gives": "TUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After several knock-backs, a customer with a pretty bottom walks out.",
+     "walkthrough": "'Leaves' reads as a verb, someone departing, but it is a noun: the leaves of a salad plant. 'Bum' is American slang for faulty, which signals the shuffle.",
+     "definitionFit": "Lettuce is a salad vegetable eaten as its green leaves, so leaves is a loose description of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +269,66 @@
      }
     ]
    },
-   "solution": "OSCARWILDE"
+   "solution": "OSCARWILDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "OSCAR WILDE",
+    "definitions": [
+     {
+      "text": "Victorian playwright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as people say it, so the word is given by its sound"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massive",
+      "gives": "OS",
+      "note": "OS stands for outsize, a clothing size"
+     },
+     {
+      "clueFragment": "carriage",
+      "gives": "CAR",
+      "note": "a railway car is a carriage"
+     },
+     {
+      "clueFragment": "out of control",
+      "gives": "WILDE",
+      "soundsLike": "WILD",
+      "note": "something wild is out of control; the surname is said the same way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "CAR",
+      "WILDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nineteenth-century dramatist's enormous coach is said to have run away with him.",
+     "walkthrough": "OS (outsize) and CAR are spelt as given; only the last part changes spelling, WILD becoming the playwright's surname WILDE.",
+     "definitionFit": "Oscar Wilde wrote The Importance of Being Earnest and other comedies staged in the 1890s, during Queen Victoria's reign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "massive"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +342,59 @@
     "text": "Heads of security hurry towards the back passage",
     "enumeration": "5"
    },
-   "solution": "SHAFT"
+   "solution": "SHAFT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHAFT",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads of",
+      "for": "letter_selection",
+      "note": "the heads of words are their first letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "security hurry",
+      "gives": "SH",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "towards the back",
+      "gives": "AFT",
+      "note": "aft means towards the stern, the back of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Security chiefs rush to the rear corridor.",
+     "walkthrough": "'Heads of security' sounds like senior guards, but it takes the first letters of two words; AFT is the nautical word for the rear.",
+     "definitionFit": "A shaft is a narrow vertical passage, such as a mine shaft or a lift shaft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heads"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +408,79 @@
     "text": "Abruptly, Ian Thorpe swims around Dutch Olympian",
     "enumeration": "9"
    },
-   "solution": "APHRODITE"
+   "solution": "APHRODITE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "APHRODITE",
+    "definitions": [
+     {
+      "text": "Olympian",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Abruptly",
+      "for": "deletion",
+      "note": "stopping abruptly means being cut off short, so the end is lost"
+     },
+     {
+      "text": "swims",
+      "for": "anagram",
+      "note": "when your head swims everything moves about, so the letters are mixed"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ian",
+      "gives": "IAN",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "Thorpe",
+      "gives": "THORPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APHRO",
+      "D",
+      "ITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IATHORPE",
+       "gives": "APHROITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Australian champion swimmer Ian Thorpe suddenly laps a Dutch Olympic athlete.",
+     "walkthrough": "Ian Thorpe really was an Olympic swimmer, so 'Olympian' looks like an athlete; here it means one of the gods of Mount Olympus.",
+     "definitionFit": "Aphrodite, Greek goddess of love, was one of the twelve gods who lived on Mount Olympus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Olympian"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +494,77 @@
     "text": "Lead character in Rainbow wearing tight gown that’s inappropriate",
     "enumeration": "5"
    },
-   "solution": "WRONG"
+   "solution": "WRONG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "WRONG",
+    "definitions": [
+     {
+      "text": "inappropriate",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lead character in",
+      "for": "letter_selection",
+      "note": "the leading character of a word is its first letter"
+     },
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight is slang for drunk, and drunken letters stagger out of order"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whoever wears clothes is inside them, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rainbow",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rainbow"
+     },
+     {
+      "clueFragment": "gown",
+      "gives": "GOWN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "ONG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOWN",
+       "gives": "WONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The star of a children's show called Rainbow wears a figure-hugging dress that is unsuitable.",
+     "walkthrough": "'Tight gown' reads as a close-fitting dress, but tight means drunk and scrambles the gown's letters around R.",
+     "definitionFit": "Wrong can mean unsuitable or improper for the occasion, the same sense as inappropriate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +578,63 @@
     "text": "Freckles of setter disappear after 40 days of fasting",
     "enumeration": "7"
    },
-   "solution": "LENTIGO"
+   "solution": "LENTIGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LENTIGO",
+    "definitions": [
+     {
+      "text": "Freckles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means being placed behind it in the line"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "40 days of fasting",
+      "gives": "LENT",
+      "note": "Lent is the forty-day Christian fast before Easter"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "disappear",
+      "gives": "GO",
+      "note": "to go is to vanish or leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LENT",
+      "I",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter hopes their freckles will fade after Lent.",
+     "walkthrough": "The 'of' after Freckles is only a link; the setter-as-I convention supplies the middle. The answer is a medical term most solvers will reach only through the wordplay.",
+     "definitionFit": "Lentigo is the medical term for small flat brown skin spots, including freckles, so it can stand for them collectively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disappear"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +648,79 @@
     "text": "Naked men run into New York, getting caught, resulting in disaster",
     "enumeration": "9"
    },
-   "solution": "EMERGENCY"
+   "solution": "EMERGENCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "EMERGENCY",
+    "definitions": [
+     {
+      "text": "disaster",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of its outer covering, so only the inside is kept"
+     },
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "getting something means taking it in, so one piece receives another"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter once the outside letters are stripped"
+     },
+     {
+      "clueFragment": "run into",
+      "gives": "MERGE",
+      "note": "to run into one another is to merge"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MERGE",
+      "N",
+      "C",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Streakers dash into New York, are arrested, and chaos follows.",
+     "walkthrough": "'Naked men' is the picture of streakers, but it strips MEN down to E; 'run into' is one unit meaning MERGE.",
+     "definitionFit": "An emergency is a sudden crisis demanding urgent action, close in sense to a calamity or disaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Naked"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +734,74 @@
     "text": "A top company detains extremists in uncivil Mexican city",
     "enumeration": "8"
    },
-   "solution": "ACAPULCO"
+   "solution": "ACAPULCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACAPULCO",
+    "definitions": [
+     {
+      "text": "Mexican city",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detains",
+      "for": "container",
+      "note": "to detain someone is to hold them inside, so one piece is held within another"
+     },
+     {
+      "text": "extremists in",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "CAP",
+      "note": "a cap is a top or lid"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "uncivil",
+      "gives": "UL",
+      "select": "outer",
+      "note": "the first and last letters of uncivil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CAP",
+      "UL",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A leading firm holds militants in a lawless Mexican town.",
+     "walkthrough": "'Extremists' sounds like militants, but it means the end letters of the next word; CO then holds those two letters.",
+     "definitionFit": "Acapulco is a resort port on Mexico's Pacific coast, famous for its cliff divers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +815,50 @@
     "text": "Barge into audience by accident",
     "enumeration": "9"
    },
-   "solution": "GATECRASH"
+   "solution": "GATECRASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GATECRASH",
+    "definitions": [
+     {
+      "text": "Barge into",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audience",
+      "gives": "GATE",
+      "note": "the gate is the number of spectators at a sports match"
+     },
+     {
+      "clueFragment": "accident",
+      "gives": "CRASH",
+      "note": "a crash is a collision or accident"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GATE",
+      "CRASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Accidentally pushing your way into a crowd of spectators.",
+     "walkthrough": "'By accident' looks like a phrase meaning unintentionally, but 'by' only joins, and accident gives the second word. GATE is British sporting usage for a crowd.",
+     "definitionFit": "To gatecrash is to enter a party or event uninvited, pushing in where you are not welcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accident"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +872,70 @@
     "text": "Small piece of skinned cod Mum’s brother left unused",
     "enumeration": "5"
    },
-   "solution": "OUNCE"
+   "solution": "OUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "OUNCE",
+    "definitions": [
+     {
+      "text": "Small piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinned",
+      "for": "letter_selection",
+      "note": "skinning removes the outer layer, so only the middle survives"
+     },
+     {
+      "text": "unused",
+      "for": "deletion",
+      "note": "what is unused plays no part, so it is dropped from the result"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cod",
+      "gives": "O",
+      "select": "middle",
+      "note": "the middle letter once the outer letters go"
+     },
+     {
+      "clueFragment": "Mum’s brother",
+      "gives": "UNCLE",
+      "note": "your mother's brother is your uncle"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left; it is the letter taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "UNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small bit of filleted cod was left uneaten by Mum's brother.",
+     "walkthrough": "'Left unused' reads as leftovers, but 'left' is L, which drops out of UNCLE.",
+     "definitionFit": "An ounce is a tiny amount, as in 'not an ounce of sense', besides being a small unit of weight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +949,54 @@
     "text": "Proclaim the President in America and in France",
     "enumeration": "7"
    },
-   "solution": "TRUMPET"
+   "solution": "TRUMPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRUMPET",
+    "definitions": [
+     {
+      "text": "Proclaim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and simply adds one thing to the next in a line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the President in America",
+      "gives": "TRUMP",
+      "note": "Donald Trump is the American President"
+     },
+     {
+      "clueFragment": "in France",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUMP",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "An announcement of the President, in the USA and in France.",
+     "walkthrough": "The 'and' does double duty: it joins the two parts and is also the word translated as ET by 'in France'.",
+     "definitionFit": "To trumpet something is to announce it loudly and publicly, as if blowing a fanfare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +1010,69 @@
     "text": "One cuts, with seconds to go, two songs in progress",
     "enumeration": "7"
    },
-   "solution": "ONGOING"
+   "solution": "ONGOING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ONGOING",
+    "definitions": [
+     {
+      "text": "in progress",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go",
+      "for": "deletion",
+      "note": "things that are to go are being removed, so they are taken out"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "something that cuts into another splits it and sits in the gap"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two songs",
+      "gives": "SONGSONG",
+      "note": "song twice over"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "SS",
+      "note": "s is short for second, and both of them are removed"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONGO",
+      "I",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A DJ trims the setlist with seconds remaining, two songs still playing.",
+     "walkthrough": "Remove both S's from SONG SONG to leave ONGONG; then I splits it after the fourth letter.",
+     "definitionFit": "Ongoing describes something still continuing and not yet finished, the same idea as in progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +1086,57 @@
     "text": "Oil company beginning to search somewhere underground?",
     "enumeration": "5"
    },
-   "solution": "SHELL"
+   "solution": "SHELL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHELL",
+    "definitions": [
+     {
+      "text": "Oil company",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "search",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of search"
+     },
+     {
+      "clueFragment": "somewhere underground?",
+      "gives": "HELL",
+      "note": "hell is traditionally imagined beneath the earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A petroleum firm starts exploring for deposits below ground.",
+     "walkthrough": "The question mark flags that 'somewhere underground' is a playful description of the underworld, not a real oilfield.",
+     "definitionFit": "Shell is one of the world's largest petroleum businesses, an Anglo-Dutch multinational."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "underground"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1150,79 @@
     "text": "Large reptile turns over egg and starts to search around under rocks",
     "enumeration": "9"
    },
-   "solution": "STEGOSAUR"
+   "solution": "STEGOSAUR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STEGOSAUR",
+    "definitions": [
+     {
+      "text": "Large reptile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turning over flips a thing end to end"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and adds one thing to the next in a row"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of each word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turns",
+      "gives": "GETS",
+      "note": "to turn nasty is to get nasty, so turns can mean becomes, or gets"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "O",
+      "note": "an egg is shaped like the letter O"
+     },
+     {
+      "clueFragment": "search around under rocks",
+      "gives": "SAUR",
+      "select": "first",
+      "note": "the first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEG",
+      "O",
+      "SAUR"
+     ],
+     "reversals": [
+      {
+       "from": "GETS",
+       "to": "STEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge lizard flips its egg and goes hunting under some stones.",
+     "walkthrough": "'Turns over' looks like one phrase about flipping the egg, but 'turns' gives GETS and 'over' reverses it.",
+     "definitionFit": "A stegosaur is a dinosaur with bony back plates; dinosaurs were huge prehistoric reptiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1236,57 @@
     "text": "Friend at the west end of Northampton, perhaps for a movie",
     "enumeration": "9"
    },
-   "solution": "CHINATOWN"
+   "solution": "CHINATOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINATOWN",
+    "definitions": [
+     {
+      "text": "a movie",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the west end of",
+      "for": "charade",
+      "note": "the west end is the left side, so this goes first in the line"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "CHINA",
+      "note": "Cockney rhyming slang: china plate means mate, a friend"
+     },
+     {
+      "clueFragment": "Northampton, perhaps",
+      "gives": "TOWN",
+      "note": "Northampton is an English town; 'perhaps' marks it as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHINA",
+      "TOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend is in the west of Northampton, maybe to see a film.",
+     "walkthrough": "'The west end' suggests a district of the town, but it only places the friend to the left of TOWN.",
+     "definitionFit": "Chinatown is the 1974 Roman Polanski film noir starring Jack Nicholson."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1300,65 @@
     "text": "Dave’s partner is caught by Edward and punished",
     "enumeration": "9"
    },
-   "solution": "CHASTISED"
+   "solution": "CHASTISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHASTISED",
+    "definitions": [
+     {
+      "text": "punished",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is caught by",
+      "for": "container",
+      "note": "something caught is held inside its captor"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dave’s partner",
+      "gives": "CHAS",
+      "note": "Chas and Dave were a British cockney pub-rock duo"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "TED",
+      "note": "Ted is a short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAS",
+      "T",
+      "IS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Dave's companion is arrested by Edward and disciplined.",
+     "walkthrough": "The little word 'is' does double duty as letters and as part of the containment phrase. Chas and Dave were a London singing double act known for cockney pub songs.",
+     "definitionFit": "To chastise is to scold or discipline severely, so chastised and punished are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1378,59 @@
      }
     ]
    },
-   "solution": "ALLFOURS"
+   "solution": "ALLFOURS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALL FOURS",
+    "definitions": [
+     {
+      "text": "Hands and feet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each character (except John)",
+      "gives": "ALLFOUR",
+      "note": "every character of a four-letter name is all four of them; the bracket is the setter's teasing aside"
+     },
+     {
+      "clueFragment": "Jesus",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of Jesus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLFOUR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious image of every figure except John at Jesus's side, hands and feet shown.",
+     "walkthrough": "The wordplay is loose: 'each character' is read as ALL FOUR, then S from the end of Jesus.",
+     "definitionFit": "Being on all fours means resting on both hands and both feet or knees, like a crawling child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1444,87 @@
     "text": "Ornate pants tear after old boy with beer does a back flip",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "anagram"
+    ],
+    "answer": "ELABORATE",
+    "definitions": [
+     {
+      "text": "Ornate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "does a back flip",
+      "for": "reversal",
+      "note": "a back flip turns things backwards, end over end"
+     },
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are a mess"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placed after means coming behind in the line"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     },
+     {
+      "clueFragment": "tear",
+      "gives": "TEAR",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELABO",
+      "RATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAR",
+       "gives": "RATE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "OBALE",
+       "to": "ELABO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fancy pair of trousers rips when an old schoolboy, drink in hand, does a backflip.",
+     "walkthrough": "'Pants' looks like trousers, but it is British slang for rubbish and shuffles TEAR. OB plus ALE runs backwards as ELABO.",
+     "definitionFit": "Elaborate means intricately detailed and richly decorated, which is what ornate describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1538,69 @@
     "text": "In the morning I see bats are gathered across the pond",
     "enumeration": "7"
    },
-   "solution": "AMERICA"
+   "solution": "AMERICA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AMERICA",
+    "definitions": [
+     {
+      "text": "across the pond",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats means crazy, so the letters go wild and rearrange"
+     }
+    ],
+    "linkWords": [
+     "gathered"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the morning",
+      "gives": "AM",
+      "note": "am stands for ante meridiem, before noon"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "I see said as letters, I and C"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "ERICA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICARE",
+       "gives": "ERICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the morning I see bats roosting together on the far side of the lake.",
+     "walkthrough": "The bats look like animals, but bats means mad and scrambles IC plus ARE. 'I see' becomes IC by the sound of the two letters.",
+     "definitionFit": "Across the pond is a British idiom for the United States, the pond being the Atlantic Ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1614,51 @@
     "text": "Cuckoo to fly high",
     "enumeration": "5"
    },
-   "solution": "LOFTY"
+   "solution": "LOFTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOFTY",
+    "definitions": [
+     {
+      "text": "high",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, and crazy letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to fly",
+      "gives": "TOFLY",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOFLY",
+       "gives": "LOFTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuckoo taking off to soar up into the sky.",
+     "walkthrough": "Cuckoo looks like the bird about to fly, but it means mad.",
+     "definitionFit": "Lofty means of great height or towering, so it is a synonym for tall or elevated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cuckoo"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1672,52 @@
     "text": "Act with the woman getting a part in The Seagull?",
     "enumeration": "7"
    },
-   "solution": "FEATHER"
+   "solution": "FEATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FEATHER",
+    "definitions": [
+     {
+      "text": "a part in The Seagull?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act",
+      "gives": "FEAT",
+      "note": "a feat is a deed or act"
+     },
+     {
+      "clueFragment": "the woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEAT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "An actress lands a role in Chekhov's play The Seagull.",
+     "walkthrough": "The Seagull is Chekhov's play, so 'a part' reads as a role; the question mark lets it mean a literal part of a gull.",
+     "definitionFit": "A feather is one of the many pieces making up a gull's plumage, so it is literally a part of the bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1731,66 @@
     "text": "Gorge on food served late in the day after cycling",
     "enumeration": "7"
    },
-   "solution": "OVEREAT"
+   "solution": "OVEREAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "OVEREAT",
+    "definitions": [
+     {
+      "text": "Gorge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means being placed behind in the line"
+     },
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling sends letters round, the front one moving to the back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "OVER",
+      "note": "over can mean on top of, as on does"
+     },
+     {
+      "clueFragment": "food served late in the day",
+      "gives": "TEA",
+      "note": "tea is a light afternoon meal in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "EAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEA",
+       "gives": "EAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stuffing yourself with an evening meal after a long bike ride.",
+     "walkthrough": "'Gorge on' wants to be the definition, but 'on' gives OVER; TEA, an afternoon or evening meal in Britain, has its T moved to the end.",
+     "definitionFit": "To gorge is to stuff yourself greedily, which is to eat too much."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1804,53 @@
     "text": "Bushes forming boundaries, but not hard boundaries",
     "enumeration": "5"
    },
-   "solution": "EDGES"
+   "solution": "EDGES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDGES",
+    "definitions": [
+     {
+      "text": "boundaries",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding, so something is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bushes forming boundaries",
+      "gives": "HEDGES",
+      "note": "hedges are rows of bushes marking a boundary"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDGES"
+     ]
+    },
+    "explanation": {
+     "surface": "Shrubs marking field borders, though not the solid ones like walls.",
+     "walkthrough": "'Boundaries' appears twice: the first is part of the hedge description, the second the definition.",
+     "definitionFit": "Edges are the outer limits or borders of something, so they are its boundaries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1864,65 @@
     "text": "Desire of kinky masochist is suppressed",
     "enumeration": "7"
    },
-   "solution": "STOMACH"
+   "solution": "STOMACH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STOMACH",
+    "definitions": [
+     {
+      "text": "Desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppressed",
+      "for": "deletion",
+      "note": "something suppressed is held down and kept out of sight"
+     },
+     {
+      "text": "kinky",
+      "for": "anagram",
+      "note": "kinky means twisted, so the letters are bent into a new shape"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "masochist",
+      "gives": "MASOCHIST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MASOCHT",
+       "gives": "STOMACH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deviant masochist's longing is kept hidden.",
+     "walkthrough": "Remove I and S from masochist and twist the seven remaining letters.",
+     "definitionFit": "Stomach as a noun means appetite or inclination, as in having no stomach for a fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kinky"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1936,46 @@
     "text": "Bass part’s range",
     "enumeration": "5"
    },
-   "solution": "SCALE"
+   "solution": "SCALE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCALE",
+    "definitions": [
+     {
+      "text": "Bass part",
+      "at": 0
+     },
+     {
+      "text": "range",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bass part",
+      "note": "first meaning: one of the small plates on a fish such as a sea bass"
+     },
+     {
+      "clueFragment": "range",
+      "note": "second meaning: extent or spread"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bass suggests the low voice part in music, and range then sounds like vocal range; the bass is really a fish.",
+     "definitionFit": "Fish skin is covered in protective plates, and the word also means the extent or spread of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bass"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1989,54 @@
     "text": "Sweetie (humbug?) quietly binned",
     "enumeration": "5"
    },
-   "solution": "HONEY"
+   "solution": "HONEY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HONEY",
+    "definitions": [
+     {
+      "text": "Sweetie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "binned",
+      "for": "deletion",
+      "note": "something binned has been thrown away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humbug?",
+      "gives": "PHONEY",
+      "note": "humbug is fraud or nonsense, so a phoney thing"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is the musical mark piano, meaning quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HONEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet, perhaps a humbug, is quietly thrown away.",
+     "walkthrough": "A humbug is also a British boiled mint sweet, which is why it sits beside 'Sweetie'; here it means fraud.",
+     "definitionFit": "Honey is a term of endearment, used like sweetie or darling for someone loved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "humbug"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +2050,62 @@
     "text": "Getting old silver in the back of Jag",
     "enumeration": "5"
    },
-   "solution": "AGING"
+   "solution": "AGING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AGING",
+    "definitions": [
+     {
+      "text": "Getting old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Jag",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of Jag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Going grey, sitting in the back seat of a Jaguar.",
+     "walkthrough": "'Getting old silver' reads as tarnished metal, but the definition stops at 'old'. A Jag is a Jaguar car.",
+     "definitionFit": "Aging, the American spelling of ageing, means growing older over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +2125,64 @@
      }
     ]
    },
-   "solution": "SEAURCHIN"
+   "solution": "SEAURCHIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SEA URCHIN",
+    "definitions": [
+     {
+      "text": "spiny-skinned creature",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "looking",
+      "gives": "SEARCHING",
+      "note": "searching is looking for something"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is text-speak for you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "U",
+      "RCHIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Forever hunting about for a prickly animal.",
+     "walkthrough": "SEARCHIN, with its last letter gone, holds U after the third letter.",
+     "definitionFit": "A sea urchin is a marine echinoderm covered in sharp spines; echinoderm literally means spiny skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "you"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +2196,79 @@
     "text": "Harps broken by Solomon during lyrical works/pieces",
     "enumeration": "10"
    },
-   "solution": "RHAPSODIES"
+   "solution": "RHAPSODIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "RHAPSODIES",
+    "definitions": [
+     {
+      "text": "pieces",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces and gets reassembled differently"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside, so one part stands next to another"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harps",
+      "gives": "HARPS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "lyrical works",
+      "gives": "ODES",
+      "note": "odes are lyric poems"
+     },
+     {
+      "clueFragment": "Solomon",
+      "gives": "I",
+      "note": "Solomon is the setter, who calls themself I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHAPS",
+      "OD",
+      "I",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HARPS",
+       "gives": "RHAPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Harps were wrecked by King Solomon in the middle of singing psalms.",
+     "walkthrough": "Solomon is this puzzle's setter, so he is I, placed inside ODES. The slash splits the wordplay from the definition.",
+     "definitionFit": "A rhapsody is a free-form musical composition, an emotional single-movement piece such as Liszt's Hungarian Rhapsodies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Solomon"
+    }
+   }
   },
   {
    "number": 28,
@@ -489,7 +2282,43 @@
     "text": "Soldiers hiding in farmyard",
     "enumeration": "4"
    },
-   "solution": "ARMY"
+   "solution": "ARMY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARMY",
+    "definitions": [
+     {
+      "text": "Soldiers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "hidden_word",
+      "note": "something hiding in a place is tucked inside it, so look within the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farmyard",
+      "gives": "ARMY",
+      "note": "the second to fifth letters of farmyard"
+     }
+    ],
+    "explanation": {
+     "surface": "Troops lying low in a farmyard.",
+     "walkthrough": "The answer sits inside a single word, f-ARMY-ard.",
+     "definitionFit": "An army is a large organised body of soldiers, so the word collects them as a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
+    }
+   }
   }
  ]
 }
