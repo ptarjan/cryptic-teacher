@@ -79,13 +79,15 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 # Runs in flight per wave (PARALLEL_MAX); see tools/prereset_plan.py.
 WIDTH=$(python3 tools/prereset_plan.py --width 2>/dev/null || echo 14)
 # Above this the weekly window really is gone and a failing run means it. Below
-# it, a failure is the FIVE-hour window instead, which clears by itself.
+# it, a failure is the FIVE-hour window instead, which clears by itself. The
+# meter sits at 99 when the week is spent, which is also what the reset ping
+# fires on, so the burn spends right up to it.
 #
 # The CLI's own words do not distinguish them. With pay-as-you-go set to $0 it
 # says "You've hit your monthly spend limit" for BOTH — there is no dollar cap
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
-EXHAUSTED="${EXHAUSTED:-97}"
+EXHAUSTED="${EXHAUSTED:-99}"
 # Below this on the five-hour meter a failed run was not locked out: the window
 # had room, so waiting for it to turn over buys nothing.
 LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
