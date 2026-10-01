@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "One blooming opiate isn't going astray!",
     "enumeration": "10"
    },
-   "solution": "POINSETTIA"
+   "solution": "POINSETTIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POINSETTIA",
+    "definitions": [
+     {
+      "text": "One blooming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going astray",
+      "for": "anagram",
+      "note": "things that go astray wander off their proper course, so the letters leave their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opiate isn't",
+      "gives": "OPIATEISNT",
+      "note": "ten letters taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POINSETTIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OPIATEISNT",
+       "gives": "POINSETTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is relieved that their dose of a drug has not gone missing.",
+     "walkthrough": "The anagram gives POINSETTIA, the red-leaved Christmas plant; 'One blooming' is the definition, a cryptic way of saying a flowering plant.",
+     "definitionFit": "A poinsettia is a seasonal plant sold for its showy flowering heads, so it is one thing that blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opiate"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,45 @@
     "text": "I sort out guy awaiting Yuletide gift delivery?",
     "enumeration": "7"
    },
-   "solution": "ORDERER"
+   "solution": "ORDERER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORDERER",
+    "definitions": [
+     {
+      "text": "I sort out",
+      "at": 0,
+      "note": "a first-person phrase standing for the noun: one who sorts out"
+     },
+     {
+      "text": "guy awaiting Yuletide gift delivery",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I sort out",
+      "note": "first meaning: someone who puts things in order, speaking of themself"
+     },
+     {
+      "clueFragment": "guy awaiting Yuletide gift delivery",
+      "note": "second meaning: a customer who has placed an order and waits for it to arrive"
+     }
+    ],
+    "explanation": {
+     "surface": "A man tidying up while waiting for his Christmas parcels to turn up.",
+     "walkthrough": "Both halves describe the same word: one who arranges things tidily, and one who has placed an order.",
+     "definitionFit": "The suffix -er makes an agent noun, so the word means both a person who arranges and a person who places an order with a shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,67 @@
     "text": "Daughter born close to Christmas conceals wants",
     "enumeration": "5"
    },
-   "solution": "NEEDS"
+   "solution": "NEEDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NEEDS",
+    "definitions": [
+     {
+      "text": "wants",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     },
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "to conceal is to hide something inside, so one piece goes within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "born",
+      "gives": "NEE",
+      "note": "née means born, used before a maiden name"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "Christmas",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEE",
+      "D",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby girl arrives just before Christmas, and someone is keeping their wishes secret.",
+     "walkthrough": "'Born close to Christmas' makes NEE + S, which hides the D for daughter between them.",
+     "definitionFit": "Wants in the sense of necessities or requirements are needs, a straightforward synonym as plural nouns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +223,69 @@
     "text": "English nurses hosting foremost of Xmas spreads",
     "enumeration": "7"
    },
-   "solution": "EXTENDS"
+   "solution": "EXTENDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "EXTENDS",
+    "definitions": [
+     {
+      "text": "spreads",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost of",
+      "for": "letter_selection",
+      "note": "the foremost part of a word is its front, so only the opening letter is taken"
+     },
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes a guest in, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Xmas",
+      "gives": "X",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "nurses",
+      "gives": "TENDS",
+      "note": "to nurse a patient is to tend them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "TENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "English nurses throw a Christmas party, laying out festive spreads.",
+     "walkthrough": "'Spreads' looks like a noun for party food, but it is the verb. E + TENDS hosts the X after its first letter.",
+     "definitionFit": "To spread something out and to extend it both mean stretching it over a larger area, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spreads"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +299,74 @@
     "text": "A slice of roast topped with dash of table salt",
     "enumeration": "3"
    },
-   "solution": "TAR"
+   "solution": "TAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TAR",
+    "definitions": [
+     {
+      "text": "salt",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dash of",
+      "for": "letter_selection",
+      "note": "a dash is a tiny amount, so just one opening letter is taken"
+     },
+     {
+      "text": "slice of",
+      "for": "letter_selection",
+      "note": "a slice is only a small portion, here the first letter alone"
+     },
+     {
+      "text": "topped with",
+      "for": "charade",
+      "note": "in a down entry the topping sits above, so this piece is written first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "table",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roast",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of Christmas roast with a sprinkle of table salt on it.",
+     "walkthrough": "'Salt' reads as seasoning, but an old salt is a sailor, as is a TAR.",
+     "definitionFit": "Salt and tar are both informal nouns for a seaman, a crossword-favourite sense of each word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +386,69 @@
      }
     ]
    },
-   "solution": "ALITTLE"
+   "solution": "ALITTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "A LITTLE",
+    "definitions": [
+     {
+      "text": "Slightly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a story",
+      "gives": "ALIE",
+      "note": "a story can be a lie, a fib; the A stays as written"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT is teetotal, abstaining from alcohol"
+     },
+     {
+      "clueFragment": "Laplander",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LI",
+      "TT",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull Lapland tale opens with a slightly dry introduction.",
+     "walkthrough": "'Slightly dry' wants to be one phrase, but the definition is 'Slightly' alone; 'dry' gives TT. TT + L goes into A LIE.",
+     "definitionFit": "To a small degree is what both mean, so the adverb and this two-word phrase swap in any sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +462,50 @@
     "text": "Half-heartedly wed gal without IT experience",
     "enumeration": "4"
    },
-   "solution": "MARY"
+   "solution": "MARY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MARY",
+    "definitions": [
+     {
+      "text": "gal without IT experience",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half-heartedly",
+      "for": "deletion",
+      "note": "doing something with only half a heart loses part of the core, so one of the middle letters goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wed",
+      "gives": "MARRY",
+      "note": "to wed is to marry; one of its doubled central letters is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant bride marries a woman with no background in computing.",
+     "walkthrough": "'IT' looks like computing, but here it means sex: the Virgin Mary conceived without it. MARRY loses one of its two central Rs.",
+     "definitionFit": "In the Nativity story the mother of Jesus is a virgin, so she is a woman with no sexual experience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "IT"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +525,77 @@
      }
     ]
    },
-   "solution": "MODERNMAN"
+   "solution": "MODERNMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MODERN MAN",
+    "definitions": [
+     {
+      "text": "I am one",
+      "at": 0,
+      "note": "the setter speaks of themself; the answer is the noun they are an example of"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside another pair of letters"
+     }
+    ],
+    "linkWords": [
+     "seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind",
+      "gives": "MODE",
+      "note": "a mode is a kind or manner of something"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "old lady",
+      "gives": "MA",
+      "note": "informal for mother"
+     },
+     {
+      "clueFragment": "Pole",
+      "gives": "N",
+      "note": "N is one of the two magnetic poles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODE",
+      "R",
+      "N",
+      "MA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a kinship with Mrs Claus, the old lady at the North Pole.",
+     "walkthrough": "'North Pole' reads as Santa's home, but the two words are N and N, holding MA between them.",
+     "definitionFit": "The setter, like every human living today, is a member of the present-day human species, so he counts as one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +609,78 @@
     "text": "Wise man bearing note and bit of frankincense rolls joints",
     "enumeration": "7"
    },
-   "solution": "REEFERS"
+   "solution": "REEFERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "REEFERS",
+    "definitions": [
+     {
+      "text": "joints",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "to bear something is to carry it, so the other pieces are held inside"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small part, here just the opening letter"
+     },
+     {
+      "text": "rolls",
+      "for": "reversal",
+      "note": "something that rolls over turns upside down, which in a down entry flips the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wise man",
+      "gives": "SEER",
+      "note": "a seer is a prophet or sage"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "frankincense",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEFERS"
+     ],
+     "reversals": [
+      {
+       "from": "SREFEER",
+       "to": "REEFERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One of the Magi brings frankincense and some rolled-up cannabis cigarettes.",
+     "walkthrough": "'Rolls' looks like the action of making joints, but it is the signal to turn the whole assembled string over, reading upwards.",
+     "definitionFit": "A reefer is slang for a cannabis cigarette, which is also called a joint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rolls"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +694,61 @@
     "text": "American Express brought about Delta's arrival",
     "enumeration": "6"
    },
-   "solution": "ADVENT"
+   "solution": "ADVENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADVENT",
+    "definitions": [
+     {
+      "text": "arrival",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought about",
+      "for": "container",
+      "note": "to bring something about another is to put it around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Delta",
+      "gives": "D",
+      "note": "D in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Express",
+      "gives": "VENT",
+      "note": "to vent feelings is to express them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A credit card company helped an airline's flight land.",
+     "walkthrough": "American Express and Delta look like brand names; they are split into A, VENT and D, with A + VENT placed around D.",
+     "definitionFit": "Advent is the coming of something, from the Latin for arrival, and gives its name to the weeks before Christmas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +762,45 @@
     "text": "Shower expensive, but they say it's a beast!",
     "enumeration": "8"
    },
-   "solution": "REINDEER"
+   "solution": "REINDEER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REINDEER",
+    "definitions": [
+     {
+      "text": "a beast",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "what people say is heard rather than read, so the letters follow the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shower expensive",
+      "gives": "REINDEER",
+      "soundsLike": "RAIN DEAR",
+      "note": "a shower is rain and expensive is dear"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone grumbles that a costly new shower is a monster.",
+     "walkthrough": "'Shower' looks like a bathroom fitting but is a fall of rain; 'dear' is the British sense of costly.",
+     "definitionFit": "The reindeer is a large antlered animal of the Arctic, so it is one kind of beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shower"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +814,55 @@
     "text": "Reporters covering hospital department awards",
     "enumeration": "8"
    },
-   "solution": "PRESENTS"
+   "solution": "PRESENTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRESENTS",
+    "definitions": [
+     {
+      "text": "awards",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes around what it protects, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reporters",
+      "gives": "PRESS",
+      "note": "the press is journalists collectively"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ear, nose and throat department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "ENT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists write up a hospital ward's prize ceremony.",
+     "walkthrough": "'Awards' could be a noun, but it is the verb, matching PRESENTS as in 'presents a prize'.",
+     "definitionFit": "To present someone with a prize is formally to award it to them, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "awards"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +876,77 @@
     "text": "Plonk with seconds upset men and son in post-roast states?",
     "enumeration": "7"
    },
-   "solution": "STUPORS"
+   "solution": "STUPORS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STUPORS",
+    "definitions": [
+     {
+      "text": "post-roast states",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "something upset is turned over, which in a down entry flips its order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plonk",
+      "gives": "PUT",
+      "note": "to plonk something down is to put it"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "abbreviation for seconds"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TUP",
+      "OR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "PUTS",
+       "to": "STUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheap wine and second helpings leave the family dazed after Christmas lunch.",
+     "walkthrough": "'Plonk' looks like cheap wine but is the verb PUT. PUT + S turned over, then OR + S.",
+     "definitionFit": "After a big roast dinner people fall into drowsy dazes, and a stupor is a state of near-unconsciousness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plonk"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +960,65 @@
     "text": "Flop in procreational period repelled legend",
     "enumeration": "6"
    },
-   "solution": "TURKEY"
+   "solution": "TURKEY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TURKEY",
+    "definitions": [
+     {
+      "text": "Flop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "something repelled is driven back, so its letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "procreational period",
+      "gives": "RUT",
+      "note": "the rut is the mating season of deer"
+     },
+     {
+      "clueFragment": "legend",
+      "gives": "KEY",
+      "note": "the legend on a map is its key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "KEY"
+     ],
+     "reversals": [
+      {
+       "from": "RUT",
+       "to": "TUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A myth about failure during the breeding season.",
+     "walkthrough": "The bird everyone expects at Christmas arrives via its slang sense: a turkey is a failed show or film.",
+     "definitionFit": "In showbusiness slang a turkey is a production that fails badly, which is a flop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "legend"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1038,54 @@
      }
     ]
    },
-   "solution": "BREADSAUCE"
+   "solution": "BREADSAUCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BREAD SAUCE",
+    "definitions": [
+     {
+      "text": "accompaniment to a meal",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fizzy",
+      "for": "anagram",
+      "note": "fizzing things are agitated and bubbling, so the letters are stirred up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buds are ace",
+      "gives": "BUDSAREACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREADSAUCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUDSAREACE",
+       "gives": "BREADSAUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fizzy Budweiser beers make a great drink with dinner.",
+     "walkthrough": "Buds are bottles of Budweiser beer, so the surface is about drinks. Bread sauce is a British sauce of milk thickened with breadcrumbs, served with roast turkey.",
+     "definitionFit": "Bread sauce is a traditional side served alongside Christmas roast poultry, so it accompanies the main course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fizzy"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1105,57 @@
      }
     ]
    },
-   "solution": "AIRKISSED"
+   "solution": "AIRKISSED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIR-KISSED",
+    "definitions": [
+     {
+      "text": "Greeted in a Covid-safer way, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking",
+      "for": "anagram",
+      "note": "shaking jumbles contents, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raised ski",
+      "gives": "RAISEDSKI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRKISSED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAISEDSKI",
+       "gives": "AIRKISSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skier greets friends at a distance by waving a ski in the air.",
+     "walkthrough": "'Raised' looks like an action of the ski, and 'shaking' like a handshake; both are just letters and the anagram signal.",
+     "definitionFit": "Kissing the air beside someone's cheek avoids contact, so it is a greeting with less risk of spreading infection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1169,65 @@
     "text": "Large amount of dope found on head of mission",
     "enumeration": "4"
    },
-   "solution": "MASS"
+   "solution": "MASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASS",
+    "definitions": [
+     {
+      "text": "Large amount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head is the top, so only the opening letter is kept"
+     },
+     {
+      "text": "found on",
+      "for": "charade",
+      "note": "one piece placed on another follows it in an across entry"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mission",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "ASS",
+      "note": "a dope is a fool, an ass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A big drugs haul is discovered on the leader of a mission.",
+     "walkthrough": "'Dope' sets up drugs, but it means a fool.",
+     "definitionFit": "A mass of something is a great quantity or heap of it, so the noun is a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1241,64 @@
     "text": "Sabbath singer making comeback as headliner",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "headliner",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the letters go back the way they came"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sabbath",
+      "gives": "S",
+      "note": "S is a dictionary abbreviation for Sabbath"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "RAT",
+      "note": "an informer sings to the police, and is called a rat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ],
+     "reversals": [
+      {
+       "from": "RATS",
+       "to": "STAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Black Sabbath frontman returns to top the bill.",
+     "walkthrough": "'Sabbath singer' evokes the rock band's vocalist; the words are split, and 'singer' is an informer.",
+     "definitionFit": "The headliner of a show is its main attraction, the performer billed at the top, its star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1312,69 @@
     "text": "Airline trick raised Christmas hols each annum initially",
     "enumeration": "7"
    },
-   "solution": "TRACHEA"
+   "solution": "TRACHEA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRACHEA",
+    "definitions": [
+     {
+      "text": "Airline",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "lifting a word up a down entry makes it read bottom to top"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "what comes initially comes at the start, so only opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trick",
+      "gives": "ART",
+      "note": "an art is a knack or trick"
+     },
+     {
+      "clueFragment": "Christmas hols each annum",
+      "gives": "CHEA",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "CHEA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline pulls a fast one, hiking fares for holiday flights every year.",
+     "walkthrough": "'Airline' looks like a carrier but means a passage for air, the windpipe.",
+     "definitionFit": "The trachea is the windpipe, the tube carrying breath down to the lungs, so it is literally a line for air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Airline"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1388,67 @@
     "text": "Hot to open new Foster's Special Reserve",
     "enumeration": "10"
    },
-   "solution": "FROSTINESS"
+   "solution": "FROSTINESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FROSTINESS",
+    "definitions": [
+     {
+      "text": "Reserve",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new reshapes it, so these letters are rearranged"
+     },
+     {
+      "text": "to open",
+      "for": "container",
+      "note": "to open something is to get inside it, so one piece splits the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "IN",
+      "note": "something hot is fashionable, in"
+     },
+     {
+      "clueFragment": "Foster's Special",
+      "gives": "FOSTERSS",
+      "note": "the brand taken as written, plus S for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FROST",
+      "IN",
+      "ESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOSTERSS",
+       "gives": "FROSTESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new special-reserve lager from the Foster's brewery is launched.",
+     "walkthrough": "Foster's is an Australian lager brand. 'Reserve' looks like part of the beer's name; it means coolness of manner. IN goes into the rearranged letters.",
+     "definitionFit": "Reserve in a person is a cool, distant manner, and frostiness is an unfriendly chilliness of attitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1462,77 @@
     "text": "Father Christmas ultimately keeping one object for pals",
     "enumeration": "7"
    },
-   "solution": "FRIENDS"
+   "solution": "FRIENDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FRIENDS",
+    "definitions": [
+     {
+      "text": "pals",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "what comes ultimately comes last, so only the final letter is kept"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep is to hold on to, so the outer pieces enclose the rest"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "abbreviation for a priest's title"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "END",
+      "note": "an end is an aim or object"
+     },
+     {
+      "clueFragment": "Christmas",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "I",
+      "END",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Santa holds on to a single present meant for his mates.",
+     "walkthrough": "'Father Christmas' looks like Santa as one unit, but the two words are separate pieces: the priest's title and the last letter of the festive word, wrapped around the rest.",
+     "definitionFit": "Pals is the informal word for companions, people one likes and spends time with, a plural noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1546,71 @@
     "text": "50% off tinsel brings in public with good advertising",
     "enumeration": "7"
    },
-   "solution": "TOUTING"
+   "solution": "TOUTING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "TOUTING",
+    "definitions": [
+     {
+      "text": "advertising",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50% off",
+      "for": "deletion",
+      "note": "taking half away leaves only the front portion of the word"
+     },
+     {
+      "text": "brings in",
+      "for": "container",
+      "note": "to bring something in is to take it inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tinsel",
+      "gives": "TIN",
+      "note": "the first half of the six letters"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "OUT",
+      "note": "something made public is out in the open"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OUT",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A half-price tinsel sale draws in shoppers thanks to clever adverts.",
+     "walkthrough": "'Public' looks like the noun for shoppers, but it is the adjective OUT, held inside the half of tinsel.",
+     "definitionFit": "Touting is soliciting custom or promoting something persistently, much as advertising does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "public"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1630,63 @@
      }
     ]
    },
-   "solution": "SUNCLAD"
+   "solution": "SUNCLAD",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SUN-CLAD",
+    "definitions": [
+     {
+      "text": "clothed in radiant light",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I'm told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the spelling follows the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jesus was one",
+      "gives": "SUN",
+      "soundsLike": "SON",
+      "note": "Jesus is called the Son of God"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "the tap abbreviation"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "C",
+      "LAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls that baby Jesus was a chilly boy, wrapped up in a glowing light.",
+     "walkthrough": "'Jesus was one' points to SON, which sounds the same as SUN.",
+     "definitionFit": "Clad means dressed, so to be dressed in the sun is to be wrapped in bright shining rays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1700,67 @@
     "text": "Dick bringing Nina back sandwiches from Italy",
     "enumeration": "6"
    },
-   "solution": "PANINI"
+   "solution": "PANINI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PANINI",
+    "definitions": [
+     {
+      "text": "sandwiches from Italy",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters run in reverse"
+     },
+     {
+      "text": "bringing",
+      "for": "container",
+      "note": "to bring something along is to carry it, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dick",
+      "gives": "PI",
+      "note": "a dick is slang for a private investigator, PI"
+     },
+     {
+      "clueFragment": "Nina",
+      "gives": "NINA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ANIN",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "NINA",
+       "to": "ANIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Dick brings Nina home some Italian sandwiches.",
+     "walkthrough": "'Dick' looks like a name; it is slang for a detective.",
+     "definitionFit": "Panini are toasted Italian bread rolls with fillings, so they are sandwiches of Italian origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dick"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1774,62 @@
     "text": "Uni fellows to stop member of Police jamming",
     "enumeration": "8"
    },
-   "solution": "STUFFING"
+   "solution": "STUFFING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STUFFING",
+    "definitions": [
+     {
+      "text": "jamming",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper goes into an opening, so this piece is plugged inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uni",
+      "gives": "U",
+      "note": "abbreviation for university"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "FF",
+      "note": "F is the abbreviation for fellow; doubled for the plural"
+     },
+     {
+      "clueFragment": "member of Police",
+      "gives": "STING",
+      "note": "Sting was the singer of the band the Police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "UFF",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "University dons try to break up a police officer's music session.",
+     "walkthrough": "'Police' is capitalised because it is the rock band, not the force. 'Jamming' looks like playing music but means cramming.",
+     "definitionFit": "Jamming something into a space means cramming or packing it in tightly, and stuffing means the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jamming"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1843,78 @@
     "text": "Brother, fine with flipping wind, has third helping of sprouts",
     "enumeration": "5"
    },
-   "solution": "FRIAR"
+   "solution": "FRIAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRIAR",
+    "definitions": [
+     {
+      "text": "Brother",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way up"
+     },
+     {
+      "text": "third helping of",
+      "for": "letter_selection",
+      "note": "the third helping is the third letter served up"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "pencil-grade abbreviation"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "AIR",
+      "note": "wind is moving air"
+     },
+     {
+      "clueFragment": "sprouts",
+      "gives": "R",
+      "select": 3,
+      "note": "third letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIA",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brother, flatulent after Christmas dinner, takes a third helping of Brussels sprouts.",
+     "walkthrough": "'Brother' looks like a sibling; it is a member of a religious order.",
+     "definitionFit": "Members of religious orders such as Franciscans address each other as Brother, and such a man is a friar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1928,51 @@
     "text": "Very old crack found in strongbox by freak",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHESTNUT",
+    "definitions": [
+     {
+      "text": "Very old crack",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strongbox",
+      "gives": "CHEST",
+      "note": "a chest is a sturdy box"
+     },
+     {
+      "clueFragment": "freak",
+      "gives": "NUT",
+      "note": "a fitness freak is a fitness nut, an enthusiast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEST",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient crack is discovered in a strongbox next to an oddball.",
+     "walkthrough": "'Crack' looks like a split but means a joke; 'found in' links the definition to the pieces.",
+     "definitionFit": "An old chestnut is a stale joke or story told too often, so a very old wisecrack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1986,55 @@
     "text": "Those heading to icy emporium to get gift for Noel?",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TIE",
+    "definitions": [
+     {
+      "text": "gift for Noel",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Those heading",
+      "for": "letter_selection",
+      "note": "the letters at the head of each word are the ones kept"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to icy emporium",
+      "gives": "TIE",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Shoppers heading to a chilly store to buy a Christmas present.",
+     "walkthrough": "Noel is both a man's name and Christmas, so the question mark flags a classic Christmas gift for a man.",
+     "definitionFit": "A necktie is the stereotypical present given to a man at Christmas, so it is one example of a gift."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Noel"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +2048,39 @@
     "text": "A drop of really cold water?",
     "enumeration": "6"
    },
-   "solution": "ICICLE"
+   "solution": "ICICLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ICICLE",
+    "definitions": [
+     {
+      "text": "A drop of really cold water?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A drop of really cold water?",
+      "note": "surface reading: a small sip or droplet of chilled water"
+     },
+     {
+      "clueFragment": "drop",
+      "note": "setter's reading: a frozen hanging drop of water, like a pendant"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A drop is also something that hangs down, like an earring drop; frozen water dangling from a roof is the answer.",
+     "definitionFit": "An icicle is a tapering spike formed when dripping water freezes as it falls, so it is literally frozen drips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2094,63 @@
     "text": "Scoundrel pinching rear of our Queen?",
     "enumeration": "4"
    },
-   "solution": "CARD"
+   "solution": "CARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARD",
+    "definitions": [
+     {
+      "text": "Queen?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear of",
+      "for": "letter_selection",
+      "note": "the rear of a word is its end, so the last letter is taken"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grab and hold, so the outer piece takes the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "R",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue pinches the backside of the monarch.",
+     "walkthrough": "'Queen' is flagged by the question mark as one example: the queen in a deck of cards.",
+     "definitionFit": "A queen is a playing card, one picture card in each suit of a standard deck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +2170,54 @@
      }
     ]
    },
-   "solution": "SLEIGHRIDE"
+   "solution": "SLEIGHRIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLEIGH RIDE",
+    "definitions": [
+     {
+      "text": "winter trip",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organising",
+      "for": "anagram",
+      "note": "to organise is to arrange, so these letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I heed girls",
+      "gives": "IHEEDGIRLS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEIGHRIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IHEEDGIRLS",
+       "gives": "SLEIGHRIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes advice from the girls planning a winter holiday.",
+     "walkthrough": "The fodder is the first three words, and the anagram signal sits between them and the definition.",
+     "definitionFit": "A ride in a horse-drawn sledge over snow is a classic seasonal outing, an example of a cold-weather journey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heed"
+    }
+   }
   }
  ]
 }
