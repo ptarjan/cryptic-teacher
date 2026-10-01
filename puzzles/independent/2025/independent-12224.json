@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Hit first button - ultimately receive gift",
     "enumeration": "7"
    },
-   "solution": "PRESSIE"
+   "solution": "PRESSIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRESSIE",
+    "definitions": [
+     {
+      "text": "gift",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "gives": "PRESS",
+      "note": "to press a button is to hit it"
+     },
+     {
+      "clueFragment": "first button",
+      "gives": "I",
+      "note": "button one, written as the Roman numeral I"
+     },
+     {
+      "clueFragment": "receive",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of receive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presses the first button on a machine and finally gets a present.",
+     "walkthrough": "'Hit first button' reads as one instruction: press button I, with I as the Roman numeral one.",
+     "definitionFit": "A pressie is informal British slang for a present, which is a gift handed to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,66 @@
     "text": "Large bird in lake, one tucking into nut",
     "enumeration": "7"
    },
-   "solution": "PELICAN"
+   "solution": "PELICAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PELICAN",
+    "definitions": [
+     {
+      "text": "Large bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another sits inside it, so one piece goes within the other"
+     },
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "to tuck into something is to push inside it, so a piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "PECAN",
+      "note": "a pecan is a type of nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "L",
+      "I",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A big bird bobs on a lake, one of them pecking at a nut.",
+     "walkthrough": "Both lake and one go inside the nut, side by side, splitting it after its first two letters.",
+     "definitionFit": "The pelican is a very large waterbird famous for its throat pouch used for scooping fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,66 @@
     "text": "Guy looking up, dismissing a tree",
     "enumeration": "3"
    },
-   "solution": "ELM"
+   "solution": "ELM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "ELM",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looking up",
+      "for": "reversal",
+      "note": "in a down clue, looking up means the letters read from bottom to top"
+     },
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "to dismiss is to send away, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "MALE",
+      "note": "a guy is a male"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MALE",
+       "to": "ELAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man gazes upward, then waves away a tree.",
+     "walkthrough": "Reversing MALE gives ELAM; dropping its A leaves ELM.",
+     "definitionFit": "The elm is a common deciduous hardwood, once lining British fields and roadsides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +251,66 @@
     "text": "Bound to have married during relationship in October down under?",
     "enumeration": "10"
    },
-   "solution": "SPRINGTIME"
+   "solution": "SPRINGTIME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPRINGTIME",
+    "definitions": [
+     {
+      "text": "October down under?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "what happens during a period sits within it, so one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "to have",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound",
+      "gives": "SPRING",
+      "note": "to bound is to spring, as in a leap"
+     },
+     {
+      "clueFragment": "relationship",
+      "gives": "TIE",
+      "note": "a tie is a bond or relationship"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRING",
+      "TI",
+      "M",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is obliged to have married during an October relationship in Australia.",
+     "walkthrough": "'Bound to' looks like 'obliged to'; it is a leap. Seasons are reversed in the southern hemisphere, so October falls in spring there.",
+     "definitionFit": "In Australia and other southern hemisphere countries, October is in the middle of the spring season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +324,78 @@
     "text": "Praise upholding Christmas, omitting line about fireplace item?",
     "enumeration": "6"
    },
-   "solution": "EULOGY"
+   "solution": "EULOGY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "EULOGY",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upholding",
+      "for": "reversal",
+      "note": "in a down clue, holding something up turns it so it reads bottom to top"
+     },
+     {
+      "text": "omitting",
+      "for": "deletion",
+      "note": "to omit is to leave out, so a letter is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is wrapped round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "YULE",
+      "note": "Yule is an old name for Christmas"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L for line, the letter removed"
+     },
+     {
+      "clueFragment": "fireplace item",
+      "gives": "LOG",
+      "note": "a log burns in a fireplace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "LOG",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YUE",
+       "to": "EUY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for Christmas, minus a line, about the yule log by the hearth.",
+     "walkthrough": "The surface plants the familiar Christmas yule log, but its two halves are clued separately and used in different ways. Yule is an old word for the Christmas season.",
+     "definitionFit": "A eulogy is a speech or piece of writing that praises someone highly, often at a funeral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upholding"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +409,60 @@
     "text": "Get through article about sport? On the contrary",
     "enumeration": "7"
    },
-   "solution": "WEATHER"
+   "solution": "WEATHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WEATHER",
+    "definitions": [
+     {
+      "text": "Get through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds another"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "this flips the stated relationship, so the outer and inner roles swap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sport",
+      "gives": "WEAR",
+      "note": "to sport clothes is to wear them"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEA",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone struggles to read an article about sport.",
+     "walkthrough": "Read literally, the article goes around sport; 'On the contrary' reverses that, so sport (WEAR) goes around the article. 'Sport' is a verb here, not games.",
+     "definitionFit": "To weather a storm or crisis is to come safely through it, to survive and endure it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sport"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +482,65 @@
      }
     ]
    },
-   "solution": "WAGONLIT"
+   "solution": "WAGONLIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WAGON-LIT",
+    "definitions": [
+     {
+      "text": "French carriage",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the others"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hang on",
+      "gives": "WAIT",
+      "note": "to hang on is to wait"
+     },
+     {
+      "clueFragment": "to leave",
+      "gives": "GO",
+      "note": "to go is to leave"
+     },
+     {
+      "clueFragment": "Holland",
+      "gives": "NL",
+      "note": "NL is the international code for the Netherlands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "GO",
+      "NL",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a traveller to wait before quitting the Netherlands by French train.",
+     "walkthrough": "'Hang on' is a pause, not gripping, and 'Holland' stands for the whole Netherlands by its international code.",
+     "definitionFit": "A wagon-lit is a sleeping car on a continental European train, the French term for such a coach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Holland"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +554,66 @@
     "text": "A latitude supported by tenor over another singer",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "another singer",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue, what is supported sits on top, so the following pieces come underneath"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "latitude",
+      "gives": "L",
+      "note": "L is the abbreviation for latitude"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the abbreviation for tenor"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's range is backed up by a tenor alongside another vocalist.",
+     "walkthrough": "'Tenor' looks like the singer of the definition; it only gives T. 'Another' nods to that tenor.",
+     "definitionFit": "An alto sings the low female or high male voice part, so is one more kind of vocalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tenor"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +633,62 @@
      }
     ]
    },
-   "solution": "HAIRTRIGGER"
+   "solution": "HAIRTRIGGER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HAIR-TRIGGER",
+    "definitions": [
+     {
+      "text": "ready to go off at any moment",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when occupying",
+      "for": "container",
+      "note": "to occupy a space is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attitude",
+      "gives": "AIR",
+      "note": "an air is a manner or attitude"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "HT",
+      "note": "HT is the abbreviation for height"
+     },
+     {
+      "clueFragment": "scaffolder",
+      "gives": "RIGGER",
+      "note": "a rigger erects scaffolding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIR",
+      "T",
+      "RIGGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A scaffolder high up has a jumpy attitude, liable to snap at any moment.",
+     "walkthrough": "'Attitude' is a manner or bearing, not a stance on an issue; a rigger is the worker who puts up scaffolding.",
+     "definitionFit": "A gun with a hair-trigger fires at the slightest touch, so a hair-trigger temper can explode instantly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Attitude"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +702,70 @@
     "text": "Former Queen upset business, sacking leader in interim period",
     "enumeration": "7"
    },
-   "solution": "REGENCY"
+   "solution": "REGENCY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "REGENCY",
+    "definitions": [
+     {
+      "text": "interim period",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, to upset is to tip over, so the letters read upwards"
+     },
+     {
+      "text": "sacking leader",
+      "for": "deletion",
+      "note": "to sack the leader is to fire the one at the front, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen Elizabeth II"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "AGENCY",
+      "note": "an agency is a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "GENCY"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former queen is overturned while a business fires its head in a stopgap period.",
+     "walkthrough": "ER, the royal cipher of Elizabeth II, reverses to RE; AGENCY loses its A.",
+     "definitionFit": "A regency is the stretch when a regent governs because the monarch is a child, absent or incapable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +779,55 @@
     "text": "Island creature, flightless bird, caught between both sides",
     "enumeration": "5"
    },
-   "solution": "LEMUR"
+   "solution": "LEMUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEMUR",
+    "definitions": [
+     {
+      "text": "Island creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught between",
+      "for": "container",
+      "note": "caught between two things is held inside them, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both sides",
+      "gives": "LR",
+      "note": "left and right, L and R"
+     },
+     {
+      "clueFragment": "flightless bird",
+      "gives": "EMU",
+      "note": "the emu is a large Australian bird that cannot fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EMU",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "On an island, an animal and a flightless bird are trapped between two sides.",
+     "walkthrough": "'Both sides' are left and right, L and R.",
+     "definitionFit": "Lemurs are primates found in the wild only on Madagascar and nearby islands, hence an island animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +841,60 @@
     "text": "Unimportant Nationalist in government for only a brief time?",
     "enumeration": "9"
    },
-   "solution": "LIGHTNING"
+   "solution": "LIGHTNING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIGHTNING",
+    "definitions": [
+     {
+      "text": "for only a brief time?",
+      "at": 38,
+      "note": "adjectival, as in a lightning visit"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unimportant",
+      "gives": "LIGHT",
+      "note": "light as in trivial, of little weight"
+     },
+     {
+      "clueFragment": "Nationalist",
+      "gives": "N",
+      "note": "N is the abbreviation for Nationalist"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "N",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor nationalist joins government for just a short spell.",
+     "walkthrough": "'In' looks like a container signal but is used as written.",
+     "definitionFit": "A lightning visit or strike happens very quickly and lasts only a moment, like a flash in a storm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +914,75 @@
      }
     ]
    },
-   "solution": "CROWNAGENT"
+   "solution": "CROWNAGENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CROWN AGENT",
+    "definitions": [
+     {
+      "text": "Government-appointed businessman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "things that go sadly end up in a sorry mess, so the letters are jumbled"
+     },
+     {
+      "text": "investing in",
+      "for": "container",
+      "note": "to invest something in a place is to put it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "WRONG",
+      "note": "taken as written for the jumble"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is the abbreviation for America"
+     },
+     {
+      "clueFragment": "US money",
+      "gives": "CENT",
+      "note": "a cent is a US coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROWNAG",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WRONGA",
+       "gives": "ROWNAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government-appointed businessman is sadly wrong about America while investing in dollars.",
+     "walkthrough": "'About' here places America inside the jumbled word rather than meaning 'concerning'; the whole result then splits the US coin after its first letter.",
+     "definitionFit": "A crown agent acts commercially on behalf of the British state, handling procurement and trade for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +996,68 @@
     "text": "Record of performance in unusual location regarding essential study?",
     "enumeration": "11"
    },
-   "solution": "ONTOLOGICAL"
+   "solution": "ONTOLOGICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ONTOLOGICAL",
+    "definitions": [
+     {
+      "text": "regarding essential study?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the ordinary arrangement, so letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "what is in something sits inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record of performance",
+      "gives": "LOG",
+      "note": "a log records how a ship or flight performed"
+     },
+     {
+      "clueFragment": "location",
+      "gives": "LOCATION",
+      "note": "taken as written for the jumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTO",
+      "LOG",
+      "ICAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOCATION",
+       "gives": "ONTOICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performance record ends up somewhere odd concerning a key study.",
+     "walkthrough": "'Essential' points at essence: the study is of being itself, which is why the definition is fair though cryptic.",
+     "definitionFit": "Ontology is the philosophical inquiry into the nature of being and essence, so its adjective covers that study."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "essential"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1071,47 @@
     "text": "Surprise publicity event not carrying through",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not carrying through",
+      "for": "deletion",
+      "note": "failing to carry something through means stopping short, so the final letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity event",
+      "gives": "STUNT",
+      "note": "a publicity stunt is an event staged for attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A surprise publicity event falls flat and is not followed through.",
+     "walkthrough": "STUNT stops one letter short.",
+     "definitionFit": "To stun someone is to astonish them, a strong form of taking them by surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1131,71 @@
      }
     ]
    },
-   "solution": "LOWALCOHOL"
+   "solution": "LOWALCOHOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOW-ALCOHOL",
+    "definitions": [
+     {
+      "text": "promising no drunken antics?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded sits inside another thing, so one piece goes within"
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is an old word meaning see or behold"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "barrier",
+      "gives": "WALL",
+      "note": "a wall is a barrier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "WAL",
+      "CO",
+      "HO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm sees a walled house where no drunken rowdiness is promised.",
+     "walkthrough": "'See' is the old exclamation lo, as in 'lo and behold', and 'attending' just means placed beside.",
+     "definitionFit": "A drink with little ethanol in it should not get anyone inebriated, so it guards against rowdy intoxicated behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1209,67 @@
     "text": "Turned on, tense and worried? Write music",
     "enumeration": "6"
    },
-   "solution": "NOTATE"
+   "solution": "NOTATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTATE",
+    "definitions": [
+     {
+      "text": "Write music",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned",
+      "for": "reversal",
+      "note": "something turned is facing the other way, so its letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "something eating at you worries you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "T",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Excited, tense and anxious, a composer is urged to get writing.",
+     "walkthrough": "'Turned on' reads as excited, but 'Turned' acts on ON only. 'Ate' as worried is the 'what's eating you?' sense.",
+     "definitionFit": "To notate is to set something down in a system of written symbols, as composers do with a score."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1283,65 @@
     "text": "Youth? Fresh years, including golden one",
     "enumeration": "8"
    },
-   "solution": "MINORITY"
+   "solution": "MINORITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MINORITY",
+    "definitions": [
+     {
+      "text": "Youth?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fresh",
+      "gives": "MINTY",
+      "note": "a minty taste is fresh"
+     },
+     {
+      "clueFragment": "golden",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     },
+     {
+      "clueFragment": "years",
+      "note": "surface padding that supports the picture of youth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "OR",
+      "I",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Youth: a run of fresh years, one of them golden.",
+     "walkthrough": "'Years' wants to be the anagram fodder; it is part of the surface, and MINTY holds OR and I. Or is gold in heraldry.",
+     "definitionFit": "Minority is the legal state of being under the age of majority, a period of youth before adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1355,46 @@
     "text": "Sweetheart or duck, in crossword terms?",
     "enumeration": "8"
    },
-   "solution": "LOVEBIRD"
+   "solution": "LOVEBIRD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOVEBIRD",
+    "definitions": [
+     {
+      "text": "Sweetheart",
+      "at": 0
+     },
+     {
+      "text": "duck, in crossword terms?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweetheart",
+      "note": "first meaning: one of a pair of doting lovers"
+     },
+     {
+      "clueFragment": "duck, in crossword terms?",
+      "note": "second meaning: duck is both a zero score in cricket and a bird, so it splits into nil and fowl"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A duck in cricket is a score of nothing, and love is nil in tennis; a duck is also a bird. Solvers use both readings, hence 'in crossword terms'.",
+     "definitionFit": "Lovebirds are small affectionate parrots, and the word means a besotted partner in a romantic couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1414,65 @@
      }
     ]
    },
-   "solution": "FULLMOON"
+   "solution": "FULLMOON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FULL MOON",
+    "definitions": [
+     {
+      "text": "aspect of heavenly body",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen something is to shut it in an enclosure, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entertainment",
+      "gives": "FUN",
+      "note": "fun is amusement or entertainment"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L for line, doubled"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to moo, as cattle do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "LL",
+      "MOO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A show writes lines about the dim side of a planet or star.",
+     "walkthrough": "'Low' is the cattle sound, not a position, and the two lines are kept together inside the entertainment.",
+     "definitionFit": "The moon shows different phases as it orbits, and the fully lit disc is one of those appearances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1486,77 @@
     "text": "Complaint raised about Democratic Attorney-General’s source of eats",
     "enumeration": "7"
    },
-   "solution": "FEEDBAG"
+   "solution": "FEEDBAG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "FEEDBAG",
+    "definitions": [
+     {
+      "text": "source of eats",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something makes its letters read upwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complaint",
+      "gives": "BEEF",
+      "note": "a beef is a grievance"
+     },
+     {
+      "clueFragment": "Democratic",
+      "gives": "D",
+      "note": "D is the abbreviation for Democratic"
+     },
+     {
+      "clueFragment": "Attorney-General",
+      "gives": "AG",
+      "note": "initials of Attorney-General"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEE",
+      "D",
+      "B",
+      "AG"
+     ],
+     "reversals": [
+      {
+       "from": "BEEF",
+       "to": "FEEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grievance is raised about a Democratic Attorney-General's source of food.",
+     "walkthrough": "'Complaint' is the slang grievance, a beef, not an illness; reading upwards it starts the answer.",
+     "definitionFit": "A feedbag is the nosebag hung on a horse's head to hold its fodder, and informally any meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1570,62 @@
     "text": "Irregular Judge, old, accepting $1000",
     "enumeration": "6"
    },
-   "solution": "JAGGED"
+   "solution": "JAGGED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JAGGED",
+    "definitions": [
+     {
+      "text": "Irregular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "AGED",
+      "note": "aged means old"
+     },
+     {
+      "clueFragment": "$1000",
+      "gives": "G",
+      "note": "G is a grand, a thousand dollars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "AG",
+      "G",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An irregular old judge is taking a thousand-dollar bribe.",
+     "walkthrough": "G for a grand is US slang. G goes inside AGED, after J.",
+     "definitionFit": "A jagged edge has uneven, sharp projections, so it is rough and irregular in outline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Irregular"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1639,70 @@
     "text": "Guided up? Yes, getting day behind schedule",
     "enumeration": "7"
    },
-   "solution": "DELAYED"
+   "solution": "DELAYED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DELAYED",
+    "definitions": [
+     {
+      "text": "behind schedule",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guided",
+      "gives": "LED",
+      "note": "to guide is to lead, past tense led"
+     },
+     {
+      "clueFragment": "Yes",
+      "gives": "AYE",
+      "note": "aye means yes"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "AYE",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "LED",
+       "to": "DEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether they were escorted; yes, but a day late.",
+     "walkthrough": "LED read upwards gives DEL, followed by AYE and D.",
+     "definitionFit": "Something delayed is running late, held up past its scheduled time of arrival or completion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1716,51 @@
     "text": "The whole attraction of Nice, say, in warmer period",
     "enumeration": "6"
    },
-   "solution": "SUMMER"
+   "solution": "SUMMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUMMER",
+    "definitions": [
+     {
+      "text": "warmer period",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The whole",
+      "gives": "SUM",
+      "note": "the sum is the whole amount"
+     },
+     {
+      "clueFragment": "attraction of Nice, say",
+      "gives": "MER",
+      "note": "mer is French for sea, the draw of Nice on the Riviera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "MER"
+     ]
+    },
+    "explanation": {
+     "surface": "The full charm of Nice is felt in the hot season.",
+     "walkthrough": "'Nice' is the French city, not the adjective, and 'say' flags that the word is French: the sea is what draws visitors there.",
+     "definitionFit": "Summer is the hottest of the four seasons, the warm stretch of the year between spring and autumn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1774,61 @@
     "text": "Thus good is enshrined in lead character, though not at first",
     "enumeration": "4"
    },
-   "solution": "ERGO"
+   "solution": "ERGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ERGO",
+    "definitions": [
+     {
+      "text": "Thus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is enshrined in",
+      "for": "container",
+      "note": "something enshrined is set inside a shrine, so one piece goes within another"
+     },
+     {
+      "text": "though not at first",
+      "for": "deletion",
+      "note": "not at first means the opening letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead character",
+      "gives": "HERO",
+      "note": "the hero is the lead character"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "G",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "So goodness is embodied in the protagonist, though not at the start.",
+     "walkthrough": "'Lead character' wants to be a first letter; it is HERO, which loses its H.",
+     "definitionFit": "Ergo is Latin for therefore, used in English as a formal word meaning consequently or so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1842,67 @@
     "text": "Dressed up cellars, bringing in touch of hope - no longer this?",
     "enumeration": "10"
    },
-   "solution": "SEPULCHRAL"
+   "solution": "SEPULCHRAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "SEPULCHRAL",
+    "definitions": [
+     {
+      "text": "no longer this?",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dressed",
+      "for": "anagram",
+      "note": "dressing something rearranges it into a new form, so these letters are reworked"
+     },
+     {
+      "text": "touch of",
+      "for": "letter_selection",
+      "note": "a touch is the slightest amount, so only the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "bringing in",
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up cellars",
+      "gives": "UPCELLARS",
+      "note": "taken as written for the jumble"
+     },
+     {
+      "clueFragment": "hope",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of hope"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPCELLARSH",
+       "gives": "SEPULCHRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cellars are prettified with a glimmer of hope so they no longer feel gloomy.",
+     "walkthrough": "'Dressed up' looks like one phrase, but only 'Dressed' signals; 'up' is fodder. 'This' points back to the answer: hope makes the cellars no longer tomb-like.",
+     "definitionFit": "Sepulchral means gloomy and tomb-like, and a cellar brightened with hope would stop feeling that dismal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1916,42 @@
     "text": "Part of some shimmering feature of lingerie?",
     "enumeration": "4"
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MESH",
+    "definitions": [
+     {
+      "text": "feature of lingerie?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of a phrase is a stretch of it, so the letters lie inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some shimmering",
+      "gives": "MESH",
+      "note": "spans the end of some and the start of shimmering"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of some shimmering detail on underwear.",
+     "walkthrough": "The letters run across the word break between 'some' and 'shimmering'.",
+     "definitionFit": "Lingerie is often made with a fine open net fabric, a common see-through detail on lacy underwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1965,64 @@
     "text": "Source of disease: cure a bit tricky, needing months",
     "enumeration": "9"
    },
-   "solution": "BACTERIUM"
+   "solution": "BACTERIUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BACTERIUM",
+    "definitions": [
+     {
+      "text": "Source of disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tricky",
+      "for": "anagram",
+      "note": "something tricky is awkward and twisted, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cure a bit",
+      "gives": "CUREABIT",
+      "note": "taken as written for the jumble"
+     },
+     {
+      "clueFragment": "months",
+      "gives": "M",
+      "note": "M is the abbreviation for months"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACTERIU",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUREABIT",
+       "gives": "BACTERIU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cause of an illness is hard to treat, and a cure takes months.",
+     "walkthrough": "'Cure a bit' is jumbled and M follows.",
+     "definitionFit": "Many illnesses are caused by microbes, and a single bacterial cell can infect a host and make it ill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tricky"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +2036,61 @@
     "text": "Shout about a very intimidating presence",
     "enumeration": "5"
    },
-   "solution": "HEAVY"
+   "solution": "HEAVY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEAVY",
+    "definitions": [
+     {
+      "text": "intimidating presence",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shout",
+      "gives": "HEY",
+      "note": "hey is a shout"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "A",
+      "V",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yells about a truly menacing figure.",
+     "walkthrough": "A and V together go inside HEY.",
+     "definitionFit": "A heavy is slang for a thug or bodyguard hired to menace people, a threatening figure in a gang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +2104,67 @@
     "text": "Rising cheers surrounding Conservative legislation",
     "enumeration": "3"
    },
-   "solution": "ACT"
+   "solution": "ACT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ACT",
+    "definitions": [
+     {
+      "text": "legislation",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down clue, rising letters read from bottom to top"
+     },
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "to surround is to go all round, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks, cheers"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheers rise around a Tory law.",
+     "walkthrough": "'Cheers' here is the British thank-you, not applause: TA, reversed to AT, around C.",
+     "definitionFit": "An Act of Parliament is a statute, a piece of law passed by the legislature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +2178,54 @@
     "text": "Associate of Arthur held after party",
     "enumeration": "7"
    },
-   "solution": "GALAHAD"
+   "solution": "GALAHAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GALAHAD",
+    "definitions": [
+     {
+      "text": "Associate of Arthur",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so the pieces are placed one behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "GALA",
+      "note": "a gala is a festive party"
+     },
+     {
+      "clueFragment": "held",
+      "gives": "HAD",
+      "note": "to have is to hold, so held is had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALA",
+      "HAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend of Arthur's is detained after a party.",
+     "walkthrough": "The definition comes first, but the pieces are read in the order 'after' sets: party, then held.",
+     "definitionFit": "Sir Galahad was one of the Knights of the Round Table serving King Arthur in the legends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 29,
@@ -497,7 +2239,72 @@
     "text": "Told about particular backsliding, one being allowed to escape",
     "enumeration": "7"
    },
-   "solution": "RELATED"
+   "solution": "RELATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "RELATED",
+    "definitions": [
+     {
+      "text": "Told",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backsliding",
+      "for": "reversal",
+      "note": "sliding backwards means the letters run in the other direction"
+     },
+     {
+      "text": "being allowed to escape",
+      "for": "deletion",
+      "note": "a thing allowed to escape gets out, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "particular",
+      "gives": "DETAIL",
+      "note": "a particular is a detail"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LATED"
+     ],
+     "reversals": [
+      {
+       "from": "DETAIL",
+       "to": "LIATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is informed of a specific lapse, and one prisoner gets away.",
+     "walkthrough": "'Particular' is a noun here, a detail. DETAIL reversed gives LIATED, which lets its I go.",
+     "definitionFit": "To relate a story is to tell or recount it, so related is the past tense meaning told."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   }
  ]
 }
