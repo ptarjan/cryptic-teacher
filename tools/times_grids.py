@@ -497,6 +497,32 @@ def split_by(rec, grid):
     return rec
 
 
+def as_headed(rec):
+    """rec with each light whose suffix contradicts its heading (the parser's
+    `heading`) turned to the heading's direction, or None if it has none."""
+    if not any(e.get("heading") for e in rec["entries"]):
+        return None
+    return {**rec, "entries": [
+        {**{k: v for k, v in e.items() if k != "heading"},
+         "direction": e.get("heading") or e["direction"]} for e in rec["entries"]]}
+
+
+def headed_by(rec, grid):
+    """rec, or as_headed(rec) when only that names the grid's lights."""
+    flipped = as_headed(rec)
+    if flipped is None:
+        return rec
+    lights = set(rg.light_cells(grid))
+    named = lambda r: {(e["number"], e["direction"]) for e in r["entries"]}
+    return flipped if named(rec) != lights and named(flipped) == lights else rec
+
+
+def doubtful(rec):
+    """Does the parser leave something for the grid to decide: a linked
+    answer printed whole, or a suffix against its heading?"""
+    return bool(rec.get("unsplit")) or any(e.get("heading") for e in rec["entries"])
+
+
 def solve_linked(rec, limit, max_nodes):
     """solve() for a record holding a linked answer the post prints whole:
     every split at a word break is rebuilt, and one split landing on exactly
@@ -579,6 +605,12 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True):
         if (len(sols) == 1 and not info["truncated"]
                 and (symmetric or mirrored(sols[0]))):
             return list(sols), "unique, " + why
+    flipped = as_headed(rec)
+    if flipped:
+        grids, why = solve(flipped, limit=limit, max_nodes=max_nodes, thorough=False)
+        if len(grids) == 1 and why.startswith("unique"):
+            rec["entries"] = flipped["entries"]
+            return grids, why + ", directions as headed"
     if not thorough:
         return [], "no grid"
     grid, why = one_light_wrong(lights, words, n, black_run(rec))
@@ -622,11 +654,11 @@ def settled_digest(fix):
     return hashlib.sha256(json.dumps(lights).encode()).hexdigest()[:12]
 
 
-def attempted(max_nodes, settled=None, attempts=None, linked=frozenset()):
+def attempted(max_nodes, settled=None, attempts=None, doubts=frozenset()):
     """post_id of every puzzle this search already tried, at this budget or more,
-    with the settled answers it has now. A post in `linked` holds a linked
-    answer it prints whole, and counts as tried only by a search that split it
-    (an attempt marked "linked").
+    with the settled answers it has now. A post in `doubts` is doubtful() and
+    counts as tried only by a search that let the grid decide its doubts (an
+    attempt marked "doubts").
 
     Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
     `truncated` puzzle gets another go, and that has to still work. Nor is one
@@ -643,7 +675,7 @@ def attempted(max_nodes, settled=None, attempts=None, linked=frozenset()):
                 continue       # the last line of a killed run, half written
             if (a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes
                     and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))
-                    and (a["post_id"] not in linked or a.get("linked"))):
+                    and (a["post_id"] not in doubts or a.get("doubts"))):
                 ids.add(a["post_id"])
     return ids
 
@@ -749,7 +781,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     # unchanged one is not.
     done = set() if (fresh or not write) else (
         solved_already(out_path) | attempted(
-            max_nodes, settled, attempts, {r["post_id"] for r in recs if r.get("unsplit")}))
+            max_nodes, settled, attempts, {r["post_id"] for r in recs if doubtful(r)}))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} puzzle(s) already tried, per {attempts.name}")
@@ -763,7 +795,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
         rec, made = amend(rec, settled)
-        linked = bool(rec.get("unsplit"))
+        doubts = doubtful(rec)
         grids, why = solver(rec, max_nodes=max_nodes)
         fixes = []
         if len(grids) == 1:
@@ -781,8 +813,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
             attempt = {"post_id": rec["post_id"], "how": why,
                        "max_nodes": max_nodes, "search": SEARCH,
                        "settled": settled_digest(settled.get(rec["post_id"]))}
-            if linked:
-                attempt["linked"] = True
+            if doubts:
+                attempt["doubts"] = True
             log.write(json.dumps(attempt) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
