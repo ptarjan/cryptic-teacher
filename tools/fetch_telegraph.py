@@ -43,15 +43,23 @@ import json
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import enumeration  # noqa: E402
-from fetch_puzzle import (flatten_clue, puzzle_files, puzzle_path,  # noqa: E402
-                          read_puzzle_file, separators, write_puzzle_file)
-import series as series_meta  # noqa: E402
+import enumeration
+import puzzle_paths
+import series as series_meta
+from fetch_puzzle import (
+    flatten_clue,
+    puzzle_files,
+    puzzle_path,
+    read_puzzle_file,
+    separators,
+    write_puzzle_file,
+)
 
 TOOL = "tools/fetch_telegraph.py"
 BUCKET = "https://puzzlesdata.telegraph.co.uk"
@@ -59,6 +67,13 @@ FIRST_YEAR = 2015
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
 DELAY = 2.0
+#: Every bucket file fetched, kept: a re-run, tools/cross_validate.py and a
+#: refile read it from here rather than asking the bucket again.
+CACHE = Path.home() / "cryptic-setter-data" / "telegraph-source"
+#: The first number each series' calendar serves. From here on the bucket is
+#: the primary source and bigdave44.com is read only for its hints:
+#: tools/file_telegraph_puzzles.py files nothing at or past these.
+FIRST_NUMBER = {"telegraph": 27738, "sundaytel": 2786, "toughie": 2486, "sundaytough": 24}
 #: The bucket's variant -> the series on a weekday and on a Sunday.
 VARIANTS = {
     "cryptic-crossword-1": ("telegraph", "sundaytel"),
@@ -72,6 +87,7 @@ PAPER = {"telegraph": "Telegraph cryptic crossword", "toughie": "Telegraph Tough
 #: Where a reader plays it. The app has no per-puzzle address it keeps, so
 #: every puzzle credits the same page, as the Independent's do.
 PLAY_URL = "https://www.telegraph.co.uk/puzzles/"
+ENTITY_NAME = re.compile(r"([AEIOUCN])(?:ACUTE|GRAVE|CIRC|UML|CEDIL|TILDE)")
 TITLE = re.compile(r"\bNo\.?\s*([\d,]+)\s*$")
 
 
@@ -79,6 +95,22 @@ def http_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read().decode("utf-8"))
+
+
+def served(series, number):
+    """Whether the bucket is this puzzle's primary source."""
+    return series in FIRST_NUMBER and number >= FIRST_NUMBER[series]
+
+
+def bucket_puzzle(variant, slug):
+    """(raw bucket JSON, fetched?) for one puzzle, from the cache when held."""
+    path = CACHE / "puzzles" / variant / f"{slug}.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8")), False
+    doc = http_json(f"{BUCKET}/puzzles/{variant}/{slug}.json")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+    return doc, True
 
 
 def variant_of(slug):
@@ -179,7 +211,11 @@ def parse(doc, variant):
             (x1, x2), (y1, y2) = span(word["x"]), span(word["y"])
             cells = ([(x, y1) for x in range(x1, x2 + 1)] if direction == "across"
                      else [(x1, y) for y in range(y1, y2 + 1)])
-            solution = re.sub(r"[^A-Z]", "", (word.get("solution") or "").upper())
+            solution = re.sub(r"[^A-Z]", "", unicodedata.normalize(
+                "NFKD", html.unescape(word.get("solution") or "")).upper())
+            if len(solution) > len(cells):
+                # An accent whose entity lost its "&" and ";": NEACUTEE is NEE.
+                solution = ENTITY_NAME.sub(r"\1", solution)
             if len(solution) != len(cells):
                 raise ValueError(f"{c['number']} {direction}: answer {solution!r} "
                                  f"does not fill {len(cells)} cells")
@@ -202,7 +238,9 @@ def parse(doc, variant):
         if any(m not in lights for m in members):
             raise ValueError(f"{key[0]} {key[1]}: links a light the grid lacks")
         fmt = re.sub(r"\s+", "", c.get("format") or "") or str(lights[key]["length"])
-        seps = separators(fmt, [lights[m]["length"] for m in members])
+        # separators() splits on commas and hyphens; a "4'1" or "4.7" break
+        # sits at the same letter.
+        seps = separators(re.sub(r"[.'’]", ",", fmt), [lights[m]["length"] for m in members])
         text, italics = flatten_clue(cp1252(html.unescape(c["clue"])).strip())
         group = [f"{n}-{d}" for n, d in members]
         for i, m in enumerate(members):
@@ -243,24 +281,161 @@ def blog_setters():
     return out
 
 
+def _letters(text):
+    return re.sub(r"[^A-Z]", "", (text or "").upper())
+
+
+_WORDS = None
+
+
+def words():
+    """The lexicon's words, upper case: what tells a typo from a spelling."""
+    global _WORDS
+    if _WORDS is None:
+        path = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+        _WORDS = {line.split("\t", 1)[0] for line in path.open(encoding="utf-8")
+                  if not line.startswith("#")}
+    return _WORDS
+
+
+def bucket_misprint(ours, theirs):
+    """Why the bucket's clue text is the wrong one, or None when it is right.
+
+    The bucket is the printed puzzle and wins every disagreement but two: a
+    typo the blog's retyping corrected (one word apart, the bucket's not a
+    word and ours one: "exemplifed" for "exemplified"), and a clue the bucket
+    holds garbled, its words run into a second copy of themselves."""
+    import cross_validate
+    a, b = cross_validate.norm_text(ours), cross_validate.norm_text(theirs)
+    if not a or a == b:
+        return None
+    if len(a) >= 15 and b.count(a[:15]) > 1:
+        return "the bucket repeats the clue inside itself"
+    wa, wb = re.findall(r"[a-z]+", ours.lower()), re.findall(r"[a-z]+", theirs.lower())
+    if len(wa) == len(wb):
+        apart = [(x, y) for x, y in zip(wa, wb) if x != y]
+        if (len(apart) == 1 and not_a_word(apart[0][1]) and not not_a_word(apart[0][0])
+                and close(*apart[0])):
+            return f"the bucket misspells {apart[0][0]!r} as {apart[0][1]!r}"
+    return None
+
+
+def not_a_word(w):
+    return w.upper() not in words()
+
+
+def close(a, b):
+    """Within two single-letter edits."""
+    import difflib
+    return sum(max(i2 - i1, j2 - j1) for op, i1, i2, j1, j2 in
+               difflib.SequenceMatcher(None, a, b).get_opcodes() if op != "equal") <= 2
+
+
+def counts(enum):
+    return sum(int(n) for n in re.findall(r"\d+", enum or ""))
+
+
+def annotation_fits(annotation, text, answer):
+    """Whether an annotation written for one clue still describes this one:
+    the same answer, and every definition, indicator and block's words still
+    in the clue as written (tools/definitions.py places them exactly)."""
+    if _letters(annotation.get("answer")) != answer:
+        return False
+    pieces = ([d.get("text") for d in annotation.get("definitions") or ()]
+              + [i.get("text") for i in annotation.get("indicators") or ()]
+              + [b.get("clueFragment") for b in annotation.get("blocks") or ()])
+    return all(p in (text or "") for p in pieces if p)
+
+
+def refile(new, old):
+    """The bucket's puzzle `new` over the blog-built file `old`: the printed
+    grid, numbering, enumerations and answers, the printed clue unless
+    bucket_misprint() proves it wrong, and each annotation that still fits its
+    clue. Returns (puzzle, notes), notes saying what was kept or dropped."""
+    import cross_validate
+    notes = []
+    at = {(e["position"]["x"], e["position"]["y"], e["direction"]): e
+          for e in old.get("entries", ())}
+    by_id = {f"{e['number']}-{e['direction']}": e for e in new["entries"]}
+    for e in new["entries"]:
+        was = at.get((e["position"]["x"], e["position"]["y"], e["direction"]))
+        if not was:
+            continue
+        light = f"{e['number']}-{e['direction']}"
+        text, old_text = e["clue"].get("text"), was["clue"].get("text")
+        if text and old_text and not text.startswith("See "):
+            why = bucket_misprint(old_text, text)
+            if cross_validate.norm_text(old_text) == cross_validate.norm_text(text):
+                # The same words: ours keeps the offsets its annotation and
+                # blog facts point into.
+                e["clue"] = {**{k: v for k, v in e["clue"].items() if k != "italics"},
+                             "text": old_text,
+                             **({"italics": was["clue"]["italics"]}
+                                if was["clue"].get("italics") else {})}
+            elif why:
+                e["clue"] = {**e["clue"], "text": old_text}
+                e["clue"].pop("italics", None)
+                notes.append(f"{light}: kept our clue, {why}")
+        members = [by_id[m] for m in e.get("group") or [light] if m in by_id]
+        holds = sum(m["length"] for m in members)
+        enum, old_enum = e["clue"].get("enumeration"), was["clue"].get("enumeration")
+        if enum and old_enum and counts(enum) != holds and counts(old_enum) == holds:
+            e["clue"] = {**e["clue"], "enumeration": old_enum}
+            seps = separators(old_enum, [m["length"] for m in members])
+            for m, sep in zip(members, seps):
+                m["clue"] = {k: v for k, v in m["clue"].items() if k != "separators"}
+                if sep:
+                    m["clue"]["separators"] = sep
+            notes.append(f"{light}: kept our ({old_enum}), the bucket's ({enum}) "
+                         f"does not count the {holds} letters")
+        ann = was.get("annotation")
+        if ann and "See " != (e["clue"].get("text") or "")[:4]:
+            answer = "".join(by_id[m]["solution"] for m in e.get("group") or [light])
+            if annotation_fits(ann, e["clue"].get("text"), answer):
+                e["annotation"] = ann
+            else:
+                notes.append(f"{light}: dropped the annotation, written for "
+                             f"{old_text!r} = {_letters(ann.get('answer'))}")
+    merged = {**new}
+    if not merged.get("setter") and old.get("setter"):
+        merged["setter"] = old["setter"]
+    if old.get("annotatedBy") and any(e.get("annotation") for e in merged["entries"]):
+        merged["annotatedBy"] = old["annotatedBy"]
+    return merged, notes
+
+
 def fetch(variant, slug, expect=None, setters=None):
-    puzzle = parse(http_json(f"{BUCKET}/puzzles/{variant}/{slug}.json"), variant)
+    """File one bucket puzzle: new, or over a file the blog filer built.
+    Returns (puzzle written or None, whether the bucket was asked)."""
+    doc, asked = bucket_puzzle(variant, slug)
+    puzzle = parse(doc, variant)
     if not puzzle.get("setter") and setters:
         puzzle["setter"] = setters.get((puzzle["series"], puzzle["number"]))
     if expect and (puzzle["series"], puzzle["number"]) != expect:
         raise ValueError(f"{slug} is {puzzle['id']}, the calendar says {expect[0]}-{expect[1]}")
     path = puzzle_path(puzzle["series"], puzzle["number"])
-    if path.exists():
-        print(f"held {puzzle['id']}: left alone")
-        return None
+    held = puzzle_paths.find(puzzle["id"])
+    if held:
+        old = read_puzzle_file(held)
+        if (old.get("source") or {}).get("acquiredBy") == TOOL:
+            print(f"held {puzzle['id']}: left alone")
+            return None, asked
+        puzzle, notes = refile(puzzle, old)
+        write_puzzle_file(path, puzzle, generator=TOOL)
+        print(f"refiled {puzzle['id']} ({puzzle['date']}) over the blog's"
+              + "".join(f"\n  {n}" for n in notes))
+        return puzzle, asked
     write_puzzle_file(path, puzzle, generator=TOOL)
     print(f"fetched {puzzle['id']} ({puzzle['date']})")
-    return puzzle
+    return puzzle, asked
 
 
 def holes(rows):
+    """The calendar rows to file: those puzzles/ lacks, and those it holds
+    only as the blog filer rebuilt them."""
     have = {p["id"] for p in (read_puzzle_file(f) for f in puzzle_files())
-            if p.get("series") in PAPER}
+            if p.get("series") in PAPER
+            and (p.get("source") or {}).get("acquiredBy") == TOOL}
     return [r for r in rows if series_meta.puzzle_id(r[0], r[1]) not in have]
 
 
@@ -273,9 +448,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.slugs:
         for slug in args.slugs:
-            variant = variant_of(slug)
-            fetch(variant, slug)
-            time.sleep(DELAY)
+            if fetch(variant_of(slug), slug)[1]:
+                time.sleep(DELAY)
         return 0
     if args.holes is None:
         ap.error("give --holes N or slugs")
@@ -284,18 +458,20 @@ def main(argv=None):
     by = {}
     for r in todo:
         by[r[0]] = by.get(r[0], 0) + 1
-    print(f"bucket holds {len(todo)} puzzles not on disk: "
+    print(f"bucket holds {len(todo)} puzzles not on disk or held as the blog rebuilt them: "
           + ", ".join(f"{s} {n}" for s, n in sorted(by.items())))
     done = failed = 0
     setters = blog_setters()
     for series, number, day, variant, slug in todo[:args.holes]:
+        asked = True
         try:
-            if fetch(variant, slug, expect=(series, number), setters=setters):
-                done += 1
+            written, asked = fetch(variant, slug, expect=(series, number), setters=setters)
+            done += bool(written)
         except Exception as err:  # noqa: BLE001 — one bad puzzle must not stop the walk
             failed += 1
             print(f"failed: {series}-{number} {slug}: {err}")
-        time.sleep(DELAY)
+        if asked:
+            time.sleep(DELAY)
     print(f"done: {done} fetched, {failed} failed")
     if args.reindex and done:
         from fetch_puzzle import reindex

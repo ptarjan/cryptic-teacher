@@ -51,7 +51,8 @@ SOURCES = [
     ("independent", ["python3", "tools/fetch_independent.py", "--extend", "{n}"]),
     ("indysunday", ["python3", "tools/fetch_independent.py", "--extend-sundays", "{n}"]),
     ("everyman", ["python3", "tools/fetch_observer.py", "--extend", "{n}"]),
-    # Not deeper: the holes bigdave44.com's partial hints left, back to 2015.
+    # The bucket is the primary source from 2015: the holes bigdave44.com's
+    # partial hints left, and its rebuilt grids refiled as printed.
     ("telegraph", ["python3", "tools/fetch_telegraph.py", "--holes", "{n}", "--reindex"]),
 ]
 CHUNK = 20

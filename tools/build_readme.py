@@ -393,6 +393,8 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_link_words.sh", "does tools/validate_annotations.py refuse a link word that app.js would place on top of an indicator, wholly or in part, and pass one with a free copy? The placement is app.js placedFragments(), so these are the clues that reached the screen with a bought indicator half-erased"),
     ("tables everything else reads", "tools/test_abbreviations_rank.sh", "/abbreviations/ ranks every list by clue count and shows the count: the most common list, the families and the members of each, and each A-to-Z row's readings. A reading no clue uses keeps its place, last, with no count"),
     ("tables everything else reads", "tools/test_clue_number_residue.sh", "does puzzle_integrity refuse a blog clue that opens with what is left of the blog's clue number, and pass the clues that only look like one?"),
+    ("tables everything else reads", "tools/cross_validate.py", "check our puzzles against another copy of the same puzzle, class by class"),
+    ("tables everything else reads", "tools/test_cross_validate.sh", "does tools/cross_validate.py name each way two copies of a puzzle differ?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
