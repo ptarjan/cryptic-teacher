@@ -703,6 +703,10 @@ def add_missing_layout_rows():
         src_path.write_text(text, encoding="utf-8")
         for _, p, d in added:
             print(f"added: {p} — {d}")
+        # docs/LAYOUT.md carries the table, and --check-layout fails until it
+        # does; its region needs only the file list, not the generated site.
+        LAYOUT.extend(added)
+        LAYOUT_DOC.write_text(render(LAYOUT_DOC), encoding="utf-8")
 
     if unresolved:
         fail("no usable docstring or header comment, so no row was written "
