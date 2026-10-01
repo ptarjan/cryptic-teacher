@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Carelessly throw away food",
     "enumeration": "7"
    },
-   "solution": "FRITTER"
+   "solution": "FRITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRITTER",
+    "definitions": [
+     {
+      "text": "Carelessly throw away",
+      "at": 0
+     },
+     {
+      "text": "food",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carelessly throw away",
+      "note": "first meaning: to waste money or time bit by bit"
+     },
+     {
+      "clueFragment": "food",
+      "note": "second meaning: a piece of battered, deep-fried food"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wastefully tosses a meal into the bin.",
+     "walkthrough": "The surface reads as one action on food, but the clue splits after 'away': a verb meaning squander and a noun for a battered snack such as an apple or corn fritter.",
+     "definitionFit": "To fritter money is to squander it on trifles, and separately a fritter is a deep-fried battered snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +85,47 @@
     "text": "Online item shared, yours truly doubled up",
     "enumeration": "4"
    },
-   "solution": "MEME"
+   "solution": "MEME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEME",
+    "definitions": [
+     {
+      "text": "Online item shared",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yours truly",
+      "gives": "ME",
+      "note": "'yours truly' is the writer referring to themselves, so ME"
+     },
+     {
+      "clueFragment": "doubled up",
+      "gives": "ME",
+      "note": "the same self-reference repeated a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone posts a picture of themselves online and it gets passed round twice over.",
+     "walkthrough": "'Yours truly' is a standard crossword way to give ME; doubling it gives the four letters.",
+     "definitionFit": "A meme is an image or joke copied and spread widely across the internet by users."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubled"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +139,65 @@
     "text": "Run from snake under lid of lunchbox",
     "enumeration": "6"
    },
-   "solution": "LADDER"
+   "solution": "LADDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LADDER",
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lid of",
+      "for": "letter_selection",
+      "note": "a lid sits on top, and in a down entry the top is the first letter"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, being under something means following it in the entry"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunchbox",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lunchbox"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ADDER",
+      "note": "the adder is Britain's venomous snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees from a snake that has turned up under the lid of a lunchbox.",
+     "walkthrough": "'Run' looks like a verb of fleeing, but it is a noun: in British usage a run or ladder is a vertical split in tights or stockings.",
+     "definitionFit": "A ladder in tights is a run, the vertical line of broken stitches that spreads up the fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +211,50 @@
     "text": "Five lines in wood pile",
     "enumeration": "8"
    },
-   "solution": "LIMERICK"
+   "solution": "LIMERICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMERICK",
+    "definitions": [
+     {
+      "text": "Five lines",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "LIME",
+      "note": "lime is the wood of the linden tree"
+     },
+     {
+      "clueFragment": "pile",
+      "gives": "RICK",
+      "note": "a rick is a stack or pile of hay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIME",
+      "RICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Five lines are traced somewhere within a heap of timber.",
+     "walkthrough": "'Five lines' sounds like a count of marks or rows, but it defines a short verse form. A rick is a haystack, a farming word.",
+     "definitionFit": "This humorous poem form has exactly five lines with an AABBA rhyme scheme, as popularised by Edward Lear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +274,57 @@
      }
     ]
    },
-   "solution": "ATVARIANCE"
+   "solution": "ATVARIANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AT VARIANCE",
+    "definitions": [
+     {
+      "text": "In disagreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost entirely",
+      "for": "deletion",
+      "note": "almost all of something means everything bar its very last bit"
+     },
+     {
+      "text": "inaccurate",
+      "for": "anagram",
+      "note": "something inaccurate is not right, so the letters are wrongly ordered and need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a certain VAR",
+      "gives": "ACERTAINVA",
+      "note": "the phrase taken letter for letter, dropping its final R"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACERTAINVA",
+       "gives": "ATVARIANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan argues that the video referee got a decision almost completely wrong.",
+     "walkthrough": "VAR is the video assistant referee in football; here it just lends letters. Dropping the last letter of the phrase leaves exactly the ten letters to rearrange.",
+     "definitionFit": "To be at variance with someone means holding conflicting views, an idiom for being in dispute or conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "VAR"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +338,44 @@
     "text": "Game often played in white jumper",
     "enumeration": "7"
    },
-   "solution": "CRICKET"
+   "solution": "CRICKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRICKET",
+    "definitions": [
+     {
+      "text": "Game often played in white",
+      "at": 0
+     },
+     {
+      "text": "jumper",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game often played in white",
+      "note": "first meaning: the bat-and-ball sport traditionally played in white clothing"
+     },
+     {
+      "clueFragment": "jumper",
+      "note": "second meaning: a leaping insect"
+     }
+    ],
+    "explanation": {
+     "surface": "A sport whose players often wear a white sweater.",
+     "walkthrough": "A jumper is the British word for a sweater, and cricket players do wear white ones, but here it means an insect that jumps.",
+     "definitionFit": "The sport is played in traditional whites, and the chirping insect of that name is a famous leaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +389,43 @@
     "text": "Football club magazine",
     "enumeration": "7"
    },
-   "solution": "ARSENAL"
+   "solution": "ARSENAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARSENAL",
+    "definitions": [
+     {
+      "text": "Football club",
+      "at": 0
+     },
+     {
+      "text": "magazine",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Football club",
+      "note": "first meaning: the north London Premier League side"
+     },
+     {
+      "clueFragment": "magazine",
+      "note": "second meaning: a store of weapons and ammunition"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Football club magazine' reads as a fanzine, but magazine here is its military sense, a store for weapons.",
+     "definitionFit": "Arsenal is a famous London football team, and an arsenal is also a military depot holding ammunition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +439,74 @@
     "text": "Imagine striker’s back in cup tie, playing",
     "enumeration": "7"
    },
-   "solution": "PICTURE"
+   "solution": "PICTURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PICTURE",
+    "definitions": [
+     {
+      "text": "Imagine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its last letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something moves it around, so its letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "striker’s",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of striker"
+     },
+     {
+      "clueFragment": "cup tie",
+      "gives": "CUPTIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICTU",
+      "R",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUPTIE",
+       "gives": "PICTUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan pictures their star forward returning to the side for a cup match.",
+     "walkthrough": "'Back' looks like a striker returning from injury, but it selects the last letter. The rearranged match letters then take that letter between U and E.",
+     "definitionFit": "To picture something is to form a mental image of it, a direct verb synonym for envisage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +520,62 @@
     "text": "Immediately, party hosted by Carol getting hugely out of control",
     "enumeration": "11"
    },
-   "solution": "SNOWBALLING"
+   "solution": "SNOWBALLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SNOWBALLING",
+    "definitions": [
+     {
+      "text": "getting hugely out of control",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosted by",
+      "for": "container",
+      "note": "a host has guests inside their home, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Immediately",
+      "gives": "NOW",
+      "note": "right away"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BALL",
+      "note": "a ball is a formal dance party"
+     },
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing joyfully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOW",
+      "BALL",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Carol throws a party that instantly gets wildly out of hand.",
+     "walkthrough": "Carol looks like a woman's name, but it is the verb to sing, which wraps around the first two pieces.",
+     "definitionFit": "Something snowballing grows rapidly and uncontrollably, like a rolling ball of snow gathering size as it goes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +589,48 @@
     "text": "All there an hour before elevenses, look lively!",
     "enumeration": "10"
    },
-   "solution": "ATTENDANCE"
+   "solution": "ATTENDANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDANCE",
+    "definitions": [
+     {
+      "text": "All there",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an hour before elevenses",
+      "gives": "ATTEN",
+      "note": "elevenses is a mid-morning snack at 11am, so an hour earlier is at ten o'clock"
+     },
+     {
+      "clueFragment": "look lively!",
+      "gives": "DANCE",
+      "note": "an order to move about energetically, read as 'dance!'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEN",
+      "DANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss urges a fully present team to get moving at ten in the morning.",
+     "walkthrough": "Elevenses is a British mid-morning tea break at about 11am. 'All there' looks like praise for alertness, but it defines the people present.",
+     "definitionFit": "Attendance is the number of people present at an event, so everyone who turned up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "All"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +644,42 @@
     "text": "Principal curved structure",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Principal",
+      "at": 0
+     },
+     {
+      "text": "curved structure",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principal",
+      "note": "first meaning: chief, as in an archenemy or archbishop"
+     },
+     {
+      "clueFragment": "curved structure",
+      "note": "second meaning: a curved span over an opening"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Principal' looks like an adjective modifying 'curved structure', but the two are separate meanings.",
+     "definitionFit": "As an adjective it means chief or leading, as in arch rival; as a noun it is a curved span."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Principal"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +693,69 @@
     "text": "Line of bushes that man would expand round rear of house",
     "enumeration": "8"
    },
-   "solution": "HEDGEROW"
+   "solution": "HEDGEROW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "HEDGEROW",
+    "definitions": [
+     {
+      "text": "Line of bushes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear of",
+      "for": "letter_selection",
+      "note": "the rear of a word is its tail end, so the last letter is kept"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to surround it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that man would",
+      "gives": "HED",
+      "note": "'he would' shortens to he'd"
+     },
+     {
+      "clueFragment": "expand",
+      "gives": "GROW",
+      "note": "to get bigger"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HED",
+      "G",
+      "E",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A man plans to extend the shrubbery around the back of his house.",
+     "walkthrough": "The apostrophe of he'd is dropped, as crosswords ignore punctuation. The last letter of the building then sits inside the verb for getting bigger, after its G.",
+     "definitionFit": "A hedgerow is a row of shrubs forming a boundary along a field or lane in the countryside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expand"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +775,43 @@
      }
     ]
    },
-   "solution": "GREYMATTER"
+   "solution": "GREYMATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREY MATTER",
+    "definitions": [
+     {
+      "text": "Common sense",
+      "at": 0
+     },
+     {
+      "text": "something of concern to elderly people?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Common sense",
+      "note": "first meaning: intelligence or brains"
+     },
+     {
+      "clueFragment": "something of concern to elderly people?",
+      "note": "second meaning, whimsically: an issue for the grey-haired"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: a 'matter' that concerns the 'grey', the elderly.",
+     "definitionFit": "Grey matter is the brain tissue, so idiomatically it means intelligence or good sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "concern"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +825,58 @@
     "text": "More than one flower is seen around spring",
     "enumeration": "6"
    },
-   "solution": "IRISES"
+   "solution": "IRISES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IRISES",
+    "definitions": [
+     {
+      "text": "More than one flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to be around something is to encircle it"
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "RISE",
+      "note": "to spring up is to rise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RISE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Several blooms appear in the garden around springtime.",
+     "walkthrough": "'Spring' looks like the season, which suits flowers, but it is a verb meaning to rise up.",
+     "definitionFit": "Irises are tall plants with showy blooms, so the plural names several of these flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +896,47 @@
      }
     ]
    },
-   "solution": "GETCRACKING"
+   "solution": "GETCRACKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GET CRACKING",
+    "definitions": [
+     {
+      "text": "start",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Achieve",
+      "gives": "GET",
+      "note": "to achieve something is to get it"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "CRACKING",
+      "note": "informal British praise meaning excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GET",
+      "CRACKING"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to make a strong beginning.",
+     "walkthrough": "'Great start' looks like one phrase, but the definition is just 'start'. Cracking is chatty British slang for excellent.",
+     "definitionFit": "To get cracking is an informal idiom meaning begin working briskly, so to commence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "great"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +950,67 @@
     "text": "A lot unfortunately stolen by king say, very large quantity",
     "enumeration": "8"
    },
-   "solution": "CARTLOAD"
+   "solution": "CARTLOAD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CARTLOAD",
+    "definitions": [
+     {
+      "text": "very large quantity",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters fall into a bad order"
+     },
+     {
+      "text": "stolen by",
+      "for": "container",
+      "note": "what is stolen ends up held inside the thief's possession"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A lot",
+      "gives": "ALOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king say",
+      "gives": "CARD",
+      "note": "a king is an example of a playing card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "TLOA",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALOT",
+       "gives": "TLOA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch has sadly made off with a huge haul.",
+     "walkthrough": "'King' looks like a monarch who steals, but 'say' marks it as an example: a king in a pack of playing cards.",
+     "definitionFit": "A cartload is literally what a cart can carry, used loosely for a great amount of anything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1024,67 @@
     "text": "Duck filling in such, new pillow",
     "enumeration": "7"
    },
-   "solution": "CUSHION"
+   "solution": "CUSHION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CUSHION",
+    "definitions": [
+     {
+      "text": "pillow",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "filling goes inside something, so one piece is put inside another"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is a remade one, so these letters come in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, shaped like the letter O"
+     },
+     {
+      "clueFragment": "in such",
+      "gives": "INSUCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUSHI",
+      "O",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSUCH",
+       "gives": "CUSHIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Duck down is stuffed into a fresh pillow.",
+     "walkthrough": "Duck feathers really do fill pillows, which hides that duck means zero, O, a cricket term for a batter out without scoring.",
+     "definitionFit": "A cushion is a soft padded bag for resting on, close in sense to a pillow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1098,46 @@
     "text": "Country in a state?",
     "enumeration": "7"
    },
-   "solution": "GEORGIA"
+   "solution": "GEORGIA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GEORGIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "a state",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: the nation in the Caucasus"
+     },
+     {
+      "clueFragment": "a state",
+      "note": "second meaning: one of the fifty United States"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In a state' looks like 'flustered', but it means the name is also that of a US state, which the question mark signals.",
+     "definitionFit": "The same name belongs to a Caucasian republic bordering Russia and to an American state in the South-East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1151,64 @@
     "text": "Gentle sound when strange drink knocked over",
     "enumeration": "6"
    },
-   "solution": "MURMUR"
+   "solution": "MURMUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MURMUR",
+    "definitions": [
+     {
+      "text": "Gentle sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over ends up upside down, so the order turns back to front"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strange",
+      "gives": "RUM",
+      "note": "rum is old British slang for odd or peculiar"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "RUM",
+      "note": "the spirit distilled from sugar cane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUR",
+      "MUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUMRUM",
+       "to": "MURMUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soft noise is heard as an odd glass of something is spilt.",
+     "walkthrough": "'Rum' meaning strange is dated British slang ('a rum business'), so both words give the same three letters before they are turned round.",
+     "definitionFit": "A murmur is a low, soft, continuous sound, such as quiet voices or a gentle stream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1222,67 @@
     "text": "Radio enthusiast, teen is switching between two sides",
     "enumeration": "8"
    },
-   "solution": "LISTENER"
+   "solution": "LISTENER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LISTENER",
+    "definitions": [
+     {
+      "text": "Radio enthusiast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switching",
+      "for": "anagram",
+      "note": "switching things means swapping their places, so these letters change order"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "whatever sits in the middle of a pair is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teen is",
+      "gives": "TEENIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two sides",
+      "gives": "LR",
+      "note": "left and right, the two sides, abbreviated L and R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ISTENE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEENIS",
+       "gives": "ISTENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenage radio fan keeps flipping between two sides of a debate or record.",
+     "walkthrough": "'Switching' fits a radio fan changing stations, but it shuffles the letters, which then sit between the abbreviations for left and right.",
+     "definitionFit": "Someone keen on radio is one who tunes in and hears the broadcasts, the audience member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "switching"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1296,42 @@
     "text": "Steady horses found here",
     "enumeration": "6"
    },
-   "solution": "STABLE"
+   "solution": "STABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STABLE",
+    "definitions": [
+     {
+      "text": "Steady",
+      "at": 0
+     },
+     {
+      "text": "horses found here",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steady",
+      "note": "first meaning: firm and not wobbling"
+     },
+     {
+      "clueFragment": "horses found here",
+      "note": "second meaning: the building where horses are kept"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Steady' could be a call to calm horses, but it is a separate adjective meaning firm.",
+     "definitionFit": "As an adjective it means firmly fixed and unchanging; as a noun it is a building housing horses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Steady"
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1345,52 @@
     "text": "When heinous, autocratic tyrant initially sorry?",
     "enumeration": "4"
    },
-   "solution": "WHAT"
+   "solution": "WHAT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "WHAT",
+    "definitions": [
+     {
+      "text": "sorry?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of each word, so only opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When heinous, autocratic tyrant",
+      "gives": "WHAT",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "H",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a cruel dictator ever apologises once his deeds turn wicked.",
+     "walkthrough": "'Sorry?' looks like a question about a tyrant's remorse, but it is the polite word for asking someone to repeat themselves.",
+     "definitionFit": "Saying 'sorry?' to someone who was not heard asks them to repeat it, the same as a puzzled query."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sorry"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1404,68 @@
     "text": "Lost at first, search in a different county",
     "enumeration": "10"
    },
-   "solution": "LANCASHIRE"
+   "solution": "LANCASHIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LANCASHIRE",
+    "definitions": [
+     {
+      "text": "county",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means at the beginning, so only the opening letter is taken"
+     },
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "to make something different is to change it, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lost",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lost"
+     },
+     {
+      "clueFragment": "search in a",
+      "gives": "SEARCHINA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ANCASHIRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEARCHINA",
+       "gives": "ANCASHIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who got lost has to look for something in another part of the country.",
+     "walkthrough": "LANCASHIRE is a county in north-west England, home of Manchester's neighbours and the Red Rose.",
+     "definitionFit": "This is one of the historic shires of England, so it fits the general term for an administrative region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lost"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1479,55 @@
     "text": "Gardening implement into which fed small tube",
     "enumeration": "4"
    },
-   "solution": "HOSE"
+   "solution": "HOSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOSE",
+    "definitions": [
+     {
+      "text": "tube",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into which fed",
+      "for": "container",
+      "note": "something fed into another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gardening implement",
+      "gives": "HOE",
+      "note": "a hoe is a long-handled tool for weeding"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden tool through which a little pipe has been threaded.",
+     "walkthrough": "The 'gardening implement' wants to be the answer itself, since gardeners use one for watering, but it is only the outer piece and the definition is 'tube'.",
+     "definitionFit": "A hose is a flexible pipe that carries water, so a type of tube."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "implement"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1541,51 @@
     "text": "Block of writing paper, rubbish taped on",
     "enumeration": "7"
    },
-   "solution": "NOTEPAD"
+   "solution": "NOTEPAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOTEPAD",
+    "definitions": [
+     {
+      "text": "Block of writing paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "something rubbish is a mess, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taped on",
+      "gives": "TAPEDON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAPEDON",
+       "gives": "NOTEPAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sticks some junk onto a pad of paper with tape.",
+     "walkthrough": "'Rubbish' looks like a noun for the thing being taped, but it is an adjective meaning bad, signalling that the letters are muddled.",
+     "definitionFit": "A notepad is a bound pad of sheets for jotting, literally a block of stationery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1599,55 @@
     "text": "Wine secured by company credit cards",
     "enumeration": "7"
    },
-   "solution": "PLASTIC"
+   "solution": "PLASTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLASTIC",
+    "definitions": [
+     {
+      "text": "credit cards",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held fast within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "ASTI",
+      "note": "Asti is a sparkling Italian wine"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "PLC",
+      "note": "PLC, public limited company, the British suffix for a listed firm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "ASTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A business pays for its wine on the company credit card.",
+     "walkthrough": "PLC stands for public limited company, the British equivalent of Inc.; the wine sits inside it.",
+     "definitionFit": "Plastic is informal slang for payment cards, named after the material they are made of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "secured"
+    }
+   }
   }
  ]
 }
