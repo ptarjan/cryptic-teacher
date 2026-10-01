@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Second person falling for nightclub artiste?",
     "enumeration": "8"
    },
-   "solution": "STRIPPER"
+   "solution": "STRIPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIPPER",
+    "definitions": [
+     {
+      "text": "nightclub artiste?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     },
+     {
+      "clueFragment": "person falling",
+      "gives": "TRIPPER",
+      "note": "someone who trips is going down, a faller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls in love with a performer at a nightclub, the second admirer to do so.",
+     "walkthrough": "'Falling for' reads as becoming infatuated, but 'person falling' is one who trips, and 'for' joins wordplay to definition.",
+     "definitionFit": "An exotic dancer who undresses on stage performs in clubs; the question mark flags this as a coy description rather than a dictionary term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "falling"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +94,51 @@
     "text": "Giving lessons to Inuit in trouble",
     "enumeration": "7"
    },
-   "solution": "TUITION"
+   "solution": "TUITION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TUITION",
+    "definitions": [
+     {
+      "text": "Giving lessons",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in trouble",
+      "for": "anagram",
+      "note": "things in trouble are in disarray, so the letters are thrown out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Inuit",
+      "gives": "TOINUIT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOINUIT",
+       "gives": "TUITION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher instructs Inuit people who are having difficulties.",
+     "walkthrough": "The Inuit are Indigenous people of Arctic Canada; 'to' looks like a preposition but belongs to the letters being rearranged.",
+     "definitionFit": "Tuition is teaching or instruction, the act of providing classes to pupils, so it matches the gerund phrase as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +152,50 @@
     "text": "Pub first, then sex, right?",
     "enumeration": "5"
    },
-   "solution": "INNIT"
+   "solution": "INNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNIT",
+    "definitions": [
+     {
+      "text": "right?",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "first, then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "'it' is a coy word for sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks their plan for the evening: drinks at the pub first, then bed.",
+     "walkthrough": "'First, then' simply orders the pieces. INNIT is British slang, a contraction of 'isn't it' used as a tag question.",
+     "definitionFit": "Tacked onto a statement, the slang tag asks for agreement exactly as 'right?' does in casual speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sex"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +209,74 @@
     "text": "Retired GP eating last of salami? Greedy chap",
     "enumeration": "3"
    },
-   "solution": "PIG"
+   "solution": "PIG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PIG",
+    "definitions": [
+     {
+      "text": "Greedy chap",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "to retire is to go back, so the letters run backwards"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the final letter only of the following word is wanted"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "what eats takes something inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "GP",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     },
+     {
+      "clueFragment": "salami",
+      "gives": "I",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "GP",
+       "to": "PG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired family doctor snacks on salami, and someone calls him a glutton.",
+     "walkthrough": "'Retired' looks like the doctor's job status but reverses the letters, and the last letter of salami goes inside.",
+     "definitionFit": "Calling someone a pig is a common insult for a person who eats too much or takes more than their share."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +300,43 @@
      }
     ]
    },
-   "solution": "RINGABELL"
+   "solution": "RINGABELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RING A BELL",
+    "definitions": [
+     {
+      "text": "Sound familiar",
+      "at": 0
+     },
+     {
+      "text": "as Quasimodo should do?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound familiar",
+      "note": "first meaning: to stir a vague memory"
+     },
+     {
+      "clueFragment": "as Quasimodo should do?",
+      "note": "second meaning: what the bell-ringer of Notre-Dame is employed to do"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Quasimodo is the hunchbacked bell-ringer of Notre-Dame in Victor Hugo's novel, so the second half is a literal reading of the idiom.",
+     "definitionFit": "The idiom describes something that seems known or recalls a memory, while the literal phrase is the cathedral job of striking chimes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +350,54 @@
     "text": "Husband withdrawn from Hunt inquiry",
     "enumeration": "4"
    },
-   "solution": "CASE"
+   "solution": "CASE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CASE",
+    "definitions": [
+     {
+      "text": "inquiry",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawn from",
+      "for": "deletion",
+      "note": "something withdrawn is taken out, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "Hunt",
+      "gives": "CHASE",
+      "note": "a hunt is a chase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband pulls out of a public inquiry led by someone called Hunt.",
+     "walkthrough": "Capitalised 'Hunt' looks like a surname heading the inquiry, but it is just a pursuit.",
+     "definitionFit": "A case is a matter under police or legal investigation, so the word serves as a synonym for an official probe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hunt"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +411,55 @@
     "text": "I search all over the place for sack",
     "enumeration": "7"
    },
-   "solution": "CASHIER"
+   "solution": "CASHIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASHIER",
+    "definitions": [
+     {
+      "text": "sack",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "something all over the place is scattered and disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I search",
+      "gives": "ISEARCH",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISEARCH",
+       "gives": "CASHIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hunts high and low for a bag.",
+     "walkthrough": "'Sack' reads as a bag being searched for, but it is a verb meaning to dismiss; the answer here is the verb, not the bank clerk.",
+     "definitionFit": "To cashier is to dismiss someone from service, especially an officer from the armed forces, so it means to fire or discharge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +473,43 @@
     "text": "Reportedly witnessed incident",
     "enumeration": "5"
    },
-   "solution": "SCENE"
+   "solution": "SCENE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SCENE",
+    "definitions": [
+     {
+      "text": "incident",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "witnessed",
+      "gives": "SCENE",
+      "soundsLike": "SEEN",
+      "note": "witnessed means observed"
+     }
+    ],
+    "explanation": {
+     "surface": "A news report says someone saw an incident happen.",
+     "walkthrough": "Witnessed means observed, and that past participle is pronounced exactly like a word for an episode or commotion.",
+     "definitionFit": "A scene can be a public display of temper or an episode, as in 'make a scene', so it matches an occurrence or event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +523,39 @@
     "text": "Member of Pride?",
     "enumeration": "4"
    },
-   "solution": "LION"
+   "solution": "LION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LION",
+    "definitions": [
+     {
+      "text": "Member of Pride?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of Pride?",
+      "note": "surface reading: someone taking part in a Pride march or LGBTQ+ celebration"
+     },
+     {
+      "clueFragment": "Pride",
+      "note": "setter's reading: a pride is the collective noun for a group of big cats"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capital P suggests the LGBTQ+ festival, but crossword capitals can be misleading; a pride is a group of the big cats of the savanna.",
+     "definitionFit": "A pride is a social group of these big cats, so any one of the animals is a member of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pride"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +569,53 @@
     "text": "Who gets gran shot?",
     "enumeration": "8"
    },
-   "solution": "GANGSTER"
+   "solution": "GANGSTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "GANGSTER",
+    "definitions": [
+     {
+      "text": "Who gets gran shot?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or broken, so the letters fall apart and are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gets gran",
+      "gives": "GETSGRAN",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSGRAN",
+       "gives": "GANGSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective asks who arranged for a grandmother to be shot.",
+     "walkthrough": "The whole clue is both definition and wordplay: the letters of 'gets gran' rearranged give the answer, and read as a question the clue describes a criminal hit.",
+     "definitionFit": "A hoodlum in an organised crime ring is exactly the kind of person who would arrange for someone to be gunned down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +629,61 @@
     "text": "Australian state champion backing AI",
     "enumeration": "8"
    },
-   "solution": "VICTORIA"
+   "solution": "VICTORIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "VICTORIA",
+    "definitions": [
+     {
+      "text": "Australian state",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "champion",
+      "gives": "VICTOR",
+      "note": "a victor is a winner"
+     },
+     {
+      "clueFragment": "AI",
+      "gives": "AI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VICTOR",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian state's sporting champion comes out in support of artificial intelligence.",
+     "walkthrough": "'Backing' looks like supporting AI, but it turns those two letters round.",
+     "definitionFit": "Victoria is the southeastern state of Australia whose capital is Melbourne, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +697,47 @@
     "text": "Jam-maker’s disgusted utterance",
     "enumeration": "9"
    },
-   "solution": "RASPBERRY"
+   "solution": "RASPBERRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RASPBERRY",
+    "definitions": [
+     {
+      "text": "Jam-maker",
+      "at": 0
+     },
+     {
+      "text": "disgusted utterance",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jam-maker",
+      "note": "first meaning: a soft red fruit boiled into preserves"
+     },
+     {
+      "clueFragment": "disgusted utterance",
+      "note": "second meaning: a rude spluttering noise made with the tongue and lips"
+     }
+    ],
+    "explanation": {
+     "surface": "A jam manufacturer lets out a noise of disgust.",
+     "walkthrough": "'Jam-maker' sounds like a person, but it is the fruit that makes the jam; the 's is short for 'is'.",
+     "definitionFit": "The berry is a classic preserve fruit, and blowing one is a derisive sputtering sound of contempt, from rhyming slang 'raspberry tart'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jam-maker"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +751,63 @@
     "text": "Couple of policemen I knocked over",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over is upended, so the letters are turned round"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policemen",
+      "gives": "MET",
+      "note": "the Met is London's Metropolitan Police"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITEM"
+     ],
+     "reversals": [
+      {
+       "from": "METI",
+       "to": "ITEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I knocked down a pair of police officers.",
+     "walkthrough": "'Couple of policemen' looks like one phrase meaning two officers, but 'Couple' stands alone as the definition and 'of' is a link.",
+     "definitionFit": "Two people in a romantic relationship are said to be an item, an informal noun for a dating pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +821,49 @@
     "text": "Socialist darlings changing leader",
     "enumeration": "6"
    },
-   "solution": "ENGELS"
+   "solution": "ENGELS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ENGELS",
+    "definitions": [
+     {
+      "text": "Socialist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing leader",
+      "for": "substitution",
+      "note": "the leader is the first letter, and changing it swaps in a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "darlings",
+      "gives": "ANGELS",
+      "note": "angels is a term of endearment, like darlings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NGELS"
+     ]
+    },
+    "explanation": {
+     "surface": "Favourites of the left decide to change who leads them.",
+     "walkthrough": "Only the first letter changes, from A to E; the clue does not name the new letter, so the definition must confirm it.",
+     "definitionFit": "Friedrich Engels was the German political thinker who co-wrote The Communist Manifesto with Marx, an example of a famous socialist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +877,50 @@
     "text": "Former journalist, say",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPRESS",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "an ex is a former partner, so EX means former"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "PRESS",
+      "note": "the press is the body of journalists, so it stands for one of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes themselves as a former reporter.",
+     "walkthrough": "'Say' looks like 'for example', but it is a verb and the definition.",
+     "definitionFit": "To express a thought is to put it into words or state it, so the verb is a direct synonym for speaking it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +934,43 @@
     "text": "Line the pockets of Frenchmen Richelieu entertains",
     "enumeration": "6"
    },
-   "solution": "ENRICH"
+   "solution": "ENRICH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENRICH",
+    "definitions": [
+     {
+      "text": "Line the pockets of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains",
+      "for": "hidden_word",
+      "note": "to entertain is to host or hold within, so the run of letters sits inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchmen Richelieu",
+      "gives": "ENRICH",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Cardinal Richelieu wines and dines Frenchmen to make them wealthy.",
+     "walkthrough": "Cardinal Richelieu was the scheming chief minister of Louis XIII, which suits a picture of buying favour; the answer spans the end of one word and the start of the next.",
+     "definitionFit": "To line someone's pockets is to make them richer, often improperly, which is what this verb means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "entertains"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +984,55 @@
     "text": "French fashion designer taking new course",
     "enumeration": "7"
    },
-   "solution": "CHANNEL"
+   "solution": "CHANNEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHANNEL",
+    "definitions": [
+     {
+      "text": "course",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take is to receive, so one piece is taken inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French fashion designer",
+      "gives": "CHANEL",
+      "note": "Coco Chanel founded the Paris fashion house"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAN",
+      "N",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Paris couturier strikes out in a fresh direction.",
+     "walkthrough": "'New course' sounds like one idea, a change of direction, but 'new' supplies a letter and 'course' alone is the definition.",
+     "definitionFit": "A channel is a watercourse or route along which something flows, so it is a synonym for a course in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1046,55 @@
     "text": "Complain Trump is protecting Republican",
     "enumeration": "4"
    },
-   "solution": "CARP"
+   "solution": "CARP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARP",
+    "definitions": [
+     {
+      "text": "Complain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is protecting",
+      "for": "container",
+      "note": "to protect is to shield by surrounding, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "CAP",
+      "note": "to cap is to outdo or top, which is to trump"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "R",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that Donald Trump is shielding a fellow Republican.",
+     "walkthrough": "Capitalised 'Trump' looks like the US president, but it is the verb meaning to beat or better.",
+     "definitionFit": "To carp is to find fault or grumble persistently about small things, a direct synonym for complaining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1108,59 @@
     "text": "Regularly agree on North American stadium",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "stadium",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agree",
+      "gives": "ARE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     },
+     {
+      "clueFragment": "North American",
+      "gives": "NA",
+      "note": "NA is the abbreviation for North American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARE",
+      "NA"
+     ]
+    },
+    "explanation": {
+     "surface": "People routinely settle on a stadium somewhere in North America.",
+     "walkthrough": "'North American stadium' looks like a single definition, but 'North American' gives two letters; in a down clue 'on' puts the first piece above the second.",
+     "definitionFit": "An arena is an enclosed venue for sports or shows with tiered seating, the same as a sports ground or venue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1180,44 @@
      }
     ]
    },
-   "solution": "BELOWPAR"
+   "solution": "BELOWPAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BELOW PAR",
+    "definitions": [
+     {
+      "text": "A little off colour",
+      "at": 0
+     },
+     {
+      "text": "as golfer may be",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A little off colour",
+      "note": "first meaning: slightly unwell"
+     },
+     {
+      "clueFragment": "as golfer may be",
+      "note": "second meaning: having taken fewer strokes than the standard score"
+     }
+    ],
+    "explanation": {
+     "surface": "A golfer is feeling slightly unwell on the course.",
+     "walkthrough": "In golf, par is the expected number of strokes for a hole, and scoring under it is good, though the idiom means feeling poorly.",
+     "definitionFit": "The idiom means not at one's best health, while in golf the same phrase describes a score lower than the standard, which is good."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1231,46 @@
     "text": "Mournful cries heard in the Principality",
     "enumeration": "5"
    },
-   "solution": "WALES"
+   "solution": "WALES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WALES",
+    "definitions": [
+     {
+      "text": "the Principality",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "what is heard reaches the ear, so we go by sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mournful cries",
+      "gives": "WALES",
+      "soundsLike": "WAILS",
+      "note": "wails are mournful cries"
+     }
+    ],
+    "explanation": {
+     "surface": "Lamenting voices ring out across the Welsh countryside.",
+     "walkthrough": "The Principality is the British nickname for Wales, whose heir to the throne is the Prince of Wales.",
+     "definitionFit": "Wales is traditionally called the Principality because it is associated with a prince rather than a king, a proper name for the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1284,47 @@
     "text": "Practise on slow-moving vehicle",
     "enumeration": "8"
    },
-   "solution": "REHEARSE"
+   "solution": "REHEARSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REHEARSE",
+    "definitions": [
+     {
+      "text": "Practise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "RE means 'on the subject of', as in a letter heading"
+     },
+     {
+      "clueFragment": "slow-moving vehicle",
+      "gives": "HEARSE",
+      "note": "a hearse is the car carrying a coffin at a funeral, which travels at a solemn pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEARSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver practises in a vehicle that crawls along.",
+     "walkthrough": "'On' looks like a joining word, but it supplies the opening letters as in 're: your letter'.",
+     "definitionFit": "To rehearse is to go through a performance in preparation, so it is a synonym of the verb meaning to train repeatedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1338,55 @@
     "text": "Aussie speedster married in Brussels",
     "enumeration": "3"
    },
-   "solution": "EMU"
+   "solution": "EMU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMU",
+    "definitions": [
+     {
+      "text": "Aussie speedster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so a letter goes within the pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brussels",
+      "gives": "EU",
+      "note": "Brussels is home to the European Union's institutions, so it stands for the EU"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A fast Australian athlete gets married in the Belgian capital.",
+     "walkthrough": "'Aussie speedster' suggests a sprinter or racing driver, but it is the bird; Brussels stands for the EU by metonymy.",
+     "definitionFit": "The emu is a large flightless Australian bird that can run at around fifty kilometres per hour, hence a fast runner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "speedster"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1400,53 @@
     "text": "Bachelor leaving dull country",
     "enumeration": "4"
    },
-   "solution": "LAND"
+   "solution": "LAND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LAND",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "what leaves departs, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "B",
+      "note": "B is the standard abbreviation for bachelor"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "BLAND",
+      "note": "bland means dull or flavourless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man leaves a boring nation behind.",
+     "walkthrough": "'Dull country' reads as a single phrase, but 'country' alone is the definition.",
+     "definitionFit": "A land is a nation or territory, as in 'a foreign land', so the word is a synonym for a nation state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dull"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1460,46 @@
     "text": "Old man’s sons go by",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASS",
+    "definitions": [
+     {
+      "text": "go by",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man’s",
+      "gives": "PAS",
+      "note": "pa is a word for father, the old man, with the possessive kept"
+     },
+     {
+      "clueFragment": "sons",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son or sons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A father's boys walk past.",
+     "walkthrough": "The apostrophe s is kept as a letter rather than ignored; 'old man' is informal for father.",
+     "definitionFit": "To pass is to move past something or someone, or for time to elapse, the same as the phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1513,51 @@
     "text": "Lousy ref worried solver in particular",
     "enumeration": "8"
    },
-   "solution": "YOURSELF"
+   "solution": "YOURSELF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YOURSELF",
+    "definitions": [
+     {
+      "text": "solver in particular",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "something worried is disturbed and agitated, so the letters are shaken up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lousy ref",
+      "gives": "LOUSYREF",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOUSYREF",
+       "gives": "YOURSELF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor referee fretted, especially about one puzzler.",
+     "walkthrough": "'Lousy' looks like a comment on the referee, but it is part of the letters being rearranged.",
+     "definitionFit": "The clue addresses the reader doing the puzzle, so the reflexive second-person pronoun refers to that person specifically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lousy"
+    }
+   }
   }
  ]
 }
