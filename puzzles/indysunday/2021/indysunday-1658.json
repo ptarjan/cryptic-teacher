@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Crude house tune of a salty nature",
     "enumeration": "6"
    },
-   "solution": "SHANTY"
+   "solution": "SHANTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHANTY",
+    "definitions": [
+     {
+      "text": "Crude house",
+      "at": 0
+     },
+     {
+      "text": "tune of a salty nature",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crude house",
+      "note": "first meaning: a roughly built hut or shack"
+     },
+     {
+      "clueFragment": "tune of a salty nature",
+      "note": "second meaning: a sailors' work song, salty because it belongs to the sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one rough song; it splits into a ramshackle dwelling and a sea song, with 'salty' meaning nautical rather than rude.",
+     "definitionFit": "The word names both a ramshackle hut and a traditional sailors' work song sung while hauling ropes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "salty"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,51 @@
     "text": "Boxes lighter than usual with drug in short supply",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARSE",
+    "definitions": [
+     {
+      "text": "in short supply",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boxes lighter than usual",
+      "gives": "SPARS",
+      "note": "to spar is to box lightly, as in practice"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Packaging that comes in lighter than normal because the drug inside is scarce.",
+     "walkthrough": "'Boxes' looks like cartons, but it is the verb: a sparring boxer throws lighter punches than in a real fight.",
+     "definitionFit": "Something thinly scattered or scanty is scarce, so it is available only in small quantities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boxes"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +144,60 @@
     "text": "A drained pint is spot-on",
     "enumeration": "3"
    },
-   "solution": "APT"
+   "solution": "APT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "APT",
+    "definitions": [
+     {
+      "text": "spot-on",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "a drained glass has lost its contents, so only the outside letters of the word remain"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pint",
+      "gives": "PT",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker approves of a glass emptied to the last drop.",
+     "walkthrough": "'Drained' sounds like finishing a drink; here it empties the word itself, leaving its outer letters.",
+     "definitionFit": "Something exactly right or fitting for the occasion is suitable, which is the sense of 'spot-on'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drained"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +211,68 @@
     "text": "Arrogant drunk quaffing a Spanish port",
     "enumeration": "9"
    },
-   "solution": "TARRAGONA"
+   "solution": "TARRAGONA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TARRAGONA",
+    "definitions": [
+     {
+      "text": "Spanish port",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about out of order, so the letters lurch into a new arrangement"
+     },
+     {
+      "text": "quaffing",
+      "for": "container",
+      "note": "quaffing is swallowing, so one piece is taken inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrogant",
+      "gives": "ARROGANT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TARR",
+      "A",
+      "GONA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARROGANT",
+       "gives": "TARRGONA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A haughty drunk downing a glass of Spanish port wine.",
+     "walkthrough": "'Port' suggests the fortified wine a drunk would quaff, but it is a harbour city. TARRAGONA is a port on the Catalan coast of Spain.",
+     "definitionFit": "Tarragona is a Mediterranean harbour city in Catalonia, so it is an example of a Spanish seaport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +286,55 @@
     "text": "Is bad ram out to get local workers?",
     "enumeration": "8"
    },
-   "solution": "BARMAIDS"
+   "solution": "BARMAIDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BARMAIDS",
+    "definitions": [
+     {
+      "text": "local workers",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "something out of place is disordered, so these letters are put into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is bad ram",
+      "gives": "ISBADRAM",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISBADRAM",
+       "gives": "BARMAIDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer wonders whether a poor ram is being turned out so local hands can be hired.",
+     "walkthrough": "'Local' is the British word for one's neighbourhood pub, so its workers are the women serving behind the bar.",
+     "definitionFit": "A local is a regular pub, and women who serve drinks there are its bar staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +348,56 @@
     "text": "A quiet crossing place in market town",
     "enumeration": "7"
    },
-   "solution": "ASHFORD"
+   "solution": "ASHFORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHFORD",
+    "definitions": [
+     {
+      "text": "market town",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "'sh!' is a call for quiet"
+     },
+     {
+      "clueFragment": "crossing place",
+      "gives": "FORD",
+      "note": "a shallow place to cross a river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SH",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A peaceful pedestrian crossing in the middle of a busy market town.",
+     "walkthrough": "'Crossing place' suggests a zebra crossing, but it is a river crossing. ASHFORD is a market town in Kent, in south-east England.",
+     "definitionFit": "Ashford in Kent has held a livestock market for centuries, making it a classic English trading town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +411,60 @@
     "text": "Language old lady uttered puts off daughter",
     "enumeration": "5"
    },
-   "solution": "MASAI"
+   "solution": "MASAI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MASAI",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puts off",
+      "for": "deletion",
+      "note": "to put something off is to send it away, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old lady",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "uttered",
+      "gives": "SAID",
+      "note": "to utter is to say"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "SAI"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother's choice of words puts her daughter off.",
+     "walkthrough": "'Uttered' looks like a sound-alike signal but simply gives a past tense. Masai (Maa) is the language of a Kenyan and Tanzanian people.",
+     "definitionFit": "The Masai people of East Africa speak a Nilotic tongue also called Maa, so the name doubles for their speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uttered"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +478,51 @@
     "text": "One private I hit for being out of order",
     "enumeration": "11"
    },
-   "solution": "INOPERATIVE"
+   "solution": "INOPERATIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INOPERATIVE",
+    "definitions": [
+     {
+      "text": "out of order",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "IN",
+      "note": "a hit is popular, and popular things are in"
+     },
+     {
+      "clueFragment": "One private I",
+      "gives": "OPERATIVE",
+      "note": "a private eye is a detective, also called a private operative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "OPERATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective is punished for misbehaving.",
+     "walkthrough": "'Private I' is a play on private eye, the detective; 'hit' is fashionable rather than a blow, and comes first in the answer.",
+     "definitionFit": "A machine that is not working or functioning is broken, as an out-of-order sign on a lift declares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +542,56 @@
      }
     ]
    },
-   "solution": "SETASIDE"
+   "solution": "SETASIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SET ASIDE",
+    "definitions": [
+     {
+      "text": "kept in reserve",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "squad",
+      "gives": "SIDE",
+      "note": "a team or squad is a side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "A",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a team waiting on the bench as reserves.",
+     "walkthrough": "'Squad' and 'reserve' suggest sport, which the wordplay keeps up: a side is a team.",
+     "definitionFit": "Something put by for later use is saved or held back, the meaning of keeping in reserve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +605,55 @@
     "text": "Decay found beneath automobile plant",
     "enumeration": "6"
    },
-   "solution": "CARROT"
+   "solution": "CARROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARROT",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found beneath",
+      "for": "charade",
+      "note": "in a down clue, lying beneath means coming later in the column, after the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "automobile",
+      "gives": "CAR",
+      "note": "an automobile is a car"
+     },
+     {
+      "clueFragment": "Decay",
+      "gives": "ROT",
+      "note": "to decay is to rot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rust discovered underneath a car at a manufacturing plant.",
+     "walkthrough": "'Plant' looks like a car factory, which the surface encourages; it is the vegetable plant itself.",
+     "definitionFit": "The carrot is a cultivated vegetable grown for its orange root, a member of the plant kingdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +667,40 @@
     "text": "When MIT might timetable physics results",
     "enumeration": "9"
    },
-   "solution": "AFTERMATH"
+   "solution": "AFTERMATH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AFTERMATH",
+    "definitions": [
+     {
+      "text": "results",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When MIT might timetable physics",
+      "note": "surface reading: a question about a university's course scheduling"
+     },
+     {
+      "clueFragment": "results",
+      "note": "setter's reading: an American college would put physics once the US subject 'math' is finished, and that phrase also means consequences"
+     }
+    ],
+    "explanation": {
+     "surface": "A question of when a university timetables its physics exam results.",
+     "walkthrough": "MIT is American, so it says 'math' not 'maths'; physics would come once the maths is done.",
+     "definitionFit": "The consequences that follow an event are its outcome, so the word means what results from something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "results"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +714,51 @@
     "text": "Get out of it with model type and inject drugs",
     "enumeration": "5"
    },
-   "solution": "SHOOT"
+   "solution": "SHOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOOT",
+    "definitions": [
+     {
+      "text": "inject drugs",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get out of it",
+      "gives": "SHOO",
+      "note": "'shoo!' tells someone to go away"
+     },
+     {
+      "clueFragment": "model type",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car type"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model gets wasted and injects drugs.",
+     "walkthrough": "'Model type' reads as a sort of fashion model, but it is the Model T Ford, giving just a letter.",
+     "definitionFit": "In drug slang, to shoot up is to inject heroin or another narcotic directly into a vein."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +772,67 @@
     "text": "Reddish-brown primates making comeback across India",
     "enumeration": "5"
    },
-   "solution": "SEPIA"
+   "solution": "SEPIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SEPIA",
+    "definitions": [
+     {
+      "text": "Reddish-brown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making comeback",
+      "for": "reversal",
+      "note": "coming back means going the opposite way, so the letters run backwards"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "to lie across something is to span it, so one piece straddles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primates",
+      "gives": "APES",
+      "note": "apes are primates"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEP",
+      "I",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "APES",
+       "to": "SEPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Red-brown monkeys staging a comeback across India.",
+     "walkthrough": "The primates are turned round, then spread across the letter for India.",
+     "definitionFit": "Sepia is a warm brown pigment once made from cuttlefish ink, the tint of old photographs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +846,59 @@
     "text": "Inclinations of sap affected with neurosis",
     "enumeration": "11"
    },
-   "solution": "PERSUASIONS"
+   "solution": "PERSUASIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSUASIONS",
+    "definitions": [
+     {
+      "text": "Inclinations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected is altered or disturbed, so these letters change their order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sap",
+      "gives": "SAP",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "neurosis",
+      "gives": "NEUROSIS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAPNEUROSIS",
+       "gives": "PERSUASIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool's tendencies are shaped by his nervous disorder.",
+     "walkthrough": "'Sap' is a fool in the surface, but it is just three letters for the mix.",
+     "definitionFit": "Persuasions are beliefs or leanings, so the plural can mean the tendencies or views someone holds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +912,69 @@
     "text": "Spacious quality in Romeo’s pants ultimately disappoints",
     "enumeration": "9"
    },
-   "solution": "ROOMINESS"
+   "solution": "ROOMINESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ROOMINESS",
+    "definitions": [
+     {
+      "text": "Spacious quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so these letters are poor and need reworking"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only a word's final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Romeo’s",
+      "gives": "ROMEOS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "disappoints",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INROMEOSS",
+       "gives": "ROOMINESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover's baggy trousers turn out to be a letdown.",
+     "walkthrough": "'Pants' looks like trousers (US) or underwear (UK), but it is British slang for rubbish, signalling the mix.",
+     "definitionFit": "Roominess is the state of having plenty of space, which is exactly the quality of being spacious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +994,55 @@
      }
     ]
    },
-   "solution": "TRYOUT"
+   "solution": "TRYOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRY OUT",
+    "definitions": [
+     {
+      "text": "test drive",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having toured",
+      "for": "container",
+      "note": "to tour a place is to travel round it, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promote",
+      "gives": "TOUT",
+      "note": "to tout is to push or promote goods"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RY",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "After a trip around the railway, a salesman promotes a test drive.",
+     "walkthrough": "'Test drive' suggests a car, but here it is a general trial; it is the verb phrase for testing something.",
+     "definitionFit": "To trial something before committing is to test it, and a test drive is exactly that sort of trial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toured"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1062,65 @@
      }
     ]
    },
-   "solution": "DABHAND"
+   "solution": "DABHAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DAB HAND",
+    "definitions": [
+     {
+      "text": "Ace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means absorbing it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "required by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "a DA is a district attorney, an American prosecuting lawyer"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a musical group"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "B",
+      "H",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A top lawyer is hired by a rock group with a heroin habit.",
+     "walkthrough": "A dab hand is British for an expert. 'Ace' looks like an adjective describing the lawyer, but it is the definition.",
+     "definitionFit": "An ace is an expert, and a dab hand is a British idiom for someone highly skilled at something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ace"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1134,50 @@
     "text": "Idiots on commission in English county",
     "enumeration": "9"
    },
-   "solution": "BERKSHIRE"
+   "solution": "BERKSHIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BERKSHIRE",
+    "definitions": [
+     {
+      "text": "English county",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiots",
+      "gives": "BERKS",
+      "note": "berk is British slang for a fool"
+     },
+     {
+      "clueFragment": "on commission",
+      "gives": "HIRE",
+      "note": "to commission someone is to hire them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BERKS",
+      "HIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fools working for commission somewhere in the English shires.",
+     "walkthrough": "'On commission' sounds like salesmen paid by results; it simply means hiring. Berkshire is a county west of London.",
+     "definitionFit": "Berkshire is one of the home counties of southern England, lying west of London along the Thames."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commission"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1191,53 @@
     "text": "Give props to old Republican money lender",
     "enumeration": "8"
    },
-   "solution": "CREDITOR"
+   "solution": "CREDITOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREDITOR",
+    "definitions": [
+     {
+      "text": "money lender",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give props to",
+      "gives": "CREDIT",
+      "note": "to give props is slang for giving credit"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREDIT",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a veteran Republican who lends money.",
+     "walkthrough": "'Props' is slang for respect or acknowledgement, not theatre props or supports.",
+     "definitionFit": "A creditor is a person or body to whom money is owed, having advanced a loan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "props"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1251,43 @@
     "text": "Vegetable rot",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     },
+     {
+      "text": "rot",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegetable",
+      "note": "first meaning: a plant with edible pink stalks"
+     },
+     {
+      "clueFragment": "rot",
+      "note": "second meaning: nonsense, as in talking rot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a rotting vegetable; 'rot' is British for nonsense, and the answer is also the word actors mutter to sound like crowd chatter.",
+     "definitionFit": "The stalky garden plant is grown and cooked as a vegetable, and the word is British slang for meaningless talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rot"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1301,50 @@
     "text": "Put up with jazz fan being an animal",
     "enumeration": "7"
    },
-   "solution": "BEARCAT"
+   "solution": "BEARCAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEARCAT",
+    "definitions": [
+     {
+      "text": "an animal",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put up with",
+      "gives": "BEAR",
+      "note": "to bear is to tolerate"
+     },
+     {
+      "clueFragment": "jazz fan",
+      "gives": "CAT",
+      "note": "a cat is jazz slang for a hip enthusiast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAR",
+      "CAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tolerates a jazz fan who behaves like a beast.",
+     "walkthrough": "A bearcat is the binturong of Southeast Asia, or sometimes the red panda.",
+     "definitionFit": "The bearcat, or binturong, is a tree-dwelling mammal of Asian forests, so it is an example of a creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1358,62 @@
     "text": "Scared fighter at front in a surprise attack",
     "enumeration": "6"
    },
-   "solution": "AFRAID"
+   "solution": "AFRAID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AFRAID",
+    "definitions": [
+     {
+      "text": "Scared",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening, so only the first letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in means set inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a surprise attack",
+      "gives": "ARAID",
+      "note": "a raid is a surprise attack"
+     },
+     {
+      "clueFragment": "fighter",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "RAID"
+     ]
+    },
+    "explanation": {
+     "surface": "A frightened soldier caught in the front line of an ambush.",
+     "walkthrough": "'At front' looks like a battlefront, but it takes the first letter of the fighter.",
+     "definitionFit": "Being frightened or fearful of something is being scared, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1427,50 @@
     "text": "The full value of a horse",
     "enumeration": "6"
    },
-   "solution": "AMOUNT"
+   "solution": "AMOUNT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMOUNT",
+    "definitions": [
+     {
+      "text": "The full value",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "MOUNT",
+      "note": "a horse is what a rider climbs onto and sits upon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MOUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what a horse is really worth.",
+     "walkthrough": "The surface asks a horse's price; the definition is the opening phrase, with 'of' as the link.",
+     "definitionFit": "An amount is a total sum or quantity, so it means the whole worth or value of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1490,53 @@
      }
     ]
    },
-   "solution": "SKIDOO"
+   "solution": "SKIDOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKI-DOO",
+    "definitions": [
+     {
+      "text": "vehicle from Canada",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     },
+     {
+      "clueFragment": "loves",
+      "gives": "OO",
+      "note": "love is zero in tennis, and zero looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KID",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A little child adores a vehicle made in Canada.",
+     "walkthrough": "'Loves' looks like a verb, but it is two tennis scores of nil. The Ski-Doo is a Canadian brand of snowmobile.",
+     "definitionFit": "The Ski-Doo is a snowmobile brand made by Bombardier of Quebec, so it is a Canadian motor vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loves"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1550,51 @@
     "text": "Criminal dares dope to get high",
     "enumeration": "9"
    },
-   "solution": "DESPERADO"
+   "solution": "DESPERADO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESPERADO",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get high",
+      "for": "anagram",
+      "note": "someone high on drugs is confused and all over the place, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dares dope",
+      "gives": "DARESDOPE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARESDOPE",
+       "gives": "DESPERADO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook challenges someone to take drugs and get stoned.",
+     "walkthrough": "'Dope' and 'high' make a drug story; the drug-taking phrase is what scrambles the letters.",
+     "definitionFit": "A desperado is a reckless outlaw, especially of the Wild West, so this lawbreaker is a criminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1608,49 @@
     "text": "Had food in school for the blind?",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EATEN",
+    "definitions": [
+     {
+      "text": "Had food",
+      "at": 0,
+      "note": "the answer is a past participle, as in 'have eaten', matching 'had' as a verb form"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the blind",
+      "for": "homophone",
+      "note": "people who cannot see must rely on hearing, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "EATEN",
+      "soundsLike": "ETON",
+      "note": "Eton is the famous English public school near Windsor"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether pupils at a school for the blind were fed.",
+     "walkthrough": "'School for the blind' looks like a special school; the blind would hear the famous school's name rather than read it. Eton College is England's best-known private boarding school.",
+     "definitionFit": "To have eaten is to have consumed a meal, so the participle means having had food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blind"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1664,50 @@
     "text": "Small vegetable that's smooth and shiny",
     "enumeration": "5"
    },
-   "solution": "SLEEK"
+   "solution": "SLEEK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLEEK",
+    "definitions": [
+     {
+      "text": "smooth and shiny",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "vegetable",
+      "gives": "LEEK",
+      "note": "a leek is a vegetable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEEK"
+     ]
+    },
+    "explanation": {
+     "surface": "A little vegetable with a glossy skin.",
+     "walkthrough": "'Small vegetable' reads as one item but splits into a size abbreviation and the vegetable.",
+     "definitionFit": "Sleek describes hair, fur or surfaces that are glossy and slick, hence polished and gleaming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1721,62 @@
     "text": "Head of union eaten by red fish",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROUT",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "a head is at the top, so the first letter is the one kept"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "being eaten puts a thing inside the eater, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "TROT",
+      "note": "Trot is short for Trotskyist, a left-winger or red"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "U",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A union leader is devoured by a red fish.",
+     "walkthrough": "'Red' looks like a colour for the fish, but it is a communist, here a Trotskyist.",
+     "definitionFit": "The trout is a freshwater game fish of the salmon family, so it is an example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1790,56 @@
     "text": "Inveterate criminal has business with my boss",
     "enumeration": "9"
    },
-   "solution": "CONFIRMED"
+   "solution": "CONFIRMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFIRMED",
+    "definitions": [
+     {
+      "text": "Inveterate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "FIRM",
+      "note": "a firm is a business"
+     },
+     {
+      "clueFragment": "my boss",
+      "gives": "ED",
+      "note": "the setter's boss is the editor, ED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FIRM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A hardened crook running a company alongside the speaker's employer.",
+     "walkthrough": "'Inveterate criminal' reads as one phrase; the first word is the definition. 'My boss' is the setter's editor.",
+     "definitionFit": "A confirmed habit or bachelor is firmly established and unlikely to change, the sense of inveterate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1853,43 @@
     "text": "Bird once spotted in holm oak",
     "enumeration": "3"
    },
-   "solution": "MOA"
+   "solution": "MOA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MOA",
+    "definitions": [
+     {
+      "text": "Bird once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spotted in",
+      "for": "hidden_word",
+      "note": "something spotted in a place is seen sitting inside it, so the letters lie within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holm oak",
+      "gives": "MOA",
+      "note": "the letters run across the gap between the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird sighting in an evergreen oak tree.",
+     "walkthrough": "'Once' makes the bird extinct: the giant flightless bird of New Zealand was wiped out centuries ago.",
+     "definitionFit": "The moa was a huge flightless New Zealand bird hunted to extinction, so it existed only in the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1903,63 @@
     "text": "English boy punches judge ... BOOM!",
     "enumeration": "8"
    },
-   "solution": "RESONATE"
+   "solution": "RESONATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RESONATE",
+    "definitions": [
+     {
+      "text": "BOOM!",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punches",
+      "for": "container",
+      "note": "a punch drives into its target, so one piece is driven inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to judge is to rate"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "SON",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English lad thumps a judge, with a comic-book sound effect.",
+     "walkthrough": "'BOOM!' reads as the noise of the punch, but it is the verb meaning to sound deeply.",
+     "definitionFit": "A sound that booms reverberates, echoing deep and loud, which is what it does when it resonates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "punches"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +1973,67 @@
     "text": "Books a member read about ice cream abroad",
     "enumeration": "6"
    },
-   "solution": "GELATO"
+   "solution": "GELATO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GELATO",
+    "definitions": [
+     {
+      "text": "ice cream abroad",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read about",
+      "for": "reversal",
+      "note": "about means turned around, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a set of books"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a leg is a limb, or member"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEL",
+      "A",
+      "TO"
+     ],
+     "reversals": [
+      {
+       "from": "OTALEG",
+       "to": "GELATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A club member books holidays after reading about foreign ice cream.",
+     "walkthrough": "'Books' looks like a verb for reserving, but it is the Old Testament; 'abroad' marks the foreign word.",
+     "definitionFit": "Gelato is the Italian word for ice cream, so it is the dessert as named in a foreign land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Books"
+    }
+   }
   }
  ]
 }
