@@ -167,7 +167,7 @@ def edition_date(name):
     m = re.match(r"([A-Z][a-z]{2}) (\d{2}) (\d{4}),", name)
     if m:
         try:
-            return datetime.datetime.strptime(" ".join(m.groups()), "%b %d %Y").date().isoformat()
+            return datetime.date(*time.strptime(" ".join(m.groups()), "%b %d %Y")[:3]).isoformat()
         except ValueError:
             return None
     m = re.search(r"(\d{4}-\d{2}-\d{2})", name)
