@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # The (type, key) pairs a clue's indicators give /indicators/ and the burn's
 # indicator cover: each phrase under its own `for` only, the longest key inside
-# it, and never through link words alone.
+# it, and never through link words alone. /learn/ shows each type's most used, with counts.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
@@ -55,5 +55,19 @@ check("an exact phrase outranks one containing the key",
       {("anagram", "VARIETY"): "1-across"},
       linked({"annotation": {"type": ["anagram"], "indicators": [A("variety of")], "explanation": {"walkthrough": "long " * 9}}},
              {"annotation": {"type": ["anagram"], "indicators": [A("variety")]}}))
+
+# /learn/ lists a type's indicators most used first, each with its count, and
+# only the head: "of" (1 clue) never sits beside "variety" (9).
+import re
+M = lambda t: re.match(r"<!-- indicators: (\w+) -->", f"<!-- indicators: {t} -->")
+b.LEARN_INLINE, b.LEARN_TABLE = 2, 3
+plain = lambda h: re.sub(r"<[^>]+>|&nbsp;", " ", h).split()
+check("an inline list is the head, ranked, with counts",
+      ["variety", "9", ",", "touched", "5"], plain(b.learn_indicators(M("anagram"))))
+table = b.learn_indicators(M("table"))
+check("the table has a row per type, each capped and linked to its full list",
+      [("Anagram", 3, "anagram", "5"), ("Reversal", 1, "reversal", "1"), ("Charade", 1, "charade", "1")],
+      [(lab, cell.count("<em>"), t, n) for lab, cell, t, n in
+       re.findall(r"<tr><td>(\w+)</td><td>(.*?)<a href=\"[^\"]*#(\w+)\">all (\d+)", table)])
 raise SystemExit(fails)
 PY

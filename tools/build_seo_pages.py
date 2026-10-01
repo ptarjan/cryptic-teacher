@@ -949,6 +949,8 @@ def learn_page():
         f'{len(build_abbreviations.by_word())} abbreviations used in these puzzles &rarr;</a></p>',
         inner, flags=re.S)
 
+    # The indicator lists are the corpus's, ranked, not a hand-picked few.
+    inner = re.sub(r"<!-- indicators: (\w+) -->", learn_indicators, inner)
     title = "How cryptic crossword clues work — a beginner's guide"
     desc = ("Every cryptic clue has two parts: a definition and wordplay. Learn to tell "
             "them apart, and learn the main clue types (anagram, charade, container, hidden "
@@ -1396,6 +1398,32 @@ def clue_indicators(found, puz, page):
                 found[(t, key)] = (rank, puz["id"], entry_id(e))
 
 
+def ranked_indicators(t):
+    """indicators.json's [(key, clues)] for type t, most used first."""
+    return sorted(indicator_lexicon()[t].items(), key=lambda kv: (-kv[1], kv[0]))
+
+
+# How many of a type's indicators /learn/ shows: the head, where a beginner's
+# time goes. The long tail is one link away on /indicators/.
+LEARN_INLINE, LEARN_TABLE = 6, 10
+
+
+def learn_indicators(m):
+    """A /learn/ marker, <!-- indicators: TYPE --> or <!-- indicators: table -->,
+    as the most used indicators with how many clues used each."""
+    def run(t, n):
+        return ", ".join(f'<em>{esc(indicator_label(k))}</em>&nbsp;<span class="muted">{c:,}</span>'
+                         for k, c in ranked_indicators(t)[:n])
+    if m.group(1) != "table":
+        return run(m.group(1), LEARN_INLINE)
+    lex = indicator_lexicon()
+    rows = [f'<tr><td>{clue_types.label(t).capitalize()}</td><td>{run(t, LEARN_TABLE)} '
+            f'&middot; <a href="{BASE}/indicators/#{t}">all {len(lex[t]):,} &rarr;</a></td></tr>'
+            for t in INDICATOR_TYPES if lex.get(t)]
+    return ("<table>\n<tr><th>Clue type</th><th>Most used indicators, with how many clues "
+            "used each</th></tr>\n" + "\n".join(rows) + "\n</table>")
+
+
 def indicator_label(key):
     """indicators.json's key as a reader would write it."""
     return re.sub(r"\bspooner(s?)\b", lambda m: "Spooner" + ("’s" if m.group(1) else ""),
@@ -1452,7 +1480,7 @@ def indicators_page(found):
             f'<a href="#{t}">{clue_types.label(t)}</a>' for t in types) + "</p>",
     ]
     for t in types:
-        ranked = sorted(lex[t].items(), key=lambda kv: (-kv[1], kv[0]))
+        ranked = ranked_indicators(t)
         top, rest = ranked[:15], ranked[15:]
         body += [f'<h2 id="{t}">{clue_types.label(t).capitalize()} indicators</h2>',
                  f"<p>{INDICATOR_TYPES[t]}</p>",
