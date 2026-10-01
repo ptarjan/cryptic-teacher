@@ -334,34 +334,48 @@ def worded(clue, enum):
 
 def build(rec, row, series, date, setter, typed=None):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
-    date, or None where nothing proves one; `typed` is typed_counts()."""
+    date, or None where nothing proves one; `typed` is typed_counts().
+
+    `row` is the grid tools/times_grids.py rebuilt, or None where it found
+    none: the puzzle is then filed gridless, its lights' lengths read off the
+    answers (or the enumeration of an unanswered one), and a later write may
+    add the grid."""
     # A linked clue the reader could not split (parse_timesforthetimes'
     # `unsplit`) is lights the grid was rebuilt without: telegraph-26396's
     # "1a/25a" HANDLEBAR MOUSTACHE gave a grid with no 1-across at all.
     if rec.get("unsplit"):
         return None, "a linked clue the blog does not split"
     entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
-               for e in tg.answers(rec, row)]
+               for e in tg.answers(rec, row or {})]
     # Only the clues are mandatory: a record with no answers at all files
     # unsolved, and the nightly backfill solves it.
     unsolved = not any(e.get("answer") for e in entries)
-    if not unsolved and not tg.answers_fit(row["grid"], {"entries": entries}):
+    grid = row["grid"] if row else None
+    if grid and not unsolved and not tg.answers_fit(grid, {"entries": entries}):
         return None, "answers disagree with the grid"
-    lights = rg.light_cells(row["grid"])
+    lights = rg.light_cells(grid) if grid else None
     by_key = {(e["number"], e["direction"]): e for e in entries}
-    if set(by_key) != set(lights) or len(by_key) != len(entries):
+    if len(by_key) != len(entries) or (grid and set(by_key) != set(lights)):
         return None, "entries do not match the grid's lights"
     if not all(has_words(enumeration.split(e.get("clue"))[0]) for e in entries):
         return None, "a light has no clue"
 
     out = []
     for e in tg.printed({"entries": entries}):
-        cells = lights[(e["number"], e["direction"])]
+        if grid:
+            cells = lights[(e["number"], e["direction"])]
+            position, length = {"x": cells[0][1], "y": cells[0][0]}, len(cells)
+        else:
+            position = None
+            length = len(e["answer"]) if e.get("answer") else sum(
+                n for n, _ in enumeration_parts(e.get("enumeration") or ""))
+            if not length:
+                return None, "an unanswered light with no enumeration has no length"
         out.append({
             "number": e["number"],
             "direction": e["direction"],
-            "position": {"x": cells[0][1], "y": cells[0][0]},
-            "length": len(cells),
+            "position": position,
+            "length": length,
             "clue": e["clue"],
             "enumeration": e.get("enumeration"),
             "solution": e["answer"],
@@ -385,7 +399,7 @@ def build(rec, row, series, date, setter, typed=None):
         return (all(own_count(by_id[m]) for m in g)
                 and all(str(by_id[m]["number"]) in named for m in g[1:]))
     groups = {gid: g for gid, g in groups.items() if not composite(g)}
-    recounted, seps_of = [], {}
+    recounted, dropped, seps_of = [], [], {}
     for e in out:
         enum = e.pop("enumeration")
         group = groups.get(entry_id(e), [entry_id(e)])
@@ -396,6 +410,13 @@ def build(rec, row, series, date, setter, typed=None):
         count = sum(n for n, _ in enumeration_parts(enum))
         if count == e["length"]:
             group = [entry_id(e)]
+        elif not grid and len(group) == 1:
+            # No grid backs the blog's answer over the paper's count, so the
+            # count stands and the blog's answers go, every one: the pipeline
+            # holds a puzzle answered whole or not at all, and the nightly
+            # backfill solves it.
+            e["length"] = count
+            dropped.append(f"{e['number']} {e['direction']}")
         elif group[0] != entry_id(e):
             return None, "an enumeration disagrees with its light"
         try:
@@ -419,15 +440,18 @@ def build(rec, row, series, date, setter, typed=None):
         if groups.get(entry_id(e), [None])[0] == entry_id(e):
             e["group"] = list(groups[entry_id(e)])
         solution = e.pop("solution")
-        if solution:
+        if solution and not dropped:
             e["solution"] = solution  # last, as every other series writes it
 
-    number = row["number"]
+    row = row or {}
+    number = row.get("number", rec["number"])
     fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())]
-    barred = rg.barred(row["grid"])
+    barred = bool(grid) and rg.barred(grid)
     check = (f"{'bars' if barred else 'grid'} rebuilt from the blog's "
              f"{'numbered answers' if barred else 'light list'} ({row['how']}); every "
-             f"answer written into it with each crossing agreeing")
+             f"answer written into it with each crossing agreeing" if grid else
+             "the blog's numbered answers as it gives them; no grid holds them yet, "
+             "so no crossing has checked them")
     if row.get("titled"):
         check += (f"; the blog titled it No {row['titled']}, which the sequence "
                   f"puts at {number}")
@@ -435,8 +459,8 @@ def build(rec, row, series, date, setter, typed=None):
         check += (f"; the grid proves the blog's answer wrong at "
                   f"{', '.join(fixed)}, corrected here")
     if recounted:
-        check += (f"; the grid proves the blog's enumeration wrong at "
-                  f"{', '.join(recounted)}, recounted from the answer here")
+        check += (f"; the {'grid' if grid else 'answer'} proves the blog's enumeration "
+                  f"wrong at {', '.join(recounted)}, recounted from the answer here")
     kind = series_meta.kind(series)
     return {
         "id": series_meta.puzzle_id(series, number),
@@ -445,11 +469,11 @@ def build(rec, row, series, date, setter, typed=None):
         "name": f"{series_meta.publisher(series)} {kind.lower()} crossword No {number:,}",
         "setter": setter,
         "date": date.isoformat() if date else None,
-        "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
-        "bars": list(row["grid"]) if barred else None,
+        "dimensions": {"cols": len(grid[0]), "rows": len(grid)} if grid else None,
+        "bars": list(grid) if barred else None,
         "source": {"url": rec["link"]},
         # The blog's own name: "timesforthetimes", "bigdave44".
-        "solutions": ({"origin": "unsolved"} if unsolved else
+        "solutions": ({"origin": "unsolved"} if unsolved or dropped else
                       {"blog": blog_name(series, rec["link"]),
                        "url": rec["link"],
                        "date": rec["date"], "check": check}),
@@ -467,7 +491,7 @@ def blog_name(series, link):
 def content(puzzle):
     """What a later run compares: the grid, the clues' words and the answers.
     A clue retyped with other quotes or dashes is the same clue."""
-    return [(entry_id(e), e["position"], e["length"], clue_words(e["clue"].get("text", "")), e["solution"])
+    return [(entry_id(e), e.get("position"), e["length"], clue_words(e["clue"].get("text", "")), e["solution"])
             for e in puzzle["entries"]]
 
 
