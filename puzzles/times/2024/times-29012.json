@@ -23,6 +23,9 @@
   "date": "2024-09-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,67 @@
     "text": "Nobleman in Paris that finally invests in planet",
     "enumeration": "8"
    },
-   "solution": "MARQUESS"
+   "solution": "MARQUESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MARQUESS",
+    "definitions": [
+     {
+      "text": "Nobleman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "what comes finally is the closing letter of the word it governs"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to put something in another is to place it inside, so these letters go into the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris that",
+      "gives": "QUE",
+      "note": "QUE is French for 'that', as said in Paris"
+     },
+     {
+      "clueFragment": "invests",
+      "gives": "S",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "planet",
+      "gives": "MARS",
+      "note": "Mars is a planet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "QUES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A French aristocrat somehow puts money into another world.",
+     "walkthrough": "'in Paris' tells you to translate 'that' into French. 'invests' looks like the container verb but supplies only its final S; 'in planet' does the containing.",
+     "definitionFit": "A marquess is a British peer ranking above an earl and below a duke, so a titled aristocrat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invests"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +113,55 @@
     "text": "Crazy commander’s personal assistant disrupting plan",
     "enumeration": "6"
    },
-   "solution": "MADCAP"
+   "solution": "MADCAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MADCAP",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupting",
+      "for": "container",
+      "note": "something that disrupts breaks into the middle of a thing, so these letters sit inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commander’s personal assistant",
+      "gives": "ADC",
+      "note": "an aide-de-camp is an officer assisting a senior commander"
+     },
+     {
+      "clueFragment": "plan",
+      "gives": "MAP",
+      "note": "a map is a plan or chart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ADC",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "An unhinged general's aide wrecks the battle plan.",
+     "walkthrough": "ADC (aide-de-camp) is the standard abbreviation for an officer acting as a general's assistant; it breaks MAP after the M.",
+     "definitionFit": "Madcap describes wildly reckless or eccentric behaviour, a lighthearted synonym for mad or zany."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plan"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +175,58 @@
     "text": "Stand firm when second son leaves for exam",
     "enumeration": "5"
    },
-   "solution": "RESIT"
+   "solution": "RESIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RESIT",
+    "definitions": [
+     {
+      "text": "exam",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whatever leaves goes away, so that letter is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand firm",
+      "gives": "RESIST",
+      "note": "to resist is to stand firm against something"
+     },
+     {
+      "clueFragment": "second son",
+      "gives": "S",
+      "note": "S is the abbreviation for son; 'second' picks the second S of the word, not the first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A student holds out when a younger brother walks out on an exam.",
+     "walkthrough": "Removing either S gives letters that read differently; 'second' insists on the later S, leaving RESIT.",
+     "definitionFit": "In Britain a resit is a second sitting of a failed examination, so it is a noun meaning an exam taken again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +240,69 @@
     "text": "It makes one extremely irresistible in fur, somehow",
     "enumeration": "7"
    },
-   "solution": "UNIFIER"
+   "solution": "UNIFIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "UNIFIER",
+    "definitions": [
+     {
+      "text": "It makes one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outermost letters count"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "done somehow means by some unspecified method, so the letters are rearranged in some way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irresistible",
+      "gives": "IE",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fur",
+      "gives": "FUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IEINFUR",
+       "gives": "UNIFIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fur coat that makes the wearer utterly irresistible.",
+     "walkthrough": "'It makes one' reads as 'it makes a person', but means 'it makes things into one'.",
+     "definitionFit": "A unifier is something that brings separate parts together into a single whole, literally making them one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +322,51 @@
      }
     ]
    },
-   "solution": "SELLERSMARKET"
+   "solution": "SELLERSMARKET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SELLERS MARKET",
+    "definitions": [
+     {
+      "text": "Trading situation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is heard rather than read, so the words are matched by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine stores",
+      "gives": "SELLERS",
+      "soundsLike": "CELLARS",
+      "note": "wine is stored in cellars"
+     },
+     {
+      "clueFragment": "note it",
+      "gives": "MARKET",
+      "soundsLike": "MARK IT",
+      "note": "to note something is to mark it"
+     }
+    ],
+    "explanation": {
+     "surface": "A merchant's report on business: the wine shops are taking note.",
+     "walkthrough": "Both halves are sound-alikes: the storage rooms and the instruction to note something say the two words of the answer.",
+     "definitionFit": "A seller's market is an economic condition where demand outstrips supply, so vendors can set prices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stores"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +380,63 @@
     "text": "Criminals in group ultimately pollute this river",
     "enumeration": "6"
    },
-   "solution": "GANGES"
+   "solution": "GANGES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GANGES",
+    "definitions": [
+     {
+      "text": "this river",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so each word supplies its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminals in group",
+      "gives": "GANG",
+      "note": "a gang is a group of criminals"
+     },
+     {
+      "clueFragment": "pollute",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "S",
+      "select": "last",
+      "note": "the closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Gangsters end up fouling a river with their dumped waste.",
+     "walkthrough": "'ultimately' governs both 'pollute' and 'this', so 'this' does double duty in the definition and the wordplay.",
+     "definitionFit": "The Ganges is the great sacred river of northern India, notorious for its heavy pollution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +450,61 @@
     "text": "Sailors mostly knowledgeable about hot drink?",
     "enumeration": "7"
    },
-   "solution": "ABSINTH"
+   "solution": "ABSINTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABSINTH",
+    "definitions": [
+     {
+      "text": "drink?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailors",
+      "gives": "ABS",
+      "note": "ABs are able seamen"
+     },
+     {
+      "clueFragment": "knowledgeable about",
+      "gives": "INTO",
+      "note": "to be into something is to be keen on and well informed about it"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "INT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Seamen who mostly know their way around a warm drink.",
+     "walkthrough": "'about' belongs with 'knowledgeable' rather than signalling a container or reversal. The question mark flags the less common spelling without a final E.",
+     "definitionFit": "Absinth, also spelt absinthe, is a strong green aniseed-flavoured spirit flavoured with wormwood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +518,64 @@
     "text": "Seabird’s culpability, eating a lot of fruit",
     "enumeration": "9"
    },
-   "solution": "GUILLEMOT"
+   "solution": "GUILLEMOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GUILLEMOT",
+    "definitions": [
+     {
+      "text": "Seabird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of a thing is most but not all of it, so its final letter goes"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats takes something inside itself, so one word swallows another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "culpability",
+      "gives": "GUILT",
+      "note": "guilt is culpability"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "LEMON",
+      "note": "a lemon is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUIL",
+      "LEMO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A seabird guiltily gobbling a pile of fruit.",
+     "walkthrough": "The apostrophe-s is 'is', linking the definition to the wordplay.",
+     "definitionFit": "The guillemot is a black-and-white auk that nests in colonies on sea cliffs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "culpability"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +589,66 @@
     "text": "Set of symptoms unknown new doctor found in a few",
     "enumeration": "8"
    },
-   "solution": "SYNDROME"
+   "solution": "SYNDROME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SYNDROME",
+    "definitions": [
+     {
+      "text": "Set of symptoms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "what is found in something is inside it, so these letters sit within another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "a few",
+      "gives": "SOME",
+      "note": "some means a few"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YNDR",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "A new doctor notices an unidentified cluster of symptoms in a handful of patients.",
+     "walkthrough": "x, y and z are the algebraic unknowns.",
+     "definitionFit": "A syndrome is a group of symptoms that occur together and characterise a particular medical condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +662,61 @@
     "text": "Refined female newspaper boss disturbed by photo",
     "enumeration": "9"
    },
-   "solution": "DISTILLED"
+   "solution": "DISTILLED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISTILLED",
+    "definitions": [
+     {
+      "text": "Refined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed by",
+      "for": "container",
+      "note": "to be disturbed by something is to have it break in, so a piece is inserted in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "DI",
+      "note": "Di is a woman's name, short for Diana"
+     },
+     {
+      "clueFragment": "newspaper boss",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "photo",
+      "gives": "STILL",
+      "note": "a still is a photograph, especially one from a film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STILL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cultured woman editor is interrupted by a photographer.",
+     "walkthrough": "DI and ED together form the outer word, which the photo breaks into.",
+     "definitionFit": "A distilled liquid has been purified by evaporation and condensation, so it is refined in the chemical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +730,53 @@
     "text": "Senior policeman, one doubting male medical specialist",
     "enumeration": "13"
    },
-   "solution": "DIAGNOSTICIAN"
+   "solution": "DIAGNOSTICIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIAGNOSTICIAN",
+    "definitions": [
+     {
+      "text": "medical specialist",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senior policeman",
+      "gives": "DI",
+      "note": "a DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "one doubting",
+      "gives": "AGNOSTIC",
+      "note": "an agnostic doubts that God's existence can be known"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "IAN",
+      "note": "Ian is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "AGNOSTIC",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior detective is sceptical about a male doctor.",
+     "walkthrough": "A Detective Inspector is a senior British police rank; 'male' is any man's name, here IAN.",
+     "definitionFit": "A diagnostician is a doctor expert in identifying diseases from their signs and symptoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubting"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +790,55 @@
     "text": "Shoot native touring island group",
     "enumeration": "5"
    },
-   "solution": "SCION"
+   "solution": "SCION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCION",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to go all round it, so one word wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "native",
+      "gives": "SON",
+      "note": "a son of a place is someone born there"
+     },
+     {
+      "clueFragment": "island group",
+      "gives": "CI",
+      "note": "CI is the Channel Islands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A local fires a gun while travelling round an archipelago.",
+     "walkthrough": "'Shoot' looks like a verb, but it is the noun for a young plant growth. CI stands for the Channel Islands, off the French coast.",
+     "definitionFit": "A scion is a young shoot or twig cut for grafting, and figuratively a descendant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +852,59 @@
     "text": "Scandinavian girl at back of horse — seated thus?",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASTRIDE",
+    "definitions": [
+     {
+      "text": "seated thus?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its closing letter is taken"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian girl",
+      "gives": "ASTRID",
+      "note": "Astrid is a Scandinavian woman's name"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTRID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Nordic girl sitting on a horse's back, asking how she sits.",
+     "walkthrough": "The definition leans on the whole picture: the way a girl sits on a horse.",
+     "definitionFit": "Astride means with a leg on each side, the usual way a rider sits on a horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +918,62 @@
     "text": "Abolish a ring originally of this shape?",
     "enumeration": "7"
    },
-   "solution": "ANNULAR"
+   "solution": "ANNULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ANNULAR",
+    "definitions": [
+     {
+      "text": "of this shape?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the start, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abolish",
+      "gives": "ANNUL",
+      "note": "to annul is to abolish or cancel"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNUL",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Cancel the ring and ask what shape it was in the first place.",
+     "walkthrough": "'this shape' points back to 'ring', so the ring both supplies a letter and fixes the meaning.",
+     "definitionFit": "Annular means shaped like a circular band, from the Latin annulus, a little ring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Abolish"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +987,72 @@
     "text": "Bloomer harms chutney prepared by mother initially",
     "enumeration": "13"
    },
-   "solution": "CHRYSANTHEMUM"
+   "solution": "CHRYSANTHEMUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CHRYSANTHEMUM",
+    "definitions": [
+     {
+      "text": "Bloomer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is used"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made up from ingredients, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harms",
+      "gives": "HARMS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chutney",
+      "gives": "CHUTNEY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HARMSCHUTNEYM",
+       "gives": "CHRYSANTHEMUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mistake in mum's homemade chutney does damage.",
+     "walkthrough": "A bloomer is British slang for a blunder, which the surface exploits; here it means a flowering plant.",
+     "definitionFit": "A chrysanthemum is a garden plant prized for its showy flowers, so a thing that blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloomer"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1066,56 @@
     "text": "Strange hobby — clue “small compartment”",
     "enumeration": "9"
    },
-   "solution": "CUBBYHOLE"
+   "solution": "CUBBYHOLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUBBYHOLE",
+    "definitions": [
+     {
+      "text": "small compartment",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "a strange version of something is odd and altered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hobby",
+      "gives": "HOBBY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOBBYCLUE",
+       "gives": "CUBBYHOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter comments on an odd pastime with a self-referential clue.",
+     "walkthrough": "'clue' looks like a reference to the puzzle itself, but it is simply four letters to be mixed with the hobby.",
+     "definitionFit": "A cubbyhole is a small enclosed space or snug nook for storing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1129,62 @@
     "text": "Be sure that fellow is attorney for chapel",
     "enumeration": "8"
    },
-   "solution": "BETHESDA"
+   "solution": "BETHESDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETHESDA",
+    "definitions": [
+     {
+      "text": "chapel",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be sure",
+      "gives": "BET",
+      "note": "'you bet' means you can be sure"
+     },
+     {
+      "clueFragment": "that fellow",
+      "gives": "HE",
+      "note": "he is that fellow"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "note": "the shortened form of is, as in he's"
+     },
+     {
+      "clueFragment": "attorney",
+      "gives": "DA",
+      "note": "DA is a US district attorney"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "HE",
+      "S",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "Make certain a man is acting as legal representative for a chapel.",
+     "walkthrough": "Bethesda is a name often given to Nonconformist chapels in Wales, after the healing pool in John's Gospel.",
+     "definitionFit": "Bethesda is a common name for a Welsh Nonconformist meeting house, so the word stands for such a place of worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attorney"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1198,78 @@
     "text": "Unease of English doctor given tapestry by chaps in street",
     "enumeration": "13"
    },
-   "solution": "EMBARRASSMENT"
+   "solution": "EMBARRASSMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EMBARRASSMENT",
+    "definitions": [
+     {
+      "text": "Unease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be inside it, so these letters sit within another word"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is a Bachelor of Medicine"
+     },
+     {
+      "clueFragment": "tapestry",
+      "gives": "ARRAS",
+      "note": "an arras is a wall tapestry"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "ARRAS",
+      "S",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An English doctor is uneasy when men in the street hand him a tapestry.",
+     "walkthrough": "MB (Bachelor of Medicine) is a British medical degree; an arras is a hanging tapestry, named after the French town.",
+     "definitionFit": "Embarrassment is a feeling of awkwardness and self-conscious discomfort, close to uneasiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tapestry"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1283,55 @@
     "text": "Celebrate one included in duty list",
     "enumeration": "7"
    },
-   "solution": "ROISTER"
+   "solution": "ROISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROISTER",
+    "definitions": [
+     {
+      "text": "Celebrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in a thing is placed inside it, so a letter goes within a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "duty list",
+      "gives": "ROSTER",
+      "note": "a roster is a list of duties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "I",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheers on finding they are on the work rota.",
+     "walkthrough": "'Celebrate' is the definition in its rowdy sense: noisy merrymaking, not a formal ceremony.",
+     "definitionFit": "To roister is to revel noisily and boisterously, an old word for partying hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Celebrate"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1345,69 @@
     "text": "Captivate leader of orchestra in eastern part of Belgium",
     "enumeration": "7"
    },
-   "solution": "ENAMOUR"
+   "solution": "ENAMOUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ENAMOUR",
+    "definitions": [
+     {
+      "text": "Captivate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its front, so only the opening letter is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be inside it, so this letter sits within a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "part of Belgium",
+      "gives": "NAMUR",
+      "note": "Namur is a Belgian city and province"
+     },
+     {
+      "clueFragment": "orchestra",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NAM",
+      "O",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestra's leader charms audiences in eastern Belgium.",
+     "walkthrough": "'eastern part of Belgium' reads as one region, but E and NAMUR are separate pieces.",
+     "definitionFit": "To enamour is to fill someone with love or delight, much as to charm or captivate them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eastern"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1421,51 @@
     "text": "Terrible barney in the immediate vicinity",
     "enumeration": "6"
    },
-   "solution": "NEARBY"
+   "solution": "NEARBY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEARBY",
+    "definitions": [
+     {
+      "text": "in the immediate vicinity",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terrible",
+      "for": "anagram",
+      "note": "something terrible has gone badly wrong, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barney",
+      "gives": "BARNEY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BARNEY",
+       "gives": "NEARBY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful row breaks out right next door.",
+     "walkthrough": "A barney is British slang for a noisy quarrel, which gives the surface its picture.",
+     "definitionFit": "Nearby means close at hand or not far away, an adverb for being in the surrounding area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barney"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1479,58 @@
     "text": "Bumpkin guarding Scottish port’s source of animal feed",
     "enumeration": "7"
    },
-   "solution": "HAYRICK"
+   "solution": "HAYRICK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAYRICK",
+    "definitions": [
+     {
+      "text": "source of animal feed",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "a guard surrounds what it protects, so one word wraps around another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bumpkin",
+      "gives": "HICK",
+      "note": "a hick is a country bumpkin"
+     },
+     {
+      "clueFragment": "Scottish port",
+      "gives": "AYR",
+      "note": "Ayr is a port on Scotland's west coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AYR",
+      "ICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A country yokel protects the supplies of a Scottish harbour town's cattle fodder.",
+     "walkthrough": "The apostrophe-s on 'port' is 'is', linking wordplay to the definition rather than marking possession.",
+     "definitionFit": "A hayrick is a large stack of hay, the dried grass stored for feeding livestock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port’s"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1544,57 @@
     "text": "Geordie mother dined with one in Muslim leader’s office",
     "enumeration": "7"
    },
-   "solution": "IMAMATE"
+   "solution": "IMAMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMAMATE",
+    "definitions": [
+     {
+      "text": "Muslim leader’s office",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "Geordie mother",
+      "gives": "MAM",
+      "note": "mam is the northern English word for mother"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "ATE",
+      "note": "to dine is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAM",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Newcastle mum has dinner with someone in the mosque leader's office.",
+     "walkthrough": "A Geordie is someone from Newcastle upon Tyne, where 'mam' means mother. 'with one' lets I go at the front.",
+     "definitionFit": "An imamate is the position or term held by an imam, the leader of prayers or a Muslim community."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1608,50 @@
     "text": "Bouquet from a European capital, as identified locally",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AROMA",
+    "definitions": [
+     {
+      "text": "Bouquet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European capital, as identified locally",
+      "gives": "ROMA",
+      "note": "Roma is the Italian name for Rome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROMA"
+     ]
+    },
+    "explanation": {
+     "surface": "A bunch of flowers sent from a European city, labelled in the native tongue.",
+     "walkthrough": "'Bouquet' tempts you towards flowers; here it is the smell of wine.",
+     "definitionFit": "A bouquet is the characteristic scent of a wine, so a pleasant smell or aroma."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bouquet"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1665,43 @@
     "text": "Fat porter, perhaps?",
     "enumeration": "5"
    },
-   "solution": "STOUT"
+   "solution": "STOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOUT",
+    "definitions": [
+     {
+      "text": "Fat",
+      "at": 0
+     },
+     {
+      "text": "porter, perhaps?",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fat",
+      "note": "first meaning: plump, heavily built"
+     },
+     {
+      "clueFragment": "porter, perhaps?",
+      "note": "second meaning: a dark beer, of which porter is a kind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a jibe at an overweight hotel porter, but porter is also a dark beer.",
+     "definitionFit": "The word is an adjective for being heavily built and a noun for strong dark beer, the family porter belongs to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "porter"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1715,67 @@
     "text": "In excursion round Rhode Island, pass flag",
     "enumeration": "9"
    },
-   "solution": "TRICOLOUR"
+   "solution": "TRICOLOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRICOLOUR",
+    "definitions": [
+     {
+      "text": "flag",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "to be in something is to be inside it, so these letters sit within a word"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to encircle it, so one word wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excursion",
+      "gives": "TOUR",
+      "note": "a tour is an excursion"
+     },
+     {
+      "clueFragment": "Rhode Island",
+      "gives": "RI",
+      "note": "RI is the postal abbreviation for Rhode Island"
+     },
+     {
+      "clueFragment": "pass",
+      "gives": "COL",
+      "note": "a col is a mountain pass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RI",
+      "COL",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "On a trip around Rhode Island, someone hands over a flag.",
+     "walkthrough": "'pass' looks like a verb but is the noun: a col is a gap between mountain peaks.",
+     "definitionFit": "A tricolour is a flag of three bands of colour, such as the French or Irish national flag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1789,56 @@
     "text": "Tired as old folk were, always crossing river?",
     "enumeration": "6"
    },
-   "solution": "AWEARY"
+   "solution": "AWEARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWEARY",
+    "definitions": [
+     {
+      "text": "Tired as old folk were",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something is to stretch over it from side to side, so one word spans another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay is an old word for always"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "WEAR",
+      "note": "the Wear is a river in north-east England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WEAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The elderly were ever weary from fording rivers.",
+     "walkthrough": "'as old folk were' signals an archaic word, not old age. The Wear flows through Durham and Sunderland.",
+     "definitionFit": "Aweary is an archaic, poetic form meaning tired or worn out, as in Macbeth's 'I gin to be aweary'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1852,56 @@
     "text": "In French, discuss Yankee’s plea",
     "enumeration": "8"
    },
-   "solution": "ENTREATY"
+   "solution": "ENTREATY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTREATY",
+    "definitions": [
+     {
+      "text": "plea",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In French",
+      "gives": "EN",
+      "note": "en is French for in"
+     },
+     {
+      "clueFragment": "discuss",
+      "gives": "TREAT",
+      "note": "to treat a subject is to discuss it"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TREAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An American's request to hold the conversation in French.",
+     "walkthrough": "'In French' is not an instruction to translate the whole clue; it is just the word for 'in'. The apostrophe-s on 'Yankee' is 'is', the link.",
+     "definitionFit": "An entreaty is an earnest request or appeal, the same as an urgent plea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee’s"
+    }
+   }
   }
  ]
 }
