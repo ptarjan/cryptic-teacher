@@ -49,6 +49,28 @@ OTHER_PUZZLE = re.compile(r"\b(?:inquisitor|magazine|jumbo|quick|genius)\b", re.
 SUNDAY_BELOW = 3000
 
 
+#: A print date or prize label in a title, which the setter pattern would
+#: otherwise read as a name: "Sat 23-May-2015", "Saturday Prize Puzzle 2 July
+#: 2011", "(Saturday Prize Crossword 7/04/12)".
+DATED = re.compile(r"\([^)]*\)|\b(?:sat(?:urday)?|sun(?:day)?)\b(?:\s+prize\s+(?:puzzle|crossword))?"
+                   r"(?:[\s\-/]*(?:\d{1,4}|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b))*",
+                   re.IGNORECASE)
+
+
+def setter_of(title):
+    """The setter a title names, or None: "Independent 8925 Sat 23-May-2015
+    Monk" is Monk, "IoS 1,102 / Poins. Heart to heart" is Poins."""
+    m = ft.NUMBER.search(title)
+    if not m:
+        return None
+    rest = DATED.sub(" ", title[m.end():])
+    name = ft.post_setter(title[:m.end()] + " " + rest.strip())
+    name = name and re.split(r"\.\s", name)[0].strip()
+    if not name or re.search(r"\d", name) or name.lower().startswith(("prize", "independent", "on sunday")):
+        return None
+    return name
+
+
 def series_of(title, number):
     """DAILY, SUNDAY, or None when the post is another puzzle or its title
     and number disagree about which paper it was."""
@@ -81,7 +103,7 @@ def parse_post(post, category_id):
         "date": post["date"][:10], "slug": post.get("slug", ""),
         "link": post.get("link"), "series": series,
         "number": number, "title": title,
-        "setter": ft.post_setter(title), "entries": entries,
+        "setter": setter_of(title), "entries": entries,
     }
     if unsplit:
         rec["unsplit"] = unsplit
