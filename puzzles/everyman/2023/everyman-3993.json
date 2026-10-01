@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Mariners with beers for each: they try to move stuff",
     "enumeration": "8"
    },
-   "solution": "SALESMEN"
+   "solution": "SALESMEN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SALESMEN",
+    "definitions": [
+     {
+      "text": "they try to move stuff",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing given in exchange for another means the first is swapped in where the second stood"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mariners",
+      "gives": "SEAMEN",
+      "note": "mariners are sailors, seamen"
+     },
+     {
+      "clueFragment": "beers",
+      "gives": "ALES",
+      "note": "ales are beers"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the standard abbreviation for each, as on price lists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALES",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors drinking a beer apiece while trying to shift some cargo.",
+     "walkthrough": "Take SEAMEN and put ALES in place of EA: S + ALES + MEN gives SALESMEN. 'With' just attaches the beers to the mariners.",
+     "definitionFit": "Sales staff try to shift goods, and 'move stuff' is informal for selling merchandise to customers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "each"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,54 @@
     "text": "Being held up, goes over what creates a gap",
     "enumeration": "6"
    },
-   "solution": "SPACER"
+   "solution": "SPACER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPACER",
+    "definitions": [
+     {
+      "text": "what creates a gap",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Being held up",
+      "for": "reversal",
+      "note": "in a down clue, lifting something up turns it to read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes over",
+      "gives": "RECAPS",
+      "note": "to recap is to go over the main points again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPACER"
+     ],
+     "reversals": [
+      {
+       "from": "RECAPS",
+       "to": "SPACER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone delayed while going back over the reasons for a gap.",
+     "walkthrough": "'Being held up' reads as delayed, but in a down answer it means the word is written upwards.",
+     "definitionFit": "A spacer is a part or key inserted to keep things apart, leaving a deliberate interval between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +164,58 @@
     "text": "Cleansing substance's left unopened, 'magical concoction'",
     "enumeration": "6"
    },
-   "solution": "LOTION"
+   "solution": "LOTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOTION",
+    "definitions": [
+     {
+      "text": "Cleansing substance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "something not opened has had its front never revealed, so its first letter goes"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the usual abbreviation for left"
+     },
+     {
+      "clueFragment": "magical concoction",
+      "gives": "POTION",
+      "note": "a potion is a magic brew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleanser described as an unopened bottle of something magical.",
+     "walkthrough": "'Left' looks like 'remaining', but it is the usual one-letter abbreviation; the 's is just 'is' linking definition to wordplay.",
+     "definitionFit": "A lotion is a liquid preparation applied to the skin, often for washing or soothing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +235,57 @@
      }
     ]
    },
-   "solution": "SACREDCOW"
+   "solution": "SACREDCOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SACRED COW",
+    "definitions": [
+     {
+      "text": "that you can't criticise",
+      "at": 38,
+      "note": "a relative phrase standing for the noun: a thing that you can't criticise"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American",
+      "gives": "SA",
+      "note": "SA abbreviates South American"
+     },
+     {
+      "clueFragment": "reputation",
+      "gives": "CRED",
+      "note": "cred, short for credibility, is street reputation"
+     },
+     {
+      "clueFragment": "bully",
+      "gives": "COW",
+      "note": "to cow someone is to intimidate or bully them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "CRED",
+      "COW"
+     ]
+    },
+    "explanation": {
+     "surface": "A South American strongman whose standing puts him beyond criticism.",
+     "walkthrough": "'Bully' looks like a noun for a person, but here it is the verb, to cow.",
+     "definitionFit": "A sacred cow is an idea or institution treated as immune from questioning, from the Hindu reverence for cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bully"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +305,60 @@
      }
     ]
    },
-   "solution": "EMERGENCYBRAKE"
+   "solution": "EMERGENCYBRAKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMERGENCY BRAKE",
+    "definitions": [
+     {
+      "text": "Back-up for safety",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "things involved are tangled together, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can be key",
+      "gives": "CANBEKEY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "merger",
+      "gives": "MERGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANBEKEYMERGER",
+       "gives": "EMERGENCYBRAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business note: a fallback plan can be crucial during a company merger.",
+     "walkthrough": "'Can be key' reads as part of the sentence, but all eight letters are fodder alongside MERGER.",
+     "definitionFit": "An emergency brake is a secondary braking system held in reserve to stop a vehicle when the main one fails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +372,51 @@
     "text": "Grotesque, having caught drunken expostulation",
     "enumeration": "6"
    },
-   "solution": "GOTHIC"
+   "solution": "GOTHIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOTHIC",
+    "definitions": [
+     {
+      "text": "Grotesque",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "GOT",
+      "note": "to have got something is to have caught it"
+     },
+     {
+      "clueFragment": "drunken expostulation",
+      "gives": "HIC",
+      "note": "hic is the sound of a drunk's hiccup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOT",
+      "HIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Something hideous happens to catch a drunk mid-exclamation.",
+     "walkthrough": "'Hic' is the written hiccup of a drunk in comics, a stock crossword piece.",
+     "definitionFit": "Gothic fiction and art deal in the macabre and bizarre, so the word can mean weird and horrifying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +440,45 @@
      }
     ]
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OUTRE",
+    "definitions": [
+     {
+      "text": "de trop",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are wanted, a run lying inside the text"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accoutrements",
+      "gives": "OUTRE",
+      "note": "the run sits in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A few of the accessories are surplus to requirements.",
+     "walkthrough": "Both French phrases are italicised, which hints that a French answer is wanted too.",
+     "definitionFit": "Outré means beyond the bounds of propriety, and de trop means excessive or too much, both borrowed French terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +492,68 @@
     "text": "Disadvantage: partial hitch, and I capitulate",
     "enumeration": "8"
    },
-   "solution": "HANDICAP"
+   "solution": "HANDICAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HANDICAP",
+    "definitions": [
+     {
+      "text": "Disadvantage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partial",
+      "for": "letter_selection",
+      "note": "partial means only a part is used, so just the opening of each long word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hitch",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter only"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "capitulate",
+      "gives": "CAP",
+      "note": "a first part only: the opening three letters, the rest cut off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AND",
+      "I",
+      "CAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits defeat after a small setback.",
+     "walkthrough": "'Partial' does double duty, trimming both 'hitch' and 'capitulate' to their first letters.",
+     "definitionFit": "A handicap is any circumstance that makes progress harder, a burden or impediment placed on someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partial"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +567,43 @@
     "text": "Crime novelist who may provide illumination?",
     "enumeration": "8"
    },
-   "solution": "CHANDLER"
+   "solution": "CHANDLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHANDLER",
+    "definitions": [
+     {
+      "text": "Crime novelist",
+      "at": 0
+     },
+     {
+      "text": "who may provide illumination",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crime novelist",
+      "note": "first meaning: the American author of The Big Sleep and The Long Goodbye"
+     },
+     {
+      "clueFragment": "who may provide illumination",
+      "note": "second meaning: a maker or seller of candles"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Illumination' suggests a writer shedding light on a mystery; the second sense is literal candlelight.",
+     "definitionFit": "Raymond Chandler wrote hardboiled detective stories, and a chandler originally made and sold candles for lighting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "illumination"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +631,63 @@
      }
     ]
    },
-   "solution": "LETTHEMEATCAKE"
+   "solution": "LETTHEMEATCAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET THEM EAT CAKE",
+    "definitions": [
+     {
+      "text": "Notoriously callous pronouncement",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allow",
+      "gives": "LET",
+      "note": "to let is to allow"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "flesh",
+      "gives": "MEAT",
+      "note": "meat is animal flesh"
+     },
+     {
+      "clueFragment": "congeal",
+      "gives": "CAKE",
+      "note": "to cake is to harden into a crust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "THE",
+      "MEAT",
+      "CAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gruesome kitchen instruction to leave meat to set, quoted as if it were famously heartless.",
+     "walkthrough": "The pieces split the phrase differently from its words: THE + M(EAT) becomes THEM + EAT.",
+     "definitionFit": "The phrase, attributed to Marie Antoinette, is the classic example of a ruler's indifference to starving people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "flesh"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +701,44 @@
     "text": "Say the thing",
     "enumeration": "7"
    },
-   "solution": "ARTICLE"
+   "solution": "ARTICLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARTICLE",
+    "definitions": [
+     {
+      "text": "Say the",
+      "at": 0,
+      "note": "an example: 'the' is a word of this kind"
+     },
+     {
+      "text": "thing",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say the",
+      "note": "first meaning: 'the' is, for example"
+     },
+     {
+      "clueFragment": "thing",
+      "note": "second meaning: an item or object"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Say' means 'for example', so 'Say the' asks what kind of word 'the' is.",
+     "definitionFit": "In grammar 'the' is the definite article, and an article of clothing or trade is simply an item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Say"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +752,56 @@
     "text": "Land crumbling into sea",
     "enumeration": "7"
    },
-   "solution": "ESTONIA"
+   "solution": "ESTONIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTONIA",
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crumbling",
+      "for": "anagram",
+      "note": "something crumbling falls apart, so its letters break up and re-form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOSEA",
+       "gives": "ESTONIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coastal erosion: a stretch of land falling into the sea.",
+     "walkthrough": "'Land' is the definition at the front; 'into' looks like a joining word but is part of the fodder.",
+     "definitionFit": "Estonia is a Baltic country, and land is a common crossword term for a nation or state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +815,50 @@
     "text": "With energy, canter and get hitched on the run",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELOPE",
+    "definitions": [
+     {
+      "text": "get hitched on the run",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     },
+     {
+      "clueFragment": "canter",
+      "gives": "LOPE",
+      "note": "to lope is to run with an easy bounding stride"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple gallop off energetically and marry while fleeing.",
+     "walkthrough": "'With' attaches E to the front of the canter word; 'and' then links to the definition.",
+     "definitionFit": "To elope is to run away secretly in order to marry, so the wedding happens while escaping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "canter"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +878,43 @@
      }
     ]
    },
-   "solution": "GETBEHIND"
+   "solution": "GETBEHIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET BEHIND",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     },
+     {
+      "text": "lag",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "note": "first meaning: to support or back a proposal"
+     },
+     {
+      "clueFragment": "lag",
+      "note": "second meaning: to fall behind schedule"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Second' looks like a time unit or a position, but it is the verb used of motions in meetings.",
+     "definitionFit": "To get behind a cause is to back it, and to get behind with work is to fall into arrears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +928,45 @@
     "text": "Focus, as this may provide you with drink",
     "enumeration": "11"
    },
-   "solution": "CONCENTRATE"
+   "solution": "CONCENTRATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCENTRATE",
+    "definitions": [
+     {
+      "text": "Focus",
+      "at": 0
+     },
+     {
+      "text": "this may provide you with drink",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Focus",
+      "note": "first meaning: to direct all one's attention"
+     },
+     {
+      "clueFragment": "this may provide you with drink",
+      "note": "second meaning: a condensed juice or squash diluted to make a beverage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is the noun: fruit juice sold in condensed form and topped up with water.",
+     "definitionFit": "To concentrate is to fix attention, and a concentrate is a reduced liquid that becomes a drink when diluted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +986,57 @@
      }
     ]
    },
-   "solution": "TUDORROSE"
+   "solution": "TUDORROSE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TUDOR ROSE",
+    "definitions": [
+     {
+      "text": "Patriotic icon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loudly",
+      "for": "homophone",
+      "note": "saying something loudly means it is heard rather than read, so the sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "started to consume a",
+      "gives": "TUDOR",
+      "soundsLike": "CHEWED A",
+      "note": "chewed is consumed, and in British speech the name is often said 'chooda'"
+     },
+     {
+      "clueFragment": "wine served chilled",
+      "gives": "ROSE",
+      "note": "rosé is a pink wine usually drunk cold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUDOR",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A national emblem noisily set about drinking a cold glass of wine.",
+     "walkthrough": "'Started to consume' is a roundabout past tense, chewed; said aloud with 'a' it matches the royal name.",
+     "definitionFit": "The red-and-white Tudor rose is the traditional floral emblem of England, seen on coins and uniforms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "started"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1056,56 @@
      }
     ]
    },
-   "solution": "ICESTORM"
+   "solution": "ICESTORM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ICE STORM",
+    "definitions": [
+     {
+      "text": "Primarily inclement, chilly – even Siberian – tempest, often restricting mobility?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the leading letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclement, chilly – even Siberian – tempest, often restricting mobility",
+      "gives": "ICESTORM",
+      "select": "first",
+      "note": "the initials of the eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "E",
+      "S",
+      "T",
+      "O",
+      "R",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A forecast of a bitterly cold Siberian storm that leaves people stranded.",
+     "walkthrough": "The whole clue does both jobs: read normally it describes the weather, and its initials spell it.",
+     "definitionFit": "An ice storm is freezing rain that coats roads and lines in ice, typically bringing traffic to a halt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1125,59 @@
      }
     ]
    },
-   "solution": "TREEFROG"
+   "solution": "TREEFROG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREE FROG",
+    "definitions": [
+     {
+      "text": "Forest creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters run loose into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ferret",
+      "gives": "FERRET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FERRETGO",
+       "gives": "TREEFROG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woodland animal and a ferret are let loose to run free.",
+     "walkthrough": "'Go wild' reads as a single phrase, but 'go' belongs to the fodder.",
+     "definitionFit": "Tree frogs are small climbing amphibians living in woodland and rainforest canopies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1197,60 @@
      }
     ]
    },
-   "solution": "CARAWAYSEED"
+   "solution": "CARAWAYSEED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARAWAY SEED",
+    "definitions": [
+     {
+      "text": "aromatic ingredient",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Balls",
+      "for": "anagram",
+      "note": "to balls something up is British slang for making a mess of it"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scare away",
+      "gives": "SCAREAWAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ed",
+      "gives": "ED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCAREAWAYED",
+       "gives": "CARAWAYSEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frightening off the politician Ed Balls, a former British Labour minister later famous for baking and dancing on TV.",
+     "walkthrough": "Ed Balls is a real name, so 'Balls' looks like part of it; it is the signal to mix the letters.",
+     "definitionFit": "Caraway seeds are a pungent spice used in rye bread and seed cake, a flavouring ingredient in cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1264,61 @@
     "text": "East African knowledge certainly not heading north",
     "enumeration": "6"
    },
-   "solution": "KENYAN"
+   "solution": "KENYAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KENYAN",
+    "definitions": [
+     {
+      "text": "East African",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "in a down clue, travelling north means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken is range of knowledge, as in 'beyond my ken'"
+     },
+     {
+      "clueFragment": "certainly not",
+      "gives": "NAY",
+      "note": "nay is an old word for no"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEN",
+      "YAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAY",
+       "to": "YAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An East African's local knowledge firmly refusing to travel north.",
+     "walkthrough": "KEN is a Scottish and old word for knowledge; the refusal goes upwards to give YAN.",
+     "definitionFit": "Kenya lies on Africa's east coast, so a citizen of that country is an East African."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1332,65 @@
     "text": "Rise like condor to begin with, then halt",
     "enumeration": "6"
    },
-   "solution": "ASCEND"
+   "solution": "ASCEND",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASCEND",
+    "definitions": [
+     {
+      "text": "Rise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points to the start, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as and like both mean in the manner of"
+     },
+     {
+      "clueFragment": "condor",
+      "gives": "C",
+      "select": "first",
+      "note": "the initial letter"
+     },
+     {
+      "clueFragment": "halt",
+      "gives": "END",
+      "note": "to end is to bring to a halt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "C",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird soars like a condor at first, then stops climbing.",
+     "walkthrough": "'Like' looks like part of the comparison with the bird, but it supplies AS.",
+     "definitionFit": "To ascend is to go up or climb, a straight synonym for moving upwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1414,60 @@
      }
     ]
    },
-   "solution": "SMELLARAT"
+   "solution": "SMELLARAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMELL A RAT",
+    "definitions": [
+     {
+      "text": "sense a problem",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assortment",
+      "for": "anagram",
+      "note": "an assortment is a mixed selection, so the letters come out in mixed order"
+     }
+    ],
+    "linkWords": [
+     "that includes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All-star",
+      "gives": "ALLSTAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter refers to himself, giving ME"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLSTARME",
+       "gives": "SMELLARAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star-studded line-up that somehow includes the setter: surely something is wrong.",
+     "walkthrough": "Setters often name their own pseudonym to mean ME or I; here Everyman supplies ME for the mix.",
+     "definitionFit": "To smell a rat is an idiom for suspecting that something is wrong or that trickery is involved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Everyman"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1481,42 @@
     "text": "Shapeless, abandoned",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "Shapeless",
+      "at": 0
+     },
+     {
+      "text": "abandoned",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shapeless",
+      "note": "first meaning: baggy, not fitted to a form"
+     },
+     {
+      "clueFragment": "abandoned",
+      "note": "second meaning: dissolute, without moral restraint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Abandoned' here means wanton or unrestrained, not deserted.",
+     "definitionFit": "A loose garment hangs without shape, and loose living is wild and unrestrained behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1530,43 @@
     "text": "Grasses often seen adjacent to violas etc?",
     "enumeration": "5"
    },
-   "solution": "REEDS"
+   "solution": "REEDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REEDS",
+    "definitions": [
+     {
+      "text": "Grasses",
+      "at": 0
+     },
+     {
+      "text": "often seen adjacent to violas etc",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grasses",
+      "note": "first meaning: tall plants growing in wet places"
+     },
+     {
+      "clueFragment": "often seen adjacent to violas etc",
+      "note": "second meaning: woodwind instruments seated next to the strings in an orchestra"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Violas are flowers as well as instruments, so the clue first suggests a garden bed.",
+     "definitionFit": "Reeds are marsh grasses, and the reed section of an orchestra sits alongside the violas and other strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "violas"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1580,60 @@
     "text": "Part of boat for rowing, or, we're told, one found on canal",
     "enumeration": "7"
    },
-   "solution": "OARLOCK"
+   "solution": "OARLOCK",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "OARLOCK",
+    "definitions": [
+     {
+      "text": "Part of boat for rowing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the sound matters rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OAR",
+      "soundsLike": "OR",
+      "note": "the conjunction sounds like the blade used to row"
+     },
+     {
+      "clueFragment": "one found on canal",
+      "gives": "LOCK",
+      "note": "a lock is a gated chamber for raising boats on a canal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OAR",
+      "LOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a boat's fittings, or perhaps a feature of the waterway it travels.",
+     "walkthrough": "'Or' looks like a conjunction offering an alternative, but it is the sound of the first piece.",
+     "definitionFit": "An oarlock, also called a rowlock, is the swivel on a boat's side that holds the oar in place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +1647,54 @@
     "text": "Aggravated, annoyed? It's innocuous",
     "enumeration": "7"
    },
-   "solution": "ANODYNE"
+   "solution": "ANODYNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANODYNE",
+    "definitions": [
+     {
+      "text": "innocuous",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Aggravated",
+      "for": "anagram",
+      "note": "aggravated means stirred up and made worse, so the letters are disturbed"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoyed",
+      "gives": "ANNOYED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANNOYED",
+       "gives": "ANODYNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone irritated is told the thing bothering them is harmless.",
+     "walkthrough": "'Aggravated' and 'annoyed' look like a pair of synonyms, but only one is fodder.",
+     "definitionFit": "Anodyne means inoffensive and unlikely to cause harm or provoke, so bland and harmless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Aggravated"
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +1708,39 @@
     "text": "Bar that will prove attractive?",
     "enumeration": "6"
    },
-   "solution": "MAGNET"
+   "solution": "MAGNET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAGNET",
+    "definitions": [
+     {
+      "text": "Bar that will prove attractive?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar that will prove attractive?",
+      "note": "surface reading: a pub that will draw in customers"
+     },
+     {
+      "clueFragment": "Bar",
+      "note": "setter's reading: a metal bar that physically attracts iron"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bar' suggests a drinking place and 'attractive' its appeal; read literally, a bar-shaped object pulls metal towards it.",
+     "definitionFit": "A bar magnet is a straight piece of magnetised iron, and magnetic force literally attracts other metals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +1754,58 @@
     "text": "Belittled as 'average', puncturing performance",
     "enumeration": "8"
    },
-   "solution": "DEMEANED"
+   "solution": "DEMEANED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEMEANED",
+    "definitions": [
+     {
+      "text": "Belittled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puncturing",
+      "for": "container",
+      "note": "to puncture is to pierce through, so one piece is driven inside another"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "average",
+      "gives": "MEAN",
+      "note": "the mean is the average in statistics"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "DEED",
+      "note": "a deed is an act or performance of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MEAN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer is put down by a critic who calls the show merely average.",
+     "walkthrough": "'Average' reads as the critic's verdict, but it is the statistical term for an arithmetic mean.",
+     "definitionFit": "To demean someone is to lower their dignity, so belittled and demeaned both mean made to seem lesser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
+   }
   }
  ]
 }
