@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,76 @@
     "text": "Satellite state in contest finally awarded bronze",
     "enumeration": "8"
    },
-   "solution": "GANYMEDE"
+   "solution": "GANYMEDE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GANYMEDE",
+    "definitions": [
+     {
+      "text": "Satellite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes inside another"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the end, so only the closing letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contest",
+      "gives": "GAME",
+      "note": "a game is a contest"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York State"
+     },
+     {
+      "clueFragment": "awarded",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of awarded"
+     },
+     {
+      "clueFragment": "bronze",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of bronze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "NY",
+      "ME",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A small client state comes third in some contest and takes the bronze medal.",
+     "walkthrough": "'Satellite state' reads as one phrase for a puppet nation, but 'Satellite' alone is the definition. 'finally' works on both 'awarded' and 'bronze'.",
+     "definitionFit": "Ganymede is the largest moon of Jupiter, and a moon is a natural satellite orbiting a planet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Satellite"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +119,57 @@
     "text": "Chief raised part of ransom in Oregon",
     "enumeration": "8"
    },
-   "solution": "GERONIMO"
+   "solution": "GERONIMO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GERONIMO",
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising letters means reading them upwards, back to front"
+     },
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "only a portion of the following words is wanted, a run of consecutive letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ransom in Oregon",
+      "gives": "OMINOREG",
+      "note": "the letters running across the end of ransom, all of in, and the start of Oregon"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "OMINOREG",
+       "to": "GERONIMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tribal leader in Oregon has raised part of a ransom payment.",
+     "walkthrough": "Read upward through 'ransOM IN OREGon' to find the name; the Oregon setting points to the American West and its history.",
+     "definitionFit": "Geronimo was a famous Apache leader, so he is a chief in the Native American sense of a tribal leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,50 @@
     "text": "Wealthy individual with no Scottish coin?",
     "enumeration": "5"
    },
-   "solution": "NABOB"
+   "solution": "NABOB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NABOB",
+    "definitions": [
+     {
+      "text": "Wealthy individual",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no Scottish",
+      "gives": "NA",
+      "note": "na is the Scots form of no"
+     },
+     {
+      "clueFragment": "coin",
+      "gives": "BOB",
+      "note": "a bob was the old British shilling coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "BOB"
+     ]
+    },
+    "explanation": {
+     "surface": "A rich person who, surprisingly, has not a single Scottish coin to their name.",
+     "walkthrough": "'Scottish' looks as if it describes the coin, but it turns 'no' into its Scots form NA. A bob is slang for the old shilling, a pre-decimal British coin.",
+     "definitionFit": "A nabob, originally a returning East India Company fortune-maker, is a person of great riches and conspicuous luxury."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scottish"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +240,47 @@
     "text": "Most miserable and possibly least vaccinated",
     "enumeration": "9"
    },
-   "solution": "MEASLIEST"
+   "solution": "MEASLIEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEASLIEST",
+    "definitions": [
+     {
+      "text": "Most miserable",
+      "at": 0
+     },
+     {
+      "text": "possibly least vaccinated",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most miserable",
+      "note": "first meaning: most paltry and wretched, the superlative of a contemptible adjective"
+     },
+     {
+      "clueFragment": "possibly least vaccinated",
+      "note": "second meaning, read literally: most covered in a childhood disease spots, as the unvaccinated might be"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment about whoever is unhappiest, linking it to having skipped their jabs.",
+     "walkthrough": "The second meaning splits the word as 'most measly', having the worst case of measles, which vaccination prevents; 'possibly' flags the playful logic.",
+     "definitionFit": "Measly means contemptibly small or poor, and literally means infected with the spotted viral disease, so the superlative fits both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vaccinated"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +294,57 @@
     "text": "Live and prosper having nothing set aside",
     "enumeration": "5"
    },
-   "solution": "DWELL"
+   "solution": "DWELL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DWELL",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having nothing set aside",
+      "for": "deletion",
+      "note": "putting aside nothing means a zero-shaped letter is removed and left out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prosper",
+      "gives": "DOWELL",
+      "note": "to prosper is to do well"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Echoing the Vulcan salute 'live long and prosper', here with savings spent.",
+     "walkthrough": "The surface looks like a two-word phrase; 'Live' alone is the definition and 'prosper' gives the two-word phrase DO WELL.",
+     "definitionFit": "To dwell somewhere is to reside or make one's home there, a formal synonym for living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +358,62 @@
     "text": "Duck circling extremely strange plant",
     "enumeration": "6"
    },
-   "solution": "TEASEL"
+   "solution": "TEASEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TEASEL",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "to circle something is to go round it, so one piece surrounds the other"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "gives": "TEAL",
+      "note": "the teal is a small duck"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "SE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck swims round a very odd-looking plant.",
+     "walkthrough": "'extremely strange' reads as 'very weird' but means the ends of the word.",
+     "definitionFit": "The teasel is a prickly thistle-like herb whose dried heads were once used to raise the nap on cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +427,67 @@
     "text": "Weird energy harnessed by republic in revolution",
     "enumeration": "5"
    },
-   "solution": "EERIE"
+   "solution": "EERIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EERIE",
+    "definitions": [
+     {
+      "text": "Weird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "harnessed by",
+      "for": "container",
+      "note": "something harnessed is held in, so one piece is enclosed by the other"
+     },
+     {
+      "text": "in revolution",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "republic",
+      "gives": "EIRE",
+      "note": "Eire is the Irish name for the Republic of Ireland"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "E",
+      "RIE"
+     ],
+     "reversals": [
+      {
+       "from": "EIRE",
+       "to": "ERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange force is captured by a country in the middle of an uprising.",
+     "walkthrough": "'Revolution' suggests political upheaval but means turning the republic's name round; the energy then sits just after its first letter.",
+     "definitionFit": "Eerie describes something strange and unsettling, uncanny in a way that makes the skin prickle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +501,51 @@
     "text": "Witness corrupt cop at rest",
     "enumeration": "9"
    },
-   "solution": "SPECTATOR"
+   "solution": "SPECTATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECTATOR",
+    "definitions": [
+     {
+      "text": "Witness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "something corrupt is spoiled or debased, so these letters are put into a broken order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cop at rest",
+      "gives": "COPATREST",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPATREST",
+       "gives": "SPECTATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bent police officer is caught off duty by someone watching.",
+     "walkthrough": "'Witness' looks like a verb, telling us to watch the corrupt officer, but it is the noun.",
+     "definitionFit": "A spectator is an onlooker who sees an event happen, just as an eyewitness observes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +559,48 @@
     "text": "Player knocking the block off an American one",
     "enumeration": "6"
    },
-   "solution": "LUTIST"
+   "solution": "LUTIST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUTIST",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking the block off",
+      "for": "deletion",
+      "note": "the block is slang for the head, so knocking it off removes the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an American one",
+      "gives": "FLUTIST",
+      "note": "an American player of the flute is a flutist, where Britons say flautist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUTIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sportsman decapitating an American opponent.",
+     "walkthrough": "'one' refers back to 'Player': an American player of a woodwind instrument, beheaded, becomes a player of a plucked one.",
+     "definitionFit": "A lutist is a musician who plays the lute, and a musician performing on an instrument is a player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +614,63 @@
     "text": "Composer's time supporting school over in Bonn",
     "enumeration": "8"
    },
-   "solution": "SCHUBERT"
+   "solution": "SCHUBERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCHUBERT",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, a support sits underneath, so this piece goes after the others"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is a standard abbreviation for school"
+     },
+     {
+      "clueFragment": "over in Bonn",
+      "gives": "UBER",
+      "note": "über is German for over, and Bonn is a German city"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "UBER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer's career is spent backing a school that has ended up in Bonn.",
+     "walkthrough": "'over' wants to mean finished or reversed, but 'in Bonn' asks for the German word for it.",
+     "definitionFit": "Franz Schubert was an Austrian Romantic composer known for his songs and symphonies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +684,51 @@
     "text": "Part of frame CGI bear ruined",
     "enumeration": "7"
    },
-   "solution": "RIBCAGE"
+   "solution": "RIBCAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIBCAGE",
+    "definitions": [
+     {
+      "text": "Part of frame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked, so these letters are reduced to a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "CGI bear",
+      "gives": "CGIBEAR",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CGIBEAR",
+       "gives": "RIBCAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer-generated bear spoils part of a film frame.",
+     "walkthrough": "'frame' suggests a frame of film, which suits CGI, but here it is the body's frame, the skeleton.",
+     "definitionFit": "The ribcage is the bony enclosure of the chest, one section of the skeleton that supports the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +742,51 @@
     "text": "Present scoundrel with what's required by letter",
     "enumeration": "7"
    },
-   "solution": "CURRENT"
+   "solution": "CURRENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURRENT",
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CUR",
+      "note": "a cur is a contemptible man, originally a mongrel dog"
+     },
+     {
+      "clueFragment": "what's required by letter",
+      "gives": "RENT",
+      "note": "a letter here is someone who lets property, and they require payment from tenants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Giving a gift to a rogue, along with what a postal letter needs.",
+     "walkthrough": "'letter' suggests something posted, needing a stamp; it is a landlord, one who lets.",
+     "definitionFit": "Present as an adjective means existing now, and current is a direct synonym for belonging to the present time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +810,62 @@
    "group": [
     "12-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "NOBEL LAUREATES",
+    "definitions": [
+     {
+      "text": "prize winners",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one set of letters goes inside another"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it over, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magazine",
+      "gives": "BELLA",
+      "note": "Bella is a British weekly women's magazine"
+     },
+     {
+      "clueFragment": "east Rouen",
+      "gives": "EASTROUEN",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EASTBELLAROUEN",
+       "gives": "NOBELLAUREATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine in eastern Rouen upsets a set of prize-winners.",
+     "walkthrough": "'Magazine' could be a gun part or a store; here it is a specific British title, BELLA, which is then mixed with the other letters.",
+     "definitionFit": "Nobel laureates are people awarded a Nobel Prize, the most famous international honours in science, literature and peace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Magazine"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +892,60 @@
     "text": "Some overtime in retirement to get fancy church hat",
     "enumeration": "5"
    },
-   "solution": "MITRE"
+   "solution": "MITRE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MITRE",
+    "definitions": [
+     {
+      "text": "fancy church hat",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of something is only a part, so a run of letters is taken from inside a word"
+     },
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "to retire is to withdraw, going back the way one came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overtime",
+      "gives": "ERTIM",
+      "note": "the middle letters of overtime"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ERTIM",
+       "to": "MITRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Working overtime after retiring, someone can afford a fancy hat for church.",
+     "walkthrough": "Read 'ovERTIMe' backwards. 'retirement' suggests old age, but signals a turnaround.",
+     "definitionFit": "A mitre is the tall, ornamented headdress worn by bishops, an elaborate piece of ecclesiastical headgear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +959,71 @@
     "text": "Therapy derived from flower involving new team",
     "enumeration": "9"
    },
-   "solution": "TREATMENT"
+   "solution": "TREATMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TREATMENT",
+    "definitions": [
+     {
+      "text": "Therapy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to include within, so one piece is wrapped by another"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something made new is remade, so these letters take a fresh order"
+     }
+    ],
+    "linkWords": [
+     "derived from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "TRENT",
+      "note": "a flower is something that flows, a river; the Trent is a major English river"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "TEAM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "ATME",
+      "NT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAM",
+       "gives": "ATME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A herbal therapy made from a flower, now with a fresh team behind it.",
+     "walkthrough": "'flower' is the crossword trick for a river, read as flow-er, not a bloom. The Trent runs through the English Midlands.",
+     "definitionFit": "Therapy is medical care given to cure illness, and treatment is the general word for such care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1037,47 @@
     "text": "Liquid that can be dark but put on pale",
     "enumeration": "8"
    },
-   "solution": "CREOSOTE"
+   "solution": "CREOSOTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREOSOTE",
+    "definitions": [
+     {
+      "text": "Liquid that can be dark",
+      "at": 0
+     },
+     {
+      "text": "put on pale",
+      "at": 28,
+      "note": "a phrase for what gets applied to fencing, standing for the substance"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liquid that can be dark",
+      "note": "first meaning: a brown or black oily fluid distilled from tar"
+     },
+     {
+      "clueFragment": "put on pale",
+      "note": "second meaning: a pale is a wooden fence stake, and this wood preservative is what gets brushed onto fences"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'pale' looks like the opposite of 'dark', making a colour paradox, but it is the noun for a fence post, as in 'beyond the pale'.",
+     "definitionFit": "Creosote is a dark tarry oil distilled from coal tar, painted on fences and timber to stop rot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pale"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1091,69 @@
     "text": "Code in competition originally replaced by child",
     "enumeration": "8"
    },
-   "solution": "CHIVALRY"
+   "solution": "CHIVALRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "CHIVALRY",
+    "definitions": [
+     {
+      "text": "Code",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so only the opening letter is meant"
+     },
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "one thing replaced by another is swapped out, so a letter is exchanged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "competition",
+      "gives": "RIVALRY",
+      "note": "rivalry is competition between parties"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the rivalry, which is what gets swapped out"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "CH is a standard abbreviation for child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IVALRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A code in a contest was originally swapped for a child.",
+     "walkthrough": "'originally' acts on the competition word found, not on 'competition' itself: its first letter makes way for CH.",
+     "definitionFit": "Chivalry was the medieval knightly code of conduct, prizing honour, courage and courtesy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Code"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1167,51 @@
     "text": "Track workers moving around main glens",
     "enumeration": "9"
    },
-   "solution": "SIGNALMEN"
+   "solution": "SIGNALMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGNALMEN",
+    "definitions": [
+     {
+      "text": "Track workers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving around",
+      "for": "anagram",
+      "note": "things moving around shift position, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main glens",
+      "gives": "MAINGLENS",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAINGLENS",
+       "gives": "SIGNALMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Railway workers travel about the principal Scottish valleys.",
+     "walkthrough": "'Track' could be a footpath through the glens, but it is a railway track.",
+     "definitionFit": "Signalmen operate the railway signals and points from signal boxes, so they work on the railway lines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Track"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1225,50 @@
     "text": "Sturdy lot with not much up top",
     "enumeration": "8"
    },
-   "solution": "THICKSET"
+   "solution": "THICKSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THICKSET",
+    "definitions": [
+     {
+      "text": "Sturdy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not much up top",
+      "gives": "THICK",
+      "note": "having little up top means not bright, stupid"
+     },
+     {
+      "clueFragment": "lot",
+      "gives": "SET",
+      "note": "a set is a lot or group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THICK",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy group of people who are short on hair, or brains.",
+     "walkthrough": "In a down clue 'up top' hints at position, but 'not much up top' is an idiom for being dim. The pieces are taken in reverse of their clue order.",
+     "definitionFit": "Thickset describes a person heavily and solidly built, stocky and strong, much like sturdy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1282,61 @@
     "text": "Put limits on refuse emptied near stern",
     "enumeration": "8"
    },
-   "solution": "RESTRICT"
+   "solution": "RESTRICT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESTRICT",
+    "definitions": [
+     {
+      "text": "Put limits on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, so only its outside letters remain"
+     },
+     {
+      "text": "near",
+      "for": "charade",
+      "note": "near means beside, so the next piece is placed right alongside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refuse",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of refuse"
+     },
+     {
+      "clueFragment": "stern",
+      "gives": "STRICT",
+      "note": "stern and strict both mean severe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "STRICT"
+     ]
+    },
+    "explanation": {
+     "surface": "Limits are put on rubbish being emptied near the back of a ship.",
+     "walkthrough": "'stern' suggests the rear of a boat, fitting refuse being dumped; it is the adjective meaning severe.",
+     "definitionFit": "To restrict something is to confine it within bounds, keeping it under control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stern"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1350,73 @@
     "text": "Measure last of Scotch after some maths backfired",
     "enumeration": "5"
    },
-   "solution": "GIRTH"
+   "solution": "GIRTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "GIRTH",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "backfired",
+      "for": "reversal",
+      "note": "something that backfires goes backwards, so the letters run in the opposite direction"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so one piece comes behind another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some maths",
+      "gives": "TRIG",
+      "note": "trig, trigonometry, is a branch of mathematics"
+     },
+     {
+      "clueFragment": "Scotch",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of Scotch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIRT",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "TRIG",
+       "to": "GIRT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A measure of the last of the whisky is poured after some calculations went wrong.",
+     "walkthrough": "'Measure' suggests a dram of Scotch but is the definition; 'some maths' is one branch of it, not a sum.",
+     "definitionFit": "Girth is the measurement around the middle of something, its circumference or waist size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1430,65 @@
     "text": "Mimic initially riles copper giving summary",
     "enumeration": "6"
    },
-   "solution": "APERCU"
+   "solution": "APERCU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APERCU",
+    "definitions": [
+     {
+      "text": "summary",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mimic",
+      "gives": "APE",
+      "note": "to ape is to mimic"
+     },
+     {
+      "clueFragment": "riles",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of riles"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "R",
+      "CU"
+     ]
+    },
+    "explanation": {
+     "surface": "An impersonator annoys a policeman by giving a summary of events.",
+     "walkthrough": "'copper' wants to be a police officer, fitting the mimic who riles; it is the metal, by its chemical symbol.",
+     "definitionFit": "An aperçu, borrowed from French, is a brief outline or quick insightful survey of a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1508,49 @@
      }
     ]
    },
-   "solution": "PETTYCASH"
+   "solution": "PETTYCASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PETTY CASH",
+    "definitions": [
+     {
+      "text": "modest sums",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US singers",
+      "gives": "PETTY",
+      "note": "Tom Petty was an American rock singer"
+     },
+     {
+      "clueFragment": "US singers",
+      "gives": "CASH",
+      "note": "Johnny Cash was an American country singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETTY",
+      "CASH"
+     ]
+    },
+    "explanation": {
+     "surface": "American singers earning only small amounts of money.",
+     "walkthrough": "The plural 'singers' covers two surnames, one for each word of the answer.",
+     "definitionFit": "Petty cash is the small fund of money an office keeps for minor everyday expenses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1564,65 @@
     "text": "Produce from Year One regularly peeled",
     "enumeration": "5"
    },
-   "solution": "YIELD"
+   "solution": "YIELD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YIELD",
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "peeled",
+      "gives": "ELD",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of peeled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "I",
+      "ELD"
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit and vegetables grown by Year One pupils, routinely peeled.",
+     "walkthrough": "'Year One' reads as a school class, but splits into two abbreviations. 'Produce' is a noun in the surface and the definition alike.",
+     "definitionFit": "A yield is the amount a farm or crop gives, the harvest, so it matches produce as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Year"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1636,49 @@
     "text": "Covering hospital admission of boxer?",
     "enumeration": "5"
    },
-   "solution": "HIJAB"
+   "solution": "HIJAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIJAB",
+    "definitions": [
+     {
+      "text": "Covering",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     },
+     {
+      "clueFragment": "admission of boxer",
+      "gives": "IJAB",
+      "note": "a boxer might confess 'I jab', a jab being a quick straight punch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "I",
+      "JAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A covering needed when a boxer is admitted to hospital.",
+     "walkthrough": "'admission' suggests being admitted to a ward; it is a confession, the boxer owning up to what they do. The question mark flags this playful reading.",
+     "definitionFit": "A hijab is the headscarf worn by many Muslim women, a garment that covers the hair and neck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "admission"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1692,51 @@
     "text": "Finch's tail clipped twice somewhere upstairs",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATTIC",
+    "definitions": [
+     {
+      "text": "somewhere upstairs",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail clipped twice",
+      "for": "deletion",
+      "note": "the tail of a word is its end, and clipping it twice trims two closing letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finch",
+      "gives": "ATTICUS",
+      "note": "Atticus Finch is the lawyer hero of To Kill a Mockingbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A small bird has its tail feathers trimmed twice and lives somewhere upstairs.",
+     "walkthrough": "'Finch' wants to be a bird, fitting 'tail'; it is a surname, and the first name of its most famous bearer is the one shortened.",
+     "definitionFit": "An attic is the room or space directly under the roof, at the top of a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Finch"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1750,50 @@
     "text": "Letter from those who were kept in reserve",
     "enumeration": "5"
    },
-   "solution": "THETA"
+   "solution": "THETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THETA",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those",
+      "gives": "THE",
+      "note": "those people, taken as the definite article: the ones in question"
+     },
+     {
+      "clueFragment": "who were kept in reserve",
+      "gives": "TA",
+      "note": "the Territorial Army, the British Army's part-time volunteer reserve force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A message written by people who were held back in reserve.",
+     "walkthrough": "'Letter' suggests correspondence, but it is an alphabet letter. The TA was Britain's part-time army reserve.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet, used for the th sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1813,44 @@
      }
     ]
    },
-   "solution": "ROEDEER"
+   "solution": "ROEDEER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROE DEER",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the answer matches a spoken phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "came by 'orse",
+      "gives": "ROEDEER",
+      "soundsLike": "RODE 'ERE",
+      "note": "to come here on horseback is to ride here, said with the dropped h of 'orse"
+     }
+    ],
+    "explanation": {
+     "surface": "A Cockney-sounding report that an animal arrived on horseback.",
+     "walkthrough": "The apostrophe in ''orse' tells you to drop every h, so 'rode here' becomes 'rode 'ere'.",
+     "definitionFit": "The roe deer is a small Eurasian deer, a wild animal common in British woodland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1864,44 @@
     "text": "Clothing those declaring 1 Down",
     "enumeration": "7"
    },
-   "solution": "JUMPERS"
+   "solution": "JUMPERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JUMPERS",
+    "definitions": [
+     {
+      "text": "Clothing",
+      "at": 0,
+      "note": "a mass noun standing for the plural garments"
+     },
+     {
+      "text": "those declaring 1 Down",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clothing",
+      "note": "first meaning: knitted pullovers, the British word for sweaters"
+     },
+     {
+      "clueFragment": "those declaring 1 Down",
+      "note": "second meaning: parachutists, who traditionally shout the Apache chief's name as they leap"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The cross-reference points to the war cry shouted by paratroopers leaping from aircraft; a jumper is also British for a sweater.",
+     "definitionFit": "Woollen pullovers are knitwear garments, and people who leap from planes or heights are those who leap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "declaring"
+    }
+   }
   },
   {
    "number": 29,
@@ -474,7 +1915,52 @@
     "text": "Disordered hammering of DIY nut",
     "enumeration": "6"
    },
-   "solution": "UNTIDY"
+   "solution": "UNTIDY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNTIDY",
+    "definitions": [
+     {
+      "text": "Disordered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hammering of",
+      "for": "anagram",
+      "note": "hammering something beats it out of shape, so these letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DIY nut",
+      "gives": "DIYNUT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIYNUT",
+       "gives": "UNTIDY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A home-improvement enthusiast bangs away in a chaotic manner.",
+     "walkthrough": "'nut' suggests the hardware that goes with hammering, but here it means an enthusiast; DIY is do-it-yourself home repair.",
+     "definitionFit": "Untidy means messy and lacking order, just as something disordered is jumbled and not arranged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 30,
@@ -488,7 +1974,66 @@
     "text": "Rich poet almost on a roll",
     "enumeration": "8"
    },
-   "solution": "ABUNDANT"
+   "solution": "ABUNDANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABUNDANT",
+    "definitions": [
+     {
+      "text": "Rich",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roll",
+      "gives": "BUN",
+      "note": "a bun is a bread roll"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "DANTE",
+      "note": "Dante Alighieri was the Italian poet of the Divine Comedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUN",
+      "DANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy poet who is nearly on a winning streak.",
+     "walkthrough": "'on a roll' is an idiom for doing well, but here it splits: 'a roll' is bread, and the poet sits on it.",
+     "definitionFit": "Abundant means plentiful or existing in large quantities, as in land rich in natural resources."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   }
  ]
 }
