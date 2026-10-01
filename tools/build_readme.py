@@ -251,10 +251,10 @@ LAYOUT = [
     ("scheduling", "tools/test_solve_queue_clues.sh", "drives the cold-solve queue out of daily_update.sh against made-up clue counts, so a grid with nothing to read is never bought a model run"),
     ("scheduling", "tools/test_push_conflict.sh","proves the nightly push rebuilds a generated file the remote also rebuilt, and refuses to resolve anything else"),
     ("scheduling", "tools/test_push_race.sh", "a push that loses the shared ref-lock race to another worktree is retried; any other failure is not"),
-    ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
+    ("scheduling", "tools/prereset_plan.py", "how many annotations the burn runs at once, and the order it takes the queue in"),
     ("scheduling", "tools/indicator_cover.py", "puts first the backlog puzzles whose blog-named indicators no annotation of ours links yet on /indicators/: a greedy set cover weighted by each indicator's clue count, re-planned every wave through prereset_plan.py --cover-first"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
-    ("scheduling", "tools/test_prereset_paths.sh", "resolves the two paths the burn builds at runtime, instead of matching the text of the lines that build them"),
+    ("scheduling", "tools/test_prereset_paths.sh", "resolves the bridge path the burn's alerts build at runtime, instead of matching the text of the line that builds it"),
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),
@@ -362,7 +362,6 @@ LAYOUT = [
     ("tables everything else reads", "scratch/stage3_clue.py", "which kinds of clue Times for the Times commenters flag hard or name last one in"),
     ("tables everything else reads", "tools/blog_comment_difficulty.py", "which clues human solvers found hard, read off Times for the Times comments"),
     ("tables everything else reads", "tools/data/blog_comment_difficulty.json", "per Times puzzle, the comment count, the median solve time its commenters state, and per clue how many comments name the answer, flag it hard, and call it their last one in"),
-    ("tables everything else reads", "tools/test_prereset_landing.sh", "is the landing report keyed to the week's real reset, not to CT_SPEND_BY?"),
     ("tables everything else reads", "scratch/snitch_stage4.py", "the SNITCH adoption harness: each candidate component held out by date on the annotated and fresh sets"),
     ("tables everything else reads", "scratch/comment_blend.py", "the blog-comment blend measured held out: clue index, blend and comments alone, by date third"),
     ("tables everything else reads", "tools/build_wordnet.py", "writes tools/data/wordnet.json.gz, the slice of WordNet difficulty.py's definition_unrelated reads"),
@@ -408,7 +407,6 @@ KNOB_FILES = {
     "ANNOTATE_MAX_WEEKLY_PCT": "tools/daily_update.sh",
     "ANNOTATE_MAX_SESSION_PCT": "tools/daily_update.sh",
     "SOLVE_MAX": "tools/daily_update.sh",
-    "FORCE_HOURS": "tools/prereset_backfill.sh",
 }
 
 
@@ -712,10 +710,9 @@ def build_knobs(k):
         f"{k['ANNOTATE_MAX']} from the backlog, and only below "
         f"{k['ANNOTATE_MAX_WEEKLY_PCT']}% of the week (and "
         f"{k['ANNOTATE_MAX_SESSION_PCT']}% of the rolling five-hour window, "
-        f"re-checked between puzzles), while the hourly one does nothing at all "
-        f"until `weekly_usage.py --resets-in` says the weekly window is within "
-        f"{k['FORCE_HOURS']} hour of turning over — at which point unspent quota "
-        f"is about to vanish, so it spends the remainder with no gate."
+        f"re-checked between puzzles), while the hourly one spends everything "
+        f"else with no gate: every wave at full width, waiting out each "
+        f"five-hour lockout, until the weekly meter is spent or the week resets."
     )
 
 

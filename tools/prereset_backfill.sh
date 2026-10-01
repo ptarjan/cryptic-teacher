@@ -1,41 +1,20 @@
 #!/bin/bash
-# Burn the tail of the weekly usage window on backfills, just before it resets.
+# Spend the weekly usage window on backfills: every five-hour window to 100%.
 #
 # Why this exists, separately from daily_update.sh: unspent quota does not roll
-# over. Whatever is left when the weekly window turns over is simply gone.
-# daily_update.sh deliberately refuses to annotate above ANNOTATE_MAX_WEEKLY_PCT
-# because a crossword backlog is never worth being rate-limited for real
-# work — but that reasoning stops applying at the end of the window, when there
-# is no real work left to protect. So this job runs with NO usage gate at all,
-# on purpose, and ONLY then.
+# over. daily_update.sh deliberately refuses to annotate above
+# ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
+# rate-limited for real work; this job is the other half and runs with NO usage
+# gate. Every wave runs at full width (tools/prereset_plan.py --width), from the
+# moment it starts until the week resets.
 #
-# "Only then" is load-bearing and was wrong for its first week: the job is fired
-# hourly and almost always exits immediately, because whether this is the hour
-# is decided by asking the usage API when the window resets, not by the time on
-# the clock. See the check below.
-#
-# HOW MUCH IS LEFT DECIDES BOTH THE START AND THE WIDTH. Two hours of one
-# annotation at a time spends a few percent, so a week that ends with tens of
-# percent unspent ends that way however faithfully this job runs. Both numbers
-# are arithmetic on the remainder and on rates this job measures for itself —
-# tools/prereset_plan.py, which is where they are explained and tested.
-#
-# The remainder can only be spent one FIVE-hour window at a time: saturate that
-# limit and nothing more can be bought at any width until it turns over. So the
-# start is a count, not a rate — how many five-hour windows the remainder needs,
-# times five hours — and this job expects to be locked out once per window it
-# asked for. A lockout is waited out rather than read as the week being over,
-# and the wave after it picks up where the last one stopped.
-#
-# AND IT NEVER RUNS AHEAD OF THAT COUNT. The count is re-asked before every wave,
-# so the moment spending has bought back enough slack the job stands down and
-# exits, and the hourly fire restarts it when it falls behind again. That is the
-# difference between spending what the week was going to lose and simply taking
-# it early: quota spent on Monday is quota real work cannot have on Tuesday, and
-# whether Monday was needed at all is only knowable on Monday.
-#
-# Paul, 2026-08-02: "right before my weekly inference resets you should spend
-# whatever is left on backfills."
+# The only stops are the meters and the reset itself:
+#   - the FIVE-hour limit: saturate it and nothing more can be bought until it
+#     turns over, so a lockout is waited out and the next wave picks up where
+#     the last one stopped;
+#   - the weekly meter at EXHAUSTED: the run stops (Paul resets it);
+#   - the weekly reset: the run stops five minutes short of it rather than spend
+#     the next week's quota, and the next hourly fire starts the new week.
 #
 # What it backfills, in priority order:
 #   1. Un-annotated puzzles, NEWEST FIRST BY DATE, across every series at once.
@@ -63,7 +42,7 @@
 # have to be launchctl instead, never as well — see daily_update.sh's header.
 
 set -uo pipefail
-# A checkout of its own, so an hour of unmetered annotation cannot collide with
+# A checkout of its own, so days of unmetered annotation cannot collide with
 # the 06:15 job or with somebody editing the repo. See tools/nightly_worktree.sh.
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -91,28 +70,14 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
 exec > >(tee -a "$RUN_LOG") 2>&1
 
-# Kept in step with daily_update.sh — Opus since 2026-08-09, benchmarked against
-# Fable on 30078 (STYLE.md). Matching quality at a third the cost matters more
-# here than anywhere: this script exists to burn the tail of the weekly window,
-# so a cheaper annotator is straightforwardly more puzzles per reset.
+# Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
+# (STYLE.md). Matching quality at a third the cost matters more here than
+# anywhere: a cheaper annotator is straightforwardly more puzzles per reset.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
-# How much of each FIVE-hour window is kept back for whoever else is on this
-# account — but only while they are actually using it, and only while the week
-# can still afford it. See reserve_affordable, bridge_busy and after_wave.
-SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
-# How close to the reset counts as "the end of the week" — five hours for every
-# five-hour window the remainder needs, so a nearly-spent week gets one and a
-# wholly unspent one gets eight. Zero when there is nothing left, which keeps the
-# gate shut: no positive number of hours until reset is ever within zero.
-#
-# Asked WITH the reserve, so the start time budgets for it: a window that keeps
-# a quarter back delivers three quarters, the remainder needs a third more
-# windows than it looks like, and the job starts that much earlier to have them.
-# Starting at the full-spend edge and reserving anyway is just landing short.
-WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours "$SESSION_RESERVE_PCT" 2>/dev/null || echo 5)}"
-FORCE_HOURS="${FORCE_HOURS:-1}"
+# Runs in flight per wave (PARALLEL_MAX); see tools/prereset_plan.py.
+WIDTH=$(python3 tools/prereset_plan.py --width 2>/dev/null || echo 14)
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself.
 #
@@ -124,44 +89,7 @@ EXHAUSTED="${EXHAUSTED:-97}"
 # Below this on the five-hour meter a failed run was not locked out: the window
 # had room, so waiting for it to turn over buys nothing.
 LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
-# Transcripts live under the CLI's config dir, which is exported above and is
-# NOT $HOME/.claude in the container: $HOME is /data/home there and the config
-# dir is the /data/claude volume. Spelled $HOME this pointed at a directory that
-# has never existed, every poll read the room as occupied, and the reserve was
-# held back all day for nobody.
-BRIDGE_DIR="${BRIDGE_DIR:-$CLAUDE_CONFIG_DIR/projects/-Users-pt}"
-BRIDGE_IDLE_MIN="${BRIDGE_IDLE_MIN:-60}"
-# The reserve is DEFERRED, never forfeited. A five-hour window that turns over
-# with room left on it has thrown that room away for good, so in the last of its
-# minutes the reserve gets spent whether or not anyone is on the bridge.
-#
-# How many minutes is NOT a constant: it is however long the reserve takes to
-# spend at the width in use, which prereset_plan measures. This number is also
-# exactly how long the lockout it causes can last, so a constant is wrong in
-# both directions — too small strands quota on an expiring window, too big takes
-# an account Paul is using and hands it nothing to show for the difference. An
-# env override is honoured as-is and never refreshed.
-SESSION_ENDGAME_FIXED=$([ -n "${SESSION_ENDGAME_MIN:-}" ] && echo 1 || echo 0)
-SESSION_ENDGAME_MIN="${SESSION_ENDGAME_MIN:-40}"
-
-# Re-derive the endgame from the width the last wave actually ran at. Silent on
-# failure: the previous value is a better answer than no gate at all.
-refresh_endgame() {
-  local got
-  [ "$SESSION_ENDGAME_FIXED" = 1 ] && return 0
-  got=$(python3 tools/prereset_plan.py --endgame-min "$SESSION_RESERVE_PCT" "${1:-1}" 2>/dev/null)
-  case "$got" in ''|*[!0-9]*) return 0 ;; esac
-  SESSION_ENDGAME_MIN="$got"
-}
-# One nap per five-hour window this job asked for is the PLAN, not a failure, so
-# the allowance is that count with slack rather than a constant. A constant that
-# is smaller than the number of windows ends the job in the middle of the run it
-# scheduled, with the remainder it was started for still sitting there. Each nap
-# is capped at the deadline regardless, so this only bounds waves failing fast
-# for some reason other than a lockout — it is not a budget to ration.
-MAX_NAPS="${MAX_NAPS:-$(python3 tools/prereset_plan.py --windows 2>/dev/null || echo 6)}"
-MAX_NAPS=$((MAX_NAPS + 2))
-# DRY_RUN=1 walks the whole job — gate, queue order, wave widths, deadline —
+# DRY_RUN=1 walks the whole job — queue order, waves, deadline —
 # without calling claude, touching git or rebuilding anything. This job spends
 # ungated inference in parallel and cannot be rehearsed any other way; the first
 # version of it ran seven ungated nights a week and read as healthy in the log.
@@ -169,10 +97,9 @@ DRY_RUN="${DRY_RUN:-0}"
 
 echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
 
-# One at a time. launchd will not start a second copy of its own job, but this
-# now runs for hours rather than one, so an hourly fire and a hand-run FORCE=1
-# overlap easily — and two copies would double the width nobody asked for and
-# race each other's commits in the one git index. mkdir is the atomic part.
+# One at a time. This runs for days, so an hourly fire and a hand run overlap
+# easily — and two copies would double the width and race each other's commits
+# in the one git index. mkdir is the atomic part.
 LOCK="$REPO/.prereset.lock"
 # The holder writes its pid inside it, because the directory alone cannot say
 # whether it belongs to a live run or to one the machine killed: the EXIT trap
@@ -212,54 +139,20 @@ trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures 
 # under it — and be told to carry on from edits that are no longer there.
 rm -f /tmp/ct-prereset-*.sid /tmp/ct-prereset-*.resume
 
-# THE WHOLE JOB HANGS ON THIS CHECK. Everything below runs with no usage gate
-# whatsoever, which is only defensible in the hour before quota that cannot roll
-# over evaporates. The first version decided it was that hour by looking at the
-# clock — 04:00 to 04:55, hard-coded — and was scheduled daily, so an ungated
-# hour of inference ran SEVEN nights a week instead of one. That is what carried
-# the week to 68% by Friday and left the 06:15 job crashing into rate limits it
-# had itself created, while the log cheerfully said "past 04:55 — stopping" as
-# though the design were working.
-#
-# The reset is not a time of day to be guessed at. It is a timestamp the usage
-# API hands over on request, it moves with daylight saving and with whatever
-# Anthropic does to the account, and a fitted constant standing in for a
-# queryable fact is always the wrong model. So: ask, and if the answer is "not
-# yet", exit having spent nothing. This job is now a poll, not an appointment —
-# it is scheduled hourly precisely because the answer moves.
-#
-# Exit 3 means the answer is derived rather than read: the API had turned the
-# window over without re-stamping it, so the number is one window length past
-# the reset we last saw. That is trustworthy in exactly one direction. It can
-# say "not the pre-reset hour" — the window just started, so of course it isn't
-# — and it must never say "spend", because spending an ungated hour on an
-# inferred reset time is the hard-coded 04:00 all over again, aimed at a guess.
+# The run is bounded by the weekly reset, which is a timestamp the usage API
+# hands over on request — never a time of day guessed at. Exit 3 (a reset rolled
+# forward from the last one seen, because the API has not re-stamped it yet) is
+# still the right bound: the week is a fixed length.
 resets_in=$(python3 tools/weekly_usage.py --resets-in)
-resets_rc=$?
 if [ -z "$resets_in" ]; then
-  alert "pre-reset backfill can't read when the weekly window resets, so it can't tell whether this is the hour to spend the remainder. Skipped — see .prereset.log. Nothing is being backfilled until this reads again."
+  alert "pre-reset backfill can't read when the weekly window resets, so it can't bound the run. Skipped — see .prereset.log. Nothing is being backfilled until this reads again."
   exit 1
 fi
-if [ "$resets_rc" = 3 ] && awk "BEGIN{exit !($resets_in <= $WINDOW_HOURS)}"; then
-  alert "pre-reset backfill thinks the weekly window resets in ${resets_in}h, but that is inferred from a reset the API stopped reporting rather than read from it — and it will not spend an ungated hour of inference on a guess. Skipped; see .prereset.log."
-  exit 1
-fi
-
-# When the week really turns over, which is what the landing report below is
-# keyed to. Not resets_in: CT_SPEND_BY pulls that in to its own deadline, and a
-# landing keyed to a spend-by deadline reports "the week turned over" the first
-# fire after that deadline passes, days before the meter actually resets.
-real_reset_at() {
-  local h
-  h=$(CT_SPEND_BY= python3 tools/weekly_usage.py --resets-in 2>/dev/null)
-  case "$h" in ''|*[!0-9.]*) return 1 ;; esac
-  awk -v n="$(date +%s)" -v h="$h" 'BEGIN{printf "%d", n + h * 3600}'
-}
-RESET_AT=$(real_reset_at)
+RESET_AT=$(awk -v n="$(date +%s)" -v h="$resets_in" 'BEGIN{printf "%d", n + h * 3600}')
 
 # What the week actually landed at, said once, after it is too late to change —
-# because otherwise nobody ever finds out. A run that dies, stands down early or
-# is sized off a bad yield all end the same way: a meter that reads 0% and no
+# because otherwise nobody ever finds out. A run that dies or stalls ends the
+# same way as one that spent everything: a meter that reads 0% and no
 # evidence it ever read anything else. LANDING_OK is the point below which the
 # leftovers were worth having.
 LANDING_FILE=".prereset_landing"
@@ -270,94 +163,34 @@ if [ -f "$LANDING_FILE" ]; then
     rm -f "$LANDING_FILE"
     echo "the weekly window turned over with the meter at ${landed}%"
     awk -v l="${landed:-100}" -v ok="$LANDING_OK" 'BEGIN{exit !(l < ok)}' &&
-      alert "the weekly window turned over with the meter at ${landed}% — $(awk -v l="$landed" 'BEGIN{printf "%d", 100 - l}')% of the week expired unspent. The backfill either started too late for the remainder, stood down early, or stopped; .prereset.log has the wave-by-wave rates and the start time it computed."
+      alert "the weekly window turned over with the meter at ${landed}% — $(awk -v l="$landed" 'BEGIN{printf "%d", 100 - l}')% of the week expired unspent. The backfill stopped or stalled before the reset; .prereset.log has the wave-by-wave meters."
   fi
 fi
 
-# CT_SPEND_BY means "spend the rest before then, as fast as it will go": no
-# waiting for the last five hours, and every wave at full width.
-spend_by_at=$(date -d "${CT_SPEND_BY:-}" +%s 2>/dev/null || echo 0)
-if [ -n "${CT_SPEND_BY:-}" ] && [ "$spend_by_at" -gt "$(date +%s)" ]; then
-  export PRERESET_FULL_WIDTH=1
-fi
-
-if [ "${FORCE:-0}" = 1 ]; then
-  echo "FORCE=1 — ignoring the ${resets_in}h until reset, capped at ${FORCE_HOURS}h"
-  budget_hours="$FORCE_HOURS"
-elif [ "${PRERESET_FULL_WIDTH:-0}" = 1 ]; then
-  echo "CT_SPEND_BY: spending the remainder now, ${resets_in}h before its deadline"
-  budget_hours="$resets_in"
-elif awk "BEGIN{exit !($resets_in > $WINDOW_HOURS)}"; then
-  echo "weekly window resets in ${resets_in}h (more than ${WINDOW_HOURS}h away)"
-  echo "not the pre-reset hour — nothing spent. Set FORCE=1 to override."
+# A spent week has nothing to buy, and everything below — the archive fetch,
+# the republish, the smoke test — is not worth running hourly for nothing.
+weekly_now=$(python3 tools/weekly_usage.py 2>/dev/null)
+if [ -n "$weekly_now" ] && awk -v n="$weekly_now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
+  echo "weekly window is spent (${weekly_now}%) — nothing to do until it resets in ${resets_in}h"
   exit 0
-else
-  echo "weekly window resets in ${resets_in}h — spending the remainder"
-  budget_hours="$resets_in"
 fi
+echo "weekly window at ${weekly_now:-?}%, resets in ${resets_in}h — spending until then"
 
 # Stop five minutes short of the turnover: past it we would be spending the NEW
-# week's quota on a backlog, which is the opposite of the point. Computed as an
-# epoch second rather than compared as an "HH:MM" string, which used to need a
-# special case for runs that started after midnight-ish and got it subtly wrong.
-STOP_AT=$(python3 -c "import sys,time; print(int(time.time() + float(sys.argv[1])*3600 - 300))" "$budget_hours")
+# week's quota on this run's queue. An epoch second, not an "HH:MM" string.
+STOP_AT=$(( RESET_AT - 300 ))
 # Formatted in python rather than with `date -r`: -r reads an epoch second on
 # macOS and a FILE's mtime on GNU, so the one spelling means two different
 # things and this argument is an epoch second. (The -r above it is a directory,
 # which both agree on.)
-echo "deadline $(python3 -c "import sys,time; print(time.strftime('%H:%M', time.localtime(int(sys.argv[1]))))" "$STOP_AT")"
+echo "deadline $(python3 -c "import sys,time; print(time.strftime('%a %H:%M', time.localtime(int(sys.argv[1]))))" "$STOP_AT")"
 past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ]
 }
-
-# NEVER SPEND A WINDOW EARLIER THAN THE REMAINDER REQUIRES. The startup gate asks
-# once whether we are inside the last N five-hour windows; this asks again before
-# every wave, against what is left NOW. Spending shrinks the remainder, a smaller
-# remainder needs fewer windows, and fewer windows pull the start time back toward
-# the reset — so a job that gets ahead of itself notices and stops. Real work
-# spending the same quota has the same effect, which is the point: this job takes
-# only what the week was going to lose anyway, and takes it as late as it can.
-#
-# Standing down means EXITING, not sleeping. The next hour's run re-decides
-# with a fresh reading; a process asleep for five hours on a plan made before it
-# slept is the hard-coded 04:00 appointment wearing a different hat.
-#
-# Paul, 2026-08-23: "I also don't want it to pre spend. So make sure it doesn't
-# spend on Monday unless it needs to."
-still_behind() {
-  if [ "${FORCE:-0}" = 1 ]; then return 0; fi
-  # A spend-by deadline is the request to spend now; pacing to it is wrong.
-  if [ "${PRERESET_FULL_WIDTH:-0}" = 1 ]; then return 0; fi
-  # verdict is initialised, not just declared: `local verdict` leaves it UNSET,
-  # and set -u turns the unreadable-API path into an unbound-variable abort.
-  local hours verdict=""
-  hours=$(python3 tools/weekly_usage.py --resets-in 2>/dev/null)
-  [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" "$SESSION_RESERVE_PCT" 2>/dev/null)
-  # Only an explicit "no" stops the run. A reading we failed to take is not a
-  # reason to stop: the deadline still bounds us, and reading an unreachable API
-  # as "we are ahead" strands the whole remainder on the night it exists for.
-  [ "$verdict" != "no" ]
-}
-# Is the reserve still Paul's to have? Only while the week can pay for it. The
-# job starts early enough to buy the reserve its own windows (see WINDOW_HOURS),
-# so while it is ahead of the FULL-spend edge there is a window in hand to make
-# the held-back points back out of. Past that edge there is not: every point
-# kept back then expires with the window it was kept back from, and the last
-# night of a week is worth more to Paul spent than it is available.
-reserve_affordable() {
-  if [ "${PRERESET_FULL_WIDTH:-0}" = 1 ]; then return 1; fi
-  local hours verdict=""
-  hours=$(python3 tools/weekly_usage.py --resets-in 2>/dev/null)
-  [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" 2>/dev/null)
-  # A reading we failed to take reads as "cannot afford it". The failure that
-  # costs quota is holding a reserve on the last night; the failure that costs
-  # an hour of bridge is holding none on an early one, and only one is forever.
-  [ "$verdict" = "no" ]
-}
-stand_down() {
-  echo "back on schedule — what is left fits in the windows that remain; standing down"
-  echo "the hourly fire will pick it up again when it falls behind"
-}
+# One nap per five-hour window left in the week is the plan, not a failure, so
+# the allowance is that count with slack. It only bounds waves failing fast for
+# some reason other than a lockout; each nap is capped at the deadline anyway.
+MAX_NAPS=$(awk -v h="$resets_in" 'BEGIN{printf "%d", h / 5 + 3}')
 
 # Hours between two epoch seconds. A function because both callers used to build
 # the awk program by string interpolation and both got it wrong the same way.
@@ -365,53 +198,10 @@ hours_between() {
   awk -v a="$1" -v b="$2" 'BEGIN{printf "%.3f", (b - a) / 3600}'
 }
 
-# Is anyone on the bridge right now? Their conversations are the transcripts in
-# BRIDGE_DIR, touched on every turn. This job's own claude runs cannot be
-# mistaken for company: they run from the worktree, so the CLI files them under
-# a project directory named after it instead.
-_bridge_warned=0
-bridge_busy() {
-  if [ ! -d "$BRIDGE_DIR" ]; then
-    # Unreadable means BUSY. Under-spending the remainder is a line in this log;
-    # taking the window out from under a conversation is a surprise lockout.
-    if [ "$_bridge_warned" = 0 ]; then
-      _bridge_warned=1
-      alert "pre-reset backfill cannot see the bridge transcripts at $BRIDGE_DIR, so it cannot tell whether anyone is using the account. It is holding ${SESSION_RESERVE_PCT}% of every five-hour window back rather than risk a lockout, which means the weekly remainder will be under-spent until that path is right."
-    fi
-    return 0
-  fi
-  [ -n "$(find "$BRIDGE_DIR" -maxdepth 1 -name '*.jsonl' -mmin "-$BRIDGE_IDLE_MIN" 2>/dev/null | head -1)" ]
-}
-
-# Minutes until the five-hour window turns over. Empty when it cannot be read,
-# which every caller treats as "not the endgame" — an unreadable clock must not
-# be the thing that decides to take the window off somebody.
+# Minutes until the five-hour window turns over. Empty when it cannot be read.
 session_left_min() {
   python3 tools/weekly_usage.py --group session --resets-in 2>/dev/null \
     | awk 'NF{printf "%d", $1 * 60}'
-}
-
-# Is this window nearly over? $1 is a session_left_min reading.
-in_endgame() {
-  [ -n "$1" ] && [ "$1" -le "$SESSION_ENDGAME_MIN" ]
-}
-
-# How many puzzles the next wave should run at once.
-#   $1 hours left   $2 the five-hour meter right now
-# Inside the reserve a wave is a blunt instrument: four of them move the meter
-# about ten points in one block that cannot be observed until it lands. So down
-# there it goes one at a time, which keeps the most a returning person can lose
-# to a wave already in flight at a couple of points.
-wave_width() {
-  local w
-  w=$(python3 tools/prereset_plan.py --width "$1" 2>/dev/null || echo 1)
-  # The exception is the end of the window, where one at a time is the wasteful
-  # choice: a single run moves the meter about two points, so a reserve drained
-  # that slowly is a reserve that expires half-full.
-  if awk -v s="$2" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
-     && reserve_affordable \
-     && ! in_endgame "$(session_left_min)"; then w=1; fi
-  echo "$w"
 }
 
 # Put the puzzles a lockout cut off back at the front of what is left to do.
@@ -625,80 +415,26 @@ sync_wave() {
   fi
 }
 
-# What a finished wave teaches, and whether to keep going.
+# Record where a finished wave left the meters, and decide whether to go on.
 #   $1 percent used before the wave  $2 hours it took  $3 how wide it was
 #   $4 how many of its runs failed  $5 five-hour percent before the wave
 # Returns non-zero when the caller should stop.
 after_wave() {
-  local before="$1" hours="$2" wide="$3" failed="$4" before_s="$5" now now_s climb climb_s
-  local reserve_hold=0 s_read=1
+  local before="$1" hours="$2" wide="$3" failed="$4" before_s="$5" now now_s s_read=1
   NAPPED=0
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
   now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) || { now_s="$before_s"; s_read=0; }
-  # awk -v, never string interpolation: an unset or empty number splices into the
-  # program text and awk dies of a syntax error, which reads as a broken script
-  # rather than as the missing reading it is.
-  climb=$(awk -v a="$before" -v b="$now" 'BEGIN{print b - a}')
-  climb_s=$(awk -v a="$before_s" -v b="$now_s" 'BEGIN{print b - a}')
-  python3 tools/prereset_plan.py --observe "$climb" "$hours" "$wide" >/dev/null 2>&1
-  # Both meters bill the same spend against different denominators, so every wave
-  # where neither is pinned re-measures what a whole five-hour window is worth —
-  # the number the start time is counted out of. The plan script throws away the
-  # waves where one of them was pinned or had reset.
-  python3 tools/prereset_plan.py --observe-yield "$climb" "$climb_s" >/dev/null 2>&1
   echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${wide}"
   # Where the weekly meter stood, and when it turns over. The meter reads 0% the
-  # instant it does, so a week that landed at 100% and a week that landed at 54%
-  # look identical the morning after and the leftovers evaporate unremarked —
-  # which is how 46% of the week of 2026-09-02 went. report_landing reads this
-  # back on the first fire after the reset and says the number out loud.
-  [ -n "$RESET_AT" ] && echo "$now $RESET_AT" > "$LANDING_FILE"
-  # THE FIVE-HOUR METER IS SHARED WITH A PERSON. The weekly remainder is this
-  # job's to spend and all of it is meant to go, but the windows it spends
-  # through are the same ones Paul talks to the bridge on, and a window run to
-  # 100% locks him out of his own account until it turns over.
-  #
-  # So the last SESSION_RESERVE_PCT of each window is his while he is there and
-  # the job's while he is not, asked again after every wave. An empty room still
-  # gets eaten to 100%; a conversation gets the window handed back and the job
-  # naps until it turns over. The reserve is wide because the meter is only read
-  # after a wave lands — see wave_width for the other half of that.
-  #
-  # And it is his only while the week can still pay for it. Once the remainder
-  # no longer fits in the windows that are left at full spend, there is nothing
-  # to make a held-back point back out of and the courtesy becomes the week
-  # landing short — so past that edge the window goes whole, whoever is on it.
-  #
-  # Handing it back is a LOAN, not a gift. Quota left on a window when it turns
-  # over is gone for nothing, so the nap below wakes for the window's last
-  # SESSION_ENDGAME_MIN minutes and spends the reserve then regardless of who is
-  # about — a lockout that late cannot outlast the window it is in.
-  # This wave just re-measured the burn, so the endgame it implies is fresher
-  # than the one the last wave computed. Sized at THIS wave's width, which is
-  # the width the endgame will run at too.
-  refresh_endgame "$wide"
-  local left_min
-  left_min=$(session_left_min)
-  # Only when the wave came back clean: if the API already refused it, the window
-  # is locked rather than lent, and calling that a reserve would size the nap to
-  # a loan that is not going to be repaid until the window resets anyway.
-  if [ "$failed" -eq 0 ] \
-     && awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
-     && reserve_affordable \
-     && bridge_busy; then
-    if in_endgame "$left_min"; then
-      echo "  five-hour window at ${now_s}% with ${left_min}m left on it — spending the reserve anyway rather than letting it expire"
-    else
-      echo "  five-hour window at ${now_s}% and the bridge is in use — holding the last ${SESSION_RESERVE_PCT}% until this window's final ${SESSION_ENDGAME_MIN}m"
-      reserve_hold=1
-      failed=1
-    fi
-  fi
+  # instant it does, so a week that landed at 100% and one that landed at 54%
+  # look identical the morning after; the landing report above reads this back
+  # on the first fire after the reset and says the number out loud.
+  echo "$now $RESET_AT" > "$LANDING_FILE"
   [ "${failed:-1}" -eq 0 ] && return 0
   # A failed wave with room still on the weekly clock is the FIVE-hour limit
-  # only when that meter says so, and that clears by itself. Treating it as "the
-  # week is over" is how a job built to spend the remainder leaves most of it
-  # behind. Only the seven-day number gets to end the run.
+  # only when that meter says so, and that clears by itself. Only the seven-day
+  # number gets to end the run. awk -v, never string interpolation: an empty
+  # reading spliced into the program is a syntax error, not a missing number.
   if awk -v n="$now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
     echo "  weekly window is spent (${now}%) — stopping"
     return 1
@@ -706,8 +442,7 @@ after_wave() {
   # With the five-hour meter read and below LOCKOUT_PCT the window had room, so
   # no nap clears whatever failed these runs. An unread meter counts as locked:
   # a nap wasted is an hour, a lockout read as a bad puzzle loses the puzzle.
-  if [ "$reserve_hold" = 0 ] && [ "$s_read" = 1 ] \
-     && awk -v s="$now_s" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s < l)}'; then
+  if [ "$s_read" = 1 ] && awk -v s="$now_s" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s < l)}'; then
     drop_failed "$now_s"
     return 0
   fi
@@ -716,30 +451,16 @@ after_wave() {
     echo "  $naps waits already and runs still fail — stopping rather than looping"
     return 1
   fi
-  # A lockout we no longer need to wait out. Spending got us back on schedule, so
-  # the remaining windows are enough and this one need not have been used at all.
-  if ! still_behind; then stand_down; return 1; fi
   # Sleep until the five-hour window actually turns over, asked rather than
-  # guessed. A nap shorter than the lockout spends a nap on a wave that was
-  # always going to fail, and MAX_NAPS of those ends the job with most of the
-  # last day, and most of the remainder, still unspent.
-  #
-  # Except when it was this job that stood down rather than the API that refused:
-  # then the window is not locked, it is being lent out, and the wake-up belongs
-  # at the start of the endgame so the loan comes back.
-  local nap room why
-  if [ "$reserve_hold" = 1 ] && [ -n "$left_min" ]; then
-    nap=$(( (left_min - SESSION_ENDGAME_MIN) * 60 ))
-    [ "$nap" -lt 60 ] && nap=60
-    why="reserve handed back at ${now_s}% five-hour"
-  else
-    nap=$(awk -v h="$left_min" 'BEGIN{printf "%d", (h == "" ? 1 : h / 60) * 3600 + 120}')
-    why="runs failed at ${now}% weekly — five-hour limit"
-  fi
+  # guessed: a nap shorter than the lockout spends a nap on a wave that was
+  # always going to fail.
+  local nap room left_min
+  left_min=$(session_left_min)
+  nap=$(awk -v h="$left_min" 'BEGIN{printf "%d", (h == "" ? 1 : h / 60) * 3600 + 120}')
   room=$(( STOP_AT - $(date +%s) - 60 ))
   [ "$nap" -gt "$room" ] && nap="$room"
   if [ "$nap" -le 0 ]; then return 1; fi
-  echo "  $why; waiting ${nap}s (nap $naps)"
+  echo "  runs failed at ${now}% weekly — five-hour limit; waiting ${nap}s (nap $naps)"
   NAPPED=1
   sleep "$nap"
   return 0
@@ -953,14 +674,9 @@ queue=($todo)
 at=0
 while [ "$at" -lt "${#queue[@]}" ]; do
   if past_deadline; then echo "deadline reached — stopping"; break; fi
-  if ! still_behind; then stand_down; break; fi
-  # Re-asked every wave, not decided once: the remainder shrinks as we spend it,
-  # the hours shrink faster, and something else on this machine may be spending
-  # too. A width fixed at the top would be wrong by the second wave.
-  hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
   before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-  wide=$(wave_width "$hours_left" "$before_s")
+  wide="$WIDTH"
   # Ahead of the round-robin: Cracking the Cryptic's puzzles, then the puzzles
   # that give an indicator on /indicators/
   # its first annotated clue (tools/indicator_cover.py), re-planned every wave so
@@ -1014,11 +730,9 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do
     if past_deadline; then echo "deadline reached — stopping"; break 2; fi
-    if ! still_behind; then stand_down; break 2; fi
-    hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
     before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
     before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-    wide=$(wave_width "$hours_left" "$before_s")
+    wide="$WIDTH"
     started=$(date +%s)
     run_wave "Backfill $field for" "$prompt" "${queue[@]:$at:$wide}"
     failed=$?

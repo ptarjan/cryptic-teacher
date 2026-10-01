@@ -59,9 +59,6 @@ Usage:
   python3 tools/weekly_usage.py                    # weekly, prints e.g. "68"
   python3 tools/weekly_usage.py --group session    # the five-hour window
   python3 tools/weekly_usage.py --resets-in        # hours left, e.g. "116.9"
-  CT_SPEND_BY=2026-09-21T12:00:00-07:00 ...              # an earlier deadline
-      than the weekly reset, for "have the remainder spent by Monday noon".
-      Weekly only, sooner only, and ignored once it has passed. See _spend_by.
   python3 tools/weekly_usage.py --gate 50          # "spend" / "skip" / "unknown"
                                        # exits 2, printing why, if it can't tell
 """
@@ -546,33 +543,20 @@ def resets_in_hours(group="weekly"):
     said so, live or cached. True means nobody said so and the number is one
     window length past the last reset we saw — see below.
 
-    The pre-reset backfill needs this because it is defined by the reset, not by
-    the clock: "the last hour of the week" was hard-coded as 04:00-04:55 daily,
-    which made an ungated hour of inference run SEVEN nights a week instead of
-    one, and that is what kept the week at 68% and the 06:15 job crashing into
-    limits. The reset time is a fact the API will tell you; do not infer it.
+    The pre-reset backfill bounds its run by this: it stops five minutes short
+    of the weekly reset rather than spend the next week's quota. The reset time
+    is a fact the API will tell you; do not infer it.
 
     Cached, and honoured while it is still in the future — an absolute stamp
-    does not rot. That is what keeps the 3am backfill from going blind on the
-    one night it matters, when nothing has run claude since the afternoon before
-    and the access token lapsed hours ago.
+    does not rot. That is what keeps the backfill from going blind when
+    nothing has run claude for hours and the access token has lapsed.
 
-    The gap that left, found 2026-08-12 05:05: the reset had happened at 04:59,
-    and for the hour after it the API returned the weekly window with
-    `resets_at: null` — turned over, not yet re-stamped. Live read empty, cached
-    stamp just expired, so this raised and the backfill fired its "can't tell
-    whether this is the hour" alert. It could tell. A window that reset sixty
-    seconds ago is the one moment in the week when "is this the last hour of the
-    window" has a confident answer, and the answer is no.
-
-    So a passed cached stamp is rolled forward by one window length instead of
-    thrown away, and flagged. The flag is the point: a derived number may only
-    ever be used to say "not now". Spending an ungated hour of inference on an
-    inferred reset time is precisely the mistake the hard-coded 04:00 was, and
-    one that would land ON the guess rather than near it. The caller enforces
-    that; see prereset_backfill.sh. Rolling more than one window forward means we
-    have been unable to read for a whole period, which is a real outage and still
-    raises.
+    For a while after a reset the API returns the window with `resets_at:
+    null` — turned over, not yet re-stamped — while the cached stamp has just
+    expired. So a passed cached stamp is rolled forward by one window length
+    instead of thrown away, and flagged as derived. Rolling more than one window
+    forward means we have been unable to read for a whole period, which is a
+    real outage and still raises.
     """
     try:
         soonest = _live_resets_at(group)
@@ -594,66 +578,12 @@ def resets_in_hours(group="weekly"):
                   f"({soonest.astimezone():%b %d %H:%M}) has passed, so the "
                   f"window turned over then and the next is no sooner than "
                   f"{rolled.astimezone():%b %d %H:%M}", file=sys.stderr)
-            return _spend_by(group, rolled, True)
+            return (rolled - _now()).total_seconds() / 3600.0, True
         print(f"note: {exc}; using the last known {group} reset "
               f"{soonest.astimezone():%b %d %H:%M}", file=sys.stderr)
     else:
         _cache_write(f"{group}.resets_at", soonest.isoformat())
-    return _spend_by(group, soonest, derived=False)
-
-
-# An earlier deadline than the account's own reset, for the one case where the
-# window is not what we are racing: "have the remainder spent by Monday noon".
-# Everything downstream — the start gate, still_behind, the wave width, the stop
-# time — asks resets_in_hours() and nothing else, so overriding it here is the
-# only way all five agree. Setting it in one caller and not the others is how a
-# job starts on one deadline and paces itself to another.
-SPEND_BY_VAR = "CT_SPEND_BY"
-
-
-def _spend_by(group, when, derived):
-    """(hours, derived) until `when`, or until $CT_SPEND_BY if that is sooner.
-
-    Three rules, each of which is load-bearing:
-
-    SOONER ONLY. The override can pull the deadline in, never push it out. A
-    later one would have the backfill spending the NEXT week's quota on this
-    week's backlog, which is the opposite of the point, and would do it while
-    reporting hours that no meter agrees with.
-
-    WEEKLY ONLY. The five-hour window is a physical limit, not a target; moving
-    it would mis-size every wave against a turnover that is still going to
-    happen when it was always going to.
-
-    A PASSED DEADLINE IS IGNORED. It expires into ordinary behaviour rather than
-    latching, because the alternative is negative hours-until-reset — which
-    reads as "the reset is behind us", opens the gate, computes a stop time in
-    the past and exits having spent nothing, hourly, forever. A deadline we
-    missed must leave the real reset still to aim at.
-    """
-    raw = os.environ.get(SPEND_BY_VAR, "").strip()
-    if raw and group == "weekly":
-        try:
-            deadline = datetime.datetime.fromisoformat(raw)
-        except ValueError:
-            print(f"note: ignoring {SPEND_BY_VAR}={raw!r}: not an ISO 8601 "
-                  "timestamp", file=sys.stderr)
-        else:
-            if deadline.tzinfo is None:
-                deadline = deadline.astimezone()
-            if deadline <= _now():
-                print(f"note: ignoring {SPEND_BY_VAR} "
-                      f"({deadline.astimezone():%b %d %H:%M}): it has passed, "
-                      "so the real reset is the deadline again",
-                      file=sys.stderr)
-            elif deadline < when:
-                print(f"note: {SPEND_BY_VAR} brings the weekly deadline "
-                      f"forward to {deadline.astimezone():%b %d %H:%M} from "
-                      f"{when.astimezone():%b %d %H:%M}", file=sys.stderr)
-                # Not derived: a deadline handed to us is a fact, and it is the
-                # binding one even when the reset behind it was only inferred.
-                when, derived = deadline, False
-    return (when - _now()).total_seconds() / 3600.0, derived
+    return (soonest - _now()).total_seconds() / 3600.0, False
 
 
 def _live_resets_at(group):
@@ -738,7 +668,7 @@ def reset_self_test():
     alerted a human at 05:05 on reset morning saying it could not tell where the
     window stood, an hour after the window had visibly turned over in its own
     cache. The three cases below are the three shapes that exist, and the third
-    is the one that must never become "spend".
+    is the one that must raise rather than guess.
     """
     global _live_resets_at, _cache_read, _sampled_reading
     live, read, err = _live_resets_at, _cache_read, sys.stderr
@@ -779,79 +709,6 @@ def reset_self_test():
     finally:
         _live_resets_at, _cache_read, sys.stderr = live, read, err
         _sampled_reading = sample
-    for f in failures:
-        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
-    return 1 if failures else 0
-
-
-def spend_by_self_test():
-    """Prove $CT_SPEND_BY can only ever pull the weekly deadline closer.
-
-    The override exists so "have the remainder spent by Monday noon" can be
-    asked for without editing five call sites, and every way of getting it
-    wrong spends real quota: one that pushed the deadline out would spend next
-    week's, one that moved the five-hour window would mis-size every wave, and
-    one that stayed set after it passed would wedge the gate open on a stop
-    time already in the past and burn nothing, hourly, forever.
-    """
-    global _live_resets_at, _cache_read, _sampled_reading
-    live, read, err = _live_resets_at, _cache_read, sys.stderr
-    sample = _sampled_reading
-    now = _now()
-    h = datetime.timedelta(hours=1)
-    week = WINDOW_LENGTH_HOURS["weekly"]
-    reset_at = now + 80 * h
-
-    cases = [
-        # label, env value, group, live reset or None for the derived path,
-        # expected (hours, derived)
-        ("unset changes nothing", None, "weekly", reset_at, (80, False)),
-        ("a sooner deadline binds", (now + 41 * h).isoformat(), "weekly",
-         reset_at, (41, False)),
-        ("a later deadline is ignored", (now + 99 * h).isoformat(), "weekly",
-         reset_at, (80, False)),
-        ("a passed deadline is ignored", (now - 1 * h).isoformat(), "weekly",
-         reset_at, (80, False)),
-        ("an unparseable deadline is ignored", "monday noon", "weekly",
-         reset_at, (80, False)),
-        ("the five-hour window is never moved", (now + 1 * h).isoformat(),
-         "session", now + 4 * h, (4, False)),
-        # A deadline is something we were told; an inferred reset is not. The
-        # caller refuses to spend on `derived`, so a binding deadline has to
-        # clear it or the override would be unusable in the hour after a reset.
-        ("a deadline beats an inferred reset, as a fact",
-         (now + 2 * h).isoformat(), "weekly", None, (2, False)),
-    ]
-    failures = []
-    try:
-        _sampled_reading = lambda _group: None
-        sys.stderr = io.StringIO()
-        for label, value, group, stamp, want in cases:
-            if stamp is None:      # nothing live, cache holds a just-passed one
-                def unreachable(_group):
-                    raise RuntimeError("no resets_at in response: ['limits']")
-                _live_resets_at = unreachable
-                _cache_read = lambda: {
-                    f"{group}.resets_at": {"value": (now - 1 * h).isoformat(),
-                                           "at": now.isoformat()}}
-            else:
-                _live_resets_at = lambda _group, at=stamp: at
-                _cache_read = dict
-            if value is None:
-                os.environ.pop(SPEND_BY_VAR, None)
-            else:
-                os.environ[SPEND_BY_VAR] = value
-            try:
-                hours, derived = resets_in_hours(group)
-                got = (round(hours), derived)
-            except READ_ERRORS as exc:
-                got = repr(exc)
-            if got != want:
-                failures.append(f"{label}: got {got!r}, want {want!r}")
-    finally:
-        _live_resets_at, _cache_read, sys.stderr = live, read, err
-        _sampled_reading = sample
-        os.environ.pop(SPEND_BY_VAR, None)
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
     return 1 if failures else 0
@@ -1122,8 +979,8 @@ def main():
                   f"{', '.join(sorted(LEGACY_FIELD))}", file=sys.stderr)
             return 2
     if "--self-test" in sys.argv:
-        ok = (self_test() or reset_self_test() or spend_by_self_test()
-              or fallback_self_test() or credentials_file_self_test()
+        ok = (self_test() or reset_self_test() or fallback_self_test()
+              or credentials_file_self_test()
               or retry_self_test() or sampler_self_test())
         print("gate self-test: all cases pass" if ok == 0
               else "gate self-test FAILED")
