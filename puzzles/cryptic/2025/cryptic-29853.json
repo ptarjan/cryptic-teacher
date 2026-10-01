@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "Finished non-acting job in 5’s city",
     "enumeration": "7"
    },
-   "solution": "DONETSK"
+   "solution": "DONETSK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DONETSK",
+    "definitions": [
+     {
+      "text": "5’s city",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "non",
+      "for": "deletion",
+      "note": "'non-' negates the word it is fixed to, so that word's abbreviation must be taken away"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "DONE",
+      "note": "finished means done"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "TASK",
+      "note": "a job is a task"
+     },
+     {
+      "clueFragment": "acting",
+      "gives": "A",
+      "note": "a. is a dictionary abbreviation for acting; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONE",
+      "TSK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has wrapped up a job that involved no acting, somewhere in a Ukrainian city.",
+     "walkthrough": "DONE then TASK without its A gives DONETSK. The '5' points to the answer at 5-across, UKRAINE, so the definition is a city in Ukraine.",
+     "definitionFit": "Donetsk is a large industrial city in eastern Ukraine, the country found at 5-across."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +106,61 @@
     "text": "Neocon I routinely hosted upriver",
     "enumeration": "7"
    },
-   "solution": "ORINOCO"
+   "solution": "ORINOCO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ORINOCO",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosted",
+      "for": "hidden_word",
+      "note": "to host is to have guests inside, so the letters sit within the words before it"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means read from bottom to top, the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neocon I routinely",
+      "gives": "OCONIRO",
+      "note": "the run of letters spanning the end of the first word to the start of the third"
+     },
+     {
+      "clueFragment": "upriver",
+      "note": "one printed word doing two jobs: its first two letters signal the reversal and the rest is the definition"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "OCONIRO",
+       "to": "ORINOCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neoconservative is routinely put up somewhere far up a river.",
+     "walkthrough": "'upriver' looks like one word of the surface, but it splits into the reversal signal 'up' and the definition 'river'.",
+     "definitionFit": "The Orinoco is a major South American waterway flowing through Venezuela to the Atlantic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upriver"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +180,50 @@
      }
     ]
    },
-   "solution": "EXLIB"
+   "solution": "EXLIB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EX-LIB",
+    "definitions": [
+     {
+      "text": "Small book label",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "LIB",
+      "note": "Lib is short for a Liberal politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "LIB"
+     ]
+    },
+    "explanation": {
+     "surface": "A little bookplate has been supplied by someone who used to be in politics.",
+     "walkthrough": "'Small' tells you the definition is in short form: ex libris, 'from the books of', is the Latin on a bookplate.",
+     "definitionFit": "Ex-lib is the shortened form of ex libris, the inscription on a bookplate marking the owner's library."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +237,53 @@
     "text": "Make content but Spooner’s plump men moan",
     "enumeration": "7"
    },
-   "solution": "SATISFY"
+   "solution": "SATISFY",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "SATISFY",
+    "definitions": [
+     {
+      "text": "Make content",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of words, so the initial sounds here change places"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plump men moan",
+      "gives": "SATISFY",
+      "soundsLike": "FATTIES SIGH",
+      "note": "plump men are fatties and to moan is to sigh; swap their opening F and S sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATISFY"
+     ]
+    },
+    "explanation": {
+     "surface": "Pleasing people is the aim, yet overweight men are grumbling.",
+     "walkthrough": "Fatties sigh becomes 'satties figh', which said aloud is SATISFY.",
+     "definitionFit": "To satisfy someone is to please them, leaving them contented and happy with what they got."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +297,62 @@
     "text": "Country drops language finally – it uses Russian in places",
     "enumeration": "7"
    },
-   "solution": "UKRAINE"
+   "solution": "UKRAINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UKRAINE",
+    "definitions": [
+     {
+      "text": "it uses Russian in places",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "UK",
+      "note": "the United Kingdom"
+     },
+     {
+      "clueFragment": "drops",
+      "gives": "RAIN",
+      "note": "rain falls in drops"
+     },
+     {
+      "clueFragment": "language",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UK",
+      "RAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation abandons a language in the end, though it still speaks Russian in some areas.",
+     "walkthrough": "'Country' looks like the definition, but it gives only UK; the definition is the whole last phrase.",
+     "definitionFit": "Ukraine's official tongue is Ukrainian, but Russian is still widely spoken in some eastern and southern regions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +366,69 @@
     "text": "Briefly smack Kite – ultimately tempt fate",
     "enumeration": "6"
    },
-   "solution": "KISMET"
+   "solution": "KISMET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KISMET",
+    "definitions": [
+     {
+      "text": "fate",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter is dropped"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smack",
+      "gives": "KISS",
+      "note": "a smack is a loud kiss"
+     },
+     {
+      "clueFragment": "Kite",
+      "gives": "ME",
+      "note": "Kite is the setter, who refers to themselves"
+     },
+     {
+      "clueFragment": "tempt",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of tempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIS",
+      "ME",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick dare: give the setter a slap and see if you get away with it.",
+     "walkthrough": "A smack is a loud kiss, not a blow. The setter's name in a clue stands for ME.",
+     "definitionFit": "Kismet is a Turkish-derived word meaning destiny, the predetermined course of a person's life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smack"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +442,78 @@
     "text": "You, having sex noisily at first, regularly dress for poses",
     "enumeration": "9"
    },
-   "solution": "ATTITUDES"
+   "solution": "ATTITUDES",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ATTITUDES",
+    "definitions": [
+     {
+      "text": "poses",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "something done noisily is heard, so we want how the phrase sounds when spoken"
+     },
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "at first means at the start, so this piece is placed before the one it is attached to"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having sex",
+      "gives": "ATTIT",
+      "soundsLike": "AT IT",
+      "note": "a couple having sex are 'at it', which runs together when said"
+     },
+     {
+      "clueFragment": "You",
+      "gives": "U",
+      "note": "U is the text-speak spelling of you"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "DES",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTIT",
+      "U",
+      "DES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loudly having sex keeps changing outfits to strike poses.",
+     "walkthrough": "'at first' places the sound of 'at it' before U.",
+     "definitionFit": "An attitude is a bodily posture or stance, especially a striking one adopted for display, as in ballet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sex"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +527,47 @@
     "text": "Silly people make pasta",
     "enumeration": "7"
    },
-   "solution": "NOODLES"
+   "solution": "NOODLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOODLES",
+    "definitions": [
+     {
+      "text": "Silly people",
+      "at": 0
+     },
+     {
+      "text": "pasta",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silly people",
+      "note": "first meaning: fools, dimwits"
+     },
+     {
+      "clueFragment": "pasta",
+      "note": "second meaning: long strips of dough"
+     }
+    ],
+    "explanation": {
+     "surface": "Fools are in the kitchen preparing a pasta dish.",
+     "walkthrough": "'make' reads as cooking but is only a link between the two meanings.",
+     "definitionFit": "Noodle is informal for a foolish person, and the plural also names strips of dough boiled and eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +587,52 @@
      }
     ]
    },
-   "solution": "SAFETYDEPOSIT"
+   "solution": "SAFETYDEPOSIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAFETY DEPOSIT",
+    "definitions": [
+     {
+      "text": "Box",
+      "at": 0,
+      "note": "the answer is the type of box rather than the box itself"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made",
+      "for": "anagram",
+      "note": "made means constructed or put together, so the letters are formed into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type of seats I’d",
+      "gives": "TYPEOFSEATSID",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TYPEOFSEATSID",
+       "gives": "SAFETYDEPOSIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is describing what sort of box seats they built.",
+     "walkthrough": "'Box type' looks like the definition, but 'type' belongs in the letters; 'Box' alone is the definition, standing for the kind of box named.",
+     "definitionFit": "A safety deposit box is a locked container rented in a bank vault for storing valuables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +646,54 @@
     "text": "Face becoming possibly relaxed",
     "enumeration": "4"
    },
-   "solution": "DIAL"
+   "solution": "DIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIAL",
+    "definitions": [
+     {
+      "text": "Face",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements, so the letters may be reordered"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relaxed",
+      "gives": "LAID",
+      "note": "laid as in laid-back, at ease"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAID",
+       "gives": "DIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's expression is turning calm and easy-going.",
+     "walkthrough": "'becoming' looks like 'attractive' but just joins the definition to the wordplay.",
+     "definitionFit": "Dial is slang for a person's face, from the round face of a clock or watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "becoming"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +707,54 @@
     "text": "Artist in on designs for move",
     "enumeration": "10"
    },
-   "solution": "TRANSITION"
+   "solution": "TRANSITION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRANSITION",
+    "definitions": [
+     {
+      "text": "move",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designs",
+      "for": "anagram",
+      "note": "designs are new arrangements, so the letters are laid out to a new plan"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist in on",
+      "gives": "ARTISTINON",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTISTINON",
+       "gives": "TRANSITION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is working on plans for a house move.",
+     "walkthrough": "'designs' reads as an artist's plans, but it signals the rearranging.",
+     "definitionFit": "A transition is a change or passage from one state, place or stage to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "designs"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +768,58 @@
     "text": "Graduate puts on masks in European industrial region",
     "enumeration": "6"
    },
-   "solution": "DONBAS"
+   "solution": "DONBAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DONBAS",
+    "definitions": [
+     {
+      "text": "European industrial region",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masks",
+      "for": "container",
+      "note": "a mask covers what lies behind it, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puts on",
+      "gives": "DONS",
+      "note": "to don clothes is to put them on"
+     },
+     {
+      "clueFragment": "Graduate",
+      "gives": "BA",
+      "note": "Bachelor of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "BA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate dons a disguise in an industrial area of Europe.",
+     "walkthrough": "'masks' reads as a noun for disguises but is the verb doing the enclosing.",
+     "definitionFit": "The Donbas is the coal and steel basin of eastern Ukraine, a heavily industrialised area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "masks"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +833,77 @@
     "text": "Best, retired clergyman half cut inside but capable of standing up",
     "enumeration": "8"
    },
-   "solution": "ERECTILE"
+   "solution": "ERECTILE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "ERECTILE",
+    "definitions": [
+     {
+      "text": "capable of standing up",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "to retire is to go back, so the word is read backwards"
+     },
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half means only part is kept, so the second half of the word is dropped"
+     },
+     {
+      "text": "cut inside",
+      "for": "container",
+      "note": "to cut inside is to push into the middle, so one piece is inserted in the other"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "gives": "ELITE",
+      "note": "the elite are the best"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "REC",
+      "note": "the first half of RECTOR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "REC",
+      "TILE"
+     ],
+     "reversals": [
+      {
+       "from": "ELITE",
+       "to": "ETILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired priest, halfway drunk, still manages to stay on his feet.",
+     "walkthrough": "'Half cut' is British slang for drunk, but here 'half' and 'cut inside' are separate instructions. ETILE takes REC after its E.",
+     "definitionFit": "Erectile describes tissue or structures able to become rigid and upright, as when engorged with blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +927,54 @@
    "group": [
     "14-across",
     "19-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VOLODYMYR ZELENSKYY",
+    "definitions": [
+     {
+      "text": "iconic leader",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is in operation, its parts moving about, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Every dozy monk slyly",
+      "gives": "EVERYDOZYMONKSLYLY",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVERYDOZYMONKSLYLY",
+       "gives": "VOLODYMYRZELENSKYY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Each sleepy monk is quietly toiling on behalf of a revered religious figure.",
+     "walkthrough": "The surface suggests a monastery and its spiritual leader; the four Ys and the Z make the fodder easy to spot once the theme is clear.",
+     "definitionFit": "Zelensky, president of Ukraine since 2019, became a globally recognised wartime figure after the Russian invasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "iconic"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +994,52 @@
      }
     ]
    },
-   "solution": "OCEANARIA"
+   "solution": "OCEANARIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCEANARIA",
+    "definitions": [
+     {
+      "text": "dolphins’ home?",
+      "at": 27,
+      "note": "singular in the clue, while the answer is the plural"
+     }
+    ],
+    "linkWords": [
+     "depicting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Deep",
+      "gives": "OCEAN",
+      "note": "the deep is a poetic name for the sea"
+     },
+     {
+      "clueFragment": "Song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCEAN",
+      "ARIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A film or song title is asked to show where dolphins live.",
+     "walkthrough": "The italic title reads as one thing, but 'Song of the Deep' is the instruction: the song belongs to the deep, so the sea comes first. The question mark flags the playful definition.",
+     "definitionFit": "Oceanaria are large seawater aquariums where marine creatures such as dolphins are kept on display."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Song"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1053,69 @@
     "text": "European has too much, drinking first of Andalusian port",
     "enumeration": "5"
    },
-   "solution": "ODESA"
+   "solution": "ODESA",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ODESA",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so one piece goes inside another"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has too much",
+      "gives": "ODS",
+      "note": "someone who has too much ODs, overdoses"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Andalusian",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of Andalusian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "E",
+      "S",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A European overindulges, drinking in a Spanish harbour town.",
+     "walkthrough": "'Andalusian port' sounds like a Spanish town such as Cádiz, but only the A is used; 'port' alone is the definition. ODS swallows E, then A follows.",
+     "definitionFit": "Odesa is Ukraine's chief harbour city on the Black Sea, a major shipping hub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Andalusian"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1129,51 @@
     "text": "Son went to race",
     "enumeration": "5"
    },
-   "solution": "SPEED"
+   "solution": "SPEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPEED",
+    "definitions": [
+     {
+      "text": "race",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     },
+     {
+      "clueFragment": "went",
+      "gives": "PEED",
+      "note": "to go, informally, is to urinate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy set off to take part in a race.",
+     "walkthrough": "'went' looks like travelled, but it is the informal sense of going to the toilet.",
+     "definitionFit": "To race is to move very fast, which is what speeding means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "went"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1187,59 @@
     "text": "Table water follows dish in Paris",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLATEAU",
+    "definitions": [
+     {
+      "text": "Table",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "to follow is to come after, so this piece is placed second"
+     },
+     {
+      "text": "in Paris",
+      "for": "charade",
+      "note": "in Paris tells you to use the French words for the pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish",
+      "gives": "PLAT",
+      "note": "French for a dish"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "EAU",
+      "note": "French for water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAT",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "At a Paris dinner table, water comes after the main course.",
+     "walkthrough": "'in Paris' asks for French words, and 'follows' puts the water after the dish.",
+     "definitionFit": "A plateau is a tableland, a raised area of fairly flat ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Table"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1266,62 @@
     "text": "Cook single hard tongue",
     "enumeration": "7"
    },
-   "solution": "ENGLISH"
+   "solution": "ENGLISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENGLISH",
+    "definitions": [
+     {
+      "text": "tongue",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook is to mix ingredients and transform them, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "SINGLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil grade for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENGLIS",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINGLE",
+       "gives": "ENGLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: prepare one tough ox tongue.",
+     "walkthrough": "'tongue' reads as meat for cooking, but it means a language.",
+     "definitionFit": "Tongue is an old word for a language, and English is the language of England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1341,57 @@
      }
     ]
    },
-   "solution": "YIELDTO"
+   "solution": "YIELDTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "YIELD TO",
+    "definitions": [
+     {
+      "text": "Comply with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not one",
+      "for": "deletion",
+      "note": "not one means without one, and one is the Roman numeral I, which is taken out"
+     },
+     {
+      "text": "processed",
+      "for": "anagram",
+      "note": "processed food has been treated and changed, so the letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oily diet",
+      "gives": "OLYDIET",
+      "note": "the letters of both words, with one I removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLYDIET",
+       "gives": "YIELDTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sticks to a greasy diet, avoiding any processed food.",
+     "walkthrough": "The surface suggests a diet without processed food, but 'not one' removes an I and 'processed' scrambles what is left.",
+     "definitionFit": "To yield to a demand is to give way and obey it, accepting its authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "processed"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1405,74 @@
     "text": "Medic that is beginning to suture receives right desiccants",
     "enumeration": "6"
    },
-   "solution": "DRIERS"
+   "solution": "DRIERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRIERS",
+    "definitions": [
+     {
+      "text": "desiccants",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "receiving takes something in, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "DR",
+      "note": "doctor"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., id est"
+     },
+     {
+      "clueFragment": "suture",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of suture"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "IE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor about to start stitching a wound is handed the correct drying agents.",
+     "walkthrough": "'right' looks like 'correct' in the surface, but it is just the letter R slipped in near the end.",
+     "definitionFit": "Desiccants are substances that absorb moisture, so they act as drying agents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1486,64 @@
     "text": "Philanthropic doctor coming from pub close to drug-free party",
     "enumeration": "8"
    },
-   "solution": "BARNARDO"
+   "solution": "BARNARDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BARNARDO",
+    "definitions": [
+     {
+      "text": "Philanthropic doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drug-free",
+      "for": "deletion",
+      "note": "free of a drug means without it, and the drug ecstasy is E, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "close to",
+      "gives": "NEAR",
+      "note": "near means close to; its E is dropped"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "NAR",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A charitable doctor leaves a pub near a party where no drugs are allowed.",
+     "walkthrough": "'close to' looks like a pointer to a last letter, but it is NEAR, which loses E for ecstasy. Thomas Barnardo founded homes for destitute children in Victorian London.",
+     "definitionFit": "Dr Barnardo was a Victorian physician whose children's charity still bears his surname today."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1557,58 @@
     "text": "Try to write letters, almost providing the truth",
     "enumeration": "6"
    },
-   "solution": "GOSPEL"
+   "solution": "GOSPEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GOSPEL",
+    "definitions": [
+     {
+      "text": "the truth",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "write letters",
+      "gives": "SPELL",
+      "note": "to spell is to write the letters of a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "SPEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempts to write correspondence in order to tell the truth.",
+     "walkthrough": "'write letters' suggests correspondence, but it means to spell.",
+     "definitionFit": "Gospel, as in 'take it as gospel', means something accepted as absolutely true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1622,56 @@
     "text": "Serious, thus drink half-heartedly",
     "enumeration": "5"
    },
-   "solution": "SOBER"
+   "solution": "SOBER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SOBER",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-heartedly",
+      "for": "deletion",
+      "note": "the heart is the middle, so half of the central pair of letters goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means thus"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "BEER",
+      "note": "beer is a drink; one of its middle Es goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "BER"
+     ]
+    },
+    "explanation": {
+     "surface": "Being solemn, someone sips their drink without enthusiasm.",
+     "walkthrough": "'half-heartedly' reads as lacking enthusiasm, but it removes one of the two central letters.",
+     "definitionFit": "Sober can mean grave and earnest in manner, not frivolous or playful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-heartedly"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1691,51 @@
      }
     ]
    },
-   "solution": "DECREENISI"
+   "solution": "DECREENISI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECREE NISI",
+    "definitions": [
+     {
+      "text": "End of union",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned means wild and unrestrained, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "residence I",
+      "gives": "RESIDENCEI",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESIDENCEI",
+       "gives": "DECREENISI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A marriage breaks up when someone walks out of the family home.",
+     "walkthrough": "'abandoned' fits the story of leaving home, but signals rearrangement. In English law a decree nisi was the provisional divorce order.",
+     "definitionFit": "A decree nisi is the court order beginning the dissolution of a marriage, the first step to divorce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1749,53 @@
     "text": "Natural defender not against organisation",
     "enumeration": "4"
    },
-   "solution": "BODY"
+   "solution": "BODY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BODY",
+    "definitions": [
+     {
+      "text": "organisation",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following word's letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Natural defender",
+      "gives": "ANTIBODY",
+      "note": "antibodies are the immune system's own defence"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ANTI",
+      "note": "anti means against; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BODY"
+     ]
+    },
+    "explanation": {
+     "surface": "A champion of nature who supports, rather than opposes, an organisation.",
+     "walkthrough": "'Natural defender' sounds like an environmentalist but is the immune system's protein.",
+     "definitionFit": "A body is an organised group such as a governing body or a professional association."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Natural"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1809,65 @@
     "text": "One in the 12 getting rare metal German kitchen top",
     "enumeration": "7"
    },
-   "solution": "LUHANSK"
+   "solution": "LUHANSK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LUHANSK",
+    "definitions": [
+     {
+      "text": "One in the 12",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word in an across clue is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare metal",
+      "gives": "LU",
+      "note": "Lu is the symbol for lutetium, a rare earth metal"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "HANS",
+      "note": "Hans is a typical German name"
+     },
+     {
+      "clueFragment": "kitchen",
+      "gives": "K",
+      "select": "first",
+      "note": "the first letter of kitchen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "HANS",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a group of twelve acquires a precious metal German worktop.",
+     "walkthrough": "'the 12' refers to the answer at 12-across, DONBAS, the region containing this city.",
+     "definitionFit": "Luhansk is a city and province in the Donbas, alongside Donetsk in eastern Ukraine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 29,
@@ -464,7 +1881,52 @@
     "text": "King (and Queen’s descendant?) in 5’s place",
     "enumeration": "7"
    },
-   "solution": "KHERSON"
+   "solution": "KHERSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KHERSON",
+    "definitions": [
+     {
+      "text": "5’s place",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "chess abbreviation"
+     },
+     {
+      "clueFragment": "Queen’s descendant",
+      "gives": "HERSON",
+      "note": "her son, a queen's offspring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "HER",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A king, perhaps a queen's son too, is somewhere in Ukraine.",
+     "walkthrough": "The question mark admits that HER SON is a cheeky way to read a queen's descendant.",
+     "definitionFit": "Kherson is a port city on the Dnipro river in southern Ukraine, the country at 5-across."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Queen’s"
+    }
+   }
   }
  ]
 }
