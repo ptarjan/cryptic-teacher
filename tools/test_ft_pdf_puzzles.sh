@@ -88,6 +88,9 @@ print("ODDMATCH", F.grid_matches(GRID, odd["clues"]))
 
 print("JOIN", F.join_lines("to for-", "tunate nine"), "|", F.join_lines("is bad-", "tempered"))
 
+IDX = {"100": {"date": "2010-06-11"}, "103": {"date": "2010-06-15"}, "110": {"date": "2010-07-01"}}
+print("NEIGHBOUR", F.neighbour_date(101, IDX), F.neighbour_date(102, IDX), F.neighbour_date(105, IDX))
+
 POST = """<p>Nice one. I liked 3 down and 1 across best.</p>
 <p>Across</p>
 <p>1</p><p>SATIN  hidden in sat in</p>
@@ -139,5 +142,8 @@ check "a \"See 1\" naming a light already listed still matches the grid" "None" 
 
 check "a word hyphenated to fit the line is rejoined; a compound keeps its hyphen" \
   "to fortunate nine | is bad-tempered" "$(g JOIN)"
+
+check "an undated number takes a day only when the printing days between its neighbours are exactly the numbers" \
+  "2010-06-12 2010-06-14 None" "$(g NEIGHBOUR)"
 
 if [ "$fails" -eq 0 ]; then echo "all passed"; else echo "$fails failed"; exit 1; fi
