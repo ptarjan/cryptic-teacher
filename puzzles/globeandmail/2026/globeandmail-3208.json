@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Village play",
     "enumeration": "6"
    },
-   "solution": "HAMLET"
+   "solution": "HAMLET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMLET",
+    "definitions": [
+     {
+      "text": "Village",
+      "at": 0
+     },
+     {
+      "text": "play",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Village",
+      "note": "first meaning: a small settlement, smaller than a village"
+     },
+     {
+      "clueFragment": "play",
+      "note": "second meaning: Shakespeare's tragedy about the Prince of Denmark"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two words, two meanings: the surface hints at amateur village theatre, but each word separately defines the same answer.",
+     "definitionFit": "A hamlet is a tiny rural settlement, and Hamlet is also the title of Shakespeare's famous tragedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,46 @@
     "text": "Maybe nag can be heard speaking roughly?",
     "enumeration": "6"
    },
-   "solution": "HOARSE"
+   "solution": "HOARSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HOARSE",
+    "definitions": [
+     {
+      "text": "speaking roughly",
+      "at": 23,
+      "note": "a descriptive phrase standing for an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be heard",
+      "for": "homophone",
+      "note": "what can be heard is judged by sound, so a word that sounds the same is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe nag",
+      "gives": "HOARSE",
+      "soundsLike": "HORSE",
+      "note": "a nag is an old horse; 'Maybe' marks it as an example"
+     }
+    ],
+    "explanation": {
+     "surface": "A nagging person whose voice has gone rough from all the complaining.",
+     "walkthrough": "'Nag' looks like a person who scolds, but here it is an old horse, an example flagged by 'Maybe'.",
+     "definitionFit": "A hoarse voice is rough and croaky, so someone hoarse sounds harsh when talking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nag"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +139,56 @@
     "text": "Facing in, aim to develop enlargement",
     "enumeration": "13"
    },
-   "solution": "MAGNIFICATION"
+   "solution": "MAGNIFICATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNIFICATION",
+    "definitions": [
+     {
+      "text": "enlargement",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to develop",
+      "for": "anagram",
+      "note": "developing something changes its shape, so these letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Facing in, aim",
+      "gives": "FACINGINAIM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written; also part of the indicator phrase in the surface"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FACINGINAIMTO",
+       "gives": "MAGNIFICATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to turn inward and aim at self-improvement and growth.",
+     "walkthrough": "'to' does double duty: it is fodder and also reads as part of 'to develop'.",
+     "definitionFit": "Magnification is the act of making something appear larger, which is exactly an enlargement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "develop"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +202,60 @@
     "text": "Famous rapper, mostly not without heart",
     "enumeration": "7"
    },
-   "solution": "EMINENT"
+   "solution": "EMINENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EMINENT",
+    "definitions": [
+     {
+      "text": "Famous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "without heart",
+      "for": "deletion",
+      "note": "a thing without its heart has lost its central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rapper",
+      "gives": "EMINE",
+      "note": "Eminem is the famous US rapper, cut short"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "note": "the word with its middle letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMINE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known rapper described as mostly lacking heart.",
+     "walkthrough": "'Famous rapper' reads as one phrase, but 'Famous' is the definition and the rapper is Eminem.",
+     "definitionFit": "Eminent means distinguished and well known in a field, a close synonym for renowned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Famous"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +269,48 @@
     "text": "Endlessly trod grassy plain",
     "enumeration": "6"
    },
-   "solution": "STEPPE"
+   "solution": "STEPPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEPPE",
+    "definitions": [
+     {
+      "text": "grassy plain",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "something endless has had its end removed, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trod",
+      "gives": "STEPPE",
+      "note": "the past tense of walk with feet, minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEPPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walking on and on across a wide grassland.",
+     "walkthrough": "The verb 'trod' becomes STEPPED, and losing the final D leaves the plain.",
+     "definitionFit": "A steppe is a vast treeless grassland, especially in Eastern Europe and Central Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Endlessly"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +324,60 @@
     "text": "Musical work: NY opera company raised its speed?",
     "enumeration": "5"
    },
-   "solution": "TEMPO"
+   "solution": "TEMPO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TEMPO",
+    "definitions": [
+     {
+      "text": "its speed",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raising letters means reading them bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical work",
+      "gives": "OP",
+      "note": "op. is short for opus, a numbered musical work"
+     },
+     {
+      "clueFragment": "NY opera company",
+      "gives": "MET",
+      "note": "the Met is New York's Metropolitan Opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPO"
+     ],
+     "reversals": [
+      {
+       "from": "OPMET",
+       "to": "TEMPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A New York opera company speeding up its performance of a piece.",
+     "walkthrough": "'its' points back to the musical work, so the definition is the speed of that work.",
+     "definitionFit": "Tempo is the pace at which a piece of music is played, its rate of beats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +397,51 @@
      }
     ]
    },
-   "solution": "PANICSTRICKEN"
+   "solution": "PANICSTRICKEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PANIC-STRICKEN",
+    "definitions": [
+     {
+      "text": "Frantic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disorderly",
+      "for": "anagram",
+      "note": "something disorderly is out of its proper order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "span in cricket",
+      "gives": "SPANINCRICKET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPANINCRICKET",
+       "gives": "PANICSTRICKEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild, chaotic stretch of play in a cricket match.",
+     "walkthrough": "'disorderly' looks like it describes the frantic span, but it signals the rearrangement.",
+     "definitionFit": "Someone panic-stricken is overwhelmed by fear and acting wildly, which is frantic behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disorderly"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +455,42 @@
     "text": "Not all of scribes say something in writings on a subject",
     "enumeration": "6"
    },
-   "solution": "ESSAYS"
+   "solution": "ESSAYS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESSAYS",
+    "definitions": [
+     {
+      "text": "writings on a subject",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all of",
+      "for": "hidden_word",
+      "note": "taking not all of a stretch of words means only a part of their letters is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scribes say something",
+      "gives": "ESSAYS",
+      "note": "the letters run across the word boundaries"
+     }
+    ],
+    "explanation": {
+     "surface": "Some writers have something to say in their compositions.",
+     "walkthrough": "The answer spans the end of 'scribes', all of 'say' and the start of 'something'.",
+     "definitionFit": "Essays are short prose compositions that discuss a particular topic or argument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +504,54 @@
     "text": "Extreme misery of USA, nigh exploding",
     "enumeration": "7"
    },
-   "solution": "ANGUISH"
+   "solution": "ANGUISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANGUISH",
+    "definitions": [
+     {
+      "text": "Extreme misery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "an explosion scatters pieces, so these letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "USA, nigh",
+      "gives": "USANIGH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USANIGH",
+       "gives": "ANGUISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deep distress in America as it seems close to blowing up.",
+     "walkthrough": "'nigh' means near; its letters join those of USA as fodder.",
+     "definitionFit": "Anguish is severe mental or physical suffering, a word for great distress and pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploding"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +565,60 @@
     "text": "Under cooking surface, almost lose ability to see mischievous creature",
     "enumeration": "9"
    },
-   "solution": "HOBGOBLIN"
+   "solution": "HOBGOBLIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HOBGOBLIN",
+    "definitions": [
+     {
+      "text": "mischievous creature",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Under",
+      "for": "charade",
+      "note": "in a down answer, what is under comes below, so one part follows the other"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooking surface",
+      "gives": "HOB",
+      "note": "a hob is the top of a stove where pans sit"
+     },
+     {
+      "clueFragment": "lose ability to see",
+      "gives": "GOBLIN",
+      "note": "to lose sight is to go blind, without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOB",
+      "GOBLIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something beneath the stove that nearly blinds you turns out to be an imp.",
+     "walkthrough": "A hob is the British word for a stovetop. GO BLIND, cut short, sits below it.",
+     "definitionFit": "A hobgoblin is a small, impish sprite of folklore that plays tricks on people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Under"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +632,63 @@
     "text": "Take away menus with second item replaced by starter for Indian",
     "enumeration": "5"
    },
-   "solution": "MINUS"
+   "solution": "MINUS",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "MINUS",
+    "definitions": [
+     {
+      "text": "Take away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with second item replaced by",
+      "for": "substitution",
+      "note": "replacing the second item means swapping out the letter in position two"
+     },
+     {
+      "text": "starter for",
+      "for": "letter_selection",
+      "note": "a starter is what comes first, so only an opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "menus",
+      "gives": "MENUS",
+      "note": "taken as written; its E is the one to swap"
+     },
+     {
+      "clueFragment": "Indian",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "NUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A takeaway's menus, with a dish swapped for an Indian appetiser.",
+     "walkthrough": "'Take away' and 'starter' borrow restaurant language, but the definition means subtract. The E of MENUS gives way to I.",
+     "definitionFit": "Minus is the arithmetic word for subtract, as in five minus two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +702,43 @@
     "text": "Some players win, especially a scoundrel",
     "enumeration": "5"
    },
-   "solution": "SWINE"
+   "solution": "SWINE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SWINE",
+    "definitions": [
+     {
+      "text": "a scoundrel",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a phrase is only a part of it, so a run of its letters is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "players win, especially",
+      "gives": "SWINE",
+      "note": "the letters run across the word boundaries"
+     }
+    ],
+    "explanation": {
+     "surface": "Some players come out on top, notably a rogue.",
+     "walkthrough": "The answer spans the last letter of 'players', all of 'win' and the first of 'especially'.",
+     "definitionFit": "Swine is an insult for a contemptible, nasty person, a rogue or villain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +752,51 @@
     "text": "Disguised by cloth with irregular patches of colour",
     "enumeration": "7"
    },
-   "solution": "BLOTCHY"
+   "solution": "BLOTCHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLOTCHY",
+    "definitions": [
+     {
+      "text": "with irregular patches of colour",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disguised",
+      "for": "anagram",
+      "note": "a disguise changes how something looks, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by cloth",
+      "gives": "BYCLOTH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BYCLOTH",
+       "gives": "BLOTCHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something camouflaged by a fabric covered in uneven coloured splotches.",
+     "walkthrough": "'Disguised by' reads as one phrase, but 'by' belongs with 'cloth' as letters.",
+     "definitionFit": "Blotchy skin or fabric is marked with uneven spots or smudges of different shades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Disguised"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +810,68 @@
     "text": "Popular time traveller beginning to trust self-absorbed person",
     "enumeration": "9"
    },
-   "solution": "INTROVERT"
+   "solution": "INTROVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INTROVERT",
+    "definitions": [
+     {
+      "text": "self-absorbed person",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "traveller",
+      "gives": "ROVER",
+      "note": "a rover is a wanderer"
+     },
+     {
+      "clueFragment": "trust",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "ROVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked time traveller starting to trust someone wrapped up in themselves.",
+     "walkthrough": "'time traveller' reads as one science-fiction figure, but time and traveller give separate pieces.",
+     "definitionFit": "An introvert turns attention inward and prefers solitude, so is focused on their own inner world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "traveller"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +885,54 @@
     "text": "Show former partner Hello! piece",
     "enumeration": "7"
    },
-   "solution": "EXHIBIT"
+   "solution": "EXHIBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXHIBIT",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "Hello!",
+      "gives": "HI",
+      "note": "a greeting"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "BIT",
+      "note": "a bit is a piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "HI",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Display an ex-partner's article in Hello!, the celebrity magazine.",
+     "walkthrough": "Hello! looks like the gossip magazine, but it is just a greeting.",
+     "definitionFit": "To exhibit is to put on display or reveal, so it is a verb synonym for display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hello!"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +946,46 @@
     "text": "Scratches small restraints on wrists",
     "enumeration": "6"
    },
-   "solution": "SCUFFS"
+   "solution": "SCUFFS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCUFFS",
+    "definitions": [
+     {
+      "text": "Scratches",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "restraints on wrists",
+      "gives": "CUFFS",
+      "note": "handcuffs, shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CUFFS"
+     ]
+    },
+    "explanation": {
+     "surface": "Tight little handcuffs leave marks on someone's wrists.",
+     "walkthrough": "'Scratches' reads as a noun describing the marks; it works as a verb or noun equally.",
+     "definitionFit": "Scuffs are marks made by scraping or rubbing a surface, so they are light scrapes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +999,70 @@
     "text": "Wonder who sings — that is after send-up of animal doctors",
     "enumeration": "6"
    },
-   "solution": "STEVIE"
+   "solution": "STEVIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STEVIE",
+    "definitions": [
+     {
+      "text": "Wonder who sings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "send-up",
+      "for": "reversal",
+      "note": "in a down answer, sending something up means reading it bottom to top"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another places it later in the answer"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal doctors",
+      "gives": "VETS",
+      "note": "vets treat animals"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEV",
+      "IE"
+     ],
+     "reversals": [
+      {
+       "from": "VETS",
+       "to": "STEV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering who is singing in a comic sketch about vets.",
+     "walkthrough": "'Wonder' looks like a verb, but it is the surname of the singer Stevie Wonder; the definition is his first name.",
+     "definitionFit": "The singer-songwriter Stevie Wonder is known by this first name, so it identifies the Wonder who performs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wonder"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1076,60 @@
     "text": "Combustible rock covering a street beside the sea",
     "enumeration": "7"
    },
-   "solution": "COASTAL"
+   "solution": "COASTAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COASTAL",
+    "definitions": [
+     {
+      "text": "beside the sea",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap around it, so one piece goes outside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Combustible rock",
+      "gives": "COAL",
+      "note": "coal is a rock that burns"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "A",
+      "ST",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Burning rock spread over a road by the shore.",
+     "walkthrough": "'Combustible rock' is a cryptic way of naming a fuel.",
+     "definitionFit": "Coastal describes places at or near the shore, where land meets ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1143,54 @@
     "text": "As of old, your meal’s half herb",
     "enumeration": "5"
    },
-   "solution": "THYME"
+   "solution": "THYME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THYME",
+    "definitions": [
+     {
+      "text": "herb",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half of a word keeps only part of it, so two of its letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As of old, your",
+      "gives": "THY",
+      "note": "thy is the archaic form of your"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "ME",
+      "note": "the first half of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THY",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned remark that half of your dinner is seasoning.",
+     "walkthrough": "'As of old' tells the solver to use the archaic word for your.",
+     "definitionFit": "Thyme is a fragrant culinary plant whose leaves season food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1204,55 @@
     "text": "Lift up one among many",
     "enumeration": "5"
    },
-   "solution": "HOIST"
+   "solution": "HOIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOIST",
+    "definitions": [
+     {
+      "text": "Lift up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "something among others sits in their midst, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "HOST",
+      "note": "a host is a great number"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "I",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Raising a single person above a crowd.",
+     "walkthrough": "'one among many' sounds like an idiom, but it is a placement instruction.",
+     "definitionFit": "To hoist is to raise something, often with ropes or tackle, so it means to raise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1266,57 @@
     "text": "“Magic” being just technology in the end",
     "enumeration": "5"
    },
-   "solution": "FAIRY"
+   "solution": "FAIRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FAIRY",
+    "definitions": [
+     {
+      "text": "“Magic” being",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just",
+      "gives": "FAIR",
+      "note": "just means fair"
+     },
+     {
+      "clueFragment": "technology",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that magic is really just advanced technology.",
+     "walkthrough": "The quotation marks make 'being' look like a verb; it is a noun, a creature.",
+     "definitionFit": "A fairy is a small supernatural creature of folklore with enchanted powers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1330,78 @@
     "text": "Russian-born author reversed vehicle across trashed book",
     "enumeration": "7"
    },
-   "solution": "NABOKOV"
+   "solution": "NABOKOV",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "NABOKOV",
+    "definitions": [
+     {
+      "text": "Russian-born author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the letters are read right to left"
+     },
+     {
+      "text": "trashed",
+      "for": "anagram",
+      "note": "something trashed is wrecked, so these letters are jumbled"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something spans it, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "BOOK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "BOKO",
+      "V"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOOK",
+       "gives": "BOKO"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "VAN",
+       "to": "NAV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer backing a van over a ruined book.",
+     "walkthrough": "Vladimir Nabokov, author of Lolita, was born in St Petersburg.",
+     "definitionFit": "Nabokov was a novelist born in Russia who later wrote in English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1421,51 @@
      }
     ]
    },
-   "solution": "SUNKEN"
+   "solution": "SUNKEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNKEN",
+    "definitions": [
+     {
+      "text": "below the usual level",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star",
+      "gives": "SUN",
+      "note": "the sun is a star"
+     },
+     {
+      "clueFragment": "role in Barbie",
+      "gives": "KEN",
+      "note": "Ken is Barbie's boyfriend, a part in the Barbie film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "KEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A star's part in the Barbie movie is beneath their usual standard.",
+     "walkthrough": "'Star' looks like a famous actor, but it is the astronomical star.",
+     "definitionFit": "Sunken means lying lower than the surrounding surface, as in a sunken garden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1485,54 @@
      }
     ]
    },
-   "solution": "ATONCE"
+   "solution": "ATONCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT ONCE",
+    "definitions": [
+     {
+      "text": "simultaneously",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joining",
+      "for": "charade",
+      "note": "joining means attaching, so one part is placed next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lots",
+      "gives": "ATON",
+      "note": "a ton of something means lots of it"
+     },
+     {
+      "clueFragment": "Anglican church",
+      "gives": "CE",
+      "note": "CE stands for Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATON",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Many people signing up to the Church of England together.",
+     "walkthrough": "The Church of England is England's Anglican church, abbreviated CE.",
+     "definitionFit": "At once can mean all together at the same moment, as in everyone spoke at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lots"
+    }
+   }
   }
  ]
 }
