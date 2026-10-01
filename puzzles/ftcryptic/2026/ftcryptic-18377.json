@@ -24,6 +24,9 @@
   "date": "2026-05-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Walks slope between treacherous edges",
     "enumeration": "6"
    },
-   "solution": "TRAMPS"
+   "solution": "TRAMPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRAMPS",
+    "definitions": [
+     {
+      "text": "Walks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges",
+      "for": "letter_selection",
+      "note": "the edges of a word are its two outermost letters, so only the first and last are kept"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "to sit between two things is to be flanked by them, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treacherous",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "slope",
+      "gives": "RAMP",
+      "note": "a ramp is an inclined surface"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAMP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker picks a path down an incline with dangerous drops on either side.",
+     "walkthrough": "RAMP sits between T and S. 'Walks' is a verb here, as in someone who tramps the hills.",
+     "definitionFit": "To tramp is to walk heavily or trek a long way on foot, a plain verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +109,57 @@
     "text": "Explain extremely rare meat",
     "enumeration": "6"
    },
-   "solution": "REVEAL"
+   "solution": "REVEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REVEAL",
+    "definitions": [
+     {
+      "text": "Explain",
+      "at": 0,
+      "note": "a loose synonym: to make something known"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its outermost letters, so only the first and last count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "VEAL",
+      "note": "veal is calf meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a steak cooked very rare.",
+     "walkthrough": "'Extremely rare' reads like a cooking instruction but means just the outside letters of 'rare'.",
+     "definitionFit": "To reveal is to disclose or make plain, close enough in sense to setting out an account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +173,66 @@
     "text": "Contagious diseased mathematicians Neath expelled",
     "enumeration": "9"
    },
-   "solution": "MIASMATIC"
+   "solution": "MIASMATIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MIASMATIC",
+    "definitions": [
+     {
+      "text": "Contagious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelled",
+      "for": "deletion",
+      "note": "what is expelled is thrown out, so those letters are removed from the longer word"
+     },
+     {
+      "text": "diseased",
+      "for": "anagram",
+      "note": "something diseased is in a bad, disordered state, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mathematicians",
+      "gives": "MATHEMATICIANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Neath",
+      "gives": "NEATH",
+      "note": "taken as written; Neath is a town in South Wales, and these letters come out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIASMATIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MMATICIAS",
+       "gives": "MIASMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of sick academics has been thrown out of a Welsh town.",
+     "walkthrough": "The letters N, E, A, T, H are taken out of the long word, and the nine left over are rearranged.",
+     "definitionFit": "Miasma was the old theory of disease spread by bad air, so miasmatic describes infection passing through the air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Neath"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +252,48 @@
      }
     ]
    },
-   "solution": "SCRAPIRON"
+   "solution": "SCRAPIRON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAP IRON",
+    "definitions": [
+     {
+      "text": "Old metal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set to",
+      "gives": "SCRAP",
+      "note": "a set-to is a fight, as is a scrap"
+     },
+     {
+      "clueFragment": "decrease",
+      "gives": "IRON",
+      "note": "read as de-crease: to remove creases is to iron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAP",
+      "IRON"
+     ]
+    },
+    "explanation": {
+     "surface": "A batch of old metal is about to fall in value.",
+     "walkthrough": "'Set to' looks like 'about to' and 'decrease' like 'fall', but they are a fight and the act of taking creases out.",
+     "definitionFit": "Scrap iron is discarded iron collected for melting down and reuse, which is old metal by nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "decrease"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +307,69 @@
     "text": "Mid-sixties man’s captured yesterday’s robbers",
     "enumeration": "7"
    },
-   "solution": "THIEVES"
+   "solution": "THIEVES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "THIEVES",
+    "definitions": [
+     {
+      "text": "robbers",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mid-",
+      "for": "letter_selection",
+      "note": "mid means in the middle, so only the central letter of the word is used"
+     },
+     {
+      "text": "captured",
+      "for": "container",
+      "note": "a captor holds a prisoner, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sixties",
+      "gives": "T",
+      "select": "middle",
+      "note": "the central letter of the seven-letter word"
+     },
+     {
+      "clueFragment": "man’s",
+      "gives": "HIS",
+      "note": "his is the male possessive"
+     },
+     {
+      "clueFragment": "yesterday’s",
+      "gives": "EVE",
+      "note": "an eve is the day before; the 's just links to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HI",
+      "EVE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A man in his mid-sixties has caught a gang of robbers from the past.",
+     "walkthrough": "'Man's' is the possessive pronoun, not 'man is', and the possessive's final letter ends up last, after the captured day.",
+     "definitionFit": "Thieves are people who steal, the same as robbers, a direct plural synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sixties"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +383,45 @@
     "text": "Hackneyed conveyance that takes its toll",
     "enumeration": "7"
    },
-   "solution": "TAXICAB"
+   "solution": "TAXICAB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAXICAB",
+    "definitions": [
+     {
+      "text": "Hackneyed conveyance",
+      "at": 0
+     },
+     {
+      "text": "that takes its toll",
+      "at": 21,
+      "note": "a descriptive phrase: the vehicle that charges a fare"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hackneyed conveyance",
+      "note": "first meaning: a hackney carriage, the official name for a licensed vehicle for hire"
+     },
+     {
+      "clueFragment": "that takes its toll",
+      "note": "second meaning: a vehicle whose driver charges each passenger by the meter"
+     }
+    ],
+    "explanation": {
+     "surface": "A tired old vehicle trundles through a toll booth.",
+     "walkthrough": "'Hackneyed' suggests overused, but a hackney carriage is the formal London term for a cab; its toll is the fare.",
+     "definitionFit": "A hackney carriage is a vehicle for hire that charges every passenger, the formal term for a city cab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hackneyed"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +435,46 @@
     "text": "Support to train people that is out of season",
     "enumeration": "5"
    },
-   "solution": "INURE"
+   "solution": "INURE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INURE",
+    "definitions": [
+     {
+      "text": "to train people",
+      "at": 8
+     },
+     {
+      "text": "season",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "surface padding; no letters come from it"
+     },
+     {
+      "clueFragment": "to train people",
+      "note": "first meaning: to accustom people to something hard"
+     },
+     {
+      "clueFragment": "season",
+      "note": "second meaning: to harden or toughen through exposure, as timber is seasoned"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both meanings are about getting used to hardship; 'season' reads as a time of year but here is a verb.",
+     "definitionFit": "Inuring someone means habituating them to discomfort until they no longer feel it, just as seasoning toughens wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +488,44 @@
     "text": "Some leave gangly animal free",
     "enumeration": "5"
    },
-   "solution": "VEGAN"
+   "solution": "VEGAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VEGAN",
+    "definitions": [
+     {
+      "text": "animal free",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of something is only a part, so the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leave gangly",
+      "gives": "VEGAN",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tall, awkward creature is let out of its pen.",
+     "walkthrough": "'Animal free' looks like setting an animal loose, but it means free of animal products.",
+     "definitionFit": "A vegan diet excludes all animal products, so it is animal-free in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +539,44 @@
     "text": "Substitutes for setters",
     "enumeration": "8"
    },
-   "solution": "SYNONYMS"
+   "solution": "SYNONYMS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SYNONYMS",
+    "definitions": [
+     {
+      "text": "Substitutes",
+      "at": 0
+     },
+     {
+      "text": "for setters",
+      "at": 12,
+      "note": "a descriptive phrase: the stock-in-trade of crossword compilers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Substitutes",
+      "note": "first meaning: words that can stand in for one another"
+     },
+     {
+      "clueFragment": "for setters",
+      "note": "second meaning: what crossword compilers use to disguise each answer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Setters' suggests volleyball players or gun dogs needing replacements, but here it means crossword compilers.",
+     "definitionFit": "Words with equal meaning can replace one another in a sentence, and compilers rely on them for every definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setters"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +590,62 @@
     "text": "A way to quote magic pilot",
     "enumeration": "8"
    },
-   "solution": "AVIATRIX"
+   "solution": "AVIATRIX",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AVIATRIX",
+    "definitions": [
+     {
+      "text": "pilot",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to quote",
+      "for": "homophone",
+      "note": "to quote someone is to repeat their spoken words, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "VIA",
+      "note": "via means by way of"
+     },
+     {
+      "clueFragment": "magic",
+      "gives": "TRIX",
+      "soundsLike": "TRICKS",
+      "note": "magic is performed as tricks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VIA",
+      "TRIX"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suggests a method for quoting a wonderful pilot.",
+     "walkthrough": "'Magic' looks like an adjective praising the pilot but supplies the sound of TRICKS.",
+     "definitionFit": "Aviatrix is an old-fashioned word for a female aviator, a woman who flies aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "magic"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +659,43 @@
     "text": "Pressing your gentle heart",
     "enumeration": "6"
    },
-   "solution": "URGENT"
+   "solution": "URGENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URGENT",
+    "definitions": [
+     {
+      "text": "Pressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "hidden_word",
+      "note": "a heart is at the core of something, so the letters sit inside the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "your gentle",
+      "gives": "URGENT",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A romantic plea to someone tender: pressing their kind heart.",
+     "walkthrough": "'Pressing' looks like a verb about touching, but it is an adjective meaning needing quick attention.",
+     "definitionFit": "A pressing matter demands immediate attention, which is what urgent means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pressing"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +715,47 @@
      }
     ]
    },
-   "solution": "WARMUP"
+   "solution": "WARMUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WARM-UP",
+    "definitions": [
+     {
+      "text": "Preparation",
+      "at": 0
+     },
+     {
+      "text": "heat",
+      "at": 16,
+      "note": "the verb phrase warm up, to reheat"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preparation",
+      "note": "first meaning: a session of light exercise before sport"
+     },
+     {
+      "clueFragment": "heat",
+      "note": "second meaning: as a verb, to make leftovers hot again"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Heat' also suggests a qualifying race, which athletes do prepare for, so the surface reads as one idea.",
+     "definitionFit": "The noun names loosening exercises before competing; the phrasal verb means making something hot again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heat"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +769,56 @@
     "text": "Cheerleading not straight chore",
     "enumeration": "8"
    },
-   "solution": "CLEANING"
+   "solution": "CLEANING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEANING",
+    "definitions": [
+     {
+      "text": "chore",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "what leads comes at the front, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheerleading",
+      "gives": "C",
+      "select": "first",
+      "note": "split as cheer plus leading: the first letter of cheer"
+     },
+     {
+      "clueFragment": "not straight",
+      "gives": "LEANING",
+      "note": "something leaning is tilted, not upright"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEANING"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheering for a team, done sloppily, has become a tiresome task.",
+     "walkthrough": "'Cheerleading' must be split into 'Cheer' and 'leading' to see the selection.",
+     "definitionFit": "Housework such as dusting and scrubbing is the classic routine household duty, a common example of a chore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheerleading"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +832,45 @@
     "text": "A British bird?",
     "enumeration": "3"
    },
-   "solution": "AUK"
+   "solution": "AUK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUK",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "UK",
+      "note": "the United Kingdom is the British state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "UK"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The question mark admits that UK for 'British' is a stretch; auks do breed on British coasts, so the whole clue is also true.",
+     "definitionFit": "The auk is a black-and-white diving seabird of northern waters, related to puffins and guillemots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +894,46 @@
      }
     ]
    },
-   "solution": "TURNBACKTIME"
+   "solution": "TURNBACKTIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURN BACK TIME",
+    "definitions": [
+     {
+      "text": "Visit the past",
+      "at": 0
+     },
+     {
+      "text": "watch activity in Spring",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Visit the past",
+      "note": "first meaning: to go back to an earlier age"
+     },
+     {
+      "clueFragment": "watch activity in Spring",
+      "note": "second meaning: resetting the hands of a watch when the clocks change"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Watch' is a timepiece, not a verb; the activity is setting its hands back an hour. (In Britain clocks actually go back in autumn, not spring.)",
+     "definitionFit": "The phrase is an idiom for travelling into history and also a literal description of moving a clock's hands backwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +947,56 @@
     "text": "Treasured riches he’d assembled",
     "enumeration": "9"
    },
-   "solution": "CHERISHED"
+   "solution": "CHERISHED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHERISHED",
+    "definitions": [
+     {
+      "text": "Treasured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assembled",
+      "for": "anagram",
+      "note": "to assemble is to put parts together in a new arrangement, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riches",
+      "gives": "RICHES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he’d",
+      "gives": "HED",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RICHESHED",
+       "gives": "CHERISHED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector has gathered together the wealth he valued.",
+     "walkthrough": "The apostrophe in 'he'd' is ignored, as punctuation always is.",
+     "definitionFit": "Something cherished is held dear and protected, which is what treasured means as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assembled"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1016,50 @@
      }
     ]
    },
-   "solution": "TONGUETIE"
+   "solution": "TONGUETIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TONGUE-TIE",
+    "definitions": [
+     {
+      "text": "silence",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Language",
+      "gives": "TONGUE",
+      "note": "a tongue is a language, as in mother tongue"
+     },
+     {
+      "clueFragment": "secure",
+      "gives": "TIE",
+      "note": "to tie something is to fasten it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONGUE",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone needs the right words to buy a period of quiet.",
+     "walkthrough": "'Secure' is a verb meaning fasten, not 'obtain'.",
+     "definitionFit": "To tongue-tie someone is to leave them unable to speak, so the verb works as a synonym for silencing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1079,68 @@
      }
     ]
    },
-   "solution": "BANGBANG"
+   "solution": "BANGBANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BANG BANG",
+    "definitions": [
+     {
+      "text": "gunman to start shooting",
+      "at": 39,
+      "note": "the noise a gunman's shots make, used as an exclamation"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over means placed on top, so the first part comes before the second"
+     },
+     {
+      "text": "allowing",
+      "for": "container",
+      "note": "to allow something in is to admit it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expel",
+      "gives": "BAN",
+      "note": "to ban is to exclude or bar"
+     },
+     {
+      "clueFragment": "sports team",
+      "gives": "GANG",
+      "note": "a gang is a team or crew"
+     },
+     {
+      "clueFragment": "novice",
+      "gives": "B",
+      "note": "B for beginner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "G",
+      "B",
+      "ANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A club is thrown out for letting an inexperienced shooter loose with a gun.",
+     "walkthrough": "B for beginner is rarer than L for learner. In a down clue 'over' puts the first piece above the rest.",
+     "definitionFit": "Children playing at guns shout this imitation of gunfire, the sound made as shooting begins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1160,54 @@
      }
     ]
    },
-   "solution": "DANCINGQUEEN"
+   "solution": "DANCINGQUEEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANCING QUEEN",
+    "definitions": [
+     {
+      "text": "Swedish song",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perhaps",
+      "for": "charade",
+      "note": "perhaps marks an example, so the word that follows stands for a broader class it belongs to"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twisting",
+      "gives": "DANCING",
+      "note": "the twist is a dance, so twisting is one kind of dancing"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "QUEEN",
+      "note": "the queen is a chess piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DANCING",
+      "QUEEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A contorted chunk of a Scandinavian tune, maybe.",
+     "walkthrough": "Both parts are examples: twisting of dancing, queen of a chess piece. The song is a 1976 hit by the Swedish group ABBA.",
+     "definitionFit": "ABBA, the pop group from Sweden, recorded this famous disco hit, so it is literally a song from that country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twisting"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1221,56 @@
     "text": "Son follows satellite phone operator",
     "enumeration": "3"
    },
-   "solution": "IOS"
+   "solution": "IOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IOS",
+    "definitions": [
+     {
+      "text": "phone operator",
+      "at": 22,
+      "note": "short for phone operating system"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "to follow is to come after, so that piece is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satellite",
+      "gives": "IO",
+      "note": "Io is a moon of Jupiter"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IO",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy takes over from his father at a satellite telephone company.",
+     "walkthrough": "'Phone operator' suggests a switchboard worker but means the software that operates a phone.",
+     "definitionFit": "Apple's iPhone runs on this operating system, the software that controls the device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "operator"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1284,50 @@
     "text": "Death could silence Trump and his people",
     "enumeration": "7"
    },
-   "solution": "QUIETUS"
+   "solution": "QUIETUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUIETUS",
+    "definitions": [
+     {
+      "text": "Death",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "could"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "QUIET",
+      "note": "quiet is the absence of noise"
+     },
+     {
+      "clueFragment": "Trump and his people",
+      "gives": "US",
+      "note": "Donald Trump's people are Americans, the US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIET",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A political wish that the American president and his supporters might be shut up for good.",
+     "walkthrough": "'Silence' looks like a verb but supplies a noun; 'Trump and his people' is one unit standing for the country.",
+     "definitionFit": "Quietus is a literary word for release from life, the final settlement, borrowed from Hamlet's soliloquy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1341,50 @@
     "text": "Require department to suff er",
     "enumeration": "6"
    },
-   "solution": "ENTAIL"
+   "solution": "ENTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTAIL",
+    "definitions": [
+     {
+      "text": "Require",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "department",
+      "gives": "ENT",
+      "note": "the ear, nose and throat department of a hospital"
+     },
+     {
+      "clueFragment": "suff er",
+      "gives": "AIL",
+      "note": "to ail is to suffer illness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A demand that a whole department should endure hardship.",
+     "walkthrough": "ENT is the usual crossword hospital department.",
+     "definitionFit": "When one thing entails another it makes it necessary, so the verbs share a sense of necessity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "department"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1404,59 @@
      }
     ]
    },
-   "solution": "AGNUSDEI"
+   "solution": "AGNUSDEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNUS DEI",
+    "definitions": [
+     {
+      "text": "Prayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "to be at sea is to be lost and confused, so the letters are in disorder"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idea",
+      "gives": "IDEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sung",
+      "gives": "SUNG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDEASUNG",
+       "gives": "AGNUSDEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors sing a hymn as an act of devotion while on a voyage.",
+     "walkthrough": "Latin for 'Lamb of God', it is part of the Mass.",
+     "definitionFit": "The Agnus Dei is a liturgical invocation said or sung during Communion, so it is a form of prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1470,61 @@
     "text": "Remove top and a lot of paunch wobbles",
     "enumeration": "5"
    },
-   "solution": "UNCAP"
+   "solution": "UNCAP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UNCAP",
+    "definitions": [
+     {
+      "text": "Remove top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the final letter is dropped"
+     },
+     {
+      "text": "wobbles",
+      "for": "anagram",
+      "note": "a wobbling thing shakes about unsteadily, so the letters move into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paunch",
+      "gives": "PAUNC",
+      "note": "the word with its last letter cut"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAUNC",
+       "gives": "UNCAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes off their shirt and their large belly shakes.",
+     "walkthrough": "'Remove top' sounds like undressing, but here a lid or cap is taken off.",
+     "definitionFit": "To uncap a pen or bottle is to take off its lid, the topmost part of the container."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1538,54 @@
     "text": "Leaders from Delhi have only tailored Indian cloth",
     "enumeration": "5"
    },
-   "solution": "DHOTI"
+   "solution": "DHOTI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DHOTI",
+    "definitions": [
+     {
+      "text": "cloth",
+      "at": 45,
+      "note": "the wordplay's last word supplies the Indian origin"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders",
+      "for": "letter_selection",
+      "note": "leaders go at the front, so the opening letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delhi have only tailored Indian",
+      "gives": "DHOTI",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "H",
+      "O",
+      "T",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "In Delhi, only bespoke native garments will do.",
+     "walkthrough": "'Indian' reads as part of the definition, but it supplies the last initial; the garment is Indian anyway.",
+     "definitionFit": "A dhoti is the long loincloth wrapped round the waist and legs, worn by many men in India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1599,66 @@
     "text": "Lizard again desperately held to be fashionable",
     "enumeration": "6"
    },
-   "solution": "IGUANA"
+   "solution": "IGUANA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IGUANA",
+    "definitions": [
+     {
+      "text": "Lizard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperately",
+      "for": "anagram",
+      "note": "acting desperately means acting wildly, so the letters are thrown into a fresh order"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "what is held is gripped inside something else, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "AGAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "U",
+      "note": "U is upper-class, socially acceptable"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGAINU",
+       "gives": "IGUANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reptile is once more frantically believed to be in vogue.",
+     "walkthrough": "U as 'upper class' or acceptable is a crossword staple; it goes inside the rearranged letters.",
+     "definitionFit": "The iguana is a large tropical American lizard, a specific example of the reptile group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1672,61 @@
     "text": "Centre of storm becomes close for inept rancher",
     "enumeration": "6"
    },
-   "solution": "GAUCHO"
+   "solution": "GAUCHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "GAUCHO",
+    "definitions": [
+     {
+      "text": "rancher",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Centre",
+      "for": "letter_selection",
+      "note": "the centre is the middle point, so only the middle letter is used"
+     },
+     {
+      "text": "becomes close for",
+      "for": "substitution",
+      "note": "becoming the close means taking the place of the end, so one letter replaces the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inept",
+      "gives": "GAUCHE",
+      "note": "gauche means awkward or clumsy"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "O",
+      "select": "middle",
+      "note": "the middle letter of the five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAUCH",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "In the eye of a storm, a clumsy cattleman draws close.",
+     "walkthrough": "The final E of GAUCHE is swapped for O.",
+     "definitionFit": "A gaucho is a cowboy of the South American pampas, a herdsman working on a cattle ranch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1740,63 @@
     "text": "Islander gives thanks for strike by Botham",
     "enumeration": "8"
    },
-   "solution": "TAHITIAN"
+   "solution": "TAHITIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAHITIAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the pieces are set side by side"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "HIT",
+      "note": "to strike is to hit"
+     },
+     {
+      "clueFragment": "Botham",
+      "gives": "IAN",
+      "note": "Ian Botham is a famous English cricketer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "HIT",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Pacific islander is grateful for a big shot by a famous cricketer.",
+     "walkthrough": "Ian Botham was an English all-rounder of the 1980s; only his first name is used. 'Ta' is British slang for thanks.",
+     "definitionFit": "A Tahitian is a native of Tahiti, the largest island of French Polynesia in the South Pacific."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Botham"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1810,39 @@
     "text": "Wanderers in dodgy 5s",
     "enumeration": "7"
    },
-   "solution": "GYPSIES"
+   "solution": "GYPSIES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GYPSIES",
+    "definitions": [
+     {
+      "text": "Wanderers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wanderers in dodgy 5s",
+      "note": "surface reading: travellers riding in suspect thieves, or in suspect taxis"
+     },
+     {
+      "clueFragment": "dodgy 5s",
+      "note": "setter's reading: 5 is the 5-down answer, and an unlicensed one is known in America by a word for wandering people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "5 points at the taxi answer at 5-down; in the US an unlicensed cab is a 'gypsy cab', so wanderers are found in dodgy ones.",
+     "definitionFit": "The word names the travelling Romani people, traditionally nomadic, and by extension any wanderers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1856,50 @@
     "text": "Thoroughly makes river work",
     "enumeration": "6"
    },
-   "solution": "DEEPLY"
+   "solution": "DEEPLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEEPLY",
+    "definitions": [
+     {
+      "text": "Thoroughly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland and another in Wales and England"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "PLY",
+      "note": "to ply a trade is to work at it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "PLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something completely puts a river to work.",
+     "walkthrough": "The Dee is a British river, one of crossword setters' favourites.",
+     "definitionFit": "Doing something deeply means doing it profoundly and in full, the same as completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   }
  ]
 }
