@@ -5839,7 +5839,7 @@
     cryptic: ["guardian", `The Guardian's daily cryptic, Monday to Saturday, known for its
       named setters and their personalities: one day a gentle Vulcan, the next a
       Paul full of puns or a fiendish Enigmatist. It is the most liberal of the
-      big dailies: themes, ninas and jokes are common, and the rules bend for a
+      big dailies: themes, jokes and words hidden in the grid are common, and the rules bend for a
       good surface, so learning a setter's habits pays off.`],
     quiptic: ["quiptic", `Guardian Quiptic — the Guardian's puzzle for newcomers,
       published Mondays. The same kinds of clue as the daily cryptic, without the
@@ -5850,8 +5850,8 @@
       the definition at one end, smooth surfaces and no obscure words, which makes
       it a favourite step up from beginner puzzles to the dailies.`],
     independent: ["independent", `The Independent's daily cryptic, Monday to
-      Saturday, known for its adventurous streak: themes, ninas and hidden
-      messages turn up often. About as hard as the Guardian, with a regular team
+      Saturday, known for its adventurous streak: themes and messages hidden in the
+      grid turn up often. About as hard as the Guardian, with a regular team
       of named setters — Phi, Quince, Eccles, Hippogryph — so if you like one,
       their habits are worth learning.`],
     cyclops: ["cyclops", `Cyclops — Private Eye's cryptic, every two weeks, and the
@@ -5911,7 +5911,7 @@
       Big Dave blog.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
       weekly numbering: the daily's setters and its adventurous style, themes and
-      ninas included, and about as hard.`],
+      hidden grid messages included, and about as hard.`],
     book: ["book", `Crosswords out of scanned printed books: out-of-print
       collections, so the puzzles are years older than today's. Each
       puzzle is named by its book and its place in it — Penguin book 5 No 18 —
