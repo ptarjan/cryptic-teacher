@@ -250,6 +250,14 @@ and annotation files name entries by it. A puzzle file that stores an entry
   Every write prunes empty values and refuses what breaks the schema, the
   validator reports it, and CI checks every puzzle with
   `python3 tools/puzzle_schema.py`.
+- **The entries are the grid, plus two optional keys.** A square is white when
+  an entry covers it or an `unclued` light lists it. An unclued light, such as a
+  shaded quotation running round a ring, lists its `cells` in reading order with
+  its `solution` (and optionally an `enumeration` and a `note`); the app shows it
+  shaded and lists it under Unclued. `printed` holds the letters the setter
+  printed in the grid as `{x, y, letter}`; the app fills them in and locks them.
+  Both must agree with the crossing entries' solutions
+  (`tools/puzzle_integrity.py` `check_extra_cells`).
 
 ### Provenance: where the puzzle, its grid and its answers each came from
 
