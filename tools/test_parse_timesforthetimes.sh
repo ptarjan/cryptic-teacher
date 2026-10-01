@@ -720,5 +720,16 @@ check "a brace-closed count is read once, without the brace" \
   "Nightcap’s a knockout with rum in (3,5)|Cat mostly nourished by crow’s foot? (6)" \
   "$(run "$brace" | cut -d'|' -f5 | paste -sd'|')"
 
+# A strike typed backwards, "</s>e<s>", opens a deletion that the next
+# clue's "</s>" would close: it stops at its own cell, and the clue survives.
+backstrike='<table><tr><td colspan="2"><strong>Down</strong></td></tr>
+<tr><td>19</td><td><span>Smelly game bird topped and tailed by old cook (7)</span></td></tr>
+<tr><td></td><td><b>ODOROUS</b> &#8211; O, DO, <s>g</s>ROUS<span></s>e<s></span>.</td></tr>
+<tr><td>21</td><td><span>Support function working close to Cupid</span></td></tr>
+<tr><td></td><td><b>SECOND</b> &#8211; SEC, ON, <s>cupi</s>D.</td></tr></table>'
+check "a backwards strike stops at its cell" \
+  "19|down|ODOROUS|7|Smelly game bird topped and tailed by old cook (7)
+21|down|SECOND|6|Support function working close to Cupid (6)" "$(run "$backstrike")"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
