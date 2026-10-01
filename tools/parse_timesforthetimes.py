@@ -124,8 +124,9 @@ AMENDED = re.compile(r"^[.\s]*(?:(?:this|the clue|clue)\s+(?:was\s+)?(?:later\s+
 OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: A clue's enumeration: word lengths, none of them longer than a grid is
 #: wide. "Special Providence (1930)" ends in a year, not in a count; "( 3,4)"
-#: is a space typed inside the bracket.
-ENUM = re.compile(r"\(\s*(\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
+#: is a space typed inside the bracket; "(5,1’4)" breaks a word at its apostrophe
+#: (left unread, the count the answer gives was appended after it).
+ENUM = re.compile(r"\(\s*(\d{1,2}(?:[,\-–\u2011'’′\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
 #: An enumeration typed at a clue's end but not in ENUM's shape: unclosed,
 #: closed by a brace ("(3,5}", "(6)}"), dotted, or followed by punctuation.
 LOOSE_ENUM = re.compile(r"\s*[({]\s*(\d{1,2}(?:[,\-\u2013.\s]+\d{1,2})*)\s*\)?\}?[\s.,;:]*$")
