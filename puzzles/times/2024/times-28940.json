@@ -23,6 +23,9 @@
   "date": "2024-06-11",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,56 @@
     "text": "Bow has only one old bus station?",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "bus station?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has only one",
+      "for": "deletion",
+      "note": "keeping just one of a doubled letter means a duplicate copy must be dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bow",
+      "gives": "STOOP",
+      "note": "to bow is to bend forward, to stoop"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old; one of the two is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "O",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An archer's bow, or a curtsey, oddly linked to an old bus depot.",
+     "walkthrough": "STOOP has two Os; letting it keep only one leaves STOP. The question mark flags that a bus stop is a very modest 'station'.",
+     "definitionFit": "A bus stop is the place where buses halt for passengers, a playful kind of roadside station."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bow"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +102,51 @@
     "text": "Chaps keen to set out computer jargon",
     "enumeration": "11"
    },
-   "solution": "TECHNOSPEAK"
+   "solution": "TECHNOSPEAK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TECHNOSPEAK",
+    "definitions": [
+     {
+      "text": "computer jargon",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set out",
+      "for": "anagram",
+      "note": "to set out is to lay things out afresh, so the letters are arranged in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chaps keen to",
+      "gives": "CHAPSKEENTO",
+      "note": "taken as written, all eleven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAPSKEENTO",
+       "gives": "TECHNOSPEAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men eager to explain the baffling vocabulary of computers.",
+     "walkthrough": "'To' looks like a link word but is part of the fodder; only 'set out' signals the rearrangement.",
+     "definitionFit": "Technospeak is the specialised vocabulary of technical people, which is exactly what computer jargon is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +160,50 @@
     "text": "Expert movement garnering support",
     "enumeration": "9"
    },
-   "solution": "PROMOTION"
+   "solution": "PROMOTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROMOTION",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "garnering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "PRO",
+      "note": "a pro is a professional, an expert"
+     },
+     {
+      "clueFragment": "movement",
+      "gives": "MOTION",
+      "note": "motion is movement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "MOTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled campaign or political movement winning more backers.",
+     "walkthrough": "'Movement' suggests a cause attracting followers, but it is simply a synonym for physical motion.",
+     "definitionFit": "Promotion of a cause or product is active backing of it, so the noun matches support as advocacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +223,71 @@
      }
     ]
    },
-   "solution": "UPSIDEDOWN"
+   "solution": "UPSIDEDOWN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "UPSIDE-DOWN",
+    "definitions": [
+     {
+      "text": "Chaotic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without lead",
+      "for": "deletion",
+      "note": "the lead of a word is its first letter, and going without it means dropping that letter"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "something gone sadly wrong is out of order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little dog",
+      "gives": "PUP",
+      "note": "a pup is a young dog"
+     },
+     {
+      "clueFragment": "disowned",
+      "gives": "DISOWNED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "SIDEDOWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DISOWNED",
+       "gives": "SIDEDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild puppy that slipped its leash ends up abandoned by its owner.",
+     "walkthrough": "'Lead' looks like a dog's leash, but it means the first letter. 'Gets' simply joins the two halves.",
+     "definitionFit": "Things turned upside-down are in total disarray, so the hyphenated adjective works as a synonym for chaotic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +301,68 @@
     "text": "In Paris, a large centre for teens remains free",
     "enumeration": "7"
    },
-   "solution": "UNLEASH"
+   "solution": "UNLEASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNLEASH",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre for",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only that letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Paris, a",
+      "gives": "UN",
+      "note": "UN is French for 'a'"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "teens",
+      "gives": "E",
+      "select": "middle",
+      "note": "the central letter of the five"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "ash is what remains after burning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "L",
+      "E",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A big Parisian youth centre where the teenagers stay free of rules.",
+     "walkthrough": "'In Paris' tells you to translate the next word into French. 'Remains' looks like a verb but is the noun for ashes.",
+     "definitionFit": "To unleash is to release or set loose, so as a verb it matches free in the sense of liberate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +386,55 @@
      }
     ]
    },
-   "solution": "STANDUPCOMEDIAN"
+   "solution": "STANDUPCOMEDIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAND-UP COMEDIAN",
+    "definitions": [
+     {
+      "text": "Entertainer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might generate",
+      "for": "anagram",
+      "note": "to generate is to produce something new, so these letters are made into a fresh word"
+     }
+    ],
+    "linkWords": [
+     "who"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sudden impact? No",
+      "gives": "ASUDDENIMPACTNO",
+      "note": "taken as written, all fifteen letters including the final word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASUDDENIMPACTNO",
+       "gives": "STANDUPCOMEDIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is this performer someone who lands a sudden blow? Apparently not.",
+     "walkthrough": "The final 'No' reads as an answer to the question, yet it supplies the last two letters of the fodder; a stand-up does aim to land punchlines.",
+     "definitionFit": "A stand-up comedian is a solo performer telling jokes on stage, one familiar type of entertainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +448,67 @@
     "text": "Resident properly involved in bloody uprising",
     "enumeration": "7"
    },
-   "solution": "DWELLER"
+   "solution": "DWELLER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DWELLER",
+    "definitions": [
+     {
+      "text": "Resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down clue, rising up means the word is read from bottom to top"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "being involved in something means sitting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "properly",
+      "gives": "WELL",
+      "note": "doing something properly is doing it well"
+     },
+     {
+      "clueFragment": "bloody",
+      "gives": "RED",
+      "note": "blood is red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local caught up in a violent revolt.",
+     "walkthrough": "'Bloody uprising' reads as a violent rebellion, but 'uprising' only means reading upwards in this down entry.",
+     "definitionFit": "A dweller is someone who lives in a place, a straightforward synonym for an inhabitant or resident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +522,47 @@
     "text": "Love huge end of a series",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "end of a series",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, written as O"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "MEGA",
+      "note": "mega is slang for huge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEGA"
+     ]
+    },
+    "explanation": {
+     "surface": "Adoring the big finale of a TV series.",
+     "walkthrough": "The definition sounds like a television finale; it means the final letter of the Greek alphabet, and by extension the last of anything.",
+     "definitionFit": "Omega is the last Greek letter, so it stands for the final item or conclusion of any sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "series"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +576,46 @@
     "text": "Language that is somewhat hidden or secretive",
     "enumeration": "5"
    },
-   "solution": "NORSE"
+   "solution": "NORSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NORSE",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only part of the following text is used"
+     }
+    ],
+    "linkWords": [
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hidden or secretive",
+      "gives": "NORSE",
+      "note": "spans the end of the first word, the whole of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A tongue that is partly concealed and mysterious.",
+     "walkthrough": "'Hidden or secretive' reads as describing the language, but it is the run of text that holds the answer.",
+     "definitionFit": "Norse, or Old Norse, is the medieval Scandinavian tongue of the Vikings, so it is a language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +629,67 @@
     "text": "Third best exam mark secured by horribly loathsome kid in your class?",
     "enumeration": "10"
    },
-   "solution": "SCHOOLMATE"
+   "solution": "SCHOOLMATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCHOOLMATE",
+    "definitions": [
+     {
+      "text": "kid in your class?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held fast within it"
+     },
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "something horribly mangled is badly disordered, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Third best exam mark",
+      "gives": "C",
+      "note": "grades run A, B, C, so the third best is C"
+     },
+     {
+      "clueFragment": "loathsome",
+      "gives": "LOATHSOME",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "HOOLMATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOATHSOME",
+       "gives": "SHOOLMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful brat in your form who gets a mediocre C in the exam.",
+     "walkthrough": "The C sits after the first letter of the rearranged LOATHSOME. The question mark admits a schoolmate need not be in your actual class.",
+     "definitionFit": "A schoolmate is a fellow pupil at the same school, often one taught alongside you in lessons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "secured"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +703,59 @@
     "text": "Shred leaves with front part of rake",
     "enumeration": "4"
    },
-   "solution": "TEAR"
+   "solution": "TEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEAR",
+    "definitions": [
+     {
+      "text": "Shred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front part of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so that alone is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaves",
+      "gives": "TEA",
+      "note": "tea comes as dried leaves"
+     },
+     {
+      "clueFragment": "rake",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the garden tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Tearing up autumn leaves with the tines of a garden rake.",
+     "walkthrough": "'Leaves' looks like fallen foliage or a verb, but it is tea leaves.",
+     "definitionFit": "To shred something is to rip it into pieces, so the verb tear is a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +769,61 @@
     "text": "Coat mostly stuffed with good wool",
     "enumeration": "6"
    },
-   "solution": "ANGORA"
+   "solution": "ANGORA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ANGORA",
+    "definitions": [
+     {
+      "text": "wool",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not entirely, so the final letter is dropped"
+     },
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "something stuffed with filling has it packed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coat",
+      "gives": "ANORAK",
+      "note": "an anorak is a hooded waterproof jacket; its last letter goes"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "G",
+      "ORA"
+     ]
+    },
+    "explanation": {
+     "surface": "A jacket padded out with quality knitting yarn.",
+     "walkthrough": "ANORAK without its K becomes ANORA, and G slips in after the first two letters.",
+     "definitionFit": "Angora is the soft fibre from Angora rabbits or goats, a type of fine wool used in knitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Coat"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +837,57 @@
     "text": "Deeply, oddly enlightened state",
     "enumeration": "8"
    },
-   "solution": "DELAWARE"
+   "solution": "DELAWARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DELAWARE",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, first, third and fifth"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deeply",
+      "gives": "DEL",
+      "select": "alternate",
+      "note": "letters one, three and five"
+     },
+     {
+      "clueFragment": "enlightened",
+      "gives": "AWARE",
+      "note": "an enlightened person is aware"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "AWARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A curious, profoundly spiritual condition of mind.",
+     "walkthrough": "'Enlightened state' reads as nirvana, a state of mind; the state is in fact one of the United States.",
+     "definitionFit": "Delaware is one of the fifty United States, the first to ratify the Constitution, so it is a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +907,70 @@
      }
     ]
    },
-   "solution": "RACEMEETING"
+   "solution": "RACEMEETING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RACE MEETING",
+    "definitions": [
+     {
+      "text": "horsey event",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     },
+     {
+      "text": "deployed",
+      "for": "anagram",
+      "note": "troops deployed are spread out into new positions, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ACE",
+      "note": "an ace is the one in a suit of cards"
+     },
+     {
+      "clueFragment": "regiment",
+      "gives": "REGIMENT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ACE",
+      "MEETING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REGIMENT",
+       "gives": "RMEETING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier from a cavalry regiment sent out to a show-jumping event.",
+     "walkthrough": "'Regiment deployed' suggests troops on manoeuvres, and 'One' a single soldier; the card sense of one is what's needed.",
+     "definitionFit": "A race meeting is a day of horse races at a racecourse, so it is very much an equestrian occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +984,55 @@
     "text": "Way to tuck into excellent drink",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASTI",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tuck into",
+      "for": "container",
+      "note": "to tuck into a meal is to put it inside you, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means excellent, with the 1 read as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ST",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A method for getting stuck into a superb glass of something.",
+     "walkthrough": "A1 is a British term for first-rate; setters often turn its digit into the letter I.",
+     "definitionFit": "Asti is a sparkling white wine from Piedmont in Italy, so it is an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tuck"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1046,51 @@
     "text": "Advertiser’s rate for feature during sci-fi show?",
     "enumeration": "10"
    },
-   "solution": "HYPERSPACE"
+   "solution": "HYPERSPACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HYPERSPACE",
+    "definitions": [
+     {
+      "text": "feature during sci-fi show?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advertiser’s",
+      "gives": "HYPERS",
+      "note": "a hyper is someone who hypes a product, with the possessive S"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "PACE",
+      "note": "pace is rate of movement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HYPERS",
+      "PACE"
+     ]
+    },
+    "explanation": {
+     "surface": "What a TV advertiser charges for a slot in the middle of a science-fiction programme.",
+     "walkthrough": "'Rate' suggests a fee for airtime, but it means speed. The definition is cryptic: ships in sci-fi shows travel through hyperspace.",
+     "definitionFit": "Hyperspace is the fictional extra dimension used for faster-than-light travel, a stock element of space-opera films and series."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rate"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1104,72 @@
     "text": "Ruler in crown drinking last drop of Barolo wine",
     "enumeration": "9"
    },
-   "solution": "POTENTATE"
+   "solution": "POTENTATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "POTENTATE",
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last drop of",
+      "for": "letter_selection",
+      "note": "the last drop of something is its final bit, so only the closing letter is kept"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes liquid inside, so one piece is swallowed by another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crown",
+      "gives": "PATE",
+      "note": "the pate is the crown of the head"
+     },
+     {
+      "clueFragment": "Barolo",
+      "gives": "O",
+      "select": "last",
+      "note": "the final letter of the Italian wine"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "TENT",
+      "note": "tent is a deep red Spanish wine, old-fashioned but crossword-familiar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "TENT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowned monarch sipping the dregs of a glass of fine Italian red.",
+     "walkthrough": "'Crown' suggests royal headgear to suit 'Ruler', but it is the top of the head. O and TENT together go inside after the P.",
+     "definitionFit": "A potentate is a monarch or sovereign with great power, so the noun is a grand synonym for a ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crown"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1183,74 @@
     "text": "A respectable, short debtor’s note ultimately proves damaging",
     "enumeration": "10"
    },
-   "solution": "PERNICIOUS"
+   "solution": "PERNICIOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PERNICIOUS",
+    "definitions": [
+     {
+      "text": "damaging",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a word cut short loses its final letter"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so just the closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "PER",
+      "note": "per means a, as in so much per head"
+     },
+     {
+      "clueFragment": "respectable",
+      "gives": "NICE",
+      "note": "nice can mean respectable or proper; its last letter goes"
+     },
+     {
+      "clueFragment": "debtor’s note",
+      "gives": "IOU",
+      "note": "an IOU is a written promise to repay"
+     },
+     {
+      "clueFragment": "proves",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "NIC",
+      "IOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A decent but brief note from someone in debt turns out to be harmful.",
+     "walkthrough": "'A' looks like the article but stands for PER, as in a pound a day. 'Short' qualifies only NICE.",
+     "definitionFit": "Pernicious describes something with a harmful, often gradual and insidious effect, matching damaging as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1264,56 @@
     "text": "Acclaimed cellist initially passed on a track",
     "enumeration": "7"
    },
-   "solution": "CLAPPED"
+   "solution": "CLAPPED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLAPPED",
+    "definitions": [
+     {
+      "text": "Acclaimed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cellist",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "passed on a track",
+      "gives": "LAPPED",
+      "note": "a runner who passes another a full circuit ahead has lapped them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrated cellist who first played a piece that was then recorded as an album track.",
+     "walkthrough": "'Track' suggests a recording, natural beside 'cellist', but it is a running track.",
+     "definitionFit": "To be clapped is to be applauded by an audience, so the past participle matches acclaimed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1327,50 @@
     "text": "Brief problem supported by Queen",
     "enumeration": "7"
    },
-   "solution": "SUMMARY"
+   "solution": "SUMMARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUMMARY",
+    "definitions": [
+     {
+      "text": "Brief",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "MARY",
+      "note": "Mary is the name of several English and Scottish queens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "MARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A short-lived difficulty propped up by royal backing.",
+     "walkthrough": "In a down clue, one piece supported by another sits on top of it. 'Brief' looks like an adjective but is the noun.",
+     "definitionFit": "A brief can be a concise account of the key points, which is exactly what a summary provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1384,54 @@
     "text": "Turn to put out what prisoners do",
     "enumeration": "4"
    },
-   "solution": "TIME"
+   "solution": "TIME",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TIME",
+    "definitions": [
+     {
+      "text": "what prisoners do",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn",
+      "for": "reversal",
+      "note": "to turn something round is to face it the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to put out",
+      "gives": "EMIT",
+      "note": "to emit is to give out or put out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIME"
+     ],
+     "reversals": [
+      {
+       "from": "EMIT",
+       "to": "TIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to switch something off, set beside a prison routine.",
+     "walkthrough": "'Turn' looks like the definition, a spell or go, but it signals the reversal. Prisoners are said to 'do time'.",
+     "definitionFit": "Doing time is the idiom for serving a prison sentence, so the noun is what inmates are said to do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1445,55 @@
     "text": "Alarm about family’s use of certain cosmetics?",
     "enumeration": "8"
    },
-   "solution": "SKINCARE"
+   "solution": "SKINCARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKINCARE",
+    "definitions": [
+     {
+      "text": "use of certain cosmetics?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means around, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alarm",
+      "gives": "SCARE",
+      "note": "a scare is a sudden alarm"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives, family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIN",
+      "CARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Panic over a household's cosmetics habit.",
+     "walkthrough": "The 's after family reads as 'has' or a possessive and is only surface glue; the question mark flags a definition by example.",
+     "definitionFit": "Skincare is the routine of looking after your complexion, which commonly involves creams, moisturisers and similar products."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Alarm"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1507,58 @@
     "text": "Stint requiring months in spring",
     "enumeration": "5"
    },
-   "solution": "SKIMP"
+   "solution": "SKIMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKIMP",
+    "definitions": [
+     {
+      "text": "Stint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring",
+      "gives": "SKIP",
+      "note": "to skip is to spring or jump lightly"
+     },
+     {
+      "clueFragment": "months",
+      "gives": "M",
+      "note": "M is the abbreviation for months"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A work placement that lasts several months during the spring season.",
+     "walkthrough": "'Stint' looks like a noun, a spell of work, and 'spring' like the season; both are verbs here.",
+     "definitionFit": "To stint is to be sparing or mean with something, so as a verb it is a synonym for being frugal or stingy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1572,40 @@
     "text": "Stupid way programme ends?",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "Stupid",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way programme ends",
+      "note": "surface reading: the daft manner in which some TV show finishes"
+     },
+     {
+      "clueFragment": "way programme ends?",
+      "note": "setter's reading: describe in words how the spelling of 'programme' finishes, naming its final letter with an article and a preposition"
+     }
+    ],
+    "explanation": {
+     "surface": "A sneer at some silly show's daft ending.",
+     "walkthrough": "Read 'way programme ends' literally: the word 'programme' ends IN AN E. The question mark flags this self-referential trick.",
+     "definitionFit": "Inane means silly or lacking sense, which makes it a close synonym for foolish or stupid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "programme"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1619,50 @@
     "text": "Motorway stopped being repaired",
     "enumeration": "6"
    },
-   "solution": "MENDED"
+   "solution": "MENDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENDED",
+    "definitions": [
+     {
+      "text": "repaired",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motorway",
+      "gives": "M",
+      "note": "M is used for motorways in Britain, as in the M1"
+     },
+     {
+      "clueFragment": "stopped",
+      "gives": "ENDED",
+      "note": "stopped means finished, ended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorway closed while roadworks are carried out.",
+     "walkthrough": "British motorways are numbered with M, such as the M25 around London.",
+     "definitionFit": "Mended means fixed or restored to working order, so the past participle is a synonym for repaired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopped"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1676,55 @@
     "text": "Religious leader shortly after midnight taking in mass",
     "enumeration": "4"
    },
-   "solution": "IMAM"
+   "solution": "IMAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMAM",
+    "definitions": [
+     {
+      "text": "Religious leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take something in is to receive it inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortly after midnight",
+      "gives": "IAM",
+      "note": "one o'clock in the morning, 1 a.m., with the numeral read as I"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the physics symbol for mass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric arriving soon after twelve at night to celebrate Mass.",
+     "walkthrough": "'Mass' suggests a church service, but it is the scientific symbol. Shortly after midnight is 1 a.m., written I AM.",
+     "definitionFit": "An imam leads prayers in a mosque and guides a Muslim community, so he is a religious leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1744,56 @@
      }
     ]
    },
-   "solution": "PRIMAFACIE"
+   "solution": "PRIMAFACIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRIMA FACIE",
+    "definitions": [
+     {
+      "text": "before closer scrutiny",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly ignored",
+      "for": "letter_selection",
+      "note": "ignoring at regular intervals means skipping every other letter, so alternate letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prudish",
+      "gives": "PRIM",
+      "note": "prim means prudish and proper"
+     },
+     {
+      "clueFragment": "naff, fancy idea",
+      "gives": "AFACIE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and following even letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIM",
+      "AFACIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A judgement of some fussy, tacky notion made before looking at it properly.",
+     "walkthrough": "Naff is British slang for tacky. 'Fancy' looks like an anagram signal but is just fodder for the alternate letters.",
+     "definitionFit": "Prima facie is Latin for 'at first sight', describing how something appears on initial impression without deeper examination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1807,59 @@
     "text": "Leader’s position in group’s last run of gigs",
     "enumeration": "10"
    },
-   "solution": "PRESIDENCY"
+   "solution": "PRESIDENCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRESIDENCY",
+    "definitions": [
+     {
+      "text": "Leader’s position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its closing letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group’s",
+      "gives": "P",
+      "select": "last",
+      "note": "the closing letter of the word before the possessive"
+     },
+     {
+      "clueFragment": "run of gigs",
+      "gives": "RESIDENCY",
+      "note": "a residency is a series of shows by a band at one venue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESIDENCY"
+     ]
+    },
+    "explanation": {
+     "surface": "A frontman's place in the band during their final tour.",
+     "walkthrough": "'Leader' and 'group' suggest a rock band; the leader is a head of state or of an organisation.",
+     "definitionFit": "The presidency is the office held by a president, so it is the role or post of a leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group’s"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1873,50 @@
     "text": "As a result, work unit introduces nothing",
     "enumeration": "4"
    },
-   "solution": "ERGO"
+   "solution": "ERGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERGO",
+    "definitions": [
+     {
+      "text": "As a result",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "introduces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work unit",
+      "gives": "ERG",
+      "note": "the erg is a unit of work in physics"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Consequently, a team at the office brings in zero output.",
+     "walkthrough": "'Work unit' suggests a department or team; here it is the scientific unit of work.",
+     "definitionFit": "Ergo is Latin for therefore, used in English to mean consequently, so it introduces a conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   }
  ]
 }
