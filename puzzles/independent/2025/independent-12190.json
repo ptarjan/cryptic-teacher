@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Pushing driving seat that's faulty",
     "enumeration": "11"
    },
-   "solution": "ADVERTISING"
+   "solution": "ADVERTISING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADVERTISING",
+    "definitions": [
+     {
+      "text": "Pushing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's faulty",
+      "for": "anagram",
+      "note": "something faulty is not working as built, so its letters are put back together another way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "driving seat",
+      "gives": "DRIVINGSEAT",
+      "note": "the two words taken letter for letter as the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRIVINGSEAT",
+       "gives": "ADVERTISING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that the driver's seat in their car is broken.",
+     "walkthrough": "'Pushing' looks like a verb, but here it is the noun sense: the activity of promoting goods.",
+     "definitionFit": "Promoting a product hard to buyers is commonly called pushing it, which is exactly what commercial publicity does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pushing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +94,60 @@
     "text": "Some sauerkraut put up in cupboard",
     "enumeration": "3"
    },
-   "solution": "ARK"
+   "solution": "ARK",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ARK",
+    "definitions": [
+     {
+      "text": "cupboard",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only a part of the following word is wanted, a run of its letters"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up means it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sauerkraut",
+      "gives": "KRA",
+      "note": "the run of letters in the middle of the word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "KRA",
+       "to": "ARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pickled cabbage is stored away on a kitchen shelf.",
+     "walkthrough": "The letters sit inside sauerKRAut and read upwards in the grid to spell ARK.",
+     "definitionFit": "An ark is an old word for a chest or storage box, close enough to a cupboard for crossword use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,55 @@
     "text": "Off to visit Virginia holiday home?",
     "enumeration": "5"
    },
-   "solution": "VILLA"
+   "solution": "VILLA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VILLA",
+    "definitions": [
+     {
+      "text": "holiday home",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside someone else's place, so one piece enters another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Off",
+      "gives": "ILL",
+      "note": "feeling off means unwell"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "the postal abbreviation for the US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is heading off to stay at a holiday house in Virginia.",
+     "walkthrough": "'Off' reads as departing, but it means unwell, as food that has gone off; VA is the US postal code for Virginia.",
+     "definitionFit": "A villa is a large rented house in the sun, the classic place to stay on a summer break."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Off"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,41 @@
     "text": "Discovers the truth about New York street fights?",
     "enumeration": "7"
    },
-   "solution": "RUMBLES"
+   "solution": "RUMBLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUMBLES",
+    "definitions": [
+     {
+      "text": "Discovers the truth about",
+      "at": 0
+     },
+     {
+      "text": "New York street fights",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discovers the truth about",
+      "note": "first meaning: British slang for seeing through someone's deception"
+     },
+     {
+      "clueFragment": "New York street fights",
+      "note": "second meaning: gang brawls, as in West Side Story"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To be rumbled, in British slang, is to be found out.",
+     "definitionFit": "The word is both British informal for exposing a trick and American slang for organised fights between gangs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +271,66 @@
     "text": "On set, Piers cut off abruptly when about to butt in",
     "enumeration": "9"
    },
-   "solution": "INTERPOSE"
+   "solution": "INTERPOSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INTERPOSE",
+    "definitions": [
+     {
+      "text": "butt in",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut off abruptly",
+      "for": "deletion",
+      "note": "an abrupt cut takes away the very end, so the final letter goes"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean around in a jumble, so the letters are moved round"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On set",
+      "gives": "ONSET",
+      "note": "the two words run together as written"
+     },
+     {
+      "clueFragment": "Piers",
+      "gives": "PIER",
+      "note": "the name without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONSETPIER",
+       "gives": "INTERPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV presenter called Piers is cut short on set whenever he is about to interrupt.",
+     "walkthrough": "Piers looks like a celebrity's name; it simply supplies letters, minus the S.",
+     "definitionFit": "To interpose is to put oneself between others in a conversation, which is interrupting or butting in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piers"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +350,69 @@
      }
     ]
    },
-   "solution": "ICEUP"
+   "solution": "ICEUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ICE UP",
+    "definitions": [
+     {
+      "text": "Freeze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of something is its final letter only"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "bolognese",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the sauce"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "CUP",
+      "note": "a cup holds liquid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "E",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Leftover pasta sauce is put in a tub for the freezer.",
+     "walkthrough": "E goes inside CUP after the C, with I in front.",
+     "definitionFit": "To freeze over is to become covered or blocked with frost, which is what icing up describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +426,39 @@
     "text": "They should be charged for toast",
     "enumeration": "7"
    },
-   "solution": "GLASSES"
+   "solution": "GLASSES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GLASSES",
+    "definitions": [
+     {
+      "text": "They should be charged for toast",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They should be charged for toast",
+      "note": "surface reading: things that ought to be billed for a slice of grilled bread"
+     },
+     {
+      "clueFragment": "charged for toast",
+      "note": "setter's reading: drinking vessels that should be filled before everyone raises them to celebrate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Charged' means filled up with drink, and a toast is a celebratory drink, not grilled bread.",
+     "definitionFit": "Before a toast, guests are told to charge their drinking vessels, meaning fill them with wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +472,65 @@
     "text": "Embarrassing error follows Best's header for Marsh",
     "enumeration": "3"
    },
-   "solution": "BOG"
+   "solution": "BOG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOG",
+    "definitions": [
+     {
+      "text": "Marsh",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "header",
+      "for": "letter_selection",
+      "note": "a header is the top or leading part, so only the opening letter counts"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "whatever follows comes after, so the order of the two pieces is set"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best's",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of the footballer's name"
+     },
+     {
+      "clueFragment": "Embarrassing error",
+      "gives": "OG",
+      "note": "OG is the football abbreviation for an own goal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OG"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer named Best heads the ball and a defender called Marsh blunders into his own net.",
+     "walkthrough": "George Best and Rodney Marsh were footballers, so 'Marsh' looks like a player; it is the definition. An own goal is a ball put into your own net.",
+     "definitionFit": "A bog is wet, spongy ground, a straightforward synonym for a marsh or swamp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Marsh"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +544,55 @@
     "text": "County rubbish tip lacking room",
     "enumeration": "9"
    },
-   "solution": "BEDSITTER"
+   "solution": "BEDSITTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BEDSITTER",
+    "definitions": [
+     {
+      "text": "room",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip lacking",
+      "for": "deletion",
+      "note": "without its tip, a word loses its very first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "County",
+      "gives": "BEDS",
+      "note": "short for Bedfordshire, an English county"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "ITTER",
+      "note": "litter, with its first letter taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEDS",
+      "ITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A county council's rubbish dump has run out of space.",
+     "walkthrough": "'Rubbish tip' looks like a dump; 'tip' is the word's first letter. Beds is the standard abbreviation for Bedfordshire.",
+     "definitionFit": "A bedsitter is a single rented room used for both sleeping and living, a British term for a studio flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +606,54 @@
     "text": "Thunder? Goes running for something waterproof",
     "enumeration": "11"
    },
-   "solution": "GROUNDSHEET"
+   "solution": "GROUNDSHEET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GROUNDSHEET",
+    "definitions": [
+     {
+      "text": "something waterproof",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "running colours bleed and blur, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thunder? Goes",
+      "gives": "THUNDERGOES",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THUNDERGOES",
+       "gives": "GROUNDSHEET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storm is coming, so a camper dashes off to find rain protection.",
+     "walkthrough": "The question mark breaks up the fodder so it reads as a weather warning.",
+     "definitionFit": "A groundsheet is a waterproof sheet laid under a tent or sleeping bag to keep out damp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +667,61 @@
     "text": "If time is saved, more like flying for some distance",
     "enumeration": "9"
    },
-   "solution": "KILOMETRE"
+   "solution": "KILOMETRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KILOMETRE",
+    "definitions": [
+     {
+      "text": "some distance",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "things flying about are scattered every which way, so the letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "If",
+     "is saved,",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "more like",
+      "gives": "MORELIKE",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TMORELIKE",
+       "gives": "KILOMETRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flying rather than driving saves time over a long journey.",
+     "walkthrough": "'If time is saved' means T is kept in with the other letters before they are mixed.",
+     "definitionFit": "A kilometre is a metric unit of length, a thousand metres, so it is one particular measured distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +735,51 @@
     "text": "German car wheel is sound",
     "enumeration": "5"
    },
-   "solution": "AUDIO"
+   "solution": "AUDIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUDIO",
+    "definitions": [
+     {
+      "text": "sound",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German car",
+      "gives": "AUDI",
+      "note": "a German car maker"
+     },
+     {
+      "clueFragment": "wheel",
+      "gives": "O",
+      "note": "a wheel is round like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic declares that the wheel on a German car is in good condition.",
+     "walkthrough": "'Sound' reads as 'in good order' but it is the noun: recorded or broadcast noise.",
+     "definitionFit": "Audio refers to recorded or transmitted noise as opposed to pictures, so it means sound in the technical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +793,63 @@
     "text": "One must leave sooner on quiet fishing boat",
     "enumeration": "7"
    },
-   "solution": "PEARLER"
+   "solution": "PEARLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PEARLER",
+    "definitions": [
+     {
+      "text": "fishing boat",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must leave",
+      "for": "deletion",
+      "note": "whatever must leave is taken out of the word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p for piano, the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral, the letter to be dropped"
+     },
+     {
+      "clueFragment": "sooner",
+      "gives": "EARLIER",
+      "note": "a synonym for sooner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EARLER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has to set off ahead of time on a calm day's fishing trip.",
+     "walkthrough": "EARLIER loses its I and sits after P.",
+     "definitionFit": "A pearler is a vessel used for diving or fishing for pearl oysters, so it is a kind of fishing craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +873,54 @@
      }
     ]
    },
-   "solution": "POINTOFVIEW"
+   "solution": "POINTOFVIEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POINT OF VIEW",
+    "definitions": [
+     {
+      "text": "Outlook",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reason for",
+      "gives": "POINTOF",
+      "note": "the point of something is the reason for it"
+     },
+     {
+      "clueFragment": "struggle",
+      "gives": "VIE",
+      "note": "to vie is to compete or struggle"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is a common abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POINTOF",
+      "VIE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains why they are battling with their Microsoft email program.",
+     "walkthrough": "Outlook is capitalised to look like the email software; it is just the definition.",
+     "definitionFit": "An outlook is a way of seeing things, an attitude or perspective, which is what a point of view means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Outlook"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +934,55 @@
     "text": "Go west, skirting island fire",
     "enumeration": "7"
    },
-   "solution": "PASSION"
+   "solution": "PASSION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PASSION",
+    "definitions": [
+     {
+      "text": "fire",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirting",
+      "for": "container",
+      "note": "to skirt something is to go round its edge, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go west",
+      "gives": "PASSON",
+      "note": "to go west is an idiom for dying, as is to pass on"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller heads west, avoiding a burning island.",
+     "walkthrough": "'Go west' looks like a direction; it is slang for dying.",
+     "definitionFit": "Fire in the figurative sense is intense emotion or ardour, a common synonym for passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +996,59 @@
     "text": "I occasionally cook nosh for models",
     "enumeration": "5"
    },
-   "solution": "ICONS"
+   "solution": "ICONS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ICONS",
+    "definitions": [
+     {
+      "text": "models",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done occasionally happens only now and then, so only every other letter is used"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cook nosh",
+      "gives": "CONS",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sometimes makes food for catwalk models.",
+     "walkthrough": "'Models' suggests fashion models, but here it means exemplars to be imitated.",
+     "definitionFit": "An icon is a revered figure held up as an example to follow, so icons are role models."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "models"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1062,58 @@
     "text": "Appalling tabloid's drawn in by spin",
     "enumeration": "9"
    },
-   "solution": "OUTRAGING"
+   "solution": "OUTRAGING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OUTRAGING",
+    "definitions": [
+     {
+      "text": "Appalling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drawn in by",
+      "for": "container",
+      "note": "something drawn in is pulled inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spin",
+      "gives": "OUTING",
+      "note": "a spin is a short trip out, an outing"
+     },
+     {
+      "clueFragment": "tabloid",
+      "gives": "RAG",
+      "note": "a rag is a disparaging word for a cheap newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RAG",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A gutter newspaper is accused of being sucked into political spin.",
+     "walkthrough": "'Spin' suggests media manipulation, but it is a drive out; the 's stands for 'is'.",
+     "definitionFit": "Outraging as an adjective describes something that shocks and offends deeply, the same as appalling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spin"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1127,47 @@
     "text": "Pal spots rivals",
     "enumeration": "9"
    },
-   "solution": "OPPOSITES"
+   "solution": "OPPOSITES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPOSITES",
+    "definitions": [
+     {
+      "text": "rivals",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pal",
+      "gives": "OPPO",
+      "note": "British informal word for a colleague or mate"
+     },
+     {
+      "clueFragment": "spots",
+      "gives": "SITES",
+      "note": "spots as in places or locations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPPO",
+      "SITES"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend notices the competition.",
+     "walkthrough": "'Spots' reads as a verb, seeing; it is the noun, places. Oppo is British slang for a friend or workmate.",
+     "definitionFit": "Opposites are those set against each other, so opponents or rivals in a contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spots"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1181,59 @@
     "text": "Nursery crop with holes spreading",
     "enumeration": "9"
    },
-   "solution": "PRESCHOOL"
+   "solution": "PRESCHOOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRESCHOOL",
+    "definitions": [
+     {
+      "text": "Nursery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreading",
+      "for": "anagram",
+      "note": "spreading things out scatters them, so the letters are laid down in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crop",
+      "gives": "CROP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "holes",
+      "gives": "HOLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CROPHOLES",
+       "gives": "PRESCHOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden nursery's crop is getting riddled with spreading holes.",
+     "walkthrough": "'Nursery' and 'crop' suggest plants; the nursery is for small children.",
+     "definitionFit": "A nursery is a school for children too young for primary education, which is what a preschool is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nursery"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1257,55 @@
      }
     ]
    },
-   "solution": "TETEATETE"
+   "solution": "TETEATETE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TETE-A-TETE",
+    "definitions": [
+     {
+      "text": "meeting",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Absorbed by",
+      "for": "container",
+      "note": "something absorbed is soaked up inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matching notes",
+      "gives": "TETETE",
+      "note": "the same note of the sol-fa scale, te, repeated"
+     },
+     {
+      "clueFragment": "leaves",
+      "gives": "TEA",
+      "note": "tea leaves, the dried plant used for brewing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "TEA",
+      "TETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone engrossed in harmonising notes walks out of a meeting.",
+     "walkthrough": "'Leaves' looks like a verb, departing; it is the noun, as in tea leaves. Te is the seventh note of the sol-fa scale.",
+     "definitionFit": "A tete-a-tete is a private conversation between two people, borrowed from French for head to head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1319,39 @@
     "text": "Characters remaining when Hammersmith is evacuated",
     "enumeration": "7"
    },
-   "solution": "AITCHES"
+   "solution": "AITCHES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AITCHES",
+    "definitions": [
+     {
+      "text": "Characters remaining when Hammersmith is evacuated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Characters remaining when Hammersmith is evacuated",
+      "note": "surface reading: the people left behind when a London district is cleared"
+     },
+     {
+      "clueFragment": "Hammersmith is evacuated",
+      "note": "setter's reading: emptying the word of its insides leaves just its first and last letters, both the same letter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hammersmith is a district of west London, and 'evacuated' means emptied of its middle letters. 'Characters' are letters, not people.",
+     "definitionFit": "The two letters left at either end of the place name are both the eighth letter of the alphabet, whose spelled name is the plural sought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Characters"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1365,60 @@
     "text": "Small fragment is missing lead for Lewis, TV detective",
     "enumeration": "5"
    },
-   "solution": "MORSE"
+   "solution": "MORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "MORSE",
+    "definitions": [
+     {
+      "text": "TV detective",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead for",
+      "for": "letter_selection",
+      "note": "the lead is what goes in front, so only the opening letter is meant"
+     },
+     {
+      "text": "is missing",
+      "for": "deletion",
+      "note": "whatever is missing has been taken away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small fragment",
+      "gives": "MORSEL",
+      "note": "a morsel is a tiny piece, especially of food"
+     },
+     {
+      "clueFragment": "Lewis",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter, the one to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV detective sidekick named Lewis is missing a small clue.",
+     "walkthrough": "Lewis was Inspector Morse's sergeant, and later had his own series, so the name fits the scene.",
+     "definitionFit": "Inspector Morse is the Oxford detective of novels and a long-running British television series."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1432,62 @@
     "text": "Tuneful Spice Girl tackling loud bit now and then",
     "enumeration": "7"
    },
-   "solution": "MELODIC"
+   "solution": "MELODIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MELODIC",
+    "definitions": [
+     {
+      "text": "Tuneful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "now and then",
+      "for": "letter_selection",
+      "note": "now and then means at intervals, so only every other letter is used"
+     },
+     {
+      "text": "tackling",
+      "for": "container",
+      "note": "a tackler wraps round the person with the ball, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spice Girl",
+      "gives": "MELC",
+      "note": "Mel C was Sporty Spice in the pop group"
+     },
+     {
+      "clueFragment": "loud bit",
+      "gives": "ODI",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEL",
+      "ODI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer from the Spice Girls is attempting a noisy passage of a song.",
+     "walkthrough": "The Spice Girls had two Mels, B and C; this needs Mel C.",
+     "definitionFit": "Melodic describes music with a pleasant, singable tune, so it is a direct synonym for tuneful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tackling"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1501,74 @@
     "text": "Wild fellow managed revolutionary sex clubs",
     "enumeration": "7"
    },
-   "solution": "FRANTIC"
+   "solution": "FRANTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FRANTIC",
+    "definitions": [
+     {
+      "text": "Wild",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is an old euphemism for sex appeal or sex"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C for clubs, the card suit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAN",
+      "TI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild man ran a chain of radical sex clubs.",
+     "walkthrough": "'Sex clubs' reads as one phrase, but each word gives its own letters.",
+     "definitionFit": "Frantic means distraught and out of control with worry or haste, which is one sense of wild."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1582,60 @@
     "text": "Islander's bar joined by regulars from club",
     "enumeration": "5"
    },
-   "solution": "CUBAN"
+   "solution": "CUBAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUBAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regulars from",
+      "for": "letter_selection",
+      "note": "regulars are evenly spaced, so letters are taken at fixed intervals"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "joined by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "CU",
+      "select": "alternate",
+      "note": "the first and third letters"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar is to ban"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "BAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An island pub is busy with regulars from the local club.",
+     "walkthrough": "'Bar' looks like a pub; it means a prohibition. The 's is short for 'is'.",
+     "definitionFit": "A Cuban is a native of Cuba, the largest island in the Caribbean, so a particular kind of islander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1655,58 @@
      }
     ]
    },
-   "solution": "CELLIST"
+   "solution": "CELLIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CELLIST",
+    "definitions": [
+     {
+      "text": "musician",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not covered",
+      "for": "deletion",
+      "note": "uncovered means stripped of its outer layer, so the outside letters go"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chamber",
+      "gives": "CELL",
+      "note": "a cell is a small room"
+     },
+     {
+      "clueFragment": "Misty",
+      "gives": "IST",
+      "note": "the title without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELL",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "The jazz standard Misty has not been recorded by a chamber music group.",
+     "walkthrough": "'Chamber' hints at chamber music, but it is a room. Misty is italicised as a song title.",
+     "definitionFit": "A cellist plays the cello, so is a specific kind of musician, often found in string quartets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chamber"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1720,56 @@
     "text": "'Hacked Off' copy has page missing",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "Hacked Off",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "deletion",
+      "note": "has something missing means that thing is taken away"
+     }
+    ],
+    "linkWords": [
+     "missing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy",
+      "gives": "PIRATE",
+      "note": "to pirate is to copy illegally"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A copy of a book called Hacked Off is missing a page.",
+     "walkthrough": "Hacked Off is styled as a title, perhaps the press-reform campaign; it is just British slang for annoyed.",
+     "definitionFit": "To be hacked off is British informal for being angry and fed up, which matches furious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hacked"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1783,74 @@
     "text": "Hibernian player's backside is pinched by international hard!",
     "enumeration": "5"
    },
-   "solution": "IRISH"
+   "solution": "IRISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IRISH",
+    "definitions": [
+     {
+      "text": "Hibernian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backside",
+      "for": "letter_selection",
+      "note": "a backside is the rear end, so only the final letter is wanted"
+     },
+     {
+      "text": "is pinched by",
+      "for": "container",
+      "note": "something pinched is gripped tightly between two things, so it sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     },
+     {
+      "clueFragment": "player's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of player"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hibernian footballer gets his bottom pinched hard by an international opponent.",
+     "walkthrough": "Hibernian is an Edinburgh football club, but the word also means of Ireland, from Hibernia, its Latin name.",
+     "definitionFit": "Hibernia is the Latin name for Ireland, so Hibernian is a formal adjective for Irish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Hibernian"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1870,57 @@
      }
     ]
    },
-   "solution": "BLOODBANK"
+   "solution": "BLOODBANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOOD BANK",
+    "definitions": [
+     {
+      "text": "place for donations",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in this placing one thing sits on another and so comes after it in the word"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gore",
+      "gives": "BLOOD",
+      "note": "gore is spilt blood"
+     },
+     {
+      "clueFragment": "Rely",
+      "gives": "BANK",
+      "note": "to bank on is to rely on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOOD",
+      "BANK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone counts on Al Gore to locate a charity drop-off point.",
+     "walkthrough": "Gore looks like the US politician; it is blood. 'On' places one piece after the other.",
+     "definitionFit": "A blood bank stores blood given by volunteer donors, so it is where those gifts are collected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gore"
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1934,48 @@
     "text": "Scans unwrapped Kipling novel",
     "enumeration": "3"
    },
-   "solution": "KIM"
+   "solution": "KIM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "KIM",
+    "definitions": [
+     {
+      "text": "Kipling novel",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwrapped",
+      "for": "deletion",
+      "note": "unwrapping removes the outer layer, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scans",
+      "gives": "SKIMS",
+      "note": "to skim is to scan quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader skims through a fresh copy of a Kipling novel.",
+     "walkthrough": "SKIMS loses its outer S at each end.",
+     "definitionFit": "Kim is Rudyard Kipling's 1901 novel about an orphan boy in British India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unwrapped"
+    }
+   }
   },
   {
    "number": 27,
@@ -491,7 +1989,52 @@
     "text": "Heading off, get syrup",
     "enumeration": "3"
    },
-   "solution": "WIG"
+   "solution": "WIG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WIG",
+    "definitions": [
+     {
+      "text": "syrup",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading off",
+      "for": "deletion",
+      "note": "with the head taken off, a word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get",
+      "gives": "TWIG",
+      "note": "to twig is British informal for to get or understand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaving tells another to go and fetch golden syrup.",
+     "walkthrough": "Syrup is Cockney rhyming slang: syrup of figs, wig.",
+     "definitionFit": "In rhyming slang syrup of figs stands for wig, shortened to its first word as usual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "syrup"
+    }
+   }
   },
   {
    "number": 28,
@@ -511,7 +2054,51 @@
      }
     ]
    },
-   "solution": "SINGLECREAM"
+   "solution": "SINGLECREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SINGLE CREAM",
+    "definitions": [
+     {
+      "text": "dairy product",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something gone off has spoiled and changed, so the letters go wrong"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleans grime",
+      "gives": "CLEANSGRIME",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEANSGRIME",
+       "gives": "SINGLECREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scrubs dirt from a dairy product.",
+     "walkthrough": "'Off' sits naturally after 'grime', and also hints at milk going sour.",
+     "definitionFit": "Single cream is a thin pouring cream, lower in fat than double, sold in British shops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   }
  ]
 }
