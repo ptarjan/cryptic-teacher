@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Resolute company",
     "enumeration": "4"
    },
-   "solution": "FIRM"
+   "solution": "FIRM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIRM",
+    "definitions": [
+     {
+      "text": "Resolute",
+      "at": 0
+     },
+     {
+      "text": "company",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resolute",
+      "note": "first meaning: steadfast, not yielding"
+     },
+     {
+      "clueFragment": "company",
+      "note": "second meaning: a business"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the words suggest a determined business, but they are two separate meanings of one word, one an adjective and one a noun.",
+     "definitionFit": "The word means unwavering as an adjective and a commercial business as a noun, so it fits both halves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,43 @@
     "text": "Blooming common thing to be doing on Shrove Tuesday?",
     "enumeration": "8"
    },
-   "solution": "FLIPPING"
+   "solution": "FLIPPING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLIPPING",
+    "definitions": [
+     {
+      "text": "Blooming",
+      "at": 0
+     },
+     {
+      "text": "common thing to be doing on Shrove Tuesday",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blooming",
+      "note": "first meaning: a mild British intensifier, as in 'blooming cheek'"
+     },
+     {
+      "clueFragment": "common thing to be doing on Shrove Tuesday",
+      "note": "second meaning: tossing pancakes, the custom of Pancake Day"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Blooming' suggests flowers in spring; here it is the mild British expletive. Shrove Tuesday, the day before Lent, is Pancake Day in Britain, when pancakes are tossed in the pan.",
+     "definitionFit": "The word is both a polite British swear-word intensifier and the action of tossing pancakes over in a pan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blooming"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +135,57 @@
     "text": "Fend off horrible person partly on the rise",
     "enumeration": "5"
    },
-   "solution": "REPEL"
+   "solution": "REPEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REPEL",
+    "definitions": [
+     {
+      "text": "Fend off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the letters sit inside consecutive words"
+     },
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading from the bottom upward, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horrible person",
+      "gives": "LEPER",
+      "note": "the letters straddle the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LEPER",
+       "to": "REPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to drive away an unpleasant person who is gaining ground.",
+     "walkthrough": "LEPER is hidden in 'horribLE PERson'; reading it upwards gives REPEL.",
+     "definitionFit": "To repel an attacker is to drive them back or ward them away successfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partly"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +199,72 @@
     "text": "Cavers moved east around small crack in a glacier",
     "enumeration": "8"
    },
-   "solution": "CREVASSE"
+   "solution": "CREVASSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CREVASSE",
+    "definitions": [
+     {
+      "text": "crack in a glacier",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "things that are moved change place, so the letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one part wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cavers",
+      "gives": "CAVERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing sizes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREVA",
+      "S",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAVERSE",
+       "gives": "CREVASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Potholers shift eastward around a small fissure in an ice sheet.",
+     "walkthrough": "CAVERS plus E are rearranged to CREVASE, and S goes inside to make CREVASSE.",
+     "definitionFit": "A crevasse is the deep open fissure that forms in glacier ice as it moves and stretches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +278,60 @@
     "text": "Spoke really aggressively at first on phone",
     "enumeration": "6"
    },
-   "solution": "RADIAL"
+   "solution": "RADIAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RADIAL",
+    "definitions": [
+     {
+      "text": "Spoke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "what comes first is the opening letter, so each of these words gives its initial"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "really aggressively",
+      "gives": "RA",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "phone",
+      "gives": "DIAL",
+      "note": "to dial is to phone someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "DIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talked very belligerently at the start of a telephone call.",
+     "walkthrough": "'Spoke' reads as the past tense of speak, but it is a noun: the rod of a wheel. In a down clue 'on' means placed above.",
+     "definitionFit": "A radial is a line running out from a centre, and a wheel spoke is exactly such a line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spoke"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +345,55 @@
     "text": "Given attire distributed for dressing",
     "enumeration": "11"
    },
-   "solution": "VINAIGRETTE"
+   "solution": "VINAIGRETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VINAIGRETTE",
+    "definitions": [
+     {
+      "text": "dressing",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "something distributed is spread out and dealt around, so the letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Given attire",
+      "gives": "GIVENATTIRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIVENATTIRE",
+       "gives": "VINAIGRETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clothes are handed out for people to get dressed in.",
+     "walkthrough": "'Attire' and 'dressing' pull towards clothes; the dressing is the one poured on a salad.",
+     "definitionFit": "Vinaigrette is an oil and vinegar mixture used as a salad dressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +407,39 @@
     "text": "Illustration, for example?",
     "enumeration": "7"
    },
-   "solution": "SYNONYM"
+   "solution": "SYNONYM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SYNONYM",
+    "definitions": [
+     {
+      "text": "Illustration, for example?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illustration, for example?",
+      "note": "surface reading: a picture offered as an instance of something"
+     },
+     {
+      "clueFragment": "Illustration, for example?",
+      "note": "setter's reading: the word 'illustration' stands for the word 'example', since the two mean the same"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue looks like it asks for a kind of picture; instead it treats the two words as words, one of which can stand in for the other.",
+     "definitionFit": "Words with the same meaning, like illustration and example, are each a word of equivalent sense for the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Illustration"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +453,55 @@
     "text": "Imitate head of entertainment on radio broadcast?",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Imitate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, its opening letter"
+     },
+     {
+      "text": "on radio broadcast",
+      "for": "substitution",
+      "note": "radio operators replace each letter with a code word, so a letter is swapped for its spoken name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertainment",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECHO"
+     ]
+    },
+    "explanation": {
+     "surface": "A mimic copies the voice of a station's entertainment chief on air.",
+     "walkthrough": "In the NATO phonetic alphabet used on radio, the letter E is spoken as Echo.",
+     "definitionFit": "To echo someone is to repeat or copy what they say or do, a synonym for mimicking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +515,69 @@
     "text": "Blocked current politician meeting senior journalist more than once",
     "enumeration": "7"
    },
-   "solution": "IMPEDED"
+   "solution": "IMPEDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEDED",
+    "definitions": [
+     {
+      "text": "Blocked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "more than once",
+      "for": "charade",
+      "note": "this phrase says the preceding element appears twice in succession"
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "senior journalist",
+      "gives": "ED",
+      "note": "short for editor"
+     },
+     {
+      "clueFragment": "senior journalist",
+      "gives": "ED",
+      "note": "the same piece again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "ED",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician is prevented from meeting a newspaper editor repeatedly.",
+     "walkthrough": "I is the physics symbol for current; 'more than once' doubles the editor.",
+     "definitionFit": "Something impeded has been hindered or obstructed, the same as blocked in its path."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +597,54 @@
      }
     ]
    },
-   "solution": "DRIVINGSEAT"
+   "solution": "DRIVINGSEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRIVING SEAT",
+    "definitions": [
+     {
+      "text": "Place of control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' offers one possible version of the letters, so they can be reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advertising",
+      "gives": "ADVERTISING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADVERTISING",
+       "gives": "DRIVINGSEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders where the real power lies in the ad business.",
+     "walkthrough": "'In advertising, possibly' reads like a qualifier on a job role; the single word holds exactly the eleven letters needed.",
+     "definitionFit": "Being in the driving seat is the idiom for being in charge, the position from which things are steered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +658,42 @@
     "text": "Some tension in the last inning of baseball game",
     "enumeration": "5"
    },
-   "solution": "NINTH"
+   "solution": "NINTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NINTH",
+    "definitions": [
+     {
+      "text": "last inning of baseball game",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters are used, a run inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tension in the",
+      "gives": "NINTH",
+      "note": "the letters run from the end of the first word through the middle word into the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Nerves fray at the climax of a ball game.",
+     "walkthrough": "The answer sits in 'tensioN IN THe'; 'the' does double duty in the surface.",
+     "definitionFit": "A regulation baseball game has nine innings, so the ninth is the final one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +707,57 @@
     "text": "Task of certain workers is to survey one group of people",
     "enumeration": "11"
    },
-   "solution": "POLLINATION"
+   "solution": "POLLINATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POLLINATION",
+    "definitions": [
+     {
+      "text": "Task of certain workers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "survey",
+      "gives": "POLL",
+      "note": "an opinion poll is a survey"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "group of people",
+      "gives": "NATION",
+      "note": "a people forming one country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLL",
+      "I",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Some employees are assigned to canvass a group of people.",
+     "walkthrough": "The workers are worker bees, not office staff.",
+     "definitionFit": "Worker bees carry pollen from flower to flower, so fertilising plants is their job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "workers"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +771,62 @@
     "text": "Fruit in Massachusetts, North Dakota, Arkansas, and Indiana",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDARIN",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Massachusetts",
+      "gives": "MA",
+      "note": "postal code for Massachusetts"
+     },
+     {
+      "clueFragment": "North Dakota",
+      "gives": "ND",
+      "note": "postal code for North Dakota"
+     },
+     {
+      "clueFragment": "Arkansas",
+      "gives": "AR",
+      "note": "postal code for Arkansas"
+     },
+     {
+      "clueFragment": "Indiana",
+      "gives": "IN",
+      "note": "postal code for Indiana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "ND",
+      "AR",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit is grown across several American states.",
+     "walkthrough": "Each state gives its two-letter US postal abbreviation.",
+     "definitionFit": "A mandarin is a small loose-skinned citrus fruit, close kin of the tangerine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +840,61 @@
     "text": "Foolish individual turned in another foolish individual",
     "enumeration": "6"
    },
-   "solution": "NITWIT"
+   "solution": "NITWIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NITWIT",
+    "definitions": [
+     {
+      "text": "Foolish individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned round faces the other way, so its letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another foolish individual",
+      "gives": "TWIT",
+      "note": "a twit is a silly person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "TWIT"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One fool reports another fool to the authorities.",
+     "walkthrough": "'Turned in' looks like betrayed to the police; 'in' is the piece that is turned round.",
+     "definitionFit": "A nitwit is a silly, stupid person, a synonym for a fool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +914,71 @@
      }
     ]
    },
-   "solution": "TSHIRTS"
+   "solution": "TSHIRTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "T-SHIRTS",
+    "definitions": [
+     {
+      "text": "Clothing items",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is a remade one, so the letters take a fresh order"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "what comes ultimately comes last, so each word gives its final letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "designer didn’t impress",
+      "gives": "RTS",
+      "select": "last",
+      "note": "the final letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TSHI",
+      "RTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THIS",
+       "gives": "TSHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh designer's garments failed to win over the critics.",
+     "walkthrough": "'New designer' reads as a newcomer to fashion; 'new' applies only to the word before it.",
+     "definitionFit": "T-shirts are casual short-sleeved tops, everyday garments of the kind called clothing items."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +992,53 @@
     "text": "Piracy perhaps alongside a peninsula",
     "enumeration": "6"
    },
-   "solution": "CRIMEA"
+   "solution": "CRIMEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRIMEA",
+    "definitions": [
+     {
+      "text": "peninsula",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alongside",
+      "for": "charade",
+      "note": "placing one thing alongside another sets them side by side in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piracy perhaps",
+      "gives": "CRIME",
+      "note": "piracy is one example of a crime"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIME",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Pirates operate off the coast of a peninsula.",
+     "walkthrough": "'Perhaps' marks piracy as one example of the wider category.",
+     "definitionFit": "Crimea is the peninsula jutting into the Black Sea from southern Ukraine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1052,55 @@
     "text": "Circles round harbour somewhere in Iberia",
     "enumeration": "6"
    },
-   "solution": "OPORTO"
+   "solution": "OPORTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPORTO",
+    "definitions": [
+     {
+      "text": "somewhere in Iberia",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encircles it, so the outer pieces enclose the inner one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circles",
+      "gives": "OO",
+      "note": "each circle is the round letter O"
+     },
+     {
+      "clueFragment": "harbour",
+      "gives": "PORT",
+      "note": "a port is a harbour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PORT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Rings are drawn round a harbour on a map of Spain and Portugal.",
+     "walkthrough": "Oporto is the older English name for Porto in Portugal, which fittingly contains a port.",
+     "definitionFit": "Oporto is a city in northern Portugal, and Portugal forms part of the Iberian peninsula."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Circles"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1120,45 @@
      }
     ]
    },
-   "solution": "HIGHPITCHED"
+   "solution": "HIGHPITCHED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HIGH-PITCHED",
+    "definitions": [
+     {
+      "text": "Shrill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we’re told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity stunt was irritating",
+      "gives": "HIGHPITCHED",
+      "soundsLike": "HYPE ITCHED",
+      "note": "hype is showy publicity, and something that itched was irritating"
+     }
+    ],
+    "explanation": {
+     "surface": "A noisy marketing gimmick got on people's nerves.",
+     "walkthrough": "Said aloud, HYPE ITCHED runs together into HIGH-PITCHED.",
+     "definitionFit": "A shrill sound is piercingly high in tone, which is what a high-pitched noise is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shrill"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1172,53 @@
     "text": "Temporary setback had an effect on church",
     "enumeration": "5"
    },
-   "solution": "HITCH"
+   "solution": "HITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HITCH",
+    "definitions": [
+     {
+      "text": "Temporary setback",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one thing on another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had an effect",
+      "gives": "HIT",
+      "note": "something that hit had an impact"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief reversal of fortune made a mark on the congregation.",
+     "walkthrough": "'Had an effect' as in a policy that hit hard.",
+     "definitionFit": "A hitch is a minor snag or delay that holds things up for a while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1232,54 @@
     "text": "Cut legs when climbing",
     "enumeration": "4"
    },
-   "solution": "SNIP"
+   "solution": "SNIP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNIP",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when climbing",
+      "for": "reversal",
+      "note": "climbing goes upward, and in a down clue that reads the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legs",
+      "gives": "PINS",
+      "note": "pins is informal British slang for legs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNIP"
+     ],
+     "reversals": [
+      {
+       "from": "PINS",
+       "to": "SNIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber's legs get gashed on the way up.",
+     "walkthrough": "Pins is a jokey British word for legs, as in 'wobbly on my pins'.",
+     "definitionFit": "To snip is to cut with a quick small stroke of scissors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "legs"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1293,49 @@
     "text": "Caregiver periodically on our roster",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NURSE",
+    "definitions": [
+     {
+      "text": "Caregiver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on our roster",
+      "gives": "NURSE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NURSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A carer shows up on the staff rota now and then.",
+     "walkthrough": "Ignoring the spaces, take every second letter starting with the second: oN oUr RoStEr.",
+     "definitionFit": "A nurse is a trained professional who looks after the sick, a classic caregiver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "periodically"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1355,62 @@
      }
     ]
    },
-   "solution": "REENTER"
+   "solution": "REENTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RE-ENTER",
+    "definitions": [
+     {
+      "text": "come back inside",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tenant",
+      "gives": "RENTER",
+      "note": "a tenant rents a home"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lodger finally gets round to returning home.",
+     "walkthrough": "'Time at the end' looks like 'eventually'; it is the last letter of 'time', slipped into RENTER after the R.",
+     "definitionFit": "To re-enter is to go into a place again after leaving, returning indoors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1424,42 @@
     "text": "Job arrangement",
     "enumeration": "8"
    },
-   "solution": "POSITION"
+   "solution": "POSITION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POSITION",
+    "definitions": [
+     {
+      "text": "Job",
+      "at": 0
+     },
+     {
+      "text": "arrangement",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Job",
+      "note": "first meaning: a post of employment"
+     },
+     {
+      "clueFragment": "arrangement",
+      "note": "second meaning: the way things are placed or set out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Together the words sound like a work contract, but they are two separate meanings of one noun.",
+     "definitionFit": "The noun means both a post someone holds at work and the placement or layout of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1473,48 @@
     "text": "Object almost entirely lacking in solidity",
     "enumeration": "4"
    },
-   "solution": "THIN"
+   "solution": "THIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIN",
+    "definitions": [
+     {
+      "text": "lacking in solidity",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost entirely",
+      "for": "deletion",
+      "note": "almost all of something stops just short, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Object",
+      "gives": "THING",
+      "note": "an object is a thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objects that an argument has almost no substance.",
+     "walkthrough": "'Object' looks like a verb meaning protest; it is the noun.",
+     "definitionFit": "Something thin, like a watery soup or a weak excuse, lacks body or substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   }
  ]
 }
