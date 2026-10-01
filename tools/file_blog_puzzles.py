@@ -313,21 +313,24 @@ def with_enumeration(clue, enumeration):
     return f"{body} ({enumeration})"
 
 
-#: The Mephisto's count in words, "(11, two words)".
-WORDED = re.compile(r"\(\s*(\d{1,2})\s*,\s*(two|three|four|five|six)\s+words\s*\)\s*$", re.I)
-NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+#: A blogger's note on a count the paper got wrong, "(6, should say “two
+#: words”)": the answer's words are the count, when they agree with the note.
+NOTED = re.compile(r"\(\s*(\d{1,2})\s*,\s*should say\s*[“\"']?((?:two|three|four|five|six)\s+words)"
+                   r"[”\"']?\s*\)\s*$", re.I)
 
 
 def worded(clue, enum):
     """The clue with a count in words, "(11, two words)", written as the
     enumeration the blog read off the answer, "(5,6)", when that has the same
-    total and as many words; else the clue as it was."""
-    m = WORDED.search(clue or "")
+    total and as many words; else the clue as it was, the printed count kept
+    in its text. A blogger's "should say" note is taken only when the answer
+    agrees with it."""
+    noted = NOTED.search(clue or "")
+    m = enumeration.worded(NOTED.sub(r"(\1, \2)", clue or "") if noted else clue)
     if not (m and enum):
         return clue
     parts = enumeration_parts(enum)
-    if (sum(n for n, _ in parts) != int(m.group(1))
-            or len(parts) != NUMBER_WORDS[m.group(2).lower()]):
+    if sum(n for n, _ in parts) != m[0] or len(parts) != m[1]:
         return clue
     return with_enumeration(clue, enum)
 

@@ -26,6 +26,20 @@ _TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)\s*$")
 FORM = re.compile(r"\d+(?:(?:[,\-.;:/']| | and )\d+)*")
 
 
+#: A count in words at a clue's end, the Mephisto's "(11, two words)": the
+#: total and how many words, with no breaks. It stays in the clue's text as
+#: printed, since `enumeration` holds counts and marks alone.
+WORDED = re.compile(r"\(\s*(\d{1,2})\s*,\s*(two|three|four|five|six|seven|eight)\s+words\s*\)\s*$",
+                    re.I)
+NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8}
+
+
+def worded(text):
+    """(total, words) for a text ending in a count in words, else None."""
+    m = WORDED.search(text or "")
+    return (int(m.group(1)), NUMBER_WORDS[m.group(2).lower()]) if m else None
+
+
 def _spelling(printed):
     s = (printed.replace("–", "-").replace("—", "-").replace("\u2011", "-")
          .replace("’", "'").replace("′", "'"))

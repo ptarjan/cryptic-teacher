@@ -72,6 +72,16 @@ for e in recs[0]["entries"]:
     # The blog's underlining and a byte lost in its decoding.
     if (e["number"], e["direction"]) == (1, "down"):
         e["clue"] = "Say \u201cit\u201d\x9d </u>quietly</u> (2)"
+# A count in words (the Mephisto's) is kept as printed when the answer the
+# blog wrote has no breaks to read; a blogger's "should say" note is taken
+# only as the answer's own breaks.
+row1 = next(k for k, cs in cells.items() if k[1] == "across" and cs[0][0] == 1)
+for e in recs[0]["entries"]:
+    if (e["number"], e["direction"]) == row1:
+        e["clue"] = "Worded (5, two words)"
+for e in recs[1]["entries"]:
+    if (e["number"], e["direction"]) == (2, "down"):
+        e["clue"], e["enumeration"] = "Noted (5, should say \u201ctwo words\u201d)", "2,3"
 # The blog mistyped 1-across on post 2; the grid row corrects it.
 blog_typo = recs[1]["entries"][[(e["number"], e["direction"]) for e in recs[1]["entries"]].index((1, "across"))]
 right = blog_typo["answer"]
@@ -96,6 +106,7 @@ p = json.loads(puzzle_paths.find("times-100").read_text())
 by_id = {entry_id(e): e for e in p["entries"]}
 print("CLUE_KEEPS_COUNT", enumeration.printed(by_id["2-down"]["clue"]))
 print("CLEAN", enumeration.printed(by_id["1-down"]["clue"]))
+print("WORDED", enumeration.printed(by_id["%d-%s" % row1]["clue"]))
 print("SEPARATORS", json.dumps(by_id["2-down"]["clue"].get("separators")))
 print("SOLVED", all(e["solution"] for e in p["entries"]))
 print("DATED", p["date"])
@@ -103,6 +114,7 @@ print("ORIGINS", p["source"]["gridOrigin"], p["solutions"]["origin"])
 print("PROV_CLEAN", provenance.check(p) == [])
 fixed = json.loads(puzzle_paths.find("times-101").read_text())
 print("CORRECTED", {entry_id(e): e for e in fixed["entries"]}["1-across"]["solution"] == right)
+print("NOTED", enumeration.printed({entry_id(e): e for e in fixed["entries"]}["2-down"]["clue"]))
 sunday = json.loads(puzzle_paths.find("sundaytimes-4321").read_text())
 print("PRIZE_UNDATED", sunday["date"], json.loads(puzzle_paths.find("times-29000").read_text())["date"])
 
@@ -223,6 +235,8 @@ check "a mistyped title is renumbered only onto one free slot that fits" \
   "5045 None None" "$(got RETYPED)"
 check "the clue keeps its enumeration" "Two words (2,3)" "$(got CLUE_KEEPS_COUNT)"
 check "markup and lost bytes are stripped from a clue" "Say “it” quietly (2)" "$(got CLEAN)"
+check "a count in words with no breaks to read is filed as printed" "Worded (5, two words)" "$(got WORDED)"
+check "a blogger's \"should say\" note becomes the answer's breaks" "Noted (2,3)" "$(got NOTED)"
 check "word breaks come from the enumeration" '[{"at": 2, "mark": ","}]' "$(got SEPARATORS)"
 check "filed with every answer" "True" "$(got SOLVED)"
 check "a daily is dated by its post" "2026-01-05" "$(got DATED)"
