@@ -24,6 +24,9 @@
   "date": "2026-02-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Wood drill included in limited bargain offer",
     "enumeration": "6"
    },
-   "solution": "SAPELE"
+   "solution": "SAPELE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAPELE",
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in another sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "limited bargain offer",
+      "gives": "SALE",
+      "note": "a sale is a bargain offer that runs for a limited time"
+     },
+     {
+      "clueFragment": "drill",
+      "gives": "PE",
+      "note": "PE, physical education, is school drill or exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "PE",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop runs a short promotion on power tools, with a drill thrown in.",
+     "walkthrough": "'Wood drill' reads as a tool for boring timber; drill is really school exercise, PE. SAPELE is an African hardwood like mahogany.",
+     "definitionFit": "Sapele is a reddish African hardwood tree and its timber, used for furniture and veneers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +102,65 @@
     "text": "Slippery sort of trick, entering country after cover’s blown",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ANACONDA",
+    "definitions": [
+     {
+      "text": "Slippery sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cover’s blown",
+      "for": "deletion",
+      "note": "when a cover is blown the top is lost, so the opening letter goes"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "ANADA",
+      "note": "CANADA with its first letter removed"
+     },
+     {
+      "clueFragment": "trick",
+      "gives": "CON",
+      "note": "a con is a trick or swindle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANA",
+      "CON",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A slippery operator slips into a country after their spy cover is exposed.",
+     "walkthrough": "'Cover's blown' sounds like espionage; here the cover is the top letter of the country, which comes off before the trick goes in.",
+     "definitionFit": "A snake is a proverbially slippery creature, and the anaconda is a large South American constricting serpent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cover’s"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +180,52 @@
      }
     ]
    },
-   "solution": "EYESLEFT"
+   "solution": "EYESLEFT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EYES LEFT",
+    "definitions": [
+     {
+      "text": "What’s said to turn heads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters that are wrong are out of their proper order and must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yet feels",
+      "gives": "YETFEELS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YETFEELS",
+       "gives": "EYESLEFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something said to make people look round still leaves you feeling uneasy.",
+     "walkthrough": "'Turn heads' suggests glamour; here it is literal, a parade-ground order to look to one side.",
+     "definitionFit": "On parade, the command for soldiers to turn their heads sharply towards the left, usually in salute while marching past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +239,71 @@
     "text": "Will nominee from 60 per cent of business chiefs run with current vote?",
     "enumeration": "9"
    },
-   "solution": "EXECUTRIX"
+   "solution": "EXECUTRIX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXECUTRIX",
+    "definitions": [
+     {
+      "text": "Will nominee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "60 per cent of",
+      "for": "letter_selection",
+      "note": "sixty per cent means keeping only six of every ten letters from the start"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business chiefs",
+      "gives": "EXECUT",
+      "select": "first",
+      "note": "EXECUTIVES has ten letters; the first six are kept"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for run"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a voter marks a ballot with a cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXECUT",
+      "R",
+      "I",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about company bosses' choice in an election, framed as a will.",
+     "walkthrough": "'Will' looks like the future tense, but it is a testament; 'with' just joins the pieces.",
+     "definitionFit": "An executrix is a woman appointed in a testament to carry out its terms after the testator's death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +323,77 @@
      }
     ]
    },
-   "solution": "JIVETALK"
+   "solution": "JIVETALK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JIVE TALK",
+    "definitions": [
+     {
+      "text": "American jazz slang",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacant",
+      "for": "letter_selection",
+      "note": "something vacant is emptied, so only its outside letters remain"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the card abbreviation for jack"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "examine",
+      "gives": "VET",
+      "note": "to vet is to examine closely"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LK",
+      "select": "outer",
+      "note": "the word emptied of its middle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "I",
+      "VET",
+      "A",
+      "LK"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people puzzle over American jazz slang, staring blankly.",
+     "walkthrough": "'A vacant look' reads as a blank stare; it is A plus the shell of the word 'look'.",
+     "definitionFit": "Jive talk was the hip argot of 1930s and 1940s Harlem jazz musicians, full of coded street expressions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacant"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +413,62 @@
      }
     ]
    },
-   "solution": "JEEPERSCREEPERS"
+   "solution": "JEEPERSCREEPERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JEEPERS CREEPERS",
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so each word gives its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US off-road vehicle",
+      "gives": "JEEP",
+      "note": "the Jeep is the American off-road vehicle"
+     },
+     {
+      "clueFragment": "evades roads, scaring",
+      "gives": "ERS",
+      "select": "first",
+      "note": "first letters of the three words"
+     },
+     {
+      "clueFragment": "woodland birds",
+      "gives": "CREEPERS",
+      "note": "treecreepers, small birds that climb tree trunks, are called creepers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JEEP",
+      "ERS",
+      "CREEPERS"
+     ]
+    },
+    "explanation": {
+     "surface": "An American off-roader swerves off the roads and frightens birds in the woods.",
+     "walkthrough": "'My' looks like a possessive attached to the vehicle; it is the exclamation of surprise, and 'US' qualifies both senses.",
+     "definitionFit": "Both are exclamations of surprise or alarm; the longer phrase is a dated American expletive used in place of 'Jesus Christ'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +482,62 @@
     "text": "Joy caught good man cutting a piece of cake",
     "enumeration": "7"
    },
-   "solution": "ECSTASY"
+   "solution": "ECSTASY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ECSTASY",
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a blade cutting into something goes inside it, so these letters are set within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scoring abbreviation for caught"
+     },
+     {
+      "clueFragment": "good man",
+      "gives": "ST",
+      "note": "ST, saint, is a crossword good man"
+     },
+     {
+      "clueFragment": "a piece of cake",
+      "gives": "EASY",
+      "note": "a piece of cake is something easy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CST",
+      "ASY"
+     ]
+    },
+    "explanation": {
+     "surface": "Joy is caught by a decent man slicing a bit of cake.",
+     "walkthrough": "'A piece of cake' tempts a literal slice; it is the idiom for something simple.",
+     "definitionFit": "Ecstasy is an overwhelming feeling of delight or rapture, the extreme of happiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +551,51 @@
     "text": "Aesthetically pleasing strict AI hybrid",
     "enumeration": "8"
    },
-   "solution": "ARTISTIC"
+   "solution": "ARTISTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTISTIC",
+    "definitions": [
+     {
+      "text": "Aesthetically pleasing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hybrid",
+      "for": "anagram",
+      "note": "a hybrid is a mixture, so the letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strict AI",
+      "gives": "STRICTAI",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRICTAI",
+       "gives": "ARTISTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rigid artificial intelligence blended with something attractive.",
+     "walkthrough": "'Hybrid' sounds like a description of the AI system; it signals the letters are blended.",
+     "definitionFit": "Something artistic shows creative skill and taste, and is attractive to look at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hybrid"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +609,55 @@
     "text": "Jumper and anorak go astray",
     "enumeration": "8"
    },
-   "solution": "KANGAROO"
+   "solution": "KANGAROO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KANGAROO",
+    "definitions": [
+     {
+      "text": "Jumper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "astray",
+      "for": "anagram",
+      "note": "things gone astray have wandered from their places, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anorak go",
+      "gives": "ANORAKGO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANORAKGO",
+       "gives": "KANGAROO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweater and a waterproof coat go missing from the laundry.",
+     "walkthrough": "Jumper is British for a sweater, and with 'anorak' it looks like clothing; it is an animal that jumps. 'And' just joins the definition to the wordplay.",
+     "definitionFit": "Kangaroos move by hopping on their powerful hind legs, making them the archetypal leaping animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jumper"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +677,86 @@
      }
     ]
    },
-   "solution": "SAMEHERE"
+   "solution": "SAMEHERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "SAME HERE",
+    "definitions": [
+     {
+      "text": "Me Too",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crux",
+      "for": "letter_selection",
+      "note": "the crux is the heart of a matter, so the central letters are taken"
+     },
+     {
+      "text": "is about",
+      "for": "reversal",
+      "note": "to be about is to turn round, so the letters run the other way"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "a stopping plugs a gap, so this piece goes inside the other"
+     },
+     {
+      "text": "lunatic",
+      "for": "anagram",
+      "note": "lunatic means crazy, so these letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "movement’s",
+      "gives": "EM",
+      "select": "middle",
+      "note": "the two central letters of the eight-letter word"
+     },
+     {
+      "clueFragment": "a sheer",
+      "gives": "ASHEER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "ME",
+      "HERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASHEER",
+       "gives": "SAHERE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "EM",
+       "to": "ME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The key point of the #MeToo campaign is about halting an utterly mad person.",
+     "walkthrough": "'Me Too movement' reads as the campaign, but 'Me Too' alone is the definition, the casual reply of someone who agrees; 'movement' only supplies its middle.",
+     "definitionFit": "Both are casual replies meaning the speaker shares the same experience or feeling as the previous person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "movement’s"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +770,68 @@
     "text": "British ballet luminary remains tense over Nureyev’s lead",
     "enumeration": "6"
    },
-   "solution": "ASHTON"
+   "solution": "ASHTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASHTON",
+    "definitions": [
+     {
+      "text": "British ballet luminary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "the lead is what goes in front, so the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "ash is what remains after burning"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for over"
+     },
+     {
+      "clueFragment": "Nureyev’s",
+      "gives": "N",
+      "select": "first",
+      "note": "opening letter of the dancer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "T",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A great British dancer's legacy stays strained under Nureyev's leading role.",
+     "walkthrough": "Over is O from cricket scoring, where an over is a set of six balls. Nureyev fits the ballet scene but supplies only N.",
+     "definitionFit": "Sir Frederick Ashton was the founding choreographer of the Royal Ballet and a towering figure of twentieth-century British dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +845,46 @@
     "text": "23 city to fail in discussions",
     "enumeration": "8"
    },
-   "solution": "TOULOUSE"
+   "solution": "TOULOUSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TOULOUSE",
+    "definitions": [
+     {
+      "text": "23 city",
+      "at": 0,
+      "note": "23 Across is EUROPEAN, so a European city"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in discussions",
+      "for": "homophone",
+      "note": "discussions are spoken, so the words are taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to fail",
+      "gives": "TOULOUSE",
+      "soundsLike": "TO LOSE",
+      "note": "to fail is to lose, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "A European city's negotiations are about to collapse.",
+     "walkthrough": "The cross-reference makes the definition 'European city'; 'to fail' is 'to lose', and spoken, that phrase matches the city's name.",
+     "definitionFit": "Toulouse is a major city in south-west France, home of the Airbus aircraft industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discussions"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +898,58 @@
     "text": "Revolutionary Dadaist affair involves Ivy’s family member",
     "enumeration": "6"
    },
-   "solution": "FATSIA"
+   "solution": "FATSIA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FATSIA",
+    "definitions": [
+     {
+      "text": "Ivy’s family member",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involves",
+      "for": "hidden_word",
+      "note": "to involve is to contain, so the run of letters lies inside the words"
+     },
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dadaist affair",
+      "gives": "AISTAF",
+      "note": "a run of letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "AISTAF",
+       "to": "FATSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radical avant-garde artist's love affair draws in a relative called Ivy.",
+     "walkthrough": "Ivy looks like a woman's name; it is the plant, and its family is the Araliaceae. The letters sit backwards across the two words.",
+     "definitionFit": "Fatsia, the false castor-oil plant, belongs to the same botanical family, Araliaceae, as common ivy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ivy’s"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +963,71 @@
     "text": "Rope lines missing on bar linked to back of pulley",
     "enumeration": "8"
    },
-   "solution": "FORESTAY"
+   "solution": "FORESTAY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FORESTAY",
+    "definitions": [
+     {
+      "text": "Rope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "what is missing has gone, so those letters are removed"
+     },
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of something is its end, so the final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "FORESTALL",
+      "note": "to forestall is to bar or prevent"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, so two of them"
+     },
+     {
+      "clueFragment": "pulley",
+      "gives": "Y",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORESTA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A rope with missing lines hangs from a rod attached to a pulley.",
+     "walkthrough": "FORESTALL loses its two Ls (lines), then Y is added. The sailing setting makes 'lines' look like ropes, but it is just LL.",
+     "definitionFit": "A forestay is the stay, or supporting wire rope, running from a sailing ship's masthead down to the bow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1041,59 @@
     "text": "Severe critic of, on and off, adroit formality",
     "enumeration": "9"
    },
-   "solution": "ARISTARCH"
+   "solution": "ARISTARCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARISTARCH",
+    "definitions": [
+     {
+      "text": "Severe critic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on and off",
+      "for": "letter_selection",
+      "note": "on and off means every other time, so alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adroit",
+      "gives": "ARI",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "formality",
+      "gives": "STARCH",
+      "note": "starch is stiffness or formality of manner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARI",
+      "STARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh reviewer of clever stiffness that comes and goes.",
+     "walkthrough": "The name comes from Aristarchus of Samothrace, a famously exacting Greek scholar who edited Homer.",
+     "definitionFit": "An aristarch is a rare word for a stern, exacting reviewer, after the ancient Alexandrian textual scholar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "formality"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1107,81 @@
     "text": "Orient Express, without stopping around Vienna, finally heading for Turkey",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Orient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without stopping",
+      "for": "deletion",
+      "note": "a stopping is a dental filling, so the word loses its filling and keeps only its shell"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so the last letter is taken"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around is to surround, so one piece is placed within another"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading sits at the top, so the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express",
+      "gives": "ES",
+      "note": "the word with its inside emptied out"
+     },
+     {
+      "clueFragment": "Vienna",
+      "gives": "A",
+      "select": "last",
+      "note": "last letter of the city"
+     },
+     {
+      "clueFragment": "Turkey",
+      "gives": "T",
+      "select": "first",
+      "note": "the heading, or first letter, of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The Orient Express runs non-stop past Vienna and finally makes for Turkey.",
+     "walkthrough": "'Orient Express' is the famous train, but Orient alone is the definition. A stopping is an old word for a tooth filling. 'Heading for' gives T.",
+     "definitionFit": "The Orient is the eastern world, and as a noun the word names the direction of sunrise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1195,65 @@
     "text": "Hard cheese, Sparks, pulled up over ridiculous slang",
     "enumeration": "8"
    },
-   "solution": "EMMENTAL"
+   "solution": "EMMENTAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMMENTAL",
+    "definitions": [
+     {
+      "text": "Hard cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down clue, pulling up makes letters read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sparks",
+      "gives": "ME",
+      "note": "Sparks is the setter, who refers to themselves as me"
+     },
+     {
+      "clueFragment": "ridiculous slang",
+      "gives": "MENTAL",
+      "note": "mental is slang for crazy or absurd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "MENTAL"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad luck, Sparks: you've been told off for using silly slang.",
+     "walkthrough": "'Hard cheese' is British slang for bad luck, which makes the start look like a commiseration; Emmental is in fact a hard cheese. 'Over' places the reversed piece on top.",
+     "definitionFit": "Emmental is a firm Swiss cheese with large holes, classed among the hard cheeses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1267,59 @@
     "text": "Highly respectable senior copper held up by bigotry intermittently",
     "enumeration": "8"
    },
-   "solution": "SUPERIOR"
+   "solution": "SUPERIOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUPERIOR",
+    "definitions": [
+     {
+      "text": "Highly respectable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intermittently",
+      "for": "letter_selection",
+      "note": "intermittently means at intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "held up by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior copper",
+      "gives": "SUPER",
+      "note": "a super is a superintendent, a senior police officer"
+     },
+     {
+      "clueFragment": "bigotry",
+      "gives": "IOR",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPER",
+      "IOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A distinguished senior policeman is delayed by occasional prejudice.",
+     "walkthrough": "In a down answer one piece is held up, or supported, by the piece below it, so 'held up' is placement, not delay.",
+     "definitionFit": "Superior can mean of high standing or quality, deserving esteem, as in a superior class of hotel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1333,63 @@
     "text": "Imitate Italian novelist penning hardback’s intro",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Imitate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intro",
+      "for": "letter_selection",
+      "note": "an intro is the opening, so the first letter is taken"
+     },
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen is to enclose, so one piece is shut inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian novelist",
+      "gives": "ECO",
+      "note": "Umberto Eco wrote The Name of the Rose"
+     },
+     {
+      "clueFragment": "hardback’s",
+      "gives": "H",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Copy an Italian author writing the introduction to a hardback edition.",
+     "walkthrough": "'Penning' fits the writer, but it means enclosing.",
+     "definitionFit": "To echo someone is to repeat or copy their words or manner, much like a reflected sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1403,84 @@
     "text": "Free at last, Haiti desperately welcoming work for country",
     "enumeration": "8"
    },
-   "solution": "ETHIOPIA"
+   "solution": "ETHIOPIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ETHIOPIA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the end, so the final letter is taken"
+     },
+     {
+      "text": "desperately",
+      "for": "anagram",
+      "note": "acting desperately is acting wildly, so these letters are thrown about"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome is to take in, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Free",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "Haiti",
+      "gives": "HAITI",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP, opus, is a musical work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THI",
+      "OP",
+      "IA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAITI",
+       "gives": "THIIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finally liberated, Haiti eagerly takes on jobs for the nation.",
+     "walkthrough": "Haiti looks like the country wanted, but it is only anagram material; the definition is the last word.",
+     "definitionFit": "Ethiopia is a nation in the Horn of Africa, with Addis Ababa as its capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Haiti"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1500,48 @@
      }
     ]
    },
-   "solution": "HOMEBASE"
+   "solution": "HOMEBASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOME BASE",
+    "definitions": [
+     {
+      "text": "part of diamond?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One’s ground",
+      "gives": "HOME",
+      "note": "one's home ground, where one lives"
+     },
+     {
+      "clueFragment": "worthless",
+      "gives": "BASE",
+      "note": "base means low or of little value, as in base metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOME",
+      "BASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut gem's dust turns out to be the valueless fraction of a diamond.",
+     "walkthrough": "'One's ground' and 'diamond' suggest grinding a jewel; the diamond is a baseball field, hence the question mark.",
+     "definitionFit": "In baseball the infield is called the diamond, and home plate, where runs score, sits at one corner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1555,56 @@
     "text": "Who might get you to live, quelling ogre?",
     "enumeration": "8"
    },
-   "solution": "EXORCIST"
+   "solution": "EXORCIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXORCIST",
+    "definitions": [
+     {
+      "text": "Who might get you",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quelling",
+      "for": "container",
+      "note": "to quell is to hold down and subdue, so one piece is kept pinned inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to live",
+      "gives": "EXIST",
+      "note": "to exist is to live"
+     },
+     {
+      "clueFragment": "ogre",
+      "gives": "ORC",
+      "note": "an orc is a fantasy ogre or monster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ORC",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about who might save your life by subduing a monster.",
+     "walkthrough": "The clue reads as a fairy-tale rescue; the definition casts 'you' as a demon, whom this person would 'get' by driving it out.",
+     "definitionFit": "An exorcist expels evil spirits, so if you were a possessing demon this is the person who would come after you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "you"
+    }
+   }
   },
   {
    "number": 19,
@@ -375,7 +1618,64 @@
     "text": "Non-British native of Bangladesh expressing a quiet language",
     "enumeration": "7"
    },
-   "solution": "ENGLISH"
+   "solution": "ENGLISH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENGLISH",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Non-British",
+      "for": "deletion",
+      "note": "non- means without, so the abbreviation for British is dropped"
+     },
+     {
+      "text": "expressing",
+      "for": "deletion",
+      "note": "to express is to squeeze out, so a letter is pressed out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "native of Bangladesh",
+      "gives": "BENGALI",
+      "note": "a Bengali is from Bengal, which includes Bangladesh"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter squeezed out"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENGLI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Bangladeshi with no British ties speaking a hushed language.",
+     "walkthrough": "'Expressing' looks like speaking, but here it means pressing out, so a letter is squeezed from the word. Bengal spans Bangladesh and part of India.",
+     "definitionFit": "English is a language, the tongue of England now spoken worldwide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expressing"
+    }
+   }
   },
   {
    "number": 20,
@@ -389,7 +1689,64 @@
     "text": "What is somehow in conclusion ideally green?",
     "enumeration": "6"
    },
-   "solution": "ENERGY"
+   "solution": "ENERGY",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ENERGY",
+    "definitions": [
+     {
+      "text": "What is somehow in conclusion ideally green?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conclusion",
+      "for": "letter_selection",
+      "note": "a conclusion is the end, so the final letter is taken"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters come in some new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ideally",
+      "gives": "Y",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "GREEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YGREEN",
+       "gives": "ENERGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what, ideally, ought to be eco-friendly in the end.",
+     "walkthrough": "Read whole, the clue asks what should ideally be green; the wordplay shuffles GREEN with the last letter of 'ideally'.",
+     "definitionFit": "Renewable power from wind, sun or water is called green energy, the thing campaigners want to be sustainable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "somehow"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1760,70 @@
     "text": "Wound counterpart, ultimately brave in death",
     "enumeration": "8"
    },
-   "solution": "ENTWINED"
+   "solution": "ENTWINED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENTWINED",
+    "definitions": [
+     {
+      "text": "Wound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the last letter is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another sits within it, so these pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counterpart",
+      "gives": "TWIN",
+      "note": "a twin is an exact counterpart"
+     },
+     {
+      "clueFragment": "brave",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "death",
+      "gives": "END",
+      "note": "death is one's end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TWIN",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An injury to a partner, who finally faces death bravely.",
+     "walkthrough": "'Wound' looks like an injury (rhyming with 'tuned'); it is the past tense of wind, as in twisted.",
+     "definitionFit": "Entwined means twisted or coiled together, as strands are when they have been wound round each other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wound"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1837,55 @@
     "text": "Dim idiot swallows lithium",
     "enumeration": "6"
    },
-   "solution": "TWILIT"
+   "solution": "TWILIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TWILIT",
+    "definitions": [
+     {
+      "text": "Dim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiot",
+      "gives": "TWIT",
+      "note": "a twit is a fool"
+     },
+     {
+      "clueFragment": "lithium",
+      "gives": "LI",
+      "note": "Li is the chemical symbol for lithium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWI",
+      "LI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim-witted fool gulps down a lithium pill.",
+     "walkthrough": "'Dim' seems to describe the idiot's intelligence; it is the definition, meaning poorly lit.",
+     "definitionFit": "Twilit describes the faint half-light of dusk, so a scene that is twilit is gloomy and shadowy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dim"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1899,78 @@
     "text": "Say 19 Down to be sorry for backing article in public",
     "enumeration": "8"
    },
-   "solution": "EUROPEAN"
+   "solution": "EUROPEAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "EUROPEAN",
+    "definitions": [
+     {
+      "text": "Say 19 Down",
+      "at": 0,
+      "note": "19 Down is ENGLISH; an English person is, for example, a European"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the letters are read in reverse"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so this piece is placed within"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "be sorry",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "OPEN",
+      "note": "something public is open"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUR",
+      "OPE",
+      "A",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "RUE",
+       "to": "EUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English person apologising in public for supporting a newspaper piece.",
+     "walkthrough": "'Say' flags the definition as an example: an English person is one kind of European. 'Article' looks like a news piece; it is A.",
+     "definitionFit": "England is in Europe, so an English person is a typical example of a European by nationality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1984,55 @@
     "text": "Holding chain, those who entice dogs",
     "enumeration": "8"
    },
-   "solution": "LURCHERS"
+   "solution": "LURCHERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LURCHERS",
+    "definitions": [
+     {
+      "text": "dogs",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece contains the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chain",
+      "gives": "CH",
+      "note": "CH is the abbreviation for chain, an old unit of length"
+     },
+     {
+      "clueFragment": "those who entice",
+      "gives": "LURERS",
+      "note": "people who lure others in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUR",
+      "CH",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "People who tempt dogs while holding a chain lead.",
+     "walkthrough": "A lurcher is a British crossbreed of greyhound and working dog, once used by poachers.",
+     "definitionFit": "Lurchers are crossbred hunting animals, typically sighthound mixed with collie or terrier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +2046,62 @@
     "text": "Retreat in which you’ll find the essence of freedom?",
     "enumeration": "6"
    },
-   "solution": "HEAVEN"
+   "solution": "HEAVEN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "HEAVEN",
+    "definitions": [
+     {
+      "text": "Retreat in which you’ll find the essence of freedom?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which you’ll find",
+      "for": "container",
+      "note": "a place in which something is found holds it inside"
+     },
+     {
+      "text": "essence",
+      "for": "letter_selection",
+      "note": "the essence is the core, so the central letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retreat",
+      "gives": "HAVEN",
+      "note": "a haven is a refuge or retreat"
+     },
+     {
+      "clueFragment": "freedom",
+      "gives": "E",
+      "select": "middle",
+      "note": "central letter of the seven-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "AVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a sanctuary that embodies the very idea of liberty.",
+     "walkthrough": "The whole clue defines the answer, a final refuge of perfect freedom, while also building it.",
+     "definitionFit": "Paradise is imagined as the ultimate sanctuary where the soul is released from earthly bonds and suffering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
