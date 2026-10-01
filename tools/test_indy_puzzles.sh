@@ -57,6 +57,32 @@ rows = [{"number": 1218, "date": "2013-06-30"},   # a Sunday: itself
         {"number": 1219, "date": "2013-07-09"},   # blogged late: the Sunday before
         {"number": 1220, "date": "2013-07-03"}]   # a date that falls back is dropped
 print("DATES", {n: d and d.isoformat() for n, d in sorted(I.sunday_dates(rows).items())})
+
+# A file written before the parser tidied clues is tidied on the next run,
+# and only one this tool wrote, though its post is never parsed again: the
+# grid row's record is gone, so the files are walked.
+import json, tempfile
+from pathlib import Path
+tmp = Path(tempfile.mkdtemp())
+(tmp / "parsed.jsonl").write_text("")
+(tmp / "grids.jsonl").write_text(json.dumps({"post_id": 1, "number": 9000, "series": I.DAILY,
+                                             "date": "2016-01-04", "grid": []}) + "\n")
+(tmp / "held.json").write_text("{}")
+I.CACHE = tmp
+I.puzzle_path = lambda series, number: tmp / "held.json"
+(tmp / I.DAILY / "2016").mkdir(parents=True)
+(tmp / I.DAILY / "2016" / "independent-9000.json").write_text("{}")
+I.puzzle_files = lambda: sorted(tmp.glob("*/*/*.json"))
+held = {"id": "independent-9000", "source": {"acquiredBy": I.GENERATOR},
+        "entries": [{"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 5,
+                     "clue": {"text": "Spoil / steep-sided passage", "enumeration": "5"}, "solution": "GULLY"}]}
+I.read_puzzle_file = lambda path: json.loads(json.dumps(held))
+written = []
+I.write_puzzle_file = lambda path, puzzle, **kw: written.append(puzzle["entries"][0]["clue"]["text"])
+I.file([{"series": I.DAILY, "number": 9000, "date": "2016-01-04", "post_id": 1}], write=True)
+held["source"]["acquiredBy"] = "tools/fetch_independent.py"
+I.file([{"series": I.DAILY, "number": 9000, "date": "2016-01-04", "post_id": 1}], write=True)
+print("RETEXT", written)
 PY
 )
 field() { printf '%s\n' "$out" | sed -n "s/^$1 //p"; }
@@ -71,5 +97,8 @@ check "a byline anywhere, a filed setter's name, a lone name in brackets" \
   "['Glowworm', 'Quixote', 'Anax', 'Hypnos', 'Glow-worm', 'Phi', 'Merlin', 'Virgilius', None, None]" "$(field BYLINE)"
 check "Sunday dates rise with the numbers" \
   "{1218: '2013-06-30', 1219: '2013-07-07', 1220: None}" "$(field DATES)"
+
+check "a held file of this tool's is tidied; the feed's is not" \
+  "['Spoil steep-sided passage']" "$(field RETEXT)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

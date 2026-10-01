@@ -25,6 +25,7 @@ import fetch_telegraph
 import fetch_wp_blog
 import file_blog_puzzles
 import parse_bigdave44
+import parse_timesforthetimes as tftt
 import series as series_meta
 
 CACHE = fetch_wp_blog.BLOGS["bigdave44"].cache
@@ -56,7 +57,10 @@ SOURCE = file_blog_puzzles.Source(
     setter=lambda rec, series: rec.get("setter") or series_meta.default_setter(series),
     # From the bucket's first calendared number on, tools/fetch_telegraph.py
     # files the printed puzzle; the blog's posts stay its hints and blog facts.
-    published=fetch_telegraph.served)
+    published=fetch_telegraph.served,
+    # The parser tidies each clue (tftt.read_entries); a file written before
+    # it is tidied alike (file_blog_puzzles.retext).
+    tidy=tftt.tidy)
 
 
 def main(argv=None):

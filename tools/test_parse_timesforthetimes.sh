@@ -754,6 +754,12 @@ check "the blogger's slashes, brackets, stray spaces and edit notes are not the 
   "Irish city seal (4)|Unhappy, sulky and disgruntled at first (3)|Store’s first-class service (5)|Opera’s curious piano and turn (1,8)|Meaning of “camping”? (6)|AC/DC and/or chatter? (5)" \
   "$(run "$marks" | cut -d'|' -f5 | paste -sd'|')"
 
+check "a run of slashes and spaces goes at once: tidying twice changes nothing" \
+  "Dance attire (6)|Dance attire (6)|AC/DC (4)" \
+  "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_timesforthetimes as t
+once = t.tidy("Dance/ /attire (6)")
+print(once + "|" + t.tidy(once) + "|" + t.tidy("AC/DC (4)"))')"
 check "an ellipsis keeps the space the paper prints before its mark" \
   "Stopped on the way to . . . ?|Starters for the Oaks?" \
   "$(PYTHONPATH="$REPO/tools" python3 -c '
