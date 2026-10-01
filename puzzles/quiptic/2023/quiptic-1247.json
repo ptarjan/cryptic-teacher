@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Group to assess for a speaker a passage between seats",
     "enumeration": "7"
    },
-   "solution": "GANGWAY"
+   "solution": "GANGWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "GANGWAY",
+    "definitions": [
+     {
+      "text": "a passage between seats",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for a speaker",
+      "for": "homophone",
+      "note": "what is meant for a speaker is heard rather than read, so the sound counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "GANG",
+      "note": "a gang is a group of people"
+     },
+     {
+      "clueFragment": "to assess",
+      "gives": "WAY",
+      "soundsLike": "WEIGH",
+      "note": "to weigh something up is to assess it; said out loud it matches a common word for a route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A committee meets to judge something on behalf of a public speaker.",
+     "walkthrough": "GANG plus a word that sounds like WEIGH gives GANGWAY. 'Group to assess' reads like a panel's job, but it splits into two pieces.",
+     "definitionFit": "A gangway is the aisle running between rows of seating, especially in a theatre or the House of Commons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speaker"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,59 @@
     "text": "Leading lives essentially shown in place of records",
     "enumeration": "7"
    },
-   "solution": "ARCHIVE"
+   "solution": "ARCHIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ARCHIVE",
+    "definitions": [
+     {
+      "text": "place of records",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the inner letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "shown in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leading",
+      "gives": "ARCH",
+      "note": "arch as an adjective means chief or principal, as in arch-enemy"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IVE",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "The main lives of a biography are kept in a records office.",
+     "walkthrough": "ARCH (chief, as in archbishop) plus the core of LIVES gives ARCHIVE.",
+     "definitionFit": "An archive is a repository where historical documents and papers are stored and kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leading"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,47 @@
     "text": "Information on a category of music?",
     "enumeration": "5"
    },
-   "solution": "GENRE"
+   "solution": "GENRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENRE",
+    "definitions": [
+     {
+      "text": "a category of music",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information, as in 'get the gen'"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means about or concerning, as in the subject line of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for details about a particular style of music.",
+     "walkthrough": "GEN (British slang for information) plus RE (concerning) gives GENRE. 'On' looks like a joining word but supplies the second piece.",
+     "definitionFit": "A genre is a style or kind of artistic work, such as jazz, folk or rock in music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,67 @@
     "text": "Poison spilt in case? About right",
     "enumeration": "7"
    },
-   "solution": "ARSENIC"
+   "solution": "ARSENIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARSENIC",
+    "definitions": [
+     {
+      "text": "Poison",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spilt",
+      "for": "anagram",
+      "note": "something spilt is scattered out of its container, so the letters are thrown into a new arrangement"
+     },
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about can mean around, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in case",
+      "gives": "INCASE",
+      "note": "taken as written, the letters to be rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "SENIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INCASE",
+       "gives": "ASENIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poison has leaked inside a container, and someone asks if that is correct.",
+     "walkthrough": "Rearrange IN CASE into A...SENIC and put it around R. 'In case' looks like a phrase meaning 'just in case', but it is just letters.",
+     "definitionFit": "Arsenic is a notoriously toxic element, long used by poisoners in history and fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +293,54 @@
     "text": "Protection for the finger or the limb possibly",
     "enumeration": "7"
    },
-   "solution": "THIMBLE"
+   "solution": "THIMBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIMBLE",
+    "definitions": [
+     {
+      "text": "Protection for the finger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several possible forms, so the letters may be put in another order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the limb",
+      "gives": "THELIMB",
+      "note": "taken as written, the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THELIMB",
+       "gives": "THIMBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choosing between guarding just a finger or the whole arm.",
+     "walkthrough": "THE LIMB rearranged gives THIMBLE. The word 'or' suggests two alternatives of protection, but it only joins definition to wordplay.",
+     "definitionFit": "A thimble is a small cap worn on the fingertip to push a needle while sewing without pricking the skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limb"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +354,61 @@
     "text": "Very unpleasant mob shortly around Rhode Island",
     "enumeration": "6"
    },
-   "solution": "HORRID"
+   "solution": "HORRID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HORRID",
+    "definitions": [
+     {
+      "text": "Very unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly here means in short form, so the word loses its final letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mob",
+      "gives": "HORD",
+      "note": "a horde is a mob; cut short it drops its last letter"
+     },
+     {
+      "clueFragment": "Rhode Island",
+      "gives": "RI",
+      "note": "RI is the US postal abbreviation for Rhode Island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOR",
+      "RI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty crowd quickly gathers in the US state of Rhode Island.",
+     "walkthrough": "HORDE without its E goes around RI. 'Shortly' looks like 'soon', but it trims a word.",
+     "definitionFit": "Horrid is a near synonym for nasty or dreadful, describing something extremely disagreeable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +422,77 @@
     "text": "Trim men when dancing welcoming outsiders from earlier jollity",
     "enumeration": "9"
    },
-   "solution": "MERRIMENT"
+   "solution": "MERRIMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "MERRIMENT",
+    "definitions": [
+     {
+      "text": "jollity",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outsiders from",
+      "for": "letter_selection",
+      "note": "the outsiders of a word are its outermost letters, the first and last"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancers move around and change places, so the letters are rearranged"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome is to take in, so one piece receives another inside it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trim men",
+      "gives": "TRIMMEN",
+      "note": "taken as written, the letters to be rearranged"
+     },
+     {
+      "clueFragment": "earlier",
+      "gives": "ER",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ER",
+      "RIMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIMMEN",
+       "gives": "MRIMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Slim men at a dance greet guests who arrived before them.",
+     "walkthrough": "TRIM MEN rearranged into M...RIMENT takes in ER, the outside letters of EARLIER. 'When' is a link word here, not part of the wordplay.",
+     "definitionFit": "Merriment and jollity are both nouns for cheerful fun, laughter and festive high spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +506,53 @@
     "text": "See a French and German comfortable outdoor chair",
     "enumeration": "7"
    },
-   "solution": "LOUNGER"
+   "solution": "LOUNGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOUNGER",
+    "definitions": [
+     {
+      "text": "comfortable outdoor chair",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is an old word for look or see, as in 'lo and behold'"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "GER is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "UN",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone invites you to look at a French and a German pair of garden chairs.",
+     "walkthrough": "LO plus UN plus GER gives LOUNGER. 'A French' asks for the French word for 'a'.",
+     "definitionFit": "A lounger is a reclining seat, often with a long footrest, used by pools and in gardens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +566,52 @@
     "text": "A preppy tailor dressed in a fitting way",
     "enumeration": "13"
    },
-   "solution": "APPROPRIATELY"
+   "solution": "APPROPRIATELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APPROPRIATELY",
+    "definitions": [
+     {
+      "text": "in a fitting way",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed",
+      "for": "anagram",
+      "note": "to dress something is to arrange or prepare it, so the letters are set out anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A preppy tailor",
+      "gives": "APREPPYTAILOR",
+      "note": "taken as written, the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APREPPYTAILOR",
+       "gives": "APPROPRIATELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smartly turned-out tailor dresses in clothes that suit him well.",
+     "walkthrough": "All thirteen letters of A PREPPY TAILOR are rearranged. 'Dressed' reads as clothing, fitting the tailor, but it signals the shuffle.",
+     "definitionFit": "Appropriately is an adverb meaning suitably or properly, which matches doing something in a fitting manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +625,62 @@
     "text": "Examine source of contagion in medical facility",
     "enumeration": "4"
    },
-   "solution": "SCAN"
+   "solution": "SCAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCAN",
+    "definitions": [
+     {
+      "text": "Examine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of something is where it starts, so the first letter is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contagion",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "medical facility",
+      "gives": "SAN",
+      "note": "a san is short for sanatorium, a place for treating the sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Doctors investigate where an infection started inside a hospital.",
+     "walkthrough": "C goes inside SAN, the short form of sanatorium. 'Source of contagion' sounds like an epidemiology phrase but gives one letter.",
+     "definitionFit": "To scan is to look over or inspect something closely, a verb close in sense to examine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "source"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +700,79 @@
      }
     ]
    },
-   "solution": "SUPERGROUP"
+   "solution": "SUPERGROUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SUPERGROUP",
+    "definitions": [
+     {
+      "text": "Top bunch of musicians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink in small mouthfuls"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     },
+     {
+      "clueFragment": "rise",
+      "gives": "GOUP",
+      "note": "to rise is to go up"
+     },
+     {
+      "clueFragment": "dinner's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "ER",
+      "G",
+      "R",
+      "OUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A star band, Queen, have a drink and then stand up at the end of dinner.",
+     "walkthrough": "Queen is printed in italics as the rock band, yet it supplies the royal cipher Elizabeth Regina. 'Get' just joins the definition to the wordplay.",
+     "definitionFit": "A supergroup is a band formed of musicians already famous from other successful groups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +792,58 @@
      }
     ]
    },
-   "solution": "GIVEIN"
+   "solution": "GIVEIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIVE IN",
+    "definitions": [
+     {
+      "text": "submit",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "serving",
+      "for": "container",
+      "note": "one serving in a unit or household is placed within it, so a piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "has disposition",
+      "gives": "GIVEN",
+      "note": "someone given to something has a disposition or tendency towards it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIVE",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter has the right temperament for being obedient.",
+     "walkthrough": "I sits inside GIVEN, as in 'given to anger', meaning inclined. 'One serving' suggests a waiter but is one inside.",
+     "definitionFit": "To give in is a phrasal verb meaning to yield or surrender, the same as to submit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +857,65 @@
     "text": "Loops put round excellent line in barriers",
     "enumeration": "8"
    },
-   "solution": "RAILINGS"
+   "solution": "RAILINGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RAILINGS",
+    "definitions": [
+     {
+      "text": "barriers",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put round",
+      "for": "container",
+      "note": "something put round another encloses it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loops",
+      "gives": "RINGS",
+      "note": "rings are loops"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, written with the letter I for the figure 1"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AI",
+      "L",
+      "INGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Coils are wrapped round a fine wire inside some fencing.",
+     "walkthrough": "RINGS goes around AI plus L. AI stands for A1, top quality, with the digit read as a letter.",
+     "definitionFit": "Railings are fences made of upright bars, used as barriers along roads, stairs and parks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loops"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +929,54 @@
     "text": "Pose price mistakenly for part of a submarine",
     "enumeration": "9"
    },
-   "solution": "PERISCOPE"
+   "solution": "PERISCOPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERISCOPE",
+    "definitions": [
+     {
+      "text": "part of a submarine",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistakenly",
+      "for": "anagram",
+      "note": "something done mistakenly comes out wrong, so the letters end up in a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pose price",
+      "gives": "POSEPRICE",
+      "note": "taken as written, the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POSEPRICE",
+       "gives": "PERISCOPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quotes the wrong cost for a component of a submarine.",
+     "walkthrough": "POSE PRICE rearranged gives PERISCOPE.",
+     "definitionFit": "A periscope is the tube with mirrors that lets a submerged submarine's crew see above the surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pose"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +990,67 @@
     "text": "Varied centres in information technology converge",
     "enumeration": "9"
    },
-   "solution": "INTERSECT"
+   "solution": "INTERSECT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INTERSECT",
+    "definitions": [
+     {
+      "text": "converge",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Varied",
+      "for": "anagram",
+      "note": "to vary something is to change it, so the letters change order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centres",
+      "gives": "CENTRES",
+      "note": "taken as written, the letters to be rearranged"
+     },
+     {
+      "clueFragment": "information technology",
+      "gives": "IT",
+      "note": "IT is the usual abbreviation for information technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NTERSEC",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CENTRES",
+       "gives": "NTERSEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Different computer hubs come together.",
+     "walkthrough": "'Varied' looks like an adjective describing the centres, but it is the signal to rearrange them.",
+     "definitionFit": "Lines or roads that intersect meet and cross at a point, so they come together or converge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Varied"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1064,65 @@
     "text": "Worries shown by European in distant society",
     "enumeration": "5"
    },
-   "solution": "FEARS"
+   "solution": "FEARS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FEARS",
+    "definitions": [
+     {
+      "text": "Worries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "distant",
+      "gives": "FAR",
+      "note": "far means distant"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "E",
+      "AR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A European living in a faraway community displays his anxieties.",
+     "walkthrough": "E goes inside FAR, then S is added.",
+     "definitionFit": "Fears and worries are both plural nouns for anxious feelings about what might happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1136,61 @@
     "text": "Hackneyed ceremony after last part of Lent",
     "enumeration": "5"
    },
-   "solution": "TRITE"
+   "solution": "TRITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRITE",
+    "definitions": [
+     {
+      "text": "Hackneyed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last part of",
+      "for": "letter_selection",
+      "note": "the last part of a word is its final letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind another in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lent",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired old ritual held at the very end of Lent.",
+     "walkthrough": "T, the last letter of LENT, comes before RITE. Lent is the Christian season before Easter, which suits the ceremony.",
+     "definitionFit": "Hackneyed and trite are both adjectives for remarks or ideas made dull by overuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lent"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1204,60 @@
     "text": "Take the place of first woman supporting rector and priest",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELIEVE",
+    "definitions": [
+     {
+      "text": "Take the place of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, a piece supporting others sits beneath them, so it comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rector",
+      "gives": "R",
+      "note": "R is the abbreviation for rector"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest of the Old Testament who raised Samuel"
+     },
+     {
+      "clueFragment": "first woman",
+      "gives": "EVE",
+      "note": "Eve is the first woman in Genesis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELI",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "The leading woman in a parish backs both the rector and the priest.",
+     "walkthrough": "R plus ELI, with EVE beneath them in the down light. Eli is a crossword favourite for priest.",
+     "definitionFit": "To relieve someone is to take over their duty, as when a sentry is replaced by the next guard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1271,71 @@
     "text": "Separation from companion with old cat amid household work",
     "enumeration": "9"
    },
-   "solution": "DICHOTOMY"
+   "solution": "DICHOTOMY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DICHOTOMY",
+    "definitions": [
+     {
+      "text": "Separation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so pieces sit inside another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH stands for Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "household work",
+      "gives": "DIY",
+      "note": "DIY is do-it-yourself, home repair and improvement work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "CH",
+      "O",
+      "TOM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend and an elderly cat are split apart in the middle of home renovations.",
+     "walkthrough": "Companion of Honour is a British order whose holders put two letters after their names; DIY is do-it-yourself home improvement.",
+     "definitionFit": "A dichotomy is a division into two contrasting parts, so it means a split or separation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "companion"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1349,50 @@
     "text": "Try, for example, to generate rumour",
     "enumeration": "7"
    },
-   "solution": "HEARSAY"
+   "solution": "HEARSAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEARSAY",
+    "definitions": [
+     {
+      "text": "rumour",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "to generate"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "HEAR",
+      "note": "a judge tries or hears a case"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "SAY",
+      "note": "say is used to introduce an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "SAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempts, as an illustration, to start some gossip.",
+     "walkthrough": "'Try' looks like 'attempt', but here it is the courtroom sense: a judge hears a case. SAY works like 'for instance'.",
+     "definitionFit": "Hearsay is information passed on from others that cannot be verified, which is what a rumour is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1406,50 @@
     "text": "TV chef James has current drink",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV chef James",
+      "gives": "MARTIN",
+      "note": "the surname of a well-known British television cook called James"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARTIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity cook enjoys a fashionable beverage.",
+     "walkthrough": "James Martin is a well-known British television chef; add I, the physics symbol for current. 'Current' looks like 'fashionable' but is a letter.",
+     "definitionFit": "A martini is a cocktail of gin or vodka with vermouth, so it is a kind of alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1463,66 @@
     "text": "Ceramic item at front of office is thing that's chipped?",
     "enumeration": "6"
    },
-   "solution": "POTATO"
+   "solution": "POTATO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POTATO",
+    "definitions": [
+     {
+      "text": "thing that's chipped?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ceramic item",
+      "gives": "POT",
+      "note": "a pot is a piece of pottery"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "AT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A china vase at an office reception desk has been damaged.",
+     "walkthrough": "POT plus AT plus O. A chipped pot fits the ceramic surface, but the definition means cut into chips, the British word for fries.",
+     "definitionFit": "Potatoes are cut into chips, the British name for French fries, so a potato is what gets chipped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chipped"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1542,57 @@
      }
     ]
    },
-   "solution": "BLURTOUT"
+   "solution": "BLURTOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLURT OUT",
+    "definitions": [
+     {
+      "text": "speak without thinking?",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one piece after another in the answer"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "confused impression",
+      "gives": "BLUR",
+      "note": "a blur is a hazy, indistinct image"
+     },
+     {
+      "clueFragment": "Ticket seller",
+      "gives": "TOUT",
+      "note": "a tout sells tickets unofficially, usually at inflated prices"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUR",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A scalper outside a venue, muddled, ends up talking rashly.",
+     "walkthrough": "The clue names the ticket seller first, but 'following' puts it second in the answer. A tout resells tickets, like a scalper.",
+     "definitionFit": "To blurt out something is to say it suddenly and tactlessly, without stopping to consider."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1606,65 @@
     "text": "Promise made by a leader of scouts? Certainly!",
     "enumeration": "6"
    },
-   "solution": "ASSURE"
+   "solution": "ASSURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASSURE",
+    "definitions": [
+     {
+      "text": "Promise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scouts",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "Certainly",
+      "gives": "SURE",
+      "note": "sure! is a casual way of saying certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scout leader is asked whether he makes a pledge, and answers yes.",
+     "walkthrough": "A plus S plus SURE. 'Leader of scouts' looks like a scoutmaster but means only the first letter.",
+     "definitionFit": "To assure someone is to tell them confidently that something is so, a verb close to promise or guarantee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1678,46 @@
     "text": "Some reversal sadly for Latin American dance music",
     "enumeration": "5"
    },
-   "solution": "SALSA"
+   "solution": "SALSA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SALSA",
+    "definitions": [
+     {
+      "text": "Latin American dance music",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the answer is a run of letters within the words that follow"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reversal sadly",
+      "gives": "SALSA",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A sad setback for a South American dance band.",
+     "walkthrough": "The answer sits forwards in reverSAL SAdly. 'Reversal' tempts you to read backwards, but it is only part of the hiding place.",
+     "definitionFit": "Salsa is a lively Latin American style of dance and the music played for it, rooted in Cuban rhythms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversal"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1731,52 @@
     "text": "Vets eg able to be corrupted? They could be roasted!",
     "enumeration": "10"
    },
-   "solution": "VEGETABLES"
+   "solution": "VEGETABLES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VEGETABLES",
+    "definitions": [
+     {
+      "text": "They could be roasted!",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be corrupted",
+      "for": "anagram",
+      "note": "something corrupted is altered from its proper form, so the letters are changed in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vets eg able",
+      "gives": "VETSEGABLE",
+      "note": "taken as written, the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VETSEGABLE",
+       "gives": "VEGETABLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Could vets be bribed? If so, they deserve a public roasting!",
+     "walkthrough": "VETS EG ABLE rearranged. 'Roasted' looks like harsh criticism of the vets, but the definition means cooked in an oven.",
+     "definitionFit": "Potatoes, parsnips and carrots are commonly roasted, so vegetables are examples of what could be roasted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "roasted"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1790,54 @@
     "text": "US city linked to Irish haunt",
     "enumeration": "4"
    },
-   "solution": "LAIR"
+   "solution": "LAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAIR",
+    "definitions": [
+     {
+      "text": "haunt",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "linked to",
+      "for": "charade",
+      "note": "things linked to each other are joined end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "An American city has ties to a favourite Irish hangout.",
+     "walkthrough": "LA plus IR gives LAIR. 'Haunt' looks like a ghost's verb but is a noun for a regular hiding place.",
+     "definitionFit": "A lair is a den or hideout where a person or animal regularly goes, which is a haunt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "haunt"
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1851,62 @@
     "text": "Briefly refer to chaps with container containing oxygen",
     "enumeration": "7"
    },
-   "solution": "MENTION"
+   "solution": "MENTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MENTION",
+    "definitions": [
+     {
+      "text": "Briefly refer to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "TIN",
+      "note": "a tin is a metal container"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "TI",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick reference to some men carrying an oxygen cylinder.",
+     "walkthrough": "'Briefly' sounds like a wordplay instruction to shorten something, but it belongs to the definition: to refer briefly.",
+     "definitionFit": "To mention something is to speak of it in passing, without going into detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Briefly"
+    }
+   }
   },
   {
    "number": 29,
@@ -443,7 +1920,68 @@
     "text": "Lots in police department recalled as enterprising",
     "enumeration": "7"
    },
-   "solution": "DYNAMIC"
+   "solution": "DYNAMIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DYNAMIC",
+    "definitions": [
+     {
+      "text": "enterprising",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within another"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters run back the other way"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police department",
+      "gives": "CID",
+      "note": "the CID is the Criminal Investigation Department, the British police detective branch"
+     },
+     {
+      "clueFragment": "Lots",
+      "gives": "MANY",
+      "note": "lots means many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DYNAMIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIMANYD",
+       "to": "DYNAMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many officers in a police unit are brought back for showing initiative.",
+     "walkthrough": "The Criminal Investigation Department is the detective branch of British police forces; the container is built first, then read backwards.",
+     "definitionFit": "Dynamic and enterprising both describe someone energetic who is full of initiative and drive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   }
  ]
 }
