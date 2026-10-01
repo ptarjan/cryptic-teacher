@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,69 @@
     "text": "First of the States to restrict new pubs",
     "enumeration": "7"
    },
-   "solution": "TAVERNS"
+   "solution": "TAVERNS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TAVERNS",
+    "definitions": [
+     {
+      "text": "pubs",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that letter is kept"
+     },
+     {
+      "text": "to restrict",
+      "for": "container",
+      "note": "to restrict something is to hem it in, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "States",
+      "gives": "AVERS",
+      "note": "to state is to aver, so he states = he avers"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AVER",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A US state passes a law limiting the opening of new bars.",
+     "walkthrough": "'States' looks like American states, but it is the verb: avers. The N sits inside AVERS, after the T.",
+     "definitionFit": "Taverns are inns or bars serving drinks, a plain synonym for pubs in everyday usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "States"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +112,62 @@
     "text": "Understood 16 across broadcast (excluding Northern Ireland)",
     "enumeration": "5"
    },
-   "solution": "TACIT"
+   "solution": "TACIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TACIT",
+    "definitions": [
+     {
+      "text": "Understood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excluding",
+      "for": "deletion",
+      "note": "excluding something means leaving it out, so those letters are removed"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast seed is scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "16 across",
+      "gives": "TITANIC",
+      "note": "the answer to 16 across, the film"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the usual abbreviation for Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TITAC",
+       "gives": "TACIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grasps a film being shown on TV, apart from in Northern Ireland.",
+     "walkthrough": "Take N and I out of TITANIC to leave TITAC, then rearrange those five letters.",
+     "definitionFit": "Tacit agreement is implied without being stated aloud, so it is merely understood rather than spoken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +181,65 @@
     "text": "He scored six with just one dropped",
     "enumeration": "7"
    },
-   "solution": "VIVALDI"
+   "solution": "VIVALDI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VIVALDI",
+    "definitions": [
+     {
+      "text": "He scored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one dropped",
+      "for": "anagram",
+      "note": "in a down clue a dropped letter falls lower in the column, which reorders the word it belongs to"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "Roman numeral for six"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "VALID",
+      "note": "a just or sound argument is valid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "VALDI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VALID",
+       "gives": "VALDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer hit a six despite one catch being dropped.",
+     "walkthrough": "The I (one) of VALID drops one place down the column to give VALDI. 'Scored' sounds like cricket runs, but it means wrote music.",
+     "definitionFit": "Antonio Vivaldi composed The Four Seasons, and to score is to write a musical score, so he is a man who scored."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +253,86 @@
     "text": "Bloody hell – gross national product taking just seconds to bounce back",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "Bloody",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just seconds",
+      "for": "letter_selection",
+      "note": "only the seconds means keeping nothing but the second letter of each word"
+     },
+     {
+      "text": "to bounce back",
+      "for": "reversal",
+      "note": "something that bounces back returns the way it came, so the string runs in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hell",
+      "gives": "E",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "gross",
+      "gives": "R",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "national",
+      "gives": "A",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "product",
+      "gives": "R",
+      "select": 2,
+      "note": "second letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "R",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ERAR",
+       "to": "RARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated economist curses as the GNP takes a brief dip before recovering.",
+     "walkthrough": "'Bloody hell' reads as one oath, but 'Bloody' alone is the definition, in the steak sense.",
+     "definitionFit": "A rare steak is cooked briefly and still red and bloody inside, the butcher's or cook's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloody"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +352,40 @@
      }
     ]
    },
-   "solution": "SWIMMINGCOSTUME"
+   "solution": "SWIMMINGCOSTUME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SWIMMING COSTUME",
+    "definitions": [
+     {
+      "text": "habit at the beach",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "habit at the beach",
+      "note": "surface reading: clothing worn on the sand, a habit being a garment"
+     },
+     {
+      "clueFragment": "Hint to cut some",
+      "note": "setter's reading: the answer itself, read as a clue, tells you to rearrange the letters of 'cut some', its first word being an anagram signal"
+     }
+    ],
+    "explanation": {
+     "surface": "A tip for trimming some of a monk's robe down to something fit for the seaside.",
+     "walkthrough": "This is a reverse clue: the first word of the answer is a common anagram signal and the second is a rearrangement of 'cut some', so the answer is a hint for solving those words.",
+     "definitionFit": "A habit is a garment, as a nun's habit is, and a bathing suit is the garment people wear at the seaside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +399,51 @@
     "text": "Not many working early to late, say",
     "enumeration": "7"
    },
-   "solution": "ANTONYM"
+   "solution": "ANTONYM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTONYM",
+    "definitions": [
+     {
+      "text": "early to late, say",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters that are working are being worked over, kneaded into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not many",
+      "gives": "NOTMANY",
+      "note": "the letters taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTMANY",
+       "gives": "ANTONYM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Few people keep working all day, from early morning to late at night.",
+     "walkthrough": "'Early to late' looks like working hours, but it is an example: one word set against its opposite. 'Say' marks it as an example.",
+     "definitionFit": "Early is the opposite word of late, so the pair illustrate the relation of opposite meanings between words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "early"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +471,67 @@
      }
     ]
    },
-   "solution": "ALLALONGTHELINE"
+   "solution": "ALLALONGTHELINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ALL ALONG THE LINE",
+    "definitions": [
+     {
+      "text": "Throughout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately stripped",
+      "for": "deletion",
+      "note": "'ultimately' points to a final letter, and stripping it out wherever it appears removes it entirely"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground material is crushed and broken up, so the letters are reduced and reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LOSANGELES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hills",
+      "gives": "HILLS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ants",
+      "gives": "ANTS",
+      "note": "taken as written; its last letter is the one stripped out everywhere"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOANGELEHILLANT",
+       "gives": "ALLALONGTHELINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "All over the hills of Los Angeles, the ants have stripped the earth bare.",
+     "walkthrough": "The last letter of 'ants' is S; remove every S from 'Los Angeles hills ants' and the fifteen letters left rearrange into the phrase.",
+     "definitionFit": "The idiom means at every point or in every respect, so it is a phrasal equivalent of throughout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +545,77 @@
     "text": "Clairvoyant’s lie that collapses assuming recording caught …",
     "enumeration": "10"
    },
-   "solution": "TELEPATHIC"
+   "solution": "TELEPATHIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TELEPATHIC",
+    "definitions": [
+     {
+      "text": "Clairvoyant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collapses",
+      "for": "anagram",
+      "note": "a structure that collapses falls into a jumble, so the letters are rearranged"
+     },
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "to assume is to take on, so one piece takes another inside it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lie that",
+      "gives": "LIETHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "recording",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEL",
+      "EP",
+      "ATHI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIETHAT",
+       "gives": "TELATHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A psychic's fib falls apart once a recording catches them out.",
+     "walkthrough": "Rearrange LIE THAT as TELATHI, slip EP inside it, then add C. The ellipsis just carries the sentence on into the next clue.",
+     "definitionFit": "Both words describe someone with supposed psychic powers, perceiving things beyond the normal senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assuming"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +629,60 @@
     "text": "… name provided on stage quicker",
     "enumeration": "7"
    },
-   "solution": "NIFTIER"
+   "solution": "NIFTIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIFTIER",
+    "definitions": [
+     {
+      "text": "quicker",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one thing on another sits above it, so the earlier pieces are placed first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided that = if"
+     },
+     {
+      "clueFragment": "stage",
+      "gives": "TIER",
+      "note": "a stage or level is a tier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IF",
+      "TIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the psychic theme: the name comes to them more quickly on stage.",
+     "walkthrough": "The ellipsis links the clue to the one before, but the two are solved separately. 'Stage' suggests theatre, but it is a level.",
+     "definitionFit": "Nifty means agile and nimble as well as neat, so a niftier mover is a faster one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +696,71 @@
     "text": "Ruin sex and – essentially – what’s left of marriage",
     "enumeration": "7"
    },
-   "solution": "MARITAL"
+   "solution": "MARITAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MARITAL",
+    "definitions": [
+     {
+      "text": "of marriage",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the central letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruin",
+      "gives": "MAR",
+      "note": "to mar is to spoil or ruin"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "'it' is a coy word for sex"
+     },
+     {
+      "clueFragment": "what’s",
+      "gives": "A",
+      "select": "middle",
+      "note": "the central letter of the word"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "IT",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy view: wrecked sex life and the essence of a marriage is all that remains.",
+     "walkthrough": "The dashes make 'essentially' look like an aside on the whole sentence; it applies only to the word after it.",
+     "definitionFit": "Marital is the adjective for things relating to husband and wife, so it means pertaining to wedlock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +780,56 @@
      }
     ]
    },
-   "solution": "COVERGIRL"
+   "solution": "COVERGIRL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVER GIRL",
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake",
+      "gives": "COVER",
+      "note": "to cake something in mud is to cover it"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "in real life",
+      "gives": "IRL",
+      "note": "IRL is texting shorthand for in real life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVER",
+      "G",
+      "IRL"
+     ]
+    },
+    "explanation": {
+     "surface": "A model maker's cake turns out tasty when actually eaten.",
+     "walkthrough": "'Cake' is a verb here, as in boots caked in mud; the 's stands for 'has' joining the two halves.",
+     "definitionFit": "A cover girl is a woman photographed for a magazine front, a particular kind of fashion model."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +843,57 @@
     "text": "Prisoner appearing in twisted feature film",
     "enumeration": "5"
    },
-   "solution": "LIFER"
+   "solution": "LIFER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LIFER",
+    "definitions": [
+     {
+      "text": "Prisoner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "hidden_word",
+      "note": "something appearing in a phrase is found inside it, sitting within the run of letters"
+     },
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "twisted round, the letters face the other way and are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feature film",
+      "gives": "REFIL",
+      "note": "the letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "REFIL",
+       "to": "LIFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A convict stars in a crime movie with a twisty plot.",
+     "walkthrough": "'Twisted' looks like a review of the film's plot, but it tells you to read the hidden letters backwards.",
+     "definitionFit": "A lifer is slang for someone serving a life sentence in jail, a specific kind of convict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twisted"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +907,45 @@
     "text": "14 to follow story",
     "enumeration": "4"
    },
-   "solution": "TALE"
+   "solution": "TALE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TALE",
+    "definitions": [
+     {
+      "text": "story",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "14 to",
+      "for": "homophone",
+      "note": "the cross-reference makes this 'listen to', and listening means you go by sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "follow",
+      "gives": "TALE",
+      "soundsLike": "TAIL",
+      "note": "to follow someone covertly is to tail them"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to listen in order to follow a story.",
+     "walkthrough": "Replace 14 with its answer, LISTEN, and the instruction reads 'listen to follow'.",
+     "definitionFit": "A tale is a narrative account, real or invented, a direct synonym for a story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "follow"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +965,66 @@
      }
     ]
    },
-   "solution": "SMALLPRINT"
+   "solution": "SMALLPRINT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SMALL PRINT",
+    "definitions": [
+     {
+      "text": "most people ignore it",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a piece outside another wraps around it, holding the rest between its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shopping centre",
+      "gives": "MALL",
+      "note": "a shopping centre is a mall"
+     },
+     {
+      "clueFragment": "advertising",
+      "gives": "PR",
+      "note": "PR is public relations, promotion"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MALLPRIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Billboards outside a shopping mall that passers-by never look at.",
+     "walkthrough": "'Most people ignore it' reads as a comment on the adverts, but it is the whole definition.",
+     "definitionFit": "The fine terms and conditions at the bottom of a contract are notoriously skipped by almost everyone who signs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "advertising"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +1044,66 @@
      }
     ]
    },
-   "solution": "STONEFRUIT"
+   "solution": "STONEFRUIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STONE FRUIT",
+    "definitions": [
+     {
+      "text": "Perhaps Olive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to grip it inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruby maybe",
+      "gives": "STONE",
+      "note": "a ruby is an example of a precious stone"
+     },
+     {
+      "clueFragment": "able",
+      "gives": "FIT",
+      "note": "fit and able"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STONE",
+      "F",
+      "RU",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Two women, Olive and Ruby, might be fit enough to take part in a game.",
+     "walkthrough": "Olive and Ruby look like two names, but one is a fruit and the other a gem.",
+     "definitionFit": "An olive has a single hard pit inside its flesh, like a plum or cherry, so it is an example of a drupe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Olive"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1117,83 @@
     "text": "Pay attention – nothing’s holding French and Saunders’ finale back",
     "enumeration": "6"
    },
-   "solution": "LISTEN"
+   "solution": "LISTEN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "LISTEN",
+    "definitions": [
+     {
+      "text": "Pay attention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "a piece holding others contains them within its letters"
+     },
+     {
+      "text": "finale",
+      "for": "letter_selection",
+      "note": "a finale is the closing part, so only the final letter is kept"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the whole string is read right to left"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NIL",
+      "note": "nil is nothing, zero"
+     },
+     {
+      "clueFragment": "French and",
+      "gives": "ET",
+      "note": "et is French for and"
+     },
+     {
+      "clueFragment": "Saunders’",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "STE",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NETSIL",
+       "to": "LISTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedy fan is told to pay attention: nothing is holding up the end of a French and Saunders show.",
+     "walkthrough": "French and Saunders were a British comedy double act, so the pair read as one name; split them and 'French and' becomes a translation. The 's after 'nothing' stands for 'is'.",
+     "definitionFit": "To listen is to give heed with the ears, the same request as paying attention to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1207,72 @@
     "text": "Note planet discovered by a student is untouched by human hand",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "untouched by human hand",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means having its covering removed, so the outer letters go"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     },
+     {
+      "clueFragment": "planet",
+      "gives": "SATURN",
+      "note": "the ringed sixth planet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ATUR",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A record that a student found a new planet, still pristine.",
+     "walkthrough": "'Discovered' suggests finding the planet, but it means stripping off its first and last letters.",
+     "definitionFit": "Natural things exist in nature without manufacture or human interference, so they are untouched by people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1286,73 @@
     "text": "Film about hot American singer making a comeback",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TITANIC",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the letters travel back the way they came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, about"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "what is hot is fashionable, in"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "TIT",
+      "note": "a songbird, here the small garden bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "A",
+      "NI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CINATIT",
+       "to": "TITANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movie about a sexy American vocalist's return to the stage.",
+     "walkthrough": "'American singer' wants to be a named US star, but the singer is a bird and American just A.",
+     "definitionFit": "Titanic is the 1997 James Cameron movie about the doomed ocean liner, a specific example of a motion picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 16,
@@ -329,7 +1372,54 @@
      }
     ]
    },
-   "solution": "TAKEAIM"
+   "solution": "TAKEAIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKE AIM",
+    "definitions": [
+     {
+      "text": "ready to shoot",
+      "at": 20,
+      "note": "the answer is a verb phrase, 'get ready to shoot'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear",
+      "gives": "TAKE",
+      "note": "to bear a load is to take it"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "A",
+      "IM"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter faces an approaching bear and says they are ready to fire.",
+     "walkthrough": "'Bear' looks like the hunter's target, but it is the verb meaning to carry or take.",
+     "definitionFit": "Pointing a weapon at a target is the final preparation before firing, so it describes getting set to shoot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 17,
@@ -343,7 +1433,51 @@
     "text": "Worry one isn’t exercising",
     "enumeration": "7"
    },
-   "solution": "TENSION"
+   "solution": "TENSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENSION",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exercising",
+      "for": "anagram",
+      "note": "exercising puts things through their paces and moves them about, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one isn’t",
+      "gives": "ONEISNT",
+      "note": "the letters taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEISNT",
+       "gives": "TENSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fitness worry: a person is fretting about skipping the gym.",
+     "walkthrough": "The apostrophe in 'isn’t' is ignored, leaving seven letters to rearrange.",
+     "definitionFit": "Tension is mental strain and nervous anxiety, which overlaps closely with worry as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 18,
@@ -357,7 +1491,52 @@
     "text": "Nurse’s job? Get air supply",
     "enumeration": "6"
    },
-   "solution": "TRIAGE"
+   "solution": "TRIAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIAGE",
+    "definitions": [
+     {
+      "text": "Nurse’s job",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as 'supple-y', in a supple, bending way, so the letters flex into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get air",
+      "gives": "GETAIR",
+      "note": "the letters taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETAIR",
+       "gives": "TRIAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse's role is to make sure the patient gets an oxygen supply.",
+     "walkthrough": "'Supply' looks like a noun, as in air supply, but it is the adverb from supple. The question mark flags that sorting patients is one example of nursing work.",
+     "definitionFit": "Triage is sorting casualties by urgency on arrival, a task often done by emergency-department nurses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 19,
@@ -371,7 +1550,59 @@
     "text": "Player of golf round stood to make this kind of bread?",
     "enumeration": "7"
    },
-   "solution": "GRANARY"
+   "solution": "GRANARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRANARY",
+    "definitions": [
+     {
+      "text": "this kind of bread",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encircles it, so one piece is put around the other"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Player of golf",
+      "gives": "GARY",
+      "note": "Gary Player is a South African golfing great"
+     },
+     {
+      "clueFragment": "stood",
+      "gives": "RAN",
+      "note": "a candidate who stood for election ran"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAN",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer has stood for a round and somehow ends up baking a loaf.",
+     "walkthrough": "'Player' is the golfer's surname, so the clue wants his first name. Granary is a British brand-name brown loaf with malted whole grains.",
+     "definitionFit": "Granary bread is a malted wholemeal loaf with grains in it, a particular type sold in UK bakeries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1616,64 @@
     "text": "One’s brilliant with Wings, Elvis and Queen on bass for example",
     "enumeration": "10"
    },
-   "solution": "KINGFISHER"
+   "solution": "KINGFISHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINGFISHER",
+    "definitions": [
+     {
+      "text": "One’s brilliant with Wings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another follows it, so the earlier-named piece is placed second"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elvis",
+      "gives": "KING",
+      "note": "Elvis Presley was the King of rock and roll"
+     },
+     {
+      "clueFragment": "bass for example",
+      "gives": "FISH",
+      "note": "a bass is a kind of fish"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KING",
+      "FISH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A music fan raves about Wings, Elvis and Queen, with the bass playing as an example.",
+     "walkthrough": "Wings, Elvis and Queen read as a list of pop acts, but Wings belongs to the definition, and the bass is a fish, not a guitar.",
+     "definitionFit": "The kingfisher is a bird with dazzling blue and orange plumage, so it is a winged creature that is brilliant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wings"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1687,57 @@
     "text": "Welshman capturing El Salvador?",
     "enumeration": "4"
    },
-   "solution": "DALI"
+   "solution": "DALI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DALI",
+    "definitions": [
+     {
+      "text": "Salvador",
+      "at": 22,
+      "note": "a forename standing for the man"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "a captor holds a captive inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welshman",
+      "gives": "DAI",
+      "note": "Dai is a stock Welsh man's name"
+     },
+     {
+      "clueFragment": "El",
+      "gives": "L",
+      "note": "'el' is how the letter L is spelt out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "L",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh soldier seizes the Central American country of El Salvador.",
+     "walkthrough": "'El Salvador' reads as the country, but it splits: El is the letter, Salvador the painter's first name, and the question mark admits the trick.",
+     "definitionFit": "Salvador Dalí was the Spanish surrealist painter, so his first name stands for the man himself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Salvador"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1751,60 @@
     "text": "Italy was first after Germany did nothing",
     "enumeration": "5"
    },
-   "solution": "IDLED"
+   "solution": "IDLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDLED",
+    "definitions": [
+     {
+      "text": "did nothing",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following on, so the later piece is placed behind the earlier one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany (Deutschland)"
+     },
+     {
+      "clueFragment": "was first",
+      "gives": "LED",
+      "note": "to be first is to lead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting tale: Italy took the lead when Germany failed to respond.",
+     "walkthrough": "Italy's I comes first; LED is placed after D.",
+     "definitionFit": "To idle is to be inactive and waste time, so idled means spent time doing nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Germany"
+    }
+   }
   },
   {
    "number": 23,
@@ -427,7 +1818,60 @@
     "text": "Poses when taking smack on vacation",
     "enumeration": "4"
    },
-   "solution": "ASKS"
+   "solution": "ASKS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASKS",
+    "definitions": [
+     {
+      "text": "Poses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "deletion",
+      "note": "a vacated building has been emptied, so the inner letters are removed and only the shell stays"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as = when, at the time that"
+     },
+     {
+      "clueFragment": "smack",
+      "gives": "KISS",
+      "note": "a smacker is a kiss, a smack on the lips"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "K",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug user strikes poses while on holiday with heroin.",
+     "walkthrough": "'Smack' looks like heroin, but it is a loud kiss.",
+     "definitionFit": "To pose a question is to ask it, so poses works as a verb meaning puts forward a query."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smack"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1885,57 @@
     "text": "Regularly attending academic lecture – it’s so long",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "so long",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly attending",
+      "for": "letter_selection",
+      "note": "turning up at regular intervals means only every so many letters is present"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic lecture",
+      "gives": "ADIEU",
+      "select": "regular",
+      "note": "every third letter, starting from the first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "I",
+      "E",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A student goes to a university lecture regularly, complaining it drags on.",
+     "walkthrough": "'It's so long' sounds like the complaint about the lecture, but 'so long' is the farewell.",
+     "definitionFit": "Adieu is a French-borrowed farewell, just as so long is an informal way of saying goodbye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1949,59 @@
     "text": "Loveless marriage? Slow down and get off the phone?",
     "enumeration": "9"
    },
-   "solution": "UNINSTALL"
+   "solution": "UNINSTALL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNINSTALL",
+    "definitions": [
+     {
+      "text": "get off the phone",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loveless",
+      "for": "deletion",
+      "note": "love is zero in tennis, so loveless means with the O taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marriage",
+      "gives": "UNION",
+      "note": "a marriage is a union"
+     },
+     {
+      "clueFragment": "Slow down",
+      "gives": "STALL",
+      "note": "to stall is to hold up or slow progress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNIN",
+      "STALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice for an unhappy spouse: take things slowly and stop calling.",
+     "walkthrough": "'Get off the phone' sounds like ending a call, but it means removing an app from the handset.",
+     "definitionFit": "Uninstalling software deletes the app from a device, so the program is taken off your mobile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +2015,62 @@
     "text": "Crew devoured a little exotic sea creature",
     "enumeration": "7"
    },
-   "solution": "MANATEE"
+   "solution": "MANATEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MANATEE",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "only a little of a word is a small taste of it, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crew",
+      "gives": "MAN",
+      "note": "to man a ship is to crew it"
+     },
+     {
+      "clueFragment": "devoured",
+      "gives": "ATE",
+      "note": "devoured = ate"
+     },
+     {
+      "clueFragment": "exotic",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "ATE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's crew eats a bit of some strange marine animal.",
+     "walkthrough": "'Crew' looks like a noun, sailors, but it is the verb man.",
+     "definitionFit": "The manatee is a large plant-eating aquatic mammal, the sea cow, found in warm coastal waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crew"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +2084,55 @@
     "text": "Journalist on paper tried",
     "enumeration": "7"
    },
-   "solution": "ESSAYED"
+   "solution": "ESSAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESSAYED",
+    "definitions": [
+     {
+      "text": "tried",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another comes after it, so the first-named piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "ESSAY",
+      "note": "a paper is a written essay"
+     },
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED is an editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter writing for a newspaper is put on trial.",
+     "walkthrough": "In an across clue 'on' means after, so the journalist comes after the paper.",
+     "definitionFit": "To essay something is a literary verb for to attempt it, so essayed means attempted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tried"
+    }
+   }
   }
  ]
 }
