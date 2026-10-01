@@ -1416,6 +1416,10 @@ dl.glossary > div { break-inside: avoid; display: flex; gap: 8px; padding: 1px 4
   scroll-margin-top: 80px; }
 dl.glossary dt { margin: 0; }
 dl.glossary dd { margin: 0 0 0 auto; text-align: right; font-weight: 700; color: var(--def-fg); }
+/* A reading's clue count: beside the letters, quieter than them. */
+.glossary-families .n, dl.glossary .n, .glossary-common .n { font-weight: 400; font-size: .85em; }
+.glossary-common { font-size: .9rem; line-height: 1.7; }
+.glossary-common strong { color: var(--def-fg); }
 /* Linked to from a hint, which arrives at one row in a thousand. The browser
    scrolls it into view; :target is what makes it findable once you are there. */
 dl.glossary > div:target { background: var(--accent-soft); outline: 2px solid var(--accent); }
