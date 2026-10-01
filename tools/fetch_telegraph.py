@@ -54,6 +54,7 @@ import puzzle_paths
 import series as series_meta
 from fetch_puzzle import (
     flatten_clue,
+    is_continuation,
     puzzle_files,
     puzzle_path,
     read_puzzle_file,
@@ -371,7 +372,7 @@ def refile(new, old):
             continue
         light = f"{e['number']}-{e['direction']}"
         text, old_text = e["clue"].get("text"), was["clue"].get("text")
-        if text and old_text and not text.startswith("See "):
+        if text and old_text and not is_continuation(text):
             why = bucket_misprint(old_text, text)
             if cross_validate.norm_text(old_text) == cross_validate.norm_text(text):
                 # The same words: ours keeps the offsets its annotation and
@@ -397,7 +398,7 @@ def refile(new, old):
             notes.append(f"{light}: kept our ({old_enum}), the bucket's ({enum}) "
                          f"does not count the {holds} letters")
         ann = was.get("annotation")
-        if ann and "See " != (e["clue"].get("text") or "")[:4]:
+        if ann and not is_continuation(e["clue"].get("text")):
             answer = "".join(by_id[m]["solution"] for m in e.get("group") or [light])
             if annotation_fits(ann, e["clue"].get("text"), answer):
                 e["annotation"] = ann

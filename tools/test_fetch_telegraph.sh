@@ -166,6 +166,17 @@ same("a link word that left the clue sinks the annotation, one still there keeps
      [ft.annotation_fits({"answer": "TWO", "linkWords": ["seeing"]}, "Couple observing", "TWO"),
       ft.annotation_fits({"answer": "TWO", "linkWords": ["observing"]}, "Couple observing", "TWO")],
      [False, True])
+new = ft.parse(doc("Cryptic Crossword No 5", "Monday, 03 August 2026"), "cryptic-crossword-1")
+old = copy.deepcopy(new)
+for e in new["entries"] + old["entries"]:
+    if e["number"] == 1 and e["direction"] == "across":
+        e["clue"]["text"] = "See a pet"
+        e["annotation"] = {"answer": "CAT", "definitions": [{"text": "a pet"}]}
+new["entries"] = [{k: v for k, v in e.items() if k != "annotation"} for e in new["entries"]]
+got, _ = ft.refile(new, old)
+same("a clue that opens on \"See\" and is not a pointer keeps its annotation",
+     ["annotation" in e for e in got["entries"] if e["number"] == 1 and e["direction"] == "across"],
+     [True])
 same("the bucket's era is its own", [ft.served("telegraph", 27737), ft.served("telegraph", 27738),
                                      ft.served("toughie", 2486), ft.served("times", 30000)],
      [False, True, True, False])
