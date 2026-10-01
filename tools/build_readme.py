@@ -382,6 +382,8 @@ LAYOUT = [
     ("tables everything else reads", "tools/push_puzzle_commit.sh", "publish one local commit to origin/master without touching the working tree"),
     ("tables everything else reads", "tools/test_push_puzzle_commit.sh", "does tools/push_puzzle_commit.sh publish a commit while another process keeps writing into the same working tree, where fetch + rebase --autostash + push fails? The burn (tools/prereset_backfill.sh) commits and pushes each puzzle while the rest of its wave is still writing into that tree"),
     ("tables everything else reads", "tools/test_link_words.sh", "does tools/validate_annotations.py refuse a link word that app.js would place on top of an indicator, wholly or in part, and pass one with a free copy? The placement is app.js placedFragments(), so these are the clues that reached the screen with a bought indicator half-erased"),
+    ("tables everything else reads", "tools/test_abbreviations_rank.sh", "/abbreviations/ ranks every list by clue count and shows the count: the most common list, the families and the members of each, and each A-to-Z row's readings. A reading no clue uses keeps its place, last, with no count"),
+    ("tables everything else reads", "tools/test_clue_number_residue.sh", "does puzzle_integrity refuse a blog clue that opens with what is left of the blog's clue number, and pass the clues that only look like one?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
