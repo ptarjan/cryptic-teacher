@@ -24,6 +24,9 @@
   "date": "2025-01-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Doctor’s firm edict partly ignored",
     "enumeration": "5"
    },
-   "solution": "MEDIC"
+   "solution": "MEDIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MEDIC",
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly ignored",
+      "for": "hidden_word",
+      "note": "if the phrase is partly ignored, only a stretch of its letters in the middle is used"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm edict",
+      "gives": "MEDIC",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor issues a firm instruction to a patient, who partly disregards it.",
+     "walkthrough": "The answer sits across the gap: firM EDICt. The 's is short for 'is', joining definition to wordplay.",
+     "definitionFit": "Medic is the informal everyday word for a physician or medical practitioner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +93,45 @@
     "text": "Newly-pressed grape juice is essential",
     "enumeration": "4"
    },
-   "solution": "MUST"
+   "solution": "MUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MUST",
+    "definitions": [
+     {
+      "text": "Newly-pressed grape juice",
+      "at": 0
+     },
+     {
+      "text": "essential",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newly-pressed grape juice",
+      "note": "first meaning: unfermented juice fresh from the winepress"
+     },
+     {
+      "clueFragment": "essential",
+      "note": "second meaning: a thing that cannot be done without"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine lover insists fresh grape juice is indispensable.",
+     "walkthrough": "The second meaning is the noun, as in 'sunscreen is a must'.",
+     "definitionFit": "Must is the winemaking term for freshly crushed juice, and also a noun for something absolutely required."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +145,53 @@
     "text": "Bird runs away from port",
     "enumeration": "4"
    },
-   "solution": "DOVE"
+   "solution": "DOVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DOVE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "something that goes away from a place is no longer in it, so letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "DOVER",
+      "note": "The English Channel ferry port in Kent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird flees a harbour town.",
+     "walkthrough": "Take R out of DOVER. Dover is England's main Channel port for ferries to France.",
+     "definitionFit": "The dove is a pigeon-family bird, a classic symbol of peace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +205,40 @@
     "text": "Tradesman saw part of his equipment?",
     "enumeration": "9"
    },
-   "solution": "CARPENTER"
+   "solution": "CARPENTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CARPENTER",
+    "definitions": [
+     {
+      "text": "Tradesman",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tradesman saw part of his equipment?",
+      "note": "surface reading: a workman noticed one piece of his kit"
+     },
+     {
+      "clueFragment": "saw part of his equipment",
+      "note": "setter's reading: 'saw' is the noun, the toothed cutting tool, which is part of this woodworker's kit"
+     }
+    ],
+    "explanation": {
+     "surface": "A workman spots a piece of his own kit.",
+     "walkthrough": "'Saw' reads as the past tense of see; it is really the tool, so the clue describes the man whose toolbag holds a saw.",
+     "definitionFit": "A carpenter is a skilled woodworking craftsman, a classic trade using saws, chisels and planes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +252,50 @@
     "text": "MPs’ business finishing early is prudent",
     "enumeration": "7"
    },
-   "solution": "POLITIC"
+   "solution": "POLITIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POLITIC",
+    "definitions": [
+     {
+      "text": "prudent",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishing early",
+      "for": "deletion",
+      "note": "finishing early means stopping before the end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MPs’ business",
+      "gives": "POLITICS",
+      "note": "the trade of Members of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLITIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Parliament rising early for the day is a sensible move.",
+     "walkthrough": "POLITICS loses its last letter. MPs are Members of Parliament.",
+     "definitionFit": "Politic is an adjective for wise, judicious action, as in 'it seemed politic to stay quiet'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +309,45 @@
     "text": "Sermon here: if no good, do this with text?",
     "enumeration": "6"
    },
-   "solution": "PULPIT"
+   "solution": "PULPIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PULPIT",
+    "definitions": [
+     {
+      "text": "Sermon here",
+      "at": 0
+     },
+     {
+      "text": "if no good, do this with text",
+      "at": 13,
+      "note": "a verb phrase: read as two words, 'pulp it'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sermon here",
+      "note": "first meaning: the raised stand in church from which the preacher speaks"
+     },
+     {
+      "clueFragment": "if no good, do this with text",
+      "note": "second meaning, split as two words: mash a worthless printed text back into paper pulp"
+     }
+    ],
+    "explanation": {
+     "surface": "A preacher reflects that a poor sermon text deserves destroying.",
+     "walkthrough": "The second half is cryptic: split the answer into PULP IT, what a publisher does with unsold or bad books.",
+     "definitionFit": "The pulpit is the elevated church lectern where sermons are delivered, so it is where a sermon happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "text"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +361,43 @@
     "text": "Soft sound from farm shed",
     "enumeration": "3"
    },
-   "solution": "LOW"
+   "solution": "LOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOW",
+    "definitions": [
+     {
+      "text": "Soft",
+      "at": 0
+     },
+     {
+      "text": "sound from farm shed",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soft",
+      "note": "first meaning: quiet, as of a voice"
+     },
+     {
+      "clueFragment": "sound from farm shed",
+      "note": "second meaning: the noise a cow makes in a byre"
+     }
+    ],
+    "explanation": {
+     "surface": "A gentle noise drifts from a barn.",
+     "walkthrough": "'Soft sound' looks like one phrase, but it splits into two separate meanings.",
+     "definitionFit": "Low describes a quiet voice, and as a noun is the moo of cattle housed in sheds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Soft"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +421,39 @@
      }
     ]
    },
-   "solution": "TUGOFWAR"
+   "solution": "TUGOFWAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TUG OF WAR",
+    "definitions": [
+     {
+      "text": "Strong backing needed for this sports-day event?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong backing",
+      "note": "surface reading: firm support from the crowd for a school race"
+     },
+     {
+      "clueFragment": "Strong backing needed for this sports-day event?",
+      "note": "setter's reading: powerful heaving backwards on a rope is how this contest is won"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Backing' sounds like support, but it means moving backwards: teams win by hauling the rope back. Sports day is a school athletics afternoon.",
+     "definitionFit": "A rope-pulling contest between two teams is a traditional fixture at school field days and village fetes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +467,58 @@
     "text": "Combine ice-cream with smooth filling",
     "enumeration": "8"
    },
-   "solution": "CONFLATE"
+   "solution": "CONFLATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONFLATE",
+    "definitions": [
+     {
+      "text": "Combine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling sits inside something, like the middle of a sandwich"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice-cream",
+      "gives": "CONE",
+      "note": "an ice-cream served in a wafer cone"
+     },
+     {
+      "clueFragment": "smooth",
+      "gives": "FLAT",
+      "note": "level and even"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FLAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: mix ice-cream with a silky centre.",
+     "walkthrough": "'Filling' sounds like part of the dessert, but it tells you the smooth piece sits inside the ice-cream.",
+     "definitionFit": "To conflate is to merge two things, often ideas or sources, into a single one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smooth"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +532,51 @@
     "text": "Doctor reveals a few",
     "enumeration": "7"
    },
-   "solution": "SEVERAL"
+   "solution": "SEVERAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEVERAL",
+    "definitions": [
+     {
+      "text": "a few",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, altering its arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reveals",
+      "gives": "REVEALS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REVEALS",
+       "gives": "SEVERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician discloses a small number of things.",
+     "walkthrough": "'Doctor' looks like a noun subject, but it is a verb meaning tamper with.",
+     "definitionFit": "Several means more than two but not many, roughly a handful or small number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +590,50 @@
     "text": "Keep shaking the cart",
     "enumeration": "5"
    },
-   "solution": "WAGON"
+   "solution": "WAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAGON",
+    "definitions": [
+     {
+      "text": "cart",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaking",
+      "gives": "WAG",
+      "note": "a dog's tail wags, moving to and fro"
+     },
+     {
+      "clueFragment": "Keep",
+      "gives": "ON",
+      "note": "as in 'keep on', continue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps jolting a farm cart.",
+     "walkthrough": "'Keep shaking' is 'wag on', carry on wagging, with the two pieces in reverse clue order.",
+     "definitionFit": "A wagon is a four-wheeled vehicle for hauling goods, the same thing as a heavy cart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +647,64 @@
     "text": "Fight duel, drunk: hospital finally charming",
     "enumeration": "10"
    },
-   "solution": "DELIGHTFUL"
+   "solution": "DELIGHTFUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DELIGHTFUL",
+    "definitions": [
+     {
+      "text": "charming",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about out of order, so the letters are jumbled"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fight duel",
+      "gives": "FIGHTDUEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "L",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIGHTDUELL",
+       "gives": "DELIGHTFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two drunks duel and end up in hospital, which is somehow charming.",
+     "walkthrough": "'Hospital' tempts as H; here only its final letter counts.",
+     "definitionFit": "Delightful describes something very pleasing and attractive, closely matching an engaging, winning quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +718,51 @@
     "text": "Post hoc ability to understand glimpse of deer?",
     "enumeration": "9"
    },
-   "solution": "HINDSIGHT"
+   "solution": "HINDSIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HINDSIGHT",
+    "definitions": [
+     {
+      "text": "Post hoc ability to understand",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deer",
+      "gives": "HIND",
+      "note": "a hind is a female red deer"
+     },
+     {
+      "clueFragment": "glimpse",
+      "gives": "SIGHT",
+      "note": "a view or look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIND",
+      "SIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing a deer only afterwards brings understanding.",
+     "walkthrough": "A 'glimpse of deer' is a sight of a hind, written with the deer first.",
+     "definitionFit": "Hindsight is the wisdom gained after events, Latin 'post hoc' meaning after this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "glimpse"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +776,70 @@
     "text": "Break in journey by provost travelling round east",
     "enumeration": "8"
    },
-   "solution": "STOPOVER"
+   "solution": "STOPOVER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STOPOVER",
+    "definitions": [
+     {
+      "text": "Break in journey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "things travelling are moving about, so the letters change position"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to encircle it"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provost",
+      "gives": "PROVOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOPOV",
+      "E",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PROVOST",
+       "gives": "STOPOVR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college head heading east breaks their trip.",
+     "walkthrough": "Rearrange PROVOST, then wrap it round E. A provost is the head of some colleges or, in Scotland, a mayor.",
+     "definitionFit": "A stopover is a brief halt partway through travel, often an overnight stay between flights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +853,51 @@
     "text": "Ha-ha! A wit convulsed native American leader",
     "enumeration": "8"
    },
-   "solution": "HIAWATHA"
+   "solution": "HIAWATHA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HIAWATHA",
+    "definitions": [
+     {
+      "text": "native American leader",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "convulsed",
+      "for": "anagram",
+      "note": "something convulsed is thrown into violent spasms, scrambling its order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ha-ha! A wit",
+      "gives": "HAHAAWIT",
+      "note": "taken as written, punctuation ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAHAAWIT",
+       "gives": "HIAWATHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joker laughs so hard at a chief that they are in fits.",
+     "walkthrough": "'Convulsed' fits laughter, so it reads as the wit doubled up rather than a signal.",
+     "definitionFit": "Hiawatha was a legendary Iroquois chief, celebrated in Longfellow's poem 'The Song of Hiawatha'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "convulsed"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +911,54 @@
     "text": "Number needing a drink, not small!",
     "enumeration": "6"
    },
-   "solution": "THIRTY"
+   "solution": "THIRTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIRTY",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needing a drink",
+      "gives": "THIRSTY",
+      "note": "wanting something to drink"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIR",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone parched wants a large drink, not a small one.",
+     "walkthrough": "Remove S from THIRSTY.",
+     "definitionFit": "Thirty is a cardinal numeral, three times ten, so it is an example of a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +972,47 @@
     "text": "International law not broken",
     "enumeration": "6"
    },
-   "solution": "INTACT"
+   "solution": "INTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTACT",
+    "definitions": [
+     {
+      "text": "not broken",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "International",
+      "gives": "INT",
+      "note": "a standard abbreviation of international"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an Act of Parliament is a law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A treaty-based law has not been violated.",
+     "walkthrough": "'Not broken' reads as obeyed, of a law, but it is the definition.",
+     "definitionFit": "Intact describes something whole and undamaged, with nothing missing or shattered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1026,59 @@
     "text": "Manager reserves parking for conductor",
     "enumeration": "6"
    },
-   "solution": "COPPER"
+   "solution": "COPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COPPER",
+    "definitions": [
+     {
+      "text": "conductor",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reserves",
+      "for": "container",
+      "note": "to reserve is to hold something back, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manager",
+      "gives": "COPER",
+      "note": "someone who copes, manages a situation"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "P",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss keeps a parking space for the orchestra's conductor.",
+     "walkthrough": "The conductor is electrical, not musical. COPER, one who manages, holds P.",
+     "definitionFit": "Copper is a metal prized for carrying electricity, the standard material for wiring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "conductor"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1092,50 @@
     "text": "Might provide accommodation for forceful individual",
     "enumeration": "10"
    },
-   "solution": "POWERHOUSE"
+   "solution": "POWERHOUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POWERHOUSE",
+    "definitions": [
+     {
+      "text": "forceful individual",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might",
+      "gives": "POWER",
+      "note": "might as a noun means strength"
+     },
+     {
+      "clueFragment": "provide accommodation",
+      "gives": "HOUSE",
+      "note": "to house is to give lodging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POWER",
+      "HOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone may offer a room to a strong-willed person.",
+     "walkthrough": "'Might' looks like the verb 'may'; it is the noun meaning strength.",
+     "definitionFit": "Powerhouse is a figurative term for a person of great energy, drive and strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Might"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1149,42 @@
     "text": "Blonde not that good",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "Blonde",
+      "at": 0
+     },
+     {
+      "text": "not that good",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blonde",
+      "note": "first meaning: light-coloured, of hair"
+     },
+     {
+      "clueFragment": "not that good",
+      "note": "second meaning: middling"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismissive verdict on a blonde.",
+     "walkthrough": "A school report grade of 'fair' is adequate but unimpressive.",
+     "definitionFit": "Fair describes pale hair or complexion and also a mediocre, merely passable standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1198,45 @@
     "text": "What wind did, sounding sad",
     "enumeration": "4"
    },
-   "solution": "BLEW"
+   "solution": "BLEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BLEW",
+    "definitions": [
+     {
+      "text": "What wind did",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding means as it is heard when spoken, not as written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sad",
+      "gives": "BLEW",
+      "soundsLike": "BLUE",
+      "note": "feeling blue is feeling low"
+     }
+    ],
+    "explanation": {
+     "surface": "The wind moaned mournfully.",
+     "walkthrough": "Feeling blue is an idiom for being downhearted.",
+     "definitionFit": "Blew is the past tense of blow, the action a moving wind performs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sounding"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1250,65 @@
     "text": "Putting tea, say, in small bottle is essential",
     "enumeration": "5"
    },
-   "solution": "VITAL"
+   "solution": "VITAL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "VITAL",
+    "definitions": [
+     {
+      "text": "essential",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for the spoken form, here a letter named by its sound"
+     },
+     {
+      "text": "Putting",
+      "for": "container",
+      "note": "putting one thing in another places it inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small bottle",
+      "gives": "VIAL",
+      "note": "a phial or little glass container"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "T",
+      "soundsLike": "TEE",
+      "note": "the drink's name is the letter's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "T",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A tip: storing tea in a little flask is crucial.",
+     "walkthrough": "T, named like the drink, goes inside VIAL.",
+     "definitionFit": "Vital means absolutely necessary, as in something life-or-death important."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1322,44 @@
     "text": "OT character’s fortune",
     "enumeration": "3"
    },
-   "solution": "LOT"
+   "solution": "LOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOT",
+    "definitions": [
+     {
+      "text": "OT character",
+      "at": 0
+     },
+     {
+      "text": "fortune",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OT character",
+      "note": "first meaning: Abraham's nephew in the Old Testament, whose wife turned to salt"
+     },
+     {
+      "clueFragment": "fortune",
+      "note": "second meaning: one's fate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's reads as possessive but stands for 'is'. OT is the Old Testament.",
+     "definitionFit": "Lot is a biblical figure who fled Sodom, and lot also means one's destiny or share."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1373,44 @@
     "text": "Way of styling hair that’s short and curly",
     "enumeration": "7"
    },
-   "solution": "PIGTAIL"
+   "solution": "PIGTAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PIGTAIL",
+    "definitions": [
+     {
+      "text": "Way of styling hair",
+      "at": 0
+     },
+     {
+      "text": "that’s short and curly",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way of styling hair",
+      "note": "first meaning: a plait hanging from the back or side of the head"
+     },
+     {
+      "clueFragment": "that’s short and curly",
+      "note": "second meaning, read literally: the stubby corkscrew tail of a pig"
+     }
+    ],
+    "explanation": {
+     "surface": "A hairstyle that is both cropped and curled.",
+     "walkthrough": "The hair theme pushes towards a perm; the second half instead describes a farm animal's tail.",
+     "definitionFit": "A pigtail is a braided tress of hair, and literally a pig's tail is short and tightly coiled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "curly"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1424,55 @@
     "text": "Clergyman touring a nuclear plant",
     "enumeration": "7"
    },
-   "solution": "REACTOR"
+   "solution": "REACTOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REACTOR",
+    "definitions": [
+     {
+      "text": "nuclear plant",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "someone touring goes round a place, enclosing it in the route"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "RECTOR",
+      "note": "a parish priest"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "CTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar is shown round a nuclear power station.",
+     "walkthrough": "A goes inside RECTOR, the Church of England title for some parish priests.",
+     "definitionFit": "A reactor is the apparatus where a controlled fission chain reaction generates nuclear energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1486,43 @@
     "text": "Deliberately lose light blanket",
     "enumeration": "5"
    },
-   "solution": "THROW"
+   "solution": "THROW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THROW",
+    "definitions": [
+     {
+      "text": "Deliberately lose",
+      "at": 0
+     },
+     {
+      "text": "light blanket",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deliberately lose",
+      "note": "first meaning: lose a match on purpose"
+     },
+     {
+      "clueFragment": "light blanket",
+      "note": "second meaning: a thin cover draped over a sofa or bed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone purposely misplaces a thin bedcover.",
+     "walkthrough": "'Light' tempts towards a lamp, but it means lightweight.",
+     "definitionFit": "To throw a contest is to lose it intentionally, and a throw is a decorative coverlet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lose"
+    }
+   }
   }
  ]
 }
