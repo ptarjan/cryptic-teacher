@@ -73,12 +73,17 @@ def rows():
 
 
 def weekday_resid_target(all_rated, lo, hi):
-    """NITCH minus the weekday mean of the (date, nitch) pairs dated outside lo..hi."""
+    """NITCH minus the weekday mean of the (date, nitch) pairs dated outside lo..hi.
+    A weekday with no rating outside the window (Saturdays are rated only from
+    2024, so a late third holds them all) falls back to the mean of every day."""
     by = {}
     for d, x in all_rated:
         if not lo <= d <= hi:
             by.setdefault(d.weekday(), []).append(x)
-    return lambda r: r["nitch"] - sum(by[r["date"].weekday()]) / len(by[r["date"].weekday()])
+    rest = [x for xs in by.values() for x in xs]
+    mean = {w: sum(xs) / len(xs) for w, xs in by.items()}
+    overall = sum(rest) / len(rest)
+    return lambda r: r["nitch"] - mean.get(r["date"].weekday(), overall)
 
 
 def heldout(rows, key, sel, series="times"):
