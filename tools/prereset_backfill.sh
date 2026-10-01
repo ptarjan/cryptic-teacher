@@ -5,8 +5,8 @@
 # over. daily_update.sh deliberately refuses to annotate above
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
-# gate. Every wave runs at full width (tools/prereset_plan.py --width), from the
-# moment it starts until the week resets.
+# gate. Every wave runs at full width or wider (tools/prereset_plan.py --width),
+# from the moment it starts until the week resets.
 #
 # The only stops are the meters and the reset itself:
 #   - the FIVE-hour limit: saturate it and nothing more can be bought until it
@@ -76,8 +76,13 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
-# Runs in flight per wave (PARALLEL_MAX); see tools/prereset_plan.py.
-WIDTH=$(python3 tools/prereset_plan.py --width 2>/dev/null || echo 14)
+# Runs in flight for the next wave, asked before each one: PARALLEL_MAX, wider
+# up to PARALLEL_BURST when the five-hour window is behind (tools/prereset_plan.py).
+wave_width() {
+  local w
+  w=$(python3 tools/prereset_plan.py --width 2>/dev/null)
+  case "$w" in ''|*[!0-9]*|0) echo 14 ;; *) echo "$w" ;; esac
+}
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself. The
 # meter sits at 99 when the week is spent, which is also what the reset ping
@@ -678,7 +683,7 @@ while [ "$at" -lt "${#queue[@]}" ]; do
   if past_deadline; then echo "deadline reached — stopping"; break; fi
   before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-  wide="$WIDTH"
+  wide=$(wave_width)
   # Ahead of the round-robin: Cracking the Cryptic's puzzles, then the puzzles
   # that give an indicator on /indicators/
   # its first annotated clue (tools/indicator_cover.py), re-planned every wave so
@@ -734,7 +739,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     if past_deadline; then echo "deadline reached — stopping"; break 2; fi
     before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
     before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-    wide="$WIDTH"
+    wide=$(wave_width)
     started=$(date +%s)
     run_wave "Backfill $field for" "$prompt" "${queue[@]:$at:$wide}"
     failed=$?
