@@ -97,6 +97,11 @@ tools/fetch_globeandmail.py                  the Globe and Mail’s cryptic, a T
 tools/fetch_privateeye.py                    Private Eye’s Cyclops — the grid from the paper,
                                              the answers joined from fifteensquared, which is
                                              the only place they are published
+tools/file_cyclops_christmas.py              the Cyclops Christmas specials, which have no
+                                             .puz: the grid read off the Eye's image by pixel
+                                             sampling, clues and answers from fifteensquared,
+                                             the shaded quotation as an unclued light checked
+                                             against the preamble's letter list
 tools/fetch_metro.py                         the Metro’s cryptic; today’s only, because the
                                              paper keeps no archive
 tools/repair_fetched.py                      applies the fetchers’ current rules to puzzles

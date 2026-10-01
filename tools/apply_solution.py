@@ -148,11 +148,17 @@ def check_geometry(puzzle):
                             f"{entry['direction']} from ({x},{y}), crossing nothing")
 
     if cells:
-        checked = sum(1 for occ in cells.values()
-                      if len({e["direction"] for e in occ}) > 1)
-        ratio = checked / len(cells)
+        # An unclued light is a light: a cell it shares with an entry is checked,
+        # and a cell only it covers is a grid cell that nothing else checks.
+        lights_at = {cell: len({e["direction"] for e in occ}) for cell, occ in cells.items()}
+        for light in puzzle.get("unclued") or []:
+            for c in light.get("cells") or []:
+                cell = (c.get("x"), c.get("y"))
+                lights_at[cell] = lights_at.get(cell, 0) + 1
+        checked = sum(1 for n in lights_at.values() if n > 1)
+        ratio = checked / len(lights_at)
         if ratio < MIN_CHECKED_RATIO:
-            problems.append(f"only {ratio:.0%} of the {len(cells)} cells are "
+            problems.append(f"only {ratio:.0%} of the {len(lights_at)} cells are "
                             f"checked, under the {MIN_CHECKED_RATIO:.0%} a grid needs")
     return problems
 

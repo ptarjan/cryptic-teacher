@@ -78,5 +78,24 @@ has BLACK "is not on a white square" "a printed letter on a black square is refu
 has WRONG "but the solution there is" "a printed letter that is not the solution is refused"
 has SHAPE "SCHEMA" "an unclued light of one square fails the schema"
 
+# An unclued light checks the entries it crosses: a grid whose clued entries
+# alone fall under the checked-cell floor passes once the light is counted.
+ratio=$(PYTHONPATH=tools python3 - <<'PY'
+from apply_solution import check_geometry
+# Three parallel 5-cell downs joined top and bottom by unclued rows: the downs
+# cross nothing clued, so only the unclued rows can make the grid coherent.
+p = {"dimensions": {"cols": 5, "rows": 5}, "entries": [
+    {"number": 1, "direction": "down", "position": {"x": 0, "y": 0}, "length": 5},
+    {"number": 2, "direction": "down", "position": {"x": 2, "y": 0}, "length": 5},
+    {"number": 3, "direction": "down", "position": {"x": 4, "y": 0}, "length": 5}]}
+ring = [{"cells": [{"x": x, "y": 0} for x in range(5)], "solution": "AAAAA"},
+        {"cells": [{"x": x, "y": 4} for x in range(5)], "solution": "AAAAA"}]
+bare = [q for q in check_geometry(p) if "checked" in q]
+lit = [q for q in check_geometry({**p, "unclued": ring}) if "checked" in q]
+print("BARE" if bare else "NOBARE", "LIT" if lit else "NOLIT")
+PY
+)
+same "the checked-cell floor counts unclued lights as lights" "$ratio" "BARE NOLIT"
+
 if [ "$fails" -gt 0 ]; then echo "unclued_printed: $fails check(s) failed"; exit 1; fi
 echo "unclued_printed: all checks passed"
