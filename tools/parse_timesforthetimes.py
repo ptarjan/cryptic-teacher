@@ -939,6 +939,8 @@ def read_entries(rendered):
         if m:
             these = link_lights(m, direction)
             rest = LINK_TAIL.sub("", ln[m.end():]).strip()
+            if these and len(these) == 1 and m.group(2) and these[0][1] != direction:
+                headed[these[0]] = direction
             # A line of prose can open with numbers too ("4, 11 & 15 were also
             # pretty similar"). What a clue line always ends in is its own
             # enumeration, and a bare head cell ends at the numbers, so
@@ -959,6 +961,7 @@ def read_entries(rendered):
                 # A suffix against the heading it sits under ("24d" in the
                 # Across list) is one of the two mistyped; the grid decides
                 # (times_grids.as_headed), so the heading is kept beside it.
+                # A head LINK_HEAD reads is held to the same above.
                 if (suffix or glued) and direction and way != direction:
                     headed[(number, way)] = direction
                 if (direction == "across" and not headed_down and not (suffix or glued)
