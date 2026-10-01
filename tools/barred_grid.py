@@ -21,6 +21,7 @@ between them exactly when no one light runs through both. A solution is the
 The grid's outer edge is never written.
 """
 import re
+from collections import defaultdict
 
 SIZE = 12
 
@@ -31,21 +32,39 @@ def letters(answer):
 
 def lights_by_number(entries):
     """{number: {"across": word, "down": word}}, or None when the list is unusable."""
+    out = candidates_by_number(entries)
+    if out is None or any(len(c) > 1 for slot in out.values() for c in slot.values()):
+        return None
+    return {n: {d: c[0] for d, c in slot.items()} for n, slot in out.items()}
+
+
+def candidates_by_number(entries):
+    """{number: {"across": [word, ...], "down": [...]}}: an entry's `answer`, or
+    its `answers` where what goes in the grid is one of several (a Listener
+    whose preamble moves a letter somewhere in the answer). None when unusable."""
     out = {}
     for e in entries:
-        word = letters(e.get("answer"))
-        if len(word) < 2:
+        words = [letters(w) for w in (e["answers"] if "answers" in e else [e.get("answer")])]
+        words = list(dict.fromkeys(words))
+        if not words or any(len(w) < 2 or len(w) != len(words[0]) for w in words):
             return None
         slot = out.setdefault(e["number"], {})
         if e["direction"] in slot:
             return None
-        slot[e["direction"]] = word
+        slot[e["direction"]] = words
     return out
 
 
 def solve(entries, size=SIZE, cap=2):
     """Every layout (up to `cap`) as {number: cell index}; None when unusable."""
-    by_number = lights_by_number(entries)
+    found = solve_words(entries, size, cap)
+    return None if found is None else [place for place, _ in found]
+
+
+def solve_words(entries, size=SIZE, cap=2):
+    """Every fill (up to `cap`) as ({number: cell index}, {(number, direction):
+    word}), each light's word one of its candidates; None when unusable."""
+    by_number = candidates_by_number(entries)
     if not by_number:
         return None
     numbers = sorted(by_number)
@@ -55,6 +74,7 @@ def solve(entries, size=SIZE, cap=2):
     down = [False] * n
     found = []
     place = {}
+    words = {}
 
     def covered(c):
         return across[c] or down[c]
@@ -78,11 +98,12 @@ def solve(entries, size=SIZE, cap=2):
             return
         if k == len(numbers):
             if all(covered(c) for c in range(prev + 1, n)):
-                found.append(dict(place))
+                found.append((dict(place), dict(words)))
             return
         num = numbers[k]
-        a = by_number[num].get("across")
-        d = by_number[num].get("down")
+        cands_a = by_number[num].get("across") or [None]
+        cands_d = by_number[num].get("down") or [None]
+        a, d = cands_a[0], cands_d[0]
         for p in range(prev + 1, n):
             if p > prev + 1 and not covered(p - 1):
                 return
@@ -91,41 +112,59 @@ def solve(entries, size=SIZE, cap=2):
                 continue
             if d and (r + len(d) > size or any(down[p + i * size] for i in range(len(d)))):
                 continue
-            wa = put(p, a, 1) if a else []
-            if wa is None:
-                continue
-            wd = put(p, d, size) if d else []
-            if wd is None:
-                for w in wa:
-                    grid[w] = None
-                continue
-            if a:
-                for i in range(len(a)):
-                    across[p + i] = True
-            if d:
-                for i in range(len(d)):
-                    down[p + i * size] = True
-            place[num] = p
-            go(k + 1, p)
-            del place[num]
-            if a:
-                for i in range(len(a)):
-                    across[p + i] = False
-            if d:
-                for i in range(len(d)):
-                    down[p + i * size] = False
-            for w in wa + wd:
+            for a_word in cands_a:
+                for d_word in cands_d:
+                    place_words(k, p, num, a_word, d_word)
+                    if len(found) >= cap:
+                        return
+
+    def place_words(k, p, num, a, d):
+        """Write light k's words at p and search on from there."""
+        wa = put(p, a, 1) if a else []
+        if wa is None:
+            return
+        wd = put(p, d, size) if d else []
+        if wd is None:
+            for w in wa:
                 grid[w] = None
-            if len(found) >= cap:
-                return
+            return
+        if a:
+            for i in range(len(a)):
+                across[p + i] = True
+        if d:
+            for i in range(len(d)):
+                down[p + i * size] = True
+        place[num] = p
+        if a:
+            words[(num, "across")] = a
+        if d:
+            words[(num, "down")] = d
+        go(k + 1, p)
+        del place[num]
+        words.pop((num, "across"), None)
+        words.pop((num, "down"), None)
+        if a:
+            for i in range(len(a)):
+                across[p + i] = False
+        if d:
+            for i in range(len(d)):
+                down[p + i * size] = False
+        for w in wa + wd:
+            grid[w] = None
 
     go(0, -1)
     return found
 
 
-def layout(entries, placement, size=SIZE):
-    """(rows of letters, bars) for one placement from solve()."""
-    by_number = lights_by_number(entries)
+def layout(entries, placement, size=SIZE, words=None):
+    """(rows of letters, bars) for one placement from solve(), or from
+    solve_words() with the words it chose."""
+    if words is None:
+        by_number = lights_by_number(entries)
+    else:
+        by_number = defaultdict(dict)
+        for (num, direction), word in words.items():
+            by_number[num][direction] = word
     n = size * size
     grid = [None] * n
     a_id = [None] * n
