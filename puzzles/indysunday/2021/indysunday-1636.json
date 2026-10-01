@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Case of chronically having stone in bladder?",
     "enumeration": "4"
    },
-   "solution": "CYST"
+   "solution": "CYST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CYST",
+    "definitions": [
+     {
+      "text": "bladder",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "a case is the outside of something, so only the outermost letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chronically",
+      "gives": "CY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the British unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CY",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical case history: a patient chronically troubled by a stone in the bladder.",
+     "walkthrough": "The stone looks like a kidney or bladder stone, but it is the weight unit (14 pounds). 'Bladder' itself is the definition, with a question mark because it is a looser sense.",
+     "definitionFit": "A cyst is a fluid-filled sac in the body, and bladder in its broad sense means any membranous sac."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +102,52 @@
     "text": "Perhaps drives one's jury mad",
     "enumeration": "8"
    },
-   "solution": "JOURNEYS"
+   "solution": "JOURNEYS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "JOURNEYS",
+    "definitions": [
+     {
+      "text": "Perhaps drives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "something mad has lost its order and sense, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's jury",
+      "gives": "ONESJURY",
+      "note": "the letters taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONESJURY",
+       "gives": "JOURNEYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complaining that a particular thing drives their jury mad.",
+     "walkthrough": "'Drives' reads as a verb (drives someone mad), but it is a plural noun, trips by car; 'Perhaps' warns that drives are only one example.",
+     "definitionFit": "Drives in the sense of car outings are one kind of trip, so they are examples of the wider category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drives"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +161,64 @@
     "text": "Greeting from Hawaii always uplifting",
     "enumeration": "4"
    },
-   "solution": "HIYA"
+   "solution": "HIYA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HIYA",
+    "definitions": [
+     {
+      "text": "Greeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down clue lifting something up makes it read from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hawaii",
+      "gives": "HI",
+      "note": "HI is the US postal code for Hawaii"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay is an old or poetic word for always (also spelt aye)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "YA"
+     ],
+     "reversals": [
+      {
+       "from": "AY",
+       "to": "YA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful aloha from Hawaii, always raising the spirits.",
+     "walkthrough": "Hawaii suggests aloha, but it only supplies its state abbreviation; only the second piece is turned round.",
+     "definitionFit": "Hiya is an informal salutation, a casual contraction of 'how are you', used like hello."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hawaii"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +232,84 @@
     "text": "At heart envisions playful, amazing style - prefiguring, maybe, a linear arrangement",
     "enumeration": "6"
    },
-   "solution": "SYZYGY"
+   "solution": "SYZYGY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SYZYGY",
+    "definitions": [
+     {
+      "text": "a linear arrangement",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so the middle letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "envisions",
+      "gives": "S",
+      "select": "middle",
+      "note": "fifth of nine letters"
+     },
+     {
+      "clueFragment": "playful",
+      "gives": "Y",
+      "select": "middle",
+      "note": "fourth of seven letters"
+     },
+     {
+      "clueFragment": "amazing",
+      "gives": "Z",
+      "select": "middle",
+      "note": "fourth of seven letters"
+     },
+     {
+      "clueFragment": "style",
+      "gives": "Y",
+      "select": "middle",
+      "note": "third of five letters"
+     },
+     {
+      "clueFragment": "prefiguring",
+      "gives": "G",
+      "select": "middle",
+      "note": "sixth of eleven letters"
+     },
+     {
+      "clueFragment": "maybe",
+      "gives": "Y",
+      "select": "middle",
+      "note": "third of five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "Y",
+      "Z",
+      "Y",
+      "G",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An art critic praising a playful, amazing style that seems to foreshadow some orderly arrangement.",
+     "walkthrough": "Six consecutive words each give their centre letter; only the last three words define, and the solver must take every word as fodder, not just a few.",
+     "definitionFit": "Syzygy is the astronomical term for three celestial bodies, such as sun, earth and moon, lying in a straight line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "style"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +323,47 @@
     "text": "Bird gets spider",
     "enumeration": "10"
    },
-   "solution": "FLYCATCHER"
+   "solution": "FLYCATCHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLYCATCHER",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     },
+     {
+      "text": "spider",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "note": "first meaning: a small songbird that snatches insects in flight"
+     },
+     {
+      "clueFragment": "spider",
+      "note": "second meaning, taken literally: something whose web traps winged insects"
+     }
+    ],
+    "explanation": {
+     "surface": "A nature snapshot: a bird snaps up a spider.",
+     "walkthrough": "It looks like a predator-and-prey scene, but bird and spider are two separate meanings; the second is a descriptive, whimsical one rather than a dictionary sense.",
+     "definitionFit": "The word names a family of insect-eating birds, and literally describes any creature, like a web-spinning spider, that traps insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +383,50 @@
      }
     ]
    },
-   "solution": "SAYSO"
+   "solution": "SAYSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAY-SO",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "SAY",
+      "note": "say introduces an example, as in 'a fruit, say, an apple'"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means in this way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAY",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone giving an order, then an example, then a curt 'thus' like a schoolteacher.",
+     "walkthrough": "Both pieces are everyday function words; 'for example' is a common way of hiding SAY or EG.",
+     "definitionFit": "Someone's say-so is their command or authoritative instruction, just as an order is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +440,55 @@
     "text": "One of five in hovel not seeing straight",
     "enumeration": "7"
    },
-   "solution": "SQUINTY"
+   "solution": "SQUINTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SQUINTY",
+    "definitions": [
+     {
+      "text": "not seeing straight",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being inside another means its letters sit within the other's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hovel",
+      "gives": "STY",
+      "note": "a sty is a pigsty, so by extension a filthy dwelling"
+     },
+     {
+      "clueFragment": "One of five",
+      "gives": "QUIN",
+      "note": "a quin is one of quintuplets, five babies born together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "QUIN",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "One of a family of five crammed into a hovel has poor eyesight.",
+     "walkthrough": "'One of five' sounds like a number puzzle, but it is the British short word for a quintuplet.",
+     "definitionFit": "Someone squinty has eyes that are narrowed or crossed, so their gaze is not properly aligned or focused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +502,81 @@
     "text": "One day isles to the west, rejecting society, become peaceful",
     "enumeration": "7"
    },
-   "solution": "IDYLLIC"
+   "solution": "IDYLLIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "IDYLLIC",
+    "definitions": [
+     {
+      "text": "peaceful",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejecting",
+      "for": "deletion",
+      "note": "to reject something is to throw it out, so a letter is removed"
+     },
+     {
+      "text": "to the west",
+      "for": "reversal",
+      "note": "in an across entry heading west means travelling right to left, backwards"
+     }
+    ],
+    "linkWords": [
+     "become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "the standard abbreviation for day"
+     },
+     {
+      "clueFragment": "isles",
+      "gives": "SCILLY",
+      "note": "the Isles of Scilly lie off the far south-west tip of Cornwall"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is a standard abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "YLLIC"
+     ],
+     "reversals": [
+      {
+       "from": "CILLY",
+       "to": "YLLIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One day the western islands will turn their back on society and find peace.",
+     "walkthrough": "'Isles to the west' sounds like geography, and the Isles of Scilly really are in England's far west; the S comes off the front before the rest is turned round.",
+     "definitionFit": "Idyllic describes a scene that is calm, serene and untroubled, like a pastoral idyll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +590,47 @@
     "text": "A bit of diplomacy? Nice, but I doubt your motives",
     "enumeration": "5"
    },
-   "solution": "CYNIC"
+   "solution": "CYNIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CYNIC",
+    "definitions": [
+     {
+      "text": "I doubt your motives",
+      "at": 30,
+      "note": "a phrase a cynic would say, standing for the person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A bit of",
+      "for": "hidden_word",
+      "note": "a bit is a part, so the entry is just a piece of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diplomacy? Nice",
+      "gives": "CYNIC",
+      "note": "runs across the end of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone responds to a show of tact: very nice, but they suspect an ulterior motive.",
+     "walkthrough": "'Nice' looks like praise, but it supplies letters; the definition is spoken in the first person, as if the answer were talking.",
+     "definitionFit": "A cynic distrusts people's sincerity and assumes self-interest behind their actions, so would voice that suspicion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +644,52 @@
     "text": "Quarry Etna? Ludicrous, according to geologists nowadays",
     "enumeration": "10"
    },
-   "solution": "QUATERNARY"
+   "solution": "QUATERNARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "QUATERNARY",
+    "definitions": [
+     {
+      "text": "according to geologists nowadays",
+      "at": 24,
+      "note": "describes the present era rather than naming it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ludicrous",
+      "for": "anagram",
+      "note": "something ludicrous is absurd and disordered, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quarry Etna",
+      "gives": "QUARRYETNA",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUARRYETNA",
+       "gives": "QUATERNARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scoffs at the idea of quarrying a volcano, as geologists would today.",
+     "walkthrough": "The geology in the surface is apt: the definition is the name geologists give to the current period.",
+     "definitionFit": "The Quaternary is the geological period spanning the last 2.6 million years, including the present day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Quarry"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +703,62 @@
     "text": "Vegetation finally eaten by shy rabbit",
     "enumeration": "4"
    },
-   "solution": "CONY"
+   "solution": "CONY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONY",
+    "definitions": [
+     {
+      "text": "rabbit",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter of the word is used"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten goes inside the eater, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shy",
+      "gives": "COY",
+      "note": "coy means bashful or shy"
+     },
+     {
+      "clueFragment": "Vegetation",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "N",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid rabbit nibbles the last of the greenery.",
+     "walkthrough": "The rabbit eating vegetation is the obvious picture, but the eating is reversed: the shy word swallows a letter.",
+     "definitionFit": "Cony (or coney) is an old word for a rabbit, still seen in heraldry and place names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +772,64 @@
     "text": "Accidentally annoy Egypt's leader, an arbitrary individual",
     "enumeration": "6"
    },
-   "solution": "ANYONE"
+   "solution": "ANYONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ANYONE",
+    "definitions": [
+     {
+      "text": "an arbitrary individual",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so the first letter of the word is taken"
+     },
+     {
+      "text": "Accidentally",
+      "for": "anagram",
+      "note": "an accident upsets things, so the letters fall into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoy",
+      "gives": "ANNOY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Egypt's",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the country's name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANNOYE",
+       "gives": "ANYONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat accidentally offends the Egyptian president, an unpredictable man.",
+     "walkthrough": "'Egypt's leader' suggests a pharaoh or president, but it is only a letter; 'arbitrary' here means chosen at random, not tyrannical.",
+     "definitionFit": "Anyone means any person at all, whoever is picked, which is what an arbitrary individual is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arbitrary"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +843,51 @@
     "text": "Covering up, given royal discomposure",
     "enumeration": "10"
    },
-   "solution": "OVERLAYING"
+   "solution": "OVERLAYING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERLAYING",
+    "definitions": [
+     {
+      "text": "Covering up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discomposure",
+      "for": "anagram",
+      "note": "discomposure is agitation or disarray, so the letters lose their composed order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given royal",
+      "gives": "GIVENROYAL",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIVENROYAL",
+       "gives": "OVERLAYING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal scandal being hushed up because of the monarch's embarrassment.",
+     "walkthrough": "'Given' reads as 'because of', but it is part of the letters to rearrange.",
+     "definitionFit": "Overlaying means spreading a layer across a surface, so concealing or coating what lies beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +901,48 @@
     "text": "Banking controller delights bloodsucker",
     "enumeration": "8"
    },
-   "solution": "JOYSTICK"
+   "solution": "JOYSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOYSTICK",
+    "definitions": [
+     {
+      "text": "Banking controller",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delights",
+      "gives": "JOYS",
+      "note": "joys are delights"
+     },
+     {
+      "clueFragment": "bloodsucker",
+      "gives": "TICK",
+      "note": "a tick is a parasite that feeds on blood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOYS",
+      "TICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank's financial chief enjoys exploiting people like a bloodsucker.",
+     "walkthrough": "Banking suggests money, but here it is an aircraft tilting into a turn.",
+     "definitionFit": "A pilot moves the control stick sideways to tilt an aircraft's wings in a turn, which is called banking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Banking"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +956,50 @@
     "text": "Judge doubtful for a moment",
     "enumeration": "5"
    },
-   "solution": "JIFFY"
+   "solution": "JIFFY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JIFFY",
+    "definitions": [
+     {
+      "text": "a moment",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the standard abbreviation for judge"
+     },
+     {
+      "clueFragment": "doubtful",
+      "gives": "IFFY",
+      "note": "iffy is informal for uncertain or dubious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "IFFY"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge is briefly unsure of a verdict.",
+     "walkthrough": "'Judge' looks like a verb, as in 'assess', but it is just its one-letter abbreviation.",
+     "definitionFit": "A jiffy is a very short time, as in 'back in a jiffy', the same as an instant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1013,52 @@
     "text": "Periodically escaping to yonder river",
     "enumeration": "4"
    },
-   "solution": "TYNE"
+   "solution": "TYNE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TYNE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically escaping",
+      "for": "letter_selection",
+      "note": "letters slipping out at regular intervals means every other one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to yonder",
+      "gives": "TYNE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "Y",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone now and then slips away towards a distant river.",
+     "walkthrough": "The TYNE is the river that flows through Newcastle in north-east England.",
+     "definitionFit": "The answer is a well-known English waterway, the name of a specific watercourse rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "escaping"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1072,57 @@
     "text": "P, not L, is a kind-hearted soul",
     "enumeration": "5"
    },
-   "solution": "SOFTY"
+   "solution": "SOFTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOFTY",
+    "definitions": [
+     {
+      "text": "a kind-hearted soul",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means it is left out of the word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "P",
+      "gives": "SOFTLY",
+      "note": "p (piano) is the musical marking meaning play quietly"
+     },
+     {
+      "clueFragment": "L",
+      "gives": "L",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOFT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "It looks like a spelling note: write P instead of L.",
+     "walkthrough": "The bare letters tempt a letter swap, but P is the musical instruction 'piano' in score notation, and only the L is removed.",
+     "definitionFit": "A softy is a gentle, tender person who is easily moved or touched, a soft touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "P"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1142,61 @@
      }
     ]
    },
-   "solution": "YADAYADA"
+   "solution": "YADAYADA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YADA-YADA",
+    "definitions": [
+     {
+      "text": "and so on across the pond",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24h",
+      "gives": "ADAY",
+      "note": "twenty-four hours make up a day"
+     },
+     {
+      "clueFragment": "repeated",
+      "gives": "ADAY",
+      "note": "the same period given a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YADA",
+      "YADA"
+     ],
+     "reversals": [
+      {
+       "from": "ADAY",
+       "to": "YADA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about the same day repeating over and over, and so on, in America.",
+     "walkthrough": "'Over and over' looks like one phrase, but the first 'over' signals reversal and 'and so on' starts the definition. 'Across the pond' means in America.",
+     "definitionFit": "Yada-yada is an American colloquial filler meaning et cetera, used to skip tedious details."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1210,44 @@
     "text": "The man in question intoned church music",
     "enumeration": "4"
    },
-   "solution": "HYMN"
+   "solution": "HYMN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HYMN",
+    "definitions": [
+     {
+      "text": "church music",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intoned",
+      "for": "homophone",
+      "note": "intoning is saying in a voice, so the answer is how a word sounds when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The man in question",
+      "gives": "HYMN",
+      "soundsLike": "HIM",
+      "note": "him is the pronoun referring to a man under discussion"
+     }
+    ],
+    "explanation": {
+     "surface": "The man under discussion chanted some church music.",
+     "walkthrough": "Intoning fits the church scene, but here it marks the sound-alike; the pronoun and the song are pronounced identically.",
+     "definitionFit": "A hymn is a religious song of praise sung by a congregation during worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intoned"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1261,63 @@
     "text": "Donations for working in bread and wine",
     "enumeration": "7"
    },
-   "solution": "MALMSEY"
+   "solution": "MALMSEY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MALMSEY",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for here means in place of, so one piece swaps in where another was"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bread",
+      "gives": "MONEY",
+      "note": "bread is slang for cash"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     },
+     {
+      "clueFragment": "Donations",
+      "gives": "ALMS",
+      "note": "alms are charitable gifts to the poor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ALMS",
+      "EY"
+     ]
+    },
+    "explanation": {
+     "surface": "Charitable gifts for workers, in the form of bread and wine, like a communion offering.",
+     "walkthrough": "'In' is not a container signal here; the gifts take the place of the 'working' letters inside the cash word.",
+     "definitionFit": "Malmsey is a sweet fortified wine from Madeira, famously the drink the Duke of Clarence drowned in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1331,55 @@
     "text": "Channel influence to contain annoying person",
     "enumeration": "8"
    },
-   "solution": "SPILLWAY"
+   "solution": "SPILLWAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPILLWAY",
+    "definitions": [
+     {
+      "text": "Channel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to contain",
+      "for": "container",
+      "note": "to contain is to hold within, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "influence",
+      "gives": "SWAY",
+      "note": "sway is power or influence"
+     },
+     {
+      "clueFragment": "annoying person",
+      "gives": "PILL",
+      "note": "a pill is old-fashioned British slang for a tiresome person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PILL",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trying to steer their influence to keep an irritating person in check.",
+     "walkthrough": "'Channel' reads as a verb, to direct, but it is the noun; a pill in this sense is a bore or pest.",
+     "definitionFit": "A spillway is a passage built to carry surplus water from a dam or reservoir, an overflow conduit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1393,71 @@
     "text": "Growth of power with steel tower mostly erected",
     "enumeration": "5"
    },
-   "solution": "POLYP"
+   "solution": "POLYP",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "POLYP",
+    "definitions": [
+     {
+      "text": "Growth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "erected",
+      "for": "reversal",
+      "note": "in a down entry setting something upright makes it read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "steel tower",
+      "gives": "PYLON",
+      "note": "a pylon is a steel lattice tower carrying power cables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OLYP"
+     ],
+     "reversals": [
+      {
+       "from": "PYLO",
+       "to": "OLYP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The growth of electricity supply as steel pylons go up across the countryside.",
+     "walkthrough": "'Growth of power' reads as one phrase, but 'Growth' alone defines; 'with' just joins the pieces.",
+     "definitionFit": "A polyp is a small abnormal lump of tissue projecting from a membrane, such as in the nose or bowel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Growth"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1471,67 @@
     "text": "Unsteady, with old boy feebly taking charge",
     "enumeration": "6"
    },
-   "solution": "WOBBLY"
+   "solution": "WOBBLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WOBBLY",
+    "definitions": [
+     {
+      "text": "Unsteady",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking something away removes it, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w is a standard abbreviation for with"
+     },
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is short for old boy, a former pupil of a school"
+     },
+     {
+      "clueFragment": "feebly",
+      "gives": "FEEBLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "FEE",
+      "note": "a fee is a charge for a service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OB",
+      "BLY"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man, tottering, weakly assumes command.",
+     "walkthrough": "'Taking charge' looks like an idiom for assuming control, but 'taking' means removing and 'charge' is a cost.",
+     "definitionFit": "Wobbly means shaky and liable to totter, rocking from side to side, which is unstable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1545,57 @@
     "text": "Critically, disastrously, weirdly failing to start",
     "enumeration": "6"
    },
-   "solution": "DIRELY"
+   "solution": "DIRELY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DIRELY",
+    "definitions": [
+     {
+      "text": "Critically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to start",
+      "for": "deletion",
+      "note": "without a start the word loses its opening letter"
+     },
+     {
+      "text": "disastrously",
+      "for": "anagram",
+      "note": "a disaster wrecks things, so the letters come out in a ruined order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weirdly",
+      "gives": "EIRDLY",
+      "note": "the word without its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EIRDLY",
+       "gives": "DIRELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review of a performance that is strange, disastrous and stalls at the start.",
+     "walkthrough": "Three adverbs in a row all look like possible definitions; the first is the definition, and the other two do the work.",
+     "definitionFit": "Both words describe a situation that is grave or seriously bad, as in direly or critically ill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disastrously"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1609,64 @@
     "text": "Tactic when love becomes a farce?",
     "enumeration": "4"
    },
-   "solution": "PLAY"
+   "solution": "PLAY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "PLAY",
+    "definitions": [
+     {
+      "text": "a farce",
+      "at": 25,
+      "note": "a farce is one kind of the answer, hence the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "becomes",
+      "for": "substitution",
+      "note": "when one thing becomes another, a letter is exchanged for a different one"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tactic",
+      "gives": "PLOY",
+      "note": "a ploy is a cunning manoeuvre"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A cynical question about romance: what strategy applies once love turns into a farce?",
+     "walkthrough": "'Becomes' completes the swap signal begun by 'when'; the definition is an example, so the question mark is needed.",
+     "definitionFit": "A farce is a comic stage drama built on absurd situations, so it is one type of theatrical work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1686,51 @@
      }
     ]
    },
-   "solution": "BAWDYHOUSE"
+   "solution": "BAWDYHOUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BAWDY HOUSE",
+    "definitions": [
+     {
+      "text": "brothel",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distressed",
+      "for": "anagram",
+      "note": "distressed means battered and knocked about, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by who'd use a",
+      "gives": "BYWHODUSEA",
+      "note": "the letters taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BYWHODUSEA",
+       "gives": "BAWDYHOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is upset at the thought of who might visit a brothel.",
+     "walkthrough": "The little word before the definition is part of the letters to rearrange, which is easy to miss.",
+     "definitionFit": "Bawdy house is an old-fashioned term for a house of prostitution, bawdy meaning lewd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Distressed"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1744,44 @@
     "text": "Sounding like sensible questions",
     "enumeration": "4"
    },
-   "solution": "WHYS"
+   "solution": "WHYS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WHYS",
+    "definitions": [
+     {
+      "text": "questions",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounding like",
+      "for": "homophone",
+      "note": "sounding like means pronounced the same, so the answer matches the sound of a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sensible",
+      "gives": "WHYS",
+      "soundsLike": "WISE",
+      "note": "wise means sensible or prudent"
+     }
+    ],
+    "explanation": {
+     "surface": "Something sounds like a set of reasonable queries.",
+     "walkthrough": "'Sensible questions' reads as one phrase, but the adjective supplies the sound and the noun defines; the answer is the plural noun, as in 'the whys and wherefores'.",
+     "definitionFit": "Whys are queries about reasons or causes, the plural of the interrogative used as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sensible"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1795,66 @@
     "text": "Two axes and no going back? This is hard",
     "enumeration": "4"
    },
-   "solution": "ONYX"
+   "solution": "ONYX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ONYX",
+    "definitions": [
+     {
+      "text": "This is hard",
+      "at": 28,
+      "note": "a description pointing to the answer rather than a synonym"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the letters read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Two axes",
+      "gives": "YX",
+      "note": "y and x are the two axes of a graph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "YX"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone facing two hatchets and no retreat concludes this is a tough spot.",
+     "walkthrough": "'Axes' suggests chopping tools, but they are the coordinate lines of a graph.",
+     "definitionFit": "Onyx is a banded variety of chalcedony, a mineral with high hardness used for carvings and jewellery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "axes"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1868,66 @@
     "text": "Parking neatly when hammered? Fine, sometimes",
     "enumeration": "7"
    },
-   "solution": "PENALTY"
+   "solution": "PENALTY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PENALTY",
+    "definitions": [
+     {
+      "text": "Fine, sometimes",
+      "at": 30,
+      "note": "a fine is one kind of the answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hammered",
+      "for": "anagram",
+      "note": "hammered means beaten out of shape, so the letters are knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the road-sign symbol for parking"
+     },
+     {
+      "clueFragment": "neatly",
+      "gives": "NEATLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ENALTY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEATLY",
+       "gives": "ENALTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk driver parks tidily; sometimes that is fine, or they get fined.",
+     "walkthrough": "'Hammered' reads as drunk, but it is the anagram signal; 'sometimes' flags that a fine is just one example.",
+     "definitionFit": "A penalty is a punishment for breaking a rule, and a monetary fine is a common kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hammered"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1941,43 @@
     "text": "How the abstinent imbibe, ironically",
     "enumeration": "5"
    },
-   "solution": "DRYLY"
+   "solution": "DRYLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRYLY",
+    "definitions": [
+     {
+      "text": "How the abstinent imbibe",
+      "at": 0
+     },
+     {
+      "text": "ironically",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How the abstinent imbibe",
+      "note": "first meaning: in a teetotal manner, without alcohol"
+     },
+     {
+      "clueFragment": "ironically",
+      "note": "second meaning: with understated, deadpan wit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Abstinent people drink without alcohol, the 'dry' way; 'ironically' looks like a comment on the joke but is the second meaning.",
+     "definitionFit": "Dry means alcohol-free as in a dry county, and also describes humour delivered with a straight face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ironically"
+    }
+   }
   }
  ]
 }
