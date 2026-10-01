@@ -493,6 +493,10 @@ SOURCES = (georgeho, fifteensquared, times_listing)
 # ---------------------------------------------------------------- the grid
 
 def cells(entry):
+    """The light's squares. A gridless light's are its own, shared with no
+    other, so it is measured as usual and crosses nothing."""
+    if not entry.get("position"):
+        return [(entry["number"], entry["direction"], i) for i in range(entry["length"])]
     x, y = entry["position"]["x"], entry["position"]["y"]
     dx, dy = (1, 0) if entry["direction"] == "across" else (0, 1)
     return [(x + dx * i, y + dy * i) for i in range(entry["length"])]
@@ -879,7 +883,7 @@ def corroborate(puzzle, sources=None, ledger=None):
     if not puzzle.get("series") or not puzzle.get("entries"):
         return puzzle
     puzzle = known_wrong(puzzle)
-    if not all("position" in e and e.get("length") for e in puzzle["entries"]):
+    if not all(e.get("position") and e.get("length") for e in puzzle["entries"]):
         return puzzle           # no grid to read a source's answers against
     records = records_for(puzzle, sources)
     orders = source_orders(puzzle, records)
@@ -905,7 +909,7 @@ def sweep(write=False):
     for path in fetch_puzzle.puzzle_files():
         puzzle = fetch_puzzle.read_puzzle_file(path)
         if not puzzle.get("series") or not all(
-                "position" in e and e.get("length") for e in puzzle.get("entries") or [None]):
+                e.get("position") and e.get("length") for e in puzzle.get("entries") or [None]):
             continue
         records = [r for s in SOURCES for r in s(puzzle)]
         dropped = [r for r in records if not same_puzzle(puzzle, r)]

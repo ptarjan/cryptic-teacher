@@ -1015,7 +1015,9 @@ def check_grid(puzzle, flags):
     """The grid the entries describe, from tools/apply_solution.py — the same
     check that gates a model fill before it is written. It is asked of the whole
     entry list, answered or not, because a light is in the grid whether or not
-    anyone has filled it in yet."""
+    anyone has filled it in yet. A gridless puzzle has no grid to judge."""
+    if not puzzle_schema.has_grid(puzzle):
+        return
     pid = puzzle["id"]
     for problem in check_geometry(puzzle):
         if (pid, problem) in PUBLISHED_WRONG:
@@ -1038,7 +1040,10 @@ def check_numbering(puzzle, flags):
 
     Reported once per puzzle rather than once per shifted light, at the first
     point the two lists diverge — everything downstream of a numbering
-    collision is the same defect restated, not a second one."""
+    collision is the same defect restated, not a second one. A gridless
+    puzzle has no grid to number."""
+    if not puzzle_schema.has_grid(puzzle):
+        return
     pid = puzzle["id"]
     derived = sorted(lights_from_grid(grid_of(puzzle)))
     stored = sorted(lights_of(puzzle))
@@ -1061,8 +1066,9 @@ def check_cross(puzzle, checkable, flags):
     """Crossing-letter agreement, from tools/apply_solution.py — the same check that
     gates a model-solved grid before it is written. It is handed only the entries
     that are answered and the right length, so every problem it returns is a
-    crossing conflict and nothing has to be re-derived here."""
-    if not checkable:
+    crossing conflict and nothing has to be re-derived here. Nothing crosses
+    on a gridless puzzle."""
+    if not checkable or not puzzle_schema.has_grid(puzzle):
         return
     pid = puzzle["id"]
     fill = {entry_id(e): e["solution"] for e in checkable}
@@ -1151,7 +1157,9 @@ def check_extra_cells(puzzle, flags):
     square twice, and agrees with every answered entry it crosses; one with
     no solution is unsolved, and only its squares are checked. A printed
     letter sits on a white square, an entry's or an unclued light's, and is
-    the solution's letter there."""
+    the solution's letter there. A gridless puzzle has neither (the schema)."""
+    if not puzzle_schema.has_grid(puzzle):
+        return
     pid = puzzle.get("id")
     cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     letters = entry_letters(puzzle)
@@ -1189,10 +1197,21 @@ def check_puzzle(puzzle, today, flags):
     """Every check that one puzzle file answers on its own. audit() runs it on
     the corpus and fetch_puzzle.write_puzzle_file on every write, so a fetcher
     cannot put on disk what this sweep would report."""
-    dims = puzzle.get("dimensions") or {}
-    if not (isinstance(dims.get("cols"), int) and isinstance(dims.get("rows"), int)):
-        flags.append(("SHAPE", puzzle.get("id"), "no dimensions: the grid's "
-                      "cols and rows are what every light is placed in"))
+    gridded = puzzle_schema.has_grid(puzzle)
+    placed = [e for e in puzzle.get("entries") or [] if e.get("position")]
+    if gridded:
+        dims = puzzle["dimensions"] if isinstance(puzzle["dimensions"], dict) else {}
+        if not (isinstance(dims.get("cols"), int) and isinstance(dims.get("rows"), int)):
+            flags.append(("SHAPE", puzzle.get("id"), ("dimensions without cols and "
+                          "rows: the grid's size is what every light is placed in")))
+            return
+        if len(placed) != len(puzzle.get("entries") or []):
+            flags.append(("SHAPE", puzzle.get("id"), ("has dimensions but an entry has "
+                          "no position: a puzzle has a whole grid or none")))
+            return
+    elif placed:
+        flags.append(("SHAPE", puzzle.get("id"), ("entries have positions but the "
+                      "puzzle has no dimensions: a puzzle has a whole grid or none")))
         return
     checkable = check_shape(puzzle, today, flags)
     check_setter(puzzle, flags)
@@ -1218,6 +1237,9 @@ def check_rewrite(old, new, flags):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
                           f"{was[entry_id(e)]!r} with a blank one; carry it across "
                           f"(fetch_puzzle.merge_annotations)"))
+    if puzzle_schema.has_grid(old) and not puzzle_schema.has_grid(new):
+        flags.append(("SHAPE", new["id"], ("would drop the held grid; a gridless "
+                      "write may only add one, never take one away")))
     held = [e.get("solution") for e in old.get("entries") or [] if e.get("solution")]
     now = {e.get("solution") for e in new.get("entries") or [] if e.get("solution")}
     kept = sum(a in now for a in held)

@@ -860,6 +860,13 @@ button:disabled:hover { border-color: var(--line); }
 .pat-box:hover { background: var(--accent-soft); }
 .pat-box.checked { border-color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }
 .pat-box.unchecked { border: 1px dashed var(--muted); }
+/* A gridless puzzle (app.js layOutGridless): each clue carries its own boxes,
+   on a line under its words. Nothing crosses, so dashing every box would say
+   nothing; they are drawn plain. */
+.gridless .clue-list li { flex-wrap: wrap; }
+.gridless .clue-list .clue-text { flex: 1 1 0; min-width: 0; }
+.clue-pat { flex-basis: 100%; margin: 4px 0 2px; }
+.gridless .pat-box.unchecked { border-style: solid; border-color: var(--line); }
 .pat-box.revealed { color: var(--accent); }
 .pat-box.wrong { color: var(--wrong); border-color: var(--wrong); }
 .pat-box.cur { outline: 2px solid var(--sel); outline-offset: 1px; }

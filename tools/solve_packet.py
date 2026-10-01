@@ -27,6 +27,8 @@ def crossing_map(entries):
     """entry id -> [(my position, other entry id, its position)], 1-based."""
     cells = {}
     for e in entries:
+        if "position" not in e:
+            continue  # gridless: nothing crosses
         x, y = e["position"]["x"], e["position"]["y"]
         for i in range(e["length"]):
             cell = (x + i, y) if e["direction"] == "across" else (x, y + i)
@@ -49,8 +51,9 @@ def label(entry):
 def packet(puzzle):
     lines = [
         f"{puzzle['name']} — setter {puzzle.get('setter') or 'unknown'}",
-        f"grid {puzzle['dimensions']['cols']}x{puzzle['dimensions']['rows']}, "
-        f"{len(puzzle['entries'])} entries",
+        (f"grid {puzzle['dimensions']['cols']}x{puzzle['dimensions']['rows']}, "
+         if "dimensions" in puzzle else "no grid, so no crossings: each answer "
+         "stands on its clue and length alone, ") + f"{len(puzzle['entries'])} entries",
         "",
     ]
     cross = crossing_map(puzzle["entries"])
