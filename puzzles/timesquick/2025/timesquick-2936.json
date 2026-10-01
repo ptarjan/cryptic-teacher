@@ -24,6 +24,9 @@
   "date": "2025-03-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "Racecourse in Nova Scotia",
     "enumeration": "5"
    },
-   "solution": "ASCOT"
+   "solution": "ASCOT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASCOT",
+    "definitions": [
+     {
+      "text": "Racecourse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "what is in a phrase is contained within its run of letters, so the answer sits inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nova Scotia",
+      "gives": "ASCOT",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A racetrack located in the Canadian province of Nova Scotia.",
+     "walkthrough": "The answer runs from novA SCOTia; the place name is pure camouflage.",
+     "definitionFit": "Ascot is a famous English horse-racing venue in Berkshire, home of Royal Ascot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +90,67 @@
     "text": "Gathers outside in elements supporting a religious service",
     "enumeration": "7"
    },
-   "solution": "AMASSES"
+   "solution": "AMASSES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AMASSES",
+    "definitions": [
+     {
+      "text": "Gathers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside in",
+      "for": "letter_selection",
+      "note": "the outside of a word is its two end letters, so only the outer pair is kept"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue a piece that supports another sits beneath it, so it comes after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "religious service",
+      "gives": "MASS",
+      "note": "Mass is the Catholic Eucharistic service"
+     },
+     {
+      "clueFragment": "elements",
+      "gives": "ES",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MASS",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collecting things outdoors among the elements, propping up a church service.",
+     "walkthrough": "'Elements' looks like weather or chemistry, but only its outer letters are used, placed under A MASS in this down entry.",
+     "definitionFit": "To amass is to accumulate or collect a large quantity, so 'amasses' matches 'gathers' as a third-person verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "elements"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +170,42 @@
      }
     ]
    },
-   "solution": "CURTAINRAISER"
+   "solution": "CURTAINRAISER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CURTAIN-RAISER",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     },
+     {
+      "text": "Community Shield match?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play",
+      "note": "first meaning: a short piece performed before the main play in a theatre"
+     },
+     {
+      "clueFragment": "Community Shield match?",
+      "note": "second meaning: a game that opens the new season"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Community Shield is the English football match between the league champions and FA Cup winners that opens each season; the question mark flags it as an example.",
+     "definitionFit": "The term originally named a short theatrical opener and is extended to any event that precedes and introduces the main programme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +225,57 @@
      }
     ]
    },
-   "solution": "THIRDGEAR"
+   "solution": "THIRDGEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIRD GEAR",
+    "definitions": [
+     {
+      "text": "Part of transmission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled and complicated, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dare",
+      "gives": "DARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARERIGHT",
+       "gives": "THIRDGEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a broadcast included a dare.",
+     "walkthrough": "'Transmission' reads as broadcasting, but it is the gearbox of a car.",
+     "definitionFit": "A vehicle's transmission is its gearbox, and each forward ratio such as the third one is a component of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "transmission"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +289,51 @@
     "text": "Greek character with walking stick bends on track",
     "enumeration": "7"
    },
-   "solution": "CHICANE"
+   "solution": "CHICANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICANE",
+    "definitions": [
+     {
+      "text": "bends on track",
+      "at": 35,
+      "note": "a chicane is a single feature made of several bends, so the plural describes one thing"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "walking stick",
+      "gives": "CANE",
+      "note": "a cane is a stick used to help walking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "CANE"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly Greek with a walking stick stoops over beside a running track.",
+     "walkthrough": "'Bends' looks like a verb for the old character stooping, but it is a noun describing the track.",
+     "definitionFit": "On a motor-racing circuit, a chicane is a tight S-shaped sequence of turns inserted to slow cars down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bends"
+    }
+   }
   },
   {
    "number": 4,
@@ -119,7 +347,64 @@
     "text": "Money we raised for tree",
     "enumeration": "6"
    },
-   "solution": "CASHEW"
+   "solution": "CASHEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CASHEW",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it so its letters read from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "CASH",
+      "note": "cash is money"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH",
+      "EW"
+     ],
+     "reversals": [
+      {
+       "from": "WE",
+       "to": "EW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group has raised funds to plant a tree.",
+     "walkthrough": "'Raised' reads as fundraising, but it only turns the second word upside down in this down entry.",
+     "definitionFit": "The cashew is a tropical evergreen whose kidney-shaped nuts are eaten, so it is a kind of tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +418,55 @@
     "text": "Anger that is about Republican",
     "enumeration": "3"
    },
-   "solution": "IRE"
+   "solution": "IRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IRE",
+    "definitions": [
+     {
+      "text": "Anger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, 'that is'"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that someone's fury concerns a Republican politician.",
+     "walkthrough": "I.E. splits around R; 'about' looks like 'concerning' but means 'around'.",
+     "definitionFit": "Ire is a literary word for wrath or fury, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -153,7 +486,68 @@
      }
     ]
    },
-   "solution": "ATACAMADESERT"
+   "solution": "ATACAMADESERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ATACAMA DESERT",
+    "definitions": [
+     {
+      "text": "arid expanse",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At intervals",
+      "for": "letter_selection",
+      "note": "something done at intervals happens every so often, so only every other letter is kept"
+     },
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "done roughly means done carelessly and inexactly, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Haitian",
+      "gives": "ATA",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "demarcates",
+      "gives": "DEMARCATES",
+      "note": "taken as written before being rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATA",
+      "CAMADESERT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEMARCATES",
+       "gives": "CAMADESERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every so often a man from Haiti marks out boundaries across a dry stretch of land.",
+     "walkthrough": "The even letters of 'Haitian' start the answer, and 'demarcates' is rearranged to finish it.",
+     "definitionFit": "The Atacama in northern Chile is one of the driest places on Earth, a vast barren region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roughly"
+    }
+   }
   },
   {
    "number": 7,
@@ -167,7 +561,46 @@
     "text": "European place of refuge, a heavenly place",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "a heavenly place",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "place of refuge",
+      "gives": "DEN",
+      "note": "a den is a hideout or retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sanctuary in Europe described as paradise.",
+     "walkthrough": "Short pieces simply joined: an abbreviation and a word for a lair.",
+     "definitionFit": "Eden is the biblical garden of paradise, used generally for any blissful, idyllic spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +620,61 @@
      }
     ]
    },
-   "solution": "AIRKISS"
+   "solution": "AIRKISS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIR KISS",
+    "definitions": [
+     {
+      "text": "affected greeting",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "something handled awkwardly is clumsily disordered, so the letters fall out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bearing",
+      "gives": "AIR",
+      "note": "an air is a manner or bearing"
+     },
+     {
+      "clueFragment": "skis",
+      "gives": "SKIS",
+      "note": "taken as written before rearrangement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "KISS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SKIS",
+       "gives": "KISS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carrying skis clumsily greets people in a showy way.",
+     "walkthrough": "'Bearing' looks like carrying, but it is a noun meaning demeanour.",
+     "definitionFit": "An air kiss is a mimed kiss near the cheek without contact, a showy and somewhat pretentious salutation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bearing"
+    }
+   }
   },
   {
    "number": 9,
@@ -201,7 +688,54 @@
     "text": "Cunningly escape publicity in evening",
     "enumeration": "5"
    },
-   "solution": "EVADE"
+   "solution": "EVADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVADE",
+    "definitions": [
+     {
+      "text": "Cunningly escape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evening",
+      "gives": "EVE",
+      "note": "eve is a poetic word for evening"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement, a piece of publicity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity slips away from the press at night.",
+     "walkthrough": "'Eve' as evening survives mainly in poetry and in phrases like Christmas Eve; 'cunningly' belongs to the definition, not an anagram signal.",
+     "definitionFit": "To evade is to avoid or dodge something by trickery, which suits slipping away artfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -225,7 +759,67 @@
      }
     ]
    },
-   "solution": "STANDREWSDAY"
+   "solution": "STANDREWSDAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ST ANDREWS DAY",
+    "definitions": [
+     {
+      "text": "holiday in Edinburgh?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "something disrupted is thrown into disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stanley",
+      "gives": "STAN",
+      "note": "Stan is the usual short form of the first name"
+     },
+     {
+      "clueFragment": "Edwards",
+      "gives": "EDWARDS",
+      "note": "taken as written before rearrangement"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAN",
+      "DREWSDA",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EDWARDS",
+       "gives": "DREWSDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Stanley Edwards spoils an American's vacation in the Scottish capital.",
+     "walkthrough": "The first name shortens to STAN, the surname is rearranged, and Y is added. St Andrew is Scotland's patron saint, and his feast on 30 November is a Scottish bank holiday.",
+     "definitionFit": "Scotland's national day is an official public holiday there, and the question mark marks Edinburgh as just one example location."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stanley"
+    }
+   }
   },
   {
    "number": 11,
@@ -239,7 +833,72 @@
     "text": "Feel ill in middle of Biscay, unwilling to get material on board boat",
     "enumeration": "9"
    },
-   "solution": "SAILCLOTH"
+   "solution": "SAILCLOTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SAILCLOTH",
+    "definitions": [
+     {
+      "text": "material on board boat",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, so only the centre pair is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biscay",
+      "gives": "SC",
+      "select": "middle",
+      "note": "the central two letters of a six-letter word"
+     },
+     {
+      "clueFragment": "Feel ill",
+      "gives": "AIL",
+      "note": "to ail is to be unwell"
+     },
+     {
+      "clueFragment": "unwilling",
+      "gives": "LOTH",
+      "note": "loth is a variant spelling of loath, reluctant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AIL",
+      "C",
+      "LOTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor feeling seasick in the Bay of Biscay is reluctant to load fabric onto the vessel.",
+     "walkthrough": "The Bay of Biscay, off western France, is notorious for rough seas, so the seasickness seems literal; 'loth' is an accepted spelling of loath.",
+     "definitionFit": "Sailcloth is the heavy canvas fabric from which a vessel's sails are made, so it is carried aboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Biscay"
+    }
+   }
   },
   {
    "number": 12,
@@ -253,7 +912,57 @@
     "text": "Tabloid reported outstanding insectivorous plant",
     "enumeration": "6"
    },
-   "solution": "SUNDEW"
+   "solution": "SUNDEW",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SUNDEW",
+    "definitions": [
+     {
+      "text": "insectivorous plant",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is spoken, so the word is given as it is heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tabloid",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "outstanding",
+      "gives": "DEW",
+      "soundsLike": "DUE",
+      "note": "outstanding as in owed and unpaid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DEW"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story about a remarkable carnivorous plant.",
+     "walkthrough": "'Outstanding' looks like praise but means owed, and 'reported' changes its spelling to the identical-sounding word for morning moisture.",
+     "definitionFit": "The sundew, genus Drosera, traps insects with sticky glistening hairs on its leaves and digests them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +976,60 @@
     "text": "Expert, one unknown in hospital section",
     "enumeration": "6"
    },
-   "solution": "WIZARD"
+   "solution": "WIZARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WIZARD",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "in algebra x, y and z stand for unknown quantities"
+     },
+     {
+      "clueFragment": "hospital section",
+      "gives": "WARD",
+      "note": "a ward is a room or division of a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IZ",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist, someone unidentified, in a department of a hospital.",
+     "walkthrough": "I and Z go together inside WARD.",
+     "definitionFit": "A wizard is informally someone exceptionally skilled at something, a whizz or master."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1043,61 @@
     "text": "Popular annual test I held in final month",
     "enumeration": "7"
    },
-   "solution": "DEMOTIC"
+   "solution": "DEMOTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEMOTIC",
+    "definitions": [
+     {
+      "text": "Popular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in another is gripped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annual test",
+      "gives": "MOT",
+      "note": "the MOT is the yearly roadworthiness check for UK vehicles"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "final month",
+      "gives": "DEC",
+      "note": "Dec is the abbreviation for December"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MOTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked yearly examination is held in December.",
+     "walkthrough": "The MOT, named after the old Ministry of Transport, is the compulsory annual safety check on British cars over three years old.",
+     "definitionFit": "Demotic means of or for ordinary people, as in demotic speech, the common or popular sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1111,65 @@
     "text": "Set up computer, live, with device to transmit images",
     "enumeration": "6"
    },
-   "solution": "WEBCAM"
+   "solution": "WEBCAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WEBCAM",
+    "definitions": [
+     {
+      "text": "device to transmit images",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Set up",
+      "for": "reversal",
+      "note": "in a down clue, setting something up stands it on end so its letters read upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computer",
+      "gives": "MAC",
+      "note": "a Mac is an Apple computer"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEBCAM"
+     ],
+     "reversals": [
+      {
+       "from": "MACBEW",
+       "to": "WEBCAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to configure a computer and go live with a camera.",
+     "walkthrough": "'Set up' and 'live' read as installing and broadcasting, but they mean reverse and exist.",
+     "definitionFit": "A webcam is a small camera that sends video over the internet, so it is a gadget for sending pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1189,61 @@
      }
     ]
    },
-   "solution": "BARRIERCREAM"
+   "solution": "BARRIERCREAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BARRIER CREAM",
+    "definitions": [
+     {
+      "text": "protection for skin",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish writer",
+      "gives": "BARRIE",
+      "note": "J. M. Barrie, author of Peter Pan, was a Scottish writer"
+     },
+     {
+      "clueFragment": "recommend",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "CREAM",
+      "note": "the cream is the best part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARRIE",
+      "R",
+      "CREAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish author is the first to advise the best skincare.",
+     "walkthrough": "'Cream' as 'best' comes from 'the cream of the crop'.",
+     "definitionFit": "Barrier cream is a lotion applied to hands to shield them from irritants, dirt or chemicals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1257,61 @@
     "text": "Working in heart of friary somewhere in Hebrides",
     "enumeration": "4"
    },
-   "solution": "IONA"
+   "solution": "IONA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IONA",
+    "definitions": [
+     {
+      "text": "somewhere in Hebrides",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the central letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friary",
+      "gives": "IA",
+      "select": "middle",
+      "note": "the central two letters of a six-letter word"
+     },
+     {
+      "clueFragment": "Working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "ON",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working inside a friary on a Scottish island.",
+     "walkthrough": "The monastic surface is apt: the island has a famous abbey founded by St Columba in the sixth century.",
+     "definitionFit": "Iona is a small island in the Inner Hebrides off western Scotland, so it is a location there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1325,48 @@
     "text": "Round, unaltered fertile area",
     "enumeration": "5"
    },
-   "solution": "OASIS"
+   "solution": "OASIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OASIS",
+    "definitions": [
+     {
+      "text": "fertile area",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Round",
+      "gives": "O",
+      "note": "O is round in shape"
+     },
+     {
+      "clueFragment": "unaltered",
+      "gives": "ASIS",
+      "note": "as is means in its present state, unchanged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "AS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A circular stretch of productive land that has not been changed.",
+     "walkthrough": "'As is' is the phrase used for goods sold without changes.",
+     "definitionFit": "An oasis is a green spot in a desert where water allows plants to grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Round"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1380,47 @@
     "text": "Perhaps envy son at home",
     "enumeration": "3"
    },
-   "solution": "SIN"
+   "solution": "SIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIN",
+    "definitions": [
+     {
+      "text": "Perhaps envy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy left at home may feel jealous.",
+     "walkthrough": "'Perhaps' marks envy as one example of the answer.",
+     "definitionFit": "Envy is one of the seven deadly sins, so it is an example of moral wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "envy"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1434,47 @@
     "text": "Most familiar end street",
     "enumeration": "7"
    },
-   "solution": "CLOSEST"
+   "solution": "CLOSEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOSEST",
+    "definitions": [
+     {
+      "text": "Most familiar",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "end",
+      "gives": "CLOSE",
+      "note": "a close is a conclusion or ending"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOSE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "The best-known road at the far end of town.",
+     "walkthrough": "'End street' suggests a cul-de-sac, which in Britain is often called a close; here it simply means finish.",
+     "definitionFit": "Close friends are intimate ones, so the superlative describes the most intimate or best-known relationship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1488,55 @@
     "text": "American shields companion’s PIN, for example",
     "enumeration": "7"
    },
-   "solution": "ACRONYM"
+   "solution": "ACRONYM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRONYM",
+    "definitions": [
+     {
+      "text": "PIN, for example",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shields",
+      "for": "container",
+      "note": "to shield something is to cover it on all sides, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "Am is the abbreviation for American"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "CRONY",
+      "note": "a crony is a close friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CRONY",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An American hides a friend's bank card number.",
+     "walkthrough": "The 's of 'companion's' is just surface; CRONY goes inside AM. PIN stands for personal identification number.",
+     "definitionFit": "PIN is pronounced as a word formed from initial letters, which is exactly what this term names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "PIN"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1556,49 @@
      }
     ]
    },
-   "solution": "HITEC"
+   "solution": "HITEC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HI-TEC",
+    "definitions": [
+     {
+      "text": "using modern electronic equipment",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Success",
+      "gives": "HIT",
+      "note": "a hit is a success"
+     },
+     {
+      "clueFragment": "European Commission",
+      "gives": "EC",
+      "note": "EC is the abbreviation for European Commission"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "EC"
+     ]
+    },
+    "explanation": {
+     "surface": "Brussels achieves a triumph by adopting the latest gadgets.",
+     "walkthrough": "HIT followed by EC, a variant spelling of hi-tech.",
+     "definitionFit": "Hi-tec, short for high technology, describes advanced gadgetry and computing, the latest sophisticated machinery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
