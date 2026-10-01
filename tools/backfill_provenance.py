@@ -289,7 +289,9 @@ def main(argv=None):
         if solutions.get("previousOrigin"):
             carried.append(f"{path.stem} ({solutions['origin']} now)")
         for field in ("gridOrigin", "acquiredBy", "retrievedFrom"):
-            buckets[field][source[field]] = buckets[field].get(source[field], 0) + 1
+            # A gridless puzzle has no gridOrigin: tallied as having no grid.
+            value = source.get(field, "no grid")
+            buckets[field][value] = buckets[field].get(value, 0) + 1
         buckets["origin"][solutions["origin"]] = \
             buckets["origin"].get(solutions["origin"], 0) + 1
         key = "not recorded" if source["acquiredOn"] == "unknown" else "recorded"
