@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Force most of the decay",
     "enumeration": "6"
    },
-   "solution": "THRUST"
+   "solution": "THRUST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THRUST",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of something is all but a bit of it, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "TH",
+      "note": "the word with its last letter cut off"
+     },
+     {
+      "clueFragment": "decay",
+      "gives": "RUST",
+      "note": "rust is the decay of iron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RUST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is apparently being told to push the bulk of the rot along.",
+     "walkthrough": "THRUST is TH plus RUST; 'Force' reads as a verb in the surface but the definition works as a noun.",
+     "definitionFit": "A thrust is a driving push, and force in physics or everyday speech can name that same propulsive power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decay"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,51 @@
     "text": "Master the care problem",
     "enumeration": "7"
    },
-   "solution": "TEACHER"
+   "solution": "TEACHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEACHER",
+    "definitions": [
+     {
+      "text": "Master",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "problem",
+      "for": "anagram",
+      "note": "a problem is something gone wrong, so these letters have been thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the care",
+      "gives": "THECARE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THECARE",
+       "gives": "TEACHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to get on top of a difficulty with looking after someone.",
+     "walkthrough": "'Master' looks like a verb meaning overcome, but it is the noun for a schoolmaster.",
+     "definitionFit": "A schoolmaster is a male classroom instructor, so master is an old-fashioned synonym for a school teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Master"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,50 @@
     "text": "Animal starts to rub himself in nut oil",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of each word is its opening letter, so only the initials are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rub himself in nut oil",
+      "gives": "RHINO",
+      "select": "first",
+      "note": "the first letter of each of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHINO"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature begins smearing itself with oil pressed from nuts.",
+     "walkthrough": "The surface invites you to picture an animal oiling itself; really only the opening letters of the last five words matter.",
+     "definitionFit": "A rhinoceros, shortened to rhino, is a large horned mammal of Africa and Asia, a specific example of the general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rub"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +213,60 @@
     "text": "Served up aspic in a tasting sample — that's nasty!",
     "enumeration": "7"
    },
-   "solution": "SATANIC"
+   "solution": "SATANIC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SATANIC",
+    "definitions": [
+     {
+      "text": "nasty",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sample",
+      "for": "hidden_word",
+      "note": "a sample is a small portion taken from the whole, so a run of letters is lifted out"
+     },
+     {
+      "text": "Served up",
+      "for": "reversal",
+      "note": "in a down clue something served up goes upwards, so the letters read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aspic in a tasting",
+      "gives": "CINATAS",
+      "note": "the letters running across the end of aspic, in, a and the start of tasting"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "CINATAS",
+       "to": "SATANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner tries a forkful of the savoury jelly and pulls a face.",
+     "walkthrough": "The run C-I-N-A-T-A-S sits inside the phrase and is read upwards in this down clue.",
+     "definitionFit": "Satanic means devilish or wicked, so it is a strong, colourful synonym for something thoroughly unpleasant or vile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Served"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +280,55 @@
     "text": "Cut wood conceals nothing",
     "enumeration": "6"
    },
-   "solution": "GROOVE"
+   "solution": "GROOVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GROOVE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "to conceal something is to hide it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "GROVE",
+      "note": "a grove is a small wood"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRO",
+      "O",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Felled timber turns out to be hiding nothing at all.",
+     "walkthrough": "'Cut wood' reads as one phrase about timber, but 'Cut' alone is the definition, used as a noun.",
+     "definitionFit": "A groove is a long narrow channel cut into a surface, so a cut is a fair noun synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +342,59 @@
     "text": "Lifted title regularly to gain mark of honour",
     "enumeration": "7"
    },
-   "solution": "ROSETTE"
+   "solution": "ROSETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSETTE",
+    "definitions": [
+     {
+      "text": "mark of honour",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other letter, so alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "to gain"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lifted",
+      "gives": "ROSE",
+      "note": "rose is the past tense of rise, meaning went up"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "TTE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "TTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raised in rank wins a title and with it some honour.",
+     "walkthrough": "'Lifted' is intransitive here: rose, as in went up, not raised something.",
+     "definitionFit": "A rosette is a ribbon badge awarded to prizewinners at shows, so it is a token marking an achievement or distinction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lifted"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +408,61 @@
     "text": "Lacking fragrance, love? Manufacture or use LSD",
     "enumeration": "9"
    },
-   "solution": "ODOURLESS"
+   "solution": "ODOURLESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ODOURLESS",
+    "definitions": [
+     {
+      "text": "Lacking fragrance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Manufacture",
+      "for": "anagram",
+      "note": "to manufacture is to make something new from raw material, so these letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, written O"
+     },
+     {
+      "clueFragment": "or use LSD",
+      "gives": "ORUSELSD",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DOURLESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORUSELSD",
+       "gives": "DOURLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist wonders whether to make or take a drug with no smell.",
+     "walkthrough": "LSD is a hallucinogenic drug, which suits the surface; here it just supplies three letters.",
+     "definitionFit": "Something odourless gives off no smell at all, so it has no scent or perfume of any kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +476,69 @@
     "text": "Refined gelatine mixture without a pig's guts",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ELEGANT",
+    "definitions": [
+     {
+      "text": "Refined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guts",
+      "for": "letter_selection",
+      "note": "the guts of something are its insides, so the central letter is chosen"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     },
+     {
+      "text": "mixture",
+      "for": "anagram",
+      "note": "a mixture stirs its ingredients together, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gelatine",
+      "gives": "GELATINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a pig's",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of the three-letter animal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GELATNE",
+       "gives": "ELEGANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook boasts a superior jelly made with no pork offal.",
+     "walkthrough": "Gelatine is often made from pig parts, so the surface is plausible. Remove the I from GELATINE and rearrange the rest.",
+     "definitionFit": "Elegant describes graceful, stylish taste or manners, a direct adjective synonym for cultured and polished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guts"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +552,47 @@
     "text": "Rob and Jason's desire?",
     "enumeration": "6"
    },
-   "solution": "FLEECE"
+   "solution": "FLEECE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLEECE",
+    "definitions": [
+     {
+      "text": "Rob",
+      "at": 0
+     },
+     {
+      "text": "Jason's desire",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rob",
+      "note": "first meaning: to swindle or overcharge someone"
+     },
+     {
+      "clueFragment": "Jason's desire",
+      "note": "second meaning: what the Greek hero Jason sailed with the Argonauts to win"
+     }
+    ],
+    "explanation": {
+     "surface": "Two men, Rob and Jason, and what one of them wants.",
+     "walkthrough": "Rob and Jason look like two friends' names; Rob is a verb and Jason is the hero of Greek myth who sought the Golden Fleece.",
+     "definitionFit": "To fleece someone is to cheat them of money, and the Golden Fleece was the ram's woolly hide that Jason quested after."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rob"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +612,51 @@
      }
     ]
    },
-   "solution": "RADIOTELESCOPES"
+   "solution": "RADIOTELESCOPES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RADIO TELESCOPES",
+    "definitions": [
+     {
+      "text": "Receivers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cunningly",
+      "for": "anagram",
+      "note": "done cunningly means artfully rearranged, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copied store sale",
+      "gives": "COPIEDSTORESALE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPIEDSTORESALE",
+       "gives": "RADIOTELESCOPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handlers of stolen goods craftily imitated a shop's sale.",
+     "walkthrough": "'Receivers' suggests people who handle stolen goods, which fits the crooked surface; it really means equipment that receives signals.",
+     "definitionFit": "Radio telescopes are large dishes that pick up radio waves from space, so they are a type of signal-collecting apparatus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Receivers"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +670,45 @@
     "text": "Chucked the auditor's chair",
     "enumeration": "6"
    },
-   "solution": "THROWN"
+   "solution": "THROWN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THROWN",
+    "definitions": [
+     {
+      "text": "Chucked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the auditor's",
+      "for": "homophone",
+      "note": "an auditor is a listener, so the word is as heard rather than as spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chair",
+      "gives": "THROWN",
+      "soundsLike": "THRONE",
+      "note": "a throne is a royal chair"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tossed the accountant's seat across the room.",
+     "walkthrough": "An auditor in the surface is an accountant checking books; here it means a listener.",
+     "definitionFit": "Chucked is casual for tossed or hurled, so it matches the past participle of throw exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor's"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +722,62 @@
     "text": "Old bird meets an inexperienced driver outside",
     "enumeration": "8"
    },
-   "solution": "EXTERNAL"
+   "solution": "EXTERNAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTERNAL",
+    "definitions": [
+     {
+      "text": "outside",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "inexperienced driver",
+      "gives": "L",
+      "note": "L for learner, from the L-plate on a British learner's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TERN",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman bumps into a novice motorist out in the street.",
+     "walkthrough": "'Old bird' reads as slang for an elderly woman; split it into its two parts.",
+     "definitionFit": "External means on the exterior surface or beyond something, a straightforward adjective synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +791,67 @@
     "text": "Transport lead-free electricity without it getting diverted",
     "enumeration": "8"
    },
-   "solution": "TRICYCLE"
+   "solution": "TRICYCLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TRICYCLE",
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead-free",
+      "for": "deletion",
+      "note": "free of its lead means stripped of its leading letter"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so letters are removed"
+     },
+     {
+      "text": "getting diverted",
+      "for": "anagram",
+      "note": "something diverted is sent along a different route, so the letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electricity",
+      "gives": "ELECTRICITY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written, to be removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LECTRICY",
+       "gives": "TRICYCLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A power supply rerouted with no lead pipes, phrased like a utility notice.",
+     "walkthrough": "Drop the first E, then remove one I and one T; the eight letters left rearrange.",
+     "definitionFit": "A tricycle is a three-wheeled pedal vehicle, so it is one example of a means of getting about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead-free"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +865,53 @@
     "text": "Actors I prevent from leaving reprimand",
     "enumeration": "9"
    },
-   "solution": "CASTIGATE"
+   "solution": "CASTIGATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASTIGATE",
+    "definitions": [
+     {
+      "text": "reprimand",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors",
+      "gives": "CAST",
+      "note": "the cast is the set of actors in a show"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prevent from leaving",
+      "gives": "GATE",
+      "note": "to gate a pupil is to confine them to school as punishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "I",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A director stops the performers walking out and scolds them.",
+     "walkthrough": "Gating is a British school punishment: the pupil is kept in and not allowed out.",
+     "definitionFit": "To castigate is to criticise someone severely, so it is a more formal synonym of the verb to scold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Actors"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +925,74 @@
     "text": "Shows the door to vacant juvenile taken in by eccentric sect",
     "enumeration": "6"
    },
-   "solution": "EJECTS"
+   "solution": "EJECTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "EJECTS",
+    "definitions": [
+     {
+      "text": "Shows the door to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacant",
+      "for": "letter_selection",
+      "note": "something vacant is emptied, so only the outer letters remain"
+     },
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "eccentric means odd or off-centre, so the letters are jumbled"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "to be taken in is to be held inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "juvenile",
+      "gives": "JE",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "sect",
+      "gives": "SECT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "JE",
+      "CTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECT",
+       "gives": "ECTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cult expels a dim youngster it had recruited.",
+     "walkthrough": "'Vacant' reads as empty-headed, but it means emptied of middle letters.",
+     "definitionFit": "To show someone the door is an idiom for making them leave, the same as throwing them out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "vacant"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1006,47 @@
     "text": "Period of instruction is said to be moderate",
     "enumeration": "6"
    },
-   "solution": "LESSEN"
+   "solution": "LESSEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LESSEN",
+    "definitions": [
+     {
+      "text": "moderate",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is said",
+      "for": "homophone",
+      "note": "something said is spoken, so the word is as heard rather than as spelt"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Period of instruction",
+      "gives": "LESSEN",
+      "soundsLike": "LESSON",
+      "note": "a lesson is a session of teaching"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that a class should be kept middling in difficulty.",
+     "walkthrough": "'moderate' looks like an adjective but the definition is the verb: to reduce or tone down.",
+     "definitionFit": "To moderate something is to make it less extreme, so the verbs mean reduce or diminish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moderate"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1060,51 @@
     "text": "Chained wild animal eating ants",
     "enumeration": "7"
    },
-   "solution": "ECHIDNA"
+   "solution": "ECHIDNA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ECHIDNA",
+    "definitions": [
+     {
+      "text": "animal eating ants",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "something wild is out of control, so the letters run loose"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chained",
+      "gives": "CHAINED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAINED",
+       "gives": "ECHIDNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savage beast on a chain feeds on insects.",
+     "walkthrough": "'Chained wild' looks like a captive beast, but 'Chained' is the letters and 'wild' rearranges them.",
+     "definitionFit": "The echidna, or spiny anteater, is an egg-laying Australian mammal that feeds largely on termites and other insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1118,62 @@
     "text": "Travelling comedian strangely lacking in energy",
     "enumeration": "7"
    },
-   "solution": "NOMADIC"
+   "solution": "NOMADIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NOMADIC",
+    "definitions": [
+     {
+      "text": "Travelling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking in",
+      "for": "deletion",
+      "note": "lacking means without, so a letter is taken out"
+     },
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "done strangely means in an odd order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedian",
+      "gives": "COMEDIAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COMDIAN",
+       "gives": "NOMADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A touring stand-up oddly seems to have run out of steam.",
+     "walkthrough": "Take one E out of COMEDIAN and rearrange the seven letters left.",
+     "definitionFit": "Nomadic describes people who wander from place to place without a fixed home, so the adjective fits wandering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Travelling"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1187,56 @@
     "text": "Penny amusement for the audience's gratification",
     "enumeration": "8"
    },
-   "solution": "PLEASURE"
+   "solution": "PLEASURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "PLEASURE",
+    "definitions": [
+     {
+      "text": "gratification",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience's",
+      "for": "homophone",
+      "note": "an audience listens, so the word is as heard rather than as spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p is the abbreviation for a British penny"
+     },
+     {
+      "clueFragment": "amusement",
+      "gives": "LEASURE",
+      "soundsLike": "LEISURE",
+      "note": "leisure is free time spent on amusement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEASURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheap arcade game is laid on to please the crowd.",
+     "walkthrough": "In British speech leisure rhymes with measure, so P plus that sound gives the answer.",
+     "definitionFit": "Pleasure and gratification are both nouns for the satisfaction or enjoyment felt when a want is met."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience's"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1250,43 @@
     "text": "Essential to slip on choir cloak",
     "enumeration": "6"
    },
-   "solution": "PONCHO"
+   "solution": "PONCHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PONCHO",
+    "definitions": [
+     {
+      "text": "cloak",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Essential to",
+      "for": "hidden_word",
+      "note": "something essential to a thing is part of its core, so the letters lie within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slip on choir",
+      "gives": "PONCHO",
+      "note": "the letters running across the end of slip, on and the start of choir"
+     }
+    ],
+    "explanation": {
+     "surface": "Singers must put on a robe before performing.",
+     "walkthrough": "'Essential' suggests a requirement for singers; here it points inside the next three words.",
+     "definitionFit": "A poncho is a blanket-like outer garment with a hole for the head, a kind of sleeveless loose cape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Essential"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1300,43 @@
     "text": "It helps to make sex tremendously intense",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "intense",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "It helps to make",
+      "for": "hidden_word",
+      "note": "a thing that helps make the following words is part of them, so the letters lie within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex tremendously",
+      "gives": "EXTREME",
+      "note": "the letters running across the end of sex and the start of tremendously"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky tip on how to spice up a love life.",
+     "walkthrough": "The surface reads like advice from a magazine; the answer is sitting in the middle of two words.",
+     "definitionFit": "Extreme means of the highest or most severe degree, which is very close to the adjective meaning fierce or strong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helps"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1350,59 @@
     "text": "Nothing in schedule for early morning caller",
     "enumeration": "7"
    },
-   "solution": "ROOSTER"
+   "solution": "ROOSTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROOSTER",
+    "definitions": [
+     {
+      "text": "early morning caller",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing put in another sits inside it, so a piece goes within"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "schedule",
+      "gives": "ROSTER",
+      "note": "a roster is a rota or timetable"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "O",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A diary has no slot for whoever comes knocking at dawn.",
+     "walkthrough": "'early morning caller' suggests a visitor at the door; it is the bird that crows at dawn.",
+     "definitionFit": "A rooster is a male chicken, famous for crowing at daybreak, so it is a witty description of a dawn waker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "caller"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1416,51 @@
     "text": "Someone taking charge of Switzerland alongside high-flyer",
     "enumeration": "8"
    },
-   "solution": "CHAIRMAN"
+   "solution": "CHAIRMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIRMAN",
+    "definitions": [
+     {
+      "text": "Someone taking charge",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH is the international vehicle code for Switzerland, from Confoederatio Helvetica"
+     },
+     {
+      "clueFragment": "high-flyer",
+      "gives": "AIRMAN",
+      "note": "an airman flies high, literally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AIRMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambitious high achiever is put in charge of the Swiss operation.",
+     "walkthrough": "'high-flyer' means a high achiever in the surface but literally an aviator in the wordplay.",
+     "definitionFit": "A chairman presides over a meeting or company board, so the role is literally one of being in command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "high-flyer"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1474,56 @@
     "text": "Fear brat's latest mistake",
     "enumeration": "6"
    },
-   "solution": "TERROR"
+   "solution": "TERROR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TERROR",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "latest",
+      "for": "letter_selection",
+      "note": "the latest of a sequence comes at the end, so the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brat's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of brat"
+     },
+     {
+      "clueFragment": "mistake",
+      "gives": "ERROR",
+      "note": "an error is a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent dreads the next blunder from a spoiled child.",
+     "walkthrough": "'Fear' reads as a verb in the surface but is the noun definition.",
+     "definitionFit": "Terror is extreme fright, an intensified synonym for the noun meaning dread or alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fear"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1537,43 @@
     "text": "Just perfect!",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     },
+     {
+      "text": "perfect",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "note": "first meaning: fair, morally correct"
+     },
+     {
+      "clueFragment": "perfect",
+      "note": "second meaning: exactly correct or suitable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation makes it sound like 'Just perfect!' as praise; the two words are separate meanings of one short adjective.",
+     "definitionFit": "The adjective covers both moral fairness, as in doing the decent thing, and exact correctness, as in the ideal answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1597,51 @@
      }
     ]
    },
-   "solution": "EDWARDTHEEIGHTH"
+   "solution": "EDWARDTHEEIGHTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDWARD THE EIGHTH",
+    "definitions": [
+     {
+      "text": "King briefly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered by an influence, so the letters are changed around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "there with eg ADHD",
+      "gives": "THEREWITHEGADHD",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEREWITHEGADHD",
+       "gives": "EDWARDTHEEIGHTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch who for a short while had some kind of attention disorder.",
+     "walkthrough": "'briefly' looks like an abbreviation signal but belongs to the definition: this king abdicated in 1936 after less than a year, uncrowned.",
+     "definitionFit": "Edward VIII reigned for only eleven months before giving up the British throne to marry Wallis Simpson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1655,57 @@
     "text": "Power of a military leader on Cyprus",
     "enumeration": "6"
    },
-   "solution": "AGENCY"
+   "solution": "AGENCY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGENCY",
+    "definitions": [
+     {
+      "text": "Power",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "military leader",
+      "gives": "GEN",
+      "note": "Gen is the abbreviation for general"
+     },
+     {
+      "clueFragment": "Cyprus",
+      "gives": "CY",
+      "note": "CY is the international code for Cyprus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEN",
+      "CY"
+     ]
+    },
+    "explanation": {
+     "surface": "The authority held by a commander stationed on a Mediterranean island.",
+     "walkthrough": "In a charade 'on' can simply mean the next piece follows.",
+     "definitionFit": "Agency means the capacity to act or exert influence, as in human agency, so it is a noun synonym for capability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Power"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1719,64 @@
     "text": "Sugary liquid comprising nitrogen and trace elements",
     "enumeration": "6"
    },
-   "solution": "NECTAR"
+   "solution": "NECTAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NECTAR",
+    "definitions": [
+     {
+      "text": "Sugary liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elements",
+      "for": "anagram",
+      "note": "the elements of a word are its component letters, here freed to be laid out in another order"
+     }
+    ],
+    "linkWords": [
+     "comprising"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nitrogen",
+      "gives": "N",
+      "note": "N is the chemical symbol for nitrogen"
+     },
+     {
+      "clueFragment": "trace",
+      "gives": "TRACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ECTAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRACE",
+       "gives": "ECTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry label lists what a sweet drink contains.",
+     "walkthrough": "'trace elements' reads as one chemistry term; split it so 'elements' acts on the five letters before it.",
+     "definitionFit": "Nectar is the sweet fluid flowers produce to attract bees and other pollinating insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elements"
+    }
+   }
   }
  ]
 }
