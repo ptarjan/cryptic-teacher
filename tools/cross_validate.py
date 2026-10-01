@@ -1042,7 +1042,8 @@ def reprint_marks(puzzle, printed):
         if not want or not text or text == want or norm_text(text) != norm_text(want):
             continue
         try:
-            ann = fbp.requote(e.get("annotation"), lambda q: same_words_in(q, want), text, want)
+            ann = fbp.requote(e.get("annotation"), lambda q, want=want: same_words_in(q, want),
+                              text, want)
         except ValueError as err:
             notes.append(f"{groups.entry_id(e)}: kept our clue, the annotation quotes it: {err}")
             continue
