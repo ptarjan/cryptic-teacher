@@ -731,5 +731,28 @@ check "a backwards strike stops at its cell" \
   "19|down|ODOROUS|7|Smelly game bird topped and tailed by old cook (7)
 21|down|SECOND|6|Support function working close to Cupid (6)" "$(run "$backstrike")"
 
+# The blogger's marks are not the clue: the Globe and Mail prints the same
+# Quick Cryptic, and these are the clues where our copy read otherwise
+# (QC 3122, 3134, 3359, 3376). A definition slash with a space beside it,
+# a space the markup left before punctuation, link words in brackets and a
+# post-publication correction appended after the count all go; a slash
+# between two words is the setter's.
+marks='<table><tr><td colspan="2"><strong>Across</strong></td></tr>
+<tr><td>18</td><td><span><u>Irish city</u> /<u>seal</u> (4)</span></td></tr>
+<tr><td></td><td><b>CORK</b> &#8211; two definitions</td></tr>
+<tr><td>19</td><td><span> <em> <strong>Unhappy</strong> </em>, sulky and disgruntled at first (3)</span></td></tr>
+<tr><td></td><td><b>SAD</b> &#8211; initial letters</td></tr>
+<tr><td>20</td><td><span><strong>Store</strong> &#8217;s first-class service (5)</span></td></tr>
+<tr><td></td><td><b>SHOP</b> &#8211; x</td></tr>
+<tr><td>21</td><td><span>Opera[&#8217;s] curious piano [and] turn [two-word answer] (1,8)</span></td></tr>
+<tr><td></td><td><b>APIANOTURN</b> &#8211; x</td></tr>
+<tr><td>22</td><td><span>Mean to be camping? (6) / Edit: post-publication the clue was changed to: Meaning of &#8220;camping&#8221;? (6)</span></td></tr>
+<tr><td></td><td><b>INTENT</b> &#8211; x</td></tr>
+<tr><td>23</td><td><span>AC/DC and/or <u>chatter</u> ? (5)</span></td></tr>
+<tr><td></td><td><b>NOISE</b> &#8211; x</td></tr></table>'
+check "the blogger's slashes, brackets, stray spaces and edit notes are not the clue" \
+  "Irish city seal (4)|Unhappy, sulky and disgruntled at first (3)|Store’s first-class service (5)|Opera’s curious piano and turn (1,8)|Meaning of “camping”? (6)|AC/DC and/or chatter? (5)" \
+  "$(run "$marks" | cut -d'|' -f5 | paste -sd'|')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
