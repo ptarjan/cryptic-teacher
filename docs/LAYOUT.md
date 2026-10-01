@@ -242,6 +242,11 @@ tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a pu
                                              old site, that the paper still wins wherever it
                                              prints words, and that the sixteen recovered prize
                                              puzzles still carry every clue
+tools/test_alteration.sh                     holds an entry's `alteration` (the clue's own word
+                                             and the steps that turn it into what the grid
+                                             holds) to its letters at the write gate, every op
+                                             one mapping accepted and one refused, and an
+                                             annotation's wordplay to building that word
 tools/test_unclued_printed.sh                holds a puzzle's unclued lights and printed
                                              letters to its grid at the write gate: on the
                                              board, one letter per square, no square twice, and
@@ -419,12 +424,17 @@ tools/ft_pdf_puzzles.py                      files the FT cryptic of 2007-2012 f
                                              numbering matches the clue list and every answer
                                              crosses
 tools/listener_puzzles.py                    files the Listener crossword from the Listener
-                                             Team's archive PDFs: clues, bars and letters read
-                                             from the vector pages, and a puzzle whose entries
-                                             go in altered left out by name
+                                             Team's archive PDFs (clues, bars and letters read
+                                             from the vector pages) and from Wayback copies of
+                                             the Times' pages, the grid rebuilt from the
+                                             solution notes' answers; an answer entered altered
+                                             files the entry, the clue's word in its
+                                             `alteration`
 tools/test_listener_puzzles.sh               holds that reader to hand-drawn cell sides and a
                                              two-column clue page whose right-hand numbers sit
-                                             on the left's lines
+                                             on the left's lines, and the Times side to its
+                                             preamble rules (a run moved, S and N out and T
+                                             in), bar symmetry and the notes' answer column
 tools/test_ft_pdf_puzzles.sh                 holds that reader to a hand-drawn grid of
                                              content-stream rectangles, a wrapped clue list and
                                              an answers-only post, because a misread block
