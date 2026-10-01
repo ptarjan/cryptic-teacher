@@ -2,6 +2,7 @@
 """File the Financial Times cryptic from the FT's own printable PDFs.
 
     python3 tools/ft_pdf_puzzles.py index              # list every PDF Wayback knows of
+    python3 tools/ft_pdf_puzzles.py orphans            # and the PDFs no page links
     python3 tools/ft_pdf_puzzles.py fetch [--limit N]  # download them
     python3 tools/ft_pdf_puzzles.py file [--limit N] [--dry-run] [--numbers A-B]
 
@@ -147,6 +148,85 @@ def index(log=print):
         INDEX.write_text(json.dumps(idx, indent=0, sort_keys=True))
     log(f"index: {len(idx['puzzles'])} puzzle PDF(s)")
     return idx
+
+
+# ------------------------------------------------------------------ orphans
+
+def media_pdfs():
+    """[(timestamp, url)] of every pre-2013 media.ft.com PDF Wayback holds at a
+    crossword's size (20 to 300 kB). The CDX reply can be cut short, so it is
+    read line by line, one year at a time."""
+    out = {}
+    for year in range(2006, 2013):
+        try:
+            text = get(f"{CDX}?url=media.ft.com/cms/*&output=json&filter=mimetype:application/pdf"
+                       f"&filter=statuscode:200&collapse=urlkey&from={year}&to={year}&limit=20000",
+                       timeout=300).decode("utf-8", "replace")
+        except Exception as e:
+            print(f"  CDX {year}: {type(e).__name__}: {e}")
+            continue
+        for ln in text.splitlines():
+            try:
+                r = json.loads(ln.strip().rstrip(","))
+            except ValueError:
+                continue
+            if isinstance(r, list) and len(r) > 6 and r[0] != "urlkey" and r[6].isdigit() \
+                    and 20_000 < int(r[6]) < 300_000:
+                out.setdefault(r[2].replace(":80/", "/"), r[1])
+        time.sleep(WAYBACK_PAUSE)
+    return sorted((ts, u) for u, ts in out.items())
+
+
+def orphans(log=print):
+    """Fetch the PDFs no indexed crossword page links (2007-09, whose pages
+    linked article pages Wayback mostly lacks) and index each under the number
+    its own header prints, undated."""
+    idx = json.loads(INDEX.read_text())
+    known = {v["url"] for v in idx["puzzles"].values()}
+    seen_file = CACHE / "orphans_seen.json"
+    seen = set(json.loads(seen_file.read_text())) if seen_file.exists() else set()
+    rows = [r for r in media_pdfs() if r[1] not in known and r[1] not in seen]
+    log(f"orphans: {len(rows)} unindexed media.ft.com PDF(s) to open")
+    PDFS.mkdir(parents=True, exist_ok=True)
+    got = 0
+    for ts, url in rows:
+        try:
+            data = get(f"https://web.archive.org/web/{ts}id_/{url}", timeout=60, tries=2)
+            number = parse_clues(ops_of(data)[0])["number"] if data[:5] == b"%PDF-" else None
+        except Exception as e:
+            log(f"  {url}: {type(e).__name__}")
+            continue
+        finally:
+            time.sleep(WAYBACK_PAUSE)
+        seen.add(url)
+        seen_file.write_text(json.dumps(sorted(seen)))
+        if not number or str(number) in idx["puzzles"]:
+            continue
+        pdf_path(number).write_bytes(data)
+        (PDFS / f"{number}.how").write_text("wayback")
+        idx["puzzles"][str(number)] = {"date": None, "url": url}
+        INDEX.write_text(json.dumps(idx, indent=0, sort_keys=True))
+        got += 1
+        log(f"  {number}: {url}")
+    log(f"orphans: {got} new puzzle PDF(s)")
+    return got
+
+
+def neighbour_date(n, idx):
+    """An undated number's print day, when the dated numbers either side of it
+    are so close that the printing days between them are exactly the numbers
+    between them; else None."""
+    dated = {int(k): datetime.date.fromisoformat(v["date"]) for k, v in idx.items() if v.get("date")}
+    lo = max((k for k in dated if k < n), default=None)
+    hi = min((k for k in dated if k > n), default=None)
+    if lo is None or hi is None or hi - lo > 12:
+        return None
+    days, d = [], dated[lo] + datetime.timedelta(days=1)
+    while d < dated[hi]:
+        if ft_puzzles.printing_day(d):
+            days.append(d)
+        d += datetime.timedelta(days=1)
+    return days[n - lo - 1] if len(days) == hi - lo - 1 else None
 
 
 # ------------------------------------------------------------------ fetch
@@ -614,7 +694,8 @@ def file(write=True, limit=None, numbers=None, log=print):
         how = (PDFS / f"{n}.how").read_text().strip() if (PDFS / f"{n}.how").exists() else "live"
         entry = idx.get(str(n), {})
         # The FT's own crossword page printed the day beside the link.
-        date = datetime.date.fromisoformat(entry["date"]) if entry.get("date") else None
+        date = (datetime.date.fromisoformat(entry["date"]) if entry.get("date")
+                else neighbour_date(n, idx))
         try:
             pdf = read_pdf(pdf_path(n))
             puzzle, why = assemble(n, pdf, posts.get(n), date, entry.get("url"), how)
@@ -646,7 +727,7 @@ def file(write=True, limit=None, numbers=None, log=print):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("step", choices=("index", "fetch", "file", "all"))
+    ap.add_argument("step", choices=("index", "orphans", "fetch", "file", "all"))
     ap.add_argument("--limit", type=int)
     ap.add_argument("--numbers", help="A-B: only puzzle numbers in this range")
     ap.add_argument("--dry-run", action="store_true")
@@ -654,6 +735,8 @@ def main(argv=None):
     numbers = tuple(int(x) for x in a.numbers.split("-")) if a.numbers else None
     if a.step in ("index", "all"):
         index()
+    if a.step in ("orphans", "all"):
+        orphans()
     if a.step in ("fetch", "all"):
         fetch(a.limit, numbers)
     if a.step in ("file", "all"):
