@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Footballer, one with marriage potential",
     "enumeration": "6"
    },
-   "solution": "KEEPER"
+   "solution": "KEEPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KEEPER",
+    "definitions": [
+     {
+      "text": "Footballer",
+      "at": 0
+     },
+     {
+      "text": "one with marriage potential",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Footballer",
+      "note": "first meaning: the goalkeeper in a football team"
+     },
+     {
+      "clueFragment": "one with marriage potential",
+      "note": "second meaning: a partner worth holding on to, as in 'he's a ___'"
+     }
+    ],
+    "explanation": {
+     "surface": "A football player is described as excellent husband material.",
+     "walkthrough": "The surface reads as one description of a single eligible player; it is really two separate meanings of one word.",
+     "definitionFit": "The goalkeeper is the player guarding the net, and informally a partner worth marrying is one you should hang on to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,66 @@
     "text": "Monarchs getting to finally sojourn in Caribbean destination",
     "enumeration": "8"
    },
-   "solution": "KINGSTON"
+   "solution": "KINGSTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KINGSTON",
+    "definitions": [
+     {
+      "text": "Caribbean destination",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the following word, so only its closing letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarchs",
+      "gives": "KINGS",
+      "note": "monarchs are kings"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sojourn",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of sojourn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KINGS",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Royals finally get to stay for a while at a Caribbean holiday spot.",
+     "walkthrough": "'to' is not a link here but part of the letters; 'getting' joins the monarchs to it.",
+     "definitionFit": "Kingston is the capital city of Jamaica, a popular place for visitors to the Caribbean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,70 @@
     "text": "Dodgy dealers pocketing money and gemstones",
     "enumeration": "8"
    },
-   "solution": "EMERALDS"
+   "solution": "EMERALDS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMERALDS",
+    "definitions": [
+     {
+      "text": "gemstones",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable or crooked, so the letters are not in their honest order"
+     },
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "to pocket something is to put it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealers",
+      "gives": "DEALERS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is a standard abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "ERALDS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEALERS",
+       "gives": "EERALDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crooked traders are stashing away cash and precious stones.",
+     "walkthrough": "Rearrange DEALERS to EERALDS, then slip M in after the first E to make EMERALDS.",
+     "definitionFit": "Emeralds are green precious stones, a variety of the mineral beryl, so they are examples of gemstones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dodgy"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,51 @@
     "text": "Tent's roof removed for Olympic event",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EPEE",
+    "definitions": [
+     {
+      "text": "Olympic event",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roof removed",
+      "for": "deletion",
+      "note": "in a down entry the roof is the top letter, and removing it takes away the first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tent's",
+      "gives": "TEPEE",
+      "note": "a tepee is a conical tent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tent loses its top so the space can host an Olympic competition.",
+     "walkthrough": "In a down answer the top letter is the roof; taking T off TEPEE leaves EPEE.",
+     "definitionFit": "Épée is one of the three fencing weapons, and fencing with it is a separate Olympic competition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roof"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +294,43 @@
     "text": "One who painted his mother, a referee?",
     "enumeration": "8"
    },
-   "solution": "WHISTLER"
+   "solution": "WHISTLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHISTLER",
+    "definitions": [
+     {
+      "text": "One who painted his mother",
+      "at": 0
+     },
+     {
+      "text": "a referee?",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who painted his mother",
+      "note": "first meaning: the American painter famous for the portrait known as his Mother"
+     },
+     {
+      "clueFragment": "a referee?",
+      "note": "second meaning: an official who blows a whistle, said playfully"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "James McNeill Whistler painted the famous portrait of his mother; the question mark flags the jokey second sense of someone who blows a whistle.",
+     "definitionFit": "Whistler's Mother is the well-known name of the artist's painting, and a match official signals fouls by blowing a whistle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "referee"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +354,53 @@
      }
     ]
    },
-   "solution": "HORSEANDCART"
+   "solution": "HORSEANDCART",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "HORSE AND CART",
+    "definitions": [
+     {
+      "text": "a means of transporting goods",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "made"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "callous deer",
+      "gives": "HORSEANDCART",
+      "soundsLike": "COARSE AND HART",
+      "note": "callous is coarse and a male deer is a hart; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORSEANDCART"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner has produced an unfeeling deer that somehow carries goods.",
+     "walkthrough": "A hart is an adult male deer; swapping the C and H sounds of the two words gives the answer.",
+     "definitionFit": "An animal pulling a wheeled wagon was the traditional way of moving loads before motor vehicles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "callous"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +414,50 @@
     "text": "Cliché in way of playing music genre",
     "enumeration": "10"
    },
-   "solution": "STEREOTYPE"
+   "solution": "STEREOTYPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEREOTYPE",
+    "definitions": [
+     {
+      "text": "Cliché",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way of playing music",
+      "gives": "STEREO",
+      "note": "stereo is a method of sound reproduction over two channels"
+     },
+     {
+      "clueFragment": "genre",
+      "gives": "TYPE",
+      "note": "a genre is a kind or type"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEREO",
+      "TYPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired musical form is found in a particular style of performance.",
+     "walkthrough": "'way of playing music' looks like another phrase for genre, but it is the sound system, mono versus stereo.",
+     "definitionFit": "A stereotype is an overused, fixed idea or image, much like a hackneyed phrase or trite notion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +477,43 @@
      }
     ]
    },
-   "solution": "LEANTO"
+   "solution": "LEANTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEAN-TO",
+    "definitions": [
+     {
+      "text": "humble abode",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "only a portion of the following words is wanted, a run of letters sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humble Antony's",
+      "gives": "LEANTO",
+      "note": "the letters run across the end of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Antony lives in a modest home.",
+     "walkthrough": "'humble' appears twice: the first is fodder for the hidden letters, the second belongs to the definition.",
+     "definitionFit": "A lean-to is a simple shed or shelter built against a wall, a modest kind of dwelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Antony's"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +527,56 @@
     "text": "Make one's home and manage without parking",
     "enumeration": "6"
    },
-   "solution": "RESIDE"
+   "solution": "RESIDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RESIDE",
+    "definitions": [
+     {
+      "text": "Make one's home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manage",
+      "gives": "PRESIDE",
+      "note": "to preside is to be in charge or manage"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Settle down somewhere and cope without a parking space.",
+     "walkthrough": "Remove P from PRESIDE.",
+     "definitionFit": "To reside somewhere is to live there permanently, the verb for dwelling in a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parking"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +590,48 @@
     "text": "Desired being massaged in the auditorium",
     "enumeration": "6"
    },
-   "solution": "NEEDED"
+   "solution": "NEEDED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NEEDED",
+    "definitions": [
+     {
+      "text": "Desired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the auditorium",
+      "for": "homophone",
+      "note": "an auditorium is where an audience listens, so we go by sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massaged",
+      "gives": "NEEDED",
+      "soundsLike": "KNEADED",
+      "note": "kneaded means massaged, and its K is silent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone longed for a massage at the theatre.",
+     "walkthrough": "KNEADED and NEEDED sound identical because the K is silent.",
+     "definitionFit": "Something desired is wanted, and something wanted is required or lacking, close to the sense of want."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditorium"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +645,59 @@
     "text": "SEALs ran amok in military stores",
     "enumeration": "8"
    },
-   "solution": "ARSENALS"
+   "solution": "ARSENALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARSENALS",
+    "definitions": [
+     {
+      "text": "military stores",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amok",
+      "for": "anagram",
+      "note": "running amok is going wild and out of control, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "SEALs",
+      "gives": "SEALS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written; it joins the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEALSRAN",
+       "gives": "ARSENALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Navy special forces go on the rampage in weapons depots.",
+     "walkthrough": "'ran' does double duty in the surface but its letters join SEALS as fodder, while 'amok' signals the rearrangement. SEALs are US Navy special forces.",
+     "definitionFit": "Arsenals are buildings where weapons and ammunition are kept, so they are stockpiles for armed forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ran"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +721,63 @@
      }
     ]
    },
-   "solution": "CROSSMYHEART"
+   "solution": "CROSSMYHEART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSS MY HEART",
+    "definitions": [
+     {
+      "text": "I promise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the others, fixing the order of the parts"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angry",
+      "gives": "CROSS",
+      "note": "cross means angry"
+     },
+     {
+      "clueFragment": "shocked exclamation",
+      "gives": "MY",
+      "note": "'my!' is an exclamation of surprise"
+     },
+     {
+      "clueFragment": "bravery",
+      "gives": "HEART",
+      "note": "heart means courage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "MY",
+      "HEART"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to be courageous after an outburst of fury and surprise.",
+     "walkthrough": "The clue reads bravery first, but 'after' sends it to the end behind the angry word and the exclamation.",
+     "definitionFit": "The phrase is a solemn oath, often said by children, swearing that what one says is true."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bravery"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +791,57 @@
     "text": "Fools around in baths",
     "enumeration": "4"
    },
-   "solution": "SPAS"
+   "solution": "SPAS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAS",
+    "definitions": [
+     {
+      "text": "baths",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around faces the other way, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fools",
+      "gives": "SAPS",
+      "note": "saps are gullible fools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAPS",
+       "to": "SPAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Idiots mess about in the swimming pool.",
+     "walkthrough": "'Fools around' reads as messing about, but 'around' turns SAPS back to front.",
+     "definitionFit": "Spas are resorts or establishments with mineral springs and pools where people go to bathe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +855,67 @@
     "text": "Back in control, staggered to welcome cast etc.",
     "enumeration": "9"
    },
-   "solution": "REELECTED"
+   "solution": "REELECTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REELECTED",
+    "definitions": [
+     {
+      "text": "Back in control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to welcome",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so one piece goes inside another"
+     },
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "to cast is to throw or mould afresh, so the letters are recast in new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staggered",
+      "gives": "REELED",
+      "note": "to reel is to stagger"
+     },
+     {
+      "clueFragment": "etc.",
+      "gives": "ETC",
+      "note": "the abbreviation itself, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEL",
+      "ECT",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETC",
+       "gives": "ECT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A returning leader, unsteady on their feet, greets the actors and everyone else.",
+     "walkthrough": "'cast' looks like the actors in a play waiting to be greeted, but it is the signal to rearrange the abbreviation; a returning politician being 'back in control' is the definition.",
+     "definitionFit": "A politician voted in again after an election is returned to power, holding office once more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +935,51 @@
      }
     ]
    },
-   "solution": "CHICKENRUN"
+   "solution": "CHICKENRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICKEN RUN",
+    "definitions": [
+     {
+      "text": "space with multiple layers?",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afraid",
+      "gives": "CHICKEN",
+      "note": "chicken is slang for cowardly"
+     },
+     {
+      "clueFragment": "manage",
+      "gives": "RUN",
+      "note": "to run a business is to manage it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHICKEN",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is nervous about running a building with many storeys.",
+     "walkthrough": "'layers' suggests floors or strata, but here it means hens that lay eggs; the question mark flags the pun.",
+     "definitionFit": "A fenced outdoor enclosure where hens roam and peck is home to many egg-producing birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "layers"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +999,56 @@
      }
     ]
    },
-   "solution": "OLDCHESTNUT"
+   "solution": "OLDCHESTNUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLD CHESTNUT",
+    "definitions": [
+     {
+      "text": "familiar story",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "it's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antique",
+      "gives": "OLD",
+      "note": "antique means old"
+     },
+     {
+      "clueFragment": "storage item",
+      "gives": "CHEST",
+      "note": "a chest is a box for storing things"
+     },
+     {
+      "clueFragment": "one that's cracked",
+      "gives": "NUT",
+      "note": "nuts are cracked open to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "CHEST",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An old trunk with a split in it turns out to have a well-known tale attached.",
+     "walkthrough": "'cracked' suggests damage to the antique, but it is a nut being cracked.",
+     "definitionFit": "The idiom names a joke or anecdote repeated so often that everyone has heard it before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1062,56 @@
     "text": "Archbishops in particular ate seconds",
     "enumeration": "8"
    },
-   "solution": "PRIMATES"
+   "solution": "PRIMATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIMATES",
+    "definitions": [
+     {
+      "text": "Archbishops",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "particular",
+      "gives": "PRIM",
+      "note": "prim means fussy or particular"
+     },
+     {
+      "clueFragment": "ate",
+      "gives": "ATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIM",
+      "ATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Senior churchmen, notably, went back for second helpings.",
+     "walkthrough": "'in particular' reads as 'especially'; 'in' is only a link and 'particular' means fussy.",
+     "definitionFit": "The senior archbishop of a province or country holds the title of primate, such as the Primate of All England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1135,51 @@
      }
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AS IT WERE",
+    "definitions": [
+     {
+      "text": "In a way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put another way",
+      "for": "anagram",
+      "note": "to put something another way is to express it differently, so the letters are set in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weariest",
+      "gives": "WEARIEST",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEARIEST",
+       "gives": "ASITWERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is most tired, so to speak, in other words.",
+     "walkthrough": "'put another way' sounds like a rephrasing tag but signals the rearrangement.",
+     "definitionFit": "The phrase is a hedge meaning so to speak or in a manner, used to soften a figurative statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1199,67 @@
      }
     ]
    },
-   "solution": "COMICOPERAS"
+   "solution": "COMICOPERAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "COMIC OPERAS",
+    "definitions": [
+     {
+      "text": "amusing entertainments",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means mostly but not wholly, so the last letter is dropped"
+     },
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish or nonsensical, so the letters fall into a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racy",
+      "gives": "RAC",
+      "note": "racy with its final letter gone"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "compose",
+      "gives": "COMPOSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACICOMPOSE",
+       "gives": "COMICOPERAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer admits to writing mostly risqué, daft and funny shows.",
+     "walkthrough": "'compose' sounds like the creative verb, but it is fodder; 'silly' is the signal.",
+     "definitionFit": "Light operatic works with humorous plots and spoken dialogue are staged to entertain and make audiences laugh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compose"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1273,42 @@
     "text": "Where you can see football team crumbled",
     "enumeration": "6"
    },
-   "solution": "GROUND"
+   "solution": "GROUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROUND",
+    "definitions": [
+     {
+      "text": "Where you can see football team",
+      "at": 0
+     },
+     {
+      "text": "crumbled",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you can see football team",
+      "note": "first meaning: a sports stadium"
+     },
+     {
+      "clueFragment": "crumbled",
+      "note": "second meaning: reduced to small particles, as coffee beans are"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a team that collapsed; the verb belongs to a separate meaning.",
+     "definitionFit": "A football club plays home matches at its stadium, and something milled into fine bits has been crushed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crumbled"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1322,48 @@
     "text": "Compensate for TV with no power?",
     "enumeration": "6"
    },
-   "solution": "OFFSET"
+   "solution": "OFFSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSET",
+    "definitions": [
+     {
+      "text": "Compensate for",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no power",
+      "gives": "OFF",
+      "note": "a device with no power is switched off"
+     },
+     {
+      "clueFragment": "TV",
+      "gives": "SET",
+      "note": "a television is a TV set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seeks recompense for a dead television.",
+     "walkthrough": "The pieces come in reverse clue order: an unpowered TV is an off set.",
+     "definitionFit": "To offset a loss is to balance or counteract it with a gain of equal weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1377,43 @@
     "text": "Nap, Sweetie?",
     "enumeration": "9"
    },
-   "solution": "REFRESHER"
+   "solution": "REFRESHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFRESHER",
+    "definitions": [
+     {
+      "text": "Nap",
+      "at": 0
+     },
+     {
+      "text": "Sweetie?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nap",
+      "note": "first meaning: something that restores your energy"
+     },
+     {
+      "clueFragment": "Sweetie?",
+      "note": "second meaning: a fizzy British sweet sold under this name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an endearment; in fact a Refresher is a fizzy, fruity sweet sold in Britain, and 'sweetie' is a word for a sweet.",
+     "definitionFit": "A short sleep revives a tired person, and the British candy brand gives the same word to a small confection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sweetie"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1427,43 @@
     "text": "Send out some remittances",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Send out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part, so a run of letters inside the next word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remittances",
+      "gives": "EMIT",
+      "note": "the letters sit inside the second to fifth places of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone posts off a few payments.",
+     "walkthrough": "'Send out' reads as posting the payments, but the answer sits inside the word that follows 'some'.",
+     "definitionFit": "To emit is to give off or discharge, such as light, heat or a signal, into the surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Send"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1477,70 @@
     "text": "Piece – albeit weak – numerous at the outset?",
     "enumeration": "4"
    },
-   "solution": "PAWN"
+   "solution": "PAWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "PAWN",
+    "definitions": [
+     {
+      "text": "Piece – albeit weak – numerous at the outset?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset is the beginning, so the opening letters of the words are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "albeit",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "weak",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "numerous",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "W",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A chessman, feeble yet plentiful at the start of a game.",
+     "walkthrough": "The whole clue doubles as the definition: each side starts a chess game with eight of these weakest men.",
+     "definitionFit": "In chess this lowest-valued man is the most plentiful on the board when play begins, eight per side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1554,55 @@
     "text": "Confused: tempura's getting further from mouth",
     "enumeration": "8"
    },
-   "solution": "UPSTREAM"
+   "solution": "UPSTREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UPSTREAM",
+    "definitions": [
+     {
+      "text": "further from mouth",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Confused",
+      "for": "anagram",
+      "note": "confused means mixed up, so the letters come in jumbled order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tempura's",
+      "gives": "TEMPURAS",
+      "note": "the word plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEMPURAS",
+       "gives": "UPSTREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is baffled that battered food is moving away from their lips.",
+     "walkthrough": "The 's must be counted in. 'mouth' suggests eating but is a river mouth; tempura is Japanese battered seafood or vegetables.",
+     "definitionFit": "Travelling toward a river's source takes you away from where it meets the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "mouth"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1616,61 @@
     "text": "Shed next to empty lighthouse, a grand edifice",
     "enumeration": "6"
    },
-   "solution": "CASTLE"
+   "solution": "CASTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CASTLE",
+    "definitions": [
+     {
+      "text": "a grand edifice",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its contents, leaving only the outer letters"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to means beside, so the pieces are placed side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shed",
+      "gives": "CAST",
+      "note": "to cast is to shed, as a snake its skin"
+     },
+     {
+      "clueFragment": "lighthouse",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "An outbuilding beside an abandoned lighthouse forms an impressive building.",
+     "walkthrough": "'Shed' wants to be the hut; it is the verb meaning throw off.",
+     "definitionFit": "A castle is a large fortified building, imposing in scale, such as a medieval stronghold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shed"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1684,61 @@
     "text": "In Athens, letter written – returned – blast!",
     "enumeration": "8"
    },
-   "solution": "DETONATE"
+   "solution": "DETONATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DETONATE",
+    "definitions": [
+     {
+      "text": "blast",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "to be returned is to be sent back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Athens, letter",
+      "gives": "ETA",
+      "note": "eta is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "written",
+      "gives": "NOTED",
+      "note": "noted means written down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETON",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETANOTED",
+       "to": "DETONATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter posted in Greece comes back undelivered, and the writer swears.",
+     "walkthrough": "'blast!' looks like an oath but is the definition, a verb meaning explode.",
+     "definitionFit": "To blast something is to blow it up with explosives, which is to set off a charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blast"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1752,56 @@
     "text": "Everyman affectedly starts to speechify in extremely shapeless garment",
     "enumeration": "6"
    },
-   "solution": "ONESIE"
+   "solution": "ONESIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ONESIE",
+    "definitions": [
+     {
+      "text": "shapeless garment",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only those are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman affectedly",
+      "gives": "ONE",
+      "note": "the setter talking about himself in a posh, affected way says 'one' rather than 'I'"
+     },
+     {
+      "clueFragment": "speechify in extremely",
+      "gives": "SIE",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "SIE"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter pompously begins a speech wearing a baggy outfit.",
+     "walkthrough": "'in extremely' looks like a container and an outer-letters signal, but both words just give up their first letters.",
+     "definitionFit": "A onesie is a loose all-in-one jumpsuit, typically worn for lounging, cut without any fitted tailoring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   }
  ]
 }
