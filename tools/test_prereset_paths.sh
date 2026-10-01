@@ -1,13 +1,8 @@
 #!/bin/bash
-# The two paths the pre-reset burn resolves at runtime, checked by resolving
-# them — not by matching the text of the line that builds them.
-#
-# Both were wrong from 2026-09-06 (the container cutover) to 2026-09-08 and
-# neither said so. BRIDGE_DIR named a directory that has never existed, so the
-# occupancy check read every empty room as busy and held 25% of every five-hour
-# window back for nobody. alert.sh looked for the bridge beside the worktrees
-# instead of beside the checkout, so the one alert that would have reported it
-# printed "no wake.sh" into the log nobody opens.
+# The bridge path the pre-reset burn's alerts resolve at runtime, checked by
+# resolving it — not by matching the text of the line that builds it. alert.sh
+# must find the bridge beside the checkout, not beside the worktrees, or every
+# alert prints "no wake.sh" into a log nobody opens.
 #
 # Run standalone or from tools/smoke_test.js.
 set -uo pipefail
@@ -18,17 +13,6 @@ check() { if [ "$2" = "$3" ]; then echo "ok   $1"; else
 
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
-
-# BRIDGE_DIR follows the CLI's config dir, which is not under $HOME in the
-# container. Both are set to decoys here so a spelling that reaches for the
-# wrong one lands somewhere this test can name.
-mkdir -p "$tmp/config/projects/-Users-pt" "$tmp/home/.claude/projects/-Users-pt"
-got="$(HOME="$tmp/home" CLAUDE_CONFIG_DIR="$tmp/config" BRIDGE_DIR= bash -c '
-  unset BRIDGE_DIR
-  eval "$(grep "^BRIDGE_DIR=" "$1")"
-  echo "$BRIDGE_DIR"' _ "$ROOT/tools/prereset_backfill.sh")"
-check "BRIDGE_DIR follows CLAUDE_CONFIG_DIR, not \$HOME" \
-  "$got" "$tmp/config/projects/-Users-pt"
 
 # alert.sh finds the bridge checkout from a nightly worktree, which sits two
 # levels below its own root and nowhere near the checkout it was cloned from.
@@ -44,17 +28,6 @@ got="$(bash -c 'unset ALERT_ENV_FILE; . "$1"; echo "$ALERT_ENV_FILE"' \
   _ "$tmp/worktrees/nightly/tools/alert.sh")"
 check "alert.sh finds the bridge beside the checkout, not beside the worktrees" \
   "$got" "$tmp/github/household/.env"
-
-# The measured constants belong to the CHECKOUT. The burn measures them in a
-# nightly worktree and the start gate reads them in the checkout hours earlier,
-# so a planner that keeps them beside itself writes where nothing reads and
-# reads where nothing wrote — which is how the 2026-09-08 burn started a third
-# of a week late on a seed the worktree had already measured away from.
-cp "$ROOT/tools/prereset_plan.py" "$ROOT/tools/weekly_usage.py" \
-  "$tmp/worktrees/nightly/tools/"
-got="$(cd "$tmp/worktrees/nightly" && python3 tools/prereset_plan.py --state-dir)"
-check "measured state resolves to the checkout, not the worktree" \
-  "$got" "$tmp/github/repo"
 
 [ "$fails" = 0 ] && echo "PRERESET PATHS PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))

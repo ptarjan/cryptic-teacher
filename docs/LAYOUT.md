@@ -626,8 +626,8 @@ tools/test_push_conflict.sh                  proves the nightly push rebuilds a 
 tools/test_push_race.sh                      a push that loses the shared ref-lock race to
                                              another worktree is retried; any other failure is
                                              not
-tools/prereset_plan.py                       how many puzzles the remaining quota will carry
-                                             before the reset
+tools/prereset_plan.py                       how many annotations the burn runs at once, and
+                                             the order it takes the queue in
 tools/indicator_cover.py                     puts first the backlog puzzles whose blog-named
                                              indicators no annotation of ours links yet on
                                              /indicators/: a greedy set cover weighted by each
@@ -636,9 +636,9 @@ tools/indicator_cover.py                     puts first the backlog puzzles whos
 tools/backlog_burndown.py                    the annotation backlog over time, rebuilt from git
                                              history, and how long the rest will take at that
                                              pace
-tools/test_prereset_paths.sh                 resolves the two paths the burn builds at runtime,
-                                             instead of matching the text of the lines that
-                                             build them
+tools/test_prereset_paths.sh                 resolves the bridge path the burn's alerts build
+                                             at runtime, instead of matching the text of the
+                                             line that builds it
 tools/test_alert_claimed.sh                  runs a real failing run past alert.sh, so the
                                              catch-all cannot report a failure somebody already
                                              alerted on a second time
@@ -944,8 +944,6 @@ tools/data/blog_comment_difficulty.json      per Times puzzle, the comment count
                                              solve time its commenters state, and per clue how
                                              many comments name the answer, flag it hard, and
                                              call it their last one in
-tools/test_prereset_landing.sh               is the landing report keyed to the week's real
-                                             reset, not to CT_SPEND_BY?
 scratch/snitch_stage4.py                     the SNITCH adoption harness: each candidate
                                              component held out by date on the annotated and
                                              fresh sets
