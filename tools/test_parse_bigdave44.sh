@@ -114,6 +114,22 @@ print("REVIEW_UNDATED", recs[("sundaytel", 3386)]["printed"])
 print("STATED", B.read_post(review, CATS)["published"])
 print("WRONG_DAY", B.print_date("sundaytel", [dict(B.read_post(hints, CATS), date="2026-09-24")])[0])
 
+# A blogger's note after the enumeration is cut off; a count inside the
+# clue that is a cross-reference stays.
+for c in ("Dismissal is memory associated with cricket ground (7) Revised on-line clue: Getting rid of pop group at front of Underground station",
+          "Food from abroad cooked by exotic baker with book (5,5) [online clue] Dark bone possibly linked to black food from East (5,5) [paper clue]",
+          "Whitish heraldic stripe (4) (paper version)",
+          "Jogger to step into ground (4-2,4) [not (7,4) as published]",
+          "Tab made from tobacco, untipped (7) –",
+          "Bird with yellow part, one concealed (6) Clue revised online to “Bird with round part...\" as the original...",
+          "Here we go again! (4,4) Here we go again! (4,4)",
+          "Son (10) enthralled by foreign song — he did this? (8)",
+          "First lick of paint on great building (6)"):
+    print("NOTE", B.note_cut(c))
+noted = post(12, "DT 27398", """<p><strong>Across</strong></p>
+<p><strong>1a</strong> Whitish heraldic stripe (4) (paper version)<br /><span class="hc">PALE</span>: no</p>""")
+print("NOTED", *(f"{e['clue']}|{e['enumeration']}" for e in B.read_post(noted, CATS)["entries"]))
+
 D = datetime.date
 print("CADENCE", B.by_cadence("telegraph", {100: D(2026, 9, 18), 101: None, 102: D(2026, 9, 21)}).get(101))
 print("CADENCE_SHORT", B.by_cadence("telegraph", {100: D(2026, 9, 18), 101: None, 102: D(2026, 9, 19)}))
@@ -155,5 +171,17 @@ check "Saturday between Friday and Monday" "2026-09-19" "$(got CADENCE)"
 check "too few print days between dates nothing" "{}" "$(got CADENCE_SHORT)"
 check "weekly numbers between two Sundays take the Sundays" \
   "[(2, datetime.date(2026, 9, 13)), (3, datetime.date(2026, 9, 20))]" "$(got CADENCE_WEEKS)"
+check "a blogger's note after the enumeration is cut; a cross-reference count stays" \
+"('Dismissal is memory associated with cricket ground (7)', '7')
+('Food from abroad cooked by exotic baker with book (5,5)', '5,5')
+('Whitish heraldic stripe (4)', '4')
+('Jogger to step into ground (4-2,4)', '4-2,4')
+('Tab made from tobacco, untipped (7)', '7')
+('Bird with yellow part, one concealed (6)', '6')
+('Here we go again! (4,4)', '4,4')
+None
+None" "$(got NOTE)"
+check "the parser stores the clue cut at its enumeration" \
+  "Whitish heraldic stripe (4)|4" "$(got NOTED)"
 
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
