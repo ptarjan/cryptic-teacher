@@ -24,6 +24,9 @@
   "date": "2023-12-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,73 @@
      }
     ]
    },
-   "solution": "FLATFOOTED"
+   "solution": "FLATFOOTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLAT-FOOTED",
+    "definitions": [
+     {
+      "text": "without an arch",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at either end",
+      "for": "letter_selection",
+      "note": "a word that begins and ends with the same letter gives that one letter whichever end you take"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters is placed inside the framework formed by the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "FLAT",
+      "note": "a flat is a home, an apartment"
+     },
+     {
+      "clueFragment": "Measure",
+      "gives": "FOOT",
+      "note": "a foot is a unit of length"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "designed",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of the word, which is also its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAT",
+      "FOOT",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A tape-measured house plan with a puzzling note about a missing arch.",
+     "walkthrough": "The neat trick is that 'designed' starts and ends with the same letter, so 'at either end' gives one letter whichever end you choose. 'Without an arch' is the literal medical sense, not clumsiness.",
+     "definitionFit": "A person with fallen arches has soles lying level on the ground, the literal medical sense of the term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +126,48 @@
     "text": "Exploit members discussed, even in the other 1",
     "enumeration": "4"
    },
-   "solution": "FEAT"
+   "solution": "FEAT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FEAT",
+    "definitions": [
+     {
+      "text": "Exploit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is talked about, so we go by the spoken sound rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "even in the other 1"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "members",
+      "gives": "FEAT",
+      "soundsLike": "FEET",
+      "note": "feet are limbs or members of the body"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment that some members talked about an exploit in another place.",
+     "walkthrough": "The tail is an aside: feet are 'even' (flat) in the other, literal sense of 1 Across, FLAT-FOOTED, rather than its sense of clumsy or caught unprepared.",
+     "definitionFit": "An exploit as a noun is a bold or remarkable deed, which is a synonym for this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +181,46 @@
     "text": "It’s partly glacial — ask any native",
     "enumeration": "7"
    },
-   "solution": "ALASKAN"
+   "solution": "ALASKAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALASKAN",
+    "definitions": [
+     {
+      "text": "native",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "only part of the following words is used, so the solution sits inside the run of letters"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glacial — ask any",
+      "gives": "ALASKAN",
+      "note": "read straight through the letters, ignoring spaces and punctuation"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone from a cold place telling you to ask the locals about ice.",
+     "walkthrough": "The letters run across 'glaciAL ASK ANy'. The glacier imagery makes the native a fitting one.",
+     "definitionFit": "A person born in the northern US state is a native of that state, so this adjective-as-noun names them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partly"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +240,52 @@
      }
     ]
    },
-   "solution": "FISHINGTACKLE"
+   "solution": "FISHINGTACKLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FISHING TACKLE",
+    "definitions": [
+     {
+      "text": "dinner to be taken with this?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Itinerant",
+      "for": "anagram",
+      "note": "an itinerant wanders from place to place, so the letters roam into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chief stalking",
+      "gives": "CHIEFSTALKING",
+      "note": "the thirteen letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHIEFSTALKING",
+       "gives": "FISHINGTACKLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling leader hunting his supper, wondering what to bring for it.",
+     "walkthrough": "The definition is cryptic: if your dinner is a fish you have caught, rods and lines are what it is taken with. 'Stalking dinner' also hints at the whole picture.",
+     "definitionFit": "Rods, reels, lines and hooks are the angler's equipment for catching the evening meal from a river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Itinerant"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +299,53 @@
     "text": "Aerial picked up king getting put out",
     "enumeration": "8"
    },
-   "solution": "OVERHEAD"
+   "solution": "OVERHEAD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OVERHEAD",
+    "definitions": [
+     {
+      "text": "Aerial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting put out",
+      "for": "deletion",
+      "note": "to be put out is to be thrown out, so a letter is ejected from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picked up",
+      "gives": "OVERHEARD",
+      "note": "a remark picked up by chance is one listened in on"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is the abbreviation for king, from Latin rex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERHEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A radio aerial catching a broadcast about a king being ousted.",
+     "walkthrough": "'Aerial' looks like the radio antenna, a noun, but it is the adjective meaning up in the air; 'picked up' looks like reception but means eavesdropped.",
+     "definitionFit": "Both words describe something situated or happening in the air above us, like power cables strung on poles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Aerial"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +359,54 @@
     "text": "Nets, feature held up by poles",
     "enumeration": "5"
    },
-   "solution": "EARNS"
+   "solution": "EARNS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARNS",
+    "definitions": [
+     {
+      "text": "Nets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up by",
+      "for": "charade",
+      "note": "in a down clue something held up by others sits on top of them, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feature",
+      "gives": "EAR",
+      "note": "an ear is a feature of the face"
+     },
+     {
+      "clueFragment": "poles",
+      "gives": "NS",
+      "note": "north and south are the two poles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Goal nets held up by posts, as at a football ground.",
+     "walkthrough": "'Nets' looks like goalmouth netting, a noun, but it is a verb, as in nets a profit.",
+     "definitionFit": "To net a sum is to gain it as income, a common synonym for receiving payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nets"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +420,55 @@
     "text": "Cut elephants’ favourite rolls",
     "enumeration": "4"
    },
-   "solution": "SNUB"
+   "solution": "SNUB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNUB",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolls",
+      "for": "reversal",
+      "note": "something that rolls turns over, so the word is turned back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elephants’ favourite",
+      "gives": "BUNS",
+      "note": "zoo visitors traditionally fed sweet buns to elephants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUNS",
+       "to": "SNUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elephants' favourite bread rolls being cut up, a zoo picture.",
+     "walkthrough": "'Rolls' wants to be the bread, matching the buns, but it is the turnaround signal. To cut someone is to ignore them pointedly.",
+     "definitionFit": "Cutting someone dead means pointedly ignoring them, a synonym for a deliberate social slight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rolls"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +482,57 @@
     "text": "Falls during war against uprising",
     "enumeration": "7"
    },
-   "solution": "NIAGARA"
+   "solution": "NIAGARA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NIAGARA",
+    "definitions": [
+     {
+      "text": "Falls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "hidden_word",
+      "note": "what happens during something lies within it, so the letters sit inside the words"
+     },
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down clue rising up means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "war against",
+      "gives": "ARAGAIN",
+      "note": "the letters straddling the two words, wAR AGAINst"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ARAGAIN",
+       "to": "NIAGARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falling in battle during a war against a rebellion.",
+     "walkthrough": "'Falls' looks like a verb about casualties, but it is the noun, the famous waterfall on the US-Canada border.",
+     "definitionFit": "The great cataract between Lake Erie and Lake Ontario is known simply by its name followed by the word Falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Falls"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +552,82 @@
      }
     ]
    },
-   "solution": "BUSSTATION"
+   "solution": "BUSSTATION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "BUS STATION",
+    "definitions": [
+     {
+      "text": "final stop?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "something overturned is upside down, so in a down clue it reads backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter is placed inside the others"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diving boat",
+      "gives": "SUB",
+      "note": "a sub, or submarine, is a boat that dives"
+     },
+     {
+      "clueFragment": "fact",
+      "gives": "STAT",
+      "note": "a stat is a statistic, a numerical fact"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a talk on a topic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "STAT",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "SUB",
+       "to": "BUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capsized submarine and someone with the facts about to reach the end.",
+     "walkthrough": "The question mark flags that a terminus is only one kind of last stop; the coach terminus is where a route ends.",
+     "definitionFit": "A depot where coaches end their routes is the terminus, the last place passengers get off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Diving"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +641,55 @@
     "text": "When will house masters assemble?",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "assemble",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will house",
+      "for": "container",
+      "note": "to house something is to give it room inside, so one piece shelters another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "masters",
+      "gives": "MAS",
+      "note": "MA, Master of Arts, plus S to make it plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A school timetable question about when the housemasters will meet.",
+     "walkthrough": "'House masters' reads as boarding-school housemasters, but 'house' is a verb holding the masters' letters.",
+     "definitionFit": "To gather or collect together in a large quantity is a synonym for assembling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +703,54 @@
     "text": "US are open to integrate people from here",
     "enumeration": "9"
    },
-   "solution": "EUROPEANS"
+   "solution": "EUROPEANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EUROPEANS",
+    "definitions": [
+     {
+      "text": "people from here",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "integrate",
+      "for": "anagram",
+      "note": "to integrate is to mix together, so the letters blend into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US are open",
+      "gives": "USAREOPEN",
+      "note": "the nine letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USAREOPEN",
+       "gives": "EUROPEANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American declaration of openness to immigrants.",
+     "walkthrough": "'Here' is from the British setter's viewpoint: the paper is published in Europe, so people from here are inhabitants of that continent.",
+     "definitionFit": "For a London newspaper, the inhabitants of the continent it sits in are those of Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "integrate"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +770,39 @@
      }
     ]
    },
-   "solution": "PARTYPOLITICS"
+   "solution": "PARTYPOLITICS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PARTY POLITICS",
+    "definitions": [
+     {
+      "text": "In which comrades attack each other as much as the opposition?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In which comrades attack each other as much as the opposition?",
+      "note": "surface reading: a battle where allies turn on each other"
+     },
+     {
+      "clueFragment": "comrades attack each other",
+      "note": "setter's reading: comrades are fellow members of one political group, whose infighting is legendary"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Comrades' and 'opposition' suggest war, but both are political terms: fellow members and the rival benches in parliament.",
+     "definitionFit": "Factional scheming within one organisation, where colleagues knife each other as readily as their rivals, is what the phrase describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "comrades"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +822,67 @@
      }
     ]
    },
-   "solution": "KNIGHTSERRANT"
+   "solution": "KNIGHTSERRANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "KNIGHTS ERRANT",
+    "definitions": [
+     {
+      "text": "Adventurers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceivably",
+      "for": "anagram",
+      "note": "conceivably means as one might imagine it, so the letters can be rearranged into another form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1,000",
+      "gives": "K",
+      "note": "K is the standard abbreviation for a thousand"
+     },
+     {
+      "clueFragment": "things",
+      "gives": "THINGS",
+      "note": "the six letters used as fodder"
+     },
+     {
+      "clueFragment": "seeing",
+      "gives": "ERRANT",
+      "note": "someone seeing things is deluded, straying from the truth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NIGHTS",
+      "ERRANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THINGS",
+       "gives": "NIGHTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Explorers seeing countless sights on their travels.",
+     "walkthrough": "Don Quixote, the most famous wandering knight, was certainly seeing things when he charged at windmills, which ties the loose 'seeing' to straying.",
+     "definitionFit": "Medieval mounted champions who roamed in search of quests and chivalrous exploits were adventurers by calling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seeing"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +896,64 @@
     "text": "Semi-aquatic boa with 11 humps, writhing",
     "enumeration": "10"
    },
-   "solution": "AMPHIBIOUS"
+   "solution": "AMPHIBIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMPHIBIOUS",
+    "definitions": [
+     {
+      "text": "Semi-aquatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "writhing",
+      "for": "anagram",
+      "note": "something writhing twists and contorts, so the letters wriggle into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boa",
+      "gives": "BOA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "11",
+      "gives": "II",
+      "note": "read as two ones, each the Roman numeral I"
+     },
+     {
+      "clueFragment": "humps",
+      "gives": "HUMPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOAIIHUMPS",
+       "gives": "AMPHIBIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake twisting its coils into eleven humps as it swims.",
+     "walkthrough": "'11' looks like a cross-reference to 11 Down, but here it is two ones side by side, II.",
+     "definitionFit": "Creatures living partly on land and partly in water, like frogs, are described by this adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "11"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +967,59 @@
     "text": "‘Badge’ — flash number, good stuff",
     "enumeration": "8"
    },
-   "solution": "MONOGRAM"
+   "solution": "MONOGRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONOGRAM",
+    "definitions": [
+     {
+      "text": "Badge",
+      "at": 1
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flash",
+      "gives": "MO",
+      "note": "a mo is a moment, as in 'in a flash'"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "No is the abbreviation for number"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "stuff",
+      "gives": "RAM",
+      "note": "to ram is to cram or stuff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NO",
+      "G",
+      "RAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashion copy for a badge that flashes, good stuff for the number on show.",
+     "walkthrough": "'Flash' and 'stuff' look like nouns but are a moment and a verb meaning cram.",
+     "definitionFit": "An interlaced design of initials sewn on a shirt or towel serves as a personal emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flash"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1033,60 @@
     "text": "One may be extremely testy and shout",
     "enumeration": "6"
    },
-   "solution": "TYRANT"
+   "solution": "TYRANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "TYRANT",
+    "definitions": [
+     {
+      "text": "One may be extremely testy and shout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "testy",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and final letters of the word"
+     },
+     {
+      "clueFragment": "shout",
+      "gives": "RANT",
+      "note": "to rant is to shout angrily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of an irascible person who loses their temper and yells.",
+     "walkthrough": "The whole clue is both wordplay and definition: a despot is exactly the sort who is testy and shouts.",
+     "definitionFit": "A cruel, overbearing ruler is stereotypically short-tempered and given to bellowing at subjects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1100,47 @@
     "text": "Exploit rented short-term homes? Betjeman would put them in his poems",
     "enumeration": "8"
    },
-   "solution": "COUPLETS"
+   "solution": "COUPLETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUPLETS",
+    "definitions": [
+     {
+      "text": "Betjeman would put them in his poems",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exploit",
+      "gives": "COUP",
+      "note": "a coup is a successful bold stroke"
+     },
+     {
+      "clueFragment": "rented short-term homes?",
+      "gives": "LETS",
+      "note": "holiday lets are homes rented out for short stays"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUP",
+      "LETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Holiday rentals that John Betjeman, the English poet laureate, might mock in his verse.",
+     "walkthrough": "Betjeman wrote light, rhyming verse much given to rhymed pairs of lines.",
+     "definitionFit": "Pairs of rhyming lines were a staple of the poet laureate's traditional, jaunty verse forms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Exploit"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1154,57 @@
     "text": "That girl with degree, one learning from sage?",
     "enumeration": "6"
    },
-   "solution": "HERBAL"
+   "solution": "HERBAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERBAL",
+    "definitions": [
+     {
+      "text": "from sage?",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That girl",
+      "gives": "HER",
+      "note": "her refers to a girl"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "BA",
+      "note": "a BA is a Bachelor of Arts degree"
+     },
+     {
+      "clueFragment": "one learning",
+      "gives": "L",
+      "note": "L is a learner, as on British learner-driver plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "BA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate student learning wisdom from a sage, a wise teacher.",
+     "walkthrough": "'Sage' looks like a wise elder; it is the kitchen plant, so something made from it is plant-based.",
+     "definitionFit": "Remedies or teas derived from aromatic plants such as sage are described with this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sage"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1224,59 @@
      }
     ]
    },
-   "solution": "REENTER"
+   "solution": "REENTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RE-ENTER",
+    "definitions": [
+     {
+      "text": "Get new admission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to absorb it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenant",
+      "gives": "RENTER",
+      "note": "a tenant rents a property"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant on drugs confessing something new to the landlord.",
+     "walkthrough": "'Admission' reads as a confession, but it means being let in again.",
+     "definitionFit": "To come back in through the door is to gain entry anew, being admitted once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "admission"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1290,46 @@
     "text": "State name to be used in protocol or a document",
     "enumeration": "8"
    },
-   "solution": "COLORADO"
+   "solution": "COLORADO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "COLORADO",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be used in",
+      "for": "hidden_word",
+      "note": "something used in a text sits within its letters, so the solution lies inside the words"
+     }
+    ],
+    "linkWords": [
+     "name"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protocol or a document",
+      "gives": "COLORADO",
+      "note": "running across protoCOL OR A DOcument"
+     }
+    ],
+    "explanation": {
+     "surface": "Diplomatic advice on how to write a nation's title in an official paper.",
+     "walkthrough": "'State' looks like a verb, as in 'state your name', but it is the noun for a US state.",
+     "definitionFit": "The Rocky Mountain territory with Denver as its capital is one of the fifty US states."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1343,54 @@
     "text": "Perhaps an atom quietly splits?",
     "enumeration": "7"
    },
-   "solution": "ARTICLE"
+   "solution": "ARTICLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTICLE",
+    "definitions": [
+     {
+      "text": "Perhaps an",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splits",
+      "for": "deletion",
+      "note": "to split is slang for leaving, so a letter departs from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atom",
+      "gives": "PARTICLE",
+      "note": "an atom is a tiny particle of matter"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical notation for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTICLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A physics question about whether an atom splits silently.",
+     "walkthrough": "'Perhaps an' is the definition: the word 'an' is an example of the grammatical class, along with 'a' and 'the'. 'Splits' suggests nuclear fission but means leaves.",
+     "definitionFit": "In grammar, the indefinite determiner placed before nouns beginning with a vowel is an example of this word class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "splits"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1410,43 @@
      }
     ]
    },
-   "solution": "BREAKINGPOINT"
+   "solution": "BREAKINGPOINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BREAKING POINT",
+    "definitions": [
+     {
+      "text": "the last straw",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "That could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinot?",
+      "note": "surface reading: a glass of red wine, the drink that tips someone over the edge"
+     },
+     {
+      "clueFragment": "the last straw",
+      "note": "setter's reading: the five-letter word for a sharp tip, broken up and rearranged, spells the grape name"
+     }
+    ],
+    "explanation": {
+     "surface": "One more glass of wine being the thing that finally makes someone snap.",
+     "walkthrough": "The wine is the result of an instruction: shatter the letters of a five-letter word for a dot or tip and you get the grape. The answer is that instruction.",
+     "definitionFit": "The last straw is the final strain beyond which patience gives way, the moment a person snaps under pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pinot"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1460,58 @@
     "text": "What smells in No 24? If oxygen penetrates, it could be fatal",
     "enumeration": "5"
    },
-   "solution": "NOOSE"
+   "solution": "NOOSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOOSE",
+    "definitions": [
+     {
+      "text": "it could be fatal",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penetrates",
+      "for": "container",
+      "note": "to penetrate is to get inside, so one letter enters the other piece"
+     }
+    ],
+    "linkWords": [
+     "If"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What smells in No 24",
+      "gives": "NOSE",
+      "note": "the organ of smell, which also appears in the phrase at 24 Across"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about a dangerous gas leak in a house numbered 24.",
+     "walkthrough": "'No 24' looks like a street address but points to 24 Across, ON THE NOSE, where the nose is what smells.",
+     "definitionFit": "A hangman's loop of rope tightening round the neck is lethal, so it could be fatal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1525,58 @@
     "text": "Order must be right, within reason",
     "enumeration": "4"
    },
-   "solution": "WRIT"
+   "solution": "WRIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WRIT",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "one item placed within another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "must be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reason",
+      "gives": "WIT",
+      "note": "wit is good sense or reason, as in 'wits about you'"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensible principle that any command must be just and reasonable.",
+     "walkthrough": "'Order' looks like tidiness or a command in general; it is the legal document issued by a court.",
+     "definitionFit": "A formal written command issued by a court, requiring someone to act or refrain, is a legal order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1600,44 @@
      }
     ]
    },
-   "solution": "ONTHENOSE"
+   "solution": "ONTHENOSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE NOSE",
+    "definitions": [
+     {
+      "text": "Painful place to be punched",
+      "at": 0
+     },
+     {
+      "text": "just to win",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Painful place to be punched",
+      "note": "first meaning: where a boxer's blow hurts, on the snout"
+     },
+     {
+      "clueFragment": "just to win",
+      "note": "second meaning: a bet placed only for first place, or exactly right"
+     }
+    ],
+    "explanation": {
+     "surface": "A boxer taking a painful blow in a fight they simply want to win.",
+     "walkthrough": "In horse racing, a bet placed this way pays only if the horse wins, as opposed to each way.",
+     "definitionFit": "A wager staked solely on a horse finishing first, rather than being placed, is described by this racing idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "punched"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1651,57 @@
     "text": "Being followed by dog, wearing experience",
     "enumeration": "5"
    },
-   "solution": "INCUR"
+   "solution": "INCUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCUR",
+    "definitions": [
+     {
+      "text": "experience",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "followed by",
+      "for": "charade",
+      "note": "one piece is placed first and the next comes after it in sequence"
+     }
+    ],
+    "linkWords": [
+     "Being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "dressed in a coat means wearing it"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone being trailed by a dog while wearing out their patience.",
+     "walkthrough": "'Experience' is a verb here, as in experience losses; 'wearing' supplies the first piece but is printed last.",
+     "definitionFit": "To bring something unwelcome such as costs or penalties upon oneself is to undergo or suffer it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1715,58 @@
     "text": "Mole crossing river should get lively",
     "enumeration": "4"
    },
-   "solution": "SPRY"
+   "solution": "SPRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRY",
+    "definitions": [
+     {
+      "text": "lively",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something is to span it, so one piece stretches around another"
+     }
+    ],
+    "linkWords": [
+     "should get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mole",
+      "gives": "SPY",
+      "note": "a mole is a secret agent planted in an organisation"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A burrowing animal swimming across a river would need to be nimble.",
+     "walkthrough": "'Mole' wants to be the small burrowing animal; it is the infiltrating secret agent.",
+     "definitionFit": "Active and nimble, especially of an older person, is the usual sense of this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mole"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1780,77 @@
     "text": "Steady! Nurse on a cycle tucked in hem in time",
     "enumeration": "10"
    },
-   "solution": "PERSISTENT"
+   "solution": "PERSISTENT",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container",
+     "charade"
+    ],
+    "answer": "PERSISTENT",
+    "definitions": [
+     {
+      "text": "Steady!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a cycle",
+      "for": "cycling",
+      "note": "going round a cycle moves letters from the front around to the back"
+     },
+     {
+      "text": "tucked in",
+      "for": "container",
+      "note": "something tucked in is pushed inside, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "SISTER",
+      "note": "a sister is a senior nurse in British hospitals"
+     },
+     {
+      "clueFragment": "hem in",
+      "gives": "PEN",
+      "note": "to pen is to confine or hem in"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ERSIST",
+      "EN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SISTER",
+       "gives": "ERSIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse cycling to work, skirt hem tucked in, told to keep steady.",
+     "walkthrough": "In British hospitals a sister is a senior nurse. Cycling here means moving the front letter round to the back, not riding a bicycle.",
+     "definitionFit": "Constant and unwavering, continuing without let-up, is a synonym for steady in the sense of persevering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycle"
+    }
+   }
   }
  ]
 }
