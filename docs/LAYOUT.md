@@ -234,6 +234,9 @@ tools/test_linked_enumerations.sh            proves a per-light solve record is 
                                              form is never re-derived, and that every linked
                                              answer in the book series on disk still carries
                                              its count on the leader alone
+tools/test_group_order.sh                    proves a linked answer's group is written in the
+                                             order its words read, and that the integrity sweep
+                                             reports one that is not
 tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a puzzle whose
                                              clues were recovered by hand off the Guardian’s
                                              old site, that the paper still wins wherever it
