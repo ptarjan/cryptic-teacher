@@ -8,11 +8,16 @@
                                                            # cache 1500 more pages, diff, refile
     python3 tools/cross_validate.py independent --fetch --refile --limit 1500
                                                            # the same against the Independent's feed
-    python3 tools/cross_validate.py indyblog               # its answers against fifteensquared's
+    python3 tools/cross_validate.py fifteensquared         # answers against fifteensquared's
     python3 tools/cross_validate.py globe --fetch --limit 60
     python3 tools/cross_validate.py globe                  # the Times Quick against the Globe's print
     python3 tools/cross_validate.py ft                     # the FT cryptic against the FT's PDFs
     python3 tools/cross_validate.py georgeho               # 17 series against georgeho's blog clues
+    python3 tools/cross_validate.py bigdave44              # the Telegraph's app files against the blog
+    python3 tools/cross_validate.py timesforthetimes       # the Globe's files against the Times blog
+    python3 tools/cross_validate.py all --apply --limit 10000
+                                                           # every copy at once; a majority fixes ours
+    python3 tools/cross_validate.py all --apply --new      # the same over tonight's filings
 
 Most of the corpus came off a blog: the blogger retyped the clues, a parser
 read the post, and tools/reconstruct_grid.py rebuilt the grid from the light
@@ -38,6 +43,43 @@ by class:
 
 The report goes to ~/cryptic-setter-data/cross-validate/<source>.jsonl, one
 line per puzzle with mismatches, and a tally prints per class.
+
+`all` puts every copy of a puzzle to a vote at once (majority()): ours is one
+vote and each other origin one more. Three or more votes with a value other
+than ours holding more than half of them fix our file, the votes recorded in
+tools/data/corroboration_ledger.json; anything less, two copies split above
+all, leaves the file and is a lead in cross-validate/all-leads.jsonl. The
+votes settle ANSWER, ENUMERATION and CLUE; the structural classes are tallied
+and left to the per-source refiles.
+
+Every copy we hold, by series. "own" is the paper's own feed, app or page; an
+adapter in brackets reads it. * = compared nightly before 2026-10-01 (each
+against ours alone); every cell marked with an adapter is now compared
+nightly by `all`, tonight's filings and a rotating slice of the corpus.
+
+  series                     primary (where ours came from)     other copies we hold
+  cryptic quiptic everyman   own page (fetch_puzzle)            own page [guardian]*, fifteensquared
+                                                                [fifteensquared], georgeho
+                                                                [georgeho, fifteensquared's origin]
+  independent indysunday     own feed from 2015-06, else        own feed [independent]*, fifteensquared
+                             fifteensquared rebuild             [fifteensquared], georgeho
+  cyclops                    own .puz (fetch_privateeye)        fifteensquared [fifteensquared], georgeho
+  telegraph sundaytel        own app bucket from 2015, else     app bucket [telegraph], bigdave44
+  toughie sundaytough        bigdave44 rebuild                  [bigdave44], georgeho (bigdave44's origin)
+  times sundaytimes          timesforthetimes rebuild           georgeho (the same blog, to 2023-07: a
+  timesjumbo mephisto                                           split is a lead, never a fix); the
+  timesclub tls                                                 Times listing's dates (corroborate.py)
+  timesquick                 timesforthetimes rebuild to 3105   Globe [globe]* for the blog copy from
+                                                                3106, georgeho
+  globeandmail               own Amuse payload                  own payload [globe]*, timesforthetimes
+                                                                [timesforthetimes]
+  ftcryptic                  FT PDF 2006-12, else               FT PDF [ft]*, the fifteensquared post
+                             fifteensquared rebuild             the rebuild came from
+  canberra                   Trove scan                         none yet
+  book metro listener        the book, the paper, the PDF       none
+
+georgeho is frozen (2023-07-15), so its pair needed one pass, not a nightly
+job; it votes in `all` like any copy.
 
 --refile (the guardian, independent and ft adapters) then rewrites, from the source, each file whose
 only differences are CLUE, ENUMERATION or ANSWER, each clean file taken from
@@ -79,6 +121,17 @@ class Adapter:
     #: Seconds each worker waits between requests, and how many workers.
     delay = 0.5
     workers = 4
+    #: Who wrote the copy, for counting votes (corroborate_all): two reads of
+    #: one origin are one vote. Defaults to the adapter's name.
+    origin = ""
+    #: The classes this copy's own words witness. A copy that is ours with
+    #: only the blog's answers swapped in votes on answers alone.
+    votes = ("ANSWER", "ENUMERATION", "CLUE")
+    #: Read only what is cached: no request, not even a calendar refresh.
+    offline = False
+
+    def origin_of(self, ours):
+        return self.origin or self.name
 
     @property
     def cache(self):
@@ -111,6 +164,7 @@ class Telegraph(Adapter):
     """puzzlesdata.telegraph.co.uk, the Telegraph Puzzles app's bucket; see
     tools/fetch_telegraph.py, whose parse() turns a bucket puzzle into ours."""
     name = "telegraph"
+    origin = "telegraph-app"
     series = ("telegraph", "sundaytel", "toughie", "sundaytough")
 
     @property
@@ -129,7 +183,9 @@ class Telegraph(Adapter):
         rows = []
         for year in range(ft.FIRST_YEAR, datetime.date.today().year + 1):
             path = self.calendar_file(year)
-            if not path.exists() or year >= datetime.date.today().year:
+            if not path.exists() or (year >= datetime.date.today().year and not self.offline):
+                if self.offline:
+                    continue
                 try:
                     body = http_get(f"{ft.BUCKET}/bundles/web/calendar/{year}.json", ft.UA)
                 except urllib.error.HTTPError as err:
@@ -187,6 +243,7 @@ class Guardian(Adapter):
     Machine, observer.co.uk) for numbers the Guardian also serves.
     """
     name = "guardian"
+    origin = "guardian-page"
     series = ("cryptic", "quiptic", "everyman")
     #: More than two at once draws 429s from theguardian.com.
     delay = 0.25
@@ -276,6 +333,7 @@ class Independent(Adapter):
     feed its primary source; it never rewrites a file already from the feed.
     The feed starts in June 2015, so every rebuilt file so far predates it."""
     name = "independent"
+    origin = "independent-feed"
     series = ("independent", "indysunday")
     #: A CDN: a request a second from each of three workers is polite.
     delay = 1.0
@@ -382,8 +440,8 @@ def independent_shape(xml_bytes, ymd):
             "entries": entries}
 
 
-class IndyBlog(Adapter):
-    """fifteensquared's answers for the Independent's two series: the post
+class FifteenSquared(Adapter):
+    """fifteensquared's answers for every series it blogs: the post
     cache tools/fetch_fifteensquared.py fills, then georgeho's scrape of the
     same blog, read through tools/corroborate.py. Offline; --fetch is a no-op.
 
@@ -391,8 +449,9 @@ class IndyBlog(Adapter):
     with only each answer the blog prints in full for the light swapped in: it
     witnesses ANSWER alone. Where the feed's key is wrong in one cell, both
     crossing lights differ from ours there and agree with each other."""
-    name = "indyblog"
-    series = ("independent", "indysunday")
+    name = "fifteensquared"
+    series = ("independent", "indysunday", "cryptic", "quiptic", "everyman", "cyclops")
+    votes = ("ANSWER",)
 
     def ids(self):
         return held(self)
@@ -435,6 +494,7 @@ class Globe(Adapter):
     Quick before 3106. A Quick file we do hold is compared as filed, and so
     is each globeandmail file, which checks fetch_globeandmail's converter."""
     name = "globe"
+    origin = "globe"
     series = ("timesquick", "globeandmail")
     exact_clues = True
     #: Somebody else's CDN: fetch_globeandmail.REQUEST_GAP, one at a time.
@@ -565,6 +625,7 @@ class FT(Adapter):
     PDF prints no answers. A PDF whose grid cannot be read is compared on
     our grid's geometry, by light, for its clues and counts only."""
     name = "ft"
+    origin = "ft-pdf"
     series = ("ftcryptic",)
     exact_clues = True
     #: Read once by refile_ft: fifteensquared's posts and the PDF index.
@@ -659,9 +720,8 @@ class GeorgeHo(Adapter):
     def puzzle(self, pid, ours=None):
         import copy
 
-        import corroborate
         ours = ours or read_puzzle_file(held_paths((pid.rsplit("-", 1)[0],))[pid])
-        recs = corroborate.georgeho(ours)
+        recs = self.records(ours)
         if not recs:
             return None
         lights = {(e["number"], e["direction"]): e for e in ours["entries"]}
@@ -689,7 +749,10 @@ class GeorgeHo(Adapter):
                 e["clue"], e["solution"] = {}, None
                 continue
             text, enum, answer = got
-            e["clue"] = {"text": text, "enumeration": enum or e["clue"].get("enumeration")}
+            # A blog that prints no count witnesses none: ours stands in, so
+            # diff() reports nothing, and corroborate_all counts no vote.
+            e["clue"] = ({"text": text, "enumeration": enum} if enum else
+                         {"text": text, "enumeration": e["clue"].get("enumeration"), ECHO: True})
             e["solution"] = answer if answer and len(answer) == e["length"] else None
         theirs["unplaced"] = [{"class": "MISSING", "light": groups.entry_id(
                                    {"number": n, "direction": d}), "theirs": got[2]}
@@ -699,6 +762,116 @@ class GeorgeHo(Adapter):
 
     def load(self, where):
         return read_puzzle_file(where)
+
+    def records(self, ours):
+        import corroborate
+        return corroborate.georgeho(ours)
+
+    def origin_of(self, ours):
+        """The blog georgeho scraped for this series."""
+        import corroborate
+        series = ours["id"].rsplit("-", 1)[0]
+        for table, origin in corroborate.GEORGEHO_SOURCES.values():
+            if series in {s for _, s in table}:
+                return origin
+        return self.name
+
+
+#: The clue key GeorgeHo marks a count copied from ours with.
+ECHO = "countIsOurs"
+
+
+class ParsedBlog(GeorgeHo):
+    """A blog's parsed posts (the parser's parsed.jsonl, the file the filer
+    reads), laid over our own puzzle as GeorgeHo lays georgeho's rows: each
+    light the post writes up given its answer, clue and count. A file the
+    blog's own filer built is the source itself and is not compared."""
+    parsed = None
+    filer = ""
+
+    def __init__(self):
+        self._recs = None
+
+    def pids(self, rec):
+        """Our ids for one parsed post."""
+        raise NotImplementedError
+
+    def ids(self):
+        if self._recs is None:
+            self._recs = defaultdict(list)
+            for line in self.parsed.read_text(encoding="utf-8").splitlines():
+                rec = json.loads(line)
+                for pid in self.pids(rec):
+                    self._recs[pid].append(rec)
+        return {pid: pid for pid in self._recs}
+
+    def records(self, ours):
+        import corroborate
+        if self._recs is None:
+            self.ids()
+        out = []
+        for rec in self._recs.get(ours["id"], ()):
+            r = corroborate.Record(self.name, self.name, rec.get("link", ""))
+            for e in rec.get("entries", ()):
+                key = (e["number"], e["direction"])
+                got = corroborate.answer_letters(e.get("answer"))
+                if got:
+                    r.answers.setdefault(key, got)
+                clue = (e.get("clue") or "").strip()
+                if clue and e.get("enumeration") and not ENUM_TAIL.search(clue):
+                    clue += f" ({e['enumeration']})"
+                if clue:
+                    r.clues.setdefault(key, clue)
+            out.append(r)
+        return out
+
+    def covers(self, ours):
+        return (ours.get("source") or {}).get("acquiredBy") != self.filer
+
+    def origin_of(self, ours):
+        return self.name
+
+
+class BigDave44(ParsedBlog):
+    """bigdave44.com's write-ups of the Telegraph's four series: a witness to
+    every file the Telegraph app's bucket filed."""
+    name = "bigdave44"
+    series = ("telegraph", "sundaytel", "toughie", "sundaytough")
+    filer = "tools/file_telegraph_puzzles.py"
+
+    @property
+    def parsed(self):
+        return DATA / "bigdave44" / "parsed.jsonl"
+
+    def pids(self, rec):
+        return [f"{rec['series']}-{rec['number']}"] if rec.get("series") in self.series else []
+
+
+class TimesBlog(ParsedBlog):
+    """timesforthetimes's write-ups of the Times's series: a witness to each
+    Globe and Mail file (Globe No N is Quick No N) and to any Times file not
+    built from this blog."""
+    name = "timesforthetimes"
+    series = ("globeandmail", "times", "timesquick", "sundaytimes", "timesjumbo", "mephisto",
+              "timesclub", "tls")
+    filer = "tools/file_times_puzzles.py"
+
+    @property
+    def parsed(self):
+        return DATA / "timesforthetimes" / "parsed.jsonl"
+
+    def pids(self, rec):
+        import file_times_puzzles as ftp
+        try:
+            series, _ = ftp.target({**rec, "post_id": rec.get("post_id")})
+        except (ValueError, KeyError, TypeError):
+            return []
+        if not rec.get("number"):
+            return []
+        out = [f"{series}-{rec['number']}"]
+        if series == "timesquick":
+            out.append(f"globeandmail-{rec['number']}")
+        return out
 
 
 def misfiled(got, ours, answers, clues):
@@ -765,7 +938,8 @@ def blog_rows(rec):
     return out
 
 
-ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog, Globe, FT, GeorgeHo)}
+ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, FifteenSquared, Globe, FT,
+                                 GeorgeHo, BigDave44, TimesBlog)}
 
 
 def held(adapter):
@@ -1245,15 +1419,277 @@ def refile(adapter, limit=None):
     print(f"refile: {dict(done)}")
 
 
+# ------------------------------------------------------- every copy at once
+
+#: The classes a majority of copies settles in our file. A grid, numbering or
+#: light the copies dispute is refiled from one source or not at all, so those
+#: are tallied and left to the per-source refiles.
+VOTED = ("ANSWER", "ENUMERATION", "CLUE")
+LEADS = REPORTS / "all-leads.jsonl"
+CURSOR = REPORTS / "all-cursor.json"
+
+
+#: Counts left at a clue's tail: a page that prints the count twice
+#: (cryptic-27852's "(6) (6)") leaves one after the reader strips the other.
+TRAILING_COUNTS = re.compile(r"(?:\s*\([\d\s,.\-–—'’]+\))+\s*$")
+
+
+def ballot(entry, cls):
+    """What one copy's light says for `cls`, normalised as diff() compares
+    it, or None when it says nothing: no answer that fills the light, a
+    pointer, no words, or a count copied from ours."""
+    if cls == "ANSWER":
+        sol = entry.get("solution")
+        return sol if sol and len(sol) == entry["length"] else None
+    clue = entry.get("clue") or {}
+    text = clue.get("text")
+    if CONTINUATION.match(text or "") or not norm_text(text):
+        return None
+    if cls == "ENUMERATION":
+        return None if clue.get(ECHO) else norm_enum(clue.get("enumeration"))
+    return norm_text(TRAILING_COUNTS.sub("", text))
+
+
+def copies(pid, ours, adapters, keys):
+    """[(adapter, its copy)] for every adapter holding this puzzle, each copy
+    with the paper's known wrong answers put right."""
+    out = []
+    for a in adapters:
+        key = keys.get(a.name, {}).get(pid)
+        if key is None or not a.covers(ours):
+            continue
+        try:
+            theirs = a.puzzle(key, ours) if isinstance(a, GeorgeHo) else a.puzzle(key)
+        except Exception as err:  # noqa: BLE001 — an unreadable copy is no vote, named
+            print(f"{pid}: {a.name}'s copy unreadable: {err}")
+            continue
+        if theirs is not None and theirs.get("id") == pid:
+            out.append((a, witness(theirs)))
+    return out
+
+
+def majority(ours, held_copies):
+    """(verdicts, per-copy mismatches) over every copy of one puzzle.
+
+    Each light's value in each VOTED class is put to a vote: ours is one
+    vote, and every other origin one more, two reads of one origin (georgeho's
+    scrape of bigdave44 and our parse of it) counting once and abstaining when
+    they disagree. A copy whose grid is not ours votes on nothing. Where three
+    or more votes are cast and a value other than ours holds more than half of
+    them, it wins (`fixed`); any other disagreement, two copies split above
+    all, is a lead and our file stands: a lone dissenting copy is as likely
+    our parser's defect as the paper's, and needs a third to say which."""
+    mine = {where(e): e for e in ours["entries"]}
+    reads, found = defaultdict(list), []
+    for a, theirs in held_copies:
+        rows = diff(ours, theirs, exact=a.exact_clues)
+        found.append((a, rows))
+        if not any(m["class"] == "GRID" for m in rows):
+            reads[a.origin_of(ours)].append((a, {where(e): e for e in theirs["entries"]}))
+    verdicts = []
+    for k, o in mine.items():
+        for cls in VOTED:
+            own = ballot(o, cls)
+            if own is None:
+                continue
+            votes, shown = {"ours": own}, defaultdict(list)
+            for origin, said in reads.items():
+                got = {}
+                for a, at in said:
+                    if cls in a.votes and k in at and ballot(at[k], cls) is not None:
+                        got.setdefault(ballot(at[k], cls), []).append((a, at[k]))
+                if len(got) == 1:
+                    value, by = next(iter(got.items()))
+                    votes[origin] = value
+                    shown[value] += by
+            tally = Counter(votes.values())
+            if len(tally) == 1:
+                continue
+            top, n = tally.most_common(1)[0]
+            settled = len(votes) >= 3 and n * 2 > len(votes)
+            fixed = settled and top != own
+            verdicts.append({"class": cls, "light": groups.entry_id(o), "at": k,
+                             "ours": own, "votes": votes, "fixed": fixed,
+                             # backed: the majority is ours, the dissent is that
+                             # copy's defect; split: no majority, a lead for us.
+                             "kind": "outvoted" if fixed else "backed" if settled else "split",
+                             "winner": top if fixed else own,
+                             # The words written are the paper's own print where one votes.
+                             "entry": (min(shown[top], key=lambda r: not r[0].exact_clues)[1]
+                                       if fixed else None)})
+    return verdicts, found
+
+
+def conflicts(puzzle):
+    """Cells two lights fill with different letters."""
+    return {c for c, got in letters(puzzle).items() if len(got) > 1}
+
+
+def apply_majority(ours, verdicts):
+    """`ours` with every fixed verdict written in, or a verdict turned back
+    into a lead (`why`) where writing it would cross a letter it does not
+    share or rewrite a clue an annotation quotes."""
+    import copy
+    new = copy.deepcopy(ours)
+    at = {where(e): e for e in new["entries"]}
+    for v in verdicts:
+        if not v["fixed"]:
+            continue
+        e, src = at[v["at"]], v["entry"]
+        if v["class"] == "ANSWER":
+            e["solution"] = v["winner"]
+        elif v["class"] == "ENUMERATION":
+            e["clue"]["enumeration"] = src["clue"]["enumeration"]
+        elif e.get("annotation"):
+            v.update(fixed=False, winner=v["ours"], kind="split",
+                     why="the annotation quotes our clue")
+        else:
+            e["clue"]["text"] = src["clue"]["text"]
+    if conflicts(new) - conflicts(ours):
+        for v in verdicts:
+            if v["fixed"] and v["class"] == "ANSWER":
+                at[v["at"]]["solution"] = next(e["solution"] for e in ours["entries"]
+                                               if where(e) == v["at"])
+                v.update(fixed=False, winner=v["ours"], kind="split",
+                         why="crossings disagree with it")
+    return new
+
+
+def ledger_majority(pid, verdicts):
+    """Record each fix and its votes in corroborate's ledger."""
+    import corroborate
+    disputes = []
+    for v in verdicts:
+        if not v["fixed"]:
+            continue
+        cands = defaultdict(dict)
+        for origin, value in v["votes"].items():
+            cands[value][origin] = origin
+        disputes.append(corroborate.Dispute(v["class"].lower(), v["light"], v["ours"],
+                                            dict(cands), v["winner"], "majority"))
+    if disputes:
+        corroborate.record(pid, disputes)
+
+
+def changed_files():
+    """Puzzle files git sees as new or changed: tonight's filings, before
+    the nightly commits them."""
+    import subprocess
+    root = Path(__file__).resolve().parent.parent
+    out = subprocess.run(["git", "status", "--porcelain", "--untracked-files=all", "--", "puzzles"],
+                         cwd=root, capture_output=True, text=True, check=True).stdout
+    return {Path(line[3:].strip()).stem for line in out.splitlines()
+            if line[3:].strip().endswith(".json")}
+
+
+def corroborate_all(series=None, limit=None, only=None, new=False, write=False, start=None):
+    """Every copy of each selected puzzle against ours at once (majority()),
+    fixing what a majority settles when `write`. The selection is `only`, the
+    files `new` names, or the next `limit` held puzzles after the cursor,
+    wrapping, so a bounded nightly run walks the whole corpus in turn (the
+    cursor moves only when `write`, so a report-only run leaves it)."""
+    adapters = [cls() for cls in ADAPTERS.values()
+                if series is None or set(cls.series) & set(series)]
+    for a in adapters:
+        a.offline = True
+    wanted = set(series) if series else {s for a in adapters for s in a.series}
+    disk = held_paths(wanted)
+    if only:
+        todo = [p for p in only if p in disk]
+    elif new:
+        todo = sorted(changed_files() & disk.keys())
+    else:
+        order = sorted(disk)
+        if start is None:
+            start = json.loads(CURSOR.read_text()).get("after", "") if CURSOR.exists() else ""
+        todo = [p for p in order if p > start] + [p for p in order if p <= start]
+        todo = todo[:limit] if limit else todo
+    if not todo:
+        print("nothing to corroborate")
+        return 0
+    keys = {}
+    for a in adapters:
+        try:
+            keys[a.name] = a.ids()
+        except (Exception, SystemExit) as err:  # noqa: BLE001 — a source we lack is no vote
+            print(f"{a.name}: no copies ({err})")
+    pair, verdict_tally, leads, fixed_files = Counter(), Counter(), {}, 0
+    copies_seen = Counter()
+    for pid in todo:
+        ours = read_puzzle_file(disk[pid])
+        held_copies = copies(pid, ours, adapters, keys)
+        copies_seen[len(held_copies)] += 1
+        if not held_copies:
+            continue
+        verdicts, found = majority(ours, held_copies)
+        for a, rows in found:
+            pair[(a.name, "compared")] += 1
+            pair.update((a.name, m["class"]) for m in rows)
+        if write and any(v["fixed"] for v in verdicts):
+            new_puzzle = apply_majority(ours, verdicts)
+            if new_puzzle != ours:
+                import fetch_puzzle
+                ledger_majority(pid, verdicts)
+                fetch_puzzle.write_puzzle_file(disk[pid], new_puzzle)
+                fixed_files += 1
+                print(f"fixed {pid}: " + "; ".join(
+                    f"{v['light']} {v['class']} {v['ours']!r} -> {v['winner']!r} "
+                    f"({', '.join(o for o, x in v['votes'].items() if x == v['winner'])})"
+                    for v in verdicts if v["fixed"]))
+        for v in verdicts:
+            verdict_tally[(v["class"], "fixed" if v["fixed"] and write else v["kind"])] += 1
+        lead = [{k: v[k] for k in ("class", "light", "kind", "votes", "why") if k in v}
+                for v in verdicts if not (v["fixed"] and write)]
+        leads[pid] = lead
+        if only:
+            print(json.dumps({"id": pid, "copies": [a.name for a, _ in held_copies],
+                              "verdicts": [{k: v[k] for k in v if k not in ("at", "entry")}
+                                           for v in verdicts]}, ensure_ascii=False, indent=1))
+    if not only:
+        REPORTS.mkdir(parents=True, exist_ok=True)
+        kept = {}
+        if LEADS.exists():
+            for line in LEADS.read_text(encoding="utf-8").splitlines():
+                row = json.loads(line)
+                kept[row["id"]] = row["leads"]
+        kept.update(leads)
+        LEADS.write_text("".join(json.dumps({"id": p, "leads": r}, ensure_ascii=False) + "\n"
+                                 for p, r in sorted(kept.items()) if r), encoding="utf-8")
+        if write and not new and todo:
+            CURSOR.write_text(json.dumps({"after": todo[-1]}))
+    print(f"visited {len(todo)}; copies per puzzle {dict(sorted(copies_seen.items()))}")
+    print("mismatches by pair (ours against each copy):")
+    names = sorted({n for n, _ in pair})
+    for n in names:
+        print(f"  {n:18} compared {pair[(n, 'compared')]:5}  " + "  ".join(
+            f"{cls} {pair[(n, cls)]}" for cls in CLASSES if pair[(n, cls)]))
+    print("verdicts (fixed; outvoted: a majority against ours, not applied; backed: a majority "
+          "with ours against a copy; split: no majority, a lead):")
+    for cls in VOTED:
+        print(f"  {cls:12} " + "  ".join(f"{k} {verdict_tally[(cls, k)]}"
+                                         for k in ("fixed", "outvoted", "backed", "split")))
+    print(f"files fixed: {fixed_files}; leads in {LEADS}")
+    return fixed_files
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("source", choices=sorted(ADAPTERS))
+    ap.add_argument("source", choices=sorted(ADAPTERS) + ["all"],
+                    help="one source against ours, or `all`: every copy at once, majority rules")
+    ap.add_argument("--series", nargs="+", help="all: only these series")
+    ap.add_argument("--new", action="store_true",
+                    help="all: only the puzzle files git sees as new or changed")
+    ap.add_argument("--apply", action="store_true", help="all: write what a majority settles")
+    ap.add_argument("--start", metavar="ID", help="all: begin after this id, not the cursor")
     ap.add_argument("--fetch", action="store_true", help="top up the cache first")
     ap.add_argument("--limit", type=int, help="fetch or refile at most this many")
     ap.add_argument("--refile", action="store_true",
                     help="refile from the source what the last report found (guardian, independent, ft)")
     ap.add_argument("--show", nargs="+", metavar="ID", help="diff these puzzles and print")
     args = ap.parse_args(argv)
+    if args.source == "all":
+        corroborate_all(args.series, args.limit, args.show, args.new, args.apply, args.start)
+        return 0
     adapter = ADAPTERS[args.source]()
     if args.fetch:
         keys = adapter.ids()

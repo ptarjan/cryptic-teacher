@@ -280,6 +280,20 @@ if [ -d "$HOME/.cache/trove" ]; then
   rm -f "$trove_out"
 fi
 
+# --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---
+# Each pair above compares ours with one other copy. This puts every copy we
+# hold to a vote: the paper's own feed, app or page, fifteensquared,
+# bigdave44, timesforthetimes, georgeho, the Globe, the FT's PDFs. A majority
+# of three or more fixes our file, its votes in the corroboration ledger; two
+# copies that disagree are a lead in cross-validate/all-leads.jsonl. First
+# tonight's filings, then the next slice of the corpus after last night's.
+# Cached sources only, nothing is fetched.
+# The whole corpus is ~5 minutes on a busy host, so 10000 a night is ~80s.
+XVAL_ALL_PER_NIGHT="${XVAL_ALL_PER_NIGHT:-10000}"
+blog_chain Corroboration "cross_validate.py all --new --apply" \
+  "cross_validate.py all --apply --limit $XVAL_ALL_PER_NIGHT" \
+  && git status --porcelain -- puzzles | grep -q . && python3 tools/fetch_puzzle.py --reindex
+
 # --- 1d. Blog hints, re-read off the caches the fetches above just topped up ---
 # tools/blog_facts.py joins every cached write-up to the puzzle it explains and
 # writes tools/data/blog_facts/, which the site's hints and the validator's
