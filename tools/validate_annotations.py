@@ -434,28 +434,72 @@ POSITIONAL_JOINERS = {"on", "after", "behind", "below", "beneath", "under",
 
 
 def check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors):
-    """A link word needs a copy of its own in the clue, outside every indicator.
+    """A link word needs a copy of its own in the clue, clear of every indicator.
 
     app.js claims link words after indicators, so a connective the clue uses
     twice ("in" inside the indicator and "in" linking) lands on the free copy.
-    With no free copy it lands inside the indicator and takes that word off a
-    hint the solver has paid for — times-29616 6D filed "of" as a link word and
-    "on top of" as the indicator. tools/smoke_test.js rejects the render; this
-    rejects the annotation before it is committed.
+    With no free copy it lands on the indicator, wholly or in part, and takes
+    those words off a hint the solver has paid for: times-29616 6D filed "of"
+    inside "on top of", everyman-3925 4D filed "'s written" across "written
+    about". tools/smoke_test.js rejects the render; this rejects the annotation
+    before it is committed.
     """
-    def count(phrase, text):
-        return len(re.findall(r"(?<![A-Za-z])%s(?![A-Za-z])" % re.escape(phrase),
-                              text or "", re.I))
-    for lw in ann.get("linkWords", []):
-        lw = (lw or "").strip()
-        if not lw or not count(lw, clue):
-            continue
-        inside = sum(count(lw, ind) for ind in indicator_texts(ann))
-        if inside and count(lw, clue) <= inside:
+    clue = clue or ""
+    placed = place_fragments(ann, clue)
+    inds = [(i, i + len(t)) for kind, t, i in placed if kind == "ind"]
+    for kind, lw, i in placed:
+        if kind == "link" and any(i < d and c < i + len(lw) for c, d in inds):
             errors.append(
-                f"{tag}: linkWord {lw!r} only appears inside an indicator, so marking "
-                f"it as a link takes it off the indicator. It is either part of the "
-                f"indicator or a link word; drop it from one list")
+                f"{tag}: linkWord {lw!r} has no copy in the clue clear of the indicators, "
+                f"so marking it as a link takes words off an indicator. Each clue word "
+                f"is either indicator or link; drop it from one list")
+
+
+def place_fragments(ann, clue):
+    """Where app.js placedFragments() puts each fragment: (kind, text, index).
+
+    A copy of the app's rule, because the check above is only true if it agrees
+    with the render. Definitions claim their stored `at`; the rest take the best
+    occurrence still free, longest first, link words last. Ranking is whole word
+    and free, then whole word, then free, earliest on a tie. An edge binds only
+    where it is a letter, so "'s" may weld to the word before it.
+    """
+    is_letter = lambda c: c.isascii() and c.isalpha()
+    frags = [("def", d.get("text"), d.get("at")) for d in ann.get("definitions") or []
+             if isinstance(d, dict)]
+    frags += [("ind", t, None) for t in indicator_texts(ann)]
+    frags += [("link", t, None) for t in ann.get("linkWords") or [] if isinstance(t, str)]
+    frags = [(k, t, at, n) for n, (k, t, at) in enumerate(frags) if t]
+    taken, placed = [], []
+    free = lambda i, n: not any(i < j + m and j < i + n for j, m in taken)
+    for k, t, at, _ in frags:
+        if at is None:
+            continue
+        if isinstance(at, int) and at >= 0 and clue[at:at + len(t)] == t:
+            taken.append((at, len(t)))
+            placed.append((k, t, at))
+
+    def best(t):
+        n, best_i, best_r = len(t), -1, 9
+        i = clue.find(t)
+        while i >= 0:
+            edge = lambda x, y: x < len(clue) and y >= 0 and is_letter(clue[x]) and is_letter(clue[y])
+            b = not edge(i, i - 1) and not edge(i + n, i + n - 1)
+            f = free(i, n)
+            r = 0 if b and f else 2 if b else 3 if f else 4
+            if r < best_r:
+                best_i, best_r = i, r
+            i = clue.find(t, i + 1)
+        return best_i
+
+    rest = sorted((f for f in frags if f[2] is None),
+                  key=lambda f: (f[0] == "link", -len(f[1]), f[3]))
+    for k, t, _, _ in rest:
+        i = best(t)
+        if i >= 0:
+            taken.append((i, len(t)))
+            placed.append((k, t, i))
+    return placed
 
 
 def check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors):
