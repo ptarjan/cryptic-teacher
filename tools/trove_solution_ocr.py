@@ -193,16 +193,32 @@ def word_image(cells, gap=4):
     return np.pad(np.concatenate(parts, 1), ((h // 3, h // 3), (0, 0)), constant_values=255)
 
 
+#: A cell is a block when less than this share of its middle is paper in
+#: patches wider than a speck: heavy print leaves white flecks in a block
+#: and fat letters in a light, but only a light has open paper.
+BLOCK_PAPER = 0.22
+
+
+def blocks_read(gray, lat, n):
+    """{(row, col): True where the solution image has a block} for n x n."""
+    import cv2
+    paper = (gray >= trove_grid.otsu(gray)).astype(np.uint8)
+    k = max(2, round(min(lat[2], lat[3]) / 12))
+    paper = cv2.morphologyEx(paper, cv2.MORPH_OPEN, np.ones((k, k), np.uint8))
+    out = {}
+    for r in range(n):
+        for c in range(n):
+            a = cell(paper, lat, r, c, 0.15)
+            out[(r, c)] = None if a.size == 0 else float(a.mean()) < BLOCK_PAPER
+    return out
+
+
 def block_agreement(gray, grid, lat):
-    """Share of cells whose middle is solid ink exactly where the grid has a block."""
-    ink = gray < trove_grid.otsu(gray)
-    ok = 0
-    for r, row in enumerate(grid):
-        for c, ch in enumerate(row):
-            a = cell(ink, lat, r, c, 0.2)
-            if a.size == 0:
-                return 0.0
-            ok += (float(a.mean()) > 0.9) == (ch == "#")
+    """Share of cells that are blocks in the image exactly where the grid has one."""
+    seen = blocks_read(gray, lat, len(grid))
+    if None in seen.values():
+        return 0.0
+    ok = sum(seen[(r, c)] == (ch == "#") for r, row in enumerate(grid) for c, ch in enumerate(row))
     return ok / (len(grid) * len(grid[0]))
 
 

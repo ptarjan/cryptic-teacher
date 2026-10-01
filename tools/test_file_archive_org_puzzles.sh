@@ -89,6 +89,57 @@ check("a word hyphenated over a line end keeps its hyphen, no space", "As worn b
 check("the clue's first word keeps its capital", ("Bottom of a ship", "agree"),
       f.agree("Bottom of a ship", f.tokens("bottom of a ship")))
 
+# Three readings: a word the other two share outvotes mine; a mark no other
+# reading has is dropped; a non-word all three read is kept.
+two = [f.marked("8 Wisdom shown by school-head when dress is questionable (10)"),
+       f.marked("8 Wisdom shown by school-head when dress is questionabie (10)")]
+check("a lone comma no other reading has dropped",
+      "Wisdom shown by school-head when dress is questionable",
+      f.agree("Wisdom shown by, school-head when dress is questionable", two)[0])
+check("a comma two readings have kept", "Talk, about a fellow",
+      f.agree("Talk, about a fellow", [f.marked("Talk, about a fellow"), f.marked("Talk about a fellow")])[0])
+check("the spelling the other two readings share outvotes mine (dictionary words both)",
+      "Cashing in on Nigel's air", f.agree("Cashing in on Nigel's ail",
+                                           [f.marked("Cashing in on Nigel's air")] * 2)[0])
+check("a word one of two other readings has stands", "Sun god's not out",
+      f.agree("Sun god's not out", [f.marked("Son god's not out"), f.marked("Sun gods not out")])[0])
+check("a non-word all three readings have kept", "Get production up sevenfoldx",
+      f.agree("Get production up sevenfoldx", [f.marked("Get production up sevenfoldx")] * 2)[0])
+got, blank = f.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)},
+                         ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
+check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
+
+# The solution grid's blocks: a heavy print's block flecked with paper is a
+# block; a light whose letter is fat is not.
+import numpy as np, trove_solution_ocr as tso
+rng = np.random.default_rng(1)
+gray = np.full((300, 300), 255, np.uint8)
+for k in range(6):
+    gray[k * 60:k * 60 + 6, :] = 0
+    gray[:, k * 60:k * 60 + 6] = 0
+gray[60:120, 60:120] = 0
+fleck = rng.random((60, 60)) < 0.15
+gray[60:120, 60:120][fleck] = 255           # the block: 15% white flecks
+gray[130:170, 140:160] = 0                  # a fat letter in the light at (2, 2)
+gray[130:150, 125:175] = 0
+gray = np.where(gray == 0, rng.integers(0, 40, gray.shape), rng.integers(200, 256, gray.shape)).astype(np.uint8)
+grid5 = [".....", ".#...", ".....", ".....", "....."]
+check("a flecked block read as a block, a fat letter's light as a light", 1.0,
+      tso.block_agreement(gray, grid5, (0, 0, 60, 60)))
+
+# improves(): a reading replaces a file this tool filed when it beats it.
+pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()
+def p3(texts, acq=f.TOOL):
+    return {"source": {"acquiredBy": acq}, "dimensions": {"cols": 3, "rows": 1},
+            "entries": [{"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 3,
+                         "clue": {"text": t}, "solution": None} for t in texts]}
+(pz / "own.json").write_text(json.dumps(p3([""])))
+(pz / "theirs.json").write_text(json.dumps(p3([""], "tools/acquire_book.py")))
+check("a fuller reading replaces this tool's file, never another tool's or an equal one",
+      [True, False, False], [f.improves(p3(["Top"]), pz / "own.json"),
+                             f.improves(p3(["Top"]), pz / "theirs.json"),
+                             f.improves(p3([""]), pz / "own.json")])
+
 # expected_number(): a misdated item is caught, a dated one passes.
 import datetime
 check("numbers the dates imply, either side of the shutdown",
