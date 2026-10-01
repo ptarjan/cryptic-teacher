@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "'Do OK in exam?' 'Dunno'",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PASS",
+    "definitions": [
+     {
+      "text": "Do OK in exam",
+      "at": 1
+     },
+     {
+      "text": "Dunno",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do OK in exam",
+      "note": "first meaning: to succeed, at least adequately, in a test"
+     },
+     {
+      "clueFragment": "Dunno",
+      "note": "second meaning: what a quiz contestant says when they cannot answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A worried student is asked whether the exam went well and can only shrug.",
+     "walkthrough": "The two quoted remarks read as a question and a reply, but each is a separate meaning of one word.",
+     "definitionFit": "A student succeeds in a test, and a quizzer declines a question with the same word, as on a television quiz show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dunno"
+    }
+   }
   },
   {
    "number": 1,
@@ -61,7 +101,40 @@
      }
     ]
    },
-   "solution": "PAYASYOUGO"
+   "solution": "PAYASYOUGO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAY-AS-YOU-GO",
+    "definitions": [
+     {
+      "text": "Plan to spend a penny?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plan to spend a penny?",
+      "note": "surface reading: an intention to visit the lavatory, since 'spend a penny' is a British euphemism from old coin-operated public toilets"
+     },
+     {
+      "clueFragment": "Plan to spend a penny?",
+      "note": "setter's reading: a payment scheme where you are charged at the moment of use"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone announces they are planning a trip to the loo.",
+     "walkthrough": "In Britain 'spend a penny' means to go to the toilet, because public toilets once cost a penny; the answer's 'go' plays on that same sense.",
+     "definitionFit": "A tariff or phone contract where charges are settled at each use, rather than by subscription, is called this kind of scheme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "penny"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +148,51 @@
     "text": "Wild Australian revelry",
     "enumeration": "10"
    },
-   "solution": "SATURNALIA"
+   "solution": "SATURNALIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SATURNALIA",
+    "definitions": [
+     {
+      "text": "revelry",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "something wild is unruly and out of control, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "AUSTRALIAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AUSTRALIAN",
+       "gives": "SATURNALIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy party thrown Down Under.",
+     "walkthrough": "'Wild Australian' reads like a description of the outback; 'Wild' is the signal and the nationality supplies every letter.",
+     "definitionFit": "The Roman winter festival gave its name to any period of unrestrained merrymaking and partying, a general noun for wild celebration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wild"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +206,58 @@
     "text": "Everyman on cycling trip with odour, glimmering",
     "enumeration": "10"
    },
-   "solution": "IRIDESCENT"
+   "solution": "IRIDESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRIDESCENT",
+    "definitions": [
+     {
+      "text": "glimmering",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "on",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter refers to himself, so I"
+     },
+     {
+      "clueFragment": "cycling trip",
+      "gives": "RIDE",
+      "note": "an outing on a bike"
+     },
+     {
+      "clueFragment": "odour",
+      "gives": "SCENT",
+      "note": "a smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RIDE",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter goes out on a bike and comes back smelling strongly.",
+     "walkthrough": "Everyman is the name of this puzzle's setter, so his name stands for I. 'Cycling' looks like a rotation signal but simply describes the trip.",
+     "definitionFit": "A surface that shows shifting rainbow colours as light catches it is said to shimmer or glimmer, so the adjectives match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +271,47 @@
     "text": "Football team runs, gets exasperated",
     "enumeration": "7"
    },
-   "solution": "RANGERS"
+   "solution": "RANGERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANGERS",
+    "definitions": [
+     {
+      "text": "Football team",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "gets exasperated",
+      "gives": "ANGERS",
+      "note": "taken as a verb: makes cross, read loosely here as the sense of being riled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANGERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A football side keeps running and grows irritable.",
+     "walkthrough": "Rangers is a Glasgow club (also Queens Park Rangers in London). R for runs comes from cricket scorecards.",
+     "definitionFit": "Several British clubs carry the name, most famously the Glasgow side, so it serves as the name of a soccer club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +325,62 @@
     "text": "Starters of duck egg fried, potato cake shortly put in microwave?",
     "enumeration": "7"
    },
-   "solution": "DEFROST"
+   "solution": "DEFROST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DEFROST",
+    "definitions": [
+     {
+      "text": "put in microwave?",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starters of",
+      "for": "letter_selection",
+      "note": "starters open a meal, so only the opening letter of each word is served"
+     },
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "made short, the word loses its tail end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck egg fried",
+      "gives": "DEF",
+      "select": "first",
+      "note": "the opening letters of three breakfast words"
+     },
+     {
+      "clueFragment": "potato cake",
+      "gives": "ROSTI",
+      "note": "rosti is a Swiss fried potato cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "ROST"
+     ]
+    },
+    "explanation": {
+     "surface": "A cooked breakfast of duck egg and potato cake gets popped in the microwave.",
+     "walkthrough": "Rosti is a Swiss grated-potato cake; dropping its last letter leaves ROST. The question mark flags that thawing is only one use of a microwave.",
+     "definitionFit": "Frozen food is commonly thawed in the microwave, so putting it there is an example of the verb, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Starters"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +394,71 @@
     "text": "Islander to intone a critical review describing mineral deposit",
     "enumeration": "11"
    },
-   "solution": "SINGAPOREAN"
+   "solution": "SINGAPOREAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SINGAPOREAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe is also to draw a line round, so one piece encircles another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intone",
+      "gives": "SING",
+      "note": "to chant or sing"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "critical review",
+      "gives": "PAN",
+      "note": "a pan is a scathing review"
+     },
+     {
+      "clueFragment": "mineral deposit",
+      "gives": "ORE",
+      "note": "rock from which metal is mined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SING",
+      "A",
+      "P",
+      "ORE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An island resident chants a scathing review about a mineral seam.",
+     "walkthrough": "'Describing' looks like it means writing about, but in its geometric sense of tracing round it puts the mineral inside the review.",
+     "definitionFit": "Singapore is an island city-state, so a native or citizen of it is a natural example of an islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +472,48 @@
     "text": "Cockney's intoxicating, in a whirl",
     "enumeration": "4"
    },
-   "solution": "EDDY"
+   "solution": "EDDY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EDDY",
+    "definitions": [
+     {
+      "text": "a whirl",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cockney's",
+      "for": "homophone",
+      "note": "a Cockney speaker drops the opening H, so the word is rendered as it would be spoken in that accent"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intoxicating",
+      "gives": "EDDY",
+      "soundsLike": "'EADY",
+      "note": "heady means intoxicating; with the H dropped Cockney-style it is pronounced like a whirl of water"
+     }
+    ],
+    "explanation": {
+     "surface": "A London local, giddy with drink, finds everything spinning.",
+     "walkthrough": "Cockney is the working-class London accent, famous for dropping the H at the start of words, so heady comes out as 'eady.",
+     "definitionFit": "A swirl of water or air moving in a circle against the main current is a small whirlpool, a whirl in noun form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "intoxicating"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +527,43 @@
     "text": "Pugs' playthings?",
     "enumeration": "4"
    },
-   "solution": "TOYS"
+   "solution": "TOYS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOYS",
+    "definitions": [
+     {
+      "text": "Pugs",
+      "at": 0
+     },
+     {
+      "text": "playthings",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pugs",
+      "note": "first meaning: pugs belong to the dog-show group of small breeds bred as companions"
+     },
+     {
+      "clueFragment": "playthings",
+      "note": "second meaning: objects children play with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive suggests the dogs' own chew things, but the breed itself is classed in the Toy group by kennel clubs.",
+     "definitionFit": "Kennel clubs class small companion breeds such as pugs in a group with this name, which also means children's playthings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pugs'"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +577,51 @@
     "text": "Even so, setter is creature seldom seen",
     "enumeration": "4"
    },
-   "solution": "YETI"
+   "solution": "YETI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YETI",
+    "definitions": [
+     {
+      "text": "creature seldom seen",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Even so",
+      "gives": "YET",
+      "note": "nevertheless"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to himself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YET",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Despite everything, the setter admits to being a rarely glimpsed creature.",
+     "walkthrough": "'Setter' means the compiler, who calls himself I, not a dog or a jelly.",
+     "definitionFit": "The Abominable Snowman of the Himalayas is a legendary beast whose sightings are notoriously rare and unconfirmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +645,72 @@
      }
     ]
    },
-   "solution": "ONEFINEDAY"
+   "solution": "ONEFINEDAY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ONE FINE DAY",
+    "definitions": [
+     {
+      "text": "Romcom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "less time means the abbreviation for time is taken away"
+     },
+     {
+      "text": "reboot",
+      "for": "anagram",
+      "note": "a reboot is a remake, so the letters are made over in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any",
+      "gives": "ANY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "need",
+      "gives": "NEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "I",
+      "note": "the word with its T (for time) removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANYNEEDOFI",
+       "gives": "ONEFINEDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic asks whether a remake of a romantic comedy, billed as timeless, is needed at all.",
+     "walkthrough": "T is the standard abbreviation for time. 'Timeless' looks like praise of the film but works on the word 'it'.",
+     "definitionFit": "The 1996 film starring Michelle Pfeiffer and George Clooney is a romantic comedy, so the title fits a one-word genre label."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "timeless"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +724,56 @@
     "text": "Distracted wives romance soldier",
     "enumeration": "12"
    },
-   "solution": "SERVICEWOMAN"
+   "solution": "SERVICEWOMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERVICEWOMAN",
+    "definitions": [
+     {
+      "text": "soldier",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distracted",
+      "for": "anagram",
+      "note": "a distracted mind is scattered, so the letters are scattered too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wives",
+      "gives": "WIVES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "romance",
+      "gives": "ROMANCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WIVESROMANCE",
+       "gives": "SERVICEWOMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wives are led astray by a romance with a soldier.",
+     "walkthrough": "'Distracted wives' reads as unfaithful spouses; the adjective is the signal and the two following words give every letter.",
+     "definitionFit": "A woman serving in the armed forces is a member of the military, broadly any soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Distracted"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +801,62 @@
      }
     ]
    },
-   "solution": "ITSAFAIRCOP"
+   "solution": "ITSAFAIRCOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IT'S A FAIR COP",
+    "definitions": [
+     {
+      "text": "I confess",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Resort",
+      "for": "anagram",
+      "note": "to re-sort is to sort again, putting the letters into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trip",
+      "gives": "TRIP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fiasco",
+      "gives": "FIASCO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIPAFIASCO",
+       "gives": "ITSAFAIRCOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday-maker owns up that the trip to the resort was a disaster.",
+     "walkthrough": "'Resort' reads as a holiday destination but is re-sort, the signal. The answer is a jokey British phrase of a criminal caught red-handed.",
+     "definitionFit": "Spoken by a caught criminal to a policeman, the phrase admits guilt and accepts the arrest, so it is an admission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Resort"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +876,79 @@
      }
     ]
    },
-   "solution": "MAGNUMOPUS"
+   "solution": "MAGNUMOPUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAGNUM OPUS",
+    "definitions": [
+     {
+      "text": "great work",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter goes missing"
+     },
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is just a trace, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests disorder, as letters thrown out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Much champagne",
+      "gives": "MAGNUM",
+      "note": "a large bottle holding two standard bottles"
+     },
+     {
+      "clueFragment": "pours",
+      "gives": "POURS",
+      "note": "taken as written before a letter is removed"
+     },
+     {
+      "clueFragment": "restraint",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter, which is the one taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAGNUM",
+      "OPUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POUS",
+       "gives": "OPUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge bottle of champagne is sloshed out without any restraint, and someone cheers a job well done.",
+     "walkthrough": "The R comes from the first letter of restraint. A magnum is a double-size wine bottle.",
+     "definitionFit": "The Latin phrase names an artist's or writer's most important masterpiece, literally a large opus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Much"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +962,43 @@
     "text": "Guides plan a descent taking in waterside walks",
     "enumeration": "10"
    },
-   "solution": "ESPLANADES"
+   "solution": "ESPLANADES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESPLANADES",
+    "definitions": [
+     {
+      "text": "waterside walks",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "hidden_word",
+      "note": "to take in is to contain, so the answer sits inside a run of the clue's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guides plan a descent",
+      "gives": "ESPLANADES",
+      "note": "spans the end of the first word to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Tour guides plan a route down to the promenades by the sea.",
+     "walkthrough": "The answer runs across four words, starting in the last two letters of Guides and finishing in the first three of descent.",
+     "definitionFit": "A long open level promenade, typically beside the sea, is a place for strolling along the shore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guides"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1012,53 @@
     "text": "Atop donkey is Greek millionaire",
     "enumeration": "7"
    },
-   "solution": "ONASSIS"
+   "solution": "ONASSIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONASSIS",
+    "definitions": [
+     {
+      "text": "Greek millionaire",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Atop",
+      "gives": "ON",
+      "note": "positioned upon"
+     },
+     {
+      "clueFragment": "donkey",
+      "gives": "ASS",
+      "note": "another name for the animal"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "ASS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A rich Greek tycoon is seen sitting on a donkey.",
+     "walkthrough": "Aristotle Onassis was the Greek shipping magnate who married Jacqueline Kennedy.",
+     "definitionFit": "Aristotle Onassis, the shipping magnate, was among the world's richest men, so the surname identifies a wealthy Greek."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1072,60 @@
     "text": "Recipients of 'horse' in jars not happy",
     "enumeration": "7"
    },
-   "solution": "TROJANS"
+   "solution": "TROJANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROJANS",
+    "definitions": [
+     {
+      "text": "Recipients of 'horse'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "happy",
+      "for": "anagram",
+      "note": "happy-go-lucky and carefree, the letters fall wherever they please"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jars",
+      "gives": "JARS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "JARSNOT",
+       "gives": "TROJANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People given horse meat in jars are displeased.",
+     "walkthrough": "'Not happy' reads as one phrase, but 'not' is part of the letters to rearrange and 'happy' alone is the signal.",
+     "definitionFit": "In legend the Greeks left a giant wooden horse at Troy, which the city's people took inside, so they received it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1139,71 @@
     "text": "Winged beast with rising stench, regularly in rage",
     "enumeration": "7"
    },
-   "solution": "GRIFFIN"
+   "solution": "GRIFFIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "GRIFFIN",
+    "definitions": [
+     {
+      "text": "Winged beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down-reading sense, going up turns the sequence backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stench",
+      "gives": "NIFF",
+      "note": "British slang for a bad smell"
+     },
+     {
+      "clueFragment": "in rage",
+      "gives": "IRG",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRI",
+      "FFIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIFFIRG",
+       "to": "GRIFFIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A winged monster with a foul smell rising off it flies into a fury.",
+     "walkthrough": "Niff is British slang for a stink. 'Rising' turns round both the smell and the alternate letters together.",
+     "definitionFit": "The mythical creature has an eagle's head and wings on a lion's body, so it is a fabulous animal that flies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1223,53 @@
      }
     ]
    },
-   "solution": "NOHOPER"
+   "solution": "NOHOPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NO-HOPER",
+    "definitions": [
+     {
+      "text": "non-starter",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theatre",
+      "gives": "NOH",
+      "note": "Noh is classical Japanese theatre"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "short for opus"
+     },
+     {
+      "clueFragment": "um",
+      "gives": "ER",
+      "note": "another hesitation sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOH",
+      "OP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stammering about a play admits it never got going.",
+     "walkthrough": "The ellipses imitate hesitant speech, which is exactly what the um is doing. Noh is a traditional Japanese masked drama.",
+     "definitionFit": "A person or plan with no prospect of success is a dead loss, so both are figurative words for a likely failure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "um"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1283,72 @@
     "text": "Summer in France, sun hidden, snarl up lasting forever",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "lasting forever",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden",
+      "for": "deletion",
+      "note": "what is kept out of sight is taken away from the word"
+     },
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "snarled up means tangled, so the letters are knotted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Summer in France",
+      "gives": "ETE",
+      "note": "French word for summer"
+     },
+     {
+      "clueFragment": "snarl",
+      "gives": "SNARL",
+      "note": "taken as written before a letter is removed"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun, the letter taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETE",
+      "RNAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NARL",
+       "gives": "RNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French summer with the sun behind clouds and a traffic jam that never ends.",
+     "walkthrough": "S is the abbreviation for sun. 'Snarl up' reads as a traffic jam, but snarl is the material and up the signal.",
+     "definitionFit": "Something without end continues for all time, so the adjective is a straight synonym for everlasting and permanent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snarl"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1362,55 @@
     "text": "Essential to hooch, a naturally occurring liquid, primarily?",
     "enumeration": "7"
    },
-   "solution": "ETHANOL"
+   "solution": "ETHANOL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ETHANOL",
+    "definitions": [
+     {
+      "text": "Essential to hooch, a naturally occurring liquid, primarily?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "first and foremost, so only the leading letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Essential to hooch, a naturally occurring liquid",
+      "gives": "ETHANOL",
+      "select": "first",
+      "note": "initial letters of the seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "T",
+      "H",
+      "A",
+      "N",
+      "O",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of the vital ingredient of rough homemade liquor.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: read normally it describes the substance, and its initial letters spell it.",
+     "definitionFit": "The alcohol in drinks is produced by natural fermentation and is the active ingredient of any moonshine or spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -387,7 +1434,63 @@
      }
     ]
    },
-   "solution": "RIGHTHANDMAN"
+   "solution": "RIGHTHANDMAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RIGHT-HAND MAN",
+    "definitions": [
+     {
+      "text": "reliable type",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking away removes a letter from the word"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OK",
+      "gives": "RIGHT",
+      "note": "all right, correct"
+     },
+     {
+      "clueFragment": "oddjobber",
+      "gives": "HANDYMAN",
+      "note": "someone who does odd jobs"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year, the letter taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT",
+      "HANDMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who does odd jobs settles in for a year and earns a dependable reputation.",
+     "walkthrough": "Y is the abbreviation for year. 'Taking' looks like adding, but here it means taking away.",
+     "definitionFit": "A trusted chief assistant is someone you can always depend on, so the idiom describes a dependable person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 21,
@@ -401,7 +1504,60 @@
     "text": "It's a flipping fizzy wine",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ASTI",
+    "definitions": [
+     {
+      "text": "fizzy wine",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "to flip is to turn over, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's",
+      "gives": "ITS",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTI"
+     ],
+     "reversals": [
+      {
+       "from": "ITSA",
+       "to": "ASTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that it's a blasted sparkling wine.",
+     "walkthrough": "'Flipping' reads as a mild British swear word, but it is the signal to turn the first two words round.",
+     "definitionFit": "Asti is a sparkling white wine from Piedmont in Italy, the best-known Italian fizz alongside prosecco."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1571,47 @@
     "text": "Noisily rise, being peeved",
     "enumeration": "4"
    },
-   "solution": "SORE"
+   "solution": "SORE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SORE",
+    "definitions": [
+     {
+      "text": "peeved",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Noisily",
+      "for": "homophone",
+      "note": "making a noise means the word is heard, not read"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rise",
+      "gives": "SORE",
+      "soundsLike": "SOAR",
+      "note": "to fly up high"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone gets up loudly because they are annoyed.",
+     "walkthrough": "In most British accents soar and the answer are pronounced identically.",
+     "definitionFit": "Being resentful or aggrieved is informally described as feeling hurt, mostly in American use, so it matches irritated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Noisily"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1631,47 @@
      }
     ]
    },
-   "solution": "SCOTCHPINE"
+   "solution": "SCOTCHPINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCOTCH PINE",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scupper",
+      "gives": "SCOTCH",
+      "note": "to scotch a plan is to thwart it"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "PINE",
+      "note": "to yearn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOTCH",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sink a lengthy piece of timber.",
+     "walkthrough": "'Scupper' and 'long' look like a verb and an adjective, but both are verbs: to wreck and to yearn.",
+     "definitionFit": "Pinus sylvestris, the conifer native to the Scottish Highlands, is a common evergreen species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 24,
@@ -449,7 +1685,43 @@
     "text": "Source of music in Antipodes",
     "enumeration": "4"
    },
-   "solution": "IPOD"
+   "solution": "IPOD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IPOD",
+    "definitions": [
+     {
+      "text": "Source of music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer lies within the letters of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antipodes",
+      "gives": "IPOD",
+      "note": "letters four to seven"
+     }
+    ],
+    "explanation": {
+     "surface": "Where to hear music in Australia and New Zealand.",
+     "walkthrough": "The Antipodes is the British name for Australia and New Zealand, on the opposite side of the globe.",
+     "definitionFit": "Apple's portable digital player stores and plays songs, so it is a device people get their tunes from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Antipodes"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1735,61 @@
     "text": "Next, I reply clumsily, clumsily",
     "enumeration": "10"
    },
-   "solution": "INEXPERTLY"
+   "solution": "INEXPERTLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INEXPERTLY",
+    "definitions": [
+     {
+      "text": "clumsily",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clumsily",
+      "for": "anagram",
+      "note": "done awkwardly, the letters are put together in a fumbling order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Next",
+      "gives": "NEXT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reply",
+      "gives": "REPLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEXTIREPLY",
+       "gives": "INEXPERTLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits their next answer was fumbled.",
+     "walkthrough": "The repeated word has two jobs: the first signals the rearrangement, the second is the meaning.",
+     "definitionFit": "Doing something without skill or deftness is to do it awkwardly, so the adverbs are straight synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clumsily"
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1803,52 @@
     "text": "Goddess seen in pigsties now and again",
     "enumeration": "4"
    },
-   "solution": "ISIS"
+   "solution": "ISIS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ISIS",
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "now and again",
+      "for": "letter_selection",
+      "note": "occasionally, so only some letters at intervals are used"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pigsties",
+      "gives": "ISIS",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A deity turns up among the pig pens.",
+     "walkthrough": "Take the even letters of pigsties.",
+     "definitionFit": "The Egyptian mother deity, wife of Osiris, was worshipped across the ancient world as a female divinity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   }
  ]
 }
