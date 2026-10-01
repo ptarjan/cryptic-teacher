@@ -23,6 +23,9 @@
   "date": "2025-05-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,47 @@
     "text": "Where flag found in colour",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "Where flag found",
+      "at": 0
+     },
+     {
+      "text": "colour",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where flag found",
+      "note": "first meaning: the putting surface on a golf course, marked by a flag on a pin"
+     },
+     {
+      "clueFragment": "colour",
+      "note": "second meaning: the hue of grass"
+     }
+    ],
+    "explanation": {
+     "surface": "A national flag being spotted inside some particular colour.",
+     "walkthrough": "The flag is not a national banner but the pin flag on a golf course, which stands on the putting surface.",
+     "definitionFit": "Golfers putt on a smooth patch marked by a pin, and the same word names the hue between blue and yellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 2,
@@ -56,7 +99,67 @@
      }
     ]
    },
-   "solution": "LIFERAFT"
+   "solution": "LIFERAFT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LIFE RAFT",
+    "definitions": [
+     {
+      "text": "Dinghy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is planned out afresh, so these letters are laid out in a new arrangement"
+     },
+     {
+      "text": "to save",
+      "for": "container",
+      "note": "to save something is to keep it safe within, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I felt",
+      "gives": "IFELT",
+      "note": "letters taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "pilots etc",
+      "gives": "RAF",
+      "note": "the Royal Air Force, Britain's air arm, employs pilots and other aircrew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFE",
+      "RAF",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IFELT",
+       "gives": "LIFET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls feeling that a small boat was built for rescuing downed aviators.",
+     "walkthrough": "'Pilots etc' is the Royal Air Force, Britain's air arm; 'designed' rearranges the plain letters around it, and 'to save' means hold inside.",
+     "definitionFit": "An inflatable rescue raft is a small boat, so it can be loosely called a dinghy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +173,59 @@
     "text": "Wine from Irish county ending in goblet",
     "enumeration": "6"
    },
-   "solution": "CLARET"
+   "solution": "CLARET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CLARET",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "an ending is the final part of something, so only the last letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish county",
+      "gives": "CLARE",
+      "note": "County Clare is on the west coast of Ireland"
+     },
+     {
+      "clueFragment": "goblet",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLARE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine produced in an Irish county, served at the end in a goblet.",
+     "walkthrough": "Clare is a county in the west of Ireland; add the last letter of goblet.",
+     "definitionFit": "Claret is the British name for red Bordeaux, a kind of red table drink from France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ending"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +239,57 @@
     "text": "Northern city in Liverpool soaked up",
     "enumeration": "4"
    },
-   "solution": "OSLO"
+   "solution": "OSLO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OSLO",
+    "definitions": [
+     {
+      "text": "Northern city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "something sitting in a phrase is contained within its run of letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liverpool soaked",
+      "gives": "OLSO",
+      "note": "found across the join of the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "OLSO",
+       "to": "OSLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A northern English city getting drenched in the rain.",
+     "walkthrough": "Liverpool looks like the northern city, but the answer is hidden across 'Liverpool soaked' and read upwards: OSLO.",
+     "definitionFit": "The Norwegian capital lies far up in Scandinavia, making it a fair example of a city in the north."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liverpool"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +303,64 @@
     "text": "World where leader of universe ruled over us",
     "enumeration": "6"
    },
-   "solution": "URANUS"
+   "solution": "URANUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "URANUS",
+    "definitions": [
+     {
+      "text": "World",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "a leader goes at the front, so only the first letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "universe",
+      "gives": "U",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "ruled over",
+      "gives": "RAN",
+      "note": "to run a country is to rule over it"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "RAN",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A science-fiction world where the master of the cosmos held sway over humanity.",
+     "walkthrough": "'Ruled over' gives RAN, as in running a country; the rest is a letter and a plain word.",
+     "definitionFit": "The seventh planet from the Sun is a world in the astronomical sense, a large body orbiting a star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +374,43 @@
     "text": "Wrecked – as walls might be?",
     "enumeration": "9"
    },
-   "solution": "PLASTERED"
+   "solution": "PLASTERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLASTERED",
+    "definitions": [
+     {
+      "text": "Wrecked",
+      "at": 0
+     },
+     {
+      "text": "as walls might be?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrecked",
+      "note": "first meaning: very drunk, in British slang"
+     },
+     {
+      "clueFragment": "as walls might be?",
+      "note": "second meaning: coated with a smooth layer by a builder"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Wrecked is British slang for very drunk, not damaged; the question mark flags that walls are an example of what gets this treatment.",
+     "definitionFit": "The word is slang for heavily intoxicated, and also describes interior walls given a smooth finishing coat by a tradesman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wrecked"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +424,55 @@
     "text": "Idiotic shower maybe overwhelmed by praise",
     "enumeration": "9"
    },
-   "solution": "BRAINLESS"
+   "solution": "BRAINLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRAINLESS",
+    "definitions": [
+     {
+      "text": "Idiotic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "to be overwhelmed is to be swamped and engulfed, so one piece is surrounded by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "praise",
+      "gives": "BLESS",
+      "note": "to bless is to praise, as in a hymn"
+     },
+     {
+      "clueFragment": "shower maybe",
+      "gives": "RAIN",
+      "note": "a shower is one kind of rainfall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAIN",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish group of people, perhaps, buried under compliments.",
+     "walkthrough": "'Shower' suggests a useless bunch of people (British slang) but here is weather; 'maybe' marks it as one example of RAIN.",
+     "definitionFit": "Someone lacking any intelligence is stupid, so the adjective matches foolish or idiotic exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +486,62 @@
     "text": "Funny figure inspiring laughter, ultimately",
     "enumeration": "5"
    },
-   "solution": "DROLL"
+   "solution": "DROLL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "DROLL",
+    "definitions": [
+     {
+      "text": "Funny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is drawn inside another"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the last letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "DOLL",
+      "note": "a doll is a small model figure"
+     },
+     {
+      "clueFragment": "laughter",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "OLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic character who eventually provokes laughter.",
+     "walkthrough": "Figure looks like a person, but it is a toy DOLL; inspiring is read literally as breathing in, taking R inside.",
+     "definitionFit": "Drollness is a dry, quirky kind of humour, so the adjective means amusing in an understated way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +555,51 @@
     "text": "Region surprisingly blank",
     "enumeration": "6"
    },
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORE",
+    "definitions": [
+     {
+      "text": "blank",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something surprising turns out unexpectedly, so these letters end up in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Region",
+      "gives": "REGION",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGION",
+       "gives": "IGNORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A part of the map that unexpectedly turns out to be empty.",
+     "walkthrough": "Blank reads as an adjective meaning empty, but it is the verb: to blank someone.",
+     "definitionFit": "To blank a person is informal for deliberately snubbing them, pretending not to see them at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blank"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +613,55 @@
     "text": "Recording device captivating old space traveller",
     "enumeration": "6"
    },
-   "solution": "METEOR"
+   "solution": "METEOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "METEOR",
+    "definitions": [
+     {
+      "text": "space traveller",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivating",
+      "for": "container",
+      "note": "to captivate is literally to capture and hold, so one piece is kept inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recording device",
+      "gives": "METER",
+      "note": "a meter records readings, such as gas or electricity used"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METE",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A tape recorder entrancing an elderly astronaut.",
+     "walkthrough": "Recording device suggests a tape or voice recorder; it is a utility METER that records usage.",
+     "definitionFit": "A shooting star is a rock hurtling through the sky from outer reaches, so it travels through the cosmos."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "captivating"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +675,52 @@
     "text": "Roasting nuts, one pulling out all the stops?",
     "enumeration": "8"
    },
-   "solution": "ORGANIST"
+   "solution": "ORGANIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANIST",
+    "definitions": [
+     {
+      "text": "one pulling out all the stops?",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so these letters go wild into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roasting",
+      "gives": "ROASTING",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROASTING",
+       "gives": "ORGANIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone roasting chestnuts and going all out to do it.",
+     "walkthrough": "Nuts looks like the thing being roasted, but it is the signal to rearrange; the question mark flags the literal reading of the idiom.",
+     "definitionFit": "Stops are the knobs that control an organ's pipes, so a musician at the keyboard literally pulls them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +734,51 @@
     "text": "Colluding businesses spilling 3 Down",
     "enumeration": "6"
    },
-   "solution": "CARTEL"
+   "solution": "CARTEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARTEL",
+    "definitions": [
+     {
+      "text": "Colluding businesses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spilling",
+      "for": "anagram",
+      "note": "a spilt drink splashes everywhere, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3 Down",
+      "gives": "CLARET",
+      "note": "the answer to the clue numbered 3 Down"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLARET",
+       "gives": "CARTEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Companies in a price-fixing ring spilling red wine at a meeting.",
+     "walkthrough": "The cross-reference points to the answer of 3 Down, the red wine, whose letters are rearranged.",
+     "definitionFit": "A group of firms secretly agreeing prices to restrict competition forms an illegal ring, which is exactly this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spilling"
+    }
+   }
   },
   {
    "number": 13,
@@ -210,7 +792,51 @@
     "text": "On the ground, or up in the air, though not originally",
     "enumeration": "5"
    },
-   "solution": "LYING"
+   "solution": "LYING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LYING",
+    "definitions": [
+     {
+      "text": "On the ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "though not originally",
+      "for": "deletion",
+      "note": "not originally means without the start, so the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up in the air",
+      "gives": "FLYING",
+      "note": "airborne, travelling through the sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LYING"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that is either grounded or airborne, but was not at first.",
+     "walkthrough": "'Up in the air' sounds like undecided, but means airborne; drop its first letter from FLYING to get LYING.",
+     "definitionFit": "Something stretched flat and horizontal, resting on the floor or earth, is said to be lying there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 14,
@@ -224,7 +850,54 @@
     "text": "Miscreant used to being expelled",
     "enumeration": "6"
    },
-   "solution": "OUSTED"
+   "solution": "OUSTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUSTED",
+    "definitions": [
+     {
+      "text": "expelled",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Miscreant",
+      "for": "anagram",
+      "note": "a miscreant is a wrongdoer, so these letters misbehave and fall out of order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to",
+      "gives": "USEDTO",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USEDTO",
+       "gives": "OUSTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker who has grown accustomed to getting thrown out.",
+     "walkthrough": "Miscreant reads as the person in the scene, but it is the anagram signal working on USED TO.",
+     "definitionFit": "To be thrown out or removed from a position by force is to be ejected, which the participle states."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Miscreant"
+    }
+   }
   },
   {
    "number": 15,
@@ -244,7 +917,59 @@
      }
     ]
    },
-   "solution": "MINORSUIT"
+   "solution": "MINORSUIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINOR SUIT",
+    "definitions": [
+     {
+      "text": "Diamonds, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thousand",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "SUIT",
+      "note": "a suit is a lawsuit, a case in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "OR",
+      "SUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Jewels worth a thousand pounds set in a golden box.",
+     "walkthrough": "Diamonds look like gems, but they are the playing-card suit; 'in' and 'case' look like a container instruction but are plain pieces.",
+     "definitionFit": "In bridge, clubs and diamonds rank below hearts and spades and score less, so they are the lesser card groups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Diamonds"
+    }
+   }
   },
   {
    "number": 16,
@@ -258,7 +983,41 @@
     "text": "Perfect confection",
     "enumeration": "4"
    },
-   "solution": "MINT"
+   "solution": "MINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINT",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     },
+     {
+      "text": "confection",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "note": "first meaning: in pristine, unused condition"
+     },
+     {
+      "clueFragment": "confection",
+      "note": "second meaning: a peppermint sweet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as praise for a dessert; the two words are separate meanings of one short word.",
+     "definitionFit": "Collectors describe pristine, as-new items with this adjective, and it is also a peppermint-flavoured sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -272,7 +1031,55 @@
     "text": "Express love in immorality",
     "enumeration": "5"
    },
-   "solution": "VOICE"
+   "solution": "VOICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VOICE",
+    "definitions": [
+     {
+      "text": "Express",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "immorality",
+      "gives": "VICE",
+      "note": "vice is wicked or immoral behaviour"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "O",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Declaring one's affection while living a sinful life.",
+     "walkthrough": "Express looks like an adjective or a train, but it is a verb meaning to put into words; love is O from tennis scoring.",
+     "definitionFit": "To voice an opinion is to state it aloud, so the verb matches putting feelings into words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1093,63 @@
     "text": "One circled by drawer of diagrams, a capital city",
     "enumeration": "6"
    },
-   "solution": "VIENNA"
+   "solution": "VIENNA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VIENNA",
+    "definitions": [
+     {
+      "text": "a capital city",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circled by",
+      "for": "container",
+      "note": "to be circled is to be ringed round, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drawer of diagrams",
+      "gives": "VENN",
+      "note": "John Venn devised the overlapping-circle diagrams named after him"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "ENN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A person ringed by someone sketching charts.",
+     "walkthrough": "'Drawer of diagrams' is the logician Venn, famous for overlapping circles, which neatly fits 'circled'.",
+     "definitionFit": "Austria's seat of government is on the Danube; it is the nation's capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drawer"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1163,45 @@
     "text": "Reportedly, something from the bakery delivered",
     "enumeration": "4"
    },
-   "solution": "BRED"
+   "solution": "BRED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRED",
+    "definitions": [
+     {
+      "text": "delivered",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "a report is passed on by word of mouth, so the listener goes by how it sounds rather than how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something from the bakery",
+      "gives": "BRED",
+      "soundsLike": "BREAD",
+      "note": "a baked loaf"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour about a bakery's goods being sent out to customers.",
+     "walkthrough": "Delivered looks like the baker's van, but it means given birth to, as with animals bred on a farm.",
+     "definitionFit": "Both words describe bringing young into the world: a mother gives birth to offspring, and animals produce them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1215,54 @@
     "text": "Dark-haired animal defending web",
     "enumeration": "8"
    },
-   "solution": "BRUNETTE"
+   "solution": "BRUNETTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRUNETTE",
+    "definitions": [
+     {
+      "text": "Dark-haired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "a defender stands guard all around, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "BRUTE",
+      "note": "a brute is a beast"
+     },
+     {
+      "clueFragment": "web",
+      "gives": "NET",
+      "note": "a net is a mesh, like a web"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRU",
+      "NET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark-furred creature guarding its spider's web.",
+     "walkthrough": "'Dark-haired' looks like it describes the animal, but it is the definition; the beast does the defending around the web.",
+     "definitionFit": "The adjective describes a woman with brown or black hair, so it matches having dark locks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1276,53 @@
     "text": "Move a whopper stopper!",
     "enumeration": "6"
    },
-   "solution": "GOALIE"
+   "solution": "GOALIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOALIE",
+    "definitions": [
+     {
+      "text": "stopper",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "gives": "GO",
+      "note": "a go is a turn or move in a game"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "whopper",
+      "gives": "LIE",
+      "note": "a whopper is a big untruth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "A",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An urgent call to shift something huge that is blocking the way.",
+     "walkthrough": "Whopper suggests something huge, but it is slang for a big LIE.",
+     "definitionFit": "A goalkeeper's job is blocking shots, so the football player is the one stopping the ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "whopper"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1336,62 @@
     "text": "One splitting fortune? Um, hang about!",
     "enumeration": "6"
    },
-   "solution": "LOITER"
+   "solution": "LOITER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LOITER",
+    "definitions": [
+     {
+      "text": "hang about",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splitting",
+      "for": "container",
+      "note": "to split something is to break into it, so one piece is wedged inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune",
+      "gives": "LOT",
+      "note": "one's lot is one's fate or fortune"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Um",
+      "gives": "ER",
+      "note": "er is a hesitation noise, like um"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "I",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sharing a windfall, told hesitantly to wait around.",
+     "walkthrough": "Fortune here is fate, as in one's lot in life, not money; 'Um' is a hesitation sound standing for its written equivalent.",
+     "definitionFit": "Lingering idly somewhere without obvious purpose is what both the verb phrase and the single word describe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fortune"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1405,55 @@
     "text": "Prodigy I observed in class",
     "enumeration": "6"
    },
-   "solution": "GENIUS"
+   "solution": "GENIUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GENIUS",
+    "definitions": [
+     {
+      "text": "Prodigy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed in",
+      "for": "container",
+      "note": "something observed in a place is seen sitting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "GENUS",
+      "note": "a genus is a class in biological classification"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "I",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher noticing a gifted child in the classroom.",
+     "walkthrough": "Class looks like a school class, but it is the biological grouping GENUS.",
+     "definitionFit": "A child with exceptional talent is a wunderkind, someone with outstanding intellectual or creative ability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1467,42 @@
     "text": "In decline the results lower",
     "enumeration": "6"
    },
-   "solution": "NETHER"
+   "solution": "NETHER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NETHER",
+    "definitions": [
+     {
+      "text": "lower",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "something in a phrase is contained within its run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline the results",
+      "gives": "NETHER",
+      "note": "spans the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Results that drop off when things go into decline.",
+     "walkthrough": "The answer runs across 'decliNE THE Results'.",
+     "definitionFit": "The old adjective describes the bottom or underneath part, as in the underworld or lower regions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1516,57 @@
     "text": "Archfiend drew breath when rising up",
     "enumeration": "5"
    },
-   "solution": "DEVIL"
+   "solution": "DEVIL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEVIL",
+    "definitions": [
+     {
+      "text": "Archfiend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising up",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading the letters from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drew breath",
+      "gives": "LIVED",
+      "note": "to draw breath is to be alive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEVIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIVED",
+       "to": "DEVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Satan gasping as he rises up from the underworld.",
+     "walkthrough": "'Drew breath' sounds like gasping but means was alive, LIVED.",
+     "definitionFit": "Satan is the chief evil spirit, so the arch-enemy of good is the principal demon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breath"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1580,51 @@
     "text": "Chosen design as ornate",
     "enumeration": "8"
    },
-   "solution": "ASSIGNED"
+   "solution": "ASSIGNED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSIGNED",
+    "definitions": [
+     {
+      "text": "Chosen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ornate",
+      "for": "anagram",
+      "note": "ornate means elaborately fashioned, so these letters are worked into a fancier arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "design as",
+      "gives": "DESIGNAS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DESIGNAS",
+       "gives": "ASSIGNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pattern picked because it is elaborate.",
+     "walkthrough": "The surface reads as one phrase, but 'design as' is the fodder and 'ornate' the signal.",
+     "definitionFit": "Something allotted or appointed to a person has been selected for them, so both words mean picked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ornate"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1638,43 @@
     "text": "Bowl a beauty?",
     "enumeration": "4"
    },
-   "solution": "DISH"
+   "solution": "DISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISH",
+    "definitions": [
+     {
+      "text": "Bowl",
+      "at": 0
+     },
+     {
+      "text": "a beauty",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bowl",
+      "note": "first meaning: a shallow serving vessel"
+     },
+     {
+      "clueFragment": "a beauty",
+      "note": "second meaning: an attractive person, informally"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bowl looks like the cricket verb, but it is a noun for crockery; the question mark admits the slangy second sense.",
+     "definitionFit": "The noun names a shallow serving vessel, and in slang it is a very good-looking person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bowl"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1688,46 @@
     "text": "Journalist after those things on the same topic",
     "enumeration": "6"
    },
-   "solution": "THEMED"
+   "solution": "THEMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEMED",
+    "definitions": [
+     {
+      "text": "on the same topic",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those things",
+      "gives": "THEM",
+      "note": "them is the pronoun for those things"
+     },
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter chasing several stories about one subject.",
+     "walkthrough": "'After' is the placing instruction: the editor comes after the pronoun.",
+     "definitionFit": "Items sharing a common subject or motif, like a party or crossword, are unified around one idea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1741,42 @@
     "text": "Note collected by myself, I’ve remembered",
     "enumeration": "5"
    },
-   "solution": "FIVER"
+   "solution": "FIVER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FIVER",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected by",
+      "for": "hidden_word",
+      "note": "something collected by a phrase is gathered up within its run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "myself, I’ve remembered",
+      "gives": "FIVER",
+      "note": "spans the three words, ignoring punctuation"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone recalling that they picked up a banknote themselves.",
+     "walkthrough": "The answer runs across 'myselF I'VE Remembered'; a fiver is British slang for a five-pound note.",
+     "definitionFit": "A five-pound banknote is a piece of paper money, which is what a note means here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1790,56 @@
     "text": "See a broken canister",
     "enumeration": "9"
    },
-   "solution": "ASCERTAIN"
+   "solution": "ASCERTAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASCERTAIN",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so these letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "canister",
+      "gives": "CANISTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACANISTER",
+       "gives": "ASCERTAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look at a damaged tin container.",
+     "walkthrough": "See looks like a command to look, but it means find out, as in 'see whether he is in'.",
+     "definitionFit": "To establish a fact by checking is to find out for certain, which is one sense of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   }
  ]
 }
