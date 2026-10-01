@@ -694,7 +694,7 @@ class GeorgeHo(Adapter):
         theirs["unplaced"] = [{"class": "MISSING", "light": groups.entry_id(
                                    {"number": n, "direction": d}), "theirs": got[2]}
                               for (n, d), got in sorted(rows.items())
-                              if (n, d) not in lights and got[2] not in answers]
+                              if (n, d) not in lights and not unplaceable(n, got[2], ours)]
         return theirs
 
     def load(self, where):
@@ -711,6 +711,30 @@ def misfiled(got, ours, answers, clues):
     words = norm_text(text)
     return bool(words) and words != norm_text((ours.get("clue") or {}).get("text")) \
         and words in clues
+
+
+def unplaceable(number, answer, ours):
+    """Whether a light the blog names and we lack is the scrape's, not ours to
+    miss: a number past our last (a linked clue's "18,13" read as 1813), or an
+    answer that is ours already, alone or as lights joined (a linked clue
+    filed under its other number)."""
+    entries = ours["entries"]
+    if number > max(e["number"] for e in entries):
+        return True
+    if not answer:
+        return True
+    held = [e.get("solution") or "" for e in entries]
+    if answer in held:
+        return True
+    pieces = [h for h in held if h and h in answer]
+    return bool(pieces) and _joined(answer, pieces)
+
+
+def _joined(answer, pieces):
+    """Whether `answer` is some of `pieces` end to end."""
+    if not answer:
+        return True
+    return any(answer.startswith(p) and _joined(answer[len(p):], pieces) for p in pieces)
 
 
 #: What the scrape leaves before a clue: the rest of a linked clue's number
