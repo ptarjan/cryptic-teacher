@@ -113,7 +113,8 @@ print("BYCOUNT", show("""
 
 print("TITLE", [(F.post_number(t), F.post_setter(t)) for t in (
     "Financial Times 18,489 by XELA", "Financial Times 18480 Mudd",
-    "Financial Times 18,484 by Julius", "FT 16,342 / Rosa Klebb")])
+    "Financial Times 18,484 by Julius", "FT 16,342 / Rosa Klebb",
+    "Financial Times 13,150/Glow-worm", "Financial Times 13,151 Mudd - Ups")])
 
 # A linked answer the post prints whole: the grid's lights say where it breaks.
 TINY = ("..#..",
@@ -227,7 +228,7 @@ check "a held file of this tool's is tidied, its annotation's quotation with it"
 check "a held file another tool wrote (the PDF's, dated by the FT's page) is neither tidied nor redated" \
   "False" "$(field RETEXT_OTHER)"
 check "number and setter off each title shape" \
-  "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb')]" "$(field TITLE)"
+  "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb'), (13150, 'Glow-worm'), (13151, 'Mudd')]" "$(field TITLE)"
 check "a linked answer shared out at the grid's light break" \
   "[(5, 'FGHIJ', 'Linked (2,3,5)'), (8, 'PQRST', 'See 5')] [(5, 'FGHIJ'), (8, 'PQRST')]" "$(field SPLIT)"
 check "a puzzle blogged late dated to its own day: the prize to its Saturday" \

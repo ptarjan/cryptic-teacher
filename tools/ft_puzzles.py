@@ -57,8 +57,11 @@ PLAUSIBLE = (22, 34)
 #: their own numbering and sit in their own categories.
 NUMBER = re.compile(r"\b(\d{1,2},\d{3}|\d{4,5})\b")
 OTHER_PUZZLE = re.compile(r"\b(?:sunday|jumbo|weekend|polymath|genius)\b", re.IGNORECASE)
-SETTER = re.compile(r"\d[\s\-–—:/]*(?:by|from|/|[\-–—:])?\s*([A-Za-z][\w'’. ]*?)\s*"
-                    r"(?:[\-–—:(]|$)")
+#: A hyphen between letters is part of the name ("Glow-worm"); any other
+#: closes it ("Mudd - Ups and downs", "Sat 27-June-2015"), as does a double space.
+SETTER = re.compile(r"\d[\s\-–—:/]*(?:by|from|/|[\-–—:])?\s*"
+                    r"([A-Za-z](?:[\w'’. ]|(?<=[A-Za-z])-(?=[A-Za-z]))*?)\s*"
+                    r"(?:(?<![A-Za-z])-|-(?![A-Za-z])|[–—:(]|\s{2}|$)")
 
 
 def post_number(title):
