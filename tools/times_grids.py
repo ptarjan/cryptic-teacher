@@ -28,6 +28,7 @@ import itertools
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -128,6 +129,48 @@ MAX_BLACK_RUN = {"FT": 7}
 TIMES_BLACK_RUN = 5
 
 
+#: A puzzle's whole budget, in searches of --max-nodes each. solve() runs
+#: up to a dozen searches on a list no grid fits (retries, every freed light,
+#: every split of a linked answer), and a 23x23 Christmas Jumbo spent ten
+#: silent minutes in them; this is the ceiling over all of them together.
+PUZZLE_SEARCHES = 4
+
+
+class Budget:
+    """The nodes one puzzle may still spend, over every search solve() runs,
+    and a log line per search naming the post, so a slow one shows where it is."""
+
+    def __init__(self, nodes, label="", log=None):
+        self.left, self.label = nodes, label
+        self.log = log if log is not None else sys.stderr
+        self.spent_at = None
+
+    def search(self, stage, spec, max_nodes, quiet=False, **kw):
+        """rg.reconstruct, allowed at most what this puzzle has left. A search
+        given less than it asked for and running out reads as truncated."""
+        allowed = min(max_nodes, self.left)
+        if allowed <= 0:
+            self.spent_at = self.spent_at or stage
+            return [], {"nodes": 0, "truncated": True}
+        t = time.monotonic()
+        sols, info = rg.reconstruct(spec, max_nodes=allowed, **kw)
+        self.left -= info.get("nodes", 0)
+        if info.get("truncated") and allowed < max_nodes:
+            self.spent_at = self.spent_at or stage
+        if not quiet:
+            self.note(f"{stage}: {len(sols)} grid(s), {info.get('nodes', 0)} nodes"
+                      + (", truncated" if info.get("truncated") else "")
+                      + f", {time.monotonic() - t:.1f}s")
+        return sols, info
+
+    def note(self, text):
+        if self.log:
+            print(f"  {self.label} {text}", file=self.log, flush=True)
+
+    def spent(self):
+        return self.left <= 0 or self.spent_at is not None
+
+
 def black_run(rec):
     return MAX_BLACK_RUN.get(rec["series"], TIMES_BLACK_RUN)
 
@@ -182,7 +225,7 @@ def mirrored(grid):
 LOOSE_NODES = 200_000
 
 
-def one_light_wrong(lights, words, n, cap=TIMES_BLACK_RUN):
+def one_light_wrong(lights, words, n, cap=TIMES_BLACK_RUN, budget=None):
     """(grid, why) when freeing exactly one light's length and letters fits
     one grid, whichever light it is freed from; else (None, None).
 
@@ -191,18 +234,24 @@ def one_light_wrong(lights, words, n, cap=TIMES_BLACK_RUN):
     from the list that fits. Two freed lights that cross at the typo both land
     on the same grid, so agreement is what is asked for, not a single light.
     """
-    found, freed = set(), []
+    budget = budget or Budget(len(lights) * LOOSE_NODES, log=False)
+    found, freed, t, nodes = set(), [], time.monotonic(), budget.left
     for i, (num, d, _) in enumerate(lights):
         spec, ws = list(lights), list(words)
         spec[i], ws[i] = (num, d, None), None
-        sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=2,
-                                    max_nodes=LOOSE_NODES, words=ws,
-                                    max_black_run=cap)
+        sols, info = budget.search("one light freed", spec, LOOSE_NODES, quiet=True,
+                                   cols=n, rows=n, limit=2, words=ws,
+                                   max_black_run=cap)
+        if budget.spent():
+            budget.note(f"one light freed: budget spent after {i} of {len(lights)} lights")
+            return None, None
         if sols:
             found.update(sols)
             freed.append(f"{num} {d}")
         if len(found) > 1 or (sols and info["truncated"]):
             return None, None
+    budget.note(f"one light freed: {len(lights)} searches, {len(found)} grid(s), "
+                f"{nodes - budget.left} nodes, {time.monotonic() - t:.1f}s")
     if len(found) == 1:
         return found.pop(), "one light wrong at " + ", ".join(freed)
     return None, None
@@ -525,7 +574,7 @@ def doubtful(rec):
     return bool(rec.get("unsplit")) or any(e.get("heading") for e in rec["entries"])
 
 
-def solve_linked(rec, limit, max_nodes):
+def solve_linked(rec, limit, max_nodes, budget):
     """solve() for a record holding a linked answer the post prints whole:
     every split at a word break is rebuilt, and one split landing on exactly
     one grid is the split. The chosen split is written into rec's entries,
@@ -537,7 +586,9 @@ def solve_linked(rec, limit, max_nodes):
     found = []
     for choice in choices:
         grids, why = solve(with_split(rec, choice), limit=limit, max_nodes=max_nodes,
-                           thorough=False)
+                           thorough=False, budget=budget)
+        if budget.spent():
+            return [], f"truncated: puzzle budget spent at {budget.spent_at or 'a split'}"
         if grids:
             found.append((choice, grids, why))
     if len(found) != 1 or len(found[0][1]) != 1:
@@ -548,7 +599,7 @@ def solve_linked(rec, limit, max_nodes):
     return grids, why + ", linked answer split by the grid"
 
 
-def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True):
+def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None):
     """(grids, how) for one puzzle. `how` is why it ended where it did.
 
     The answers and the Times' longest line of blocks go into the search, not
@@ -566,18 +617,24 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True):
     `thorough`, the enumeration's lengths are the only second try: the two
     unsymmetric searches and the freed lights are each a whole budget, which
     solve_linked() would spend once per split.
+
+    Every search draws on one `budget`, PUZZLE_SEARCHES searches of
+    `max_nodes` by default; a puzzle that spends it is `truncated`.
     """
+    if budget is None:
+        budget = Budget(PUZZLE_SEARCHES * max_nodes,
+                        f"post {rec.get('post_id', '?')}")
     if rec.get("unsplit"):
-        return solve_linked(rec, limit, max_nodes)
+        return solve_linked(rec, limit, max_nodes, budget)
     n = size(rec)
     if rec["series"] in BARRED:
         return solve_barred(rec, n)
     lights = triples(rec)
     words = [e["answer"] for e in printed(rec)]
     try:
-        sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
-                                    max_nodes=max_nodes, words=words,
-                                    max_black_run=black_run(rec))
+        sols, info = budget.search("answers in", lights, max_nodes, cols=n, rows=n,
+                                   limit=limit, words=words,
+                                   max_black_run=black_run(rec))
     except Exception as e:                       # a light longer than the grid
         return [], f"rejected: {e}"
     if info.get("gaps"):
@@ -600,26 +657,34 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True):
     if alt and thorough:
         tries.append((alt, False, "enumeration length, mirror symmetry"))
     for (spec, ws), symmetric, why in tries:
-        sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=limit,
-                                    max_nodes=max_nodes, words=ws,
-                                    symmetry=symmetric,
-                                    max_black_run=black_run(rec))
+        sols, info = budget.search(why, spec, max_nodes, cols=n, rows=n,
+                                   limit=limit, words=ws, symmetry=symmetric,
+                                   max_black_run=black_run(rec))
+        if budget.spent():
+            return [], f"truncated: puzzle budget spent at {budget.spent_at}"
         if (len(sols) == 1 and not info["truncated"]
                 and (symmetric or mirrored(sols[0]))):
             return list(sols), "unique, " + why
     flipped = as_headed(rec)
     if flipped:
-        grids, why = solve(flipped, limit=limit, max_nodes=max_nodes, thorough=False)
+        grids, why = solve(flipped, limit=limit, max_nodes=max_nodes, thorough=False,
+                           budget=budget)
+        if budget.spent():
+            return [], f"truncated: puzzle budget spent at {budget.spent_at}"
         if len(grids) == 1 and why.startswith("unique"):
             rec["entries"] = flipped["entries"]
             return grids, why + ", directions as headed"
     if not thorough:
         return [], "no grid"
-    grid, why = one_light_wrong(lights, words, n, black_run(rec))
+    grid, why = one_light_wrong(lights, words, n, black_run(rec), budget)
     if grid:
         return [grid], "unique, " + why
-    sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
-                                max_nodes=max_nodes)
+    if budget.spent():
+        return [], f"truncated: puzzle budget spent at {budget.spent_at or 'one light freed'}"
+    sols, info = budget.search("numbering only", lights, max_nodes, cols=n, rows=n,
+                               limit=limit)
+    if budget.spent():
+        return [], f"truncated: puzzle budget spent at {budget.spent_at}"
     if not sols:
         return [], "no grid" if not info["truncated"] else "no grid fits the answers"
     if len(sols) == 1 and not info["truncated"]:
@@ -795,10 +860,16 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     holes = []
     out = open_out(fresh, out_path) if write else None
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
-    for rec in recs:
+    for i, rec in enumerate(recs, 1):
         rec, made = amend(rec, settled)
         doubts = doubtful(rec)
+        print(f"[{i}/{len(recs)}] post {rec['post_id']} {rec['series']} "
+              f"{rec.get('number')}: {len(rec['entries'])} lights",
+              file=sys.stderr, flush=True)
+        t = time.monotonic()
         grids, why = solver(rec, max_nodes=max_nodes)
+        print(f"  post {rec['post_id']} {why}, {time.monotonic() - t:.1f}s",
+              file=sys.stderr, flush=True)
         fixes = []
         if len(grids) == 1:
             fixes, refused = settle(grids[0], rec, vocab)
