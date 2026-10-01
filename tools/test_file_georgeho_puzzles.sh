@@ -24,6 +24,27 @@ rec, why = G.record("toughie-250", rows)
 print("REC", why, rec["date"], rec["number"],
       [(e["number"], e["direction"], e["clue"], e["counted"]) for e in rec["entries"]])
 print("LINKED", rec["unsplit"][0]["lights"], rec["unsplit"][0]["enumeration"])
+# A title naming no setter takes the one bigdave44's posts on the puzzle
+# name (a hints post too), else the fifteensquared post at its url's title.
+import json, pathlib, tempfile
+tmp = pathlib.Path(tempfile.mkdtemp())
+(tmp / "bd").mkdir(); (tmp / "fs").mkdir()
+post = lambda pid, slug, title, body, link="": json.dumps({
+    "id": pid, "slug": slug, "link": link, "date": "2022-02-14T00:00:00", "categories": [],
+    "title": {"rendered": title}, "content": {"rendered": body}})
+(tmp / "bd" / "1.json").write_text(post(1, "sunday-toughie-3", "Sunday Toughie 3 (Hints)",
+                                        "<h2>Sunday Toughie No 3 by proXimal (Hints)</h2><p>Hints and Tips by Big Dave</p>"))
+(tmp / "bd" / "2.json").write_text(post(2, "toughie-1031", "Toughie 1031",
+                                        "<h2>Toughie No 1031 by Beam</h2>"))
+(tmp / "bd" / "3.json").write_text(post(3, "toughie-1032", "Toughie 1032", "<h2>Toughie No 1032</h2>"))
+(tmp / "fs" / "9.json").write_text(post(9, "", "Independent on Sunday 1150/Glow-worm", "",
+                                        "https://fifteensquared.net/2012/03/11/independent-on-sunday-1150glow-worm/"))
+wanted = [{"series": "sundaytough", "number": 3, "link": "http://bigdave44.com/2022/02/23/sunday-toughie-3-3/"},
+          {"series": "toughie", "number": 1031, "link": "http://bigdave44.com/2013/08/14/toughie-1031/"},
+          {"series": "toughie", "number": 1032, "link": "http://bigdave44.com/2013/08/15/toughie-1032/"},
+          {"series": "indysunday", "number": 1150,
+           "link": "https://www.fifteensquared.net/2012/03/11/independent-on-sunday-1150glow-worm/"}]
+print("OTHER", sorted(G.other_setters(wanted, tmp / "bd", tmp / "fs").items()))
 print("NODATE", G.record("x-1", [("x-1", "https://example.com/1.html", "X 1", "1a", "c", "A")])[1])
 PY
 )
@@ -35,6 +56,8 @@ check "the post date is the url's; numbers that start again are the downs; a mis
       "None 2010-01-04 250 [(1, 'across', 'Hands over exchange here (4)', False), (5, 'across', 'A Roman barrier (5,4)', True), (2, 'down', 'Wimps (8)', True)]" \
       "$(field REC)"
 check "a linked answer is left for the grid to split" "[[3, 'down'], [4, 'down']] 2,1,4" "$(field LINKED)"
+check "a setter the title omits comes from bigdave44's posts or fifteensquared's, else none" \
+  "[(('indysunday', 1150), 'Glow-worm'), (('sundaytough', 3), 'proXimal'), (('toughie', 1031), 'Beam')]" "$(field OTHER)"
 check "a post with no date is not a record" "no post date" "$(field NODATE)"
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "file_georgeho_puzzles: all checks passed"
