@@ -24,6 +24,9 @@
   "date": "2025-01-07",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,47 @@
     "text": "Suggests naughty kid is dishonest",
     "enumeration": "7"
    },
-   "solution": "IMPLIES"
+   "solution": "IMPLIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPLIES",
+    "definitions": [
+     {
+      "text": "Suggests",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naughty kid",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     },
+     {
+      "clueFragment": "is dishonest",
+      "gives": "LIES",
+      "note": "someone who is dishonest tells untruths"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "LIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hints that a badly behaved child is being untruthful.",
+     "walkthrough": "'Suggests' reads as the verb of the sentence, but it is the definition; the rest splits into two pieces read in order.",
+     "definitionFit": "To imply something is to hint at it indirectly, so the two verbs are straightforward synonyms in the third person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suggests"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +94,53 @@
     "text": "European abandoning loud hostelry",
     "enumeration": "3"
    },
-   "solution": "INN"
+   "solution": "INN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INN",
+    "definitions": [
+     {
+      "text": "hostelry",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so a letter departs from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "FINN",
+      "note": "a Finn is a native of Finland"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f (forte) is the musical marking for loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller from Europe leaves a noisy pub.",
+     "walkthrough": "FINN with its F, the musical symbol for loud, taken away leaves INN.",
+     "definitionFit": "A hostelry is an old-fashioned word for a pub or lodging house serving travellers, which an inn is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loud"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +154,61 @@
     "text": "After ceremony, regularly revisit ancient city",
     "enumeration": "7"
    },
-   "solution": "POMPEII"
+   "solution": "POMPEII",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POMPEII",
+    "definitions": [
+     {
+      "text": "ancient city",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "one thing coming after another places it later in the sequence of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ceremony",
+      "gives": "POMP",
+      "note": "pomp is ceremonial splendour"
+     },
+     {
+      "clueFragment": "revisit",
+      "gives": "EII",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POMP",
+      "EII"
+     ]
+    },
+    "explanation": {
+     "surface": "Following some formal event, a tourist goes back to see an ancient ruined city.",
+     "walkthrough": "The even letters of 'revisit' follow the ceremonial word, as 'After' instructs.",
+     "definitionFit": "Pompeii was the Roman city near Naples buried by the eruption of Vesuvius in AD 79."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +222,67 @@
     "text": "Daughter getting into rocky isle does very little",
     "enumeration": "5"
    },
-   "solution": "IDLES"
+   "solution": "IDLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IDLES",
+    "definitions": [
+     {
+      "text": "does very little",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocky",
+      "for": "anagram",
+      "note": "rocky means unsteady or shaky, so the letters are shaken into a new order"
+     },
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into a place means entering it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "isle",
+      "gives": "ISLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "LES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISLE",
+       "gives": "ILES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter arrives on a craggy island and lazes about.",
+     "walkthrough": "'Rocky isle' looks like a description of scenery, but 'rocky' rearranges the letters of 'isle' to ILES, and D goes in after the I.",
+     "definitionFit": "To idle is to laze about without working, so the verb matches a person who does very little."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocky"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +296,54 @@
     "text": "Combatant flogged? That is right",
     "enumeration": "7"
    },
-   "solution": "SOLDIER"
+   "solution": "SOLDIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLDIER",
+    "definitions": [
+     {
+      "text": "Combatant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flogged",
+      "gives": "SOLD",
+      "note": "in British slang, to flog something is to sell it"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for 'that is'"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a fighter was whipped, and is told that is correct.",
+     "walkthrough": "'Flogged' suggests whipping, but in everyday British slang flogging something means selling it.",
+     "definitionFit": "A soldier is a member of an army who fights in battle, a straightforward example of a combatant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flogged"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +357,55 @@
     "text": "A-lister making a comeback? Botheration!",
     "enumeration": "4"
    },
-   "solution": "RATS"
+   "solution": "RATS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "RATS",
+    "definitions": [
+     {
+      "text": "Botheration!",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "a comeback runs back the way it came, so the letters go in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A-lister",
+      "gives": "STAR",
+      "note": "an A-lister is a top celebrity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATS"
+     ],
+     "reversals": [
+      {
+       "from": "STAR",
+       "to": "RATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faded celebrity attempts a return to fame, and someone groans in annoyance.",
+     "walkthrough": "'Making a comeback' sounds like a career revival; here it turns the word backwards.",
+     "definitionFit": "Both are mild exclamations of annoyance or frustration used when something goes wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +419,43 @@
     "text": "To an extent, Harris hindered election loser",
     "enumeration": "5"
    },
-   "solution": "RISHI"
+   "solution": "RISHI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RISHI",
+    "definitions": [
+     {
+      "text": "election loser",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To an extent",
+      "for": "hidden_word",
+      "note": "only to an extent means partly, so just part of the run of letters is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harris hindered",
+      "gives": "RISHI",
+      "note": "the end of the first word plus the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment that the Democratic candidate Harris was partly held back in her election campaign.",
+     "walkthrough": "Kamala Harris lost the 2024 US election, a tempting misdirection; the answer is Rishi Sunak, whose Conservatives lost the 2024 UK general election.",
+     "definitionFit": "Rishi Sunak, as British prime minister, led his party to defeat in the 2024 general election."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Harris"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +469,58 @@
     "text": "Object about reckless and humiliating defeat",
     "enumeration": "9"
    },
-   "solution": "THRASHING"
+   "solution": "THRASHING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THRASHING",
+    "definitions": [
+     {
+      "text": "humiliating defeat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Object",
+      "gives": "THING",
+      "note": "a thing is an object"
+     },
+     {
+      "clueFragment": "reckless",
+      "gives": "RASH",
+      "note": "rash means acting without care"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HRASH",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests about a careless, embarrassing loss.",
+     "walkthrough": "'Object' looks like a verb meaning protest, but it is a noun here, and 'about' tells it to wrap round the second piece.",
+     "definitionFit": "A thrashing in sport is a heavy, one-sided loss, so it is a synonym for a crushing, humiliating defeat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +534,67 @@
     "text": "Walls of eastern auditorium enthral, displaying glossy material",
     "enumeration": "6"
    },
-   "solution": "ENAMEL"
+   "solution": "ENAMEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENAMEL",
+    "definitions": [
+     {
+      "text": "glossy material",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Walls of",
+      "for": "letter_selection",
+      "note": "walls stand at the edges of a space, so only the outside letters of each word are kept"
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "EN",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "auditorium",
+      "gives": "AM",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "enthral",
+      "gives": "EL",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "AM",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "The decorated walls of an eastern concert hall captivate visitors with their shine.",
+     "walkthrough": "'Walls of' applies to all three following words, taking the outer pair of letters from each in turn.",
+     "definitionFit": "Enamel is a hard, shiny coating fused onto metal or pottery, or a gloss paint, so it is a glossy substance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Walls"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +608,56 @@
     "text": "Girl hosting old monarch beams",
     "enumeration": "6"
    },
-   "solution": "LASERS"
+   "solution": "LASERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LASERS",
+    "definitions": [
+     {
+      "text": "beams",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes guests in, so one piece holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "LASS",
+      "note": "a lass is a girl, chiefly in northern English and Scottish use"
+     },
+     {
+      "clueFragment": "old monarch",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the royal cipher of the late Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAS",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman entertaining an elderly king smiles broadly.",
+     "walkthrough": "'Beams' looks like a verb for smiling, but it is the plural noun for shafts of light.",
+     "definitionFit": "Lasers produce narrow, intense shafts of light, so they are examples of beams in the plural noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beams"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +677,50 @@
      }
     ]
    },
-   "solution": "FREESPIRITS"
+   "solution": "FREESPIRITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREE SPIRITS",
+    "definitions": [
+     {
+      "text": "mavericks",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the house",
+      "gives": "FREE",
+      "note": "something on the house is given without charge"
+     },
+     {
+      "clueFragment": "Strong drinks",
+      "gives": "SPIRITS",
+      "note": "spirits are distilled alcoholic drinks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "SPIRITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bar hands out complimentary hard liquor to its unconventional regulars.",
+     "walkthrough": "The two pieces are read in reverse clue order: liquor given away gratis.",
+     "definitionFit": "Mavericks and free spirits are both independent people who refuse to follow conventions or rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +734,56 @@
     "text": "Boxer possibly boxing on ship",
     "enumeration": "9"
    },
-   "solution": "FREIGHTER"
+   "solution": "FREIGHTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREIGHTER",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "to box something is to pack it in a case, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boxer possibly",
+      "gives": "FIGHTER",
+      "note": "a boxer is one kind of fighter, hence 'possibly'"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning, as in a letter heading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RE",
+      "IGHTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A prizefighter perhaps spars in a match aboard a vessel.",
+     "walkthrough": "'Boxing' seems to continue the boxer idea, but it means enclosing. RE, meaning 'about' or 'on', is a common crossword stand-in.",
+     "definitionFit": "A freighter is a cargo vessel built to carry goods, so it is a type of ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +797,52 @@
     "text": "Dancing around, aren’t I a bit of a looker?",
     "enumeration": "6"
    },
-   "solution": "RETINA"
+   "solution": "RETINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETINA",
+    "definitions": [
+     {
+      "text": "a bit of a looker",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dancing around",
+      "for": "anagram",
+      "note": "dancing around means moving about freely, so the letters swap places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aren’t I",
+      "gives": "ARENTI",
+      "note": "the letters taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARENTI",
+       "gives": "RETINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone twirling on the dance floor asks whether they are rather attractive.",
+     "walkthrough": "'A bit of a looker' sounds like 'quite attractive', but read literally it is a part of the eye, the organ one looks with.",
+     "definitionFit": "The retina is the light-sensitive layer at the back of the eye, literally one part of the organ used for looking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looker"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +856,59 @@
     "text": "Complaint made by topless Americans who deliver letters on time",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AILMENT",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means without a top, and in a down answer the top is the first letter, so it goes"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Americans who deliver letters",
+      "gives": "MAILMEN",
+      "note": "mailman is the American word for postman"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AILMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A grievance is raised by American postal workers going shirtless while still being punctual.",
+     "walkthrough": "'Complaint' suggests a grievance, but it is meant in the medical sense of an illness.",
+     "definitionFit": "A complaint in the medical sense is an illness or disorder, which is exactly what an ailment is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +922,53 @@
     "text": "Losing grand, cultivating dry fruit",
     "enumeration": "6"
    },
-   "solution": "RAISIN"
+   "solution": "RAISIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAISIN",
+    "definitions": [
+     {
+      "text": "dry fruit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Losing",
+      "for": "deletion",
+      "note": "to lose something is to no longer have it, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is slang shorthand for a grand, a thousand pounds or dollars"
+     },
+     {
+      "clueFragment": "cultivating",
+      "gives": "RAISING",
+      "note": "to raise crops is to cultivate them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAISIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grower loses a thousand pounds while farming dried fruit.",
+     "walkthrough": "RAISING without its G leaves the answer; 'grand' is a thousand, abbreviated G.",
+     "definitionFit": "A raisin is a dried grape, so it is one example of dried fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +982,66 @@
     "text": "Parrot or ape? It inhabits India and China",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Parrot or ape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inhabits",
+      "for": "container",
+      "note": "something that inhabits a place lives within it, so it sits inside another piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "in cockney rhyming slang, china plate means mate, a friend"
+     },
+     {
+      "clueFragment": "It",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "IT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about which animal, parrot or ape, lives in India and China.",
+     "walkthrough": "The animals and countries are all misdirection: 'Parrot or ape' are both verbs, and 'china' for friend is cockney rhyming slang (china plate rhymes with mate).",
+     "definitionFit": "To parrot or to ape someone is to copy their words or behaviour, so both verbs mean to copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1061,56 @@
      }
     ]
    },
-   "solution": "GOODLOOKING"
+   "solution": "GOODLOOKING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOOD-LOOKING",
+    "definitions": [
+     {
+      "text": "Appealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugged by",
+      "for": "container",
+      "note": "something hugged is held in someone's arms, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wenceslas",
+      "gives": "GOODKING",
+      "note": "the carol calls him Good King Wenceslas"
+     },
+     {
+      "clueFragment": "ladies perhaps",
+      "gives": "LOO",
+      "note": "the ladies is a women's toilet, an example of a loo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOD",
+      "LOO",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "Attractive women are perhaps embraced by the saintly Bohemian duke.",
+     "walkthrough": "In British English 'the ladies' is a women's public toilet and a loo is any toilet; 'perhaps' marks it as one example.",
+     "definitionFit": "Appealing in the sense of attractive to look at, describing someone handsome or pretty, matches the adjective exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ladies"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1124,56 @@
     "text": "Travel around York’s middle part",
     "enumeration": "5"
    },
-   "solution": "ORBIT"
+   "solution": "ORBIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORBIT",
+    "definitions": [
+     {
+      "text": "Travel around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle",
+      "for": "letter_selection",
+      "note": "the middle of a word is its centre, so only the inner letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "York’s",
+      "gives": "OR",
+      "select": "middle",
+      "note": "the two central letters of the four"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit is a part of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor tours the central part of the city of York.",
+     "walkthrough": "'Travel around' reads as sightseeing, but it is the definition, as a planet goes round the sun.",
+     "definitionFit": "To orbit is to move in a circular path round something, as satellites circle planets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Travel"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1187,60 @@
     "text": "Ex-president with First from Oxford and two degrees",
     "enumeration": "5"
    },
-   "solution": "OBAMA"
+   "solution": "OBAMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OBAMA",
+    "definitions": [
+     {
+      "text": "Ex-president",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First from",
+      "for": "letter_selection",
+      "note": "the first from a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxford",
+      "gives": "O",
+      "select": "first",
+      "note": "initial letter"
+     },
+     {
+      "clueFragment": "two degrees",
+      "gives": "BAMA",
+      "note": "BA (Bachelor of Arts) and MA (Master of Arts)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BA",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A former head of state boasts a first-class Oxford degree and two more besides.",
+     "walkthrough": "'First' looks like a first-class degree, which fits the surface, but it only takes the opening letter.",
+     "definitionFit": "Barack Obama served as US president from 2009 to 2017, so he is a former holder of that office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1254,43 @@
     "text": "Firm where a lad works",
     "enumeration": "6"
    },
-   "solution": "STABLE"
+   "solution": "STABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STABLE",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     },
+     {
+      "text": "where a lad works",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "note": "first meaning: steady, secure, not wobbling"
+     },
+     {
+      "clueFragment": "where a lad works",
+      "note": "second meaning: a young groom who looks after racehorses in their building"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Firm' looks like a company employing a boy, but it is the adjective; a stable lad is the British term for a racehorse groom.",
+     "definitionFit": "Firm means steady and secure as an adjective, and the horses' building is where a stable lad is employed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1304,54 @@
     "text": "Conflict interrupting publicity for the Oscars, say",
     "enumeration": "6"
    },
-   "solution": "AWARDS"
+   "solution": "AWARDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWARDS",
+    "definitions": [
+     {
+      "text": "the Oscars, say",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "ADS",
+      "note": "ads, advertisements, are publicity"
+     },
+     {
+      "clueFragment": "Conflict",
+      "gives": "WAR",
+      "note": "a war is an armed conflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrel disrupts the promotional campaign for the Academy film ceremony.",
+     "walkthrough": "'Say' marks the Oscars as one example of the definition.",
+     "definitionFit": "The Oscars are the Academy Awards, given annually for achievement in film, so they are an example of prizes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1365,56 @@
     "text": "Boring intro from Doors track",
     "enumeration": "3"
    },
-   "solution": "DRY"
+   "solution": "DRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRY",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intro from",
+      "for": "letter_selection",
+      "note": "an intro is the opening of a song, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doors",
+      "gives": "D",
+      "select": "first",
+      "note": "initial letter"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway, a kind of track"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A listener finds the opening of a song by the rock band the Doors dull.",
+     "walkthrough": "'Track' suggests a song, but it means a railway line, abbreviated RY.",
+     "definitionFit": "A dry speech or book is dull and uninteresting, so the adjective is a synonym for tedious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1428,52 @@
     "text": "Cruel person for the most part is not sweet",
     "enumeration": "4"
    },
-   "solution": "BRUT"
+   "solution": "BRUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRUT",
+    "definitions": [
+     {
+      "text": "not sweet",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "the most part of something is nearly all of it, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruel person",
+      "gives": "BRUTE",
+      "note": "a brute is a savagely cruel person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a cruel person is mostly lacking in sweetness of nature.",
+     "walkthrough": "'Not sweet' sounds like a comment on character, but it is a wine term.",
+     "definitionFit": "Brut is the label for very dry champagne or sparkling wine, meaning it has little residual sugar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1487,56 @@
     "text": "Essay covering old kind of literary work",
     "enumeration": "7"
    },
-   "solution": "TRAGEDY"
+   "solution": "TRAGEDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAGEDY",
+    "definitions": [
+     {
+      "text": "kind of literary work",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes over and around something, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Essay",
+      "gives": "TRY",
+      "note": "an essay can mean an attempt, a try"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "AGED",
+      "note": "aged means old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AGED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's essay discusses an old genre of writing.",
+     "walkthrough": "'Essay' looks like a school composition, but it is used in its older sense of an attempt.",
+     "definitionFit": "Tragedy is a genre of drama or fiction ending in disaster for the protagonist, so it is one type of literature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Essay"
+    }
+   }
   }
  ]
 }
