@@ -365,6 +365,12 @@ tools/ft_puzzles.py                          files the Financial Times cryptic f
                                              serve a script with the Times' search, and files
                                              what passes the Times filer's checks; the nightly
                                              top-up
+tools/indy_puzzles.py                        the same pipeline on fifteensquared's Independent
+                                             category: files the daily and Sunday puzzles older
+                                             than the paper's feed, routed by title and number,
+                                             never a number already on disk
+tools/test_indy_puzzles.sh                   holds its title routing to both papers' post
+                                             titles and its Sunday dates to their order
 tools/test_ft_puzzles.sh                     holds that parser to each layout fifteensquared
                                              prints an FT post in, and the filer to a
                                              hand-built grid, because a misread answer becomes
@@ -1001,5 +1007,13 @@ tools/test_link_words.sh                     does tools/validate_annotations.py 
                                              placedFragments(), so these are the clues that
                                              reached the screen with a bought indicator
                                              half-erased
+tools/test_abbreviations_rank.sh             /abbreviations/ ranks every list by clue count and
+                                             shows the count: the most common list, the
+                                             families and the members of each, and each A-to-Z
+                                             row's readings. A reading no clue uses keeps its
+                                             place, last, with no count
+tools/test_clue_number_residue.sh            does puzzle_integrity refuse a blog clue that
+                                             opens with what is left of the blog's clue number,
+                                             and pass the clues that only look like one?
 ```
 <!-- LAYOUT-END -->
