@@ -57,7 +57,7 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
 TILE = 256
 CHALLENGE_RE = re.compile(
-    r'<script id="anubis_challenge"[^>]*>\s*(\{.*?\})\s*</script>', re.S)
+    r'<script id="anubis_challenge"[^>]*>\s*(\{.*?\})\s*</script>', re.DOTALL)
 
 
 class Trove:
@@ -151,17 +151,17 @@ class Trove:
         os.makedirs(d, exist_ok=True)
         _, page = self.get(f"/newspaper/article/{aid}")
         text = page.decode("utf-8", "replace")
-        zones = [dict(page=int(p), x=int(x), y=int(y), w=int(w), h=int(h)) for p, x, y, w, h in
+        zones = [{"page": int(p), "x": int(x), "y": int(y), "w": int(w), "h": int(h)} for p, x, y, w, h in
                  re.findall(r'class="zone onPage[^"]*" data-page-id="(\d+)" data-x="(\d+)" '
                             r'data-y="(\d+)" data-w="(\d+)" data-h="(\d+)"', text)]
         if not zones:
             raise RuntimeError(f"article {aid}: no zones in the article page")
-        t = re.search(r"<title>(.*?)</title>", text, re.S)
+        t = re.search(r"<title>(.*?)</title>", text, re.DOTALL)
         meta = {"id": str(aid), "title": html.unescape(t.group(1).strip()) if t else "",
                 "page_id": zones[0]["page"], "zones": zones}
         _, ocr = self.get(f"/newspaper/rendition/nla.news-article{aid}.txt")
         paras = [html.unescape(re.sub(r"<[^>]+>", "", p)).strip()
-                 for p in re.findall(r"<p>(.*?)</p>", ocr.decode("utf-8", "replace"), re.S)]
+                 for p in re.findall(r"<p>(.*?)</p>", ocr.decode("utf-8", "replace"), re.DOTALL)]
         with open(os.path.join(d, "ocr.txt"), "w") as f:
             f.write("\n".join(p for p in paras if p) + "\n")
         grid = grid_zone(zones)
@@ -226,8 +226,7 @@ def main():
         os.makedirs(os.path.join(a.out, "index"), exist_ok=True)
         path = os.path.join(a.out, "index", f"{year}.jsonl")
         with open(path, "w") as f:
-            for h in hits:
-                f.write(json.dumps(h) + "\n")
+            f.writelines(json.dumps(h) + "\n" for h in hits)
         print(f"{year} {a.query}: {total} hits, {len(hits)} written to {path}")
     else:
         ids = list(a.args)
