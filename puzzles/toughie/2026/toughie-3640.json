@@ -24,6 +24,9 @@
   "date": "2026-02-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,72 @@
     "text": "Detective left loads in front of sergeant",
     "enumeration": "6"
    },
-   "solution": "HOLMES"
+   "solution": "HOLMES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOLMES",
+    "definitions": [
+     {
+      "text": "Detective",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loads",
+      "for": "container",
+      "note": "to load something is to put it inside, so one piece goes into another"
+     },
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "HOME",
+      "note": "to be home is to be in, not out"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "sergeant",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sergeant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "L",
+      "ME",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A police detective dumps a pile of work on the sergeant standing beside him.",
+     "walkthrough": "'In' is not a link word here: it stands for HOME, as in 'stay home' or 'stay in'. L goes inside it, then the S of sergeant follows to make HOLMES.",
+     "definitionFit": "Sherlock Holmes is the most famous fictional private investigator, so his surname is a natural example of a sleuth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +119,62 @@
     "text": "Moor closed in northerly direction – what’s this?",
     "enumeration": "7"
    },
-   "solution": "OTHELLO"
+   "solution": "OTHELLO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OTHELLO",
+    "definitions": [
+     {
+      "text": "Moor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in northerly direction",
+      "for": "reversal",
+      "note": "in a down entry, heading north means reading from the bottom up, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "closed",
+      "gives": "TO",
+      "note": "a door pulled to is closed"
+     },
+     {
+      "clueFragment": "what’s this?",
+      "gives": "HELLO",
+      "note": "'hello, what's this?' is the exclamation of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OT",
+      "HELLO"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a stretch of moorland shut off to the north and wonders what is going on.",
+     "walkthrough": "'Moor' looks like open heathland, but it is the capital-M Moor of Venice. TO for closed comes from the phrase 'push the door to'.",
+     "definitionFit": "Shakespeare's tragic hero is described in the play's full title as the Moor of Venice, a North African general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Moor"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +188,55 @@
     "text": "Guy receives very good partner in department store",
     "enumeration": "5"
    },
-   "solution": "MASON"
+   "solution": "MASON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MASON",
+    "definitions": [
+     {
+      "text": "partner in department store",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "whoever receives something takes it in, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "MAN",
+      "note": "a guy is a man"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "SO",
+      "note": "an adverb of approval, as in 'just so'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man in a department store is given a top-notch business partner.",
+     "walkthrough": "MAN takes in SO. The theme of the puzzle is famous pairs, and each 'partner in' clue wants the other half of a well-known double act.",
+     "definitionFit": "Fortnum & Mason is the grand London department store on Piccadilly, founded by a footman and his landlord in 1707."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +250,42 @@
     "text": "In contest it challenged interplanetary partner",
     "enumeration": "6"
    },
-   "solution": "STITCH"
+   "solution": "STITCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STITCH",
+    "definitions": [
+     {
+      "text": "interplanetary partner",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the word sits inside the run of letters that follows, spanning several words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contest it challenged",
+      "note": "the run of letters across these three words contains the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Within some competition, a particular entrant was challenged.",
+     "walkthrough": "The answer runs from the end of 'contest' through 'it' into 'challenged'.",
+     "definitionFit": "In the Disney film Lilo & Stitch, Stitch is an alien experiment who crash-lands on Hawaii and becomes the girl's companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "interplanetary"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +299,59 @@
     "text": "It hurts that girlfriend’s swiped oriental slipper",
     "enumeration": "8"
    },
-   "solution": "BABOUCHE"
+   "solution": "BABOUCHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BABOUCHE",
+    "definitions": [
+     {
+      "text": "oriental slipper",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swiped",
+      "for": "container",
+      "note": "to swipe is to snatch and hold on to, so one piece ends up held inside another"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girlfriend’s",
+      "gives": "BABE",
+      "note": "babe is a slang term for a girlfriend"
+     },
+     {
+      "clueFragment": "It hurts",
+      "gives": "OUCH",
+      "note": "the cry when something hurts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAB",
+      "OUCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that his girlfriend has nicked a Turkish slipper, or struck him with it.",
+     "walkthrough": "'Slipper' looks like a thief here alongside 'swiped', but it is footwear; 'girlfriend's' is short for 'girlfriend has'.",
+     "definitionFit": "A babouche is a heelless leather slipper worn in Morocco and the Middle East, the East in old usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swiped"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +365,58 @@
     "text": "Partner in ices, in the north, raised bill",
     "enumeration": "3"
    },
-   "solution": "BEN"
+   "solution": "BEN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BEN",
+    "definitions": [
+     {
+      "text": "Partner in ices",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising letters puts the bottom at the top, so they read backwards"
+     }
+    ],
+    "linkWords": [
+     "in the north,"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill",
+      "gives": "NEB",
+      "note": "neb is a northern English and Scots word for a beak, a regional usage flagged by the words before it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEB",
+       "to": "BEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ice-cream business partner up north puts the prices up.",
+     "walkthrough": "'In the north' flags a regional word: neb, the beak of a bird. 'Raised bill' sounds like a price rise but is a beak turned upside down.",
+     "definitionFit": "Ben & Jerry's ice cream was founded by Ben Cohen and Jerry Greenfield in Vermont, so Ben is one half of the pair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +430,67 @@
     "text": "Old bank partner runs probes damaging to daughter",
     "enumeration": "8"
    },
-   "solution": "BRADFORD"
+   "solution": "BRADFORD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRADFORD",
+    "definitions": [
+     {
+      "text": "Old bank partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probes",
+      "for": "container",
+      "note": "a probe pushes inside something, so one piece goes into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damaging",
+      "gives": "BAD",
+      "note": "bad for you means damaging"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "FOR",
+      "note": "'bad to' and 'bad for' mean the same here"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "AD",
+      "FOR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner at a bank runs investigations that hurt his daughter.",
+     "walkthrough": "'Damaging to daughter' is a phrase spelt out almost literally, with 'to' swapped for its synonym 'for'; runs is the cricket R.",
+     "definitionFit": "Bradford & Bingley was a British building society turned bank, nationalised in 2008, so it is now an old name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "probes"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +504,67 @@
     "text": "Condition is painful for priest: ordeal exposed",
     "enumeration": "9"
    },
-   "solution": "URTICARIA"
+   "solution": "URTICARIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "URTICARIA",
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exposed",
+      "for": "letter_selection",
+      "note": "to expose is to strip off the covering, so each word loses its outermost letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is painful",
+      "gives": "URT",
+      "select": "middle",
+      "note": "is painful means hurts; drop the outside letters"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ICA",
+      "select": "middle",
+      "note": "a priest is a vicar; drop the outside letters"
+     },
+     {
+      "clueFragment": "ordeal",
+      "gives": "RIA",
+      "select": "middle",
+      "note": "an ordeal is a trial; drop the outside letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URT",
+      "ICA",
+      "RIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar finds his condition painful, his suffering now out in the open.",
+     "walkthrough": "'Exposed' applies to all three words: HURTS, VICAR and TRIAL each lose their first and last letters.",
+     "definitionFit": "Urticaria is the medical name for hives, an itchy skin rash named after the stinging nettle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +578,57 @@
     "text": "Completely naked with partner in health food shop",
     "enumeration": "7"
    },
-   "solution": "HOLLAND"
+   "solution": "HOLLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HOLLAND",
+    "definitions": [
+     {
+      "text": "partner in health food shop",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of its covering, so the outer letters go and the inside is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Completely",
+      "gives": "HOLL",
+      "select": "middle",
+      "note": "completely means wholly; strip the outer letters"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with, joining two things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOLL",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone strips off entirely, along with a business partner, in a health food store.",
+     "walkthrough": "'Completely naked' reads as one phrase, but 'naked' works on WHOLLY alone.",
+     "definitionFit": "Holland & Barrett is the UK high-street chain selling vitamins and health foods, so Holland is one partner in its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +642,66 @@
     "text": "Son blocking love from romantic film actor",
     "enumeration": "8"
    },
-   "solution": "THESPIAN"
+   "solution": "THESPIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "THESPIAN",
+    "definitions": [
+     {
+      "text": "actor",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking something from a word means removing it"
+     },
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "to block is to stand in the way, sitting in the middle of another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romantic film",
+      "gives": "THEPIANO",
+      "note": "The Piano is Jane Campion's 1993 romantic drama"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, so O"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "S",
+      "PIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A son gets in the way of the love scenes in a romantic film's leading man.",
+     "walkthrough": "THE PIANO loses its final O (love), and S goes in after THE.",
+     "definitionFit": "Thespis was the first actor of Greek tragedy, so a thespian is a performer on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +715,74 @@
     "text": "After series of races, I will cut a murderous figure",
     "enumeration": "6"
    },
-   "solution": "ATTILA"
+   "solution": "ATTILA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ATTILA",
+    "definitions": [
+     {
+      "text": "murderous figure",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "letter_selection",
+      "note": "the setter takes the opening letter of this word as its own contribution, an unusual liberty"
+     },
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting something short trims off its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "After",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "series of races",
+      "gives": "TT",
+      "note": "the TT is the Isle of Man motorbike Tourist Trophy series"
+     },
+     {
+      "clueFragment": "I will",
+      "gives": "IL",
+      "note": "I will shortens to I'LL, which loses its last letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "IL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Once a run of races is over, someone vows to cut a dash as a killer.",
+     "walkthrough": "The opening A is a liberty: blog commenters called it the kind of trick only this setter gets away with. The rest is TT, I'LL cut short, and A.",
+     "definitionFit": "Attila the Hun led brutal invasions of the Roman Empire in the fifth century and became a byword for savagery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +796,62 @@
     "text": "Fan emerging from oddly functional design",
     "enumeration": "7"
    },
-   "solution": "LINOCUT"
+   "solution": "LINOCUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LINOCUT",
+    "definitions": [
+     {
+      "text": "design",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emerging from",
+      "for": "deletion",
+      "note": "something emerging from a place leaves it, so those letters come out"
+     },
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "oddly means in a strange way, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "functional",
+      "gives": "FUNCTIONAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Fan",
+      "gives": "FAN",
+      "note": "taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UCTIONL",
+       "gives": "LINOCUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan comes out of a quirkily practical piece of design.",
+     "walkthrough": "'Oddly' tempts a solver to take alternate letters; here it shuffles what is left of FUNCTIONAL once F, A and N are removed.",
+     "definitionFit": "A linocut is a print made from a carved block of linoleum, so it is a design or artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +865,63 @@
     "text": "Food checker ingesting trace of opioid brown bread because of it?",
     "enumeration": "7"
    },
-   "solution": "TOASTER"
+   "solution": "TOASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOASTER",
+    "definitions": [
+     {
+      "text": "brown bread because of it?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trace of",
+      "for": "letter_selection",
+      "note": "a trace is the faintest mark, so only one opening letter is taken"
+     },
+     {
+      "text": "ingesting",
+      "for": "container",
+      "note": "ingesting is swallowing, taking something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food checker",
+      "gives": "TASTER",
+      "note": "a taster samples food for safety"
+     },
+     {
+      "clueFragment": "opioid",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal food taster swallows a hint of an opioid and ends up dead because of it.",
+     "walkthrough": "'Brown bread' is rhyming slang for dead, which the surface leans on; read straight it means bread browned by the appliance.",
+     "definitionFit": "A cryptic description: the kitchen appliance is the thing that turns slices of bread brown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brown"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +935,62 @@
     "text": "Spa offering something tripper drops briefly in river",
     "enumeration": "6"
    },
-   "solution": "FACIAL"
+   "solution": "FACIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FACIAL",
+    "definitions": [
+     {
+      "text": "Spa offering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "saying a word briefly cuts it short, so its last letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "FAL",
+      "note": "the Fal is a river in Cornwall"
+     },
+     {
+      "clueFragment": "something tripper drops",
+      "gives": "ACID",
+      "note": "LSD, acid, is dropped by someone tripping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACI",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A spa treatment is something a day tripper drops into for a short while at a riverside resort.",
+     "walkthrough": "'Tripper' looks like a holidaymaker but is someone on a hallucinogenic trip; to drop acid is to take LSD.",
+     "definitionFit": "A facial is a beauty treatment for the skin of the face, a staple service at health spas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tripper"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +1004,66 @@
     "text": "The establishment backs poor old partner in fashion house",
     "enumeration": "5"
    },
-   "solution": "DOLCE"
+   "solution": "DOLCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DOLCE",
+    "definitions": [
+     {
+      "text": "partner in fashion house",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so these letters are knocked into a new order"
+     },
+     {
+      "text": "backs",
+      "for": "charade",
+      "note": "to back is to come up behind, so one piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "The establishment",
+      "gives": "CE",
+      "note": "CE is the Church of England, the established church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOL",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLD",
+       "gives": "DOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Establishment supports an impoverished former partner of a fashion label.",
+     "walkthrough": "'The establishment' is the Church of England, the established church, abbreviated CE.",
+     "definitionFit": "Dolce & Gabbana is the Italian fashion house founded by Domenico Dolce and Stefano Gabbana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "establishment"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1083,74 @@
      }
     ]
    },
-   "solution": "CAMELHAIR"
+   "solution": "CAMELHAIR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CAMEL HAIR",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Work",
+      "for": "anagram",
+      "note": "to work material is to knead and reshape it into a new form"
+     },
+     {
+      "text": "head in",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     },
+     {
+      "text": "bandaging",
+      "for": "container",
+      "note": "a bandage wraps round something, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a miracle",
+      "gives": "AMIRACLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hygienic",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMEL",
+      "H",
+      "AIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMIRACLE",
+       "gives": "CAMELAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic works a miracle, wrapping an injured head in clean cloth.",
+     "walkthrough": "'Head in hygienic' looks like a bandaged head; it is just the first letter of hygienic, which sits in the middle of the shuffled letters.",
+     "definitionFit": "Camel hair is a soft textile woven from the underwool of camels, used for classic overcoats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1170,64 @@
      }
     ]
    },
-   "solution": "FAIRTRADE"
+   "solution": "FAIRTRADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FAIR TRADE",
+    "definitions": [
+     {
+      "text": "direct deals",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reviving",
+      "for": "anagram",
+      "note": "reviving something brings it back in a new form, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Market",
+      "gives": "FAIR",
+      "note": "a fair is a market"
+     },
+     {
+      "clueFragment": "rated",
+      "gives": "RATED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR",
+      "TRADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATED",
+       "gives": "TRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A market's credit rating is judged by whether it can revive straight dealing.",
+     "walkthrough": "'For reviving' reads oddly: 'for' is the link and 'reviving' works on RATED.",
+     "definitionFit": "The movement buys directly from producers at guaranteed prices, cutting out middlemen to give growers a fairer return."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reviving"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1241,48 @@
     "text": "Partner in game dropping periods?",
     "enumeration": "8"
    },
-   "solution": "DUNGEONS"
+   "solution": "DUNGEONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNGEONS",
+    "definitions": [
+     {
+      "text": "Partner in game",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dropping",
+      "gives": "DUNG",
+      "note": "animal droppings are dung"
+     },
+     {
+      "clueFragment": "periods",
+      "gives": "EONS",
+      "note": "an eon is a vast period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUNG",
+      "EONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A doubles partner in a match keeps missing whole sessions of play.",
+     "walkthrough": "'Dropping periods' reads as a verb phrase, but it splits into the noun 'dropping' and 'periods'.",
+     "definitionFit": "Dungeons & Dragons is the fantasy role-playing game launched in 1974, so this is half of its title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1296,71 @@
     "text": "Here we are in Cornwall, and I’m 50 per cent sure this is beachwear",
     "enumeration": "9"
    },
-   "solution": "SWIMSUITS"
+   "solution": "SWIMSUITS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWIMSUITS",
+    "definitions": [
+     {
+      "text": "beachwear",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50 per cent",
+      "for": "letter_selection",
+      "note": "fifty per cent is half, so only the first half of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Here we are in Cornwall",
+      "gives": "SW",
+      "note": "Cornwall is in the south-west, SW"
+     },
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sure",
+      "gives": "SU",
+      "select": "first",
+      "note": "the first half"
+     },
+     {
+      "clueFragment": "this is",
+      "gives": "ITS",
+      "note": "it's is a contraction of 'it is', standing for 'this is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "IM",
+      "SU",
+      "ITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker in Cornwall is only half sure that what they are wearing counts as beachwear.",
+     "walkthrough": "'Here we are in Cornwall' is a roundabout way of naming the region the county sits in, the South West.",
+     "definitionFit": "Swimming costumes are the standard clothing for bathing at the seaside, the obvious items worn on sand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cornwall"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1374,48 @@
     "text": "Honnold, maybe, partner in franchise",
     "enumeration": "7"
    },
-   "solution": "WALLACE"
+   "solution": "WALLACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WALLACE",
+    "definitions": [
+     {
+      "text": "partner in franchise",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honnold, maybe",
+      "gives": "WALL",
+      "note": "Alex Honnold climbed the rock wall of El Capitan without ropes"
+     },
+     {
+      "clueFragment": "Honnold, maybe",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALL",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "The rock climber Alex Honnold, perhaps, as a partner in some business franchise.",
+     "walkthrough": "Alex Honnold, the American free soloist of El Capitan, is a wall ace: an expert at climbing sheer rock faces.",
+     "definitionFit": "Wallace & Gromit is the Aardman animation series about a cheese-loving inventor and his dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Honnold"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1429,44 @@
     "text": "After sunny holiday you’ll see this cop’s partner in film",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "After sunny holiday you’ll see this",
+      "at": 0
+     },
+     {
+      "text": "cop’s partner in film",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "After sunny holiday you’ll see this",
+      "note": "split three and two, the answer says what happens to your colour a few weeks after a sunny break"
+     },
+     {
+      "clueFragment": "cop’s partner in film",
+      "note": "the 1989 buddy-cop film pairs two detectives"
+     }
+    ],
+    "explanation": {
+     "surface": "Back from a sunny break, you'll spot this detective's sidekick in a film.",
+     "walkthrough": "Read as TAN GO, the first part describes a holiday tan fading away. The second points to Tango & Cash, starring Sylvester Stallone and Kurt Russell.",
+     "definitionFit": "Ray Tango, played by Sylvester Stallone, is one of the two police officers in the action film Tango & Cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "holiday"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1480,67 @@
     "text": "In the ascent, say, tailed trapped carnivore",
     "enumeration": "7"
    },
-   "solution": "GENETTE"
+   "solution": "GENETTE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "GENETTE",
+    "definitions": [
+     {
+      "text": "carnivore",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In the ascent",
+      "for": "reversal",
+      "note": "climbing up a down entry means reading from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "tailed",
+      "for": "deletion",
+      "note": "to tail something is to cut off its tail, the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does 'say'"
+     },
+     {
+      "clueFragment": "trapped",
+      "gives": "NETTED",
+      "note": "caught in a net"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "NETTE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a climb, an animal is followed and then caught in a trap.",
+     "walkthrough": "'Tailed' looks like 'followed', but here it means docked of its tail.",
+     "definitionFit": "A genette, or genet, is a spotted cat-like mammal of Africa and southern Europe that hunts small prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tailed"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1554,55 @@
     "text": "Barrel quaffed by plucky partner in consumer goods",
     "enumeration": "6"
    },
-   "solution": "GAMBLE"
+   "solution": "GAMBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAMBLE",
+    "definitions": [
+     {
+      "text": "partner in consumer goods",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quaffed by",
+      "for": "container",
+      "note": "something quaffed is swallowed, so it ends up inside the drinker"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plucky",
+      "gives": "GAME",
+      "note": "game means brave and willing"
+     },
+     {
+      "clueFragment": "Barrel",
+      "gives": "BL",
+      "note": "bl is the abbreviation for barrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAM",
+      "BL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A spirited business partner downs a whole barrel of something.",
+     "walkthrough": "GAME swallows BL, the abbreviation used for barrels of oil.",
+     "definitionFit": "Procter & Gamble is the American multinational making household products such as detergents and toiletries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "plucky"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1622,87 @@
      }
     ]
    },
-   "solution": "OLDLAG"
+   "solution": "OLDLAG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "OLD LAG",
+    "definitions": [
+     {
+      "text": "lifelong delinquents",
+      "at": 9,
+      "note": "plural in the clue, while the answer names one such habitual offender"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "the first of each word is its opening letter"
+     },
+     {
+      "text": "thrown back",
+      "for": "reversal",
+      "note": "throwing something back sends it the other way, so the letters run backwards"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "something done sadly is done badly, so these letters come out in a muddled order"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one piece placed into another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lifelong delinquents",
+      "gives": "LD",
+      "select": "first",
+      "note": "the opening letters of both words"
+     },
+     {
+      "clueFragment": "gaol",
+      "gives": "GAOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OL",
+      "DL",
+      "AG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAOL",
+       "gives": "OLAG"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "LD",
+       "to": "DL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Habitual young offenders are sent back to prison, which is a sad state of affairs.",
+     "walkthrough": "The opening letters are taken from two words, reversed, and set inside the rearranged GAOL. Gaol is the British spelling of jail.",
+     "definitionFit": "Old lag is British slang for a habitual criminal who has spent years in and out of prison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1716,55 @@
     "text": "Publicity material bagged by Italian itinerant",
     "enumeration": "7"
    },
-   "solution": "ROADMAN"
+   "solution": "ROADMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROADMAN",
+    "definitions": [
+     {
+      "text": "itinerant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagged by",
+      "for": "container",
+      "note": "something bagged is put into a bag, so it ends up inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian",
+      "gives": "ROMAN",
+      "note": "a Roman is an Italian from Rome"
+     },
+     {
+      "clueFragment": "Publicity material",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "AD",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian wanderer stuffs advertising leaflets into his bag.",
+     "walkthrough": "'Italian itinerant' reads as one person, but 'Italian' is wordplay and 'itinerant' alone is the definition.",
+     "definitionFit": "A roadman is one who spends his life on the road, a wanderer, though in modern UK slang it means a street youth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bagged"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1778,50 @@
     "text": "High street partner has fun multiplying capital by 20",
     "enumeration": "5"
    },
-   "solution": "MARKS"
+   "solution": "MARKS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MARKS",
+    "definitions": [
+     {
+      "text": "High street partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "multiplying capital by 20",
+      "for": "substitution",
+      "note": "multiplying a Roman numeral by twenty turns it into a different numeral, swapping one letter for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has fun",
+      "gives": "LARKS",
+      "note": "to lark about is to have fun; its capital L is the Roman numeral 50, and 50 times 20 is 1000, M"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A high-street business partner enjoys himself by making twenty times the money.",
+     "walkthrough": "'Capital' looks like money but is the first letter. L is 50 in Roman numerals; times 20 gives 1000, M.",
+     "definitionFit": "Marks & Spencer is the long-established British department store chain found on almost every main shopping street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1835,56 @@
     "text": "This involves washing facilities, given a reason to wash?",
     "enumeration": "6"
    },
-   "solution": "LAVABO"
+   "solution": "LAVABO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAVABO",
+    "definitions": [
+     {
+      "text": "This involves washing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "facilities",
+      "gives": "LAV",
+      "note": "the facilities is a euphemism for the toilet, a lav"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reason to wash",
+      "gives": "BO",
+      "note": "BO is body odour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAV",
+      "A",
+      "BO"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on how a building's washing facilities give people a reason to clean up.",
+     "walkthrough": "'Washing facilities' reads as one phrase, but the clue splits after 'washing': 'facilities' starts the wordplay.",
+     "definitionFit": "The lavabo is the priest's ritual hand-washing at Mass, and also the basin used for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "facilities"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1898,57 @@
     "text": "Appropriate line followed by one rocket",
     "enumeration": "8"
    },
-   "solution": "LIBERATE"
+   "solution": "LIBERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIBERATE",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "rocket",
+      "gives": "BERATE",
+      "note": "a rocket is a severe telling-off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "BERATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitable route is followed by a single rocket launch.",
+     "walkthrough": "'Appropriate' wants to be an adjective, but it is the verb meaning to take. A rocket is British slang for a dressing-down, here used as a verb.",
+     "definitionFit": "Liberate is jocular slang for stealing, so to liberate goods is to appropriate them without permission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1962,50 @@
     "text": "Saucy partner dropping cap of beer",
     "enumeration": "3"
    },
-   "solution": "LEA"
+   "solution": "LEA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "LEA",
+    "definitions": [
+     {
+      "text": "Saucy partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping cap",
+      "for": "cycling",
+      "note": "in a down entry the cap is the top letter, and dropping it moves it to the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky companion knocks the top off a bottle of beer.",
+     "walkthrough": "'Saucy' sounds cheeky, but it is literal: the answer is half of a sauce brand. The top letter of ALE drops to the foot.",
+     "definitionFit": "Lea & Perrins is the maker of Worcestershire sauce, named after chemists John Lea and William Perrins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saucy"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +2019,68 @@
     "text": "Distraught banker admits what state Lincoln’s in",
     "enumeration": "8"
    },
-   "solution": "NEBRASKA"
+   "solution": "NEBRASKA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NEBRASKA",
+    "definitions": [
+     {
+      "text": "state Lincoln’s in",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distraught",
+      "for": "anagram",
+      "note": "someone distraught is all over the place, so the letters are jumbled"
+     },
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banker",
+      "gives": "BANKER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "AS",
+      "note": "as is a dialect relative pronoun meaning what or who"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEBR",
+      "AS",
+      "KA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BANKER",
+       "gives": "NEBRKA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic banker confesses the mess Abraham Lincoln is in.",
+     "walkthrough": "'Lincoln' looks like the president but is a city: Lincoln is the capital of Nebraska.",
+     "definitionFit": "Lincoln is the capital city of the American Midwestern state of Nebraska, so that is where it sits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lincoln's"
+    }
+   }
   },
   {
    "number": 29,
@@ -475,7 +2094,56 @@
     "text": "The conclusion of Harrogate flower festival",
     "enumeration": "6"
    },
-   "solution": "EASTER"
+   "solution": "EASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EASTER",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The conclusion of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harrogate",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "ASTER",
+      "note": "the aster is a daisy-like garden flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "The closing day of the Harrogate flower festival.",
+     "walkthrough": "Harrogate is a Yorkshire spa town famous for its flower shows, which makes 'flower festival' read as one phrase.",
+     "definitionFit": "Easter is the Christian feast celebrating the resurrection, one of the main holidays of the church year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   }
  ]
 }
