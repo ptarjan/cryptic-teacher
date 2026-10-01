@@ -156,4 +156,29 @@ print('ok' if not bad and st['sureClashes'] <= st['sureCrossings'] else bad)")
 [ "$got" = skip ] && echo "skip solution OCR: rapidocr-onnxruntime not installed" || \
   check "solution OCR accepts only fitting, hand-checked answers" "ok" "$got"
 
+# The nightly fetches clue columns only for articles the ledger leaves
+# pending without them, at most N a run, and one failure stops nothing.
+got=$(cd "$REPO/tools" && python3 -c "
+import io, json, pathlib, tempfile
+import trove_clue_ocr as T
+d = pathlib.Path(tempfile.mkdtemp()); cache, zones = d / 'trove', d / 'trove-clues'
+for aid in ('1', '2', '3', '4', '5'):
+    (cache / aid).mkdir(parents=True); (cache / aid / 'meta.json').write_text('{}')
+(zones / '3').mkdir(parents=True); (zones / '3' / 'zone0.png').write_bytes(b'')
+rows = [{'article': '1', 'pending': 'no grid'}, {'article': '2', 'id': 'canberra-1'},
+        {'article': '3', 'pending': 'no grid'}, {'article': '4', 'pending': 'no grid'},
+        {'article': '5', 'pending': 'no grid'}, {'article': '6', 'pending': 'no grid'}]
+(cache / 'filed.jsonl').write_text(''.join(json.dumps(r) + '\\n' for r in rows))
+seen = []
+def fake(aid, cache, zones, trove):
+    seen.append(aid)
+    if aid == '1':
+        raise OSError('HTTP 503')
+T.fetch = fake
+out = io.StringIO()
+print(T.pending(cache, zones), T.fetch_pending(2, cache, zones, trove=object(), out=out), seen,
+      '503' in out.getvalue())")
+check "the nightly fetches only pending articles without zones, capped, past a failure" \
+  "['1', '4', '5'] (1, 1, 1) ['1', '4'] True" "$got"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

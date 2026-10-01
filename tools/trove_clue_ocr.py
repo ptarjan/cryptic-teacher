@@ -3,6 +3,7 @@
 
     python3 tools/trove_clue_ocr.py --fetch ID [ID ...]   # cache the clue zones
     python3 tools/trove_clue_ocr.py --show ID             # the repair, one article
+    python3 tools/trove_clue_ocr.py --fetch-pending N     # nightly: N pending articles
 
 Trove's text OCR of a Canberra Times clue list loses about one clue a puzzle:
 a clue number read as junk ("tfl" for 10) glues that clue onto the one
@@ -12,6 +13,11 @@ sharp, so tools/file_trove_puzzles.py hands its parsed lists to repair() with
 RapidOCR's reading of the article's text zones (cached by fetch() in
 ~/.cache/trove-clues/<id>/zone<N>.png at ~half the scan's top resolution,
 where the print is still ~17px tall).
+
+--fetch-pending caches the zones of up to N articles tools/file_trove_puzzles.py
+left pending (no grid fits the clues it read), oldest first, with
+PENDING_DELAY seconds between Trove requests; the next filing run reads
+them, since the zones are part of an article's input hash.
 
 RapidOCR loses things too (it often drops brackets and the bold clue
 numbers), so it never replaces a list. It is a second witness, and every
@@ -45,6 +51,9 @@ ZONES = Path(os.path.expanduser("~/.cache/trove-clues"))
 #: fetch()'s smallest zone width in pixels: Trove's level 6, half the top
 #: resolution, which RapidOCR reads as well as the top one.
 ZONE_WIDTH = 220
+#: Seconds between Trove requests in the nightly --fetch-pending, twice the
+#: full fetch's, since it shares the site with it.
+PENDING_DELAY = 2.0
 #: Letters a text anchor must share; fewer match by chance.
 ANCHOR = 12
 #: Letters at a span's edge the two readings may disagree on.
@@ -82,6 +91,38 @@ def fetch(aid, cache=CACHE, zones=ZONES, trove=None):
             img, _ = trove.crop(z["page"], z, pad=4)
             img.save(p)
     return trove
+
+
+def pending(cache=CACHE, zones=ZONES):
+    """Article ids the filing ledger leaves pending whose zones are not cached."""
+    ledger = cache / "filed.jsonl"
+    if not ledger.exists():
+        return []
+    rows = (json.loads(line) for line in ledger.read_text().splitlines() if line.strip())
+    return sorted(r["article"] for r in rows
+                  if r.get("pending") and not zone_images(r["article"], zones)
+                  and (cache / r["article"] / "meta.json").exists())
+
+
+def fetch_pending(limit, cache=CACHE, zones=ZONES, delay=PENDING_DELAY, trove=None, out=sys.stdout):
+    """fetch() the zones of up to `limit` pending articles; returns
+    (fetched, failed, left). One article's failure is reported and the rest go
+    on: it stays pending and is tried again the next night."""
+    import fetch_trove
+    todo = pending(cache, zones)
+    trove = trove or fetch_trove.Trove(str(zones), delay, ZONE_WIDTH)
+    fetched, failed = 0, 0
+    for aid in todo[:limit]:
+        try:
+            fetch(aid, cache, zones, trove)
+            fetched += 1
+        except Exception as e:  # noqa: BLE001 -- one article's failure is reported, not fatal
+            failed += 1
+            print(f"  {aid}: {type(e).__name__}: {e}", file=out)
+    left = len(todo) - fetched - failed
+    print(f"clue zones fetched for {fetched} pending article(s), {failed} failed, "
+          f"{left} left", file=out)
+    return fetched, failed, left
 
 
 def read_text(images):
@@ -341,7 +382,12 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--fetch", nargs="+", metavar="ID")
     ap.add_argument("--show", metavar="ID")
+    ap.add_argument("--fetch-pending", type=int, metavar="N",
+                    help="cache the zones of up to N articles the filer left pending")
     args = ap.parse_args(argv)
+    if args.fetch_pending is not None:
+        _, failed, _ = fetch_pending(args.fetch_pending)
+        return 1 if failed else 0
     trove = None
     for aid in args.fetch or ():
         trove = fetch(aid, trove=trove)
