@@ -73,6 +73,13 @@ try:
 except ValueError:
     same("an answer longer than its light is refused", "refused", "refused")
 
+open_prize = doc("Cryptic Crossword No 1", "Monday, 03 August 2026")
+open_prize["json"]["copy"]["words"][0]["solution"] = ""
+p = ft.parse(open_prize, "cryptic-crossword-1")
+same("a puzzle with an answer missing files unsolved, with no half key",
+     (p["solutions"], [en for en in p["entries"] if "solution" in en], len(p["entries"])),
+     ({"origin": "unsolved"}, [], 4))
+
 linked = doc("Cryptic Crossword No 2", "Monday, 03 August 2026")
 across = linked["json"]["copy"]["clues"][0]["clues"]
 across[0].update(format="3,3", links=[{"number": 3, "direction": "Across"}])

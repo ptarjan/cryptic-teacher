@@ -216,7 +216,7 @@ def parse(doc, variant):
             if len(solution) > len(cells):
                 # An accent whose entity lost its "&" and ";": NEACUTEE is NEE.
                 solution = ENTITY_NAME.sub(r"\1", solution)
-            if len(solution) != len(cells):
+            if solution and len(solution) != len(cells):
                 raise ValueError(f"{c['number']} {direction}: answer {solution!r} "
                                  f"does not fill {len(cells)} cells")
             key = (int(c["number"]), direction)
@@ -253,6 +253,13 @@ def parse(doc, variant):
                 "solution": lights[m]["solution"],
             })
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
+    # Only the clues are mandatory. A prize puzzle whose entries are still
+    # open has no answers yet: it files unsolved, with no half key, and a
+    # later --holes run replaces it once the bucket publishes them.
+    solved = all(e["solution"] for e in entries)
+    if not solved:
+        for e in entries:
+            del e["solution"]
     setter = (copy.get("setter") or copy.get("byline") or "").strip() or None
     return {
         "id": series_meta.puzzle_id(series, number),
@@ -263,7 +270,7 @@ def parse(doc, variant):
         "date": day.isoformat(),
         "dimensions": {"cols": cols, "rows": rows},
         "source": {"url": PLAY_URL},
-        "solutions": {"origin": "published"},
+        "solutions": {"origin": "published" if solved else "unsolved"},
         "entries": entries,
     }
 
@@ -417,24 +424,32 @@ def fetch(variant, slug, expect=None, setters=None):
     held = puzzle_paths.find(puzzle["id"])
     if held:
         old = read_puzzle_file(held)
-        if (old.get("source") or {}).get("acquiredBy") == TOOL:
+        ours = (old.get("source") or {}).get("acquiredBy") == TOOL
+        # An unsolved puzzle never replaces a held one; a solved one replaces
+        # our own unsolved file outright.
+        if unsolved(puzzle) or (ours and not unsolved(old)):
             print(f"held {puzzle['id']}: left alone")
             return None, asked
-        puzzle, notes = refile(puzzle, old)
-        write_puzzle_file(path, puzzle, generator=TOOL)
-        print(f"refiled {puzzle['id']} ({puzzle['date']}) over the blog's"
-              + "".join(f"\n  {n}" for n in notes))
-        return puzzle, asked
+        if not ours:
+            puzzle, notes = refile(puzzle, old)
+            write_puzzle_file(path, puzzle, generator=TOOL)
+            print(f"refiled {puzzle['id']} ({puzzle['date']}) over the blog's"
+                  + "".join(f"\n  {n}" for n in notes))
+            return puzzle, asked
     write_puzzle_file(path, puzzle, generator=TOOL)
     print(f"fetched {puzzle['id']} ({puzzle['date']})")
     return puzzle, asked
 
 
+def unsolved(puzzle):
+    return puzzle.get("solutions", {}).get("origin") == "unsolved"
+
+
 def holes(rows):
-    """The calendar rows to file: those puzzles/ lacks, and those it holds
-    only as the blog filer rebuilt them."""
+    """The calendar rows to file: those puzzles/ lacks, those it holds only
+    as the blog filer rebuilt them, and those it holds unsolved."""
     have = {p["id"] for p in (read_puzzle_file(f) for f in puzzle_files())
-            if p.get("series") in PAPER
+            if p.get("series") in PAPER and not unsolved(p)
             and (p.get("source") or {}).get("acquiredBy") == TOOL}
     return [r for r in rows if series_meta.puzzle_id(r[0], r[1]) not in have]
 
