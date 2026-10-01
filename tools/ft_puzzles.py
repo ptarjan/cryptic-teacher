@@ -104,8 +104,11 @@ def head_of(ln, direction, last):
         rest = m.group(2).strip()
         way = direction
         suffix = tftt.BARE_SUFFIX.match(rest)
+        glued = None if suffix else tftt.GLUED_SUFFIX.match(ln)
         if suffix:
             rest, way = "", tftt.DIRECTION_OF[suffix.group(1).lower()]
+        elif glued:
+            rest, way = ln[glued.end():].strip(), tftt.DIRECTION_OF[glued.group(1).lower()]
         lights = [(int(m.group(1)), way)]
     if not lights or lights[0][0] <= last or lights[0][0] > 40:
         return None

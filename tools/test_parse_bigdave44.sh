@@ -83,6 +83,17 @@ typed = F.typed_counts([{"entries": [{"answer": "ONETRACKMIND", "enumeration": e
 one = {"x": {"solution": "ONETRACKMIND"}}
 print("TYPED", F.from_answer(["x"], one, "9,4", "ONETRACK MIND", typed),
       F.from_answer(["x"], one, "9,4", "ONETRACK MIND"))
+# A bare clue number before a clue whose first word is "A": "1 A" is no
+# across suffix, while a spaced lowercase "9 a.", a glued "11ac." and a
+# "3dFares" typed with no space are.
+bare = post(11, "Toughie 3589", """<p><strong>Across</strong></p>
+<p>1 A moral purge modified indoor pastime (7,4)<br/><span class="hc">PARLOUR GAME</span>: anagram</p>
+<p>9 a. Forbid chaotic vote (4)<br/><span class="hc">VETO</span>: anagram</p>
+<p>11ac. Draw attention to showy plant (4)<br/><span class="hc">FLAG</span>: double</p>
+<p><strong>Down</strong></p>
+<p>2 A line initially sprinted over too (4)<br/><span class="hc">ALSO</span>: charade</p>
+<p>3dFares going up on flights? (10)<br/><span class="hc">PASSENGERS</span>: cd</p>""")
+print("BARE_A", " | ".join(f"{e['number']}{e['direction'][0]} {e['clue']}" for e in B.read_post(bare, CATS)["entries"]))
 print("NPSP", B.read_post(typo, CATS)["entries"][0]["clue"])
 print("BLOGGER", B.read_post(post(6, "DT 31000", "<p>Hints and tips by Deep Threat</p>"), CATS)["setter"])
 print("SERIES", *(B.series_and_number(post(0, t, ""), "")[0] for t in (
@@ -123,6 +134,9 @@ check "a setter category names the setter" "Dada Zandio" "$(got CATEGORY)"
 check "the blogger is never the setter" "None" "$(got BLOGGER)"
 check "a bare Toughie heading's next line bylines it; an analysis line never does" \
   "Firefly None" "$(got TITLED)"
+check "a bare number then \"A ...\" keeps the A; spaced lowercase and "ac" suffixes still direct" \
+  "1a A moral purge modified indoor pastime (7,4) | 9a Forbid chaotic vote (4) | 11a Draw attention to showy plant (4) | 2d A line initially sprinted over too (4) | 3d Fares going up on flights? (10)" \
+  "$(got BARE_A)"
 check "the blog's &npsp; typo is a space, not text" "Equipment belt? (7)" "$(got NPSP)"
 check "the printed answer's word breaks ride along; the letters-only answer is unchanged" \
   "CONSOLETABLE/CONSOLE TABLE TEA/None" "$(got SPACED)"

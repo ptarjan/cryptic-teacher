@@ -88,8 +88,12 @@ PLAUSIBLE = (20, 40)
 #: of the blog writes it. The shared reader takes the direction off an
 #: Across/Down heading, and the blog's headings vary ("Across Clues", none at
 #: all), so the suffix becomes the heading; a linked head "1a/5d" keeps it.
-SUFFIX = re.compile(r"^(\d{1,2})\s*([ad])\b\.?(?!\s*(?:/|,|&|and)\s*\d)\s*", re.I)
-WAY = {"a": "Across", "d": "Down"}
+#: Glued, the suffix may be either case ("19D", "1ac."); spaced off the number
+#: it must be lowercase ("9 a."), because "1 A moral purge ..." is a bare
+#: number and a clue whose first word is "A". A typo can glue the clue on too,
+#: "3dFares going up ...".
+SUFFIX = re.compile(r"^(\d{1,2})(ac|dn|[ad]|\s+(?-i:ac|dn|[ad]))(?:\b|(?=(?-i:[A-Z])))\.?(?!\s*(?:/|,|&|and)\s*\d)\s*", re.I)
+WAY = {"a": "Across", "d": "Down", "ac": "Across", "dn": "Down"}
 #: Until about 2015 the answer is printed white on white inside braces,
 #: "{ SAPLINGS } An anagram ...", and the shared reader drops braced text.
 HIDDEN = re.compile(r"\{\s*((?:<[^>]+>\s*)*[^<{}]*?(?:\s*</[^>]+>)*)\s*\}")
@@ -156,8 +160,8 @@ def headed(rendered):
     for ln in rendered:
         m = SUFFIX.match(ln)
         if m:
-            if WAY[m.group(2).lower()] != way:
-                way = WAY[m.group(2).lower()]
+            if WAY[m.group(2).strip().lower()] != way:
+                way = WAY[m.group(2).strip().lower()]
                 out.append(way)
             ln = f"{m.group(1)} {ln[m.end():]}"
         out.append(ln)

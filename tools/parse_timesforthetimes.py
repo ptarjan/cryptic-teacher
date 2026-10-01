@@ -145,6 +145,10 @@ STRAY_NUMBER = re.compile(r"^(?:\(\s*(\d{1,2})|\.\s*(\d{1,2})\.?)$")
 #: A number cell can name its direction too -- "12d", "20a", "5ac" -- and is
 #: still a bare number cell, not clue number 12 with clue text "d".
 BARE_SUFFIX = re.compile(r"^(across|ac|a|down|dn|d)\.?$", re.I)
+#: "1a Maybe saw stolen goods being returned (4)": the suffix glued to the
+#: number with the clue after it on the same line. Glued only, because "1 A
+#: moral purge ..." is clue 1 opening with the word "A".
+GLUED_SUFFIX = re.compile(r"^\d{1,2}(ac|dn|a|d)\b\.?\s+(?=\S)", re.I)
 #: "See 15", "See 3 (9)", "See 12 across", "See 12a" — a light whose clue lives on another
 #: light. tools/normalise_linked_enumerations.py reads the same shape; this is
 #: how the whole corpus spells a continuation.
@@ -861,9 +865,12 @@ def read_entries(rendered):
                 number, rest = int(m.group(1)), m.group(2).strip()
                 way = direction or "across"
                 suffix = BARE_SUFFIX.match(rest)
+                glued = None if suffix else GLUED_SUFFIX.match(ln)
                 if suffix:
                     rest, way = "", DIRECTION_OF[suffix.group(1).lower()]
-                if (direction == "across" and not headed_down and not suffix
+                elif glued:
+                    rest, way = ln[glued.end():].strip(), DIRECTION_OF[glued.group(1).lower()]
+                if (direction == "across" and not headed_down and not (suffix or glued)
                         and number <= 2 < last):
                     direction, way, last = "down", "down", 0
                 if (number, way) not in answered:

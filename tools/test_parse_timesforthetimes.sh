@@ -666,6 +666,11 @@ check "a pointer glued to its leader's direction, \"See 12a (5)\", is a pointer"
 merged='<p>Across</p><p>13 Coward&#8217;s work complaint? (35)</p><p>HAY FEVER &#8211; a cd</p>'
 check "a count whose comma the blog dropped is read off the answer's words" \
   "13|across|HAYFEVER|3,5|Coward’s work complaint? (3,5)" "$(run "$merged")"
+onerow='<p>Across</p><p>1a Maybe saw stolen goods being returned (4)</p><p>TOOL &#8211; x</p>
+<p>4 A French inlet not in good condition (7)</p><p>UNSOUND &#8211; x</p>'
+check "a suffix glued to the number leaves the clue; a bare number keeps a leading \"A\"" \
+  "1|across|TOOL|4|Maybe saw stolen goods being returned (4)
+4|across|UNSOUND|7|A French inlet not in good condition (7)" "$(run "$onerow")"
 prose='<p>Across</p><p>4/7 of 19 is a very small amount (4)</p><p>WHIT &#8211; a charade</p>'
 check "a head no pointer answers stays the clue's text" \
   "4|across|WHIT|4|4/7 of 19 is a very small amount (4)" "$(run "$prose")"
