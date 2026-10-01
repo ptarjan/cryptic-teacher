@@ -22,6 +22,10 @@ A puzzle is filed only when:
     serve it (the blog filers' checks);
   - file_blog_puzzles.build accepts it: clues, counts, crossings.
 
+A title that names no setter ("Toughie 1031") takes the one bigdave44's
+cached posts on the same puzzle name ("Toughie No 1031 by Beam", its hints
+post included), or the cached fifteensquared post at the same url's title.
+
 georgeho is frozen, so this is a one-off run with no nightly step.
 """
 import argparse
@@ -38,6 +42,7 @@ sys.path.insert(0, str(TOOLS))
 import corroborate
 import fetch_telegraph
 import file_blog_puzzles as fbp
+import parse_bigdave44
 import puzzle_paths
 import series as series_meta
 import times_grids as tg
@@ -185,6 +190,42 @@ def write_records():
     return left
 
 
+FIFTEENSQUARED = corroborate.GEORGEHO.parent.parent / "fifteensquared" / "posts"
+
+
+def url_key(url):
+    """A post's url without its scheme and host's www, for matching copies."""
+    return re.sub(r"^https?://(?:www\.)?", "", url or "").rstrip("/")
+
+
+def other_setters(wanted, bigdave=parse_bigdave44.POSTS, fifteensquared=FIFTEENSQUARED):
+    """{(series, number): setter} for the records in `wanted` whose title
+    names none, from the posts we cache: bigdave44's on the same puzzle, else
+    the fifteensquared post at the record's url. Posts naming two setters
+    name none."""
+    keys = {(r["series"], r["number"]) for r in wanted}
+    named = collections.defaultdict(set)
+    if bigdave.is_dir():
+        cats, numbers = parse_bigdave44.categories(), {str(n) for _, n in keys}
+        for path in bigdave.glob("*.json"):
+            post = json.loads(path.read_text(encoding="utf-8"))
+            if not numbers & set(re.findall(r"\d+", post.get("slug", ""))):
+                continue
+            got = parse_bigdave44.named_setter(post, cats)
+            if got and got[:2] in keys and got[2]:
+                named[got[:2]].add(got[2])
+    urls = {url_key(r["link"]): (r["series"], r["number"]) for r in wanted
+            if (r["series"], r["number"]) not in named}
+    if urls and fifteensquared.is_dir():
+        for path in fifteensquared.glob("*.json"):
+            post = json.loads(path.read_text(encoding="utf-8"))
+            key = urls.get(url_key(post.get("link")))
+            setter = key and corroborate.blog_setter(post.get("title", {}).get("rendered"))
+            if setter:
+                named[key].add(setter)
+    return {k: v.pop() for k, v in named.items() if len(v) == 1}
+
+
 def neighbours(held, series, number):
     """(lower, upper) numbers our corpus holds either side, each within MAX_GAP."""
     import bisect
@@ -228,6 +269,10 @@ def file_all(write=True):
     reprints = fbp.reprinted_from()
     typed = fbp.typed_counts(recs.values())
     filed, skipped, compared = collections.Counter(), collections.Counter(), collections.Counter()
+    unnamed = [recs[r["post_id"]] for r in rows
+               if r["post_id"] in recs and not recs[r["post_id"]].get("setter")
+               and not puzzle_path(recs[r["post_id"]]["series"], recs[r["post_id"]]["number"]).exists()]
+    named = other_setters(unnamed)
     for row in rows:
         rec = recs.get(row["post_id"])
         if rec is None:
@@ -259,7 +304,8 @@ def file_all(write=True):
         if date is None:
             skipped["no print date: neither the title nor its neighbours fix one"] += 1
             continue
-        setter = rec.get("setter") or series_meta.default_setter(series)
+        setter = (rec.get("setter") or named.get((series, number))
+                  or series_meta.default_setter(series))
         puzzle, why = fbp.build(rec, row, series, date, setter, typed)
         if why:
             skipped[why] += 1

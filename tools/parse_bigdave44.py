@@ -46,8 +46,8 @@ PAPERS = (
     (re.compile(r"^\s*(?:DT|daily\s*telegraph)\b", re.I), "telegraph"),
 )
 #: The puzzle number after the paper: "DT 31354", "Toughie No 2717",
-#: "DT31349 (Hints)", "Sunday Toughie 242 (full review)".
-NUMBER = re.compile(r"^\D*?(\d[\d,]{1,6})\b")
+#: "DT31349 (Hints)", "Sunday Toughie 242 (full review)", "Sunday Toughie 3".
+NUMBER = re.compile(r"^\D*?(\d[\d,]{0,6})\b")
 
 #: The body's heading names the setter where the paper prints one: "Toughie
 #: No 2717 by Robyn", "Sunday Toughie No 180 by Beam". Only a line that opens
@@ -221,10 +221,24 @@ def headed(rendered):
     return out
 
 
+def rendered_lines(post):
+    """The post body's non-empty text lines."""
+    body = TYPOED_NBSP.sub(" ", post["content"]["rendered"])
+    return [ln for ln in tftt.lines(HIDDEN.sub(r"\1 – ", body)) if ln]
+
+
+def named_setter(post, cats):
+    """(series, number, setter or None) a post's heading names, or None for a
+    post that is no puzzle of ours. Every post counts, hints with no clue
+    list included."""
+    rendered = rendered_lines(post)
+    series, number = series_and_number(post, rendered[0] if rendered else "")
+    return (series, number, setter_of(post, rendered, cats)) if series else None
+
+
 def read_post(post, cats):
     """One post's facts, or None for a post that is no puzzle of ours."""
-    body = TYPOED_NBSP.sub(" ", post["content"]["rendered"])
-    rendered = [ln for ln in tftt.lines(HIDDEN.sub(r"\1 – ", body)) if ln]
+    rendered = rendered_lines(post)
     series, number = series_and_number(post, rendered[0] if rendered else "")
     if series is None:
         return None

@@ -209,7 +209,7 @@ def blog_puzzle_id(title, table=BLOG_SERIES):
 
 
 BYLINE = re.compile(r"\bby\s+([A-Z][\w'’.-]*(?: [A-Z][\w'’.-]*)?)\s*$")
-TRAILING = re.compile(r"\d\s*([A-Z][a-z][\w'’-]*)$")
+TRAILING = re.compile(r"\d\s*/?\s*([A-Z][a-z][\w'’-]*)$")
 
 
 def blog_setter(title):
