@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,44 @@
      }
     ]
    },
-   "solution": "HOWCOME"
+   "solution": "HOWCOME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HOW COME",
+    "definitions": [
+     {
+      "text": "Why",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bits",
+      "for": "hidden_word",
+      "note": "bits are fragments, so the answer is a run of letters taken from inside the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show comedian’s",
+      "gives": "HOWCOME",
+      "note": "the letters run across the join between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks why a stand-up is showing off parts of their act, or of their body.",
+     "walkthrough": "The answer sits in sHOW COMEdian. 'Show' reads as a verb in the surface, but it only supplies letters.",
+     "definitionFit": "This is a casual spoken way of asking for a reason, used exactly like the single question word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bits"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +93,43 @@
     "text": "People working - they’re on the clock",
     "enumeration": "5"
    },
-   "solution": "HANDS"
+   "solution": "HANDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HANDS",
+    "definitions": [
+     {
+      "text": "People working",
+      "at": 0
+     },
+     {
+      "text": "they’re on the clock",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People working",
+      "note": "first meaning: labourers, as in farm workers or crew members"
+     },
+     {
+      "clueFragment": "they’re on the clock",
+      "note": "second meaning: the pointers that sweep round a clock face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On the clock' sounds like workers paid by the hour, which ties the halves together, but the second half is literal: the pointers on a clock face. This answer is the theme word that many other clues use as '1D'.",
+     "definitionFit": "Manual workers are traditionally called by this word, and a clock's pointers carry the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clock"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +143,61 @@
     "text": "Rucksack emptied into ladies 1D",
     "enumeration": "7"
    },
-   "solution": "WORKMEN"
+   "solution": "WORKMEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "WORKMEN",
+    "definitions": [
+     {
+      "text": "1D",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "deletion",
+      "note": "something emptied has lost its contents, so only the outside letters of the word are left"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being put inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rucksack",
+      "gives": "RK",
+      "note": "the word with all its inside letters removed, leaving only the first and last"
+     },
+     {
+      "clueFragment": "ladies",
+      "gives": "WOMEN",
+      "note": "ladies are women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "RK",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rucksack is tipped out into the ladies' toilets.",
+     "walkthrough": "'Ladies' looks like the toilets, but it simply means women. The definition is the answer to 1 Down, HANDS, here meaning hired labourers.",
+     "definitionFit": "Hired labourers are called hands, so the plural noun for manual labourers fits the cross-reference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ladies"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +211,62 @@
     "text": "Subdued group of haematologists were proved wrong",
     "enumeration": "11"
    },
-   "solution": "OVERPOWERED"
+   "solution": "OVERPOWERED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OVERPOWERED",
+    "definitions": [
+     {
+      "text": "Subdued",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "a wrong arrangement is an incorrect one, so these letters must be put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of haematologists",
+      "gives": "O",
+      "note": "haematologists study blood, and O is a blood group"
+     },
+     {
+      "clueFragment": "were proved",
+      "gives": "WEREPROVED",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERPOWERED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEREPROVED",
+       "gives": "VERPOWERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet team of blood specialists turned out to have been mistaken.",
+     "walkthrough": "'Group' sounds like a team of doctors, but it is a blood group, the single letter O.",
+     "definitionFit": "If someone was overcome or held down by force, they were subdued; both are past participles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +280,73 @@
     "text": "Top pairs in effortless finish, calmly cycling, showing ability to succeed",
     "enumeration": "8"
    },
-   "solution": "EFFICACY"
+   "solution": "EFFICACY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EFFICACY",
+    "definitions": [
+     {
+      "text": "ability to succeed",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top pairs in",
+      "for": "letter_selection",
+      "note": "the top of a word is its start, and pairs means two letters, so each word gives its opening couple"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "effortless",
+      "gives": "EF",
+      "select": "first",
+      "note": "the opening two letters"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "FI",
+      "select": "first",
+      "note": "the opening two letters"
+     },
+     {
+      "clueFragment": "calmly",
+      "gives": "CA",
+      "select": "first",
+      "note": "the opening two letters"
+     },
+     {
+      "clueFragment": "cycling",
+      "gives": "CY",
+      "select": "first",
+      "note": "the opening two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EF",
+      "FI",
+      "CA",
+      "CY"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist who finishes easily and calmly shows they can win.",
+     "walkthrough": "The surface reads like a race report; the clue takes the first two letters of each of the four words.",
+     "definitionFit": "Efficacy is the power to produce the intended result, which is a formal way of describing capacity to get things done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +360,67 @@
     "text": "Step-by-step, accepted Miss Lipa in good 1D",
     "enumeration": "7"
    },
-   "solution": "GRADUAL"
+   "solution": "GRADUAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRADUAL",
+    "definitions": [
+     {
+      "text": "Step-by-step",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one group of letters goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "1D",
+      "gives": "RL",
+      "note": "the two hands are right and left, abbreviated R and L"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "A is an abbreviation for accepted, as on bills of exchange"
+     },
+     {
+      "clueFragment": "Miss Lipa",
+      "gives": "DUA",
+      "note": "Dua Lipa is the British pop singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "ADUA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The singer Dua Lipa is gradually welcomed into safe hands.",
+     "walkthrough": "Here '1D' is not the word HANDS but the two hands themselves, right and left, R and L, which go round the A and the singer's first name.",
+     "definitionFit": "Something done step-by-step proceeds slowly, in small stages, so both are adjectives for slow progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +434,58 @@
     "text": "Try short bit of sorcery to obtain the truth",
     "enumeration": "6"
    },
-   "solution": "GOSPEL"
+   "solution": "GOSPEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GOSPEL",
+    "definitions": [
+     {
+      "text": "the truth",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short loses its end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to obtain"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "bit of sorcery",
+      "gives": "SPELL",
+      "note": "a spell is a small piece of magic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "SPEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries a quick magic charm to make a person tell the truth.",
+     "walkthrough": "'Try' is a verb in the surface but a noun, a go, in the wordplay.",
+     "definitionFit": "Taking something as gospel means treating it as unquestionable fact, an idiom for absolute truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +499,57 @@
     "text": "Foolish person written about in essays",
     "enumeration": "3"
    },
-   "solution": "ASS"
+   "solution": "ASS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ASS",
+    "definitions": [
+     {
+      "text": "Foolish person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "reversal",
+      "note": "about means turned round, so the letters are read backwards"
+     },
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters wanted are contained in the next word, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "essays",
+      "gives": "SSA",
+      "note": "three letters near the start of the word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SSA",
+       "to": "ASS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool is the subject of some written essays.",
+     "walkthrough": "The answer runs backwards in eSSAys. 'Written about' reads as 'the subject of' but means written the other way round.",
+     "definitionFit": "A donkey is proverbially stupid, so the animal's name is an everyday insult for a fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +563,69 @@
     "text": "Guardian regularly ordered tea to go",
     "enumeration": "7"
    },
-   "solution": "URINATE"
+   "solution": "URINATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "URINATE",
+    "definitions": [
+     {
+      "text": "to go",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every second letter is taken"
+     },
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so these letters are put in a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guardian",
+      "gives": "URIN",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URIN",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEA",
+       "gives": "ATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Guardian reader routinely orders a takeaway cup of tea.",
+     "walkthrough": "'Ordered tea to go' looks like a coffee-shop order, but 'to go' is the definition: a polite way of saying use the toilet.",
+     "definitionFit": "To go is a common euphemism for passing water, the plain verb for which is the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +639,56 @@
     "text": "Lacking superior fiction originally, gathered erotic literature - especially short stories",
     "enumeration": "9"
    },
-   "solution": "LIEGELESS"
+   "solution": "LIEGELESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIEGELESS",
+    "definitions": [
+     {
+      "text": "Lacking superior",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the beginning, so each word gives its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiction",
+      "gives": "LIE",
+      "note": "a lie is a fiction, something made up"
+     },
+     {
+      "clueFragment": "gathered erotic literature - especially short stories",
+      "gives": "GELESS",
+      "select": "first",
+      "note": "the initial letters of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "GELESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collects erotic short stories, with no proper fiction among them.",
+     "walkthrough": "A liege is a feudal lord, so having none means owing allegiance to no one above.",
+     "definitionFit": "Without a liege lord one has no master or overlord, an archaic word for answering to nobody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "superior"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +702,69 @@
     "text": "Viking’s choice of partners ultimately divisive",
     "enumeration": "5"
    },
-   "solution": "NORSE"
+   "solution": "NORSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NORSE",
+    "definitions": [
+     {
+      "text": "Viking’s",
+      "at": 0,
+      "note": "possessive form standing for an adjective meaning belonging to the Vikings"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partners",
+      "gives": "N",
+      "note": "in bridge, North and South are partners; this is the first of them"
+     },
+     {
+      "clueFragment": "choice",
+      "gives": "OR",
+      "note": "or is the word that offers a choice"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "S",
+      "note": "the second of the bridge partnership, South"
+     },
+     {
+      "clueFragment": "divisive",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Viking's pick of a mate turns out to cause a split.",
+     "walkthrough": "'Choice of partners' is read as N or S: in the card game bridge North and South play as partners.",
+     "definitionFit": "The Vikings were Scandinavian seafarers, and this adjective describes their people and language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +784,85 @@
      }
     ]
    },
-   "solution": "FISHSLICE"
+   "solution": "FISHSLICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "FISH SLICE",
+    "definitions": [
+     {
+      "text": "Kitchen utensil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left on",
+      "for": "letter_selection",
+      "note": "the leftmost letter of a word is its first, so just the opening letter is used"
+     },
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing something alters its form, so the letters take a new order"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "to protect is to shield by surrounding, so one piece wraps around another"
+     },
+     {
+      "text": "skin",
+      "for": "letter_selection",
+      "note": "skin is the outside layer, so only the outer letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counter",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "is life",
+      "gives": "ISLIFE",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "1D",
+      "gives": "HS",
+      "select": "outer",
+      "note": "the cross-reference stands for HANDS, whose first and last letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIS",
+      "HS",
+      "LICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CISLIFE",
+       "gives": "FISLICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's utensil left on the worktop is a lifesaver, since it keeps the skin of the hands safe.",
+     "walkthrough": "'Counter' looks like the kitchen worktop, but only its leftmost letter is used. A fish slice is the British name for a broad slotted spatula.",
+     "definitionFit": "A fish slice is a flat slotted turner used in cooking to lift and flip food, so it is a utensil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +882,57 @@
      }
     ]
    },
-   "solution": "SUMUP"
+   "solution": "SUMUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUM UP",
+    "definitions": [
+     {
+      "text": "Review",
+      "at": 0,
+      "note": "noun in the clue; the answer is a phrasal verb, though sum-up also exists as a noun"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "U",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An inquiry looks into the parking problem on a university campus.",
+     "walkthrough": "'Problem' suggests a difficulty, but here it is a school arithmetic problem.",
+     "definitionFit": "A summary going back over the main points is a review, which is what a quick recap provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "problem"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +952,82 @@
      }
     ]
    },
-   "solution": "CREAMCAKE"
+   "solution": "CREAMCAKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CREAM CAKE",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean moved around, so these letters are turned into a different order"
+     },
+     {
+      "text": "purchasing",
+      "for": "container",
+      "note": "purchasing means taking in or acquiring, so one piece takes another inside it"
+     },
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a small part of it, here its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Care",
+      "gives": "CARE",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "fashion",
+      "gives": "MAKE",
+      "note": "to fashion something is to make it"
+     },
+     {
+      "clueFragment": "couture",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREA",
+      "M",
+      "C",
+      "AKE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARE",
+       "gives": "CREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion lover buys a bit of haute couture and exclaims how lovely it is.",
+     "walkthrough": "'Fashion' looks like clothing, but it is a verb meaning make; 'sweet!' sounds like an exclamation but is the definition, a dessert.",
+     "definitionFit": "A cream cake is a pastry dessert filled with cream, and in British usage a sweet is a dessert or pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1041,54 @@
     "text": "Mystic charm destroyed in witch hunt",
     "enumeration": "11"
    },
-   "solution": "MCCARTHYISM"
+   "solution": "MCCARTHYISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MCCARTHYISM",
+    "definitions": [
+     {
+      "text": "witch hunt",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is smashed apart, so these letters are broken up and rebuilt in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mystic charm",
+      "gives": "MYSTICCHARM",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MYSTICCHARM",
+       "gives": "MCCARTHYISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mystic's charm is wrecked during a hunt for witches.",
+     "walkthrough": "The witch hunt in the surface is literal; the answer is the 1950s American campaign against suspected communists, named after Senator Joseph McCarthy.",
+     "definitionFit": "The anti-communist purges led by the senator are the classic modern example of a political persecution campaign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "witch"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1102,74 @@
     "text": "Liberally 1D around whiskey, ice and coke for starters - fairly typical lunch",
     "enumeration": "8"
    },
-   "solution": "SANDWICH"
+   "solution": "SANDWICH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SANDWICH",
+    "definitions": [
+     {
+      "text": "fairly typical lunch",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liberally",
+      "for": "anagram",
+      "note": "done liberally means done freely, without sticking to the original, so the letters are rearranged"
+     },
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are the beginnings, so each word gives its first letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1D",
+      "gives": "HANDS",
+      "note": "the answer to 1 Down, ready to be rearranged"
+     },
+     {
+      "clueFragment": "whiskey, ice and coke",
+      "gives": "WIC",
+      "select": "first",
+      "note": "the initial letters of the three nouns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAND",
+      "WIC",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HANDS",
+       "gives": "SANDH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone generously pours whiskey, ice and coke as a typical lunchtime routine.",
+     "walkthrough": "'Coke' looks like the cola, but only its first letter counts; 'and' is a linking word inside the list, not a piece.",
+     "definitionFit": "Bread with a filling is the standard everyday midday meal for many people, hence a fairly typical lunch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberally"
+    }
+   }
   },
   {
    "number": 14,
@@ -291,7 +1193,78 @@
      }
     ]
    },
-   "solution": "SHAKEALEG"
+   "solution": "SHAKEALEG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHAKE A LEG",
+    "definitions": [
+     {
+      "text": "quick!",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battered",
+      "for": "anagram",
+      "note": "battered means beaten out of shape, so the letters are knocked into a new order"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so just that one is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "23A",
+      "gives": "HAKES",
+      "note": "the answer to 23 Across, ready to be rearranged"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAKE",
+      "ALE",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAKES",
+       "gives": "SHAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fish fried in beer batter is ordered for a quick getaway.",
+     "walkthrough": "'Battered with beer' paints fish and chips, and 23A really is a fish, hake; but 'battered' is the anagram signal.",
+     "definitionFit": "This idiom is an informal command to hurry up, so it works as an exclamation urging speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "battered"
+    }
+   }
   },
   {
    "number": 15,
@@ -305,7 +1278,62 @@
     "text": "Woman caught breaking in by Bard hatching plan",
     "enumeration": "6"
    },
-   "solution": "SCHEME"
+   "solution": "SCHEME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCHEME",
+    "definitions": [
+     {
+      "text": "hatching plan",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking in",
+      "for": "container",
+      "note": "a burglar breaking in gets inside a building, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "SHE",
+      "note": "she is the pronoun for a woman"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     },
+     {
+      "clueFragment": "by Bard",
+      "gives": "ME",
+      "note": "Bard is the setter, who refers to themselves as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "HE",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is caught breaking into a house next to the setter's while hatching a plot.",
+     "walkthrough": "Bard is this puzzle's setter, so 'Bard' means ME; it is not Shakespeare.",
+     "definitionFit": "A scheme is a plot or design being devised, which is just what a plan in the course of being hatched is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bard"
+    }
+   }
   },
   {
    "number": 16,
@@ -319,7 +1347,59 @@
     "text": "“Every society is…,” Eliot continues",
     "enumeration": "8"
    },
-   "solution": "PERSISTS"
+   "solution": "PERSISTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERSISTS",
+    "definitions": [
+     {
+      "text": "continues",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Every",
+      "gives": "PER",
+      "note": "per means for each, every"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Eliot",
+      "gives": "TS",
+      "note": "T. S. Eliot, the poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "S",
+      "IS",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "It reads as a quotation from T. S. Eliot about society, trailing off as he carries on speaking.",
+     "walkthrough": "The quotation marks make it look like a line of poetry; every word is a piece, and the poet supplies only his initials.",
+     "definitionFit": "To persist is to go on existing or carry on without stopping, the same as to keep going."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eliot"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1413,50 @@
     "text": "Red, gold and brown a bit too much",
     "enumeration": "6"
    },
-   "solution": "AUBURN"
+   "solution": "AUBURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUBURN",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "brown a bit too much",
+      "gives": "BURN",
+      "note": "to burn food is to brown it too far"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "BURN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook describes toast or a roast as coloured red, gold and slightly over-browned.",
+     "walkthrough": "'Red, gold and brown' looks like a list of colours, which suits the answer, but only the first is the definition.",
+     "definitionFit": "Auburn hair is a reddish-brown shade, so the colour name falls within the red family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1470,68 @@
     "text": "Pastry binge spoiled appetite, essentially",
     "enumeration": "7"
    },
-   "solution": "BEIGNET"
+   "solution": "BEIGNET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BEIGNET",
+    "definitions": [
+     {
+      "text": "Pastry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled is ruined and disordered, so its letters come out in a new arrangement"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so the central letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "binge",
+      "gives": "BINGE",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "appetite",
+      "gives": "ET",
+      "select": "middle",
+      "note": "the two central letters of an eight-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEIGN",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BINGE",
+       "gives": "BEIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gorging on pastries ruined someone's appetite for dinner.",
+     "walkthrough": "A beignet is a French deep-fried dough fritter, famous in New Orleans.",
+     "definitionFit": "A beignet is a fried choux or yeast dough dusted with sugar, a kind of pastry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoiled"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1545,48 @@
     "text": "Burdens of official checks discussed",
     "enumeration": "8"
    },
-   "solution": "REFRAINS"
+   "solution": "REFRAINS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REFRAINS",
+    "definitions": [
+     {
+      "text": "Burdens",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken about, so the answer is what the words sound like when said"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official checks",
+      "gives": "REFRAINS",
+      "soundsLike": "REF REINS",
+      "note": "a ref is a match official, and reins check a horse"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like a complaint about the burden of bureaucratic inspections.",
+     "walkthrough": "'Burdens' looks like loads or duties, but a burden is also an old word for the repeated chorus of a song.",
+     "definitionFit": "In music a burden is the recurring chorus of a song, which is another name for a repeated refrain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Burdens"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1606,68 @@
      }
     ]
    },
-   "solution": "INKFISH"
+   "solution": "INKFISH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INK-FISH",
+    "definitions": [
+     {
+      "text": "squid?",
+      "at": 69
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head cut off",
+      "for": "deletion",
+      "note": "beheading a word removes its first letter"
+     },
+     {
+      "text": "tiny bit of",
+      "for": "letter_selection",
+      "note": "the smallest bit of a word is a single letter, here its first"
+     },
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "something stuffed has a filling inside, so one piece is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of salmon",
+      "gives": "PINKISH",
+      "note": "salmon as a colour is a pinkish shade"
+     },
+     {
+      "clueFragment": "fennel",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INK",
+      "F",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: a beheaded salmon stuffed with fennel and squid.",
+     "walkthrough": "'Salmon' looks like the fish, but it is the colour. The question mark flags that a squid is an example of an inkfish, not a synonym.",
+     "definitionFit": "Squid squirt ink to escape predators, so they are an example of the sea creatures called inkfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "salmon"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1681,50 @@
     "text": "Manner of drug overdose",
     "enumeration": "6"
    },
-   "solution": "METHOD"
+   "solution": "METHOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METHOD",
+    "definitions": [
+     {
+      "text": "Manner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "METH",
+      "note": "meth is short for methamphetamine"
+     },
+     {
+      "clueFragment": "overdose",
+      "gives": "OD",
+      "note": "OD is the usual abbreviation for overdose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METH",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "It reads like a coroner's note on how someone died: a drug overdose.",
+     "walkthrough": "The surface suggests a cause of death; 'Manner' is the definition and the rest builds the answer.",
+     "definitionFit": "A method is a way or mode of doing something, a direct synonym of manner in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Manner"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1744,91 @@
      }
     ]
    },
-   "solution": "EVILDOERS"
+   "solution": "EVILDOERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "EVIL DOERS",
+    "definitions": [
+     {
+      "text": "Malefactors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one letter goes within the others"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means at the odd-numbered positions, so the first, third and so on are kept"
+     },
+     {
+      "text": "case for",
+      "for": "letter_selection",
+      "note": "a case is the outside covering, so only the outer letters of the word are used"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tesla maybe",
+      "gives": "EV",
+      "note": "a Tesla is an example of an EV, an electric vehicle"
+     },
+     {
+      "clueFragment": "1D",
+      "gives": "ID",
+      "note": "the cross-reference read as letters, the 1 standing in for I"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "of EU",
+      "gives": "OE",
+      "select": "alternate",
+      "note": "the first and third letters of the four"
+     },
+     {
+      "clueFragment": "regulators",
+      "gives": "RS",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "I",
+      "L",
+      "D",
+      "OE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "It asks whether Tesla's bosses are villains, caught in the grip of EU regulators.",
+     "walkthrough": "The trick is that '1D' is not the theme word here: written down it looks like ID, and the L sits inside those two letters. 'Of' is part of the alternate-letter fodder, not a link.",
+     "definitionFit": "A malefactor is a wrongdoer or criminal, and this two-word phrase means people who do wicked things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "1D"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1842,55 @@
     "text": "Swimmers’ gestures of goodwill not using 1D",
     "enumeration": "5"
    },
-   "solution": "HAKES"
+   "solution": "HAKES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HAKES",
+    "definitions": [
+     {
+      "text": "Swimmers’",
+      "at": 0,
+      "note": "possessive in the clue; the answer is a plain plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not using",
+      "for": "deletion",
+      "note": "not using something means doing without it, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gestures of goodwill",
+      "gives": "HANDSHAKES",
+      "note": "people shake hands as a friendly gesture"
+     },
+     {
+      "clueFragment": "1D",
+      "gives": "HANDS",
+      "note": "the answer to 1 Down, the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAKES"
+     ]
+    },
+    "explanation": {
+     "surface": "Swimmers greet each other without using their hands.",
+     "walkthrough": "'Swimmers' looks like people in a pool, but it is a standard crossword term for fish.",
+     "definitionFit": "Hake are sea fish of the cod family, so in crosswordese they count as swimmers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swimmers’"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1904,53 @@
     "text": "Kate quiet about wife",
     "enumeration": "5"
    },
-   "solution": "SHREW"
+   "solution": "SHREW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHREW",
+    "definitions": [
+     {
+      "text": "Kate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "RE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Kate keeps quiet about being someone's wife.",
+     "walkthrough": "Kate is the heroine of Shakespeare's The Taming of the Shrew, a play about a sharp-tongued wife, which neatly echoes this puzzle's setter, Bard.",
+     "definitionFit": "Shakespeare's Katherina is the title figure of the play, a bad-tempered scold who is tamed by her husband."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1970,71 @@
      }
     ]
    },
-   "solution": "LONGJOHNS"
+   "solution": "LONGJOHNS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "LONG JOHNS",
+    "definitions": [
+     {
+      "text": "kit for colder weather",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short trims its end, so the last letter is removed"
+     },
+     {
+      "text": "frequently lacking",
+      "for": "letter_selection",
+      "note": "missing at frequent intervals means every other letter is gone, so the alternate ones remain"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marathon",
+      "gives": "LONG",
+      "note": "a marathon is long"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "JOG",
+      "note": "a jog is a gentle run"
+     },
+     {
+      "clueFragment": "1D",
+      "gives": "HNS",
+      "select": "alternate",
+      "note": "the cross-reference stands for HANDS; its first, third and fifth letters stay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "JO",
+      "HNS"
+     ]
+    },
+    "explanation": {
+     "surface": "A marathon is cut short because runners keep lacking the right kit for the cold.",
+     "walkthrough": "'Marathon run' reads as one race, but it splits into two pieces, an adjective and a noun.",
+     "definitionFit": "Long johns are warm full-length underwear worn in winter, which makes them clothing for cold conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Marathon"
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +2048,48 @@
     "text": "Jack tar shot in the arm",
     "enumeration": "3"
    },
-   "solution": "JAB"
+   "solution": "JAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAB",
+    "definitions": [
+     {
+      "text": "shot in the arm",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the card abbreviation for jack"
+     },
+     {
+      "clueFragment": "tar",
+      "gives": "AB",
+      "note": "a tar and an AB, able seaman, are both sailors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is shot in the arm.",
+     "walkthrough": "'Jack tar' looks like one old phrase for a sailor, but it splits into two pieces. A jab is British slang for an injection.",
+     "definitionFit": "A vaccination given by needle is informally a jab, which is literally an injection into the arm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 27,
@@ -491,7 +2103,59 @@
     "text": "More distant I see - that’s right!",
     "enumeration": "5"
    },
-   "solution": "ICIER"
+   "solution": "ICIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICIER",
+    "definitions": [
+     {
+      "text": "More distant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "note": "the letter C is pronounced like see"
+     },
+     {
+      "clueFragment": "that’s",
+      "gives": "IE",
+      "note": "i.e. stands for id est, that is"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone peers at something far away and says that is right.",
+     "walkthrough": "'More distant' suggests further away, but it means more aloof, a sense of distant meaning cold in manner.",
+     "definitionFit": "A distant, standoffish person is described as frosty or chilly, so the comparative of cold-mannered fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "distant"
+    }
+   }
   },
   {
    "number": 28,
@@ -515,7 +2179,56 @@
      }
     ]
    },
-   "solution": "GOTOBED"
+   "solution": "GOTOBED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO TO BED",
+    "definitions": [
+     {
+      "text": "Call it a day",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "received",
+      "gives": "GOT",
+      "note": "to have got something is to have received it"
+     },
+     {
+      "clueFragment": "medal",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card abbreviation for diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOT",
+      "OBE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone retires after being presented with a medal and some diamonds.",
+     "walkthrough": "'Call it a day' suggests retiring from work, but here it is stopping for the night.",
+     "definitionFit": "Retiring for the night to sleep marks the end of one's day, which is an idiom for stopping activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "medal"
+    }
+   }
   },
   {
    "number": 29,
@@ -543,7 +2256,60 @@
      }
     ]
    },
-   "solution": "SOMEHOW"
+   "solution": "SOMEHOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SOMEHOW",
+    "definitions": [
+     {
+      "text": "Come What May",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spinning Around",
+      "for": "anagram",
+      "note": "spinning around jumbles things up, so these letters are turned into a different order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show Me",
+      "gives": "SHOWME",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis scoring, which looks like O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHOWMEO",
+       "gives": "SOMEHOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of three hit songs: Robin S's Show Me Love, Kylie Minogue's Spinning Around and Moulin Rouge's Come What May.",
+     "walkthrough": "All three titles look like song names, and they are, but the first gives letters, the second is the anagram signal and the third is the definition.",
+     "definitionFit": "Come what may means whatever happens, regardless, so it matches an adverb meaning by some means or other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spinning"
+    }
+   }
   }
  ]
 }
