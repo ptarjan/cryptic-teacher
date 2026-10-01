@@ -24,6 +24,9 @@
   "date": "2021-11-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Drug about to be taken by referee",
     "enumeration": "8"
    },
-   "solution": "MEDICATE"
+   "solution": "MEDICATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEDICATE",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be taken by",
+      "for": "container",
+      "note": "whatever is taken by something is drawn inside it, so one piece ends up held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referee",
+      "gives": "MEDIATE",
+      "note": "to referee a dispute is to mediate in it"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is short for circa, Latin for about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDI",
+      "C",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports official is about to be given some drug, perhaps a sedative after a rough match.",
+     "walkthrough": "'Drug' reads as a noun but is the verb; 'referee' is also a verb, not the official.",
+     "definitionFit": "To drug someone is to give them medicine or a substance, which is exactly what the verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "referee"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,46 @@
     "text": "New wine is essential",
     "enumeration": "4"
    },
-   "solution": "MUST"
+   "solution": "MUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MUST",
+    "definitions": [
+     {
+      "text": "New wine",
+      "at": 0
+     },
+     {
+      "text": "essential",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New wine",
+      "note": "first meaning: grape juice before or during fermentation"
+     },
+     {
+      "clueFragment": "essential",
+      "note": "second meaning: something you cannot do without"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine buff insists that drinking the new vintage is essential.",
+     "walkthrough": "MUST is the winemaker's term for freshly pressed juice; 'a must' is something essential.",
+     "definitionFit": "Must is unfermented grape juice in winemaking, and as a noun it also means an indispensable requirement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +155,71 @@
     "text": "Cracks joke child is about to comprehend",
     "enumeration": "7"
    },
-   "solution": "DECODES"
+   "solution": "DECODES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DECODES",
+    "definitions": [
+     {
+      "text": "Cracks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the letters are read in the opposite direction"
+     },
+     {
+      "text": "to comprehend",
+      "for": "container",
+      "note": "to comprehend is literally to grasp or take in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "SEED",
+      "note": "seed in the old biblical sense of offspring or descendants"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "COD",
+      "note": "cod is British slang for a hoax or joke, as in a cod accent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "COD",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEED",
+       "to": "DEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child is about to get a joke, cracking it at last.",
+     "walkthrough": "Seed as 'child' is the old biblical sense of offspring. 'Cracks joke' looks like telling a joke, but 'Cracks' alone is the definition.",
+     "definitionFit": "Cracking a code or cipher means working out its hidden meaning, which is what decoding does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cracks"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +239,39 @@
      }
     ]
    },
-   "solution": "CHAINGANG"
+   "solution": "CHAINGANG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHAIN GANG",
+    "definitions": [
+     {
+      "text": "Joined Labour party",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joined Labour party",
+      "note": "surface reading: someone signed up to the British Labour Party"
+     },
+     {
+      "clueFragment": "Joined Labour party",
+      "note": "setter's reading: a party of labourers who are linked together by fetters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capital L on Labour points to the British political party; read it as plain labour and the 'party' is a team of convicts working while shackled together.",
+     "definitionFit": "A chain gang is a group of prisoners fettered to one another while doing hard manual work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +291,51 @@
      }
     ]
    },
-   "solution": "THOMASSYDENHAM"
+   "solution": "THOMASSYDENHAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THOMAS SYDENHAM",
+    "definitions": [
+     {
+      "text": "Physician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for treatment",
+      "for": "anagram",
+      "note": "something given treatment is worked on and altered, so these letters are processed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has many methods",
+      "gives": "HASMANYMETHODS",
+      "note": "taken as written, fourteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASMANYMETHODS",
+       "gives": "THOMASSYDENHAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor has a whole range of ways to treat a patient.",
+     "walkthrough": "'For treatment' sounds medical, matching the physician, but it tells you to rework the letters of the three words before it.",
+     "definitionFit": "Thomas Sydenham was a seventeenth-century English doctor, often called the English Hippocrates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +349,54 @@
     "text": "Old gentleman is major underworld figure",
     "enumeration": "6"
    },
-   "solution": "OSIRIS"
+   "solution": "OSIRIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSIRIS",
+    "definitions": [
+     {
+      "text": "major underworld figure",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIR",
+      "note": "sir is the polite address for a gentleman"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SIR",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly gent turns out to be a big gangland boss.",
+     "walkthrough": "'Underworld figure' suggests a crime boss; here it is the ruler of the dead in mythology.",
+     "definitionFit": "Osiris was the ancient Egyptian god who ruled over the dead and judged souls in the afterlife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "underworld"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +410,48 @@
     "text": "Lot and Samson lost it",
     "enumeration": "5"
    },
-   "solution": "SIGHT"
+   "solution": "SIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIGHT",
+    "definitions": [
+     {
+      "text": "Lot",
+      "at": 0
+     },
+     {
+      "text": "Samson lost it",
+      "at": 8,
+      "note": "a description of the answer rather than a synonym"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lot",
+      "note": "first meaning: a great deal"
+     },
+     {
+      "clueFragment": "Samson lost it",
+      "note": "second meaning: the Philistines blinded Samson after capturing him"
+     }
+    ],
+    "explanation": {
+     "surface": "Two Old Testament figures and something they each lost: Lot his wife, Samson his hair.",
+     "walkthrough": "Lot looks like the biblical man, sitting next to Samson, but it is the ordinary word for a large amount.",
+     "definitionFit": "Colloquially 'a sight' means a great deal, and Samson's eyes were put out, losing him his vision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lot"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +465,47 @@
     "text": "Show likely to change again",
     "enumeration": "7"
    },
-   "solution": "READAPT"
+   "solution": "READAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "READAPT",
+    "definitions": [
+     {
+      "text": "change again",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show",
+      "gives": "READ",
+      "note": "a meter or dial reads a value when it shows it"
+     },
+     {
+      "clueFragment": "likely",
+      "gives": "APT",
+      "note": "apt to do something means likely to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READ",
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "A television programme that will probably be altered once more.",
+     "walkthrough": "'Show' looks like a noun, a programme, but works as the verb used of gauges and thermometers.",
+     "definitionFit": "To adapt is to modify or adjust, and the prefix makes it do so a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +519,44 @@
     "text": "Means to see better performances",
     "enumeration": "10"
    },
-   "solution": "SPECTACLES"
+   "solution": "SPECTACLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPECTACLES",
+    "definitions": [
+     {
+      "text": "Means to see better",
+      "at": 0
+     },
+     {
+      "text": "performances",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Means to see better",
+      "note": "first meaning: glasses that correct vision"
+     },
+     {
+      "clueFragment": "performances",
+      "note": "second meaning: impressive shows or displays"
+     }
+    ],
+    "explanation": {
+     "surface": "A critic's aim is to watch finer productions on stage.",
+     "walkthrough": "The clue reads as one sentence about seeing good shows, but it splits after 'better' into two separate meanings.",
+     "definitionFit": "Spectacles are eyeglasses, and a spectacle is also a grand public show or display."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Means"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +576,52 @@
      }
     ]
    },
-   "solution": "WALKINGWOUNDED"
+   "solution": "WALKINGWOUNDED",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "WALKING WOUNDED",
+    "definitions": [
+     {
+      "text": "Using pins, but not in a good way",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Using pins",
+      "gives": "WALKING",
+      "note": "pins is British slang for legs, so using them means moving on foot"
+     },
+     {
+      "clueFragment": "not in a good way",
+      "gives": "WOUNDED",
+      "note": "'in a bad way' is the idiom for being hurt or unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALKING",
+      "WOUNDED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is misusing sewing pins, handling them badly.",
+     "walkthrough": "Pins is British slang for legs; 'not in a good way' is the idiom for being in poor health, not a comment on technique. The whole clue also describes the answer.",
+     "definitionFit": "The phrase describes casualties who are hurt but still able to get about on foot without stretchers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pins"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +635,60 @@
     "text": "Bones bend when set the wrong way",
     "enumeration": "5"
    },
-   "solution": "SACRA"
+   "solution": "SACRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SACRA",
+    "definitions": [
+     {
+      "text": "Bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set the wrong way",
+      "for": "reversal",
+      "note": "placed in the wrong direction means running backwards, so the letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bend",
+      "gives": "ARC",
+      "note": "an arc is a curve or bend"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SACRA"
+     ],
+     "reversals": [
+      {
+       "from": "ARCAS",
+       "to": "SACRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Broken bones that are set badly will bend.",
+     "walkthrough": "'Set the wrong way' sounds like a botched fracture repair but signals reading backwards.",
+     "definitionFit": "The sacrum is the triangular bone at the base of the spine, and the Latin plural names several of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +702,65 @@
     "text": "Poem about open country, also a drink",
     "enumeration": "9"
    },
-   "solution": "ORANGEADE"
+   "solution": "ORANGEADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORANGEADE",
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means around, so one piece goes round the others"
+     }
+    ],
+    "linkWords": [
+     "also"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poem",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     },
+     {
+      "clueFragment": "open country",
+      "gives": "RANGE",
+      "note": "range is open grazing land, as in the American West"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANGE",
+      "A",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pastoral poem about the countryside that also celebrates a drink.",
+     "walkthrough": "The poem wraps round both the country and the A, splitting after its first letter.",
+     "definitionFit": "Orangeade is a sweetened, often fizzy soft drink flavoured with orange juice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poem"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +780,56 @@
      }
     ]
    },
-   "solution": "DENMARKSTRAIT"
+   "solution": "DENMARKSTRAIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DENMARK STRAIT",
+    "definitions": [
+     {
+      "text": "area linking seas",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "From"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study or workroom"
+     },
+     {
+      "clueFragment": "observes",
+      "gives": "MARKS",
+      "note": "to mark something is to notice or observe it"
+     },
+     {
+      "clueFragment": "characteristic",
+      "gives": "TRAIT",
+      "note": "a trait is a distinguishing characteristic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "MARKS",
+      "TRAIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar, working from his study, notes a typical stretch of water between oceans.",
+     "walkthrough": "The definition sits at the end; everything before it is three plain synonyms joined up.",
+     "definitionFit": "The Denmark Strait is the channel between Greenland and Iceland connecting the Greenland Sea with the Atlantic Ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +843,70 @@
     "text": "Expert wants nice spread in return",
     "enumeration": "10"
    },
-   "solution": "PROFICIENT"
+   "solution": "PROFICIENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PROFICIENT",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread out means scattered about, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice",
+      "gives": "NICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "return",
+      "gives": "PROFIT",
+      "note": "a return on an investment is a profit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROFI",
+      "CIEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICE",
+       "gives": "CIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled specialist expects a nice buffet spread as payment.",
+     "walkthrough": "'Spread' looks like a buffet and 'return' like giving back, but one scrambles letters and the other is a financial gain.",
+     "definitionFit": "Someone proficient is highly skilled and competent, as an expert in a field is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +920,71 @@
     "text": "Tinkers with damaged cars, unfinished too",
     "enumeration": "7"
    },
-   "solution": "RASCALS"
+   "solution": "RASCALS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "RASCALS",
+    "definitions": [
+     {
+      "text": "Tinkers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the letters are put into a new order"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "a thing left unfinished lacks its end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cars",
+      "gives": "CARS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "ALSO",
+      "note": "also and too are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RASC",
+      "ALS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARS",
+       "gives": "RASC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fiddles about with wrecked cars and never completes the job.",
+     "walkthrough": "'Tinkers' reads as a verb, fiddling with engines; it is a plural noun, the British word for mischievous children.",
+     "definitionFit": "In Britain a tinker is a playful name for a naughty child, much like a scamp or rogue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tinkers"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +998,39 @@
     "text": "Relatively favourable",
     "enumeration": "7"
    },
-   "solution": "NEPOTIC"
+   "solution": "NEPOTIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEPOTIC",
+    "definitions": [
+     {
+      "text": "Relatively favourable",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relatively favourable",
+      "note": "surface reading: fairly good, on the positive side compared with others"
+     },
+     {
+      "clueFragment": "Relatively favourable",
+      "note": "setter's reading: favourable to one's relatives, giving family members jobs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Relatively' normally means comparatively; here it means 'towards relatives'.",
+     "definitionFit": "The adjective describes nepotism, the practice of those in power showing favouritism to kin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Relatively"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1044,50 @@
     "text": "Bird’s split crest",
     "enumeration": "9"
    },
-   "solution": "PARTRIDGE"
+   "solution": "PARTRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTRIDGE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "PART",
+      "note": "to part is to split or divide"
+     },
+     {
+      "clueFragment": "crest",
+      "gives": "RIDGE",
+      "note": "a ridge is the crest of a hill or roof"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "RIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird has a divided crest of feathers on its head.",
+     "walkthrough": "The apostrophe-s is 'is', linking definition to wordplay, not a possessive; 'crest' means a ridge, not plumage.",
+     "definitionFit": "The partridge is a plump game bird of fields and farmland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crest"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1101,47 @@
     "text": "Tired of having standards?",
     "enumeration": "7"
    },
-   "solution": "FLAGGED"
+   "solution": "FLAGGED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLAGGED",
+    "definitions": [
+     {
+      "text": "Tired",
+      "at": 0
+     },
+     {
+      "text": "having standards",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tired",
+      "note": "first meaning: grew weary, lost energy"
+     },
+     {
+      "clueFragment": "having standards",
+      "note": "second meaning: decked with flags, which are also called standards"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is fed up with having to live up to principles.",
+     "walkthrough": "'Standards' suggests moral principles, but a standard is also a banner or flag.",
+     "definitionFit": "To flag is to grow weak or weary, and something flagged carries banners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standards"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1155,39 @@
     "text": "He fills it before take-off",
     "enumeration": "7"
    },
-   "solution": "AIRSHIP"
+   "solution": "AIRSHIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AIRSHIP",
+    "definitions": [
+     {
+      "text": "He fills it before take-off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He fills it before take-off",
+      "note": "surface reading: a man filling up a fuel tank before a plane departs"
+     },
+     {
+      "clueFragment": "He fills it before take-off",
+      "note": "setter's reading: He is the chemical symbol for helium, the lifting gas pumped into a craft"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'He' looks like a pilot or mechanic; it is the symbol for helium, the gas that gives a dirigible its lift.",
+     "definitionFit": "A dirigible or blimp is a lighter-than-air craft kept aloft by a gas-filled envelope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "He"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1201,61 @@
     "text": "Conflict over uncooked food",
     "enumeration": "7"
    },
-   "solution": "WARFARE"
+   "solution": "WARFARE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WARFARE",
+    "definitions": [
+     {
+      "text": "Conflict",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncooked",
+      "gives": "RAW",
+      "note": "raw food is uncooked"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "FARE",
+      "note": "fare is food, as in simple fare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "FARE"
+     ],
+     "reversals": [
+      {
+       "from": "RAW",
+       "to": "WAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument breaks out about serving raw food.",
+     "walkthrough": "'Over' reads as 'about the subject of' but turns the adjective round.",
+     "definitionFit": "Warfare is armed fighting between nations or groups, a state of hostility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1275,42 @@
      }
     ]
    },
-   "solution": "ATLARGE"
+   "solution": "ATLARGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AT LARGE",
+    "definitions": [
+     {
+      "text": "Generally",
+      "at": 0
+     },
+     {
+      "text": "free",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generally",
+      "note": "first meaning: as a whole"
+     },
+     {
+      "clueFragment": "free",
+      "note": "second meaning: not captured, as an escaped prisoner is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two words that look like a single phrase each define the answer independently.",
+     "definitionFit": "The idiom means in general when describing a population, and uncaught when describing a fugitive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Generally"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1330,51 @@
      }
     ]
    },
-   "solution": "CARBONNEUTRAL"
+   "solution": "CARBONNEUTRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARBON NEUTRAL",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "done oddly means done in a strange way, so the letters fall into an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cannot be rural",
+      "gives": "CANNOTBERURAL",
+      "note": "taken as written, thirteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANNOTBERURAL",
+       "gives": "CARBONNEUTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paradox: something green, it seems, can't belong to the countryside.",
+     "walkthrough": "'Green' is the colour of fields, which makes 'rural' tempting as the answer's sense; it means environmentally friendly.",
+     "definitionFit": "An activity with no net emissions of greenhouse gases is environmentally friendly, which is what green means politically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1388,43 @@
     "text": "A bird you seldom will catch",
     "enumeration": "5"
    },
-   "solution": "OUSEL"
+   "solution": "OUSEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OUSEL",
+    "definitions": [
+     {
+      "text": "A bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will catch",
+      "for": "hidden_word",
+      "note": "what catches something holds it within, so the letters sit inside the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you seldom",
+      "gives": "OUSEL",
+      "note": "found across the two words, after the first letter"
+     }
+    ],
+    "explanation": {
+     "surface": "Bird-watching advice: this is a species you will rarely spot.",
+     "walkthrough": "The letters straddle the gap between the two words.",
+     "definitionFit": "The ousel is an old name for the blackbird, and the ring ousel is a related thrush of upland Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1438,62 @@
     "text": "Bypass over motorway heading for tunnel",
     "enumeration": "4"
    },
-   "solution": "OMIT"
+   "solution": "OMIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OMIT",
+    "definitions": [
+     {
+      "text": "Bypass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of something is its top, so only the opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the scorecard abbreviation for an over in cricket"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's first long motorway, written with I standing in for the 1"
+     },
+     {
+      "clueFragment": "tunnel",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A road plan: a bypass goes over the motorway, leading to a tunnel.",
+     "walkthrough": "'Bypass' looks like a road but is the verb meaning skip; the M1 runs from London to Leeds.",
+     "definitionFit": "To bypass something is to skip it or leave it out, the sense of omitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bypass"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1513,49 @@
      }
     ]
    },
-   "solution": "EXHUSBAND"
+   "solution": "EXHUSBAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "EX-HUSBAND",
+    "definitions": [
+     {
+      "text": "Old old man",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former, as in ex-president"
+     },
+     {
+      "clueFragment": "old man",
+      "gives": "HUSBAND",
+      "note": "old man is informal for a husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "HUSBAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A very elderly fellow, old twice over.",
+     "walkthrough": "The repeated word looks like emphasis for great age; the first 'old' means former and 'old man' is slang for a spouse.",
+     "definitionFit": "A woman's former spouse is her past partner, her 'old man' from earlier times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1569,55 @@
     "text": "In part of kitchen, superior variety of wheat",
     "enumeration": "5"
    },
-   "solution": "DURUM"
+   "solution": "DURUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DURUM",
+    "definitions": [
+     {
+      "text": "variety of wheat",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places one piece within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of kitchen",
+      "gives": "DRUM",
+      "note": "the drum is the rotating part of a washing machine, which in Britain usually stands in the kitchen"
+     },
+     {
+      "clueFragment": "superior",
+      "gives": "U",
+      "note": "U means upper-class or superior in British usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "U",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook keeps a premium type of wheat in a cupboard in the kitchen.",
+     "walkthrough": "U as 'upper-class' comes from a once-famous British essay on posh versus common speech.",
+     "definitionFit": "Durum is the hard wheat species whose flour is milled into semolina for making pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "superior"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1631,60 @@
     "text": "Suggestion — request to refuse a drink",
     "enumeration": "6"
    },
-   "solution": "TIPPLE"
+   "solution": "TIPPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TIPPLE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to refuse",
+      "for": "deletion",
+      "note": "to refuse something is to turn it away, so letters are rejected and dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suggestion",
+      "gives": "TIP",
+      "note": "a tip is a helpful suggestion"
+     },
+     {
+      "clueFragment": "request",
+      "gives": "PLEA",
+      "note": "a plea is an earnest request"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "PLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suggests a polite request to turn down an offered drink.",
+     "walkthrough": "The request loses the single letter named by 'a'.",
+     "definitionFit": "A tipple is an alcoholic drink, especially someone's favourite, as in 'what's your tipple?'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "refuse"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1698,39 @@
     "text": "Any of the following",
     "enumeration": "8"
    },
-   "solution": "ADHERENT"
+   "solution": "ADHERENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADHERENT",
+    "definitions": [
+     {
+      "text": "Any of the following",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Any of the following",
+      "note": "surface reading: a puzzle instruction pointing to the items listed below"
+     },
+     {
+      "clueFragment": "Any of the following",
+      "note": "setter's reading: one member of a group of supporters or devotees"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "As the final clue it pretends to point at the list beneath; 'following' is a noun meaning a body of supporters.",
+     "definitionFit": "A supporter or follower of a cause, leader or faith is one of its devotees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "following"
+    }
+   }
   }
  ]
 }
