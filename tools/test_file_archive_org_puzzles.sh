@@ -130,11 +130,14 @@ check("a flecked block read as a block, a fat letter's light as a light", 1.0,
 # improves(): a reading replaces a file this tool filed when it beats it.
 pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()
 def p3(texts, acq=f.TOOL):
-    return {"source": {"acquiredBy": acq}, "dimensions": {"cols": 3, "rows": 1},
-            "entries": [{"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 3,
-                         "clue": {"text": t}, "solution": None} for t in texts]}
+    return {"source": {"acquiredBy": acq}, "dimensions": {"cols": 3, "rows": len(texts)},
+            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": 3,
+                         "clue": {"text": t}, "solution": None} for i, t in enumerate(texts)]}
 (pz / "own.json").write_text(json.dumps(p3([""])))
 (pz / "theirs.json").write_text(json.dumps(p3([""], "tools/acquire_book.py")))
+(pz / "two.json").write_text(json.dumps(p3(["Top", "", ""])))
+check("a fuller reading that blanks a clue the file has does not replace it", False,
+      f.improves(p3(["", "Low", "Mid"]), pz / "two.json"))
 check("a fuller reading replaces this tool's file, never another tool's or an equal one",
       [True, False, False], [f.improves(p3(["Top"]), pz / "own.json"),
                              f.improves(p3(["Top"]), pz / "theirs.json"),
