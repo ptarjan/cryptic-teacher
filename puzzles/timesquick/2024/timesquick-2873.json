@@ -24,6 +24,9 @@
   "date": "2024-12-31",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,47 @@
     "text": "Courteous chap, a non-military type",
     "enumeration": "8"
    },
-   "solution": "CIVILIAN"
+   "solution": "CIVILIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CIVILIAN",
+    "definitions": [
+     {
+      "text": "a non-military type",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Courteous",
+      "gives": "CIVIL",
+      "note": "civil means polite"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "IAN",
+      "note": "a man's name, the usual crossword 'chap'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIVIL",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A polite fellow turns out to have never served in the forces.",
+     "walkthrough": "'Chap' is a common crossword signal for a man's first name; here it is IAN.",
+     "definitionFit": "Someone not serving in the armed forces is a plain synonym for a member of the general public outside uniform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +94,43 @@
     "text": "Unstable, throwing such a fit?",
     "enumeration": "6"
    },
-   "solution": "WOBBLY"
+   "solution": "WOBBLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WOBBLY",
+    "definitions": [
+     {
+      "text": "Unstable",
+      "at": 0
+     },
+     {
+      "text": "throwing such a fit?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unstable",
+      "note": "first meaning: shaky, not steady"
+     },
+     {
+      "clueFragment": "throwing such a fit?",
+      "note": "second meaning: a tantrum, from the British idiom for losing one's temper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To 'throw a wobbly' is British slang for having a tantrum, so the second half describes the noun; the question mark flags the indirect definition.",
+     "definitionFit": "The adjective means shaky, and the British slang noun means a temper tantrum, as in the idiom about throwing one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "throwing"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +144,63 @@
     "text": "Books cracking up bitter pills regularly",
     "enumeration": "8"
    },
-   "solution": "LIBRETTI"
+   "solution": "LIBRETTI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LIBRETTI",
+    "definitions": [
+     {
+      "text": "Books",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means taking every other letter of the word before"
+     },
+     {
+      "text": "cracking up",
+      "for": "anagram",
+      "note": "something cracking up breaks apart, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bitter",
+      "gives": "BITTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pills",
+      "gives": "IL",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BITTERIL",
+       "gives": "LIBRETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is going to pieces after swallowing a bitter pill or two.",
+     "walkthrough": "'Bitter pills' reads as one phrase, but only the second word is thinned out; BITTER plus IL is the fodder. 'Books' is the definition: the text of an opera is its book.",
+     "definitionFit": "A libretto is the written text of an opera or musical, often called its book, and this is the Italian plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cracking"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +214,56 @@
     "text": "Booby possibly to attempt crossing river",
     "enumeration": "4"
    },
-   "solution": "BIRD"
+   "solution": "BIRD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BIRD",
+    "definitions": [
+     {
+      "text": "Booby possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something is to span it, so one piece straddles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to attempt",
+      "gives": "BID",
+      "note": "a bid is an attempt"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "R",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool tries to get across a river.",
+     "walkthrough": "'Booby' looks like an insult for a fool, but it is the seabird; 'possibly' marks it as one example of the answer.",
+     "definitionFit": "The booby is a tropical seabird related to gannets, so it is one example of the general class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Booby"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +277,55 @@
     "text": "Cheap decoration can find a buyer, mostly",
     "enumeration": "6"
    },
-   "solution": "TINSEL"
+   "solution": "TINSEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TINSEL",
+    "definitions": [
+     {
+      "text": "Cheap decoration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most but not all means the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "find a buyer",
+      "gives": "SEL",
+      "note": "to sell is to find a buyer; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "SEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A seller hopes some tacky ornament will mostly find a purchaser.",
+     "walkthrough": "'Can' looks like a verb meaning 'is able to', but it is the noun TIN. SELL loses its last L.",
+     "definitionFit": "Glittery metallic strands hung on Christmas trees are a byword for showy but inexpensive ornament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +339,48 @@
     "text": "Part of theatre largely for men only",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "for men only",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "mostly but not entirely, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of theatre",
+      "gives": "STAG",
+      "note": "the stage is part of a theatre, minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of the playhouse is mainly reserved for gentlemen.",
+     "walkthrough": "STAGE loses its E. A stag party or stag night is a British pre-wedding party for the groom and his male friends.",
+     "definitionFit": "As an adjective, as in a stag party, it describes an event attended solely by males."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "largely"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +394,50 @@
     "text": "Gain nothing, being a drunkard",
     "enumeration": "4"
    },
-   "solution": "WINO"
+   "solution": "WINO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINO",
+    "definitions": [
+     {
+      "text": "a drunkard",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gain",
+      "gives": "WIN",
+      "note": "to win is to gain"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who drinks too much ends up with nothing.",
+     "walkthrough": "'Gain nothing' reads as a single idea of profiting not at all, but it splits into two pieces.",
+     "definitionFit": "Slang for a habitual heavy drinker, especially one who drinks cheap wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +451,54 @@
     "text": "Tie it in a knot and begin",
     "enumeration": "8"
    },
-   "solution": "INITIATE"
+   "solution": "INITIATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INITIATE",
+    "definitions": [
+     {
+      "text": "begin",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knot",
+      "for": "anagram",
+      "note": "a knot is a tangle, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tie it in a",
+      "gives": "TIEITINA",
+      "note": "the letters of these four words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEITINA",
+       "gives": "INITIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for the first step of tying a rope.",
+     "walkthrough": "'In a' looks like part of the instruction phrase 'in a knot', but both words also go into the fodder.",
+     "definitionFit": "To start something off or set a process going is a straightforward synonym for commence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +512,56 @@
     "text": "Row about doctor’s deal, perhaps",
     "enumeration": "6"
    },
-   "solution": "TIMBER"
+   "solution": "TIMBER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIMBER",
+    "definitions": [
+     {
+      "text": "deal, perhaps",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "TIER",
+      "note": "a tier is a row, as of seats"
+     },
+     {
+      "clueFragment": "doctor’s",
+      "gives": "MB",
+      "note": "MB is a medical degree, Bachelor of Medicine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "MB",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute concerning the arrangement a physician has struck.",
+     "walkthrough": "'Row' suggests a quarrel, but it is a line of seats. 'Deal' is not an agreement: it is pine or fir wood, so 'perhaps' marks an example.",
+     "definitionFit": "Deal is sawn softwood such as fir or pine, which is one kind of wood used for building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +575,47 @@
     "text": "Fix wise man’s prescribed amount of medication",
     "enumeration": "6"
    },
-   "solution": "DOSAGE"
+   "solution": "DOSAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOSAGE",
+    "definitions": [
+     {
+      "text": "prescribed amount of medication",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fix",
+      "gives": "DO",
+      "note": "to do someone is to fix or swindle them"
+     },
+     {
+      "clueFragment": "wise man’s",
+      "gives": "SAGE",
+      "note": "a sage is a wise man; the 's joins this piece to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sorts out a wise man's medicine.",
+     "walkthrough": "'Fix' and 'do' are both informal for cheating someone, as in rigging a deal.",
+     "definitionFit": "The quantity of a drug to be taken at one time or over a period, as set by a doctor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +629,43 @@
     "text": "Well ventilated eagle’s nest, some would say",
     "enumeration": "4"
    },
-   "solution": "AIRY"
+   "solution": "AIRY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AIRY",
+    "definitions": [
+     {
+      "text": "Well ventilated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some would say",
+      "for": "homophone",
+      "note": "what some people say points to pronunciation, and one pronunciation matches another spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eagle’s nest",
+      "gives": "AIRY",
+      "soundsLike": "EYRIE",
+      "note": "an eyrie is an eagle's nest, which some pronounce like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "An eagle's high nest is breezy and open.",
+     "walkthrough": "EYRIE has several pronunciations; only some speakers say it to rhyme with 'hairy', hence 'some would say'.",
+     "definitionFit": "A room full of fresh, freely circulating breeze is spacious and pleasantly open."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +679,50 @@
     "text": "Mould made by casual worker behind schedule",
     "enumeration": "8"
    },
-   "solution": "TEMPLATE"
+   "solution": "TEMPLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPLATE",
+    "definitions": [
+     {
+      "text": "Mould",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casual worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary worker"
+     },
+     {
+      "clueFragment": "behind schedule",
+      "gives": "LATE",
+      "note": "late means behind time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A temporary worker running behind produces a cast.",
+     "walkthrough": "'Mould' suggests fungus, but it is the shape used to make copies.",
+     "definitionFit": "A pattern or shaped guide used to reproduce the same form repeatedly, like a cast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mould"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +736,58 @@
     "text": "Obelisk built by Greek character in very little time",
     "enumeration": "8"
    },
-   "solution": "MONUMENT"
+   "solution": "MONUMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONUMENT",
+    "definitions": [
+     {
+      "text": "Obelisk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being inside something means one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "built by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is the 13th letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "very little time",
+      "gives": "MOMENT",
+      "note": "a moment is a very short time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NU",
+      "MENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall stone pillar put up by a Greek in no time at all.",
+     "walkthrough": "'Greek character' sounds like a person from Greece; it is a letter of their alphabet.",
+     "definitionFit": "An obelisk is a tall stone pillar raised as a memorial, which is one example of a commemorative structure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +801,50 @@
     "text": "Rush off, seeing hooligan",
     "enumeration": "8"
    },
-   "solution": "TEARAWAY"
+   "solution": "TEARAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEARAWAY",
+    "definitions": [
+     {
+      "text": "hooligan",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rush",
+      "gives": "TEAR",
+      "note": "to tear is to rush"
+     },
+     {
+      "clueFragment": "off",
+      "gives": "AWAY",
+      "note": "off means away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "AWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries off after spotting a thug.",
+     "walkthrough": "The phrasal verb 'tear away' means hurry off; written as one word it is British for a wild, reckless youngster.",
+     "definitionFit": "British slang for a reckless, unruly young person, close to a lout or troublemaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seeing"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +858,65 @@
     "text": "Idleness of one in popular part of West London",
     "enumeration": "8"
    },
-   "solution": "INACTION"
+   "solution": "INACTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INACTION",
+    "definitions": [
+     {
+      "text": "Idleness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed inside something, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "part of West London",
+      "gives": "ACTON",
+      "note": "Acton is a district of west London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ACT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Laziness of a person living in a fashionable West London area.",
+     "walkthrough": "'Popular part of West London' looks like one place, but 'popular' is a separate piece; Acton is a district of west London.",
+     "definitionFit": "Doing nothing at all, a lack of activity, is a near synonym for laziness or sloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +930,45 @@
     "text": "Demand payment for onslaught",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARGE",
+    "definitions": [
+     {
+      "text": "Demand payment",
+      "at": 0
+     },
+     {
+      "text": "onslaught",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demand payment",
+      "note": "first meaning: ask a price, a verb"
+     },
+     {
+      "clueFragment": "onslaught",
+      "note": "second meaning: a headlong attack"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Demand payment for' reads as one phrase about billing; 'for' is a link between two meanings.",
+     "definitionFit": "The word means both to ask a price for goods and a rushing attack, as by cavalry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "onslaught"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +982,43 @@
     "text": "Genuine Brazilian coin",
     "enumeration": "4"
    },
-   "solution": "REAL"
+   "solution": "REAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REAL",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     },
+     {
+      "text": "Brazilian coin",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Genuine",
+      "note": "first meaning: authentic, not fake"
+     },
+     {
+      "clueFragment": "Brazilian coin",
+      "note": "second meaning: Brazil's currency unit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks whether a coin is counterfeit; the adjective and the currency are separate meanings.",
+     "definitionFit": "The adjective means authentic, and Brazil's currency unit since 1994 shares that spelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Genuine"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1032,42 @@
     "text": "Getting up insurrection",
     "enumeration": "6"
    },
-   "solution": "RISING"
+   "solution": "RISING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RISING",
+    "definitions": [
+     {
+      "text": "Getting up",
+      "at": 0
+     },
+     {
+      "text": "insurrection",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Getting up",
+      "note": "first meaning: getting out of bed or standing"
+     },
+     {
+      "clueFragment": "insurrection",
+      "note": "second meaning: a revolt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Getting up' suggests waking, while the noun sense is a popular revolt, as in the Easter Rising.",
+     "definitionFit": "The word covers both standing or leaving bed and an armed uprising against authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1081,47 @@
     "text": "Not just a French travelling entertainment",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "Not just",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for 'a'"
+     },
+     {
+      "clueFragment": "travelling entertainment",
+      "gives": "FAIR",
+      "note": "a funfair moves from town to town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a French travelling show is more than it seems.",
+     "walkthrough": "'Not just' looks like 'not only', but it means not fair or equitable.",
+     "definitionFit": "Just here means equitable, so its negation is an inequitable or biased outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1135,43 @@
     "text": "Standard displayed by women or men",
     "enumeration": "4"
    },
-   "solution": "NORM"
+   "solution": "NORM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NORM",
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displayed by",
+      "for": "hidden_word",
+      "note": "something displayed is put on view, here inside the run of words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women or men",
+      "gives": "NORM",
+      "note": "spans the end of the first word, the whole second, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A banner carried by people of either sex.",
+     "walkthrough": "'Standard' suggests a flag carried in a parade, but it means the usual level.",
+     "definitionFit": "The usual or expected level that others are measured against, a benchmark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1185,42 @@
     "text": "Pity Babe, the baseball player",
     "enumeration": "4"
    },
-   "solution": "RUTH"
+   "solution": "RUTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUTH",
+    "definitions": [
+     {
+      "text": "Pity",
+      "at": 0
+     },
+     {
+      "text": "Babe, the baseball player",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pity",
+      "note": "first meaning: compassion, an old word surviving in 'ruthless'"
+     },
+     {
+      "clueFragment": "Babe, the baseball player",
+      "note": "second meaning: the surname of the famous American slugger"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The archaic noun for compassion survives mainly in 'ruthless'; Babe is the nickname of the famous New York Yankees hitter.",
+     "definitionFit": "The old noun means compassion or sorrow, and it is also the surname of baseball's famous Babe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pity"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1234,56 @@
     "text": "Girl with a large service book",
     "enumeration": "6"
    },
-   "solution": "MISSAL"
+   "solution": "MISSAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISSAL",
+    "definitions": [
+     {
+      "text": "service book",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "MISS",
+      "note": "a miss is a girl"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISS",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman carries a big prayer book.",
+     "walkthrough": "'A large service book' reads as one phrase, but 'a large' supplies two pieces.",
+     "definitionFit": "A book containing the texts used for celebrating Mass in the Catholic Church through the year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1297,45 @@
     "text": "Reportedly light up a south coast resort",
     "enumeration": "8"
    },
-   "solution": "BRIGHTON"
+   "solution": "BRIGHTON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRIGHTON",
+    "definitions": [
+     {
+      "text": "a south coast resort",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light up",
+      "gives": "BRIGHTON",
+      "soundsLike": "BRIGHTEN",
+      "note": "to make lighter, which sounds like the resort"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is said to cheer up a seaside town.",
+     "walkthrough": "Brighton is a seaside town in Sussex, on England's south coast.",
+     "definitionFit": "The Sussex seaside town is a famous holiday destination on England's southern shoreline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1349,48 @@
     "text": "Boat-builder’s failure to carry out GP’s request?",
     "enumeration": "4"
    },
-   "solution": "NOAH"
+   "solution": "NOAH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOAH",
+    "definitions": [
+     {
+      "text": "Boat-builder’s",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "failure to carry out",
+      "gives": "NO",
+      "note": "a refusal or not doing something"
+     },
+     {
+      "clueFragment": "GP’s request?",
+      "gives": "AH",
+      "note": "a doctor asks a patient to open wide and say this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "AH"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipwright's patient won't open wide for the doctor.",
+     "walkthrough": "A GP is a family doctor, who asks you to say 'ah' to see your throat; not doing it is NO AH. The definition's 's is read as 'is'.",
+     "definitionFit": "In Genesis the patriarch built the ark to save his family and the animals from the flood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "carry"
+    }
+   }
   }
  ]
 }
