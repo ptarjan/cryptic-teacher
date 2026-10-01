@@ -23,6 +23,9 @@
   "date": "2024-08-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,45 @@
     "text": "Picked up flight goggles",
     "enumeration": "6"
    },
-   "solution": "STARES"
+   "solution": "STARES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STARES",
+    "definitions": [
+     {
+      "text": "goggles",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "to pick something up can mean to catch it by ear, as a radio picks up a signal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flight",
+      "gives": "STARES",
+      "soundsLike": "STAIRS",
+      "note": "a flight is a run of steps between floors"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collects flying goggles, perhaps for a pilot's kit.",
+     "walkthrough": "'Picked up' looks like collecting the goggles, and 'goggles' looks like a noun; in fact it is a verb, and STAIRS and STARES sound the same.",
+     "definitionFit": "To goggle is to gaze wide-eyed, so goggles and stares are verbs of the same open-mouthed looking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "goggles"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +91,64 @@
     "text": "What if Oscar and son stop drinking?",
     "enumeration": "9"
    },
-   "solution": "SUPPOSING"
+   "solution": "SUPPOSING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPPOSING",
+    "definitions": [
+     {
+      "text": "What if",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stop",
+      "for": "container",
+      "note": "a stopper plugs a gap, so these letters go into the middle of the other word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinking",
+      "gives": "SUPPING",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPP",
+      "O",
+      "S",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A worried question: what would happen if Oscar and his son gave up drink?",
+     "walkthrough": "'stop' reads as quitting, but it means plugging: O and S sit inside SUPPING to make SUPPOSING.",
+     "definitionFit": "Supposing introduces a hypothetical situation, exactly the conditional sense of the phrase opening a question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +162,57 @@
     "text": "Nourishment in fruit eaten by insect",
     "enumeration": "7"
    },
-   "solution": "ALIMENT"
+   "solution": "ALIMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALIMENT",
+    "definitions": [
+     {
+      "text": "Nourishment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "whatever is eaten ends up inside the eater, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "LIME",
+      "note": "a lime is a citrus fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect feeds on a piece of fruit and gets its nourishment from it.",
+     "walkthrough": "'in' is only a link here; the container signal is 'eaten by', so the insect wraps round the fruit.",
+     "definitionFit": "Aliment is a formal word for food, whatever sustains or nourishes a living body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +226,66 @@
     "text": "Put out content of texts sent over day",
     "enumeration": "6"
    },
-   "solution": "EXTEND"
+   "solution": "EXTEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXTEND",
+    "definitions": [
+     {
+      "text": "Put out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content of",
+      "for": "letter_selection",
+      "note": "the content of something is what lies inside its edges, so only inner letters are kept"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "texts",
+      "gives": "EXT",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "EN",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXT",
+      "EN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone publishes what was in messages sent across a day.",
+     "walkthrough": "The insides of both 'texts' and 'sent' are taken; in a down clue 'over' puts those letters above D.",
+     "definitionFit": "To put out a hand or an arm is to stretch it forward, the sense of extend as reach outward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +299,44 @@
     "text": "Cloaked in secrecy, cleptomaniacs avoid waste",
     "enumeration": "7"
    },
-   "solution": "RECYCLE"
+   "solution": "RECYCLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RECYCLE",
+    "definitions": [
+     {
+      "text": "avoid waste",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cloaked in",
+      "for": "hidden_word",
+      "note": "a cloak covers what is beneath it, so the letters lie concealed within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secrecy, cleptomaniacs",
+      "gives": "RECYCLE",
+      "note": "runs across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Secretive kleptomaniacs steal things rather than let them go to waste.",
+     "walkthrough": "The unusual spelling with a C in 'cleptomaniacs' is what makes the hidden letters work.",
+     "definitionFit": "Recycling material means reusing it instead of throwing it away, which is the practical way of not wasting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Cloaked"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +350,62 @@
     "text": "Bunk covering a small carpet",
     "enumeration": "5"
    },
-   "solution": "ROAST"
+   "solution": "ROAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROAST",
+    "definitions": [
+     {
+      "text": "carpet",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap around it, so one word encloses the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bunk",
+      "gives": "ROT",
+      "note": "bunk and rot both mean nonsense"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "A",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bed covered by a small rug.",
+     "walkthrough": "'Bunk' and 'carpet' both look like bedroom furnishings; one is nonsense and the other is a verb meaning to scold.",
+     "definitionFit": "To carpet someone is British slang for to reprimand them, and to roast is to criticise severely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +425,56 @@
      }
     ]
    },
-   "solution": "CUTSHORT"
+   "solution": "CUTSHORT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CUT SHORT",
+    "definitions": [
+     {
+      "text": "suspended",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the first sounds of words, so the opening sounds trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "closed",
+      "gives": "CUT",
+      "soundsLike": "SHUT",
+      "note": "closed is shut; its opening sound trades with the next word's"
+     },
+     {
+      "clueFragment": "tribunal perhaps",
+      "gives": "SHORT",
+      "soundsLike": "COURT",
+      "note": "a tribunal is one example of a court; it takes the other word's opening sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "SHORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner's tribunal was held behind closed doors and may have been adjourned.",
+     "walkthrough": "Swap the opening sounds of SHUT COURT to get CUT SHORT; 'perhaps' marks a tribunal as only one kind of court.",
+     "definitionFit": "Something cut short is stopped before its natural end, as a suspended hearing or game is halted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspended"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +488,62 @@
     "text": "Companion is initially opposed to wine",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHIANTI",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Companion",
+      "gives": "CH",
+      "note": "CH stands for Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "opposed to",
+      "gives": "ANTI",
+      "note": "anti means against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "I",
+      "ANTI"
+     ]
+    },
+    "explanation": {
+     "surface": "A partner starts out disliking wine.",
+     "walkthrough": "CH for Companion of Honour is a crossword regular; the honour is a British award for service.",
+     "definitionFit": "Chianti is a red Italian table wine from Tuscany, so it is one example of the drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Companion"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +557,59 @@
     "text": "Score each golfer regularly wants",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "Score",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the abbreviation for each"
+     },
+     {
+      "clueFragment": "golfer",
+      "gives": "GLE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "GLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Every golfer hopes to post a particular score.",
+     "walkthrough": "The surface is about golf and so is the answer, but the golfer supplies letters, not the meaning.",
+     "definitionFit": "In golf an eagle is a hole completed two strokes under par, a specific score on a hole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "golfer"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +623,63 @@
     "text": "Cosy as can be, propose to drink half case of Chambertin",
     "enumeration": "8"
    },
-   "solution": "SNUGGEST"
+   "solution": "SNUGGEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SNUGGEST",
+    "definitions": [
+     {
+      "text": "Cosy as can be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outer pair of letters, and half of that pair is one end only"
+     },
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "what is drunk goes inside the drinker, so one piece is taken into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "propose",
+      "gives": "SUGGEST",
+      "note": "to propose is to suggest"
+     },
+     {
+      "clueFragment": "Chambertin",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "N",
+      "UGGEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy toast: someone suggests sharing half a case of fine Burgundy.",
+     "walkthrough": "The outer letters of 'Chambertin' are C and N; half that case is N, which goes after the first S of SUGGEST.",
+     "definitionFit": "The superlative of snug, meaning warm and comfortable, so the most snug is as cosy as possible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +693,51 @@
     "text": "Doddering in top position",
     "enumeration": "5"
    },
-   "solution": "POINT"
+   "solution": "POINT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POINT",
+    "definitions": [
+     {
+      "text": "position",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doddering",
+      "for": "anagram",
+      "note": "doddering means tottering and unsteady, so the letters stagger out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in top",
+      "gives": "INTOP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOP",
+       "gives": "POINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old man in his dotage still holds the top job.",
+     "walkthrough": "'top position' reads as one phrase; the last word alone is the definition, and the two before it are the letters.",
+     "definitionFit": "A point is a particular place or location, as in a point on a map, so it can stand for position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +757,52 @@
      }
     ]
    },
-   "solution": "NEARTHING"
+   "solution": "NEARTHING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEAR THING",
+    "definitions": [
+     {
+      "text": "Nasty moment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top means losing the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turning up",
+      "gives": "UNEARTHING",
+      "note": "turning up soil or evidence is unearthing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEARTHING"
+     ]
+    },
+    "explanation": {
+     "surface": "An embarrassing moment when someone turns up without a top.",
+     "walkthrough": "Remove the U from UNEARTHING to leave NEARTHING. 'Topless' suggests nudity, but only one letter goes.",
+     "definitionFit": "A near thing is a narrow escape or close call, a frightening moment when disaster almost happened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +816,79 @@
     "text": "Very old retired sailors embraced by rowers instantly",
     "enumeration": "9"
    },
-   "solution": "OVERNIGHT"
+   "solution": "OVERNIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "OVERNIGHT",
+    "definitions": [
+     {
+      "text": "instantly",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the letters run backwards"
+     },
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "whatever is embraced is held within arms, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "rowers",
+      "gives": "EIGHT",
+      "note": "a rowing crew of eight oarsmen is called an eight"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OV",
+      "E",
+      "RN",
+      "IGHT"
+     ],
+     "reversals": [
+      {
+       "from": "VO",
+       "to": "OV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly ex-sailors are welcomed with hugs by a rowing club.",
+     "walkthrough": "'retired' seems to describe the sailors, but it turns round the two abbreviations before it; the navy then sits inside the boat crew.",
+     "definitionFit": "An overnight success happens suddenly, so overnight means very quickly or immediately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +902,57 @@
     "text": "Layer cake unfilled for this reason",
     "enumeration": "5"
    },
-   "solution": "HENCE"
+   "solution": "HENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HENCE",
+    "definitions": [
+     {
+      "text": "for this reason",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfilled",
+      "for": "letter_selection",
+      "note": "with no filling only the outside remains, so just the first and last letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Layer",
+      "gives": "HEN",
+      "note": "a hen lays eggs, so it is a layer"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A layer cake was left without its filling, and that explains something.",
+     "walkthrough": "'Layer cake' reads as one dessert, but 'Layer' is a bird that lays eggs.",
+     "definitionFit": "Hence is a formal adverb meaning therefore, introducing a consequence of something just stated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Layer"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +966,43 @@
     "text": "Scrap part of audiotape",
     "enumeration": "4"
    },
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IOTA",
+    "definitions": [
+     {
+      "text": "Scrap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "a part is a section of something larger, so the letters are found inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audiotape",
+      "gives": "IOTA",
+      "note": "the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone throws away a section of a recording tape.",
+     "walkthrough": "'Scrap' looks like a verb, discard; it is the noun meaning a tiny bit.",
+     "definitionFit": "Iota, a Greek letter, means a very small amount, as in not one iota, the same as a scrap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +1022,52 @@
      }
     ]
    },
-   "solution": "TEASERVICE"
+   "solution": "TEASERVICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEA SERVICE",
+    "definitions": [
+     {
+      "text": "China",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "gives": "TEASER",
+      "note": "a teaser is a puzzling problem"
+     },
+     {
+      "clueFragment": "immorality",
+      "gives": "VICE",
+      "note": "vice is immoral behaviour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEASER",
+      "VICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about corruption troubling the People's Republic.",
+     "walkthrough": "Capitalised at the start, 'China' looks like the country; it is the porcelain.",
+     "definitionFit": "Lower-case china means porcelain crockery, and a tea service is a matched set of it for serving tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1087,60 @@
      }
     ]
    },
-   "solution": "SLOWDOWN"
+   "solution": "SLOWDOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLOW DOWN",
+    "definitions": [
+     {
+      "text": "relax",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is the one kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoke",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "LOWDOWN",
+      "note": "dope is slang for inside information, as is lowdown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOWDOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lights up a joint to unwind.",
+     "walkthrough": "'dope' wants to be cannabis to match 'smoke'; here it means information, the lowdown.",
+     "definitionFit": "To slow down is to ease off and take life at a gentler pace, an informal way of saying unwind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1154,51 @@
     "text": "Sinners actively serve idol",
     "enumeration": "9"
    },
-   "solution": "EVILDOERS"
+   "solution": "EVILDOERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVILDOERS",
+    "definitions": [
+     {
+      "text": "Sinners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "actively",
+      "for": "anagram",
+      "note": "being active means moving about busily, so the letters are set in motion into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serve idol",
+      "gives": "SERVEIDOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SERVEIDOL",
+       "gives": "EVILDOERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wrongdoers busily worship a false god.",
+     "walkthrough": "'actively' looks like an adverb on the verb 'serve', but it acts on the letters of the next two words.",
+     "definitionFit": "Evildoers are people who commit wicked acts, the same people a preacher would call sinners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "actively"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1212,54 @@
     "text": "Claim Yorkshire town lacks aspiration",
     "enumeration": "8"
    },
-   "solution": "ARROGATE"
+   "solution": "ARROGATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARROGATE",
+    "definitions": [
+     {
+      "text": "Claim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacks",
+      "for": "deletion",
+      "note": "to lack something is to be without it, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yorkshire town",
+      "gives": "HARROGATE",
+      "note": "Harrogate is a spa town in North Yorkshire"
+     },
+     {
+      "clueFragment": "aspiration",
+      "gives": "H",
+      "note": "an aspirate is a breathy H sound, so aspiration is H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARROGATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asserts that a northern English town has no ambition.",
+     "walkthrough": "'aspiration' looks like ambition, but in phonetics it is the breathed H sound, which comes off the front of HARROGATE.",
+     "definitionFit": "To arrogate is to seize or demand something without justification, to claim it for oneself presumptuously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "aspiration"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1273,49 @@
     "text": "DNA allotted to one and all of similar age",
     "enumeration": "10"
    },
-   "solution": "GENERATION"
+   "solution": "GENERATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENERATION",
+    "definitions": [
+     {
+      "text": "all of similar age",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DNA",
+      "gives": "GENE",
+      "note": "a gene is a stretch of DNA"
+     },
+     {
+      "clueFragment": "allotted to one",
+      "gives": "RATION",
+      "note": "a ration is the fixed amount allotted to each person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENE",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Genetic material is shared out among everyone born around the same time.",
+     "walkthrough": "The surface suggests a single science sentence; it splits at 'and' into wordplay and a definition.",
+     "definitionFit": "A generation is the whole body of people born and living at roughly the same period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1335,51 @@
      }
     ]
    },
-   "solution": "NAILSET"
+   "solution": "NAILSET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAIL SET",
+    "definitions": [
+     {
+      "text": "Punch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked or bent, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Tesla",
+      "gives": "INTESLA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTESLA",
+       "gives": "NAILSET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal is punched inside an electric car.",
+     "walkthrough": "'Punch' reads as a blow; it is the tool. 'criminal' looks like the person being hit.",
+     "definitionFit": "A nail set is a short steel punch used to drive nail heads below a wood surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Punch"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1393,64 @@
     "text": "Kid around with international artist",
     "enumeration": "4"
    },
-   "solution": "DALI"
+   "solution": "DALI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DALI",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "to turn around is to face the opposite way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kid",
+      "gives": "LAD",
+      "note": "a kid is a young boy, a lad"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAL",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "LAD",
+       "to": "DAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter of global fame fools about.",
+     "walkthrough": "'Kid around' reads as one verb meaning to joke; split it into the boy and the turning signal.",
+     "definitionFit": "Salvador Dalí was the Spanish surrealist painter, so he is an example of an artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kid"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1464,47 @@
     "text": "Film outstanding gallery",
     "enumeration": "7"
    },
-   "solution": "ACETATE"
+   "solution": "ACETATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACETATE",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outstanding",
+      "gives": "ACE",
+      "note": "ace means excellent"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is a group of art galleries in Britain, the best known in London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema praises a superb exhibition space.",
+     "walkthrough": "'Film' looks like a movie; it is a thin transparent sheet.",
+     "definitionFit": "Acetate is a plastic made into transparent sheets and photographic film, so it names a kind of film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Film"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1518,57 @@
     "text": "Discriminating introduction to alcoholic spirit",
     "enumeration": "6"
    },
-   "solution": "AGEIST"
+   "solution": "AGEIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGEIST",
+    "definitions": [
+     {
+      "text": "Discriminating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes at the very beginning, so just the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alcoholic",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GEIST",
+      "note": "Geist is German for spirit, used in English for a ghost or animating spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A connoisseur's guide to choosing good liquor.",
+     "walkthrough": "'Discriminating' suggests refined taste in drink; it means prejudiced, and 'spirit' is not liquor.",
+     "definitionFit": "Ageist describes treating people unfairly because of how old they are, a form of prejudiced unfair treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Discriminating"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1582,45 @@
     "text": "Thick-skinned creature uttered sardonic refusal",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "Thick-skinned creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uttered",
+      "for": "homophone",
+      "note": "uttering is speaking, so the answer is how the words are said rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sardonic refusal",
+      "gives": "RHINO",
+      "soundsLike": "WRY NO",
+      "note": "wry means drily mocking and a refusal is a no"
+     }
+    ],
+    "explanation": {
+     "surface": "An insensitive person gives a mocking rejection.",
+     "walkthrough": "'Thick-skinned' seems to describe someone unbothered by criticism; here it is literal.",
+     "definitionFit": "The rhinoceros has notoriously tough hide, so it is literally a beast with thick skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thick-skinned"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1634,52 @@
     "text": "Liquid and/or gas",
     "enumeration": "5"
    },
-   "solution": "RADON"
+   "solution": "RADON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RADON",
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liquid",
+      "for": "anagram",
+      "note": "something liquid flows and has no fixed shape, so the letters can be poured into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and/or",
+      "gives": "ANDOR",
+      "note": "taken as written, ignoring the slash"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDOR",
+       "gives": "RADON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry question asks which state a substance is in, liquid or gas or both.",
+     "walkthrough": "It looks like a science question about states of matter; 'Liquid' is the signal and 'and/or' the letters.",
+     "definitionFit": "Radon is a radioactive noble element that exists as a colourless gas at ordinary temperatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Liquid"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1693,61 @@
     "text": "Well-bred sanctimonious boy’s surrounded by sin",
     "enumeration": "9"
    },
-   "solution": "PEDIGREED"
+   "solution": "PEDIGREED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PEDIGREED",
+    "definitions": [
+     {
+      "text": "Well-bred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "whatever is surrounded has something on every side, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sanctimonious",
+      "gives": "PI",
+      "note": "pi is short for pious, sanctimonious"
+     },
+     {
+      "clueFragment": "boy’s",
+      "gives": "ED",
+      "note": "Ed is a boy's name; the 's stands for is"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "GREED",
+      "note": "greed is one of the seven deadly sins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ED",
+      "I",
+      "GREED"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh, holier-than-thou boy is beset by temptation.",
+     "walkthrough": "Read 'boy's' as 'boy is': the boy is wrapped in the pious abbreviation, and the deadly sin follows.",
+     "definitionFit": "Pedigreed describes an animal of recorded pure ancestry, and more loosely a person of good breeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1761,48 @@
     "text": "Last to leave Slavonic city state",
     "enumeration": "5"
    },
-   "solution": "POLIS"
+   "solution": "POLIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POLIS",
+    "definitions": [
+     {
+      "text": "city state",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last to leave",
+      "for": "deletion",
+      "note": "when the last one leaves the end is gone, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slavonic",
+      "gives": "POLISH",
+      "note": "Polish is a Slavonic language and people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLIS"
+     ]
+    },
+    "explanation": {
+     "surface": "The final resident departs from an Eastern European city.",
+     "walkthrough": "'Slavonic city' looks like one phrase, but the definition is 'city state'.",
+     "definitionFit": "Polis is the Greek term for an ancient self-governing city such as Athens, a sovereign urban community."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "city"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1816,55 @@
     "text": "Make unholy din, mostly meaningless",
     "enumeration": "9"
    },
-   "solution": "DISHALLOW"
+   "solution": "DISHALLOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DISHALLOW",
+    "definitions": [
+     {
+      "text": "Make unholy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "din",
+      "gives": "DIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "meaningless",
+      "gives": "SHALLOW",
+      "note": "shallow means lacking depth or significance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SHALLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes a sacrilegious racket that is largely pointless.",
+     "walkthrough": "'unholy din' looks like one phrase for a loud noise; 'Make unholy' is the definition. DISHALLOW is an archaic word.",
+     "definitionFit": "To dishallow is an old word for to desecrate, removing something's sacred status, the reverse of hallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unholy"
+    }
+   }
   },
   {
    "number": 26,
@@ -472,7 +1878,57 @@
     "text": "Judge on island is up in arms",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "up in arms",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing placed on another comes after it, so the first-named piece goes second"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "Judge",
+      "gives": "RATE",
+      "note": "to rate something is to judge its worth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge posted to an island is furious about it.",
+     "walkthrough": "In an across clue 'on' places the first piece after the second.",
+     "definitionFit": "To be up in arms is an idiom for being angry and protesting, the same as furious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 27,
@@ -486,7 +1942,55 @@
     "text": "Destroyed ten rats and rabbits",
     "enumeration": "7"
    },
-   "solution": "NATTERS"
+   "solution": "NATTERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATTERS",
+    "definitions": [
+     {
+      "text": "rabbits",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Destroyed",
+      "for": "anagram",
+      "note": "a thing destroyed is broken apart, so the letters are smashed and rebuilt in new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten rats",
+      "gives": "TENRATS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENRATS",
+       "gives": "NATTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pest control has killed a batch of vermin and some bunnies.",
+     "walkthrough": "'rabbits' is a British verb, to rabbit on is to talk at length; it is not the animal.",
+     "definitionFit": "In British slang to rabbit is to chatter aimlessly, and natter means the same idle talking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rabbits"
+    }
+   }
   },
   {
    "number": 28,
@@ -500,7 +2004,43 @@
     "text": "Beat anxiety",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     },
+     {
+      "text": "anxiety",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "note": "first meaning: the emphasis on a syllable in rhythm or metre"
+     },
+     {
+      "clueFragment": "anxiety",
+      "note": "second meaning: mental strain and worry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like advice to overcome worry; 'Beat' is a noun, the rhythmic emphasis.",
+     "definitionFit": "The word means both the accent falling on a beat in verse or music and a state of nervous pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Beat"
+    }
+   }
   }
  ]
 }
