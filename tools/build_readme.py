@@ -260,6 +260,7 @@ LAYOUT = [
     ("scheduling", "tools/indicator_cover.py", "puts first the backlog puzzles whose blog-named indicators no annotation of ours links yet on /indicators/: a greedy set cover weighted by each indicator's clue count, re-planned at every pool checkpoint through prereset_plan.py --cover-first"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
     ("scheduling", "tools/test_prereset_paths.sh", "resolves the bridge path the burn's alerts build at runtime, instead of matching the text of the line that builds it"),
+    ("scheduling", "tools/test_prereset_plan.sh", "runs the burn planner's self-test: the bridge's measured spend coming off the need, the idle cores capping the width, and the queue order"),
     ("scheduling", "tools/test_prereset_pool.sh", "drives the burn's rolling pool with a stub run: never past the width, a freed slot refilled at once, launches spaced, a width change taking effect"),
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 

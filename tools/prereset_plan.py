@@ -2,10 +2,12 @@
 """How wide the pre-reset backfill runs, and in what order it takes the queue.
 
 The job's goal is every five-hour window spent to 100%: quota left on a window
-when it turns over is gone. The burn keeps in flight the width that would
-spend the window's remainder by its reset, at the per-run rate the burn measures off its
-own log, capped by what the machine can hold right now: free memory over the
-size of a run, and no growth while the CPU is saturated.
+when it turns over is gone. Interactive bridge work comes first, so the burn
+takes only what would otherwise be wasted. It keeps in flight the width that
+would spend, by the reset, what the window has left after the bridge's own
+projected spend, and no more than the machine has free once everything else
+on it is counted: memory over the size of a run, and idle cores over a run's
+measured CPU.
 
 The queue order is the round-robin tools/prereset_backfill.sh builds, with the
 puzzles a lockout cut off first, then Cracking the Cryptic's puzzles, then the
@@ -15,10 +17,13 @@ indicator cover (tools/indicator_cover.py).
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --self-test
 """
+import datetime as dt
+import itertools
 import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -40,12 +45,30 @@ DEFAULT_CEILING = 28
 MEM_HEADROOM_KB = 4 * 1024 * 1024
 RUN_RSS_KB = 250 * 1024
 
-# The runs mostly wait on the API, but their validators spike the CPU. Pressure
-# is /proc/pressure/cpu "some avg60" (percent of the last minute some task waited
-# for a core), else the one-minute load per core. At FULL the width holds; at
-# OVER it shrinks by a quarter.
-PSI_FULL, PSI_OVER = 40.0, 70.0
-LOAD_FULL, LOAD_OVER = 1.0, 2.0
+# The CPU the burn may have is the cores everything else leaves idle. The burn
+# is the process tree under prereset_backfill.sh, its claude runs at nice 19;
+# its CPU is that tree's utime+stime+cutime+cstime, so runs that have exited
+# and been reaped still count. Everything else /proc/stat calls busy is other
+# load. Measured since the planner's previous call when that is CPU_SPAN_S old
+# at most (one pool checkpoint is 300s), else over CPU_SAMPLE_S now.
+CPU_SPAN_S = (10, 900)
+CPU_SAMPLE_S = 2.0
+CPU_STATE = ".prereset.cpu"
+
+# The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
+# the five-hour meter's rise in usage-history.csv, split between the burn and
+# everything else by the tokens their transcripts record in the same span.
+# A token is weighted by its list price: per token type relative to uncached
+# input, times the model family's input price in $/MTok (an unknown family
+# costs as Opus). The burn's own turns are the records whose cwd is this tree.
+SPEND_WINDOW_S = 3600
+METER_STALE_S = 900
+TOKEN_WEIGHT = {"input_tokens": 1.0, "cache_creation_input_tokens": 1.25,
+                "cache_read_input_tokens": 0.1, "output_tokens": 5.0}
+MODEL_WEIGHT = {"opus": 5.0, "sonnet": 3.0, "haiku": 1.0}
+# The burn's per-run rate from the transcripts needs this many run-hours in
+# the window, else the log's rate below stands.
+RUN_HOURS_MIN = 0.25
 
 # Five-hour points one run in flight spends per hour. Measured off the burn's own
 # meter lines in .prereset.log (see per_run_rate); this is the fallback when
@@ -83,18 +106,129 @@ def per_run_rate(lines):
     return points / run_hours
 
 
-def need(pct, hours_left, rate):
-    """Runs that would spend the five-hour window's remainder by its reset, at
-    least 1. A reset already passed is a fresh window, all of it
-    left. None when any input is missing or unusable."""
+def need(pct, hours_left, rate, bridge_rate=0.0):
+    """Runs that would spend, by the reset, what the five-hour window has left
+    after the bridge's projected spend (bridge_rate points an hour), at least 1.
+    A reset already passed is a fresh window, all of it left. None when any
+    input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS
         if rate <= 0:
             return None
-        return max(1, round((100 - pct) / (hours_left * rate)))
+        left = 100 - pct - max(0.0, bridge_rate or 0.0) * hours_left
+        return max(1, round(left / (hours_left * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
+
+
+def meter_rise(csv_text, start, end):
+    """(points, hours) the five-hour meter rose over its rows in [start, end]:
+    the sum of its rises, a fall being a reset. None with under two rows, or
+    when the newest is more than METER_STALE_S before end."""
+    rows = []
+    for line in (csv_text or "").splitlines():
+        f = line.split(",")
+        try:
+            if len(f) >= 3 and f[1] == "five_hour" and start <= float(f[0]) <= end:
+                rows.append((float(f[0]), float(f[2])))
+        except ValueError:
+            continue
+    rows.sort()
+    if len(rows) < 2 or end - rows[-1][0] > METER_STALE_S:
+        return None
+    points = sum(max(0.0, b[1] - a[1]) for a, b in itertools.pairwise(rows))
+    return points, (rows[-1][0] - rows[0][0]) / 3600
+
+
+def token_weight(model, usage):
+    """A message's tokens at list price, relative to an uncached Opus input."""
+    family = next((f for f in MODEL_WEIGHT if f in (model or "")), "opus")
+    tokens = sum(w * (usage.get(k) or 0) for k, w in TOKEN_WEIGHT.items())
+    return tokens * MODEL_WEIGHT[family] / MODEL_WEIGHT["opus"]
+
+
+TIMESTAMP = re.compile(r'"timestamp":"([^"]+)"')
+
+
+def _epoch(stamp):
+    try:
+        return dt.datetime.fromisoformat(stamp.replace("Z", "+00:00")).timestamp()
+    except ValueError:
+        return None
+
+
+def _tail(path, start, chunk=1 << 18):
+    """The lines of a transcript from about start on: read back from the end a
+    chunk at a time until a line older than start, since a session file is
+    written in time order and the window is its last hour."""
+    with open(path, "rb") as fh:
+        size = fh.seek(0, 2)
+        at = size
+        while at > 0:
+            at = max(0, at - chunk)
+            fh.seek(at)
+            head = fh.read(min(chunk, size - at)).split(b"\n", 2)
+            line = head[1] if at and len(head) > 1 else head[0]
+            m = TIMESTAMP.search(line.decode(errors="replace"))
+            if m and (_epoch(m[1]) or 0) < start:
+                break
+            chunk *= 2
+        fh.seek(at)
+        return fh.read().decode(errors="replace").splitlines()
+
+
+def transcript_spend(projects, burn_cwd, start, end):
+    """(other, burn, burn run-hours) over [start, end] from every transcript
+    under projects: token weights, one per message id, the burn's being the
+    records whose cwd is burn_cwd; a run-hour is a burn session's first to last
+    record in the span, subagents' records counting as tokens only."""
+    spend, spans = {}, {}
+    burn_cwd = str(burn_cwd)
+    for path in Path(projects).glob("**/*.jsonl"):
+        try:
+            if path.stat().st_mtime < start:
+                continue
+            lines = _tail(path, start)
+        except OSError:
+            continue
+        for line in lines:
+            if '"usage"' not in line:
+                continue
+            try:
+                rec = json.loads(line)
+            except ValueError:
+                continue
+            msg = rec.get("message")
+            when = _epoch(rec.get("timestamp") or "")
+            if (not isinstance(msg, dict) or not isinstance(msg.get("usage"), dict)
+                    or when is None or not start <= when <= end):
+                continue
+            burn = rec.get("cwd") == burn_cwd
+            spend[msg.get("id") or rec.get("uuid")] = (
+                burn, token_weight(msg.get("model"), msg["usage"]))
+            if burn and not rec.get("isSidechain"):
+                lo, hi = spans.get(rec.get("sessionId"), (when, when))
+                spans[rec.get("sessionId")] = (min(lo, when), max(hi, when))
+    other = sum(w for b, w in spend.values() if not b)
+    burn = sum(w for b, w in spend.values() if b)
+    return other, burn, sum(hi - lo for lo, hi in spans.values()) / 3600
+
+
+def split_rates(rise, other, burn, burn_hours):
+    """(bridge points an hour, burn points per run-hour) from the meter's rise
+    (points, hours) and the span's token weights: the points are split in
+    proportion to the tokens. The burn's rate is None without RUN_HOURS_MIN
+    run-hours to divide by; both are None without a rise to split."""
+    if not rise or rise[1] <= 0:
+        return None, None
+    points, hours = rise
+    if other + burn <= 0:
+        return points / hours, None
+    per_token = points / (other + burn)
+    burn_rate = (per_token * burn / burn_hours
+                 if burn > 0 and burn_hours >= RUN_HOURS_MIN else None)
+    return per_token * other / hours, burn_rate
 
 
 def mem_cap(meminfo, rss_kb):
@@ -108,29 +242,23 @@ def mem_cap(meminfo, rss_kb):
     return len(rss_kb) + max(0, int(m[1]) - MEM_HEADROOM_KB) // max(1, int(each))
 
 
-def cpu_state(psi, load1, cores):
-    """"ok", "full" or "over" from PSI some avg60, else load per core.
-    None when neither can be read."""
-    m = re.search(r"^some .*\bavg60=([\d.]+)", psi or "", re.MULTILINE)
-    if m:
-        level, full, over = float(m[1]), PSI_FULL, PSI_OVER
-    elif load1 is not None and cores:
-        level, full, over = load1 / cores, LOAD_FULL, LOAD_OVER
-    else:
+def cpu_cap(others, burn, cores, runs):
+    """Runs the cores other load leaves idle can hold: (cores - others) over one
+    run's share of the burn's CPU (runs being the burn's claude processes now),
+    all in cores. None when no run is in flight or the burn used no CPU to
+    measure a run by."""
+    if not cores or not runs or not burn or burn <= 0 or others is None:
         return None
-    return "over" if level >= over else "full" if level >= full else "ok"
+    return max(0, int((cores - others) / (burn / runs)))
 
 
 def width_for(runs_needed, mem, cpu, current):
     """The need (else the current width, else DEFAULT_WIDTH), capped by memory
-    (else DEFAULT_CEILING); while the CPU is full it may not pass the current
-    width, and while over it shrinks to three quarters of it. At least 1."""
+    (else DEFAULT_CEILING) and by the idle cores (when measured). At least 1."""
     w = runs_needed or current or DEFAULT_WIDTH
     w = min(w, DEFAULT_CEILING if mem is None else mem)
-    if current and cpu == "full":
-        w = min(w, current)
-    elif current and cpu == "over":
-        w = min(w, current * 3 // 4)
+    if cpu is not None:
+        w = min(w, cpu)
     return max(1, w)
 
 
@@ -173,29 +301,110 @@ def burn_rss_kb():
     return rss
 
 
+def _procs():
+    """{pid: (ppid, cmdline, CPU ticks with reaped children's)} from /proc."""
+    table = {}
+    for proc in Path("/proc").glob("[0-9]*"):
+        try:
+            stat = (proc / "stat").read_text()
+            f = stat[stat.rindex(")") + 2:].split()
+            table[int(proc.name)] = (int(f[1]), (proc / "cmdline").read_bytes(),
+                                     sum(int(x) for x in f[11:15]))
+        except (OSError, ValueError, IndexError):
+            continue
+    return table
+
+
+def burn_ticks(table):
+    """CPU ticks of every process tree rooted at a prereset_backfill.sh whose
+    parent is not one, so a re-exec or a subshell is counted once."""
+    mark = b"prereset_backfill.sh"
+    kids = {}
+    for pid, (ppid, _, _) in table.items():
+        kids.setdefault(ppid, []).append(pid)
+    todo = [pid for pid, (ppid, cmd, _) in table.items()
+            if mark in cmd and mark not in table.get(ppid, (0, b"", 0))[1]]
+    total = 0
+    while todo:
+        pid = todo.pop()
+        total += table[pid][2]
+        todo += kids.get(pid, [])
+    return total
+
+
+def busy_ticks(stat):
+    """Non-idle ticks since boot from /proc/stat's cpu line."""
+    f = [int(x) for x in (stat or "").split("\n", 1)[0].split()[1:9]]
+    return sum(f) - f[3] - f[4]
+
+
+def cpu_load(state_path):
+    """(others, burn) in cores since the previous call's sample at state_path,
+    when CPU_SPAN_S allows, else over CPU_SAMPLE_S now. None if unread."""
+    def sample():
+        return time.time(), busy_ticks(_read("/proc/stat")), burn_ticks(_procs())
+    try:
+        now = sample()
+        try:
+            then = tuple(float(x) for x in Path(state_path).read_text().split())
+        except (OSError, ValueError):
+            then = None
+        if (not then or len(then) != 3 or not CPU_SPAN_S[0] <= now[0] - then[0] <= CPU_SPAN_S[1]
+                or now[2] < then[2]):
+            then = now
+            time.sleep(CPU_SAMPLE_S)
+            now = sample()
+        try:
+            Path(state_path).write_text(" ".join(str(x) for x in now))
+        except OSError:
+            pass
+    except (OSError, ValueError, IndexError):
+        return None
+    ticks = (now[0] - then[0]) * os.sysconf("SC_CLK_TCK")
+    busy, burn = now[1] - then[1], now[2] - then[2]
+    return max(0, busy - burn) / ticks, burn / ticks
+
+
+def bridge_spend(now=None):
+    """(bridge points an hour, burn points per run-hour or None) measured over
+    the last SPEND_WINDOW_S; (None, None) when the meter is unread."""
+    import weekly_usage
+    now = now or time.time()
+    rise = meter_rise(_read(weekly_usage.SAMPLE_CSV_PATH), now - SPEND_WINDOW_S, now)
+    if not rise:
+        return None, None
+    config = Path(os.environ.get("CLAUDE_CONFIG_DIR") or Path.home() / ".claude")
+    return split_rates(rise, *transcript_spend(config / "projects", REPO,
+                                               now - rise[1] * 3600, now))
+
+
 def width(arg=None):
     """The width to keep in flight, from the live five-hour meter and reset, the
-    log's rate and last width, and the machine. The inputs go to stderr."""
-    log = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO) / ".prereset.log"
-    lines = (_read(log) or "").splitlines()
+    bridge's measured spend, the burn's rate and last width, and the machine.
+    The inputs go to stderr."""
+    home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    lines = (_read(home / ".prereset.log") or "").splitlines()
     current = current_width(arg, lines)
-    runs_needed = None
+    runs_needed = bridge = None
     try:
         import weekly_usage
         pct = weekly_usage.usage_pct("session")
         hours_left, _ = weekly_usage.resets_in_hours("session")
-        runs_needed = need(pct, hours_left, per_run_rate(lines))
+        bridge, rate = bridge_spend()
+        rate = rate or per_run_rate(lines)
+        runs_needed = need(pct, hours_left, rate, bridge or 0.0)
     except Exception as exc:  # noqa: BLE001 — an unread meter leaves the need unknown
         print(f"width: meter unread: {exc}", file=sys.stderr)
-    try:
-        load1 = os.getloadavg()[0]
-    except OSError:
-        load1 = None
-    mem = mem_cap(_read("/proc/meminfo"), burn_rss_kb())
-    cpu = cpu_state(_read("/proc/pressure/cpu"), load1, os.cpu_count())
+    rss = burn_rss_kb()
+    mem = mem_cap(_read("/proc/meminfo"), rss)
+    load = cpu_load(home / CPU_STATE)
+    cpu = cpu_cap(*load, os.cpu_count(), len(rss)) if load else None
     w = width_for(runs_needed, mem, cpu, current)
-    print(f"width {w}: need {runs_needed}, memory cap {mem}, cpu {cpu}, "
-          f"current {current}", file=sys.stderr)
+    shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
+    cores = (f"others {load[0]:.2f} burn {load[1]:.2f} of {os.cpu_count()} cores"
+             if load else "cores unread")
+    print(f"width {w}: need {runs_needed} (bridge {shown}), memory cap {mem}, "
+          f"cpu cap {cpu} ({cores}), current {current}", file=sys.stderr)
     return w
 
 
@@ -221,35 +430,54 @@ def self_test():
     ]
     bad = cover_self_test(covers) + width_self_test()
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + 14)
+         + len(CPU_CASES) + len(METER_CASES) + 21)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
 
 
-# (need, memory cap, cpu state, current width) -> width
+# (need, memory cap, cpu cap, current width) -> width
 WIDTH_CASES = [
-    ((4, 40, "ok", 14), 4),        # on track: the need, however small
-    ((26, 40, "ok", 14), 26),      # behind: wider than now
-    ((26, 8, "ok", 14), 8),        # memory holds 8
-    ((26, 40, "full", 14), 14),    # CPU saturated: no growth
-    ((4, 40, "full", 14), 4),      # ...but shrinking to the need is fine
-    ((26, 40, "over", 14), 10),    # CPU badly saturated: a quarter off
-    ((26, 40, "full", None), 26),  # no current width to hold to
+    ((4, 40, 40, 14), 4),          # on track: the need, however small
+    ((26, 40, 40, 14), 26),        # behind: wider than now
+    ((26, 8, 40, 14), 8),          # memory holds 8
+    ((26, 40, 6, 14), 6),          # the idle cores hold 6
+    ((26, 40, None, 14), 26),      # CPU unmeasured: no cap
     ((None, None, None, None), DEFAULT_WIDTH),  # nothing readable
-    ((None, 40, "ok", 9), 9),      # meter unread: keep the current width
-    ((60, None, "ok", 14), DEFAULT_CEILING),    # memory unread
-    ((26, 0, "ok", 14), 1),        # no memory free: still one run
+    ((None, 40, 40, 9), 9),        # meter unread: keep the current width
+    ((60, None, 40, 14), DEFAULT_CEILING),      # memory unread
+    ((26, 0, 40, 14), 1),          # no memory free: still one run
+    ((26, 40, 0, 14), 1),          # no core idle: still one run
 ]
-# (pct, hours to reset, per-run rate) -> need
+# (pct, hours to reset, per-run rate, bridge points an hour) -> need
 NEED_CASES = [
-    ((90, 2.0, 1.95), 3),     # 10 points over 3.9 run-hours
-    ((60, 1.0, 1.95), 21),    # 40 points in 1h
-    ((100, 1.0, 1.95), 1),    # window spent
-    ((None, 1.0, 1.95), None),
-    ((50, 0.0, 1.95), 10),    # reset passed: a fresh window, 100 points in 5h
-    ((100, -0.1, 1.95), 10),  # the meter still shows the window just spent
-    ((50, None, 1.95), None), # reset unread
+    ((90, 2.0, 1.95, 0), 3),      # 10 points over 3.9 run-hours
+    ((60, 1.0, 1.95, 0), 21),     # 40 points in 1h
+    ((100, 1.0, 1.95, 0), 1),     # window spent
+    ((None, 1.0, 1.95, 0), None),
+    ((50, 0.0, 1.95, 0), 10),     # reset passed: a fresh window, 100 points in 5h
+    ((100, -0.1, 1.95, 0), 10),   # the meter still shows the window just spent
+    ((50, None, 1.95, 0), None),  # reset unread
+    # The bridge's projected spend comes off the top: the burn takes the surplus.
+    ((60, 1.0, 1.95, 20), 10),    # bridge takes 20 of the 40 points left
+    ((40, 4.0, 1.95, 10), 3),     # 60 left, bridge 40 of it by the reset
+    ((40, 4.0, 1.95, 15), 1),     # bridge alone spends the window: one run
+    ((50, 0.0, 1.95, 10), 5),     # fresh window: 100 - 50 over 5h
+    ((60, 1.0, 1.95, None), 21),  # bridge unmeasured: nothing subtracted
+]
+# (csv text, start, end) -> (points, hours) the five-hour meter rose
+_ROW = "{},five_hour,{},9999999999\n{},seven_day,50,9999999999\n"
+METER_CASES = [
+    ("".join(_ROW.format(t, p, t) for t, p in [(0, 10), (1800, 14), (3600, 20)]),
+     0, 3600, (10.0, 1.0)),
+    # a reset between rows: the fall is skipped, the rise after it counts
+    ("".join(_ROW.format(t, p, t) for t, p in [(0, 90), (1800, 2), (3600, 6)]),
+     0, 3600, (4.0, 1.0)),
+    # newest row too old to say anything about now
+    ("".join(_ROW.format(t, p, t) for t, p in [(0, 10), (600, 12)]), 0, 3600, None),
+    (_ROW.format(3000, 10, 3000), 0, 3600, None),
+    ("garbage", 0, 3600, None),
+    (None, 0, 3600, None),
 ]
 GB = 1024 * 1024
 # (meminfo, RSS of runs in flight) -> memory cap
@@ -260,17 +488,15 @@ MEM_CASES = [
     ("garbage", [], None),
     (None, [], None),
 ]
-PSI = "some avg10=1.00 avg60={} avg300=1.00 total=1\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n"
-# (psi, load1, cores) -> cpu state
+# (cores other processes use, cores the burn uses, cores, runs) -> cpu cap
 CPU_CASES = [
-    (PSI.format("4.76"), 15.0, 4, "ok"),   # PSI wins over load
-    (PSI.format("55.0"), 0.0, 4, "full"),
-    (PSI.format("85.0"), 0.0, 4, "over"),
-    (None, 2.0, 4, "ok"),
-    (None, 5.0, 4, "full"),
-    (None, 15.0, 4, "over"),
-    (None, None, 4, None),
-    ("garbage", None, None, None),
+    (0.5, 1.0, 4, 4, 14),     # idle box: 3.5 cores at 0.25 a run
+    (3.0, 1.0, 4, 4, 4),      # the bridge busy on 3 cores: the burn shrinks
+    (4.0, 1.0, 4, 4, 0),      # nothing idle
+    (5.0, 1.0, 4, 4, 0),      # overcommitted
+    (0.5, 0.0, 4, 4, None),   # no burn CPU to measure a run by
+    (0.5, 1.0, 4, 0, None),   # no run in flight
+    (None, 1.0, 4, 4, None),
 ]
 
 
@@ -281,7 +507,8 @@ def width_self_test():
     checks = ([(width_for, a, w) for a, w in WIDTH_CASES]
               + [(need, a, w) for a, w in NEED_CASES]
               + [(mem_cap, (m, r), w) for m, r, w in MEM_CASES]
-              + [(cpu_state, (p, l, c), w) for p, l, c, w in CPU_CASES])
+              + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
+              + [(meter_rise, (t, a, b), w) for t, a, b, w in METER_CASES])
     for fn, args, want in checks:
         if fn(*args) != want:
             print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
@@ -312,6 +539,7 @@ def width_self_test():
             print(f"FAIL current_width({arg!r}, {lines}) = {current_width(arg, lines)} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
+    bad += spend_self_test() + tree_self_test()
     import weekly_usage
     real = weekly_usage.usage_pct
     def unreadable(_group):
@@ -325,6 +553,74 @@ def width_self_test():
             bad += 1
     finally:
         weekly_usage.usage_pct = real
+    return bad
+
+
+def spend_self_test():
+    """The bridge's spend out of a synthetic hour: transcripts read back from
+    their tails, a streamed message counted once, the burn picked out by cwd,
+    and the meter's rise split between the two by token weight."""
+    import tempfile
+    bad = 0
+    end = float(int(time.time()))
+    start = end - 3600
+
+    def rec(t, cwd, mid, out, session="s", model="claude-opus-5-5", side=False):
+        stamp = dt.datetime.fromtimestamp(t, dt.timezone.utc).isoformat().replace("+00:00", "Z")
+        return json.dumps({"type": "assistant", "timestamp": stamp, "cwd": cwd,
+                           "sessionId": session, "isSidechain": side,
+                           "message": {"id": mid, "model": model,
+                                       "usage": {"output_tokens": out}}})
+    with tempfile.TemporaryDirectory() as tmp:
+        bridge, burn = Path(tmp, "-bridge"), Path(tmp, "-burn")
+        (burn / "s1" / "subagents").mkdir(parents=True)
+        bridge.mkdir()
+        old = [rec(start - 600 - i, "/home", f"old{i}", 1000) for i in range(3000)]
+        (bridge / "a.jsonl").write_text("\n".join(old + [
+            rec(start + 60, "/home", "b1", 100), rec(start + 61, "/home", "b1", 100),
+            rec(start + 900, "/home", "b2", 200),
+            rec(start + 1000, "/home", "h1", 500, model="claude-haiku-4-5")]) + "\n")
+        (burn / "s1.jsonl").write_text("\n".join([
+            rec(start + 600, "/burn", "r1", 100, "s1"),
+            rec(start + 600 + 1800, "/burn", "r2", 100, "s1")]) + "\n")
+        (burn / "s1" / "subagents" / "x.jsonl").write_text(
+            rec(start + 3000, "/burn", "r3", 200, "s1", side=True) + "\n")
+        other, mine, hours = transcript_spend(tmp, "/burn", start, end)
+        # bridge: (100 + 200 + 500 haiku at a fifth) x 5; burn: 400 x 5 over 0.5h
+        want = (400 * 5.0, 400 * 5.0, 0.5)
+        if any(abs(a - b) > 1e-9 for a, b in zip((other, mine, hours), want)):
+            print(f"FAIL transcript_spend = {(other, mine, hours)} (want {want})", file=sys.stderr)
+            bad += 1
+        # 12 points in the hour: 6 the bridge's, 6 the burn's over 0.5 run-hours
+        got = split_rates((12.0, 1.0), other, mine, hours)
+        if got != (6.0, 12.0):
+            print(f"FAIL split_rates = {got} (want (6.0, 12.0))", file=sys.stderr)
+            bad += 1
+    for args, want in [(((12.0, 1.0), 0, 0, 0), (12.0, None)),  # no tokens: all the bridge's
+                       (((12.0, 1.0), 10, 10, 0.1), (6.0, None)),  # too few run-hours
+                       ((None, 1, 1, 1), (None, None))]:
+        if split_rates(*args) != want:
+            print(f"FAIL split_rates{args} = {split_rates(*args)} (want {want})", file=sys.stderr)
+            bad += 1
+    return bad
+
+
+def tree_self_test():
+    """The burn's CPU is every process under the topmost prereset_backfill.sh,
+    and only those; busy ticks leave out idle and iowait."""
+    bad = 0
+    sh = b"/bin/bash\0tools/prereset_backfill.sh\0"
+    table = {1: (0, b"init", 1000), 10: (1, b"plugin-run.py", 5),
+             11: (10, sh, 100), 12: (11, sh, 20),            # a subshell of it
+             13: (12, b"claude\0-p\0", 300), 14: (13, b"node", 7),
+             20: (1, b"claude\0--output-format\0", 900)}   # the bridge
+    if burn_ticks(table) != 427:
+        print(f"FAIL burn_ticks = {burn_ticks(table)} (want 427)", file=sys.stderr)
+        bad += 1
+    if busy_ticks("cpu  10 20 30 400 50 6 7 8 0 0\ncpu0 1\n") != 81:
+        print(f"FAIL busy_ticks = {busy_ticks('cpu  10 20 30 400 50 6 7 8')} (want 81)",
+              file=sys.stderr)
+        bad += 1
     return bad
 
 
