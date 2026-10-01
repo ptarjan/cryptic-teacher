@@ -94,6 +94,13 @@ PLAUSIBLE = (20, 40)
 #: "3dFares going up ...".
 SUFFIX = re.compile(r"^(\d{1,2})(ac|dn|[ad]|\s+(?-i:ac|dn|[ad]))(?:\b|(?=(?-i:[A-Z])))\.?(?!\s*(?:/|,|&|and)\s*\d)\s*", re.I)
 WAY = {"a": "Across", "d": "Down", "ac": "Across", "dn": "Down"}
+#: A linked head opening the list, "1a/25a ... (9,9)", under a heading the
+#: reader does not know ("Across Clues"): kept whole for the reader, its
+#: direction the heading. Only before any heading, and only a counted clue:
+#: later a linked head may lead from the other direction, and prose cites
+#: lights the same way ("13a,14a and 17a are on my podium").
+LINKED_HEAD = re.compile(r"^(\d{1,2})(ac|dn|[ad])\.?\s*(?:/|,|&|and)\s*\d", re.I)
+COUNTED = re.compile(r"\([\d,\-\s]+\)\s*$")
 #: Until about 2015 the answer is printed white on white inside braces,
 #: "{ SAPLINGS } An anagram ...", and the shared reader drops braced text.
 HIDDEN = re.compile(r"\{\s*((?:<[^>]+>\s*)*[^<{}]*?(?:\s*</[^>]+>)*)\s*\}")
@@ -192,12 +199,13 @@ def headed(rendered):
     the shared reader expects: "9a Fragrance ... (5)" under "Across"."""
     out, way = [], None
     for ln in rendered:
-        m = SUFFIX.match(ln)
+        m = SUFFIX.match(ln) or (way is None and COUNTED.search(ln) and LINKED_HEAD.match(ln))
         if m:
             if WAY[m.group(2).strip().lower()] != way:
                 way = WAY[m.group(2).strip().lower()]
                 out.append(way)
-            ln = f"{m.group(1)} {ln[m.end():]}"
+            if m.re is SUFFIX:
+                ln = f"{m.group(1)} {ln[m.end():]}"
         out.append(ln)
     return out
 

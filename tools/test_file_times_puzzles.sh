@@ -195,6 +195,9 @@ for e in typo["entries"]:
     if (e["number"], e["direction"]) == (5, "across"):
         e["clue"], e["enumeration"] = "Lost a word (2,4)", "2,4"
 print("UNRECOUNTABLE", B.build(typo, row(typo), "times", None, None)[1])
+linked = dict(typo, unsplit=[{"lights": [[1, "across"], [25, "across"]],
+                                             "answer": "HANDLEBARMOUSTACHE", "enumeration": "9,9"}])
+print("UNSPLIT", B.build(linked, row(linked), "times", None, None)[1])
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -235,6 +238,8 @@ check "a count the grid-proved answers contradict is recounted from them, and sa
 check "a count with more words than the answers hold is refused" \
   "an enumeration disagrees with its light, and the answer holds too few words to take the count from" \
   "$(got UNRECOUNTABLE)"
+check "a linked clue the blog does not split refuses the puzzle, not its grid without it" \
+  "a linked clue the blog does not split" "$(got UNSPLIT)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are
 # printed, so their post date is not their date; filing one by it put

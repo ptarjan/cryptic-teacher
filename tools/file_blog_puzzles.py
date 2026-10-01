@@ -335,6 +335,11 @@ def worded(clue, enum):
 def build(rec, row, series, date, setter, typed=None):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
     date, or None where nothing proves one; `typed` is typed_counts()."""
+    # A linked clue the reader could not split (parse_timesforthetimes'
+    # `unsplit`) is lights the grid was rebuilt without: telegraph-26396's
+    # "1a/25a" HANDLEBAR MOUSTACHE gave a grid with no 1-across at all.
+    if rec.get("unsplit"):
+        return None, "a linked clue the blog does not split"
     entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
                for e in tg.answers(rec, row)]
     # Only the clues are mandatory: a record with no answers at all files
