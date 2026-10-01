@@ -245,6 +245,11 @@ ACQUIRED_BY = {
         "channel": "publisher",
         "what": "the Listener Team's archive PDFs on listenercrossword.com: clues, "
                 "the grid's bars and the solution read from the vector pages"},
+    "tools/listener_puzzles.py --wayback": {
+        "channel": "wayback",
+        "what": "a Wayback copy of the Times' Listener page for the clues and "
+                "preamble, the answers from the Listener Team's solution notes and "
+                "the grid rebuilt from them by tools/barred_grid.py's search"},
     "tools/indy_puzzles.py": {
         "channel": "blog",
         "what": "a fifteensquared write-up of an Independent puzzle older than "
@@ -288,6 +293,7 @@ ACQUISITION_BY_SOURCE = {
     ("ftcryptic", "media.ft.com"): ("tools/ft_pdf_puzzles.py",
                                     "tools/ft_pdf_puzzles.py --wayback"),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
+    ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
@@ -325,7 +331,7 @@ for _series in series_table.SERIES:
 GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 #: Series whose filer says per puzzle whether the grid was read off the page or
 #: rebuilt from the clues, so the file's own gridOrigin is kept.
-GRID_ORIGIN_PER_PUZZLE = {"canberra", "ftcryptic"}
+GRID_ORIGIN_PER_PUZZLE = {"canberra", "ftcryptic", "listener"}
 
 # ------------------------------------------------------ book-sourced puzzles
 #

@@ -41,6 +41,14 @@ wrong = [dict(e, answer=e["answer"][:-1] + "Z") if (e["number"], e["direction"])
          else e for e in entries]
 print("wrong", len(bg.solve(wrong, size=5)))
 print("short", bg.solve(entries + [{"number": 9, "direction": "across", "answer": "A"}], size=5))
+# Candidates: 1 across could be its letters or two wrong spellings; the
+# crossings keep the right one. Spellings of different lengths are refused.
+cand = [dict(e, answers=[e["answer"][::-1], e["answer"], e["answer"][:-1] + "Z"])
+        if (e["number"], e["direction"]) == (1, "across") else e for e in entries]
+fills = bg.solve_words(cand, size=5)
+print("pick", len(fills), fills[0][1][(1, "across")] == entries[0]["answer"] if fills else None)
+mixed = [dict(e, answers=[e["answer"], e["answer"] + "Z"]) if e is entries[0] else e for e in entries]
+print("mixed", bg.solve_words(mixed, size=5))
 PY
 )
 check "the answers pin down one grid" "count 1" "$(grep '^count' <<<"$out")"
@@ -49,4 +57,6 @@ check "every cell holds its letter" "letters True" "$(grep '^letters' <<<"$out")
 check "a grid with bars is barred, one with blocks is not" "barred True False" "$(grep '^barred' <<<"$out")"
 check "a wrong answer fits no grid" "wrong 0" "$(grep '^wrong' <<<"$out")"
 check "a one-letter light is refused" "short None" "$(grep '^short' <<<"$out")"
+check "a light's candidates: the crossings keep the one that fits" "pick 1 True" "$(grep '^pick' <<<"$out")"
+check "candidates of different lengths are refused" "mixed None" "$(grep '^mixed' <<<"$out")"
 exit $fails

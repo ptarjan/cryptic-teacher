@@ -62,6 +62,16 @@ page = [
 left, right = L.column_lines(page, 300)
 clues = L.parse_clues(left, right, set(lights))
 print("CLUES", " | ".join(f"{n}{d[0]} {t}" for (n, d), t in sorted(clues.items())))
+
+# The Times' pages: how a preamble alters an answer, as every entry it could make.
+print("MOVES", sorted(e for e, _ in L._moves("CANOPY", "NO", -1)))
+print("SNT", "AGOUTI" in [e for e, _ in L._sn_to_t("SAGOUIN")], L._sn_to_t("BAIT"))
+print("SYM", L.symmetric(["r..", "...", ".r."]), L.symmetric(["r..", "...", "..."]))
+notes = ("<tr><td class='cluegrouphead'>Across</td></tr>"
+         "<tr><td> 1 </td><td> A: Nates </td><td> CANOPY </td><td> CAN + O </td></tr>"
+         "<tr><td class='cluegrouphead'>Down</td></tr>"
+         "<tr><td> 2 </td><td> T </td><td> BOS&rsquo;NS </td><td> BOSS about N </td></tr>")
+print("NOTES", L.notes_answers(notes))
 PY
 )
 
@@ -72,5 +82,12 @@ check "lights: a barred-off single cell is no light" \
 check "clues: wrapped lines join, a stray right-hand number moves across" \
   "CLUES 1a Feline | 1d Bovine beast | 2d Exist | 3d Bear | 4a Concerning, in a memo | 5a Marry" \
   "$(grep '^CLUES' <<<"$out")"
+
+check "a run moved leftwards: every place to its left" \
+  "MOVES ['CNOAPY', 'NOCAPY']" "$(grep '^MOVES' <<<"$out")"
+check "No 3999's change: S and N out, T in anywhere" "SNT True []" "$(grep '^SNT' <<<"$out")"
+check "bars symmetric turned half round, not when one is missing" "SYM True False" "$(grep '^SYM' <<<"$out")"
+check "notes: the answer is the capitalised cell after the number" \
+  "NOTES {(1, 'across'): 'CANOPY', (2, 'down'): 'BOS’NS'}" "$(grep '^NOTES' <<<"$out")"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

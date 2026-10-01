@@ -228,8 +228,9 @@ SERIES = {
     },
     # The Listener: barred and thematic, its trick in a preamble, printed by
     # the BBC's magazine from 1930 and by the Times since 1991. Filed from the
-    # Listener Team's archive PDFs (tools/listener_puzzles.py); a puzzle whose
-    # entries go in altered is never filed (its SKIP table).
+    # Listener Team's archive PDFs and Wayback copies of the Times' pages
+    # (tools/listener_puzzles.py); an entry that goes in altered files what is
+    # entered, the clue's own word in its `alteration`.
     "listener": {
         "kind": "Listener",
         "publisher": "Listener",
