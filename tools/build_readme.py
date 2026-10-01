@@ -70,6 +70,8 @@ LAYOUT = [
     ("fetching", "tools/fetch_independent.py", "the Independent’s daily and Sunday"),
     ("fetching", "tools/test_fetch_independent.sh", "drives that parser over the days whose title is empty or is the setter’s own scratch note, and proves each one lands on the right number AND the right series — the two sequences both ran under 10,000, so the number never gets a vote"),
     ("fetching", "tools/test_enumeration_separators.sh", "holds the word breaks Metro and the Private Eye get from each clue’s printed enumeration, single lights and linked groups"),
+    ("fetching", "tools/fetch_telegraph.py", "the Telegraph’s four series from its puzzle app’s data bucket, grids and answers as printed, since 2015; fills the numbers bigdave44.com hinted only in part"),
+    ("fetching", "tools/test_fetch_telegraph.sh", "proves the bucket parser files a Sunday under the Sunday Telegraph, reads grid, clues and word breaks, and drops calendar numbers that break the running order"),
     ("fetching", "tools/fetch_observer.py", "the Observer’s Everyman"),
     ("fetching", "tools/fetch_wayback.py", "recovers Guardian puzzles older than the live site keeps, out of the Wayback Machine’s captures"),
     ("fetching", "tools/fetch_globeandmail.py", "the Globe and Mail’s cryptic, a Times of London syndication, decoded from its Amuse Labs player"),
