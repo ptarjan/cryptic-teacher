@@ -204,6 +204,25 @@ check "linked: the leader carries the whole enumeration and the clue" \
 check "linked: the continuation carries null and points back" \
   "10|across|FRACTION||See 7" "$(echo "$got" | sed -n 2p)"
 
+# "24d" typed in the Across list: which of suffix and heading is wrong is the
+# grid's to say, so the light keeps the suffix and records the heading.
+got=$(REPO="$REPO" python3 - <<'PY'
+import os, sys, importlib.util
+spec = importlib.util.spec_from_file_location(
+    "p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+mod = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(mod)
+html = """<p>Across</p><p>23a Convert got holy urge (8)</p><p>THEOLOGY &#8211; anagram</p>
+<p>24d Being a witness (6)</p><p>SEEING &#8211; charade</p>
+<p>Down</p><p>1d Jewellery (8)</p><p>BRACELET &#8211; charade</p>"""
+rec = mod.parse_post({"id": 1, "date": "2020-01-01T00:00:00", "slug": "times-25184-x",
+                      "link": "x", "categories": [11], "content": {"rendered": html}})
+print(" ".join(f"{e['number']}{e['direction'][0]}:{e.get('heading')}" for e in rec["entries"]))
+PY
+)
+check "a suffix against its heading keeps the suffix and records the heading" \
+  "23a:None 24d:across 1d:None" "$got"
+
 # REFUSALS. The blog does not always say where the light break is, and a wrong
 # split reconstructs a wrong grid that nobody can see is wrong. Each of these
 # must emit NOTHING for the clue and say so, rather than pick one.

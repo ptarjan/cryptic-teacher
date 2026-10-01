@@ -117,8 +117,16 @@ print("LINKED_SPLIT", "unsplit" in split,
 T.ATTEMPTS.write_text(
     json.dumps({"post_id": 6, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
     + json.dumps({"post_id": 7, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
-                  "linked": True}) + "\n")
-print("RETRY_LINKED", sorted(T.attempted(6000000, linked={6, 7})))
+                  "doubts": True}) + "\n")
+print("RETRY_LINKED", sorted(T.attempted(6000000, doubts={6, 7})))
+# "24d" typed in the Across list: the parser keeps the heading beside the
+# suffix, and the grid decides which was mistyped.
+last = max(k for k in cells if k[1] == "across")
+typed = {"series": "Test", "entries": [
+    dict(e, direction="down", heading="across") if (e["number"], e["direction"]) == last else e
+    for e in rec["entries"]]}
+grids, how = T.solve(typed)
+print("HEADED", grids == [TINY], how, T.headed_by(dict(typed), TINY)["entries"][-1].get("heading"))
 
 # Answers that refute EVERY candidate are the opposite of an ambiguous grid:
 # the right grid is not in the list, so the light list or an answer is wrong.
@@ -297,6 +305,8 @@ check "a linked answer printed whole is split by the grid that fits" \
 check "the split record carries the clue on its leader and See N on the rest" \
       "False True" "$(field LINKED_SPLIT)"
 check "a linked post tried without splitting is tried again" "[7]" "$(field RETRY_LINKED)"
+check "a suffix against its heading: the grid takes the heading's direction" \
+      "True unique, directions as headed None" "$(field HEADED)"
 check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
 check "a settled post is retried only when its settled answers change" "[4]" "$(field RETRY_SETTLED)"
 check "answers refuting every candidate does not read as an unsettled tie" \
