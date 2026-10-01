@@ -34,6 +34,13 @@ print("NONE", [route(t) for t in (
     "Independent on Sunday 8,123 by Phi", "Independent 1,218 / Kairos",
     "Inquisitor 1234 by Schadenfreude", "Independent Magazine 9,001")])
 
+print("SETTER", [I.setter_of(t) for t in (
+    "Independent 8925 Sat 23-May-2015 Monk", "Independent 8,839 by Monk",
+    "Independent 7,950 / Morph  (Saturday Prize Crossword 7/04/12)",
+    "Independent 7,734 / Saturday Prize Puzzle 10 September 2011 by Mordred",
+    "Independent on Sunday 1,102 / Poins. Heart to heart",
+    "Independent 7,700 Saturday Prize Puzzle")])
+
 rows = [{"number": 1218, "date": "2013-06-30"},   # a Sunday: itself
         {"number": 1219, "date": "2013-07-09"},   # blogged late: the Sunday before
         {"number": 1220, "date": "2013-07-03"}]   # a date that falls back is dropped
@@ -46,6 +53,8 @@ check "daily titles go to the daily" \
   "['independent', 'independent', 'independent', 'independent']" "$(field DAILY)"
 check "Sunday titles go to the Sunday paper" "['indysunday', 'indysunday']" "$(field SUNDAY)"
 check "a disagreeing title or another puzzle goes nowhere" "[None, None, None, None]" "$(field NONE)"
+check "a print date in the title is not the setter" \
+  "['Monk', 'Monk', 'Morph', 'Mordred', 'Poins', None]" "$(field SETTER)"
 check "Sunday dates rise with the numbers" \
   "{1218: '2013-06-30', 1219: '2013-07-07', 1220: None}" "$(field DATES)"
 
