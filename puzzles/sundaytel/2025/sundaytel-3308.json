@@ -23,6 +23,9 @@
   "date": "2025-03-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "A musical, not a book",
     "enumeration": "4"
    },
-   "solution": "ACTS"
+   "solution": "ACTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ACTS",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not a",
+      "for": "deletion",
+      "note": "'not' tells you to go without the single letter that follows it, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "CATS",
+      "note": "Cats is the long-running Lloyd Webber musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists a show is a musical and not something to be read.",
+     "walkthrough": "'A musical' looks like the definition, but the A stands alone and the show loses its own A: A plus CTS gives ACTS.",
+     "definitionFit": "The Acts of the Apostles is the fifth book of the New Testament, usually shortened to its first word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +101,43 @@
     "text": "Clothing comes back to life, might you say?",
     "enumeration": "6"
    },
-   "solution": "UNDIES"
+   "solution": "UNDIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDIES",
+    "definitions": [
+     {
+      "text": "Clothing",
+      "at": 0
+     },
+     {
+      "text": "comes back to life, might you say?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clothing",
+      "note": "first meaning: informal word for underwear"
+     },
+     {
+      "clueFragment": "comes back to life, might you say?",
+      "note": "second meaning: a made-up verb, the opposite of dying, in the third person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half invents a word: if to die is to stop living, to un-die would be to return to life, and 'he un-dies' is the joke; 'might you say?' admits it is not a real word.",
+     "definitionFit": "Undies is a casual British and American word for underclothes, the garments worn beneath outer clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clothing"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +151,54 @@
     "text": "Same hatred, unfortunately, for education chief",
     "enumeration": "10"
    },
-   "solution": "HEADMASTER"
+   "solution": "HEADMASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADMASTER",
+    "definitions": [
+     {
+      "text": "education chief",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something that has gone unfortunately has gone wrong, so the letters come out in a wrong order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Same hatred",
+      "gives": "SAMEHATRED",
+      "note": "ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAMEHATRED",
+       "gives": "HEADMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Staff and pupils share an unhappy loathing of the head of the school.",
+     "walkthrough": "The anagram fodder reads like a feeling the whole school shares about its head, which is exactly where the answer sits in the scene.",
+     "definitionFit": "A headmaster is the man in charge of a school, its principal or chief teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +218,39 @@
      }
     ]
    },
-   "solution": "BADEGG"
+   "solution": "BADEGG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BAD EGG",
+    "definitions": [
+     {
+      "text": "A rotten rotter?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A rotten rotter?",
+      "note": "surface reading: an utterly dreadful person, a real rotter"
+     },
+     {
+      "clueFragment": "rotten",
+      "note": "setter's reading: taken literally, something from a hen that has gone off and smells, which is also slang for a scoundrel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rotter' is old British slang for a cad; the clue asks for a phrase that means a rotter and literally describes something rotten from the larder.",
+     "definitionFit": "A bad egg is an idiom for a dishonest or untrustworthy person, a rotter, and literally an egg that has gone off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rotten"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +264,61 @@
     "text": "Keep sub beneath surface of Pacific",
     "enumeration": "8"
    },
-   "solution": "PRESERVE"
+   "solution": "PRESERVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRESERVE",
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surface of",
+      "for": "letter_selection",
+      "note": "the surface of something is its top layer, so only the opening letter of the word is kept"
+     },
+     {
+      "text": "beneath",
+      "for": "charade",
+      "note": "in a down clue, one piece placed beneath another comes after it in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pacific",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word, its top"
+     },
+     {
+      "clueFragment": "sub",
+      "gives": "RESERVE",
+      "note": "a sub, or substitute, is a reserve player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to hold a submarine just under the waves of the Pacific.",
+     "walkthrough": "'Sub' suggests a submarine under the sea, but it is short for a substitute in a team.",
+     "definitionFit": "To preserve something is to keep or maintain it in its existing state, protecting it from loss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sub"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +332,55 @@
     "text": "Family left to board vessel",
     "enumeration": "4"
    },
-   "solution": "CLAN"
+   "solution": "CLAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAN",
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to board",
+      "for": "container",
+      "note": "to board a ship is to get inside it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "CAN",
+      "note": "a can is a container, a vessel for liquid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family has been left behind to get on to a ship.",
+     "walkthrough": "'Vessel' suggests a ship to board, but it is a container, a can.",
+     "definitionFit": "A clan is a group of related families, especially in Scotland, sharing a common ancestor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +400,61 @@
      }
     ]
    },
-   "solution": "GOLFCLUB"
+   "solution": "GOLFCLUB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GOLF CLUB",
+    "definitions": [
+     {
+      "text": "wood, say",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, sending a word up makes it read from bottom to top, back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whip",
+      "gives": "FLOG",
+      "note": "to flog is to whip"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "CLUB",
+      "note": "a club is a group or society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLF",
+      "CLUB"
+     ],
+     "reversals": [
+      {
+       "from": "FLOG",
+       "to": "GOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stirs up a gathering held in the forest.",
+     "walkthrough": "'Whip up' reads as one phrase meaning to rouse, but 'up' only turns the whip round. 'Say' marks wood as an example.",
+     "definitionFit": "A wood is a type of club used in golf, traditionally with a wooden head, for long shots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +474,66 @@
      }
     ]
    },
-   "solution": "CLAYPIGEON"
+   "solution": "CLAYPIGEON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CLAY PIGEON",
+    "definitions": [
+     {
+      "text": "that may be targeted",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change of",
+      "for": "anagram",
+      "note": "a change of letters swaps them around into a new arrangement"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "age policy",
+      "gives": "AGEPOLICY",
+      "note": "nine letters to rearrange"
+     },
+     {
+      "clueFragment": "session",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGEPOLICYN",
+       "gives": "CLAYPIGEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retirement-age policy is altered just before a parliamentary session closes, and becomes a target for criticism.",
+     "walkthrough": "The definition is a description rather than a synonym: the answer is a thing shot at. 'Before' only places the extra letter after the rest of the fodder.",
+     "definitionFit": "A clay pigeon is a disc flung into the air as a target for shooting practice and sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "session"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +547,55 @@
     "text": "Staff guarding old boat",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "to guard something is to surround and protect it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "CANE",
+      "note": "a cane is a walking staff"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "O",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Employees keep watch over an aging vessel.",
+     "walkthrough": "'Staff' suggests workers, but here it is a stick.",
+     "definitionFit": "A canoe is a light narrow boat propelled with paddles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +615,70 @@
      }
     ]
    },
-   "solution": "APRILFOOL"
+   "solution": "APRILFOOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "APRIL FOOL",
+    "definitions": [
+     {
+      "text": "joke",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "throwing",
+      "for": "deletion",
+      "note": "to throw something is to get rid of it, so a letter is cast out"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "risk",
+      "gives": "PERIL",
+      "note": "peril is danger, a risk"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "FOOL",
+      "note": "a fool is a cold pudding of puréed fruit folded into cream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PRIL",
+      "FOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone risks hurling a British pudding at a person as a prank.",
+     "walkthrough": "'Throwing' suggests flinging the dessert, but it throws away the English from PERIL. A fool is a British fruit-and-cream dessert.",
+     "definitionFit": "An April fool is a prank played on the first of April, or the person it fools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "throwing"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +692,62 @@
     "text": "Scoundrel involving outsiders in deceitful trick",
     "enumeration": "7"
    },
-   "solution": "SWINDLE"
+   "solution": "SWINDLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SWINDLE",
+    "definitions": [
+     {
+      "text": "trick",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to include, so one piece takes another inside it"
+     },
+     {
+      "text": "outsiders in",
+      "for": "letter_selection",
+      "note": "the outsiders of a word are its first and last letters, the ones on the edges"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "SWINE",
+      "note": "a swine is a contemptible person"
+     },
+     {
+      "clueFragment": "deceitful",
+      "gives": "DL",
+      "select": "outer",
+      "note": "its two edge letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWIN",
+      "DL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain draws strangers into a dishonest scheme.",
+     "walkthrough": "'Deceitful' sits right next to 'trick' and pulls toward a definition, but only its outer letters are used.",
+     "definitionFit": "To swindle is to cheat someone out of money; as a noun, a swindle is a fraudulent scheme or con."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +761,50 @@
     "text": "Smooth wing for insect",
     "enumeration": "7"
    },
-   "solution": "SANDFLY"
+   "solution": "SANDFLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SANDFLY",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smooth",
+      "gives": "SAND",
+      "note": "to sand wood is to smooth it"
+     },
+     {
+      "clueFragment": "wing",
+      "gives": "FLY",
+      "note": "to wing it is to fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAND",
+      "FLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sleek wing suits an insect.",
+     "walkthrough": "Both pieces look like an adjective and a noun, but each is a verb: to smooth and to wing.",
+     "definitionFit": "A sandfly is a small biting fly found on beaches, so it is a kind of insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smooth"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +818,47 @@
     "text": "Finished, a dish from Italy",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "dish from Italy",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "PAST",
+      "note": "something past is over and done with"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner has finished a plate of Italian food.",
+     "walkthrough": "'A dish' looks like the start of the definition, but the article belongs to the wordplay.",
+     "definitionFit": "Pasta, made from durum wheat dough in many shapes, is the classic Italian food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +872,57 @@
     "text": "Constable might have used this, finding page isn’t clean",
     "enumeration": "10"
    },
-   "solution": "PAINTBRUSH"
+   "solution": "PAINTBRUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAINTBRUSH",
+    "definitions": [
+     {
+      "text": "Constable might have used this",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the standard abbreviation for page"
+     },
+     {
+      "clueFragment": "isn’t",
+      "gives": "AINT",
+      "note": "ain't is a colloquial form of isn't"
+     },
+     {
+      "clueFragment": "clean",
+      "gives": "BRUSH",
+      "note": "to brush is to clean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AINT",
+      "BRUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer finds a notebook page dirty, the sort of evidence he might have used.",
+     "walkthrough": "Constable has a capital because it is John Constable, the English landscape painter, not a police constable.",
+     "definitionFit": "A painter like John Constable applied oil colours to canvas with this tool, so the description fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Constable"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +936,43 @@
     "text": "A biscuit in general?",
     "enumeration": "9"
    },
-   "solution": "GARIBALDI"
+   "solution": "GARIBALDI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GARIBALDI",
+    "definitions": [
+     {
+      "text": "biscuit",
+      "at": 2
+     },
+     {
+      "text": "general",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biscuit",
+      "note": "first meaning: a flat British biscuit with a layer of currants"
+     },
+     {
+      "clueFragment": "general",
+      "note": "second meaning: the Italian military leader who fought for unification"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In general' reads as 'generally', but the biscuit is named after a general, Giuseppe Garibaldi.",
+     "definitionFit": "The currant biscuit takes its name from the nineteenth-century Italian commander Giuseppe Garibaldi, a famous soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +986,47 @@
     "text": "US composer’s dance music",
     "enumeration": "10"
    },
-   "solution": "BARBERSHOP"
+   "solution": "BARBERSHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARBERSHOP",
+    "definitions": [
+     {
+      "text": "music",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US composer’s",
+      "gives": "BARBERS",
+      "note": "Samuel Barber, American composer of the Adagio for Strings, with the possessive S"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "HOP",
+      "note": "a hop is an informal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARBERS",
+      "HOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of dance music written by an American composer.",
+     "walkthrough": "'Dance music' looks like one phrase, but the definition is the last word alone.",
+     "definitionFit": "Barbershop is a style of close-harmony unaccompanied singing, usually by a male quartet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1050,40 @@
      }
     ]
    },
-   "solution": "IVANTHETERRIBLE"
+   "solution": "IVANTHETERRIBLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IVAN THE TERRIBLE",
+    "definitions": [
+     {
+      "text": "Tsar I haven’t suggested?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tsar",
+      "note": "surface reading: a Russian ruler, and the speaker denies hinting at him"
+     },
+     {
+      "clueFragment": "I haven’t suggested?",
+      "note": "setter's reading: the first seven letters of the answer, rearranged as the third word tells you, spell these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone insists they never put forward a particular emperor.",
+     "walkthrough": "This works in reverse: treat the tsar's name as an instruction, with 'terrible' as the shuffle signal, and IVANTHE rearranges into I HAVEN'T.",
+     "definitionFit": "Ivan IV, the sixteenth-century ruler of Russia, was the first to be crowned Tsar of All the Russias."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suggested"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1097,51 @@
     "text": "One’s unlikely to remember cinema, as dilapidated",
     "enumeration": "8"
    },
-   "solution": "AMNESIAC"
+   "solution": "AMNESIAC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMNESIAC",
+    "definitions": [
+     {
+      "text": "One’s unlikely to remember",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dilapidated",
+      "for": "anagram",
+      "note": "something dilapidated has fallen apart, so its letters are rebuilt in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cinema, as",
+      "gives": "CINEMAAS",
+      "note": "eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CINEMAAS",
+       "gives": "AMNESIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody will recall the old picture house now that it is so run-down.",
+     "walkthrough": "The definition is a description of a person rather than a single synonym.",
+     "definitionFit": "An amnesiac is a person suffering from memory loss, so they are unlikely to recall things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cinema"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1155,55 @@
     "text": "Registered men heading off leaned to one side",
     "enumeration": "8"
    },
-   "solution": "ENLISTED"
+   "solution": "ENLISTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENLISTED",
+    "definitions": [
+     {
+      "text": "Registered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, a word loses its front, so the opening letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "EN",
+      "note": "MEN without its first letter"
+     },
+     {
+      "clueFragment": "leaned to one side",
+      "gives": "LISTED",
+      "note": "a ship that lists leans to one side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "LISTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Signed-up soldiers set off and tilted over.",
+     "walkthrough": "'Heading off' suggests the men setting out, but it removes the head of the word.",
+     "definitionFit": "To enlist is to sign up, especially for the armed forces, so enlisted means officially enrolled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1223,69 @@
      }
     ]
    },
-   "solution": "TENORCLEF"
+   "solution": "TENORCLEF",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TENOR CLEF",
+    "definitions": [
+     {
+      "text": "Mark in music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after adjustment",
+      "for": "anagram",
+      "note": "an adjustment rearranges things, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "FORCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "ORCLEF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LFORCE",
+       "gives": "ORCLEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notation in a score about numbers being in force once revised.",
+     "walkthrough": "'Number' wants to be read as a piece of music, but it is just ten. The Roman numeral joins the force before the letters are rearranged.",
+     "definitionFit": "A tenor clef is a C clef symbol on the staff, used for cello, bassoon and trombone parts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1299,42 @@
     "text": "Toy instrument",
     "enumeration": "6"
    },
-   "solution": "FIDDLE"
+   "solution": "FIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDDLE",
+    "definitions": [
+     {
+      "text": "Toy",
+      "at": 0
+     },
+     {
+      "text": "instrument",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toy",
+      "note": "first meaning: a verb, to play idly with something"
+     },
+     {
+      "clueFragment": "instrument",
+      "note": "second meaning: a violin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Toy instrument' reads as a child's plaything, but 'Toy' is a verb: to fiddle with something.",
+     "definitionFit": "To fiddle is to fidget or play aimlessly with an object, and a fiddle is the informal name for a violin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Toy"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1348,44 @@
     "text": "Reportedly, college tucked away",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EATEN",
+    "definitions": [
+     {
+      "text": "tucked away",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so a word is heard rather than seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "EATEN",
+      "soundsLike": "ETON",
+      "note": "Eton is the famous English boarding school"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour has it a college is hidden somewhere out of sight.",
+     "walkthrough": "'Tucked away' suggests hidden, but here it means food put away, consumed.",
+     "definitionFit": "To tuck away food is an informal idiom for eating it heartily, so tucked away means consumed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1399,43 @@
     "text": "Artist, one going round the twist?",
     "enumeration": "6"
    },
-   "solution": "TURNER"
+   "solution": "TURNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNER",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     },
+     {
+      "text": "one going round the twist?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "note": "first meaning: a famous English Romantic landscape painter"
+     },
+     {
+      "clueFragment": "one going round the twist?",
+      "note": "second meaning: literally, something that rotates, or a person who shapes wood on a lathe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Round the twist' is British slang for mad, so it sounds like a tortured artist, but read literally it is one who turns.",
+     "definitionFit": "JMW Turner was a celebrated English Romantic landscape painter, and anything that rotates or twists is one that turns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "twist"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1449,62 @@
     "text": "Bound by rules, leader in secret hands in notice",
     "enumeration": "7"
    },
-   "solution": "RESIGNS"
+   "solution": "RESIGNS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RESIGNS",
+    "definitions": [
+     {
+      "text": "hands in notice",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bound by",
+      "for": "container",
+      "note": "what is bound by something is tied up within it, so one piece sits inside another"
+     },
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rules",
+      "gives": "REIGNS",
+      "note": "a monarch who rules reigns"
+     },
+     {
+      "clueFragment": "secret",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "S",
+      "IGNS"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee bound by regulations, a secret-keeping chief, quits the job.",
+     "walkthrough": "'Rules' looks like a noun for regulations, but it is the verb, to reign.",
+     "definitionFit": "To resign is to give up a job formally, which is what handing in one's notice amounts to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rules"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1518,52 @@
     "text": "Lass getting in really late, all kicking off",
     "enumeration": "4"
    },
-   "solution": "GIRL"
+   "solution": "GIRL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GIRL",
+    "definitions": [
+     {
+      "text": "Lass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all kicking off",
+      "for": "letter_selection",
+      "note": "to kick off is to start, so every word gives only its starting letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "getting in really late",
+      "gives": "GIRL",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "I",
+      "R",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman comes home very late, and everyone starts shouting.",
+     "walkthrough": "'Kicking off' is British slang for an argument breaking out, which suits the late-night scene, but it means starting.",
+     "definitionFit": "Lass is a northern English and Scottish word for a young woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kicking"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1577,55 @@
     "text": "Knight in action, loved",
     "enumeration": "7"
    },
-   "solution": "DESIRED"
+   "solution": "DESIRED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESIRED",
+    "definitions": [
+     {
+      "text": "loved",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the first piece is placed within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knight",
+      "gives": "SIR",
+      "note": "Sir is the title of a knight"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SIR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A gallant knight in battle is adored.",
+     "walkthrough": "'In action' sounds like a knight in combat, but 'in' puts the knight's title inside an act.",
+     "definitionFit": "Something desired is longed for or wanted, close in sense to cherished or adored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1639,42 @@
     "text": "Tie, attractive thing?",
     "enumeration": "4"
    },
-   "solution": "DRAW"
+   "solution": "DRAW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAW",
+    "definitions": [
+     {
+      "text": "Tie",
+      "at": 0
+     },
+     {
+      "text": "attractive thing",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tie",
+      "note": "first meaning: a game that ends level"
+     },
+     {
+      "clueFragment": "attractive thing",
+      "note": "second meaning: something that pulls in crowds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Tie' suggests neckwear and 'attractive' good looks, but the two halves are a level result and a crowd-puller.",
+     "definitionFit": "A draw is a match with equal scores, and also an attraction that brings people in, such as a star performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tie"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1688,62 @@
     "text": "Move efficiently to secure a place for flight",
     "enumeration": "9"
    },
-   "solution": "STAIRWELL"
+   "solution": "STAIRWELL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAIRWELL",
+    "definitions": [
+     {
+      "text": "place for flight",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "gives": "STIR",
+      "note": "to stir is to move"
+     },
+     {
+      "clueFragment": "efficiently",
+      "gives": "WELL",
+      "note": "done efficiently is done well"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "IR",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries to book a seat on a plane.",
+     "walkthrough": "'Flight' suggests air travel, but it is a flight of stairs.",
+     "definitionFit": "A stairwell is the vertical shaft in a building that houses a staircase, its flights of steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1757,43 @@
     "text": "Corinthian character embraced by handsome Gaul",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Corinthian character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "hidden_word",
+      "note": "what is embraced is held within arms, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handsome Gaul",
+      "gives": "OMEGA",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A man from Corinth is hugged by a good-looking Frenchman.",
+     "walkthrough": "'Character' suggests a person, but it is a letter; Corinth was a Greek city.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, the script used in ancient Corinth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "character"
+    }
+   }
   }
  ]
 }
