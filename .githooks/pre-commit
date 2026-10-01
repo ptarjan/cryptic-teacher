@@ -1,0 +1,5 @@
+#!/bin/sh
+# A tracked file with no layout row fails CI; refuse the commit instead.
+# Fix: python3 tools/build_readme.py --add-missing, then stage docs/LAYOUT.md
+# and tools/build_readme.py.
+exec python3 tools/build_readme.py --check-layout
