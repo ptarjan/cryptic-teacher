@@ -274,6 +274,14 @@ T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (lone, elsewhere)))
 T.OUT.write_text("")
 T.run(fresh=True)
 print("RUN_REFUSED", T.OUT.read_text() == "", json.loads(T.ATTEMPTS.read_text())["how"][:7])
+# A failure already tried is skipped, unless the run is told to retry the
+# failures (a parser fix), and a grid already written never is.
+calls = []
+stub = lambda rec, max_nodes: (calls.append(rec["post_id"]), ([], "no grid"))[1]
+T.run(solver=stub)
+skipped = list(calls)
+T.run(solver=stub, retry_failed=True)
+print("RETRY_FAILED", skipped, calls)
 # An answer settled from the wordplay puts the refused puzzle back in, though
 # it was already tried.
 k = T.printed(lone)[6]
@@ -374,6 +382,7 @@ check "a run writes the corrected answer into the grid row" \
       "[(1, [('ZJ', 'EJ')])]" "$(field RUN_ROW)"
 check "and answers() reads the corrected answers back" True "$(field RUN_ANSWERS)"
 check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(field RUN_REFUSED)"
+check "a tried failure is retried only when the run is told to" "[] [2]" "$(field RETRY_FAILED)"
 check "a wordplay-settled answer rebuilds a refused puzzle, as a correction" \
       "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \
