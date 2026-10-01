@@ -406,6 +406,8 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_cross_validate.sh", "does tools/cross_validate.py name each way two copies of a puzzle differ?"),
     ("tables everything else reads", "tools/test_clue_counts.sh", "does a clue that carries its own letter count, or a stray letter, get refused?"),
     ("tables everything else reads", "tools/trove_solution_ocr.py", "read a Canberra Times puzzle's answers off the paper's printed solution grid"),
+    ("tables everything else reads", "tools/file_georgeho_puzzles.py", "file the puzzles only georgeho's ODbL clue database holds into puzzles/"),
+    ("tables everything else reads", "tools/test_file_georgeho_puzzles.sh", "does tools/file_georgeho_puzzles.py read georgeho's rows into the record the grid rebuild and file_blog_puzzles.build take?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

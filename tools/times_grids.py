@@ -66,12 +66,22 @@ SIZE = {
     "toughie": 15,
     "sundaytel": 15,
     "sundaytough": 15,
+    # tools/file_georgeho_puzzles.py's series keys, the rest of georgeho's.
+    "cryptic": 15,
+    "everyman": 15,
+    "times": 15,
+    "timesquick": 13,
+    "timesjumbo": 23,
+    "sundaytimes": 15,
+    "timesclub": 15,
+    "tls": 15,
+    "mephisto": 12,
 }
 
 #: The BARRED series: thick lines between cells and no black squares, so the
 #: numbering alone fixes nothing, but every cell holds a letter and the
 #: answers pin the bars down (tools/barred_grid.py).
-BARRED = {"Mephisto"}
+BARRED = {"Mephisto", "mephisto"}
 
 
 #: A 15x15 holds at most this many lights; a Weekend post with more is the
@@ -124,8 +134,9 @@ DEFAULT_MAX_NODES = 6_000_000
 #: The Times: 5, over all 4,760 grids this module had rebuilt without the cap
 #: (Daily, Weekend, Quick and Jumbo; the Jumbos never pass 3). The FT: 7, over
 #: 110 rebuilt without it. Other papers go higher -- the Independent prints 11
-#: -- so each is its paper's number, not the solver's.
-MAX_BLACK_RUN = {"FT": 7}
+#: -- so each is its paper's number, not the solver's. The Guardian's (cryptic,
+#: everyman) has never been counted, so it goes uncapped.
+MAX_BLACK_RUN = {"FT": 7, "cryptic": 15, "everyman": 15}
 TIMES_BLACK_RUN = 5
 
 
@@ -879,6 +890,9 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         # a count in their text would otherwise each be their own bucket.
         key = why if why.startswith(("unique", "no grid", "truncated")) else "shortlist"
         key = "unique, second try" if key.startswith("unique,") else key
+        key = "truncated" if key.startswith("truncated") else key
+        key = ("light missing" if key.startswith("no grid: no light") else
+               "no grid" if key.startswith("no grid") else key)
         for prefix in ("rejected", "answers fit none", "refused"):
             key = prefix if why.startswith(prefix) else key
         how[key] += 1
@@ -908,7 +922,8 @@ def report(r):
     n = r["n"]
     pct = lambda k: f"{100.0 * r['how'][k] / n:.1f}%" if n else "-"
     print(f"{n} puzzle(s) tried")
-    for k in ("unique", "unique, second try", "shortlist", "no grid", "truncated",
+    for k in ("unique", "unique, second try", "shortlist", "light missing", "no grid",
+              "truncated",
               "rejected", "answers fit none", "refused"):
         if r["how"][k]:
             print(f"  {r['how'][k]:>6}  {pct(k):>6}  {k}")

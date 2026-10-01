@@ -379,7 +379,7 @@ check "a wordplay-settled answer rebuilds a refused puzzle, as a correction" \
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"
 check "only the Mephisto of the barred series is rebuilt, by the parsed names" \
-      "['Other Crosswords'] ['Mephisto']" "$(field BARRED)"
+      "['Other Crosswords'] ['Mephisto', 'mephisto']" "$(field BARRED)"
 check "a Weekend post with a Jumbo's entries is rebuilt at 23x23; the Club and TLS at 15x15" \
       "15 23 15 15 15" "$(field SIZE)"
 check "every search a puzzle runs draws on one budget" "True truncated" "$(field BOUNDED)"
