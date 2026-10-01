@@ -85,6 +85,14 @@ def _order(value, schema):
     return value
 
 
+def has_grid(puzzle):
+    """Whether the puzzle has a grid. A gridless puzzle is filed from its clues
+    alone, and the schema holds it to having `dimensions` and every entry's
+    `position` together or neither, so this one key answers for both. An
+    empty value is an absent key, as everywhere in the file."""
+    return not is_empty(puzzle.get("dimensions"))
+
+
 # ------------------------------------------------------------- the validator
 
 ANNOTATIONS = {"$schema", "$id", "$comment", "title", "description", "$defs"}
@@ -261,6 +269,13 @@ def _one_of(v, arg, s, at, out):
                    + " | ".join("; ".join(t) for t in tries))
 
 
+def _not(v, arg, s, at, out):
+    probe = []
+    _check(v, arg, at, probe)
+    if not probe:
+        out.append(f"{at}: must not match {json.dumps(arg)[:120]}")
+
+
 def _if(v, arg, s, at, out):
     probe = []
     _check(v, arg, at, probe)
@@ -275,7 +290,7 @@ KEYWORDS = {
     "items": _items, "minItems": _min_items, "maxItems": _max_items,
     "uniqueItems": _unique, "minLength": _min_length, "pattern": _pattern,
     "minimum": _minimum, "maximum": _maximum, "enum": _enum, "const": _const,
-    "$ref": _ref, "anyOf": _any_of, "oneOf": _one_of, "if": _if,
+    "$ref": _ref, "anyOf": _any_of, "oneOf": _one_of, "not": _not, "if": _if,
     "then": lambda *a: None, "else": lambda *a: None,   # read by _if
 }
 

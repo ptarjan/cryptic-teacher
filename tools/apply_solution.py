@@ -55,7 +55,8 @@ from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook
 from series import official_key  # noqa: E402
 import corroborate  # noqa: E402
 from definitions import QUOTES  # noqa: E402
-import provenance  # noqa: E402
+import provenance
+import puzzle_schema  # noqa: E402
 from groups import entry_id  # noqa: E402
 
 
@@ -93,6 +94,9 @@ def check_geometry(puzzle):
     fill against it — a fill checked against an incoherent grid proves nothing.
     """
     problems = []
+    # A gridless puzzle (puzzle_schema.has_grid) has no geometry to be wrong.
+    if not puzzle_schema.has_grid(puzzle):
+        return problems
     dims = puzzle.get("dimensions") or {}
     cols, rows = dims.get("cols"), dims.get("rows")
     if not cols or not rows:
@@ -187,6 +191,8 @@ def check_fill(puzzle, fill):
             problems.append(
                 f"{entry_id(entry)}: {raw!r} is {len(answer)} letters, grid wants {entry['length']}")
             continue
+        if "position" not in entry:
+            continue  # gridless: no square to share with a crossing light
         x, y = entry["position"]["x"], entry["position"]["y"]
         for i, ch in enumerate(answer):
             cell = (x + i, y) if entry["direction"] == "across" else (x, y + i)
@@ -299,7 +305,10 @@ def split_fill(fill):
     return answers, defs
 
 
-def render_grid(puzzle, cells):
+def render_grid(puzzle, cells, fill=None):
+    if not puzzle_schema.has_grid(puzzle):
+        return "\n".join(f"{entry_id(e)}: {normalise((fill or {}).get(entry_id(e), ''))}"
+                         for e in puzzle["entries"])
     w, h = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     rows = []
     for y in range(h):
@@ -354,7 +363,7 @@ def main():
         raise SystemExit(1)
 
     print("all entries answered, all lengths right, every crossing agrees")
-    print(render_grid(puzzle, cells))
+    print(render_grid(puzzle, cells, fill))
     if args.check_only:
         return
 
