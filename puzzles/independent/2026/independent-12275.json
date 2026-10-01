@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Pale, slim naked lady having a day out",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LILY",
+    "definitions": [
+     {
+      "text": "Pale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "something naked has had its outer covering stripped, so the word loses its first and last letters"
+     },
+     {
+      "text": "having a day out",
+      "for": "deletion",
+      "note": "a day out means a letter for day goes missing, along with the article that comes with it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slim",
+      "gives": "LI",
+      "note": "the word without its outside letters"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LY",
+      "note": "the word with A and D (day) taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A pale, thin woman strips off and takes a day trip.",
+     "walkthrough": "'A day' is read as A plus D, both removed. LILY as an adjective means pale or white, as in lily-white.",
+     "definitionFit": "The flower's whiteness gives the word an adjectival sense of pallor, as in a lily-white complexion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +109,61 @@
      }
     ]
    },
-   "solution": "LOUNGEBAR"
+   "solution": "LOUNGEBAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOUNGE BAR",
+    "definitions": [
+     {
+      "text": "Place serving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking changes raw ingredients into something new, so these letters are reworked"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "something gone sadly wrong is in a mess, so these letters are jumbled too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grub",
+      "gives": "GRUB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no ale",
+      "gives": "NOALE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRUBNOALE",
+       "gives": "LOUNGEBAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub kitchen serves up cooked food, but sadly has run out of beer.",
+     "walkthrough": "Both GRUB and NO ALE are shuffled together into LOUNGE BAR; the two indicators each sit beside their part of the fodder.",
+     "definitionFit": "A lounge bar is the more comfortable room of a British pub, an establishment that serves drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +177,54 @@
     "text": "Delicate material pierced by new weapon",
     "enumeration": "5"
    },
-   "solution": "LANCE"
+   "solution": "LANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LANCE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pierced by",
+      "for": "container",
+      "note": "a thing pierced has something passing into it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delicate material",
+      "gives": "LACE",
+      "note": "lace is a fine openwork fabric"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine fabric is punctured by a brand-new weapon.",
+     "walkthrough": "N goes inside LACE to make LANCE; the weapon in the surface is the definition, so the piercing image fits nicely.",
+     "definitionFit": "A lance is a long spear carried by mounted knights, so it is a weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +238,44 @@
     "text": "A male animal, one of four in pack",
     "enumeration": "4"
    },
-   "solution": "JACK"
+   "solution": "JACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JACK",
+    "definitions": [
+     {
+      "text": "A male animal",
+      "at": 0
+     },
+     {
+      "text": "one of four in pack",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A male animal",
+      "note": "first meaning: the male of some animals, such as the donkey or hare"
+     },
+     {
+      "clueFragment": "one of four in pack",
+      "note": "second meaning: a court card, of which there are four in a deck"
+     }
+    ],
+    "explanation": {
+     "surface": "A male animal that is one of four in its pack, like a wolf.",
+     "walkthrough": "'Pack' suggests wolves or dogs, but it means a pack of cards.",
+     "definitionFit": "The word names a male ass or hare, and also the knave card found once in each of the four suits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pack"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +289,52 @@
     "text": "Play, sing, dance like a lark?",
     "enumeration": "9"
    },
-   "solution": "ASCENDING"
+   "solution": "ASCENDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASCENDING",
+    "definitions": [
+     {
+      "text": "like a lark?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Play",
+      "for": "anagram",
+      "note": "to play with something is to toy with it and move it around, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sing, dance",
+      "gives": "SINGDANCE",
+      "note": "the two verbs taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINGDANCE",
+       "gives": "ASCENDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frolicking about, singing and dancing just for a lark.",
+     "walkthrough": "'Like a lark' reads as 'for fun', but it points to Vaughan Williams's piece The Lark Ascending; the question mark flags the indirect definition.",
+     "definitionFit": "Skylarks famously climb high while singing, captured in the title of a well-loved English orchestral work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lark"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +348,63 @@
     "text": "Credit this country for setting up parties",
     "enumeration": "5"
    },
-   "solution": "KUDOS"
+   "solution": "KUDOS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KUDOS",
+    "definitions": [
+     {
+      "text": "Credit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setting up",
+      "for": "reversal",
+      "note": "in a down clue, setting something up raises it so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this country",
+      "gives": "UK",
+      "note": "the setter's country, the United Kingdom"
+     },
+     {
+      "clueFragment": "parties",
+      "gives": "DOS",
+      "note": "a do is an informal word for a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KU",
+      "DOS"
+     ],
+     "reversals": [
+      {
+       "from": "UK",
+       "to": "KU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise this nation for organising celebrations.",
+     "walkthrough": "'Setting up' reads as organising the parties, but it turns the country upside down in this down clue; for a British paper 'this country' is the UK.",
+     "definitionFit": "Kudos is praise or honour received for an achievement, which is what giving someone credit means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +418,52 @@
     "text": "Starts to feel apostatic - it tests his religion",
     "enumeration": "5"
    },
-   "solution": "FAITH"
+   "solution": "FAITH",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FAITH",
+    "definitions": [
+     {
+      "text": "religion",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only the first of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feel apostatic - it tests his",
+      "gives": "FAITH",
+      "select": "first",
+      "note": "initials of five consecutive words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "I",
+      "T",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Beginning to feel like abandoning belief: this is what tests a believer.",
+     "walkthrough": "An apostate renounces a religion, which suits the surface; the first letters of the five words after the indicator spell the answer.",
+     "definitionFit": "A faith is a particular system of religious belief, such as the Christian or Muslim faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +477,65 @@
     "text": "Barrier put around Lima, old resistance capital once",
     "enumeration": "8"
    },
-   "solution": "FLORENCE"
+   "solution": "FLORENCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLORENCE",
+    "definitions": [
+     {
+      "text": "capital once",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put around",
+      "for": "container",
+      "note": "placing one thing around others encloses them, so they go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barrier",
+      "gives": "FENCE",
+      "note": "a fence is a barrier"
+     },
+     {
+      "clueFragment": "Lima",
+      "gives": "L",
+      "note": "Lima is L in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOR",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wall goes up around Lima, a former capital of the resistance.",
+     "walkthrough": "Lima looks like Peru's capital, but here it is just the letter L. FLORENCE was Italy's capital from 1865 to 1871.",
+     "definitionFit": "The Tuscan city served as the seat of the Italian government briefly before Rome became the national capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lima"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +555,52 @@
      }
     ]
    },
-   "solution": "INCONTROL"
+   "solution": "INCONTROL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN CONTROL",
+    "definitions": [
+     {
+      "text": "showing who's boss",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dicky",
+      "for": "anagram",
+      "note": "dicky is British slang for unsound or shaky, so these letters are in a faulty order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clinton or",
+      "gives": "CLINTONOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLINTONOR",
+       "gives": "INCONTROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Either Bill Clinton or Richard Nixon asserting presidential authority.",
+     "walkthrough": "Dicky looks like a name, perhaps Tricky Dicky Nixon, but it is slang for wobbly, signalling the shuffle.",
+     "definitionFit": "Someone demonstrating authority over others is being in charge, which is the idiom's sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +614,44 @@
     "text": "Persecuted ginger badger?",
     "enumeration": "5"
    },
-   "solution": "HARRY"
+   "solution": "HARRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARRY",
+    "definitions": [
+     {
+      "text": "Persecuted ginger",
+      "at": 0
+     },
+     {
+      "text": "badger?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Persecuted ginger",
+      "note": "first meaning: the red-haired prince who complains of hounding by the press"
+     },
+     {
+      "clueFragment": "badger?",
+      "note": "second meaning: a verb for pestering or harassing persistently"
+     }
+    ],
+    "explanation": {
+     "surface": "A red-haired badger that has been hunted down.",
+     "walkthrough": "Badger looks like the animal and ginger like its colour, but one is a verb and the other a red-haired person; Prince Harry has long complained of press persecution.",
+     "definitionFit": "To harry someone is to pester them, and the Duke of Sussex is a well-known redhead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "badger"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +665,58 @@
     "text": "Gertrude introducing Lawrence to lust?",
     "enumeration": "5"
    },
-   "solution": "STEIN"
+   "solution": "STEIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEIN",
+    "definitions": [
+     {
+      "text": "Gertrude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "to introduce is literally to lead in, so one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lust",
+      "gives": "SIN",
+      "note": "lust is one of the seven deadly sins"
+     },
+     {
+      "clueFragment": "Lawrence",
+      "gives": "TE",
+      "note": "T. E. Lawrence, Lawrence of Arabia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer brings D. H. Lawrence's sensual themes to her readers.",
+     "walkthrough": "Lawrence suggests D. H., the novelist of desire, but it is T. E. whose initials go in. Gertrude STEIN was the American modernist writer.",
+     "definitionFit": "The American author and Paris salon host was named Gertrude, so her first name stands for the surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lawrence"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +730,51 @@
     "text": "Continued creeping around under the radar",
     "enumeration": "9"
    },
-   "solution": "UNNOTICED"
+   "solution": "UNNOTICED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNNOTICED",
+    "definitions": [
+     {
+      "text": "under the radar",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "creeping around",
+      "for": "anagram",
+      "note": "creeping around means moving about from place to place, so the letters wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continued",
+      "gives": "CONTINUED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTINUED",
+       "gives": "UNNOTICED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carried on sneaking about without being detected.",
+     "walkthrough": "'Continued' looks like the past-tense verb of the sentence, but it only supplies the letters.",
+     "definitionFit": "Flying under the radar is an idiom for escaping detection or attention, so the two phrases match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Continued"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +788,66 @@
     "text": "Second century article, gold-plated statuette",
     "enumeration": "5"
    },
-   "solution": "OSCAR"
+   "solution": "OSCAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OSCAR",
+    "definitions": [
+     {
+      "text": "statuette",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plated",
+      "for": "container",
+      "note": "plating covers something in a thin outer layer, so one piece wraps around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "century",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SCA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique figurine from the second century AD, covered in gold.",
+     "walkthrough": "'Second century' reads as a date but is two separate abbreviations. OR is the heraldic word for gold.",
+     "definitionFit": "The Academy Award trophy is a gold-coloured figure, popularly known by this nickname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "century"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +861,62 @@
     "text": "Classical scholar caught in the embrace of 22 shockingly",
     "enumeration": "7"
    },
-   "solution": "GRECIAN"
+   "solution": "GRECIAN",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "GRECIAN",
+    "definitions": [
+     {
+      "text": "Classical scholar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the embrace of",
+      "for": "container",
+      "note": "to be embraced is to be held within someone's arms, so one piece goes inside another"
+     },
+     {
+      "text": "shockingly",
+      "for": "anagram",
+      "note": "done shockingly means done badly, leaving the letters disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "22",
+      "gives": "REGINA",
+      "note": "the answer to 22 across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGINAC",
+       "gives": "GRECIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic is scandalously caught in a queen's arms.",
+     "walkthrough": "The cross-reference supplies the queen's Latin title; with C added, all seven letters are rearranged.",
+     "definitionFit": "A Grecian is a scholar of ancient Greek, an older term used especially at certain English schools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +930,57 @@
     "text": "Todd Small, very small, by the sound of it",
     "enumeration": "7"
    },
-   "solution": "SWEENEY"
+   "solution": "SWEENEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SWEENEY",
+    "definitions": [
+     {
+      "text": "Todd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by sound alone means we go by how a word is pronounced, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "very small",
+      "gives": "WEENEY",
+      "soundsLike": "WEENY",
+      "note": "weeny means tiny, spelt here as it sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEENEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Todd Small is apparently very small indeed.",
+     "walkthrough": "Todd Small reads as a full name, but Todd is the definition and Small is S; Sweeney Todd is the demon barber of Fleet Street.",
+     "definitionFit": "The murderous barber of Victorian penny dreadfuls and Sondheim's musical bears the full name Sweeney Todd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +994,68 @@
     "text": "Liberal backed Labour leader's draft law",
     "enumeration": "4"
    },
-   "solution": "BILL"
+   "solution": "BILL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BILL",
+    "definitions": [
+     {
+      "text": "draft law",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "to back is to move backwards, so the letters run in the opposite direction"
+     },
+     {
+      "text": "leader's",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "LIB",
+      "note": "Lib is a short form for Liberal"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of the party name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIL",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LIB",
+       "to": "BIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal supports the Labour leader's proposed legislation.",
+     "walkthrough": "'Backed' reads as 'supported', but it reverses the Liberal abbreviation.",
+     "definitionFit": "A bill is proposed legislation laid before parliament before it becomes an act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1075,43 @@
      }
     ]
    },
-   "solution": "LAYREADER"
+   "solution": "LAYREADER",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "LAY READER",
+    "definitions": [
+     {
+      "text": "one licensed by the bishop",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of words, so the initial sounds trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "21 chief",
+      "gives": "LAYREADER",
+      "soundsLike": "RAY LEADER",
+      "note": "21 across is a fish and a chief is a leader; say the pair with their opening sounds swapped"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish boss, in Spooner's words, is someone licensed by a bishop.",
+     "walkthrough": "Swap the R and L sounds of RAY LEADER. A lay reader is a non-ordained person licensed in the Church of England to lead services.",
+     "definitionFit": "Anglican bishops license unordained members of the congregation to conduct certain services and preach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1131,62 @@
      }
     ]
    },
-   "solution": "AIRSAC"
+   "solution": "AIRSAC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AIR-SAC",
+    "definitions": [
+     {
+      "text": "Section of lung",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "displays",
+      "gives": "AIRS",
+      "note": "to air something is to display it"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "cilia",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRS",
+      "A",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of lung tissue shows mature cilia at the leading edge.",
+     "walkthrough": "Cilia are genuine lung hairs, which makes the surface sound medical; 'displays' is a verb giving AIRS.",
+     "definitionFit": "Alveoli, the tiny chambers where gas exchange happens, are also called air sacs and form part of the lung."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "displays"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1200,59 @@
     "text": "Periodically spying on policy to do with grammar",
     "enumeration": "9"
    },
-   "solution": "SYNTACTIC"
+   "solution": "SYNTACTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SYNTACTIC",
+    "definitions": [
+     {
+      "text": "to do with grammar",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spying",
+      "gives": "SYN",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     },
+     {
+      "clueFragment": "policy",
+      "gives": "TACTIC",
+      "note": "a tactic is a plan or policy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYN",
+      "TACTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "From time to time spying on how grammar rules are applied.",
+     "walkthrough": "In a down clue 'on' places the first piece above the second. Syntax is the part of grammar governing sentence structure.",
+     "definitionFit": "Syntax is the branch of grammar dealing with sentence structure, and this adjective relates to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spying"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1266,43 @@
     "text": "Angler uses it to catch perch",
     "enumeration": "3"
    },
-   "solution": "ROD"
+   "solution": "ROD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROD",
+    "definitions": [
+     {
+      "text": "Angler uses it to catch",
+      "at": 0
+     },
+     {
+      "text": "perch",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angler uses it to catch",
+      "note": "first meaning: the pole a fisherman casts with"
+     },
+     {
+      "clueFragment": "perch",
+      "note": "second meaning: an old unit of length, equal to a pole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Perch looks like the fish being caught, but it is the old measure of five and a half yards, also called a rod or pole.",
+     "definitionFit": "Fishermen cast with a fishing pole, and the imperial measure of 5.5 yards has the same name as a perch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "perch"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1316,66 @@
     "text": "Flying Emirates after Delta - most wonderful!",
     "enumeration": "9"
    },
-   "solution": "DREAMIEST"
+   "solution": "DREAMIEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DREAMIEST",
+    "definitions": [
+     {
+      "text": "most wonderful",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flying",
+      "for": "anagram",
+      "note": "something flying is scattered through the air, so the letters land in a new order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following something places it second, so one piece comes behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delta",
+      "gives": "D",
+      "note": "Delta is D in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Emirates",
+      "gives": "REAMIEST",
+      "note": "the airline name, letters reordered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "REAMIEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMIRATES",
+       "gives": "REAMIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travelling on Emirates after a Delta flight is the best experience ever.",
+     "walkthrough": "Emirates and Delta are both airlines, which makes 'flying' look literal; Delta is just D.",
+     "definitionFit": "Dreamy means delightful or wonderful, and the superlative form means the most wonderful of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flying"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1389,72 @@
     "text": "Comms bod employed by football authority left after large blunder",
     "enumeration": "8"
    },
-   "solution": "PRATFALL"
+   "solution": "PRATFALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRATFALL",
+    "definitions": [
+     {
+      "text": "blunder",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following something places it second, so one piece comes behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comms bod",
+      "gives": "PR",
+      "note": "a public relations person"
+     },
+     {
+      "clueFragment": "employed by",
+      "gives": "AT",
+      "note": "someone employed by a firm works at it"
+     },
+     {
+      "clueFragment": "football authority",
+      "gives": "FA",
+      "note": "the initials of the Football Association, English football's governing body"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "AT",
+      "FA",
+      "L",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A press officer at the FA quits after a major gaffe.",
+     "walkthrough": "'Left' looks like a verb meaning resigned, but it is the letter L; 'employed by' has to be read as AT.",
+     "definitionFit": "A pratfall is literally a fall on the buttocks, and figuratively a humiliating mistake or embarrassing error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1468,51 @@
     "text": "Regular portions of greasy fish",
     "enumeration": "3"
    },
-   "solution": "RAY"
+   "solution": "RAY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RAY",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regular portions of",
+      "for": "letter_selection",
+      "note": "portions taken at regular intervals means every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greasy",
+      "gives": "RAY",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Fixed servings of oily fish, as in a chip shop.",
+     "walkthrough": "'Regular portions' suggests standard servings at the chippy, but it means alternate letters.",
+     "definitionFit": "Rays are flat cartilaginous fish related to sharks, including skates and stingrays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Regular"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1526,60 @@
     "text": "Advanced African country totally rejected queen",
     "enumeration": "6"
    },
-   "solution": "REGINA"
+   "solution": "REGINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REGINA",
+    "definitions": [
+     {
+      "text": "queen",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "totally rejected",
+      "for": "reversal",
+      "note": "rejected things are sent back, and totally means the whole lot turns round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "African country",
+      "gives": "NIGER",
+      "note": "the west African nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGINA"
+     ],
+     "reversals": [
+      {
+       "from": "ANIGER",
+       "to": "REGINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A developed nation in Africa wholly spurned its monarch.",
+     "walkthrough": "'Totally' tells you both pieces turn round together, not just the country. Regina is Latin for queen, seen in signatures such as Elizabeth R.",
+     "definitionFit": "Regina is the Latin word for a reigning queen, used in British official titles and legal case names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1593,45 @@
     "text": "Other European college",
     "enumeration": "4"
    },
-   "solution": "ELSE"
+   "solution": "ELSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELSE",
+    "definitions": [
+     {
+      "text": "Other",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "LSE",
+      "note": "the London School of Economics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LSE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "LSE is the London School of Economics, a college of the University of London.",
+     "definitionFit": "As in 'someone else', the word means different or additional, which is a sense of other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1645,54 @@
     "text": "Liverpudlian rogue leaves Charlie a witty retort",
     "enumeration": "5"
    },
-   "solution": "SALLY"
+   "solution": "SALLY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SALLY",
+    "definitions": [
+     {
+      "text": "witty retort",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when something leaves it departs, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liverpudlian rogue",
+      "gives": "SCALLY",
+      "note": "a scally is Liverpool slang for a young tearaway"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scouse rascal hands his mate Charlie a clever comeback.",
+     "walkthrough": "'Leaves' looks like 'bequeaths', but it means departs. A scally is a Merseyside word for a cheeky rogue.",
+     "definitionFit": "A sally is a quick witty remark, from the older sense of a sudden sortie out of a besieged position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1706,58 @@
     "text": "One perhaps choosing Green carrot, celery sandwiches when retired",
     "enumeration": "7"
    },
-   "solution": "ELECTOR"
+   "solution": "ELECTOR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ELECTOR",
+    "definitions": [
+     {
+      "text": "One perhaps choosing Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "hidden_word",
+      "note": "a sandwich holds filling between its slices, so the answer lies within these words"
+     },
+     {
+      "text": "when retired",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carrot, celery",
+      "gives": "ROTCELE",
+      "note": "letters running across the two vegetables"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ROTCELE",
+       "to": "ELECTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetarian pensioner chooses greens, filling sandwiches with carrot and celery.",
+     "walkthrough": "Green looks like a vegetable colour but is the Green Party; the definition is by example, flagged by 'perhaps'.",
+     "definitionFit": "A voter who backs the Green Party at the ballot box is one example of an elector."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1771,55 @@
     "text": "Girl, 11, transported by Beethoven's 3rd",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transported by",
+      "for": "deletion",
+      "note": "transported means carried away, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beethoven's 3rd",
+      "gives": "EROICA",
+      "note": "the nickname of Beethoven's Third Symphony"
+     },
+     {
+      "clueFragment": "11",
+      "gives": "O",
+      "note": "the answer to 11 across is the NATO code word for O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "ICA"
+     ]
+    },
+    "explanation": {
+     "surface": "An eleven-year-old girl is enraptured by a Beethoven symphony.",
+     "walkthrough": "'Transported' suggests carried away with emotion; here it removes a letter. Oscar, the answer to 11, is O in the phonetic alphabet.",
+     "definitionFit": "Erica is a common female first name, and setters often define names simply as girl or boy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "transported"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1833,56 @@
     "text": "Lad in tights introduced fetish to Navy",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROBIN",
+    "definitions": [
+     {
+      "text": "Lad in tights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced",
+      "for": "container",
+      "note": "to introduce is to bring in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Navy",
+      "gives": "RN",
+      "note": "the Royal Navy"
+     },
+     {
+      "clueFragment": "fetish",
+      "gives": "OBI",
+      "note": "obi or obeah is a West Indian charm or fetish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OBI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A young man in hosiery brings his kink to the sailors.",
+     "walkthrough": "A fetish here is a magic charm, not a kink. ROBIN, Batman's young sidekick, wears tights, as does Robin Hood in pantomime.",
+     "definitionFit": "Batman's teenage partner wears green tights, so the description identifies the Boy Wonder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "fetish"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1896,66 @@
     "text": "Material for filling in the morning magazine the French rejected",
     "enumeration": "7"
    },
-   "solution": "AMALGAM"
+   "solution": "AMALGAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMALGAM",
+    "definitions": [
+     {
+      "text": "Material for filling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected things are sent back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. means before noon"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "MAG",
+      "note": "mag is short for magazine"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for the, in its feminine form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "ALGAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAGLA",
+       "to": "ALGAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something to fill the morning, a magazine the French turned down.",
+     "walkthrough": "'Filling' looks like filling time, but it is a dental filling; magazine and article together turn round.",
+     "definitionFit": "Dentists traditionally filled cavities with an alloy of mercury, silver and tin known by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +1969,69 @@
     "text": "Golf electronic vehicle's elevated elegance",
     "enumeration": "5"
    },
-   "solution": "GRACE"
+   "solution": "GRACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GRACE",
+    "definitions": [
+     {
+      "text": "elegance",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elevated",
+      "for": "reversal",
+      "note": "in a down clue, raising something turns it upwards, so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf",
+      "gives": "G",
+      "note": "Golf is G in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RACE"
+     ],
+     "reversals": [
+      {
+       "from": "ECAR",
+       "to": "RACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electric golf buggy has a lofty refinement.",
+     "walkthrough": "'Golf electronic vehicle' reads as a golf cart, but Golf is just G, and only the electronic car goes upward.",
+     "definitionFit": "Grace is smoothness and refinement of movement, the same quality as elegance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Golf"
+    }
+   }
   },
   {
    "number": 29,
@@ -491,7 +2045,44 @@
     "text": "Country hotel's successor",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "hotel's successor",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: the South Asian nation"
+     },
+     {
+      "clueFragment": "hotel's successor",
+      "note": "second meaning: the code word that follows Hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "A country inn passes to a new owner.",
+     "walkthrough": "'Country hotel' reads as a rural inn, but the words split: Hotel is H in the phonetic alphabet, and the next letter, I, has its own code word.",
+     "definitionFit": "The subcontinental republic shares its name with the radio code word for the letter I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hotel's"
+    }
+   }
   },
   {
    "number": 30,
@@ -511,7 +2102,66 @@
      }
     ]
    },
-   "solution": "BATTLEAXE"
+   "solution": "BATTLEAXE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BATTLE-AXE",
+    "definitions": [
+     {
+      "text": "Harridan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "to capture is to take and hold inside, so the other pieces go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "PM once",
+      "gives": "ATTLEE",
+      "note": "Clement Attlee, Labour prime minister 1945 to 1951"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film certificate for adult"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "voters mark a cross on the ballot paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ATTLE",
+      "AX",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fearsome former prime minister wins the grown-up vote.",
+     "walkthrough": "The surface invites thinking of Thatcher, but the PM is Attlee. A battle-axe is a formidable, domineering woman.",
+     "definitionFit": "Both are insulting terms for an aggressive, overbearing and bad-tempered older woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 31,
@@ -525,7 +2175,42 @@
     "text": "A month in Capri? Lovely!",
     "enumeration": "5"
    },
-   "solution": "APRIL"
+   "solution": "APRIL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APRIL",
+    "definitions": [
+     {
+      "text": "A month",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "what is in something is contained within it, so the answer sits inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capri? Lovely",
+      "gives": "APRIL",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone imagines spending a month on the Italian island of Capri and loves the idea.",
+     "walkthrough": "The question mark and exclamation break up the words, but the letters run straight through.",
+     "definitionFit": "The fourth month of the calendar year comes between March and May."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 32,
@@ -539,7 +2224,63 @@
     "text": "Arrest nation's number one baseless conspiracy theorist",
     "enumeration": "4"
    },
-   "solution": "NICK"
+   "solution": "NICK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NICK",
+    "definitions": [
+     {
+      "text": "Arrest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "number one",
+      "for": "letter_selection",
+      "note": "the number one letter is the first, so only that is kept"
+     },
+     {
+      "text": "baseless",
+      "for": "deletion",
+      "note": "without a base means without a bottom, so the final letter comes off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nation's",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "conspiracy theorist",
+      "gives": "ICKE",
+      "note": "David Icke, the British conspiracy theorist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Detain the country's leading peddler of unfounded conspiracy claims.",
+     "walkthrough": "'Baseless' fits a conspiracy theory, but it removes the last letter. David Icke is a former sports presenter known for outlandish conspiracy claims.",
+     "definitionFit": "Nick is British slang for arresting someone; police in Britain are said to nick suspects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "baseless"
+    }
+   }
   },
   {
    "number": 33,
@@ -553,7 +2294,54 @@
     "text": "County hospital department opened by king",
     "enumeration": "4"
    },
-   "solution": "KENT"
+   "solution": "KENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KENT",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opened by",
+      "for": "charade",
+      "note": "something opened by another has that thing at its start, so one piece goes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "the ear, nose and throat department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal formally opens a new wing at a county hospital.",
+     "walkthrough": "'Opened by king' reads as a royal ceremony; here it puts K first. KENT is a county in south-east England.",
+     "definitionFit": "Kent is one of the English shires, an administrative region in the south-east corner of the country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opened"
+    }
+   }
   }
  ]
 }
