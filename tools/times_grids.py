@@ -830,8 +830,11 @@ def resettle():
 
 
 def run(limit_puzzles=None, series=None, write=True, seed=None,
-        max_nodes=DEFAULT_MAX_NODES, fresh=False, where=None, solver=None):
-    """Rebuild every parsed puzzle not yet tried, newest first.
+        max_nodes=DEFAULT_MAX_NODES, fresh=False, where=None, solver=None,
+        retry_failed=False):
+    """Rebuild every parsed puzzle not yet tried, newest first; with
+    `retry_failed`, every one without a grid, tried or not (a parser fix is a
+    reason to try its failures again).
 
     `where` is another blog's cache directory, holding its own parsed.jsonl,
     grids.jsonl and attempts.jsonl; the answers settled for this blog's posts
@@ -858,8 +861,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     # A changed settled answer is a reason to try its puzzle again; an
     # unchanged one is not.
     done = set() if (fresh or not write) else (
-        solved_already(out_path) | attempted(
-            max_nodes, settled, attempts, {r["post_id"] for r in recs if doubtful(r)}))
+        solved_already(out_path) | (set() if retry_failed else attempted(
+            max_nodes, settled, attempts, {r["post_id"] for r in recs if doubtful(r)})))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} puzzle(s) already tried, per {attempts.name}")
@@ -950,6 +953,9 @@ def main():
                     help="start the output file over; the default adds to it")
     ap.add_argument("--holes", action="store_true",
                     help="name the puzzles whose light list has a hole in it")
+    ap.add_argument("--retry-failed", action="store_true",
+                    help="try again every puzzle with no grid, even one tried at "
+                         "this budget: after a parser fix")
     ap.add_argument("--resettle", action="store_true",
                     help="correct or refuse the grids already written, "
                          "against the parsed records as they are now")
@@ -965,7 +971,7 @@ def main():
               f"{len(r['refused'])} refused; wrote {OUT}")
         return 0
     r = run(a.limit, a.series, write=not a.status, seed=a.seed,
-            max_nodes=a.max_nodes, fresh=a.fresh, where=where)
+            max_nodes=a.max_nodes, fresh=a.fresh, where=where, retry_failed=a.retry_failed)
     if r is None:
         return 1
     report(r)
