@@ -470,13 +470,12 @@
     if (nuxDrawn !== want) {
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
-      // The step that needs a different part of the panel in view: the pieces
-      // are read from the top of it and the strip is above them, while the last
-      // rung press left the eye at the bottom of the row. Brought to the top of
-      // the window rather than the middle, so the blocks below it come with it.
+      // The step that needs a different part of the panel in view: the strip
+      // is at the top of it, while the last rung press left the eye at the
+      // bottom of the row.
       const strip = live && typeIt ? $("hint-pattern") : null;
       if (strip && strip.scrollIntoView) {
-        strip.scrollIntoView({ behavior: "smooth", block: "start" });
+        strip.scrollIntoView({ behavior: "smooth", block: "center" });
         // The hole is in page coordinates, so the scroll carries it along and
         // there is nothing to redraw as the page moves. Only the caption needs
         // a second look: which side of the hole it goes on is a question about
@@ -553,15 +552,12 @@
       const kids = (body && body.children) || [];
       if (body) out.push(kids[kids.length - 1] || body);
     } else if (nuxTypeIt(on)) {
-      // Work it out and type it in. The boxes to type into are the letter strip
-      // in the panel, not the squares up in the grid: working the answer out
-      // takes every piece the blocks rung just put on the table, and a hole over
-      // the grid leaves all of them in the dark. The strip types into the same
-      // entry the grid does, so nothing is lost by staying here.
+      // Type it in: the letter strip in the panel and nothing else. The line
+      // gives the answer, so the pieces it was worked out from need no light,
+      // and the strip types into the same entry the grid does.
       const strip = $("hint-pattern");
-      if (strip) out.push(strip);
-      if (body) out.push(body);
-      if (!out.length) return [];
+      if (!strip) return [];
+      out.push(strip);
     } else {
       const rung = nuxRung();
       if (!rung) return [];
