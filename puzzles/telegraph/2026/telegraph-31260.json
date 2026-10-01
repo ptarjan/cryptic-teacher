@@ -23,6 +23,9 @@
   "date": "2026-06-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,69 @@
     "text": "Broken bone starts to fuse rapidly and heal, taking time",
     "enumeration": "8"
    },
-   "solution": "FRACTURE"
+   "solution": "FRACTURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FRACTURE",
+    "definitions": [
+     {
+      "text": "Broken bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only the first letter of each word is kept"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuse rapidly and",
+      "gives": "FRA",
+      "select": "first",
+      "note": "first letters of these three words"
+     },
+     {
+      "clueFragment": "heal",
+      "gives": "CURE",
+      "note": "to heal is to cure"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRA",
+      "C",
+      "T",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor hopes a broken bone will knit together fast and heal, given enough time.",
+     "walkthrough": "The time letter sits inside the word for heal: C-T-URE, after the three initials.",
+     "definitionFit": "A fracture is the medical term for a crack or break in a bone, so the noun phrase matches exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +115,51 @@
     "text": "Escape from loud match?",
     "enumeration": "6"
    },
-   "solution": "FLIGHT"
+   "solution": "FLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLIGHT",
+    "definitions": [
+     {
+      "text": "Escape",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "F is forte, the musical direction for loud"
+     },
+     {
+      "clueFragment": "match?",
+      "gives": "LIGHT",
+      "note": "a match is something that gives a light; the question mark flags the loose sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants to get away from a noisy football game.",
+     "walkthrough": "'Match' reads as a sporting fixture, but here it is the thing you strike, which gives you a light.",
+     "definitionFit": "Taking flight means running away, so flight is a noun for an escape from danger or captivity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "match?"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +173,51 @@
     "text": "Praise unusual aim",
     "enumeration": "6"
    },
-   "solution": "ASPIRE"
+   "solution": "ASPIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASPIRE",
+    "definitions": [
+     {
+      "text": "aim",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of its ordinary form, so these letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Praise",
+      "gives": "PRAISE",
+      "note": "taken as written, six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRAISE",
+       "gives": "ASPIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receives praise for an unusual ambition.",
+     "walkthrough": "Read 'aim' as a verb: the answer is a verb meaning to set your sights on something.",
+     "definitionFit": "To aspire is to have ambitions and strive towards a goal, a close synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Praise"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +231,56 @@
     "text": "Abrupt beginning to teaching Gaelic language",
     "enumeration": "5"
    },
-   "solution": "TERSE"
+   "solution": "TERSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TERSE",
+    "definitions": [
+     {
+      "text": "Abrupt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so just that one letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teaching",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Gaelic language",
+      "gives": "ERSE",
+      "note": "Erse is an old name for the Gaelic language of Scotland or Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sudden start to Gaelic lessons.",
+     "walkthrough": "Erse is a crossword favourite for Gaelic, especially Scottish or Irish Gaelic.",
+     "definitionFit": "Terse speech is brief to the point of curtness, which is the same as an abrupt manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Abrupt"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +294,55 @@
     "text": "Wine boxes every one got",
     "enumeration": "7"
    },
-   "solution": "REACHED"
+   "solution": "REACHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REACHED",
+    "definitions": [
+     {
+      "text": "got",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxes",
+      "for": "container",
+      "note": "to box something is to enclose it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "RED",
+      "note": "red is a type of wine"
+     },
+     {
+      "clueFragment": "every one",
+      "gives": "EACH",
+      "note": "each means every one individually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EACH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Each person was handed a boxed bottle of wine.",
+     "walkthrough": "'Boxes' looks like a noun for wine cartons, but it is a verb: the wine word wraps the other piece.",
+     "definitionFit": "In the sense of arriving at a place, got and reached are interchangeable past-tense verbs, as in 'got home'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +356,46 @@
     "text": "Married different relative",
     "enumeration": "6"
    },
-   "solution": "MOTHER"
+   "solution": "MOTHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTHER",
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "different",
+      "gives": "OTHER",
+      "note": "other means different"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It reads like an in-law of a different sort; the M for married is the usual genealogical abbreviation.",
+     "definitionFit": "A mother is a family member, a specific example of a relative by blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Married"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +409,52 @@
     "text": "Resolve us? Resolve us!",
     "enumeration": "9"
    },
-   "solution": "OURSELVES"
+   "solution": "OURSELVES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OURSELVES",
+    "definitions": [
+     {
+      "text": "us",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Resolve",
+      "for": "anagram",
+      "note": "to resolve can mean to break into parts and recombine, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resolve us",
+      "gives": "RESOLVEUS",
+      "note": "both words taken as written, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESOLVEUS",
+       "gives": "OURSELVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question then an exclamation: shall we make up our minds? Yes, let's decide!",
+     "walkthrough": "The repetition hides the split: the first two words are the letters, the repeated verb is the signal, and the last word defines.",
+     "definitionFit": "The reflexive pronoun is the emphatic or object form of the first person plural, standing in for the plain pronoun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Resolve"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +468,67 @@
     "text": "Doubtful, wavering atheist receiving note",
     "enumeration": "8"
    },
-   "solution": "HESITANT"
+   "solution": "HESITANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HESITANT",
+    "definitions": [
+     {
+      "text": "Doubtful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wavering",
+      "for": "anagram",
+      "note": "something wavering is unsteady and shifting, so these letters move into a new order"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "to receive is to take in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atheist",
+      "gives": "ATHEIST",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HESITA",
+      "N",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATHEIST",
+       "gives": "HESITAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A non-believer starts to waver, unsure of himself, after getting a letter.",
+     "walkthrough": "The rearranged unbeliever gives HESITAT, and N slips in before the final T.",
+     "definitionFit": "Someone hesitant is uncertain and holding back, so doubtful is a fair synonym of the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +542,50 @@
     "text": "Revived a show, perhaps, that’s old after intermission",
     "enumeration": "8"
    },
-   "solution": "RESTAGED"
+   "solution": "RESTAGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESTAGED",
+    "definitions": [
+     {
+      "text": "Revived a show, perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intermission",
+      "gives": "REST",
+      "note": "an intermission is a break or rest"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "AGED",
+      "note": "aged means old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "AGED"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre brings back an old production, the kind you watch with an interval.",
+     "walkthrough": "'After' places the old piece behind the break piece. 'Intermission' fits the theatre picture but only means a pause.",
+     "definitionFit": "Putting a play on again is staging it a second time; 'perhaps' admits a show is only one example of what is restaged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intermission"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +599,62 @@
     "text": "Magnificent place in danger over tax, essentially",
     "enumeration": "8"
    },
-   "solution": "IMPERIAL"
+   "solution": "IMPERIAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IMPERIAL",
+    "definitions": [
+     {
+      "text": "Magnificent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its central letter is kept"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "lying over something on all sides covers it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place in danger",
+      "gives": "IMPERIL",
+      "note": "to imperil is to put at risk"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "A",
+      "select": "middle",
+      "note": "central letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPERI",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand estate is under threat from a tax bill.",
+     "walkthrough": "'Place' looks like a noun for the magnificent estate, but 'place in danger' is a single verb phrase.",
+     "definitionFit": "Imperial means befitting an emperor, hence majestic and grand in scale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +668,51 @@
     "text": "King is repeatedly in predicament",
     "enumeration": "6"
    },
-   "solution": "CRISIS"
+   "solution": "CRISIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRISIS",
+    "definitions": [
+     {
+      "text": "predicament",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "CR",
+      "note": "CR stands for Carolus Rex, Latin for King Charles"
+     },
+     {
+      "clueFragment": "is repeatedly",
+      "gives": "ISIS",
+      "note": "the word is written twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "IS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch keeps finding himself in trouble.",
+     "walkthrough": "CR, for Carolus Rex (King Charles), is a standard crossword abbreviation for king; 'repeatedly' just doubles the small word.",
+     "definitionFit": "A crisis is a time of serious difficulty, which is what being in a predicament amounts to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repeatedly"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +726,50 @@
     "text": "Gamble on a second classification",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "second classification",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gamble",
+      "gives": "BET",
+      "note": "to gamble is to bet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter puts money on the second-ranked runner.",
+     "walkthrough": "In a down clue 'on' just stacks one piece on top of the next.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet, used as a grade meaning second class in marking work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gamble"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +783,51 @@
     "text": "Speaker’s gruff command to scare away possible bringer of fortune",
     "enumeration": "9"
    },
-   "solution": "HORSESHOE"
+   "solution": "HORSESHOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HORSESHOE",
+    "definitions": [
+     {
+      "text": "possible bringer of fortune",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Speaker’s",
+      "for": "homophone",
+      "note": "a speaker's version is what the listener hears, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gruff",
+      "gives": "HORSE",
+      "soundsLike": "HOARSE",
+      "note": "a gruff voice is hoarse"
+     },
+     {
+      "clueFragment": "command to scare away",
+      "gives": "SHOE",
+      "soundsLike": "SHOO",
+      "note": "shoo is what you say to drive off a cat or bird"
+     }
+    ],
+    "explanation": {
+     "surface": "A speaker barks a rough order to drive something off.",
+     "walkthrough": "Said in a gruff voice, 'hoarse shoo' sounds like the lucky charm.",
+     "definitionFit": "A horseshoe nailed above a door is a traditional good-luck token, so 'possible' covers its being only superstition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fortune"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +841,43 @@
     "text": "Additional section of flex trails",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Additional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is a piece cut from something longer, so the letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flex trails",
+      "gives": "EXTRA",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An extension lead trails across the floor.",
+     "walkthrough": "A flex is the British word for an electric cable; the letters sit across its end and the start of the next word.",
+     "definitionFit": "Extra and additional are straightforward synonyms, both meaning more than the usual amount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +891,47 @@
     "text": "Employed American editor",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Employed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A US newspaper editor has a job.",
+     "walkthrough": "'Employed' suggests having a job, but here it means put to use.",
+     "definitionFit": "To employ a tool or method is to use it, so the past tenses match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Employed"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +945,73 @@
     "text": "Primarily smiling Prince Harry tours Morecambe, getting round",
     "enumeration": "9"
    },
-   "solution": "SPHERICAL"
+   "solution": "SPHERICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SPHERICAL",
+    "definitions": [
+     {
+      "text": "round",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letter of each word is kept"
+     },
+     {
+      "text": "tours",
+      "for": "container",
+      "note": "touring goes all the way round, so one piece encircles another"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smiling Prince",
+      "gives": "SP",
+      "select": "first",
+      "note": "first letters of both words"
+     },
+     {
+      "clueFragment": "Harry",
+      "gives": "HAL",
+      "note": "Hal is the nickname of Prince Harry, the future Henry V, in Shakespeare"
+     },
+     {
+      "clueFragment": "Morecambe",
+      "gives": "ERIC",
+      "note": "Eric Morecambe was a much-loved British comedian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "H",
+      "ERIC",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A grinning Prince Harry visits the seaside town of Morecambe and has put on weight.",
+     "walkthrough": "Morecambe looks like the Lancashire resort but is the comedian Eric Morecambe; Harry gives Shakespeare's Prince Hal, which goes round him.",
+     "definitionFit": "Something spherical is shaped like a ball, so it is round in every direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Morecambe"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1025,58 @@
     "text": "Progress in a tango perhaps absorbing Victor",
     "enumeration": "7"
    },
-   "solution": "ADVANCE"
+   "solution": "ADVANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADVANCE",
+    "definitions": [
+     {
+      "text": "Progress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "to absorb is to take in, so one piece ends up inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a tango perhaps",
+      "gives": "ADANCE",
+      "note": "a tango is one example of a dance, hence 'perhaps'"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "V",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer called Victor improves at the tango.",
+     "walkthrough": "'Tango' is also a NATO letter, but here it is just an example of a dance; Victor is the alphabet word.",
+     "definitionFit": "To advance is to move forward or improve, a direct synonym of the verb progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1090,51 @@
     "text": "A new silk could be elegant",
     "enumeration": "8"
    },
-   "solution": "SWANLIKE"
+   "solution": "SWANLIKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWANLIKE",
+    "definitions": [
+     {
+      "text": "elegant",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "'could be' hints at a possible alternative version, so the letters may be put in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A new silk",
+      "gives": "ANEWSILK",
+      "note": "all three words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANEWSILK",
+       "gives": "SWANLIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh piece of silk fabric might look refined.",
+     "walkthrough": "Every letter of the first three words is used; 'new' wants to be the signal but is part of the material.",
+     "definitionFit": "Swans are a byword for graceful poise, so being like a swan suggests grace and refinement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1148,53 @@
     "text": "Supplies for five important days in Rome",
     "enumeration": "8"
    },
-   "solution": "PROVIDES"
+   "solution": "PROVIDES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROVIDES",
+    "definitions": [
+     {
+      "text": "Supplies",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "important days in Rome",
+      "gives": "IDES",
+      "note": "the Ides were key dates in the Roman calendar, the 13th or 15th of the month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "V",
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "Rations for five big days in ancient Rome.",
+     "walkthrough": "'Supplies' looks like a noun for provisions, but it is the verb.",
+     "definitionFit": "To provide something is to furnish or make it available, the same as the verb supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supplies"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1208,65 @@
     "text": "Paddle back alongside vessel for part of service",
     "enumeration": "7"
    },
-   "solution": "WORSHIP"
+   "solution": "WORSHIP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WORSHIP",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back runs the opposite way, so the letters are written from end to start"
+     }
+    ],
+    "linkWords": [
+     "alongside",
+     "for part of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paddle",
+      "gives": "ROW",
+      "note": "to paddle a boat is to row it"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "SHIP",
+      "note": "a ship is a vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "SHIP"
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rowing back beside a boat, perhaps in a naval ceremony.",
+     "walkthrough": "'Vessel' and 'service' both hint at the navy; the answer is the church sense.",
+     "definitionFit": "Worship is a religious service or the devotion offered during one, as in a place of worship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1280,45 @@
     "text": "Picked up white bucket",
     "enumeration": "4"
    },
-   "solution": "PAIL"
+   "solution": "PAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAIL",
+    "definitions": [
+     {
+      "text": "bucket",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "to pick something up can mean to hear it, as on a radio, so sound matters here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "white",
+      "gives": "PAIL",
+      "soundsLike": "PALE",
+      "note": "pale means white or wan"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone lifts a white bucket.",
+     "walkthrough": "'Picked up' fits a bucket literally, which disguises its role as hearing.",
+     "definitionFit": "A pail is an old-fashioned word for a bucket, a container with a handle for carrying liquids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Picked"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1332,52 @@
     "text": "Lamps seen regularly in alcove",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "alcove",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other letter, so alternate ones are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lamps seen",
+      "gives": "APSE",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Lights are spotted at intervals inside a recess.",
+     "walkthrough": "Start from the second letter and take every other one across both words.",
+     "definitionFit": "An apse is a semicircular recess at the end of a church, a large kind of alcove."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1391,54 @@
     "text": "Raffia’s made into things",
     "enumeration": "7"
    },
-   "solution": "AFFAIRS"
+   "solution": "AFFAIRS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFFAIRS",
+    "definitions": [
+     {
+      "text": "things",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made",
+      "for": "anagram",
+      "note": "something made is fashioned from raw material, so these letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raffia’s",
+      "gives": "RAFFIAS",
+      "note": "the word with its possessive s, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAFFIAS",
+       "gives": "AFFAIRS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Palm fibre is woven into all sorts of objects.",
+     "walkthrough": "The apostrophe is ignored, so the s counts as a letter. Raffia is a fibre from a palm used in weaving.",
+     "definitionFit": "Affairs can mean matters or concerns in general, as in 'how are things?' meaning 'how are your affairs?'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1452,64 @@
     "text": "Felt sorry for Greek character on special diet",
     "enumeration": "6"
    },
-   "solution": "PITIED"
+   "solution": "PITIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PITIED",
+    "definitions": [
+     {
+      "text": "Felt sorry for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "something special is made to order, so these letters are arranged differently"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "PI",
+      "note": "pi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "TIED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIET",
+       "gives": "TIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sympathised with a Greek man on a strict eating plan.",
+     "walkthrough": "In a down clue 'on' puts the Greek letter on top of the reworked diet letters.",
+     "definitionFit": "To pity someone is to feel compassion at their misfortune, matching the past-tense phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1523,43 @@
     "text": "Spend earnings retaining charm",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "charm",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "hidden_word",
+      "note": "to retain is to hold within, so the letters sit inside the surrounding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spend earnings",
+      "gives": "ENDEAR",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone splashes their wages on a lucky trinket.",
+     "walkthrough": "'Charm' tempts as a noun, a lucky trinket, but it is the verb: to win affection.",
+     "definitionFit": "To endear yourself to people is to win their fondness, which is what charming them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charm"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1573,51 @@
     "text": "At no point damage nerve",
     "enumeration": "5"
    },
-   "solution": "NEVER"
+   "solution": "NEVER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEVER",
+    "definitions": [
+     {
+      "text": "At no point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damage",
+      "for": "anagram",
+      "note": "damage knocks something out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nerve",
+      "gives": "NERVE",
+      "note": "taken as written, five letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NERVE",
+       "gives": "NEVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning: don't ever injure a nerve.",
+     "walkthrough": "Only two letters swap places: the V and the R.",
+     "definitionFit": "Never means at no time whatsoever, so the adverbial phrase is a direct equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "damage"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1631,57 @@
     "text": "In apartment, something that’s charged for rising prices",
     "enumeration": "9"
    },
-   "solution": "INFLATION"
+   "solution": "INFLATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFLATION",
+    "definitions": [
+     {
+      "text": "rising prices",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "apartment",
+      "gives": "FLAT",
+      "note": "a flat is the British word for an apartment"
+     },
+     {
+      "clueFragment": "something that’s charged",
+      "gives": "ION",
+      "note": "an ion is an electrically charged particle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FLAT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant complains that the rent on the apartment keeps going up.",
+     "walkthrough": "'Charged' suggests billing a tenant, but it means carrying an electric charge.",
+     "definitionFit": "Inflation is the economic term for a general increase in the cost of goods over time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charged"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1695,50 @@
     "text": "Fragrance of a European capital for its inhabitants",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AROMA",
+    "definitions": [
+     {
+      "text": "Fragrance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European capital for its inhabitants",
+      "gives": "ROMA",
+      "note": "Roma is what Italians call Rome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROMA"
+     ]
+    },
+    "explanation": {
+     "surface": "The smell of a European city as the locals know it.",
+     "walkthrough": "The city is Rome, but in the local Italian form.",
+     "definitionFit": "An aroma is a pleasant distinctive smell, close in meaning to a fragrance or scent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inhabitants"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1752,53 @@
     "text": "Charge into court after police officer",
     "enumeration": "6"
    },
-   "solution": "INDICT"
+   "solution": "INDICT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDICT",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into",
+      "gives": "IN",
+      "note": "in can mean into"
+     },
+     {
+      "clueFragment": "police officer",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DI",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A suspect is charged and taken to court following a police officer.",
+     "walkthrough": "'After' puts the court letters behind the officer. DI, Detective Inspector, is a British police rank.",
+     "definitionFit": "To indict is to formally accuse someone of a crime, the legal sense of the verb charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1812,54 @@
     "text": "Incite no criminal to produce a stimulant",
     "enumeration": "8"
    },
-   "solution": "NICOTINE"
+   "solution": "NICOTINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NICOTINE",
+    "definitions": [
+     {
+      "text": "a stimulant",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked or wrong, so the letters are bent out of order"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incite no",
+      "gives": "INCITENO",
+      "note": "both words taken as written, eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCITENO",
+       "gives": "NICOTINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice not to encourage a lawbreaker to supply drugs.",
+     "walkthrough": "'Criminal' looks like a noun, a lawbreaker, but it is an adjective signalling the shake-up.",
+     "definitionFit": "Nicotine is the addictive substance in tobacco, which acts on the nervous system as a stimulant drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1873,56 @@
     "text": "Loosen edges of ladders’ supports",
     "enumeration": "6"
    },
-   "solution": "EASELS"
+   "solution": "EASELS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EASELS",
+    "definitions": [
+     {
+      "text": "supports",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its two ends, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loosen",
+      "gives": "EASE",
+      "note": "to ease a knot or grip is to loosen it"
+     },
+     {
+      "clueFragment": "ladders’",
+      "gives": "LS",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loosens the feet of ladders.",
+     "walkthrough": "'Supports' seems to belong with the ladders, but it stands alone as the definition.",
+     "definitionFit": "Easels are wooden stands that hold up a painting or blackboard, so they are kinds of supports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +1936,47 @@
     "text": "I throw mud at Sicilian, say",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Sicilian, say",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "throw mud at",
+      "gives": "SLANDER",
+      "note": "to throw mud is to defame someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A confession: I insult a man from Sicily.",
+     "walkthrough": "'Throw mud at' is the idiom for blackening a reputation, not a literal throw.",
+     "definitionFit": "Sicily is an island, so a Sicilian is one example of an island inhabitant, as 'say' signals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mud"
+    }
+   }
   }
  ]
 }
