@@ -216,6 +216,11 @@ blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
 # puzzles, and blog-rebuilt files of the numbers it serves, refiled as printed.
 TELEGRAPH_BUCKET_PER_NIGHT="${TELEGRAPH_BUCKET_PER_NIGHT:-200}"
 blog_chain Telegraph "fetch_telegraph.py --holes $TELEGRAPH_BUCKET_PER_NIGHT" && blog_filed=1
+# The Guardian's own pages witness every Guardian, Quiptic and Everyman file:
+# a slice more of them cached each night, and the files whose clues, counts or
+# answers the page settles refiled from it (tools/cross_validate.py).
+GUARDIAN_XVAL_PER_NIGHT="${GUARDIAN_XVAL_PER_NIGHT:-1500}"
+blog_chain Guardian "cross_validate.py guardian --fetch --refile --limit $GUARDIAN_XVAL_PER_NIGHT" && blog_filed=1
 [ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
 
 # --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---

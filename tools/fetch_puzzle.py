@@ -1774,6 +1774,11 @@ def convert(data):
     entries = []
     for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
         line, italics = flatten_clue(e["clue"])
+        # The page prints some clues with a space in front ("&nbsp;" or a
+        # plain " ", 3,600 of them across cryptic and Quiptic). A clue with no
+        # markup reaches here untouched, space and all; one with markup has
+        # it dropped by flatten_clue, so no italic range ever starts in it.
+        line = line.lstrip()
         text, enum = enumeration.split(line)
         seps = separator_list(e.get("separatorLocations"))
         entries.append({
