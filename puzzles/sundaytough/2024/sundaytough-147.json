@@ -24,6 +24,9 @@
   "date": "2024-11-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,53 @@
      }
     ]
    },
-   "solution": "FASTFORWARD"
+   "solution": "FASTFORWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAST-FORWARD",
+    "definitions": [
+     {
+      "text": "Rush through",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "FAST",
+      "note": "to fast is to go without food, a severe diet"
+     },
+     {
+      "clueFragment": "suited to",
+      "gives": "FOR",
+      "note": "as in 'made for' something"
+     },
+     {
+      "clueFragment": "hospital room",
+      "gives": "WARD",
+      "note": "a ward is a room of beds in a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAST",
+      "FOR",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient is rushed through a meal plan designed for a hospital room.",
+     "walkthrough": "'Rush through' looks like part of the hospital scene, but it is the definition at the start.",
+     "definitionFit": "To skip quickly through a recording, or through any stage of events, is to hurry past it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +106,43 @@
     "text": "Result of hard work some scoff at, I guess",
     "enumeration": "7"
    },
-   "solution": "FATIGUE"
+   "solution": "FATIGUE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FATIGUE",
+    "definitions": [
+     {
+      "text": "Result of hard work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' means only a portion, so just part of the following run of letters is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoff at, I guess",
+      "gives": "FATIGUE",
+      "note": "the letters run across the word breaks of this phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone admits that a few people may mock the outcome of all their toil.",
+     "walkthrough": "The answer sits inside scoFF AT I GUEss, ignoring the comma and spaces.",
+     "definitionFit": "Tiredness or exhaustion is what heavy labour leaves you with, so the weariness is its consequence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +156,63 @@
     "text": "One presents essentially entertaining copy …",
     "enumeration": "6"
    },
-   "solution": "SCRIBE"
+   "solution": "SCRIBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCRIBE",
+    "definitions": [
+     {
+      "text": "One",
+      "at": 0,
+      "note": "a pronoun for a person; the ellipsis shows this person is a writer, leading on to the next clue"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the central letters are kept"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to take them in, so one piece holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "presents",
+      "gives": "SE",
+      "select": "middle",
+      "note": "the two central letters of an eight-letter word"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "CRIB",
+      "note": "to crib is to copy someone else's work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRIB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands over material that is, at heart, fun to read.",
+     "walkthrough": "CRIB sits between S and E; the ellipsis runs the clue on into 3 down, where the scribe's pen is named.",
+     "definitionFit": "A scribe is a person who writes or copies documents by hand, so it is a person of letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "presents"
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +236,40 @@
      }
     ]
    },
-   "solution": "FELTTIPPEN"
+   "solution": "FELTTIPPEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FELT-TIP PEN",
+    "definitions": [
+     {
+      "text": "that makes one a more colourful correspondent",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that makes one a more colourful correspondent",
+      "note": "surface: something that turns a letter writer into a livelier, more flamboyant personality"
+     },
+     {
+      "clueFragment": "colourful correspondent",
+      "note": "setter's reading: a writing tool that lets you write letters in bright inks"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing from the scribe: something makes a letter writer more vivid and entertaining.",
+     "walkthrough": "'Colourful' means flamboyant in the surface but literally coloured in the answer; the ellipsis links it to the copyist of 2 down.",
+     "definitionFit": "These pens come in many bright inks, so letters written with them are literally full of colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colourful"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +283,47 @@
     "text": "One may get things together or degenerate",
     "enumeration": "4"
    },
-   "solution": "RAKE"
+   "solution": "RAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAKE",
+    "definitions": [
+     {
+      "text": "One may get things together",
+      "at": 0
+     },
+     {
+      "text": "degenerate",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One may get things together",
+      "note": "first meaning: a garden tool with tines that gathers leaves into a pile"
+     },
+     {
+      "clueFragment": "degenerate",
+      "note": "second meaning: a dissolute, immoral man"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone will either sort their life out or go to the bad.",
+     "walkthrough": "'Get things together' sounds like getting organised, but it is literal gathering; 'degenerate' is a noun, not a verb.",
+     "definitionFit": "The garden tool gathers leaves, and as a noun the word also names a dissolute pleasure-seeking man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "degenerate"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +337,57 @@
     "text": "Article, part of speech on church and state",
     "enumeration": "8"
    },
-   "solution": "ANNOUNCE"
+   "solution": "ANNOUNCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANNOUNCE",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "on",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "part of speech",
+      "gives": "NOUN",
+      "note": "a noun is a grammatical part of speech"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "NOUN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article, part of a speech on church and state relations.",
+     "walkthrough": "'Church and state' looks like a familiar pairing, but 'and' is just a link and 'state' is a verb. In a down clue 'on' means placed after.",
+     "definitionFit": "To state something is to declare it formally, and to announce is to make a public declaration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +401,64 @@
     "text": "See five hundred and ten quit, disheartened",
     "enumeration": "7"
    },
-   "solution": "DIOCESE"
+   "solution": "DIOCESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DIOCESE",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing heart means losing the centre, so the middle letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "five hundred",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "IO",
+      "note": "10 written as the letter-like digits I and O"
+     },
+     {
+      "clueFragment": "quit",
+      "gives": "CEASE",
+      "note": "to quit is to stop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IO",
+      "CESE"
+     ]
+    },
+    "explanation": {
+     "surface": "Look at 510 people who have given up, all of them dejected.",
+     "walkthrough": "'See' looks like an instruction to look; it is a bishop's see. Dropping the central A of CEASE leaves CESE.",
+     "definitionFit": "A bishop's see is the area under that bishop's authority, which is the same thing as a diocese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +472,73 @@
     "text": "Flowing west in France, the channel abuts a northern plain",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "plain",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flowing west",
+      "for": "reversal",
+      "note": "in an across clue, flowing west means running right to left, the opposite of the normal reading"
+     }
+    ],
+    "linkWords": [
+     "abuts"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in France, the",
+      "gives": "LA",
+      "note": "la is the French for 'the'"
+     },
+     {
+      "clueFragment": "channel",
+      "gives": "RUT",
+      "note": "a rut is a groove or channel"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NATURAL"
+     ],
+     "reversals": [
+      {
+       "from": "LARUTAN",
+       "to": "NATURAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French river channel runs westward beside a flat northern plain.",
+     "walkthrough": "The geography all looks literal, but 'plain' is the definition, meaning simple or unaffected.",
+     "definitionFit": "Plain and natural both describe something unaffected, without artifice or decoration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +558,40 @@
      }
     ]
    },
-   "solution": "NAMEDROPPER"
+   "solution": "NAMEDROPPER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NAME-DROPPER",
+    "definitions": [
+     {
+      "text": "Who could create El from enamel for his mate Elvis?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who could create El from enamel",
+      "note": "literal reading: whoever takes a four-letter word out of 'enamel' leaves just E and L"
+     },
+     {
+      "clueFragment": "for his mate Elvis",
+      "note": "setter's reading: a person who casually mentions famous people as friends, like claiming to know the King"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone crafts something out of enamel for their friend Elvis.",
+     "walkthrough": "Removing the name inside eNAMEl leaves EL; and calling Elvis 'my mate' is the classic boast of someone who drops famous names.",
+     "definitionFit": "Someone who boasts of close friendships with celebrities, mentioning them casually to impress, is described this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "enamel"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +605,65 @@
     "text": "King repeatedly takes briefing by left people",
     "enumeration": "7"
    },
-   "solution": "KINFOLK"
+   "solution": "KINFOLK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "KINFOLK",
+    "definitions": [
+     {
+      "text": "people",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something is to hold it, so one piece goes around the others"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King repeatedly",
+      "gives": "KK",
+      "note": "K is the chess abbreviation for king, used twice"
+     },
+     {
+      "clueFragment": "briefing",
+      "gives": "INFO",
+      "note": "info is information, a briefing"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "INFO",
+      "L",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch keeps receiving briefings from left-wing people.",
+     "walkthrough": "The two Ks sit on either side of INFO followed by L.",
+     "definitionFit": "One's people, in the sense of one's family and relatives, are one's relations by blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -205,7 +683,48 @@
      }
     ]
    },
-   "solution": "KNUCKLEDOWN"
+   "solution": "KNUCKLEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNUCKLE DOWN",
+    "definitions": [
+     {
+      "text": "Get stuck in",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "digital",
+      "gives": "KNUCKLE",
+      "note": "a knuckle is a finger joint, and digital means of the fingers"
+     },
+     {
+      "clueFragment": "fluff",
+      "gives": "DOWN",
+      "note": "down is soft fluffy feathers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNUCKLE",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Some online fuzz has jammed, or got trapped inside a computer.",
+     "walkthrough": "'Digital' suggests computers, but here it means relating to fingers. 'Get stuck in' is a British idiom for applying yourself with energy.",
+     "definitionFit": "Both phrases mean to start working seriously and with real effort on a task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
+   }
   },
   {
    "number": 10,
@@ -219,7 +738,52 @@
     "text": "Many bits maybe get rewritten",
     "enumeration": "8"
    },
-   "solution": "MEGABYTE"
+   "solution": "MEGABYTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEGABYTE",
+    "definitions": [
+     {
+      "text": "Many bits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "something rewritten is set down again in a new form, so the letters come out in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maybe get",
+      "gives": "MAYBEGET",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAYBEGET",
+       "gives": "MEGABYTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Large parts of a text perhaps get revised.",
+     "walkthrough": "'Many bits' reads as plenty of pieces, but bits are binary digits here.",
+     "definitionFit": "A unit of computer memory equals roughly a million bytes, each of eight binary digits, so it is a great many of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bits"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +797,68 @@
     "text": "Polish and Emirates each backing agency",
     "enumeration": "6"
    },
-   "solution": "BUREAU"
+   "solution": "BUREAU",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BUREAU",
+    "definitions": [
+     {
+      "text": "agency",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "each backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, and 'each' applies that to both parts separately"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "RUB",
+      "note": "to polish is to rub"
+     },
+     {
+      "clueFragment": "Emirates",
+      "gives": "UAE",
+      "note": "the United Arab Emirates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "EAU"
+     ],
+     "reversals": [
+      {
+       "from": "RUB",
+       "to": "BUR"
+      },
+      {
+       "from": "UAE",
+       "to": "EAU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish airline and Emirates each sponsor a travel agency.",
+     "walkthrough": "'Polish' with its capital looks like the nationality; it is the verb, the capital hidden by its place at the start.",
+     "definitionFit": "A government office or department handling particular business, like a news or travel office, is an agency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +872,44 @@
     "text": "Nude, full-frontal, to get herself hugs",
     "enumeration": "10"
    },
-   "solution": "ALTOGETHER"
+   "solution": "ALTOGETHER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTOGETHER",
+    "definitions": [
+     {
+      "text": "Nude",
+      "at": 0,
+      "note": "a noun here, as in 'in the nude', the same as 'in the altogether'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugs",
+      "for": "hidden_word",
+      "note": "to hug is to hold close inside, so the words enclose the letters wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "full-frontal, to get herself",
+      "gives": "ALTOGETHER",
+      "note": "the run starts at the end of the second word and ends partway through the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman poses completely naked to win herself some cuddles.",
+     "walkthrough": "The answer runs through frontAL TO GET HERself. 'In the altogether' is an informal British phrase for naked.",
+     "definitionFit": "The state of nakedness is called 'the altogether' informally, so it can stand for the nude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hugs"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +923,55 @@
     "text": "Intellectual went to the left",
     "enumeration": "4"
    },
-   "solution": "DEEP"
+   "solution": "DEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEEP",
+    "definitions": [
+     {
+      "text": "Intellectual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the left",
+      "for": "reversal",
+      "note": "in an across clue, moving leftwards means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went",
+      "gives": "PEED",
+      "note": "informally, to go is to urinate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEED",
+       "to": "DEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker joined a left-wing political movement.",
+     "walkthrough": "'Went to the left' sounds political; 'went' is a coy euphemism for relieving oneself.",
+     "definitionFit": "Profound thinking or writing is called deep, demanding serious thought and learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "went"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +985,40 @@
     "text": "Writer’s friend: “Does it begin with ‘Cz’ or end with ‘que’?”",
     "enumeration": "10"
    },
-   "solution": "SPELLCHECK"
+   "solution": "SPELLCHECK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPELLCHECK",
+    "definitions": [
+     {
+      "text": "Writer’s friend",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer’s friend",
+      "note": "surface: a helpful companion for an author, a tool that queries their words"
+     },
+     {
+      "clueFragment": "Does it begin with ‘Cz’ or end with ‘que’?",
+      "note": "setter's reading: the word pronounced like the answer's second half can be written as the nation 'Czech' or the payment 'cheque'"
+     }
+    ],
+    "explanation": {
+     "surface": "An author's helper asks how a tricky word is spelt.",
+     "walkthrough": "The sound 'check' is also spelt Czech and cheque, so the question asks how to spell 'check' — and the writer's software friend checks spelling.",
+     "definitionFit": "Word-processing software that flags misspellings is the constant companion of anyone writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "friend"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1032,64 @@
     "text": "Dangerous point with steps up and down, 16 to climb",
     "enumeration": "8"
    },
-   "solution": "STILETTO"
+   "solution": "STILETTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STILETTO",
+    "definitions": [
+     {
+      "text": "Dangerous point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to climb",
+      "for": "reversal",
+      "note": "in a vertical entry, climbing means going upwards, so the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steps up and down",
+      "gives": "STILE",
+      "note": "a stile is a set of steps for climbing over a fence and down the other side"
+     },
+     {
+      "clueFragment": "16",
+      "gives": "OTT",
+      "note": "the answer to 16 across is abbreviated OTT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STILE",
+      "TTO"
+     ],
+     "reversals": [
+      {
+       "from": "OTT",
+       "to": "TTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hazardous spot on a hike with steep steps, too outrageous to climb.",
+     "walkthrough": "OTT is the standard abbreviation of the answer to 16 across. A stile is a common British countryside feature, a step over a field fence.",
+     "definitionFit": "A stiletto is a slender dagger, and its sharp tip makes it a lethal pointed weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "steps"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1113,62 @@
      }
     ]
    },
-   "solution": "OVERTHETOP"
+   "solution": "OVERTHETOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVER-THE-TOP",
+    "definitions": [
+     {
+      "text": "Outrageous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in public",
+      "gives": "OVERT",
+      "note": "overt means done openly"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "the pronoun for a man"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "HE",
+      "TO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A man behaves scandalously in public as he gets to the Pope.",
+     "walkthrough": "'Papa' looks like the Pope or a father; it is the radio code word for P.",
+     "definitionFit": "Behaviour that goes too far, excessive and exaggerated, is described as outrageous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Papa"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1182,56 @@
     "text": "Artwork that’s attractive but not feminine",
     "enumeration": "7"
    },
-   "solution": "ETCHING"
+   "solution": "ETCHING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETCHING",
+    "definitions": [
+     {
+      "text": "Artwork",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "'but not' excludes something, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attractive",
+      "gives": "FETCHING",
+      "note": "fetching means attractive"
+     },
+     {
+      "clueFragment": "feminine",
+      "gives": "F",
+      "note": "F is the abbreviation for feminine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETCHING"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of art that is pleasing but not at all girly.",
+     "walkthrough": "Removing F from the front of FETCHING leaves the answer.",
+     "definitionFit": "A print made from a design cut into a metal plate with acid is an example of art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feminine"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1245,49 @@
     "text": "Clever tortoise races hare in one, taking the lead",
     "enumeration": "4"
    },
-   "solution": "ABLE"
+   "solution": "ABLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ABLE",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking the lead",
+      "for": "deletion",
+      "note": "taking away the lead means removing what comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tortoise races hare in one",
+      "gives": "FABLE",
+      "note": "Aesop's tale of the tortoise and the hare is a fable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart tortoise races a hare and takes the lead.",
+     "walkthrough": "'Taking the lead' reads as getting ahead in the race; it means taking off the first letter, F.",
+     "definitionFit": "Someone skilful and competent is described as clever or capable, with talent and intelligence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1301,51 @@
     "text": "Forest striker that makes the cut with Belgium – he’ll be hitting the net?",
     "enumeration": "7"
    },
-   "solution": "BLOGGER"
+   "solution": "BLOGGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOGGER",
+    "definitions": [
+     {
+      "text": "he’ll be hitting the net?",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belgium",
+      "gives": "B",
+      "note": "B is the international vehicle code for Belgium"
+     },
+     {
+      "clueFragment": "Forest striker that makes the cut",
+      "gives": "LOGGER",
+      "note": "someone who strikes trees with an axe in a forest, felling timber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOGGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Nottingham Forest striker makes the squad for Belgium and is expected to score.",
+     "walkthrough": "Nottingham Forest is an English football club, so 'striker' and 'the net' suggest scoring goals; here they mean chopping trees and posting online.",
+     "definitionFit": "Someone writing an online diary is always posting on the internet, punning on hitting the back of a goal net."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Forest"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1359,44 @@
     "text": "Revolver, heavenly disc?",
     "enumeration": "6"
    },
-   "solution": "PLANET"
+   "solution": "PLANET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLANET",
+    "definitions": [
+     {
+      "text": "Revolver",
+      "at": 0
+     },
+     {
+      "text": "heavenly disc",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolver",
+      "note": "first meaning: something that revolves, orbiting a star"
+     },
+     {
+      "clueFragment": "heavenly disc",
+      "note": "second meaning: a round body seen in the night sky"
+     }
+    ],
+    "explanation": {
+     "surface": "A gun, and some kind of sacred plate or record.",
+     "walkthrough": "'Revolver' wants to be a gun or a Beatles album; it is anything that revolves.",
+     "definitionFit": "Worlds such as Mars orbit the sun and appear as small round discs through a telescope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Revolver"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1410,59 @@
     "text": "Fix unreliable piano, not forte!",
     "enumeration": "6"
    },
-   "solution": "PICKLE"
+   "solution": "PICKLE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "PICKLE",
+    "definitions": [
+     {
+      "text": "Fix",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "substitution",
+      "note": "'one, not the other' puts one letter in place of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unreliable",
+      "gives": "FICKLE",
+      "note": "fickle means changeable, not to be relied on"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "forte",
+      "gives": "F",
+      "note": "f is the musical abbreviation for forte, loudly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ICKLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to repair an out-of-tune piano before it is played loudly.",
+     "walkthrough": "'Fix' reads as a command to repair; it is a noun meaning a tight spot.",
+     "definitionFit": "Being in a fix and being in a pickle are both idioms for being in a difficult predicament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1486,48 @@
      }
     ]
    },
-   "solution": "WELLTODO"
+   "solution": "WELLTODO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELL-TO-DO",
+    "definitions": [
+     {
+      "text": "Flush",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very much",
+      "gives": "WELL",
+      "note": "as in 'well over budget'"
+     },
+     {
+      "clueFragment": "on the jobs list",
+      "gives": "TO-DO",
+      "note": "a to-do list holds the jobs still waiting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "TODO"
+     ]
+    },
+    "explanation": {
+     "surface": "Fixing the toilet flush is high on the list of household chores.",
+     "walkthrough": "'Flush' suggests plumbing; it means having plenty of money.",
+     "definitionFit": "Being flush means having lots of money, and wealthy prosperous people are described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flush"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1541,67 @@
     "text": "Overturning or interrupting dry run",
     "enumeration": "4"
    },
-   "solution": "TROT"
+   "solution": "TROT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TROT",
+    "definitions": [
+     {
+      "text": "run",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Overturning",
+      "for": "reversal",
+      "note": "turning over flips the order, so the letters read backwards"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT means teetotal, not drinking alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RO",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rehearsal goes wrong, either turned over or cut short.",
+     "walkthrough": "'Dry run' looks like a phrase meaning rehearsal; 'dry' is wordplay and 'run' alone is the definition.",
+     "definitionFit": "A trot is a gentle jogging pace, so it is a slow kind of running."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1615,55 @@
     "text": "Celebrate Italy coming third in table",
     "enumeration": "7"
    },
-   "solution": "ROISTER"
+   "solution": "ROISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROISTER",
+    "definitions": [
+     {
+      "text": "Celebrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming third in",
+      "for": "container",
+      "note": "coming in at third place puts a letter inside, after the first two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "ROSTER",
+      "note": "a roster is a table of duties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "I",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "Italian fans party after finishing third in the league table.",
+     "walkthrough": "'Coming third in table' sounds like a league position; it places I as the third letter.",
+     "definitionFit": "To roister is to revel noisily and boisterously, a rowdy way of making merry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1677,50 @@
     "text": "Rev linked with writing dangerous article",
     "enumeration": "7"
    },
-   "solution": "HANDGUN"
+   "solution": "HANDGUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDGUN",
+    "definitions": [
+     {
+      "text": "dangerous article",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "linked with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writing",
+      "gives": "HAND",
+      "note": "one's hand is one's handwriting"
+     },
+     {
+      "clueFragment": "Rev",
+      "gives": "GUN",
+      "note": "to gun an engine is to rev it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "GUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar is connected to a provocative piece of writing.",
+     "walkthrough": "'Rev' looks like a clergyman; it is the verb for racing an engine.",
+     "definitionFit": "A pistol is a weapon held in one hand, an item that can cause harm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rev"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1740,40 @@
      }
     ]
    },
-   "solution": "GHOSTWRITER"
+   "solution": "GHOSTWRITER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GHOST-WRITER",
+    "definitions": [
+     {
+      "text": "One spirits up another’s words",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One spirits up",
+      "note": "surface: someone conjures up, or whisks away, what another person said"
+     },
+     {
+      "clueFragment": "another’s words",
+      "note": "setter's reading: a hidden author who produces text published under someone else's name, a spirit being a phantom"
+     }
+    ],
+    "explanation": {
+     "surface": "Somebody magically produces the words that are credited to a different person.",
+     "walkthrough": "'Spirits up' plays on phantoms: the unseen author is a kind of spectre behind the named author.",
+     "definitionFit": "A hired author who writes books or speeches credited to another person remains invisible, like a phantom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   }
  ]
 }
