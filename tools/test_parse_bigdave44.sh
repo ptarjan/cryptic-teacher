@@ -189,4 +189,13 @@ check "the filer tidies a held file's clues as the parser now reads them" \
 import file_telegraph_puzzles as f
 print(f.SOURCE.tidy("Voice / pipe (5)"))' 2>&1 | tail -1)"
 
+check "a list opening with a linked head under an unknown heading keeps it; prose citing lights does not head the list" \
+  "1a:HANDLEBAR 25a:MOUSTACHE 6a:TITCH 1d:HUMOROUS" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_bigdave44 as pb, parse_timesforthetimes as tftt
+L = ["13a,14a and 17a are on my podium", "Across Clues",
+     "1a/25a Shot heard, ambulance going round, it’s hairy! (9,9)", "HANDLEBAR MOUSTACHE – anagram",
+     "6a Little fellow (5)", "TITCH – x", "Down Clues", "1d Funny (8)", "HUMOROUS – x"]
+e, _ = tftt.read_entries(pb.headed(L))
+print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x["answer"]) for x in e))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

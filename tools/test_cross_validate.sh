@@ -267,9 +267,9 @@ import corroborate
 R = corroborate.Record
 post = R("georgeho:bigdave44", "bigdave44", "u1", answers={
     (1, "across"): "CAT", (1, "down"): "CAB", (2, "down"): "TOE", (3, "across"): "BEA",
-    (5, "across"): "OWL"}, clues={
+    (2, "across"): "OWL"}, clues={
     (1, "across"): "a Tom’s pet (3)", (1, "down"): ", taxi (3)", (2, "down"): ", 4. Digit",
-    (3, "across"): "Buzzing (3)", (5, "across"): "Hooter (3)"})
+    (3, "across"): "Buzzing (3)", (2, "across"): "Hooter (3)"})
 mistitled = R("georgeho:bigdave44", "bigdave44", "u2", answers={
     (1, "across"): "DOG", (1, "down"): "DIG", (2, "down"): "GAP", (3, "across"): "PIG"})
 corroborate.georgeho = lambda puzzle: [mistitled, post]
@@ -279,9 +279,12 @@ found = {(m["class"], m["light"]): m.get("theirs") for m in cv.diff(copy.deepcop
 same("georgeho: the post that agrees with ours, its direction letter and a clue split at "
      "its number no witness, a missing count no witness, a light we lack MISSING",
      found, {("ANSWER", "3-across"): "BEA", ("CLUE", "3-across"): "Buzzing",
-             ("MISSING", "5-across"): "OWL"})
+             ("MISSING", "2-across"): "OWL"})
 same("georgeho: a row the scrape filed under another light witnesses nothing",
      cv.misfiled(("Taxi", "3", "CAB"), base["entries"][0], {"CAT", "CAB"}, set()), True)
+same("georgeho: a linked number read as one, or our own lights joined, is not MISSING",
+     [cv.unplaceable(1813, "RODSTEWART", base), cv.unplaceable(2, "CATTOE", base),
+      cv.unplaceable(2, "OWL", base)], [True, True, False])
 corroborate.georgeho = lambda puzzle: [mistitled]
 same("georgeho: a post holding none of our answers is another puzzle",
      gh.puzzle("telegraph-1", copy.deepcopy(base))["id"].split(":")[0], "another puzzle")
