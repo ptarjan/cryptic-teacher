@@ -182,6 +182,11 @@ print("TITLES", c.blog_puzzle_id("Guardian Quiptic 1,357 by Hectence"),
       c.blog_puzzle_id("QC1575", c.TIMES_SERIES),
       c.blog_puzzle_id("Sunday Times 4589", c.TIMES_SERIES),
       c.blog_puzzle_id("Mephisto 2958", c.TIMES_SERIES))
+print("BIGDAVE", *[c.blog_puzzle_id(t, c.BIGDAVE_SERIES) for t in (
+    "Daily Telegraph 29673", "Toughie\xa0443", "Sunday Telegraph-3151", "Sunday Toughie 1",
+    "Double Toughie 100004", "NTSPP – 489", "Rookie Corner 052", "MPP 105")])
+print("CLUB", c.blog_puzzle_id("Monthly Club Special 20,212", c.TIMES_SERIES),
+      c.blog_puzzle_id("TLS Crossword 1163", c.TIMES_SERIES))
 print("SETTERS", c.blog_setter("Guardian 25749 Brendan"), c.blog_setter("Independent 12,225 by Tack"),
       c.blog_setter("Everyman 3,906/22 August"))
 
@@ -258,7 +263,10 @@ same "a file carrying the paper's error is corrected on write" "$(field CORRECTE
 same "case, hyphens, accents, alternatives" "$(field LETTERS "$out")" "GETSREADY DETENTE None"
 same "a linked answer on its first light agrees with the lights it spans" "$(field LINKED "$out")" "0"
 same "blog titles name our puzzles, and only ours" "$(field TITLES "$out")" \
-  "quiptic-1357 indysunday-1127 None timesquick-1575 sundaytimes-4589 None"
+  "quiptic-1357 indysunday-1127 None timesquick-1575 sundaytimes-4589 mephisto-2958"
+same "bigdave44 titles name the Telegraph's four, and no reader's puzzle" "$(field BIGDAVE "$out")" \
+  "telegraph-29673 toughie-443 sundaytel-3151 sundaytough-1 None None None None"
+same "the Times blog's Club and TLS titles name ours" "$(field CLUB "$out")" "timesclub-20212 tls-1163"
 same "blog titles name setters, and a month is not one" "$(field SETTERS "$out")" "Brendan Tack None"
 
 echo "a cold solve against the blog"
