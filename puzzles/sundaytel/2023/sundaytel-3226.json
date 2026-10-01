@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,69 @@
      }
     ]
    },
-   "solution": "SHOPPINGLIST"
+   "solution": "SHOPPINGLIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SHOPPING LIST",
+    "definitions": [
+     {
+      "text": "all one wants to buy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the word is kept"
+     },
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling sits inside something, so this piece goes into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wet",
+      "gives": "SOPPING",
+      "note": "sopping means soaked through, very wet"
+     },
+     {
+      "clueFragment": "Fish",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "LIST",
+      "note": "a table of figures or names is a list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "OPPING",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger lays out a wet table of fish, and a shopper eyes everything they want.",
+     "walkthrough": "'Fish' looks like the start of a seafood scene, but only its last letter is used, and 'ultimately' is the selector rather than a sense of finality.",
+     "definitionFit": "A written record of every item someone intends to purchase on an errand is exactly what this phrase names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +117,56 @@
     "text": "Superficial pig touring large residence",
     "enumeration": "7"
    },
-   "solution": "SHALLOW"
+   "solution": "SHALLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHALLOW",
+    "definitions": [
+     {
+      "text": "Superficial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour is to go all the way round something, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig",
+      "gives": "SOW",
+      "note": "a sow is a female pig"
+     },
+     {
+      "clueFragment": "large residence",
+      "gives": "HALL",
+      "note": "a hall is a large country house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HALL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A shallow pig wanders round a stately home on a guided tour.",
+     "walkthrough": "'Large residence' is a country house, the sense of hall in names like Haddon Hall; 'touring' makes the pig go right round it.",
+     "definitionFit": "Someone lacking depth of thought or feeling is described as both superficial and shallow; the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +180,43 @@
     "text": "Sound of animal coming from Fido in kennel",
     "enumeration": "4"
    },
-   "solution": "OINK"
+   "solution": "OINK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OINK",
+    "definitions": [
+     {
+      "text": "Sound of animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming from",
+      "for": "hidden_word",
+      "note": "letters coming from a phrase emerge out of its middle, running unbroken across the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fido in kennel",
+      "note": "the letters run consecutively across the end of the first word, the whole second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A noise comes from the kennel where Fido the dog lives.",
+     "walkthrough": "The surface expects a bark from a dog, but the hidden noise is a pig's: fidO IN Kennel gives OINK.",
+     "definitionFit": "The grunting noise a pig makes is conventionally written this way, so it is a farmyard animal's call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fido"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +230,55 @@
     "text": "Sick person? Obvious one needs tucking in",
     "enumeration": "7"
    },
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PATIENT",
+    "definitions": [
+     {
+      "text": "Sick person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs tucking in",
+      "for": "container",
+      "note": "tucking something in pushes it inside a covering, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obvious",
+      "gives": "PATENT",
+      "note": "patent means plain or evident"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "I",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse decides that an obviously ill person needs tucking into bed.",
+     "walkthrough": "The scene of a nurse tucking a sick person into bed is the disguise; the tucking puts I inside PATENT, giving PATIENT.",
+     "definitionFit": "Someone receiving medical treatment for an illness is called a patient by doctors and hospitals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +298,51 @@
      }
     ]
    },
-   "solution": "NOSWEAT"
+   "solution": "NOSWEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO SWEAT",
+    "definitions": [
+     {
+      "text": "easily",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "something rewritten is set down again in a new form, so these letters come out in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note was",
+      "gives": "NOTEWAS",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTEWAS",
+       "gives": "NOSWEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note was redrafted without any trouble.",
+     "walkthrough": "'Note was rewritten' reads like a message being redrafted; the seven letters rearrange to NO SWEAT.",
+     "definitionFit": "The informal phrase means without effort or difficulty, an idiom used adverbially, as in 'I managed it no sweat'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +356,43 @@
     "text": "Taste defeat",
     "enumeration": "4"
    },
-   "solution": "LICK"
+   "solution": "LICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LICK",
+    "definitions": [
+     {
+      "text": "Taste",
+      "at": 0
+     },
+     {
+      "text": "defeat",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taste",
+      "note": "first meaning: to try something with the tongue"
+     },
+     {
+      "clueFragment": "defeat",
+      "note": "second meaning: to beat soundly, as in a contest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like the phrase 'taste defeat', meaning to lose, but they are separate meanings of one short verb.",
+     "definitionFit": "The verb means both to pass the tongue over something and, informally, to thrash an opponent in a fight or game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Taste"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +412,49 @@
      }
     ]
    },
-   "solution": "SHOWOFF"
+   "solution": "SHOWOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOW-OFF",
+    "definitions": [
+     {
+      "text": "Self-publicist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "SHOW",
+      "note": "a show is a performance on stage"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "OFF",
+      "note": "an event called off is cancelled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOW",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "An attention-seeking performer finds that their show has been cancelled.",
+     "walkthrough": "The self-promoter's cancelled gig is a sad story, but the two words simply join: SHOW + OFF.",
+     "definitionFit": "A person who constantly seeks attention and boasts about themselves is a show-off; self-publicist is a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -162,7 +482,44 @@
      }
     ]
    },
-   "solution": "PAININTHENECK"
+   "solution": "PAININTHENECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAIN IN THE NECK",
+    "definitions": [
+     {
+      "text": "Rick, say",
+      "at": 0
+     },
+     {
+      "text": "tedious person",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rick, say",
+      "note": "first meaning: a rick is a sprain or crick, and 'say' marks this as one example of such an ache"
+     },
+     {
+      "clueFragment": "tedious person",
+      "note": "second meaning: an annoying, wearisome individual"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Rick is being described as a bore.",
+     "walkthrough": "Rick looks like a man's name, but a rick is a wrenched muscle, the sort of strain that gives a literal ache below the head.",
+     "definitionFit": "The idiom is used for any irritating, tiresome person, while literally it names an ache like a cricked muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rick"
+    }
+   }
   },
   {
    "number": 8,
@@ -186,7 +543,39 @@
      }
     ]
    },
-   "solution": "DRESSEDTOKILL"
+   "solution": "DRESSEDTOKILL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DRESSED TO KILL",
+    "definitions": [
+     {
+      "text": "Looking good in huntsman’s outfit?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looking good",
+      "note": "the surface sense: stylishly turned out and glamorous"
+     },
+     {
+      "clueFragment": "in huntsman’s outfit?",
+      "note": "the setter's sense: wearing clothes for going out to slaughter game, taken literally"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags a literal reading of a fashion idiom: a hunter's gear is clothing worn for the purpose of killing.",
+     "definitionFit": "The idiom describes someone wearing striking, glamorous clothes meant to impress, while the literal words fit a hunter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "huntsman’s"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +589,61 @@
     "text": "Hostile to Muslim official, criminal isn’t",
     "enumeration": "7"
    },
-   "solution": "AGAINST"
+   "solution": "AGAINST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AGAINST",
+    "definitions": [
+     {
+      "text": "Hostile to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal means crooked or bent, so these letters are twisted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muslim official",
+      "gives": "AGA",
+      "note": "an aga is a commander or chief official in the Ottoman Empire"
+     },
+     {
+      "clueFragment": "isn’t",
+      "gives": "ISNT",
+      "note": "the four letters, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA",
+      "INST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "INST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opposed to a Muslim official insists the official is no criminal.",
+     "walkthrough": "AGA (also spelt agha) is a crossword regular for a Muslim leader. 'Criminal' looks like a noun but shuffles ISNT.",
+     "definitionFit": "To be against something is to oppose it, so the preposition matches 'hostile to', as in 'they were hostile to the plan'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +657,45 @@
     "text": "Help fool on the phone?",
     "enumeration": "7"
    },
-   "solution": "SUCCOUR"
+   "solution": "SUCCOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUCCOUR",
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the phone",
+      "for": "homophone",
+      "note": "on the phone you only hear a word, so the spelling must be taken from its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "SUCCOUR",
+      "soundsLike": "SUCKER",
+      "note": "a sucker is a gullible person, easily fooled"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone rings to help a fool over the phone, or to ask for help.",
+     "walkthrough": "SUCKER and SUCCOUR sound the same in British speech, where the final R is not voiced.",
+     "definitionFit": "Succour is assistance and support given in time of hardship, a formal synonym for aid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 11,
@@ -228,7 +709,52 @@
     "text": "African river initially narrows, in leaving Egypt",
     "enumeration": "4"
    },
-   "solution": "NILE"
+   "solution": "NILE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NILE",
+    "definitions": [
+     {
+      "text": "African river",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each following word gives up its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narrows, in leaving Egypt",
+      "gives": "NILE",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A great African river narrows as it flows out of Egypt.",
+     "walkthrough": "'Initially' seems to apply only to 'narrows', but it covers all four words. The river is the definition and also flows through the surface.",
+     "definitionFit": "The longest river in Africa runs north through Sudan and Egypt to the Mediterranean, a famous geographic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +768,45 @@
     "text": "Stage appearing similar from either wing?",
     "enumeration": "5"
    },
-   "solution": "LEVEL"
+   "solution": "LEVEL",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "LEVEL",
+    "definitions": [
+     {
+      "text": "Stage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stage",
+      "note": "the definition: a stage or tier in a progression, such as in a game"
+     },
+     {
+      "clueFragment": "appearing similar from either wing?",
+      "note": "the instruction: the word reads the same from the left end as from the right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre stage looks the same viewed from either side of the wings.",
+     "walkthrough": "The wings sound theatrical, but here they are the two ends of the word, which mirror each other.",
+     "definitionFit": "A stage of progress, like a stage in a computer game or of education, is also called a level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +820,47 @@
     "text": "Launch aimed at ship",
     "enumeration": "4"
    },
-   "solution": "TOSS"
+   "solution": "TOSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOSS",
+    "definitions": [
+     {
+      "text": "Launch",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aimed at",
+      "gives": "TO",
+      "note": "something directed to a target is aimed at it"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A missile is launched at a ship.",
+     "walkthrough": "'Launch' suggests a ship being launched, but here it means to throw. SS, for steamship, is a standard abbreviation.",
+     "definitionFit": "To throw or hurl something into the air is to launch it, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Launch"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +874,50 @@
     "text": "Enclosed compartment in back of car, hot",
     "enumeration": "5"
    },
-   "solution": "BOOTH"
+   "solution": "BOOTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOTH",
+    "definitions": [
+     {
+      "text": "Enclosed compartment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back of car",
+      "gives": "BOOT",
+      "note": "in British English the boot is the luggage space at the back of a car (the US trunk)"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shut in a hot compartment at the back of a car.",
+     "walkthrough": "'Back of car' looks like a letter selection, but it defines the whole word BOOT, the British name for a car's luggage space.",
+     "definitionFit": "A small partitioned space such as a phone box, polling cubicle or restaurant alcove is called a booth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +931,53 @@
     "text": "Youngster comes before an islander",
     "enumeration": "5"
    },
-   "solution": "CUBAN"
+   "solution": "CUBAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUBAN",
+    "definitions": [
+     {
+      "text": "islander",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes before",
+      "for": "charade",
+      "note": "coming before means going first, so in this down entry the first piece sits above the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youngster",
+      "gives": "CUB",
+      "note": "a cub is a young animal, or a junior Scout"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUB",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster is introduced to someone from an island.",
+     "walkthrough": "The definition is the last word; the pieces go in clue order: CUB + AN.",
+     "definitionFit": "A native of Cuba, the largest island in the Caribbean, is an example of someone living on an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +991,50 @@
     "text": "Novel left in British city",
     "enumeration": "7"
    },
-   "solution": "NEWPORT"
+   "solution": "NEWPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWPORT",
+    "definitions": [
+     {
+      "text": "British city",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novel",
+      "gives": "NEW",
+      "note": "novel as an adjective means new"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A novel has been left behind somewhere in a British city.",
+     "walkthrough": "'Novel' looks like a book, but it is the adjective. Newport, in south Wales, has city status.",
+     "definitionFit": "Newport is a Welsh port granted city status in 2002, making it one example of a city in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1048,56 @@
     "text": "Chocolate ending on carpet, upset",
     "enumeration": "7"
    },
-   "solution": "TRUFFLE"
+   "solution": "TRUFFLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRUFFLE",
+    "definitions": [
+     {
+      "text": "Chocolate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending on",
+      "for": "letter_selection",
+      "note": "an ending on a word is its final part, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carpet",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "RUFFLE",
+      "note": "to ruffle someone is to upset or fluster them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUFFLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is upset that a chocolate has ended up trodden into the carpet.",
+     "walkthrough": "'Upset' looks like an anagram signal but is a plain synonym, RUFFLE, placed after T.",
+     "definitionFit": "A truffle is a rich round sweet made of chocolate ganache, so it is one kind of chocolate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1111,51 @@
     "text": "Lift near the ground",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground has been crushed to bits, so these letters are broken up and remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near the",
+      "gives": "NEARTHE",
+      "note": "taken as written, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEARTHE",
+       "gives": "HEARTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is lifted to a point just above the ground.",
+     "walkthrough": "'Lift near the ground' reads like a physical instruction, but 'lift' means cheer and 'ground' grinds the letters of 'near the'.",
+     "definitionFit": "To lift someone's spirits is to encourage or cheer them, which is what hearten means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1169,58 @@
     "text": "Sale that’s posh in effect",
     "enumeration": "7"
    },
-   "solution": "AUCTION"
+   "solution": "AUCTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUCTION",
+    "definitions": [
+     {
+      "text": "Sale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit within it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, from Nancy Mitford's 'U and non-U' usage"
+     },
+     {
+      "clueFragment": "effect",
+      "gives": "ACTION",
+      "note": "an action or effect is something that takes force, as in 'in action'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "CTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A sale that is in effect rather posh.",
+     "walkthrough": "U for upper-class or posh is a crossword staple. 'In effect' reads like 'effectively' but places U inside ACTION.",
+     "definitionFit": "An auction is a public sale where goods go to the highest bidder, so it is one kind of sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "effect"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1234,55 @@
     "text": "Night on rocks for duck",
     "enumeration": "7"
    },
-   "solution": "NOTHING"
+   "solution": "NOTHING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOTHING",
+    "definitions": [
+     {
+      "text": "duck",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "something on the rocks is wrecked, and to rock is to shake, so these letters are tossed about"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Night on",
+      "gives": "NIGHTON",
+      "note": "taken as written, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NIGHTON",
+       "gives": "NOTHING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duck spends a night out on the rocks.",
+     "walkthrough": "'Duck' wants to be the bird; it is the cricket score of zero. In cricket a batter who is out without scoring is out for a duck.",
+     "definitionFit": "In cricket a duck is a score of zero, so the word stands for nil, a crossword-favourite sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1296,62 @@
     "text": "Praise leaders of urban district brought into fold",
     "enumeration": "7"
    },
-   "solution": "PLAUDIT"
+   "solution": "PLAUDIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLAUDIT",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders go at the front, so each word gives up its first letter"
+     },
+     {
+      "text": "brought into",
+      "for": "container",
+      "note": "bringing something into a space puts it inside, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urban district",
+      "gives": "UD",
+      "select": "first",
+      "note": "the first letters of the two words"
+     },
+     {
+      "clueFragment": "fold",
+      "gives": "PLAIT",
+      "note": "a plait is a fold or pleat in fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "UD",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "The heads of a town district are praised for bringing people into the fold.",
+     "walkthrough": "'Fold' suggests a sheep pen or a political flock; here it is a pleat, spelt PLAIT, opened to take UD.",
+     "definitionFit": "A plaudit is an expression of approval or applause, so it means praise; the singular matches the noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fold"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1365,64 @@
     "text": "Leak fixer observing boards under opening in pipe",
     "enumeration": "7"
    },
-   "solution": "PLUMBER"
+   "solution": "PLUMBER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLUMBER",
+    "definitions": [
+     {
+      "text": "Leak fixer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening in",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so only the first letter of the word is kept"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, a piece under another sits below it, so it comes second"
+     }
+    ],
+    "linkWords": [
+     "observing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pipe",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "boards",
+      "gives": "LUMBER",
+      "note": "lumber is sawn timber, wooden boards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tradesman fixing a leak watches the floorboards beneath an open pipe.",
+     "walkthrough": "The plumbing scene is apt, which hides that 'pipe' only supplies P, with LUMBER placed below it in the down light.",
+     "definitionFit": "A tradesperson who installs and repairs water pipes is called on to mend leaks, so the description fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "observing"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1436,64 @@
     "text": "Face etc rearranged in a manner of speaking",
     "enumeration": "7"
    },
-   "solution": "DIALECT"
+   "solution": "DIALECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DIALECT",
+    "definitions": [
+     {
+      "text": "manner of speaking",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rearranged",
+      "for": "anagram",
+      "note": "rearranged means put in a different order, so the letters next to it are reordered"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Face",
+      "gives": "DIAL",
+      "note": "a dial is a clock face, and slang for a person's face"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written, three letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAL",
+      "ECT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETC",
+       "gives": "ECT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A face and so on rearranged, in a manner of speaking.",
+     "walkthrough": "'In a manner of speaking' looks like a stock phrase meaning 'so to say'; 'manner of speaking' is the definition, and only ETC is shuffled.",
+     "definitionFit": "A dialect is a regional form of a language, a particular way people talk, hence a manner of speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1507,43 @@
     "text": "Mark, boy’s name",
     "enumeration": "4"
    },
-   "solution": "NICK"
+   "solution": "NICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICK",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     },
+     {
+      "text": "boy’s name",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "note": "first meaning: a small cut or notch"
+     },
+     {
+      "clueFragment": "boy’s name",
+      "note": "second meaning: a short form of Nicholas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mark looks like a boy's name itself, but it means a notch; the answer is another boy's name.",
+     "definitionFit": "A notch is a small scratch or cut on a surface, and the same word is a common short form of Nicholas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1557,42 @@
     "text": "Dependable beer",
     "enumeration": "5"
    },
-   "solution": "STOUT"
+   "solution": "STOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOUT",
+    "definitions": [
+     {
+      "text": "Dependable",
+      "at": 0
+     },
+     {
+      "text": "beer",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dependable",
+      "note": "first meaning: staunch and reliable, as a loyal friend"
+     },
+     {
+      "clueFragment": "beer",
+      "note": "second meaning: a dark, strong ale such as Guinness"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a recommendation for a reliable pint, but the two words are separate meanings.",
+     "definitionFit": "The adjective means staunch or resolute, as in a stout defender, and the noun is a dark brewed ale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dependable"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1606,50 @@
     "text": "Line of soldiers went quickly for more than half a mile?",
     "enumeration": "4"
    },
-   "solution": "RANK"
+   "solution": "RANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANK",
+    "definitions": [
+     {
+      "text": "Line of soldiers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went quickly",
+      "gives": "RAN",
+      "note": "to run is to go quickly; past tense"
+     },
+     {
+      "clueFragment": "more than half a mile?",
+      "gives": "K",
+      "note": "K stands for kilometre, which is about 0.62 of a mile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A line of soldiers ran at speed for over half a mile.",
+     "walkthrough": "'More than half a mile' looks like a letter count from 'mile', but it is a kilometre, abbreviated K; the question mark flags the indirect clue.",
+     "definitionFit": "A rank is a row of soldiers standing side by side, so the noun names a line of troops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1663,48 @@
     "text": "Queen locked out, entrance and exit barred",
     "enumeration": "4"
    },
-   "solution": "ANNE"
+   "solution": "ANNE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANNE",
+    "definitions": [
+     {
+      "text": "Queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance and exit barred",
+      "for": "deletion",
+      "note": "with both doors blocked nothing can stand at either end, so the word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "locked out",
+      "gives": "BANNED",
+      "note": "someone locked out has been barred or excluded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNE"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen is locked out of her palace, with every door barred.",
+     "walkthrough": "BANNED loses its B and D to leave ANNE, the queen who reigned 1702-14.",
+     "definitionFit": "Anne was Queen of England, Scotland and later Great Britain, the last Stuart monarch, so she is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barred"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1718,42 @@
     "text": "Fit, Belgravia guest houses",
     "enumeration": "4"
    },
-   "solution": "AGUE"
+   "solution": "AGUE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGUE",
+    "definitions": [
+     {
+      "text": "Fit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "hidden_word",
+      "note": "to house something is to hold it inside, so the letters are contained within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belgravia guest",
+      "note": "the letters run consecutively across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A fit, well-to-do Belgravia guest house; Belgravia is a wealthy district of central London.",
+     "walkthrough": "'Guest houses' looks like a noun phrase, but 'houses' is the verb that holds the letters.",
+     "definitionFit": "An ague is a feverish fit of shivering, from old usage for malaria, so it is a bout of illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1767,47 @@
     "text": "Greek character turning nose up at Italian drink",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIANTI",
+    "definitions": [
+     {
+      "text": "Italian drink",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is the 22nd letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "turning nose up at",
+      "gives": "ANTI",
+      "note": "to turn one's nose up at something is to be opposed to it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "ANTI"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek turns his nose up at an Italian wine.",
+     "walkthrough": "'Turning' looks like a reversal signal, but the whole phrase is a definition of the piece, meaning opposed.",
+     "definitionFit": "Chianti is a red wine from Tuscany, so it is one example of an Italian beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 29,
@@ -500,7 +1827,44 @@
      }
     ]
    },
-   "solution": "BIGDEAL"
+   "solution": "BIGDEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BIG DEAL",
+    "definitions": [
+     {
+      "text": "Agreement worth millions perhaps",
+      "at": 0
+     },
+     {
+      "text": "that doesn’t impress me much",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreement worth millions perhaps",
+      "note": "first meaning: a large-scale business contract"
+     },
+     {
+      "clueFragment": "that doesn’t impress me much",
+      "note": "second meaning: an ironic exclamation dismissing something as unimportant"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shrugs off a multi-million agreement as unimpressive.",
+     "walkthrough": "The second half echoes the Shania Twain song title 'That Don't Impress Me Much', and is the sarcastic retort, not a description.",
+     "definitionFit": "Literally a major commercial transaction; said sarcastically, the phrase means 'so what?', expressing indifference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impress"
+    }
+   }
   },
   {
    "number": 30,
@@ -514,7 +1878,78 @@
     "text": "Keeping first bit of garbage, man returned rubbish in drawers, say",
     "enumeration": "12"
    },
-   "solution": "UNDERGARMENT"
+   "solution": "UNDERGARMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "UNDERGARMENT",
+    "definitions": [
+     {
+      "text": "drawers, say",
+      "at": 54,
+      "note": "drawers are plural but name a single garment, and 'say' marks them as one example of the class"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first bit of",
+      "for": "letter_selection",
+      "note": "the first bit of a word is its opening letter, which is all that is kept"
+     },
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish is a mess, so the letters beside it come out jumbled"
+     },
+     {
+      "text": "Keeping",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man returned",
+      "gives": "MANRETURNED",
+      "note": "taken as written, eleven letters"
+     },
+     {
+      "clueFragment": "garbage",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "G",
+      "ARMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANRETURNED",
+       "gives": "UNDERARMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man brings home rubbish stuffed in a chest of drawers.",
+     "walkthrough": "'Drawers' looks like furniture but is underwear. 'Returned' looks like a reversal, but it is part of the fodder, not an indicator.",
+     "definitionFit": "Drawers is an old word for underpants or knickers, an item of clothing worn beneath outer clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drawers"
+    }
+   }
   }
  ]
 }
