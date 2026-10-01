@@ -143,6 +143,29 @@ same("a known error in the source's key is put right before the diff (SOURCE_ANS
 same("a feed title with a comma after the number names its setter (independent-11078)",
      [fi.metadata_title(t) for t in ("No. 11078, by Phi", "No. 11,079 by Serpent", "1388 - Hypnos")],
      [("Phi", "11078"), ("Serpent", "11,079"), ("Hypnos", "1388")])
+same("a space in the feed's format is the comma it stands for (independent-12317)",
+     cv.independent_shape(INDY.replace(b'format="3.3"', b'format="3 3"'), "260105")
+     ["entries"][2]["clue"]["enumeration"], "3,3")
+fi.CLUE_FIXES[("260105", "2")] = ("Tax", "Cab")
+same("a clue the feed garbles is read as printed, by the converter and the reader alike",
+     [[e["clue"]["text"] for e in got["entries"] if (e["number"], e["direction"]) == (1, "down")]
+      for got in (fi.parse(INDY, "260105"), cv.independent_shape(INDY, "260105"))],
+     [["Cab"], ["Cab"]])
+same("and a feed that prints something else is taken as it is",
+     fi.fixed_clue("260105", "2", "Hackney carriage"), None)
+del fi.CLUE_FIXES[("260105", "2")]
+held = json.load(open("puzzles/independent/2026/independent-12407.json", encoding="utf-8"))
+same("independent-12407 4-down keeps its printed clue across a re-fetch (the feed garbles it)",
+     ([e["clue"]["text"] for e in held["entries"] if (e["number"], e["direction"]) == (4, "down")],
+      fi.fixed_clue("260714", "17", "a well-mannered fellow, extremely ideal, being "
+                    "\u201cgood breeding\u201d as they once said -")),
+     (["developed there at noon to foreshadow"], "developed there at noon to foreshadow"))
+saved = cv.read_puzzle_file
+cv.read_puzzle_file = lambda path: {"source": {"acquiredBy": "tools/fetch_independent.py"}}
+same("a refile never rewrites a file already taken from the feed",
+     cv.refile_independent(cv.Independent(), "independent-12407", "unused", "260714",
+                           [{"class": "CLUE"}]), None)
+cv.read_puzzle_file = saved
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY

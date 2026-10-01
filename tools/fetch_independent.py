@@ -210,6 +210,26 @@ FORMAT_FIXES = {
 }
 
 
+# Clues the feed serves garbled, the same way: keyed by (date key, the feed's
+# `word` id), valued with (how the served text opens, the clue as printed).
+# The served opening is part of the match, so a feed corrected upstream, or a
+# word id that moves, takes the feed's own text again.
+#   260714 word 17 = 4dn THREATEN. The feed prints a garbled copy of 5-down's
+#     GENTILESSE clue in its place; its own citation, "[THERE AT]* + N", is
+#     this clue's wordplay. Found by tools/cross_validate.py independent.
+CLUE_FIXES = {
+    ("260714", "17"): ("a well-mannered fellow, extremely ideal",
+                       "developed there at noon to foreshadow"),
+}
+
+
+def fixed_clue(ymd, word, text):
+    """CLUE_FIXES' printed clue for this word when the feed serves the
+    garbled one it names, else None."""
+    served, printed = CLUE_FIXES.get((ymd, word), (None, None))
+    return printed if served and text.startswith(served) else None
+
+
 def series_for(ymd):
     weekday = datetime.strptime(ymd, "%y%m%d").weekday()
     sunday_paper = 0 if SHIFTED[0] <= ymd <= SHIFTED[1] else 6
@@ -417,6 +437,8 @@ def parse(xml_bytes, ymd):
                 built.append((eid, num, across, x1, y1, cells))
             seps = separators(fmt, [len(c[5]) for c in built])
             text, italics = flatten_clue(inner_xml(clue).strip())
+            if (printed := fixed_clue(ymd, clue.get("word"), text)) is not None:
+                text, italics = printed, []
             for i, (eid, num, across, x1, y1, cells) in enumerate(built):
                 entries.append({
                     "number": num,

@@ -265,7 +265,8 @@ class Independent(Adapter):
     series' weekday rule live there): what differs is then what the converter
     or a later edit did to the feed's data. A file rebuilt from fifteensquared
     for a date the feed also serves is compared too, and --refile makes the
-    feed its primary source."""
+    feed its primary source; it never rewrites a file already from the feed.
+    The feed starts in June 2015, so every rebuilt file so far predates it."""
     name = "independent"
     series = ("independent", "indysunday")
     #: A CDN: a request a second from each of three workers is polite.
@@ -311,7 +312,10 @@ class Independent(Adapter):
 def independent_shape(xml_bytes, ymd):
     """The feed's XML in our shape, its entries read without
     fetch_independent's converter: the grid's white cells and letters, each
-    <word>'s runs, each clue's words and its format attribute as printed."""
+    <word>'s runs, each clue's words and its format attribute as printed
+    (a period, slash or space in it read as the comma it stands for). A clue
+    fetch_independent.CLUE_FIXES proves garbled is read as printed, as
+    witness() does for a known wrong answer."""
     import xml.etree.ElementTree as ET
 
     import fetch_independent as fi
@@ -331,7 +335,8 @@ def independent_shape(xml_bytes, ymd):
             continue
         nums = [int(n.rstrip("ADad")) for n in (clue.get("number") or "").split("/") if n.strip()]
         text = " ".join(html.unescape("".join(clue.itertext())).split())
-        enum = re.sub(r"[./]", ",", (clue.get("format") or "").strip()) or None
+        text = fi.fixed_clue(ymd, clue.get("word"), text) or text
+        enum = re.sub(r",+", ",", re.sub(r"[./\s]", ",", (clue.get("format") or "").strip())) or None
         for i, (num, ((x1, x2), (y1, y2))) in enumerate(zip(nums, runs[clue.get("word")])):
             across = x2 > x1 or y1 == y2
             length = (x2 - x1 if across else y2 - y1) + 1
@@ -657,23 +662,25 @@ def keep_backed_answers(old, new):
 
 
 def refile_independent(adapter, pid, path, ymd, found):
-    """Refile one puzzle from the Independent's feed through
-    fetch_independent.parse(). Returns notes, or None when left alone.
+    """Refile one puzzle rebuilt from fifteensquared from the Independent's
+    feed, through fetch_independent.parse(), whatever differs: the feed is
+    the printed puzzle, so it becomes the primary source. Returns notes, or
+    None when left alone.
 
-    A file rebuilt from fifteensquared for a day the feed serves is refiled
-    whatever differs: the feed is the printed puzzle, so it becomes the
-    primary source. A file already from the feed is refiled when its only
-    differences are CLUE, ENUMERATION or ANSWER, which a later edit or an
-    older converter made. Either way the converter's output must match the
-    feed as read here; where it does not, refiling would write the
-    converter's defect again, so the puzzle is named and left alone."""
+    A file already from the feed is never refiled. Its differences from the
+    feed are edits made after the fetch, and the ones found so far are the
+    feed's own errors put right (CLUE_FIXES, SOURCE_ANSWER_WRONG); a refile
+    would write the error back. They are reported, for the tables.
+
+    The converter's output must match the feed as read here; where it does
+    not, refiling would write the converter's defect again, so the puzzle is
+    named and left alone."""
     import fetch_independent as fi
     import fetch_puzzle as fp
     import fetch_telegraph as ft
     classes = {m["class"] for m in found}
     old = read_puzzle_file(path)
-    rebuilt = (old.get("source") or {}).get("acquiredBy") != "tools/fetch_independent.py"
-    if not rebuilt and (not classes or classes - REFILED):
+    if (old.get("source") or {}).get("acquiredBy") == "tools/fetch_independent.py":
         return None
     xml = adapter.raw_file(ymd).read_bytes()
     new = fi.parse(xml, ymd)
@@ -684,10 +691,9 @@ def refile_independent(adapter, pid, path, ymd, found):
         raise ValueError("fetch_independent.parse() differs from the feed: "
                          + "; ".join(f"{m['class']} {m.get('light', m.get('detail'))}"
                                      for m in defect[:3]))
-    notes = [] if rebuilt and "GRID" in classes else keep_backed_answers(old, new)
-    if rebuilt:
-        notes.append(f"the feed's printed puzzle over the file {old['source'].get('acquiredBy')} "
-                     f"built ({', '.join(sorted(classes)) or 'no differences'})")
+    notes = [] if "GRID" in classes else keep_backed_answers(old, new)
+    notes.append(f"the feed's printed puzzle over the file {old['source'].get('acquiredBy')} "
+                 f"built ({', '.join(sorted(classes)) or 'no differences'})")
     fp.merge_annotations(new, old)
     if old.get("preamble") and not new.get("preamble"):
         new["preamble"] = old["preamble"]
