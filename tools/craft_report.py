@@ -294,7 +294,10 @@ def grid_mechanics(puz):
 
 
 def observe(puz):
-    """The four observations for one puzzle, or None if it is not annotated enough."""
+    """The four observations for one puzzle, or None if it is not annotated
+    enough or has no grid yet, whose checking nobody can measure."""
+    if not puz.get("dimensions"):
+        return None
     entries = annotated(puz)
     if len(entries) < 4:
         return None
