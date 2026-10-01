@@ -6863,6 +6863,19 @@ global.realSetTimeout(() => {
   assert(/\?|hint-step/.test(press.registry["hint-body"].innerHTML),
     "the press put something in the panel to read: "
     + press.registry["hint-body"].innerHTML.slice(0, 200));
+  // Picking every lit word moves the pulse and the hole onto the button that
+  // grades them: selecting is half the gesture, and a light left on the
+  // question block left the newcomer hunting for what to press next.
+  const pulsing = Object.keys(press.registry).filter((id) => /^gw-\d+$/.test(id)
+    && /walk-point/.test(press.registry[id].className || ""));
+  if (pulsing.length && press.registry["guess-check"]) {
+    assert(!/walk-point/.test(press.registry["guess-check"].className || ""),
+      "the check button waits until the words are picked");
+    pulsing.forEach((id) => press.registry[id].onclick());
+    assert(/walk-point/.test(press.registry["guess-check"].className || ""),
+      "once the lit words are picked the check button takes the pulse: "
+      + press.registry["guess-check"].className);
+  }
   // And the walk goes on. One press teaches what one button does; the row is
   // what the line is about, so opening a rung hands the light to the next one
   // rather than ending the lesson.

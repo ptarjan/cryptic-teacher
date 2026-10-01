@@ -394,6 +394,18 @@
               && (picked || []).indexOf(i) < 0);
   }
 
+  // Whether the walk has moved on to the check button: the question is one the
+  // button grades, and everything it pointed at inside the question is done —
+  // every pointed word picked, or every pair slot filled. Selecting the words
+  // is half the gesture; a light that stays on the question block leaves the
+  // newcomer looking for what to press next.
+  function nuxPointsCheck(ask) {
+    if (!ask || ask.choices || !nuxPointing()) return false;
+    if (ask.pairs) return (guessing.slots || []).every((n) => n >= 0);
+    const picked = guessing.picked || [];
+    return picked.length > 0 && (ask.target || []).every((i) => picked.indexOf(i) >= 0);
+  }
+
   // The dialog is spent by starting, like every line is spent by doing. Going on
   // leaves the cursor on the ladder line, which is the sentence the dialog just
   // promised and the rung it points at; saying you have solved cryptics before
@@ -523,6 +535,10 @@
         .filter((i) => nuxPointsWord(ask, i, (guessing && guessing.picked) || []))
         .map((i) => $("gw-" + i)).filter((el) => !!el);
       if (lit.length) return lit;
+      // Then the button that grades it, off the class it is wearing, so the
+      // hole and the pulse cannot disagree about whether it is time to press.
+      const check = $("guess-check");
+      if (check && /\bwalk-point\b/.test(check.className || "")) return [check];
       // The question itself, not the whole panel. Everything already bought sits
       // in the same box above it, and a hole big enough to hold that lights the
       // part of the lesson that is over. The question is written last into the
@@ -4224,7 +4240,10 @@
         : (nuxPointsWord(ask, i, guessing.picked) ? " walk-point" : ""));
     });
     const check = $("guess-check");
-    if (check) check.disabled = !guessing.picked.length;
+    if (check) {
+      check.disabled = !guessing.picked.length;
+      check.classList.toggle("walk-point", nuxPointsCheck(nuxAsk()));
+    }
   }
 
   function dragOver(i) {
@@ -4372,7 +4391,8 @@
     const ready = ask.pairs
       ? (guessing.slots || []).every((n) => n >= 0)
       : guessing.picked.length;
-    const check = ask.choices ? "" : `<button id="guess-check" class="primary"${
+    const check = ask.choices ? "" : `<button id="guess-check" class="primary${
+      nuxPointsCheck(nuxAsk()) ? " walk-point" : ""}"${
       ready ? "" : " disabled"}>Check my answer</button> `;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
