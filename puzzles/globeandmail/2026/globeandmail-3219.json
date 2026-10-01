@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Extremely comical and always smart",
     "enumeration": "6"
    },
-   "solution": "CLEVER"
+   "solution": "CLEVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEVER",
+    "definitions": [
+     {
+      "text": "smart",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremes are the outermost points, so only the two end letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comical",
+      "gives": "CL",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in 'ever hopeful'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "EVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian who is always funny and sharp-witted.",
+     "walkthrough": "'Extremely comical' reads as 'very funny', but it asks for the extremes of the word: its first and last letters.",
+     "definitionFit": "Smart in the sense of quick-witted and intelligent is a straightforward synonym of the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,51 @@
     "text": "Most cunning copper on trial",
     "enumeration": "6"
    },
-   "solution": "CUTEST"
+   "solution": "CUTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUTEST",
+    "definitions": [
+     {
+      "text": "Most cunning",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The craftiest police officer of all is the one in the dock.",
+     "walkthrough": "'Copper' looks like a police officer, but it is the metal, symbol Cu.",
+     "definitionFit": "Cute can mean shrewd or clever in a sly way, so the superlative matches the most crafty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,74 @@
     "text": "Unreliable carer worried about this periodically",
     "enumeration": "7"
    },
-   "solution": "ERRATIC"
+   "solution": "ERRATIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "ERRATIC",
+    "definitions": [
+     {
+      "text": "Unreliable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "a worried thing is fretted and pulled about, so the letters are disturbed into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes around another"
+     },
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carer",
+      "gives": "CARER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "TI",
+      "select": "alternate",
+      "note": "first and third letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERRA",
+      "TI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARER",
+       "gives": "ERRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse who frets about this situation now and then proves unreliable.",
+     "walkthrough": "The shuffled letters of the carer wrap round TI, the odd letters of 'this', before the final C.",
+     "definitionFit": "Erratic behaviour is inconsistent and unpredictable, so the word fits someone who cannot be depended upon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +241,52 @@
     "text": "Starts to exhibit liveliness and natural flair",
     "enumeration": "4"
    },
-   "solution": "ELAN"
+   "solution": "ELAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELAN",
+    "definitions": [
+     {
+      "text": "flair",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so each word gives its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhibit liveliness and natural",
+      "gives": "ELAN",
+      "select": "first",
+      "note": "initial letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a performer: begin by showing energy and an innate gift.",
+     "walkthrough": "'Liveliness' is tempting as the definition, but it sits inside the run of four words whose initials give the answer; the definition is 'flair'.",
+     "definitionFit": "Elan is stylish vigour and dash, close to a natural talent or panache in doing something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Starts"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +300,58 @@
     "text": "Each leader leaving best mate in car",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Each leader leaving",
+      "for": "deletion",
+      "note": "every word loses its leader, meaning its first letter departs"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best",
+      "gives": "EST",
+      "note": "the word without its first letter"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "ATE",
+      "note": "the word without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Every party leader departs, leaving their closest friend sitting in the car.",
+     "walkthrough": "'Each' looks like a word to use, but it tells you to behead both following words. An estate car is the British name for a station wagon.",
+     "definitionFit": "In Britain an estate is a long-bodied car with a rear door and loading space, an example of a vehicle type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Each"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +365,50 @@
     "text": "Examine men’s accessories and ladies’ underwear",
     "enumeration": "8"
    },
-   "solution": "SCANTIES"
+   "solution": "SCANTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCANTIES",
+    "definitions": [
+     {
+      "text": "ladies’ underwear",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Examine",
+      "gives": "SCAN",
+      "note": "to scan is to examine closely"
+     },
+     {
+      "clueFragment": "men’s accessories",
+      "gives": "TIES",
+      "note": "neckties are typical menswear accessories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper inspecting the menswear counter and then the lingerie section.",
+     "walkthrough": "The clue reads like a list of departments, but the first two items build the word and the last is its meaning.",
+     "definitionFit": "Scanties is an informal word for skimpy knickers or briefs worn by women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Examine"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +422,56 @@
     "text": "Article about porky foreigner",
     "enumeration": "5"
    },
-   "solution": "ALIEN"
+   "solution": "ALIEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALIEN",
+    "definitions": [
+     {
+      "text": "foreigner",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be placed around it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "porky",
+      "gives": "LIE",
+      "note": "porky is rhyming slang: pork pie means lie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story about an overweight person from abroad.",
+     "walkthrough": "'Porky' looks like 'fat', but in British rhyming slang a porky (pork pie) is a lie.",
+     "definitionFit": "An alien is a person from another country, the legal term for a non-citizen resident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "porky"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +485,57 @@
     "text": "Hostility and outrage after other ranks surrendered",
     "enumeration": "6"
    },
-   "solution": "ENMITY"
+   "solution": "ENMITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENMITY",
+    "definitions": [
+     {
+      "text": "Hostility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrendered",
+      "for": "deletion",
+      "note": "what is surrendered is given up, so those letters are handed over and removed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outrage",
+      "gives": "ENORMITY",
+      "note": "an enormity is a monstrous wrong, an outrage"
+     },
+     {
+      "clueFragment": "other ranks",
+      "gives": "OR",
+      "note": "OR is the military abbreviation for other ranks, soldiers who are not officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "MITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Bitterness and fury after the private soldiers gave themselves up.",
+     "walkthrough": "'After' sounds like sequence, but the clue only asks for the outrage with the other ranks taken out of it.",
+     "definitionFit": "Enmity is the state of being an enemy, a deep mutual ill will or antagonism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surrendered"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +549,46 @@
     "text": "Storm ripped flap",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ripped",
+      "gives": "TORN",
+      "note": "something ripped is torn"
+     },
+     {
+      "clueFragment": "flap",
+      "gives": "ADO",
+      "note": "a flap is a fuss, and so is ado"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORN",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Flap' suggests a torn piece of fabric, but here it is a state of agitated fuss.",
+     "definitionFit": "A tornado is a violent rotating windstorm, a specific kind of severe weather event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flap"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +602,51 @@
     "text": "Start travelling to Nigeria",
     "enumeration": "9"
    },
-   "solution": "ORIGINATE"
+   "solution": "ORIGINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORIGINATE",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "things that are travelling are on the move, so the letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Nigeria",
+      "gives": "TONIGERIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TONIGERIA",
+       "gives": "ORIGINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Setting off on a journey to the West African country.",
+     "walkthrough": "'To' looks like a link word, but its letters join the country's name as raw material.",
+     "definitionFit": "To originate is to begin or come into being, so it serves as a verb for beginning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +660,53 @@
     "text": "Established principle advanced by Isle of Man",
     "enumeration": "5"
    },
-   "solution": "AXIOM"
+   "solution": "AXIOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AXIOM",
+    "definitions": [
+     {
+      "text": "Established principle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is a standard abbreviation for advanced"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "x is the multiplication sign, read as 'by' in 'three by four'"
+     },
+     {
+      "clueFragment": "Isle of Man",
+      "gives": "IOM",
+      "note": "IOM is the abbreviation for the Isle of Man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "X",
+      "IOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A long-held rule put forward by the island's parliament.",
+     "walkthrough": "'By' looks like a link word, but it gives X, the times sign. The Isle of Man is a self-governing island between Britain and Ireland.",
+     "definitionFit": "An axiom is a statement accepted as true without proof, a self-evident rule taken as a foundation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +720,45 @@
     "text": "Locate quote for auditors",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SITE",
+    "definitions": [
+     {
+      "text": "Locate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for auditors",
+      "for": "homophone",
+      "note": "auditors are listeners, so the word is meant for the ear rather than the eye"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quote",
+      "gives": "SITE",
+      "soundsLike": "CITE",
+      "note": "to cite is to quote"
+     }
+    ],
+    "explanation": {
+     "surface": "Finding a quotation to give the accountants.",
+     "walkthrough": "'Auditors' suggests accountants checking the books, but it means people who hear.",
+     "definitionFit": "To site something is to fix its position or place it, so the verb means put in a location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditors"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +772,67 @@
     "text": "Sharp detective sat, disheartened, in court",
     "enumeration": "8"
    },
-   "solution": "DISTINCT"
+   "solution": "DISTINCT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISTINCT",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing heart means losing the centre, so the middle letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "sat",
+      "gives": "SAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ST",
+      "IN",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart investigator sat glumly in the courtroom.",
+     "walkthrough": "'Disheartened' reads as dejected, but it removes the A from the middle of 'sat'.",
+     "definitionFit": "Sharp as in a clear image or outline: distinct means clearly defined and easy to perceive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +846,52 @@
     "text": "Reused an improvised submarine",
     "enumeration": "8"
    },
-   "solution": "UNDERSEA"
+   "solution": "UNDERSEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERSEA",
+    "definitions": [
+     {
+      "text": "submarine",
+      "at": 21,
+      "note": "adjective here, not the noun for the vessel"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "improvised",
+      "for": "anagram",
+      "note": "something improvised is put together on the spot, so the letters are rearranged freshly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reused an",
+      "gives": "REUSEDAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REUSEDAN",
+       "gives": "UNDERSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recycled parts to build a makeshift submarine.",
+     "walkthrough": "'Submarine' looks like a noun for a boat, but it is the adjective meaning beneath the sea.",
+     "definitionFit": "As an adjective, submarine describes anything existing or operating below the ocean surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "submarine"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +905,70 @@
     "text": "Judges and censors wrongly concealing identity",
     "enumeration": "9"
    },
-   "solution": "CONSIDERS"
+   "solution": "CONSIDERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONSIDERS",
+    "definitions": [
+     {
+      "text": "Judges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "done wrongly means done incorrectly, so the letters end up in the wrong order"
+     },
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "to conceal is to hide inside, so one piece is held within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "censors",
+      "gives": "CENSORS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "ID",
+      "note": "ID is short for identity, as in an ID card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "ID",
+      "ERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CENSORS",
+       "gives": "CONSERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Judges and censors are improperly hiding someone's identity.",
+     "walkthrough": "'Judges' looks like a noun in a list with censors, but it is a verb and the definition.",
+     "definitionFit": "To judge is to form an opinion after thought, which is what someone who considers a matter does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judges"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +982,44 @@
     "text": "Assist fool on the phone",
     "enumeration": "7"
    },
-   "solution": "SUCCOUR"
+   "solution": "SUCCOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUCCOUR",
+    "definitions": [
+     {
+      "text": "Assist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the phone",
+      "for": "homophone",
+      "note": "over the telephone you hear words without seeing them, so the sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "SUCCOUR",
+      "soundsLike": "SUCKER",
+      "note": "a sucker is a gullible fool"
+     }
+    ],
+    "explanation": {
+     "surface": "Help a gullible person who is on a phone call.",
+     "walkthrough": "In non-rhotic British speech both words are said alike; succour is the British spelling of succor.",
+     "definitionFit": "To succour is to give help in time of hardship, a literary verb for aiding someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1033,56 @@
     "text": "Vacuous stepmum, unattractive in a complacent way",
     "enumeration": "6"
    },
-   "solution": "SMUGLY"
+   "solution": "SMUGLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SMUGLY",
+    "definitions": [
+     {
+      "text": "in a complacent way",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word is emptied of its inside, leaving its ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stepmum",
+      "gives": "SM",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "unattractive",
+      "gives": "UGLY",
+      "note": "ugly means unattractive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SM",
+      "UGLY"
+     ]
+    },
+    "explanation": {
+     "surface": "An empty-headed stepmother who is plain and pleased with herself.",
+     "walkthrough": "'Vacuous' describes the stepmother on the surface, but it tells you to empty the word.",
+     "definitionFit": "Smug means self-satisfied, so the adverb describes acting with complacent satisfaction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vacuous"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1096,61 @@
     "text": "Hit English officer lying in bed",
     "enumeration": "6"
    },
-   "solution": "BELTED"
+   "solution": "BELTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELTED",
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying in",
+      "for": "container",
+      "note": "something lying in another is placed inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone struck an English officer who was lounging in bed.",
+     "walkthrough": "'Hit' could be a noun or present tense, but the past tense of a verb for striking is needed.",
+     "definitionFit": "To belt someone is to strike them hard, so the past tense matches a past-tense verb for striking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1164,52 @@
     "text": "Vile mead drunk in the Middle Ages",
     "enumeration": "8"
    },
-   "solution": "MEDIEVAL"
+   "solution": "MEDIEVAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEDIEVAL",
+    "definitions": [
+     {
+      "text": "in the Middle Ages",
+      "at": 16,
+      "note": "a phrase, standing for the adjective as in 'medieval times'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about unsteadily, so the letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vile mead",
+      "gives": "VILEMEAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VILEMEAD",
+       "gives": "MEDIEVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Awful honey wine that people drank in olden days.",
+     "walkthrough": "Mead was the honey wine of the period, so the surface is all of a piece.",
+     "definitionFit": "Medieval describes things belonging to or dating from the historical period of roughly 500 to 1500."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1223,59 @@
     "text": "Medication and surgery after case of distemper",
     "enumeration": "5"
    },
-   "solution": "DROPS"
+   "solution": "DROPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DROPS",
+    "definitions": [
+     {
+      "text": "Medication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is an outer shell, so only the outside letters of the word are used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "distemper",
+      "gives": "DR",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "surgery",
+      "gives": "OPS",
+      "note": "ops are surgical operations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet treating a dog for distemper, with medicine and an operation.",
+     "walkthrough": "The surgery is written after the distemper pieces, as 'after' says.",
+     "definitionFit": "Drops are liquid medicine given a few drops at a time, as for eyes or ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1289,46 @@
     "text": "Piece of land in Israeli port",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACRE",
+    "definitions": [
+     {
+      "text": "Piece of land",
+      "at": 0
+     },
+     {
+      "text": "Israeli port",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece of land",
+      "note": "first meaning: a unit of area for land"
+     },
+     {
+      "clueFragment": "Israeli port",
+      "note": "second meaning: the ancient harbour city in northern Israel"
+     }
+    ],
+    "explanation": {
+     "surface": "A plot of ground somewhere in an Israeli harbour town.",
+     "walkthrough": "'In' looks like it hides the answer inside 'Israeli port', but it only joins two meanings of one word.",
+     "definitionFit": "An acre is a measured area of ground, and Acre is also the historic coastal city near Haifa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1342,62 @@
     "text": "Sterilise, for example, to control onset of plague",
     "enumeration": "4"
    },
-   "solution": "SPAY"
+   "solution": "SPAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPAY",
+    "definitions": [
+     {
+      "text": "Sterilise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to control",
+      "for": "container",
+      "note": "to control is to hold in check, so one piece holds another"
+     },
+     {
+      "text": "onset of",
+      "for": "letter_selection",
+      "note": "the onset is the beginning, so only the first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "SAY",
+      "note": "say means for example, as in 'a fruit, say, an apple'"
+     },
+     {
+      "clueFragment": "plague",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Sterilising animals, say, to stop the start of an epidemic.",
+     "walkthrough": "'For example' looks like an aside, but it supplies a word.",
+     "definitionFit": "To spay is to remove the ovaries of a female animal, a specific way of making it infertile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1411,57 @@
     "text": "Partially retired professor getting very fat",
     "enumeration": "5"
    },
-   "solution": "GROSS"
+   "solution": "GROSS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GROSS",
+    "definitions": [
+     {
+      "text": "very fat",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Partially",
+      "for": "hidden_word",
+      "note": "partially means only in part, so only a section of the words is used"
+     },
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "to retire is to go back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "professor getting",
+      "gives": "SSORG",
+      "note": "letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SSORG",
+       "to": "GROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emeritus professor, half-retired, is putting on a lot of weight.",
+     "walkthrough": "'Retired professor' reads as one idea, but 'retired' turns the run of letters backwards.",
+     "definitionFit": "Gross can mean obese or flabbily large, an unkind adjective for extreme bodily size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1475,62 @@
     "text": "Manipulate one in former conspiracy",
     "enumeration": "7"
    },
-   "solution": "EXPLOIT"
+   "solution": "EXPLOIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXPLOIT",
+    "definitions": [
+     {
+      "text": "Manipulate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another, so a piece goes within the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "conspiracy",
+      "gives": "PLOT",
+      "note": "a plot is a conspiracy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLO",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Influencing someone who once took part in a scheme.",
+     "walkthrough": "The I goes inside the conspiracy word, which then follows the word for former.",
+     "definitionFit": "To exploit someone is to use them unfairly for one's own ends, much like manipulating them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1550,68 @@
      }
     ]
    },
-   "solution": "YESMAN"
+   "solution": "YESMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "YES MAN",
+    "definitions": [
+     {
+      "text": "lackey",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Closure of",
+      "for": "letter_selection",
+      "note": "a closure is an ending, so only the final letter of the word is taken"
+     },
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving shift position, so they settle in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "factory",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of the word"
+     },
+     {
+      "clueFragment": "means",
+      "gives": "MEANS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ESMAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEANS",
+       "gives": "ESMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant shutting down means relocating a subservient worker.",
+     "walkthrough": "'Closure of factory' reads as a plant shutting down, but it asks only for the word's last letter.",
+     "definitionFit": "A yes man always agrees with a superior, behaving like a servile follower or flunkey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Closure"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1625,44 @@
     "text": "Cross section of lengthy bridge",
     "enumeration": "6"
    },
-   "solution": "HYBRID"
+   "solution": "HYBRID",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HYBRID",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is a part cut out of a whole, so a run of letters is lifted from the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lengthy bridge",
+      "gives": "HYBRID",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A cross-sectional drawing of a long bridge.",
+     "walkthrough": "'Cross section' reads as one engineering term, but 'Cross' is the definition and 'section of' the indicator.",
+     "definitionFit": "A cross is the offspring of two different breeds or varieties, which is exactly what a hybrid is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "section"
+    }
+   }
   }
  ]
 }
