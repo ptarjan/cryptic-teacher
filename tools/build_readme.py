@@ -79,6 +79,10 @@ LAYOUT = [
     ("fetching", "tools/file_cyclops_christmas.py", "the Cyclops Christmas specials, which have no .puz: the grid read off the Eye's image by pixel sampling, clues and answers from fifteensquared, the shaded quotation as an unclued light checked against the preamble's letter list"),
     ("fetching", "tools/fetch_metro.py", "the Metro’s cryptic; today’s only, because the paper keeps no archive"),
     ("fetching", "tools/fetch_trove.py", "Canberra Times crosswords from Trove (London Times 1967-85, Guardian 1986-95): OCR text and the grid cut from the page scan, anonymously, past its Anubis proof of work"),
+    ("fetching", "tools/file_trove_puzzles.py", "files the Canberra Times cryptics fetch_trove.py cached as puzzles/canberra/ (numbered YYMMDD by print date): clues from the OCR, the grid read off the scan where every clue agrees with it, else rebuilt from the clues; unsolved, for the nightly cold solve; resumable through a per-article ledger"),
+    ("fetching", "tools/trove_grid.py", "reads a crossword's black squares off a scanned grid image: walled white cells, a lattice fitted to them through any skew, solid ink for blocks; refuses rather than guesses"),
+    ("fetching", "tools/test_file_trove_puzzles.sh", "files three real Trove articles: the grid read cell for cell, the solution grid skipped, a count the OCR misread held back by name, a second run touching nothing, and the clues alone filing a puzzle whose picture is missing"),
+    ("fetching", "tools/fixtures/trove/", "three Canberra Times articles as fetch_trove.py caches them (meta.json, ocr.txt, grid.jpg), the fixtures test_file_trove_puzzles.sh reads"),
     ("fetching", "tools/repair_fetched.py", "applies the fetchers’ current rules to puzzles already on disk — bare-capital solutions, a masked prize answer, a group that is really a cross-reference in the wordplay, a linked answer the paper never grouped — and reports the dates their own neighbours contradict"),
     ("fetching", "tools/test_repair_fetched.sh", "builds a puzzle file with each of those defects and proves the repair fixes it, leaves a clean file and a real Cyclops per-light group byte-identical, and is clean on the second run"),
     ("fetching", "tools/puzzle_paths.py", "where a puzzle's file lives, puzzles/<series>/<year>/<id>.json: the one place the layout is spelled, and `python3 tools/puzzle_paths.py ID...` prints a held puzzle's path for shell scripts and prompts"),
@@ -409,6 +413,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/data/penguin_partial_fills/            # covered by the directory line
     | ^tools/data/blog_facts/                       # covered by the directory line
     | ^tools/data/yt_solvers/                       # covered by the directory line
+    | ^tools/fixtures/trove/                        # covered by the directory line
     | ^household-plugins/           # covered by the <name>/plugin.toml line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line

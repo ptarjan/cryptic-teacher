@@ -108,6 +108,24 @@ tools/fetch_trove.py                         Canberra Times crosswords from Trov
                                              1967-85, Guardian 1986-95): OCR text and the grid
                                              cut from the page scan, anonymously, past its
                                              Anubis proof of work
+tools/file_trove_puzzles.py                  files the Canberra Times cryptics fetch_trove.py
+                                             cached as puzzles/canberra/ (numbered YYMMDD by
+                                             print date): clues from the OCR, the grid read off
+                                             the scan where every clue agrees with it, else
+                                             rebuilt from the clues; unsolved, for the nightly
+                                             cold solve; resumable through a per-article ledger
+tools/trove_grid.py                          reads a crossword's black squares off a scanned
+                                             grid image: walled white cells, a lattice fitted
+                                             to them through any skew, solid ink for blocks;
+                                             refuses rather than guesses
+tools/test_file_trove_puzzles.sh             files three real Trove articles: the grid read
+                                             cell for cell, the solution grid skipped, a count
+                                             the OCR misread held back by name, a second run
+                                             touching nothing, and the clues alone filing a
+                                             puzzle whose picture is missing
+tools/fixtures/trove/                        three Canberra Times articles as fetch_trove.py
+                                             caches them (meta.json, ocr.txt, grid.jpg), the
+                                             fixtures test_file_trove_puzzles.sh reads
 tools/repair_fetched.py                      applies the fetchers’ current rules to puzzles
                                              already on disk — bare-capital solutions, a masked
                                              prize answer, a group that is really a

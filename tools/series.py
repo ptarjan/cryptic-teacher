@@ -118,6 +118,16 @@ SERIES = {
         # first number on the Quick is filed here and not from the blog.
         "reprints": "timesquick",
     },
+    "canberra": {
+        # Read off Trove's scans of the Canberra Times (tools/fetch_trove.py,
+        # tools/file_trove_puzzles.py): the London Times cryptic it reprinted
+        # ~1967-85 and the Guardian's ~1986-95 ("English cryptic 715C By
+        # SHED"). Neither paper's number survives in print, so the number is
+        # the print date, YYMMDD; the paper's own label is in the name.
+        "kind": "Cryptic",
+        "publisher": "Canberra Times",
+        "badge": "canberra times",
+    },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
         # by one a week, served from the same feed as the daily (see

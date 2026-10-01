@@ -237,6 +237,23 @@ else
 fi
 rm -f "$ft_out"
 
+# --- 1c2. The Canberra Times, filed off the Trove scans in ~/.cache/trove ---
+# tools/fetch_trove.py fills the cache; this files the cryptics among the
+# articles it has not read yet (its ledger makes the rest free), unsolved, so
+# step 3a solves them. Bounded: a grid rebuilt from the clues is ~10s.
+TROVE_PER_NIGHT="${TROVE_PER_NIGHT:-300}"
+if [ -d "$HOME/.cache/trove" ]; then
+  trove_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-trove.XXXXXX")"
+  if python3 tools/file_trove_puzzles.py --limit "$TROVE_PER_NIGHT" >"$trove_out" 2>&1; then
+    cat "$trove_out"
+    git status --porcelain -- puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
+  else
+    cat "$trove_out"
+    alert "tools/file_trove_puzzles.py failed, so no new Canberra Times puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$trove_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
+  rm -f "$trove_out"
+fi
+
 # --- 1d. Blog hints, re-read off the caches the fetches above just topped up ---
 # tools/blog_facts.py joins every cached write-up to the puzzle it explains and
 # writes tools/data/blog_facts/, which the site's hints and the validator's
