@@ -23,6 +23,9 @@
   "date": "2025-04-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "Strand is found in empty workshop",
     "enumeration": "4"
    },
-   "solution": "WISP"
+   "solution": "WISP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WISP",
+    "definitions": [
+     {
+      "text": "Strand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is found in",
+      "for": "container",
+      "note": "to be found inside something is to sit within it, so one piece goes inside another"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, leaving only the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workshop",
+      "gives": "WP",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IS",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A loose thread turns up lying in a workshop that has been cleared out.",
+     "walkthrough": "'is' looks like the verb of the sentence but is itself the inserted piece: W(IS)P.",
+     "definitionFit": "A wisp is a thin, fine piece of something such as hair or straw, much like a single strand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 2,
@@ -56,7 +114,62 @@
      }
     ]
    },
-   "solution": "TRYOUT"
+   "solution": "TRYOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRY OUT",
+    "definitions": [
+     {
+      "text": "Taste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something that eats takes food inside itself, so one piece swallows another"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the final letter of the following word is the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "TROUT",
+      "note": "a trout is a freshwater fish"
+     },
+     {
+      "clueFragment": "coley",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "Y",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone samples a fish dish while eating the end of a piece of coley.",
+     "walkthrough": "Coley is another fish, which keeps the surface in the kitchen; only its last letter matters. TR(Y)OUT.",
+     "definitionFit": "To try out a thing is to test or sample it, as one would taste a new dish before deciding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coley"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +183,48 @@
     "text": "Blonde head, just quality?",
     "enumeration": "8"
    },
-   "solution": "FAIRNESS"
+   "solution": "FAIRNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAIRNESS",
+    "definitions": [
+     {
+      "text": "just quality",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blonde",
+      "gives": "FAIR",
+      "note": "fair hair is light-coloured, blonde"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, a head of land jutting into the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "It reads like a question about whether having fair hair is merely a superficial trait.",
+     "walkthrough": "'head' suggests a head of hair after 'Blonde', but it is the geographical sense, a headland, found in place names such as Loch Ness and Sheerness.",
+     "definitionFit": "Fairness is the quality of being just, treating everyone impartially and even-handedly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +238,44 @@
     "text": "Standard that may be fixed in centrefold?",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     },
+     {
+      "text": "that may be fixed in centrefold",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "note": "first meaning: a basic, regular item"
+     },
+     {
+      "clueFragment": "that may be fixed in centrefold",
+      "note": "second meaning: the small wire clip fixed through the middle fold of a magazine"
+     }
+    ],
+    "explanation": {
+     "surface": "It suggests a standard feature that might be pinned up as a magazine's centrefold picture.",
+     "walkthrough": "A centrefold is the middle spread of a magazine, which is exactly where the binding wire clips go.",
+     "definitionFit": "As a noun the word means a main or regular product, and also the bent metal fastener binding pages together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "centrefold"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +295,47 @@
      }
     ]
    },
-   "solution": "SQUAREUP"
+   "solution": "SQUAREUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUARE UP",
+    "definitions": [
+     {
+      "text": "prepare for fight",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "four or nine, perhaps",
+      "gives": "SQUARE",
+      "note": "four and nine are square numbers, two times two and three times three"
+     },
+     {
+      "clueFragment": "Ahead",
+      "gives": "UP",
+      "note": "a team that is ahead is up, as in two goals up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A team leading by four or nine points readies itself for a scrap.",
+     "walkthrough": "'Ahead by four or nine' reads as a scoreline, but 'by' simply places the two pieces side by side, and the numbers are examples of a kind of number.",
+     "definitionFit": "To square up is to adopt a fighting stance and face an opponent, getting ready to throw punches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "four"
+    }
+   }
   },
   {
    "number": 6,
@@ -118,7 +349,66 @@
     "text": "Stretch to grab bar, having missed a ring",
     "enumeration": "6"
    },
-   "solution": "TIMBRE"
+   "solution": "TIMBRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TIMBRE",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having missed",
+      "for": "deletion",
+      "note": "what is missed is left out, so a letter drops away"
+     },
+     {
+      "text": "to grab",
+      "for": "container",
+      "note": "to grab is to seize and hold, so one piece closes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stretch",
+      "gives": "TIME",
+      "note": "a stretch is a period of time, as in a stretch in prison"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIM",
+      "BR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A gymnast stretches for a bar but misses the rings.",
+     "walkthrough": "'ring' reads as a gymnast's hoop, but it is a noun for the sound of a voice or instrument; 'a' is the letter dropped, not an article.",
+     "definitionFit": "Timbre is the characteristic tone or resonance of a voice or instrument, its distinctive ring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +422,52 @@
     "text": "Some paper in off-white, guillotined",
     "enumeration": "4"
    },
-   "solution": "REAM"
+   "solution": "REAM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REAM",
+    "definitions": [
+     {
+      "text": "Some paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guillotined",
+      "for": "deletion",
+      "note": "a guillotine beheads its victim, so the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "off-white",
+      "gives": "CREAM",
+      "note": "cream is a yellowish off-white colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Sheets of off-white paper are cut to size on a paper guillotine.",
+     "walkthrough": "A guillotine is also the office tool for trimming paper, which hides the beheading instruction; CREAM loses its C.",
+     "definitionFit": "A ream is a fixed quantity of paper sheets, traditionally 480 and now usually 500."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guillotined"
+    }
+   }
   },
   {
    "number": 8,
@@ -146,7 +481,67 @@
     "text": "Key left to be collected by fellow: it is outside",
     "enumeration": "9"
    },
-   "solution": "IMPORTANT"
+   "solution": "IMPORTANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMPORTANT",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be collected by",
+      "for": "container",
+      "note": "whatever is collected is gathered up and held, so it sits inside its collector"
+     },
+     {
+      "text": "is outside",
+      "for": "container",
+      "note": "something outside wraps around all the rest, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written; it wraps everything else"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PORT",
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A spare key has been left for a man to pick up; it is waiting outside.",
+     "walkthrough": "Two containers nest, one inside the other. Port is the nautical word for the left side of a ship.",
+     "definitionFit": "Key used as an adjective means crucial or of central significance, as in a key witness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 9,
@@ -160,7 +555,62 @@
     "text": "Necessary nutrient for figure injected with iodine",
     "enumeration": "7"
    },
-   "solution": "PROTEIN"
+   "solution": "PROTEIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROTEIN",
+    "definitions": [
+     {
+      "text": "Necessary nutrient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injected with",
+      "for": "container",
+      "note": "an injection puts something inside, so one piece receives another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro is Latin for for, as in pros and cons"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "ten is a number, a figure"
+     },
+     {
+      "clueFragment": "iodine",
+      "gives": "I",
+      "note": "I is the chemical symbol for iodine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "TE",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A dietary supplement is described as vital for a good figure and administered with iodine.",
+     "walkthrough": "'for' and 'figure' look like 'nutrient for your figure', but each is a piece: PRO + TE(I)N.",
+     "definitionFit": "Protein is one of the essential components of diet, required for building and repairing body tissue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +624,56 @@
     "text": "Pretty pack in back of store",
     "enumeration": "5"
    },
-   "solution": "QUITE"
+   "solution": "QUITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "QUITE",
+    "definitions": [
+     {
+      "text": "Pretty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pack in",
+      "gives": "QUIT",
+      "note": "to pack something in is to give it up, to quit"
+     },
+     {
+      "clueFragment": "store",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Something attractive is being packaged in the stockroom at the rear of a shop.",
+     "walkthrough": "'Pretty' looks like an adjective meaning attractive, but it is the adverb, as in pretty good. 'pack in' is a British idiom for give up.",
+     "definitionFit": "Pretty and quite are both adverbs meaning fairly or to a moderate degree, as in pretty warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pretty"
+    }
+   }
   },
   {
    "number": 11,
@@ -194,7 +693,39 @@
      }
     ]
    },
-   "solution": "PHOTOGRAPHALBUM"
+   "solution": "PHOTOGRAPHALBUM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PHOTOGRAPH ALBUM",
+    "definitions": [
+     {
+      "text": "Still collection kept here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still collection kept here?",
+      "note": "surface reading: a place where a collection is still being kept, perhaps a museum"
+     },
+     {
+      "clueFragment": "Still",
+      "note": "setter's reading: a still is a single photographic image, so this is where such stills are collected"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Still' reads as an adverb meaning yet, but it is a noun: a still is a frozen image from film or a photograph.",
+     "definitionFit": "A book of mounted pictures holds a collection of snapshots, the still images a camera takes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +739,64 @@
     "text": "I told you about a time in scene of action",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "scene of action",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is wrapped round another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I told you",
+      "gives": "THERE",
+      "note": "'There!' is what you say when you have been proved right: there, I told you so"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "A",
+      "T",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says I told you so about something that happened at the scene of the incident.",
+     "walkthrough": "'There!' is the triumphant exclamation of someone proved right, so 'I told you' stands for that word.",
+     "definitionFit": "A theatre of war is the region where fighting takes place, hence a scene of military operations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +810,43 @@
     "text": "Narrow recorder, might you say?",
     "enumeration": "5"
    },
-   "solution": "TAPER"
+   "solution": "TAPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAPER",
+    "definitions": [
+     {
+      "text": "Narrow",
+      "at": 0
+     },
+     {
+      "text": "recorder, might you say",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Narrow",
+      "note": "first meaning: to become gradually thinner towards one end"
+     },
+     {
+      "clueFragment": "recorder, might you say",
+      "note": "second meaning, a whimsical coinage: one who tapes things"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Recorder' suggests the musical instrument; the question mark and 'might you say' flag an invented word for someone who records on tape.",
+     "definitionFit": "As a verb it means become thinner towards a point; read as tape plus -er it means a person making tape recordings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "recorder"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +860,48 @@
     "text": "Leader dropped from most difficult peak",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVEREST",
+    "definitions": [
+     {
+      "text": "peak",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader dropped from",
+      "for": "deletion",
+      "note": "the leader is the opening letter, and dropping it removes it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most difficult",
+      "gives": "SEVEREST",
+      "note": "severest means hardest, most difficult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEREST"
+     ]
+    },
+    "explanation": {
+     "surface": "An expedition leader is forced off the hardest mountain to climb.",
+     "walkthrough": "SEVEREST loses its first letter.",
+     "definitionFit": "Mount Everest in the Himalayas is the highest mountain summit on Earth, an example of a peak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leader"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +915,51 @@
     "text": "Wise Men, for example, travelling there",
     "enumeration": "5"
    },
-   "solution": "THREE"
+   "solution": "THREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THREE",
+    "definitions": [
+     {
+      "text": "Wise Men, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "letters that are travelling are on the move, shifting into new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "there",
+      "gives": "THERE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THERE",
+       "gives": "THREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Magi journey to Bethlehem in the nativity story.",
+     "walkthrough": "The definition is the number of Wise Men, not who they were.",
+     "definitionFit": "Tradition counts the Magi as a trio, so the Wise Men exemplify that number of people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Wise"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +979,39 @@
      }
     ]
    },
-   "solution": "PENCILSHARPENER"
+   "solution": "PENCILSHARPENER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PENCIL-SHARPENER",
+    "definitions": [
+     {
+      "text": "Pointless draughtsman using it?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pointless draughtsman using it?",
+      "note": "surface reading: a futile designer resorting to some tool"
+     },
+     {
+      "clueFragment": "Pointless",
+      "note": "setter's reading: the draughtsman's drawing implement has lost its point and needs restoring"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pointless' means futile on the surface, but literally it is a blunt drawing tool.",
+     "definitionFit": "A draughtsman with a blunt lead would use a small bladed device to restore the tip of the drawing instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pointless"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1031,52 @@
      }
     ]
    },
-   "solution": "INERTGAS"
+   "solution": "INERTGAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INERT GAS",
+    "definitions": [
+     {
+      "text": "one doesn’t usually react",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when provoked",
+      "for": "anagram",
+      "note": "provoked means stirred up, so the letters are agitated into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angriest",
+      "gives": "ANGRIEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGRIEST",
+       "gives": "INERTGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A placid person who rarely responds, yet is at their angriest when provoked.",
+     "walkthrough": "The surface invites a reading about temperament; the definition is chemistry, where reacting means forming compounds.",
+     "definitionFit": "Noble gases such as argon and neon are called inert because they seldom combine chemically with other elements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "react"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1090,62 @@
     "text": "A weapon found in heather, scary",
     "enumeration": "8"
    },
-   "solution": "ALARMING"
+   "solution": "ALARMING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALARMING",
+    "definitions": [
+     {
+      "text": "scary",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another lies within it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "heather",
+      "gives": "LING",
+      "note": "ling is another name for common heather"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "an arm is a weapon, as in firearms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "ARM",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Discovering a gun hidden among the heather on a moor would be frightening.",
+     "walkthrough": "Ling is the plant name for heather, also a fish: A + L(ARM)ING.",
+     "definitionFit": "Something alarming causes fear or worry, the same sense as frightening or scary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heather"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1159,54 @@
     "text": "Egg on jokers, idiots",
     "enumeration": "7"
    },
-   "solution": "NITWITS"
+   "solution": "NITWITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NITWITS",
+    "definitions": [
+     {
+      "text": "idiots",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above, so the first piece stacks over the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egg",
+      "gives": "NIT",
+      "note": "a nit is the egg of a louse"
+     },
+     {
+      "clueFragment": "jokers",
+      "gives": "WITS",
+      "note": "wits are clever, funny people, jokers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "WITS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eggs on a bunch of pranksters, the fools.",
+     "walkthrough": "'Egg on' looks like the phrase meaning urge, but 'Egg' is a noun and 'on' just places it above.",
+     "definitionFit": "Nitwits is an informal insult for foolish or stupid people, a synonym of idiots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Egg"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1220,51 @@
     "text": "Titian first for Van Gogh, say?",
     "enumeration": "7"
    },
-   "solution": "REDHEAD"
+   "solution": "REDHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDHEAD",
+    "definitions": [
+     {
+      "text": "Van Gogh, say",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titian",
+      "gives": "RED",
+      "note": "titian is a reddish-brown colour, named after the painter's hair tones"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "HEAD",
+      "note": "the head is the first or front part, as in head of the queue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like art history: Titian ranked ahead of Van Gogh.",
+     "walkthrough": "Titian and Van Gogh are both painters, but Titian here is the hair colour. Van Gogh had red hair.",
+     "definitionFit": "A redhead is a person with ginger hair, and Van Gogh's self-portraits show his red beard and hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Titian"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1278,43 @@
     "text": "Motorist’s club?",
     "enumeration": "6"
    },
-   "solution": "DRIVER"
+   "solution": "DRIVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRIVER",
+    "definitions": [
+     {
+      "text": "Motorist",
+      "at": 0
+     },
+     {
+      "text": "club",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motorist",
+      "note": "first meaning: someone who drives a car"
+     },
+     {
+      "clueFragment": "club",
+      "note": "second meaning: the golf club used for long tee shots"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Motorist's club' suggests a motoring association such as the AA; the two words are separate meanings.",
+     "definitionFit": "The same noun names a person at the wheel of a vehicle and the largest-headed golf wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1328,46 @@
     "text": "Leave high and dry in arid place",
     "enumeration": "6"
    },
-   "solution": "DESERT"
+   "solution": "DESERT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DESERT",
+    "definitions": [
+     {
+      "text": "Leave high and dry",
+      "at": 0
+     },
+     {
+      "text": "arid place",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave high and dry",
+      "note": "first meaning: abandon someone"
+     },
+     {
+      "clueFragment": "arid place",
+      "note": "second meaning: a barren, waterless region"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is stranded and abandoned in a barren wasteland.",
+     "walkthrough": "'high and dry' chimes with 'arid', making one scene from two meanings.",
+     "definitionFit": "As a verb it means abandon or forsake; as a noun, a barren waterless region such as the Sahara."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1381,55 @@
     "text": "Bitter about assignment, John for example",
     "enumeration": "7"
    },
-   "solution": "APOSTLE"
+   "solution": "APOSTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APOSTLE",
+    "definitions": [
+     {
+      "text": "John for example",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bitter",
+      "gives": "ALE",
+      "note": "bitter is a type of British beer, an ale"
+     },
+     {
+      "clueFragment": "assignment",
+      "gives": "POST",
+      "note": "a post is a job or appointment one is assigned to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called John resents the task he has been given.",
+     "walkthrough": "'Bitter' looks like an adjective for John's mood, but it is the pub drink, a hoppy British beer.",
+     "definitionFit": "John was one of the twelve disciples whom Jesus chose, so he exemplifies that group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bitter"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1443,47 @@
     "text": "Genesis in print schedule",
     "enumeration": "6"
    },
-   "solution": "OUTSET"
+   "solution": "OUTSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSET",
+    "definitions": [
+     {
+      "text": "Genesis",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in print",
+      "gives": "OUT",
+      "note": "a book that is out has been published"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "SET",
+      "note": "to set a time is to schedule it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "The Book of Genesis appears in a printed timetable.",
+     "walkthrough": "Genesis suggests the Bible book or the band, but here it is a common noun for a start.",
+     "definitionFit": "Genesis means origin or beginning, and the outset is the start of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Genesis"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1497,64 @@
     "text": "Adult presumably getting this right: my tone wrong",
     "enumeration": "15"
    },
-   "solution": "THIRTYSOMETHING"
+   "solution": "THIRTYSOMETHING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIRTYSOMETHING",
+    "definitions": [
+     {
+      "text": "Adult presumably",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters that are wrong are out of place and must be reordered"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RIGHT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "my tone",
+      "gives": "MYTONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THISRIGHTMYTONE",
+       "gives": "THIRTYSOMETHING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up thinks they have it right, but their tone comes out all wrong.",
+     "walkthrough": "'right' and 'wrong' sit side by side, yet 'right' is fodder and 'wrong' the signal.",
+     "definitionFit": "A person aged between thirty and thirty-nine is surely a grown-up, hence the hedging presumably."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1568,54 @@
     "text": "Set up separate trick",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "trick",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Set up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from bottom to top, turning the word round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "separate",
+      "gives": "PART",
+      "note": "to part is to separate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arranges an elaborate ruse to split people up.",
+     "walkthrough": "'Set up' doubles as the phrase for a framing, but here it signals the reversal.",
+     "definitionFit": "A trap is a ruse to catch someone out, and a trick can mean exactly such a snare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1629,52 @@
     "text": "Gazing at pink elephants primarily, stare in wonder",
     "enumeration": "4"
    },
-   "solution": "GAPE"
+   "solution": "GAPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GAPE",
+    "definitions": [
+     {
+      "text": "stare in wonder",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so only opening letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gazing at pink elephants",
+      "gives": "GAPE",
+      "select": "first",
+      "note": "the initial letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "P",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk is seeing pink elephants and staring at them in amazement.",
+     "walkthrough": "Seeing pink elephants is a jokey way of describing drunken hallucinations.",
+     "definitionFit": "To gape is to stare open-mouthed, typically in astonishment or wonder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1688,43 @@
     "text": "Piece of earthenware, natural sphere",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "sphere",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Piece of",
+      "for": "hidden_word",
+      "note": "a piece is a fragment, so a run of letters is taken from the text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earthenware, natural",
+      "gives": "ARENA",
+      "note": "the letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A shard of earthenware pottery has a naturally round shape.",
+     "walkthrough": "'sphere' suggests a ball, but it is the abstract sense, a field of activity.",
+     "definitionFit": "Both words can mean a field of activity or interest, as in the political arena or sphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sphere"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1744,67 @@
      }
     ]
    },
-   "solution": "RUNNERSUP"
+   "solution": "RUNNERSUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RUNNERS-UP",
+    "definitions": [
+     {
+      "text": "They aren’t the first!",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wicked",
+      "for": "anagram",
+      "note": "wicked suggests something twisted or perverse, so the letters are bent out of order"
+     },
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "whatever is trapped is shut inside, held within something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pursuer",
+      "gives": "PURSUER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Knights",
+      "gives": "NN",
+      "note": "N is the chess notation for a knight, so two knights are NN"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "NN",
+      "ERSUP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PURSUER",
+       "gives": "RUERSUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two knights are caught by an evil chaser, and they come in behind the leader.",
+     "walkthrough": "The definition plays on the idea that a pursuer, by definition, is never in front; the exclamation mark flags the playful wording.",
+     "definitionFit": "Runners-up are competitors finishing behind the winner, so they did not take first place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Knights"
+    }
+   }
   }
  ]
 }
