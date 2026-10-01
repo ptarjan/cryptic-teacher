@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Prominent man venerated when hosting immigrant",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Prominent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host has guests inside the house, so one piece takes the other within it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man venerated",
+      "gives": "ST",
+      "note": "a saint is a venerated person, abbreviated ST"
+     },
+     {
+      "clueFragment": "immigrant",
+      "gives": "ALIEN",
+      "note": "an alien is someone from another country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known figure, revered by many, takes in a newcomer from abroad.",
+     "walkthrough": "'Man venerated' reads as a description of the prominent man, but it is just the saint abbreviation, opened up to take the foreigner.",
+     "definitionFit": "Salient describes a feature that stands out or is most noticeable, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,60 @@
     "text": "Remove clothes, bare bottom and streak!",
     "enumeration": "6"
    },
-   "solution": "STRIPE"
+   "solution": "STRIPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STRIPE",
+    "definitions": [
+     {
+      "text": "streak",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom",
+      "for": "letter_selection",
+      "note": "in a down entry the bottom of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remove clothes",
+      "gives": "STRIP",
+      "note": "to strip is to undress"
+     },
+     {
+      "clueFragment": "bare",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of bare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to undress and go streaking with a bare bottom.",
+     "walkthrough": "The surface sets up streaking as running naked; the definition takes 'streak' as a line of colour instead.",
+     "definitionFit": "A streak of colour is a narrow band or line, which is what a stripe is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "streak"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,46 @@
     "text": "Perhaps pups make a mess",
     "enumeration": "6"
    },
-   "solution": "LITTER"
+   "solution": "LITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITTER",
+    "definitions": [
+     {
+      "text": "Perhaps pups",
+      "at": 0
+     },
+     {
+      "text": "mess",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "make a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps pups",
+      "note": "first meaning: the young born to one animal at one time, puppies being an example"
+     },
+     {
+      "clueFragment": "mess",
+      "note": "second meaning: rubbish scattered untidily about"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests puppies being messy; in fact the word means both the brood and the scattered rubbish.",
+     "definitionFit": "A dog gives birth to a litter of young, and litter is also discarded rubbish left lying around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,85 @@
     "text": "Sexed-up face of obnoxious jerk is consumed by rampant lust",
     "enumeration": "10"
    },
-   "solution": "EROTICISED"
+   "solution": "EROTICISED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "EROTICISED",
+    "definitions": [
+     {
+      "text": "Sexed-up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "face of",
+      "for": "letter_selection",
+      "note": "the face is the front, so only the opening letter is wanted from the next word"
+     },
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "what is consumed ends up inside the consumer, so one piece sits within the other"
+     },
+     {
+      "text": "rampant",
+      "for": "anagram",
+      "note": "rampant means running wild and unchecked, so these letters run riot into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obnoxious",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of obnoxious"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary jerk or twitch"
+     },
+     {
+      "clueFragment": "lust",
+      "gives": "DESIRE",
+      "note": "lust is strong desire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "O",
+      "TIC",
+      "ISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DESIRE",
+       "gives": "ERISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lurid tabloid tale of a nasty man's face twitching with unbridled lust.",
+     "walkthrough": "'Lust' must first be turned into a six-letter synonym before the anagram works; the shuffled letters then split to wrap round the face and the jerk.",
+     "definitionFit": "To sex something up is to make it more sexual, which is exactly what eroticised means as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +313,43 @@
     "text": "What a steak - packed with flavour!",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "flavour",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packed with",
+      "for": "hidden_word",
+      "note": "something packed with contents holds them inside, so the letters sit within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What a steak",
+      "gives": "TASTE",
+      "note": "the letters run across the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "An exclamation of delight at a really tasty piece of beef.",
+     "walkthrough": "The dash makes it read as one cry of praise; the answer is tucked inside the first three words.",
+     "definitionFit": "Taste and flavour are direct synonyms for the sensation food gives the palate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "packed"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +363,81 @@
     "text": "Sights if front of lens held backwards?",
     "enumeration": "7"
    },
-   "solution": "SELFIES"
+   "solution": "SELFIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "and_lit"
+    ],
+    "answer": "SELFIES",
+    "definitions": [
+     {
+      "text": "Sights if front of lens held backwards?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so only that one is taken"
+     },
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "going backwards means the letters are read in the opposite direction"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "what is held is gripped inside something else, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sights",
+      "gives": "SEES",
+      "note": "to sight something is to see it"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lens",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "LFI",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "IFL",
+       "to": "LFI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled musing on what you see when a camera faces the wrong way.",
+     "walkthrough": "'Sights' is a verb here, not the noun it seems. The whole clue also describes the answer: photos taken with the camera turned back on yourself.",
+     "definitionFit": "A selfie is a photograph taken of oneself by pointing the phone's lens back at the photographer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sights"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +451,54 @@
     "text": "Something to control mood or tension when agitated",
     "enumeration": "9"
    },
-   "solution": "SEROTONIN"
+   "solution": "SEROTONIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEROTONIN",
+    "definitions": [
+     {
+      "text": "Something to control mood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "agitated",
+      "for": "anagram",
+      "note": "agitated means shaken up and disturbed, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or tension",
+      "gives": "ORTENSION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORTENSION",
+       "gives": "SEROTONIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on calming yourself when stressed, as if recommending a remedy for nerves.",
+     "walkthrough": "'Mood or tension' reads as a single pair of feelings, but the split comes after mood and 'or tension' is the fodder.",
+     "definitionFit": "Serotonin is a neurotransmitter in the brain that helps regulate mood, so it is a chemical example of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +512,49 @@
     "text": "Head scan moving right to left",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "LEAD",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving right to left",
+      "for": "substitution",
+      "note": "the abbreviations for right and left are swapped, so one letter is exchanged for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scan",
+      "gives": "READ",
+      "note": "to scan a text is to read it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical image of the skull taken in a sweep from one side to the other.",
+     "walkthrough": "'Right to left' sounds like the direction of a scan or a reversal, but it means R becomes L in the word for scan.",
+     "definitionFit": "To head a group is to lead it, as a verb meaning to be in charge or in front."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +568,73 @@
     "text": "Skill in sport mainly raised local business connections",
     "enumeration": "8"
    },
-   "solution": "INTRANET"
+   "solution": "INTRANET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "reversal"
+    ],
+    "answer": "INTRANET",
+    "definitions": [
+     {
+      "text": "local business connections",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the final letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within the other"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry raising letters makes them read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of persuasion"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "TENNIS",
+      "note": "tennis is a sport; only its first five letters are used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TRA",
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TENARTNI",
+       "to": "INTRANET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talented at a game boosted their local networking for business.",
+     "walkthrough": "ART goes inside TENNI, and the whole of TENARTNI is then read upward.",
+     "definitionFit": "An intranet is a private computer network linking the staff of one organisation, unlike the public internet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +654,77 @@
      }
     ]
    },
-   "solution": "SICKNOTE"
+   "solution": "SICKNOTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SICK NOTE",
+    "definitions": [
+     {
+      "text": "Report of illness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "TONK",
+      "note": "to tonk is British slang for hitting hard, especially a ball in cricket"
+     },
+     {
+      "clueFragment": "Covid",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Covid"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SICKNOTE"
+     ],
+     "reversals": [
+      {
+       "from": "ETONKCIS",
+       "to": "SICKNOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report that a virus wave has struck the east of the country again.",
+     "walkthrough": "'Initially' belongs to Covid, not hit; tonk is an informal British word for a hard hit. The four pieces are then read upward.",
+     "definitionFit": "A sick note is a certificate from a doctor stating that someone is too ill to work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +738,52 @@
     "text": "Correspondence has neither start nor end in address",
     "enumeration": "5"
    },
-   "solution": "RATIO"
+   "solution": "RATIO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATIO",
+    "definitions": [
+     {
+      "text": "Correspondence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has neither start nor end",
+      "for": "deletion",
+      "note": "with neither first nor last letter, the word is trimmed at both sides"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "address",
+      "gives": "ORATION",
+      "note": "an address is a formal speech, an oration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter that lacks an opening greeting and a sign-off at the address.",
+     "walkthrough": "Correspondence and address both suggest letters and post; here address is a speech and correspondence a proportion.",
+     "definitionFit": "Correspondence can mean a matching relationship between quantities, which is what a ratio expresses mathematically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Correspondence"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +797,66 @@
     "text": "Pole’s a cold place to be drinking when scoffing!",
     "enumeration": "9"
    },
-   "solution": "SARCASTIC"
+   "solution": "SARCASTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SARCASTIC",
+    "definitions": [
+     {
+      "text": "scoffing",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "a drinker takes liquid inside, so one piece swallows the other"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pole’s",
+      "gives": "S",
+      "note": "S for the south pole; the 's simply joins it on"
+     },
+     {
+      "clueFragment": "a cold place",
+      "gives": "ARCTIC",
+      "note": "the Arctic is a famously cold region"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I arrived'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ARC",
+      "AS",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that a Polish person sees the frozen north as a fine place for drinking.",
+     "walkthrough": "'Pole' suggests a person from Poland, but it is just the compass pole S; 'scoffing' looks like eating, but means mocking.",
+     "definitionFit": "Scoffing means mocking or jeering, and a sarcastic remark is a mocking one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pole’s"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +870,58 @@
     "text": "Papers with coverage of 'Freebies for Leaders' …",
     "enumeration": "10"
    },
-   "solution": "PRESIDENTS"
+   "solution": "PRESIDENTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRESIDENTS",
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with coverage of",
+      "for": "container",
+      "note": "to have coverage is to be covered over, so one piece is wrapped round the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Papers",
+      "gives": "ID",
+      "note": "ID means identity papers"
+     },
+     {
+      "clueFragment": "Freebies",
+      "gives": "PRESENTS",
+      "note": "presents are gifts, given free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "ID",
+      "ENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers covering a story about perks handed to politicians, set up as a headline.",
+     "walkthrough": "'Papers' suggests newspapers but is the ID abbreviation for identity documents. The quotes make the headline look like one unit, but it splits into wordplay and definition.",
+     "definitionFit": "A president is the head of a state or organisation, so presidents are leaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Papers"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +935,63 @@
     "text": "… reflected new light in story",
     "enumeration": "4"
    },
-   "solution": "YARN"
+   "solution": "YARN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YARN",
+    "definitions": [
+     {
+      "text": "story",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection in a mirror shows things the other way round"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARN"
+     ],
+     "reversals": [
+      {
+       "from": "NRAY",
+       "to": "YARN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the newspaper story: the press casts fresh light on the tale.",
+     "walkthrough": "The ellipsis links this to the previous clue's surface but the wordplay is self-contained.",
+     "definitionFit": "A yarn is an informal word for a tale, often a long or embellished one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +1005,76 @@
     "text": "Layperson runs off amidst uproar, leading to church separation",
     "enumeration": "10"
    },
-   "solution": "DIVERGENCE"
+   "solution": "DIVERGENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "DIVERGENCE",
+    "definitions": [
+     {
+      "text": "separation",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "when something goes off it leaves, so a letter departs"
+     },
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "amidst means in the middle of, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uproar",
+      "gives": "DIN",
+      "note": "a din is a loud uproar"
+     },
+     {
+      "clueFragment": "Layperson",
+      "gives": "VERGER",
+      "note": "a verger is a lay official who looks after a church"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "VERGE",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lay member storms out amid a row, causing a split in the congregation.",
+     "walkthrough": "'Church separation' reads as a single schism, but church only supplies the abbreviation for the Church of England at the end.",
+     "definitionFit": "Divergence is a moving apart or parting of ways, so it is a near synonym for separation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1088,48 @@
     "text": "Popular region - desperate to go!",
     "enumeration": "11"
    },
-   "solution": "INCONTINENT"
+   "solution": "INCONTINENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCONTINENT",
+    "definitions": [
+     {
+      "text": "desperate to go!",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "CONTINENT",
+      "note": "a continent is a large region of the world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CONTINENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday advert for a sought-after destination that everyone is longing to visit.",
+     "walkthrough": "'Desperate to go' sounds like travel lust; it means urgently needing the toilet.",
+     "definitionFit": "Incontinent means unable to control the bladder, a humorous stretch for someone who urgently needs a lavatory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1149,68 @@
      }
     ]
    },
-   "solution": "CACAOBEAN"
+   "solution": "CACAOBEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CACAO BEAN",
+    "definitions": [
+     {
+      "text": "that might lead to grounds for bitterness",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invests",
+      "for": "container",
+      "note": "to invest is to put something into something else, so one piece is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "CA",
+      "note": "CA is the postal abbreviation for California"
+     },
+     {
+      "clueFragment": "approximately",
+      "gives": "CA",
+      "note": "ca is the abbreviation for circa, meaning about"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "BEAN",
+      "note": "bean is slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "CA",
+      "O",
+      "BEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A national leader puts almost no money in, which could give people reason to feel resentful.",
+     "walkthrough": "'State head' looks like a president; instead the state and the head are split apart to take in the other two pieces.",
+     "definitionFit": "The seed of the cacao tree is roasted and ground to make cocoa, which is bitter unless sweetened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grounds"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1230,57 @@
      }
     ]
    },
-   "solution": "FOBWATCH"
+   "solution": "FOBWATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOB WATCH",
+    "definitions": [
+     {
+      "text": "ticker",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     },
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "keep an eye on",
+      "gives": "WATCH",
+      "note": "to watch is to keep an eye on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OB",
+      "WATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Making an elderly man monitor his heart.",
+     "walkthrough": "'Ticker' suggests the heart, given the old boy; here it is an informal word for a clock or watch.",
+     "definitionFit": "Ticker is informal for a timepiece, and a fob watch is a pocket watch worn on a chain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ticker"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1300,52 @@
      }
     ]
    },
-   "solution": "MANPOWER"
+   "solution": "MANPOWER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANPOWER",
+    "definitions": [
+     {
+      "text": "human resources",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loose",
+      "for": "anagram",
+      "note": "loose means not fixed in place, so these letters can be freely rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women rap",
+      "gives": "WOMENRAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WOMENRAP",
+       "gives": "MANPOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cast of Loose Women, a British daytime TV chat show, take up rapping about personnel.",
+     "walkthrough": "The italic title makes 'Loose Women' look like one name; 'Loose' is the anagram signal for the next two words.",
+     "definitionFit": "Manpower is the number of people available for work, the same workforce sense as human resources."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Loose"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1359,51 @@
     "text": "At heart of stone, when cut, light's an intrinsic quality, they say",
     "enumeration": "11"
    },
-   "solution": "OPALESCENCE"
+   "solution": "OPALESCENCE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "and_lit"
+    ],
+    "answer": "OPALESCENCE",
+    "definitions": [
+     {
+      "text": "At heart of stone, when cut, light's an intrinsic quality, they say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "what people say is heard rather than read, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "OPAL",
+      "note": "an opal is a gemstone"
+     },
+     {
+      "clueFragment": "intrinsic quality",
+      "gives": "ESCENCE",
+      "soundsLike": "ESSENCE",
+      "note": "the essence of something is its intrinsic nature"
+     }
+    ],
+    "explanation": {
+     "surface": "A jeweller's remark that a cut gem's inner glow is part of its nature.",
+     "walkthrough": "Heard aloud, 'opal essence' — the heart or essence of the stone — runs together as one word. The whole clue also describes the milky play of light inside a cut opal.",
+     "definitionFit": "Opalescence is the milky, shifting iridescence seen in opals, the light that is inherent to the cut stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1417,60 @@
     "text": "Peter for one ruled heartlessly in retrospect",
     "enumeration": "6"
    },
-   "solution": "DENIER"
+   "solution": "DENIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "DENIER",
+    "definitions": [
+     {
+      "text": "Peter for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "without a heart the middle letter is taken out"
+     },
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "retrospect means looking back, so the letters are read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruled",
+      "gives": "REIGNED",
+      "note": "a monarch who ruled reigned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENIER"
+     ],
+     "reversals": [
+      {
+       "from": "REINED",
+       "to": "DENIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historian's harsh verdict on how a Russian tsar Peter governed.",
+     "walkthrough": "Peter the Great makes 'ruled' feel like history; but this Peter is the apostle, who denied knowing Jesus three times.",
+     "definitionFit": "Saint Peter famously disowned Jesus three times before the cock crowed, making him the Bible's best-known example of one who denies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Peter"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1484,52 @@
     "text": "Sedition - beheaded for cause",
     "enumeration": "6"
    },
-   "solution": "REASON"
+   "solution": "REASON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REASON",
+    "definitions": [
+     {
+      "text": "cause",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "losing the head means losing the first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sedition",
+      "gives": "TREASON",
+      "note": "sedition is incitement against the state, close to treason"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A traitor executed for their rebellious cause.",
+     "walkthrough": "Beheading was the old punishment for treason, so the surface and the deletion share a picture.",
+     "definitionFit": "A cause is a ground or motive for something, which is one everyday sense of reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beheaded"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1543,62 @@
     "text": "Erase, clearing out webpage describing rules of on-line communication",
     "enumeration": "4"
    },
-   "solution": "WIPE"
+   "solution": "WIPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WIPE",
+    "definitions": [
+     {
+      "text": "Erase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clearing out",
+      "for": "letter_selection",
+      "note": "clearing out the contents empties a word, leaving only its outside letters"
+     },
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw round it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "webpage",
+      "gives": "WE",
+      "select": "outer",
+      "note": "the outer letters of webpage"
+     },
+     {
+      "clueFragment": "rules of on-line communication",
+      "gives": "IP",
+      "note": "IP, Internet Protocol, is the set of rules for sending data online"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Deleting a website page that sets out internet etiquette.",
+     "walkthrough": "'Rules of on-line communication' suggests netiquette, but it is the abbreviation for Internet Protocol.",
+     "definitionFit": "To wipe a disk or recording is to erase its contents completely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1612,51 @@
     "text": "People upset - rogue beaten up",
     "enumeration": "10"
    },
-   "solution": "PORTUGUESE"
+   "solution": "PORTUGUESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PORTUGUESE",
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beaten up",
+      "for": "anagram",
+      "note": "something beaten up is knocked out of shape, so the letters are battered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset - rogue",
+      "gives": "UPSETROGUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPSETROGUE",
+       "gives": "PORTUGUESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd is distressed after a villain gets a thrashing.",
+     "walkthrough": "'Upset' looks like the anagram signal but is fodder; the signal is 'beaten up' at the end.",
+     "definitionFit": "The Portuguese are the people of Portugal, a nationality used here as a plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1670,68 @@
     "text": "City skinned Stoke then United lost to you",
     "enumeration": "5"
    },
-   "solution": "TOKYO"
+   "solution": "TOKYO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TOKYO",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinned",
+      "for": "deletion",
+      "note": "removing the skin strips away the outside, so the end letters go"
+     },
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "what is lost is gone, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stoke",
+      "gives": "TOK",
+      "note": "Stoke without its outside letters"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in football team names"
+     },
+     {
+      "clueFragment": "to you",
+      "gives": "YOU",
+      "note": "the word from which the letter is lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOK",
+      "YO"
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: Stoke City were thrashed, then Manchester United lost to your side.",
+     "walkthrough": "Stoke City and United are English football clubs, which sells the sporting surface; 'skinned' and 'lost' both mean letters removed.",
+     "definitionFit": "Tokyo is the capital city of Japan, a plain example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skinned"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1745,44 @@
     "text": "What comes before foxtrot is recorded in dance choreography",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "What comes before foxtrot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is recorded in",
+      "for": "hidden_word",
+      "note": "something recorded in a document is written inside it, so the letters lie within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance choreography",
+      "gives": "ECHO",
+      "note": "the letters span the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A dance routine notation showing which step precedes the foxtrot.",
+     "walkthrough": "The foxtrot is a ballroom dance, but here it is the NATO phonetic word for F, and the one before is E's.",
+     "definitionFit": "In the NATO phonetic alphabet, Echo stands for E and Foxtrot for F, so it comes immediately before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foxtrot"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1802,63 @@
      }
     ]
    },
-   "solution": "TOWNCLERK"
+   "solution": "TOWNCLERK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TOWN CLERK",
+    "definitions": [
+     {
+      "text": "Local administrator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has lost its contents, leaving only its outside letters"
+     },
+     {
+      "text": "regenerated",
+      "for": "anagram",
+      "note": "regeneration rebuilds something in a new form, so the letters are remade into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canal",
+      "gives": "CL",
+      "select": "outer",
+      "note": "the outer letters of canal"
+     },
+     {
+      "clueFragment": "network",
+      "gives": "NETWORK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLNETWORK",
+       "gives": "TOWNCLERK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A council official revives a disused canal system, as in an urban renewal scheme.",
+     "walkthrough": "'Regenerated' sits by the official as if describing urban renewal, but it rearranges CL and the network.",
+     "definitionFit": "A town clerk was the official in charge of the records and administration of a British town council."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regenerated"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1872,61 @@
     "text": "Tacks north and south to circumvent trouble",
     "enumeration": "5"
    },
-   "solution": "NAILS"
+   "solution": "NAILS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NAILS",
+    "definitions": [
+     {
+      "text": "Tacks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to circumvent",
+      "for": "container",
+      "note": "to circumvent literally means to go round, so two pieces surround the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble, as in 'what ails you'"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AIL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailboat changes course up and down the coast to avoid difficulties.",
+     "walkthrough": "'Tacks' plays on sailing, as do north and south; the definition is the noun for small nails.",
+     "definitionFit": "Tacks are short sharp nails with broad heads, so they are a kind of nail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tacks"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1940,74 @@
     "text": "Instrument connected with catching orca primarily",
     "enumeration": "7"
    },
-   "solution": "HARPOON"
+   "solution": "HARPOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "HARPOON",
+    "definitions": [
+     {
+      "text": "Instrument connected with catching orca primarily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the first letter is taken"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching something means holding it, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instrument",
+      "gives": "HARP",
+      "note": "a harp is a musical instrument"
+     },
+     {
+      "clueFragment": "connected",
+      "gives": "ON",
+      "note": "a phone or power line that is connected is on"
+     },
+     {
+      "clueFragment": "orca",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of orca"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARP",
+      "O",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a tool used by whalers to capture a killer whale.",
+     "walkthrough": "The whole clue doubles as the definition: a harpoon is just such a device. 'Instrument' also means a musical one in the wordplay.",
+     "definitionFit": "A harpoon is a barbed spear thrown or fired to catch whales and other large sea creatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Instrument"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2021,61 @@
     "text": "Limitless rules restricting game go too far",
     "enumeration": "7"
    },
-   "solution": "OVERRUN"
+   "solution": "OVERRUN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OVERRUN",
+    "definitions": [
+     {
+      "text": "go too far",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Limitless",
+      "for": "deletion",
+      "note": "without limits a word loses its boundaries, its first and last letters"
+     },
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting something hems it in, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rules",
+      "gives": "GOVERNS",
+      "note": "to rule is to govern"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is Rugby Union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RU",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Unlimited regulations constraining a sport are excessive.",
+     "walkthrough": "RU stands for rugby union, a game in crosswords; it goes inside GOVERNS once G and S are trimmed.",
+     "definitionFit": "To overrun is to exceed a limit or time allowed, as when a meeting goes on too long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   }
  ]
 }
