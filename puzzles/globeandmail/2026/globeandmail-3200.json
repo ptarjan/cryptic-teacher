@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "I give up drink permit",
     "enumeration": "8"
    },
-   "solution": "PASSPORT"
+   "solution": "PASSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSPORT",
+    "definitions": [
+     {
+      "text": "permit",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I give up",
+      "gives": "PASS",
+      "note": "a player who says 'pass' gives up their turn or chooses not to answer"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swearing off alcohol, or perhaps refusing a drinks licence.",
+     "walkthrough": "'I give up' reads as a statement by the speaker, but it is just what you say when you pass. 'Permit' looks like a verb in the surface; it is the noun at the end.",
+     "definitionFit": "A passport is an official travel document that authorises its holder to cross borders, a kind of permit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "permit"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,44 @@
     "text": "A little nipper toddling forward",
     "enumeration": "4"
    },
-   "solution": "PERT"
+   "solution": "PERT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PERT",
+    "definitions": [
+     {
+      "text": "forward",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "only a small portion of the following words is wanted, a run of letters sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nipper toddling",
+      "gives": "PERT",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A small child taking its first wobbly steps forward.",
+     "walkthrough": "The answer is in nipPER Toddling. 'Forward' looks like the toddler's direction of travel, but it means cheeky.",
+     "definitionFit": "Forward in the sense of presumptuous or cheeky, and pert describes a bold, saucy manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +141,62 @@
     "text": "Place that article in centre of museum",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SITE",
+    "definitions": [
+     {
+      "text": "Place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters, so only those are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another goes inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that article",
+      "gives": "IT",
+      "note": "'it' is the pronoun for 'that article'"
+     },
+     {
+      "clueFragment": "museum",
+      "gives": "SE",
+      "select": "middle",
+      "note": "the two middle letters of a six-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to a curator to put an exhibit in the middle of the museum.",
+     "walkthrough": "'Place' reads as an imperative verb, but it is the noun definition.",
+     "definitionFit": "A site is a location or spot where something is or happens, the same as a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +216,51 @@
      }
     ]
    },
-   "solution": "PRIVATEEYE"
+   "solution": "PRIVATEEYE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRIVATE EYE",
+    "definitions": [
+     {
+      "text": "Person investigating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixing a recording jumbles its parts, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every tape I",
+      "gives": "EVERYTAPEI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVERYTAPEI",
+       "gives": "PRIVATEEYE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective going through every recording that has been edited together.",
+     "walkthrough": "'Mixed' sounds like sound editing on a tape, which suits the investigator's evidence, but it signals the letters are scrambled.",
+     "definitionFit": "A private eye is an informal name for a private detective, someone hired to look into matters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +274,61 @@
     "text": "Expose skin on remarkable calf",
     "enumeration": "6"
    },
-   "solution": "REVEAL"
+   "solution": "REVEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REVEAL",
+    "definitions": [
+     {
+      "text": "Expose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skin",
+      "for": "letter_selection",
+      "note": "the skin is the outer covering, so only the outside letters are kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one thing on another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remarkable",
+      "gives": "RE",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "calf",
+      "gives": "VEAL",
+      "note": "veal is the meat of a calf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Showing off the skin of a remarkable calf, as at a cattle show, or baring a shapely lower leg.",
+     "walkthrough": "'Skin' looks like the thing being exposed, but it is the instruction to keep the outer letters. 'Calf' tempts the leg; here it is the animal, and its meat.",
+     "definitionFit": "To reveal something is to uncover it and make it visible, which is exactly what exposing does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +342,55 @@
     "text": "Women’s group backed by politician — he’s wet",
     "enumeration": "4"
    },
-   "solution": "WIMP"
+   "solution": "WIMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WIMP",
+    "definitions": [
+     {
+      "text": "he’s wet",
+      "at": 37,
+      "note": "a phrase describing a person, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed by",
+      "for": "charade",
+      "note": "something backed by another has that other behind it, so that piece follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women’s group",
+      "gives": "WI",
+      "note": "the WI is the Women's Institute, a community organisation in Britain and Canada"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A women's organisation endorsed by an MP, who is dismissed as feeble.",
+     "walkthrough": "'Backed by' sounds like political support, but it only places the politician after the group. 'Wet' is British slang for feeble or ineffectual.",
+     "definitionFit": "A wimp is a weak, timid person, and calling a man wet is British slang for exactly that feebleness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +410,51 @@
      }
     ]
    },
-   "solution": "INSECRET"
+   "solution": "INSECRET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN SECRET",
+    "definitions": [
+     {
+      "text": "behind closed doors",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after editing",
+      "for": "anagram",
+      "note": "editing reworks material into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Screen it",
+      "gives": "SCREENIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCREENIT",
+       "gives": "INSECRET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film is shown privately once it has been cut.",
+     "walkthrough": "'Screen' suggests showing a film, and editing fits the cinema picture, but the two words are just letters to rearrange.",
+     "definitionFit": "Things done behind closed doors are kept private, away from public view, which is doing them secretly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Screen"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +468,75 @@
     "text": "Painting or paintings etc lifted through hole",
     "enumeration": "8"
    },
-   "solution": "PORTRAIT"
+   "solution": "PORTRAIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "PORTRAIT",
+    "definitions": [
+     {
+      "text": "Painting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifting turns a word upward so it reads from bottom to top"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "one thing passing through another is surrounded by it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "paintings etc",
+      "gives": "ART",
+      "note": "art covers paintings and similar works"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "PIT",
+      "note": "a pit is a hole in the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OR",
+      "TRA",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Artworks being stolen through a hole in a gallery wall.",
+     "walkthrough": "'Painting or paintings' looks like a list, but 'or' is a piece of the answer. 'Lifted' sounds like theft; in a down clue it turns a word upside down.",
+     "definitionFit": "A portrait is a painting depicting a person, so it is a particular kind of painting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +550,75 @@
     "text": "Fetch riveter nuts, last in crate",
     "enumeration": "8"
    },
-   "solution": "RETRIEVE"
+   "solution": "RETRIEVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RETRIEVE",
+    "definitions": [
+     {
+      "text": "Fetch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so these letters are scrambled into a new order"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riveter",
+      "gives": "RIVETER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crate",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETRI",
+      "E",
+      "VE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIVETER",
+       "gives": "RETRIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to bring the riveter's nuts, the last of which are in a crate.",
+     "walkthrough": "'Nuts' looks like hardware a riveter would use, but it means crazy and signals the anagram.",
+     "definitionFit": "To retrieve something is to go and get it back, which is what fetching means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +632,45 @@
     "text": "Emperor’s somewhat mordant, sarcastic",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some degree, so only part of the following letters is used"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mordant, sarcastic",
+      "gives": "TSAR",
+      "note": "the letters bridge the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A ruler with a rather biting, scornful wit.",
+     "walkthrough": "The answer sits in mordanT SARcastic; the apostrophe-s is 'is', joining definition to wordplay.",
+     "definitionFit": "Tsar was the title of the Russian monarch, an absolute ruler of an empire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +700,39 @@
      }
     ]
    },
-   "solution": "MAKEASCENE"
+   "solution": "MAKEASCENE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAKE A SCENE",
+    "definitions": [
+     {
+      "text": "Carry On director might do this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carry On director might do this",
+      "note": "surface reading: the director of a Carry On film shoots a part of the movie"
+     },
+     {
+      "clueFragment": "Carry On",
+      "note": "setter's reading: to carry on is to cause a noisy fuss in public"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Carry On films are a long-running series of British comedy movies, so a director seems to be filming. Read 'carry on' as a verb and it means to kick up a fuss.",
+     "definitionFit": "To make a scene is an idiom for causing an embarrassing public fuss, and a film director also literally shoots scenes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "director"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +746,63 @@
     "text": "Blemish on crazy Ottoman leader in country",
     "enumeration": "10"
    },
-   "solution": "MADAGASCAR"
+   "solution": "MADAGASCAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADAGASCAR",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another is added after it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crazy",
+      "gives": "MAD",
+      "note": "mad means crazy"
+     },
+     {
+      "clueFragment": "Ottoman leader",
+      "gives": "AGA",
+      "note": "an aga was a commander or chief officer in the Ottoman Empire"
+     },
+     {
+      "clueFragment": "Blemish",
+      "gives": "SCAR",
+      "note": "a scar is a mark left on the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAD",
+      "AGA",
+      "SCAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A stain on the record of a deranged Ottoman ruler somewhere.",
+     "walkthrough": "'Ottoman leader' tempts you to take the first letter, O; here it is the title AGA. The blemish is written first but goes last.",
+     "definitionFit": "Madagascar is an island nation off the southeast coast of Africa, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +816,42 @@
     "text": "Dog, one on a trampoline?",
     "enumeration": "8"
    },
-   "solution": "SPRINGER"
+   "solution": "SPRINGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPRINGER",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     },
+     {
+      "text": "one on a trampoline",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "note": "first meaning: a breed of spaniel"
+     },
+     {
+      "clueFragment": "one on a trampoline",
+      "note": "second meaning, whimsical: someone who bounces up and down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second meaning as playful: the noun is built from the verb to spring, so anyone leaping on a trampoline qualifies.",
+     "definitionFit": "A springer spaniel is a gun dog breed, and literally a springer is anyone who jumps or leaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +865,74 @@
     "text": "Risotto prepared after first of martinis — and one for the road?",
     "enumeration": "8"
    },
-   "solution": "MOTORIST"
+   "solution": "MOTORIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MOTORIST",
+    "definitions": [
+     {
+      "text": "one for the road?",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared has been worked on and changed, so the letters are rearranged"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing after another is placed behind it in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "martinis",
+      "gives": "M",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "Risotto",
+      "gives": "RISOTTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OTORIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RISOTTO",
+       "gives": "OTORIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meal cooked after a few martinis, plus a final drink before driving home.",
+     "walkthrough": "'One for the road' is an idiom for a last drink before leaving, which fits the martinis; here it means a person who uses the road.",
+     "definitionFit": "A motorist is a driver of a car, someone whose business is on the highway, so literally a road user."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "road"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +946,56 @@
     "text": "Bird heading for pigeon fancier",
     "enumeration": "6"
    },
-   "solution": "PLOVER"
+   "solution": "PLOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLOVER",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is the top of something, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pigeon",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "fancier",
+      "gives": "LOVER",
+      "note": "a fancier is an enthusiast, one who loves something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LOVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird flying home to its owner, someone who breeds pigeons.",
+     "walkthrough": "'Pigeon fancier' reads as one phrase, a pigeon keeper; split it and the bird gives only its first letter.",
+     "definitionFit": "The plover is a wading shorebird, one particular species within the broader class of birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1009,63 @@
     "text": "SW Asian troops and I behind you",
     "enumeration": "6"
    },
-   "solution": "YEMENI"
+   "solution": "YEMENI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YEMENI",
+    "definitions": [
+     {
+      "text": "SW Asian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "what is behind another follows it, so those pieces come after"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "ye is an old form of you"
+     },
+     {
+      "clueFragment": "troops",
+      "gives": "MEN",
+      "note": "soldiers are men"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "MEN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A commander tells an ally that his soldiers and he are backing them up in southwest Asia.",
+     "walkthrough": "'Behind you' sounds like support, but it simply places the troops and I after YE.",
+     "definitionFit": "A Yemeni comes from Yemen, a nation at the southwestern tip of the Arabian peninsula in Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1085,58 @@
      }
     ]
    },
-   "solution": "BOOBOO"
+   "solution": "BOOBOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOO BOO",
+    "definitions": [
+     {
+      "text": "error",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing after another follows it, so the two pieces sit side by side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shocker",
+      "gives": "BOO",
+      "note": "'boo!' is shouted to startle someone"
+     },
+     {
+      "clueFragment": "shocker",
+      "gives": "BOO",
+      "note": "the same exclamation again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "BOO"
+     ]
+    },
+    "explanation": {
+     "surface": "One scandal following another, through mistakes.",
+     "walkthrough": "A shocker usually means something dreadful; here it is the word you shout to make someone jump.",
+     "definitionFit": "A boo-boo is an informal, childish word for a silly mistake or blunder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shocker"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1156,54 @@
      }
     ]
    },
-   "solution": "IVORYCOAST"
+   "solution": "IVORYCOAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IVORY COAST",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlikely",
+      "for": "anagram",
+      "note": "something unlikely is improbable or out of order, so these letters will not stay as given"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A victory so",
+      "gives": "AVICTORYSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AVICTORYSO",
+       "gives": "IVORYCOAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting nation's win was a real long shot.",
+     "walkthrough": "'Unlikely' reads as a comment on the victory, but it signals the letters are rearranged.",
+     "definitionFit": "Ivory Coast, also called Côte d'Ivoire, is a West African nation, one example of a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unlikely"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1217,48 @@
     "text": "A moggy bit!",
     "enumeration": "4"
    },
-   "solution": "ATOM"
+   "solution": "ATOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOM",
+    "definitions": [
+     {
+      "text": "bit",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "moggy",
+      "gives": "TOM",
+      "note": "moggy is British slang for a cat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TOM"
+     ]
+    },
+    "explanation": {
+     "surface": "An outraged report that a cat has bitten someone.",
+     "walkthrough": "'Bit' looks like the past tense of bite, the cat's crime; it is the noun meaning a tiny piece.",
+     "definitionFit": "An atom is figuratively the smallest possible amount of something, a tiny fragment or speck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1272,52 @@
     "text": "Cut when half-cut!",
     "enumeration": "4"
    },
-   "solution": "HEWN"
+   "solution": "HEWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEWN",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "anagram",
+      "note": "half-cut is slang for drunk, and drunken letters stagger out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "WHEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHEN",
+       "gives": "HEWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quip about a woodcutter, or a barber, working while tipsy.",
+     "walkthrough": "'Half-cut' seems to echo the definition, half-way through a cut; it is British slang for drunk.",
+     "definitionFit": "Hewn is the past participle of hew, to chop with an axe, so it means chopped or carved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1331,73 @@
     "text": "Smooth surfaces on ground level in ballroom",
     "enumeration": "4"
    },
-   "solution": "GLIB"
+   "solution": "GLIB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GLIB",
+    "definitions": [
+     {
+      "text": "Smooth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surfaces",
+      "for": "letter_selection",
+      "note": "a surface is the top layer, so the topmost, opening letters are kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "G",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "ballroom",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "I",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Polished dance floors on the ground floor of a ballroom.",
+     "walkthrough": "'Smooth surfaces' reads as a single phrase about floors; split it, and 'surfaces' is a verb-like signal to take tops of words.",
+     "definitionFit": "Glib describes speech that is slick and fluent but shallow, one sense of smooth as applied to talkers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surfaces"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1411,51 @@
     "text": "Mysterious beast e’en, one’s nowhere to be seen",
     "enumeration": "8"
    },
-   "solution": "ABSENTEE"
+   "solution": "ABSENTEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSENTEE",
+    "definitions": [
+     {
+      "text": "one’s nowhere to be seen",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mysterious",
+      "for": "anagram",
+      "note": "something mysterious is puzzling and obscure, so the letters are disguised in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beast e’en",
+      "gives": "BEASTEEN",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEASTEEN",
+       "gives": "ABSENTEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious creature that comes out at evening, like a Yeti, which never shows itself.",
+     "walkthrough": "E'en is the poetic contraction of evening (or even), which supplies the needed extra Es.",
+     "definitionFit": "An absentee is a person who is missing from where they ought to be, someone not present."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mysterious"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1469,50 @@
     "text": "9 going wrong, dammit!",
     "enumeration": "4"
    },
-   "solution": "RATS"
+   "solution": "RATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RATS",
+    "definitions": [
+     {
+      "text": "dammit!",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going wrong",
+      "for": "anagram",
+      "note": "anything going wrong falls out of its proper order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "9",
+      "gives": "TSAR",
+      "note": "the answer to 9 across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TSAR",
+       "gives": "RATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cursing when a plan has failed.",
+     "walkthrough": "The 9 refers to the solution of clue 9 across, an emperor; the exclamation is the definition.",
+     "definitionFit": "Rats is a mild exclamation of irritation or disappointment, used in place of a curse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1526,46 @@
     "text": "Evil spirit — and poor golfer?",
     "enumeration": "8"
    },
-   "solution": "BOGEYMAN"
+   "solution": "BOGEYMAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOGEYMAN",
+    "definitions": [
+     {
+      "text": "Evil spirit",
+      "at": 0
+     },
+     {
+      "text": "poor golfer",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evil spirit",
+      "note": "first meaning: a frightening imaginary monster"
+     },
+     {
+      "clueFragment": "poor golfer",
+      "note": "second meaning, whimsical: a player who takes one over par on holes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In golf, a bogey is a score of one stroke over par on a hole, so a golfer who keeps making them is a BOGEY MAN.",
+     "definitionFit": "The bogeyman is a mythical creature used to frighten children, and literally a person who scores bogeys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   }
  ]
 }
