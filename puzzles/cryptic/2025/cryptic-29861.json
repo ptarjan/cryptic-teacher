@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Single fellow who’s qualified in Arts or Science?",
     "enumeration": "8"
    },
-   "solution": "BACHELOR"
+   "solution": "BACHELOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BACHELOR",
+    "definitions": [
+     {
+      "text": "Single fellow",
+      "at": 0
+     },
+     {
+      "text": "who’s qualified in Arts or Science",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single fellow",
+      "note": "first meaning: an unmarried man"
+     },
+     {
+      "clueFragment": "who’s qualified in Arts or Science",
+      "note": "second meaning: a holder of a first university degree such as a BA or BSc"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second half is a second meaning rather than more description of the same lonely man.",
+     "definitionFit": "The same word names an unmarried man and someone holding an undergraduate degree, as in Bachelor of Arts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Single"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +96,53 @@
      }
     ]
    },
-   "solution": "BACKTOBACK"
+   "solution": "BACKTOBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACK-TO-BACK",
+    "definitions": [
+     {
+      "text": "Like term after term without vacation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sponsor",
+      "gives": "BACK",
+      "note": "to sponsor is to back financially"
+     },
+     {
+      "clueFragment": "closed",
+      "gives": "TO",
+      "note": "a door pushed to is closed"
+     },
+     {
+      "clueFragment": "fund",
+      "gives": "BACK",
+      "note": "to fund a venture is to back it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "TO",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A student grumbles about terms with no holiday between them, while a sponsor shuts down a fund.",
+     "walkthrough": "TO meaning closed comes from phrases like 'pull the door to'. The question mark marks the definition as a description rather than a synonym.",
+     "definitionFit": "Events happening consecutively with no break between them are described as following one another directly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "closed"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +156,77 @@
     "text": "Rooms arranged in cold institution for term of biology",
     "enumeration": "10"
    },
-   "solution": "CHROMOSOME"
+   "solution": "CHROMOSOME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "CHROMOSOME",
+    "definitions": [
+     {
+      "text": "term of biology",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "things arranged are put into a new order, so these letters get reordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so the shuffled letters go within"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the standard abbreviation for cold on taps"
+     },
+     {
+      "clueFragment": "Rooms",
+      "gives": "ROOMS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "institution",
+      "gives": "HOME",
+      "note": "a home is a residential institution, such as a care home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "ROMOS",
+      "OME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROOMS",
+       "gives": "ROMOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asking for a biology word, with a picture of rooms laid out in a chilly institution.",
+     "walkthrough": "A home counts as an institution in the sense of a care home or children's home. The shuffled letters go in after its first letter.",
+     "definitionFit": "A chromosome is a thread of DNA carrying genes, a technical word from the science of living things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "institution"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +240,50 @@
     "text": "Ignoring the odds, best buddies study abroad",
     "enumeration": "5"
    },
-   "solution": "ETUDE"
+   "solution": "ETUDE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ETUDE",
+    "definitions": [
+     {
+      "text": "study abroad",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ignoring the odds",
+      "for": "letter_selection",
+      "note": "leaving out the odd-numbered letters keeps only every second one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best buddies",
+      "gives": "ETUDE",
+      "select": "alternate",
+      "note": "the even-placed letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two close friends defy the odds and go off to study in another country.",
+     "walkthrough": "'Ignoring the odds' sounds like beating the odds, but it means dropping letters 1, 3, 5 and so on. 'Abroad' marks the answer as a foreign word.",
+     "definitionFit": "Étude is French for a study, and in English it names a short musical piece written to practise technique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +297,52 @@
     "text": "Excessively rich nut a brave don demolished",
     "enumeration": "12"
    },
-   "solution": "OVERABUNDANT"
+   "solution": "OVERABUNDANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERABUNDANT",
+    "definitions": [
+     {
+      "text": "Excessively rich",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolished",
+      "for": "anagram",
+      "note": "something demolished is knocked apart, so these letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut a brave don",
+      "gives": "NUTABRAVEDON",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUTABRAVEDON",
+       "gives": "OVERABUNDANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nutty, wealthy person wrecks a courageous university lecturer.",
+     "walkthrough": "'Nut' and 'don' read as people in the surface; here they are just letters. A don is a university teacher.",
+     "definitionFit": "Overabundant means present in far greater quantity than needed, which is plenty taken to excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +356,47 @@
     "text": "Gave instruction in rigid pronouncement",
     "enumeration": "6"
    },
-   "solution": "TAUGHT"
+   "solution": "TAUGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TAUGHT",
+    "definitions": [
+     {
+      "text": "Gave instruction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronouncement",
+      "for": "homophone",
+      "note": "a pronouncement is something spoken, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rigid",
+      "gives": "TAUGHT",
+      "soundsLike": "TAUT",
+      "note": "rigid means stretched tight"
+     }
+    ],
+    "explanation": {
+     "surface": "A strict teacher issues orders in an inflexible decree.",
+     "walkthrough": "The two words differ only in spelling; in most British and American accents they sound the same.",
+     "definitionFit": "To have given instruction is to have educated someone, the past tense of teach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pronouncement"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +410,62 @@
     "text": "As assistant, inserting warning on course already mentioned",
     "enumeration": "9"
    },
-   "solution": "AFORESAID"
+   "solution": "AFORESAID",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AFORESAID",
+    "definitions": [
+     {
+      "text": "already mentioned",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inserting",
+      "for": "container",
+      "note": "inserting means putting one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "warning on course",
+      "gives": "FORE",
+      "note": "golfers shout fore to warn of a flying ball"
+     },
+     {
+      "clueFragment": "assistant",
+      "gives": "AID",
+      "note": "an aid is a helper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FORE",
+      "S",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working as an assistant keeps adding a warning about the course already discussed.",
+     "walkthrough": "'Course' suggests a university course in this academic puzzle, but it is a golf course, where the warning shout is heard.",
+     "definitionFit": "Aforesaid is a formal legal word for something named or stated earlier in the same text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +479,47 @@
     "text": "Announced step to punish student",
     "enumeration": "4"
    },
-   "solution": "GATE"
+   "solution": "GATE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GATE",
+    "definitions": [
+     {
+      "text": "punish student",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so go by how the word sounds"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "step",
+      "gives": "GATE",
+      "soundsLike": "GAIT",
+      "note": "a gait is a manner of stepping or walking"
+     }
+    ],
+    "explanation": {
+     "surface": "A college authority declares a disciplinary measure to deal with an undergraduate.",
+     "walkthrough": "At Oxford and Cambridge, to gate a student was to confine them to college as a punishment.",
+     "definitionFit": "Gating is a traditional British university penalty that keeps an offender within college walls after hours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +533,44 @@
     "text": "A quarter of Americans, say, stored in computer memory",
     "enumeration": "4"
    },
-   "solution": "TERM"
+   "solution": "TERM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERM",
+    "definitions": [
+     {
+      "text": "A quarter of Americans, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored in",
+      "for": "hidden_word",
+      "note": "something stored in a place is kept inside it, so look within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computer memory",
+      "gives": "TERM",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A statistic about a quarter of Americans held in a computer's memory.",
+     "walkthrough": "'A quarter' looks like a fraction of a population, but American schools call a division of the academic year a quarter.",
+     "definitionFit": "In US colleges the academic year can be split into quarters, each corresponding to what Britons call a term; 'say' marks an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +584,60 @@
     "text": "Writings on specific subjects soldier demolishing exam exploits",
     "enumeration": "8"
    },
-   "solution": "CORPUSES"
+   "solution": "CORPUSES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CORPUSES",
+    "definitions": [
+     {
+      "text": "Writings on specific subjects",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolishing",
+      "for": "deletion",
+      "note": "demolishing something removes it, so these letters are knocked out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "CORPORAL",
+      "note": "a corporal is a low-ranking soldier"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "ORAL",
+      "note": "an oral is a spoken exam"
+     },
+     {
+      "clueFragment": "exploits",
+      "gives": "USES",
+      "note": "to exploit is to use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORP",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's exploits destroy his exam chances, as recorded in specialist writings.",
+     "walkthrough": "Take ORAL off the end of CORPORAL to leave CORP, then add USES. 'Exploits' is a verb here, not a noun for deeds.",
+     "definitionFit": "A corpus is a complete body of texts on one subject or by one author; this is its regular plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exploits"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +651,38 @@
     "text": "Highly trained person, not necessarily in medicine",
     "enumeration": "6"
    },
-   "solution": "DOCTOR"
+   "solution": "DOCTOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DOCTOR",
+    "definitions": [
+     {
+      "text": "Highly trained person, not necessarily in medicine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Highly trained person",
+      "note": "surface reading: a skilled professional, most likely a physician"
+     },
+     {
+      "clueFragment": "not necessarily in medicine",
+      "note": "setter's reading: anyone with the top academic degree, such as a PhD"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue nudges you toward a medical professional, then admits the title also belongs to holders of a research doctorate.",
+     "definitionFit": "The title belongs both to physicians and to anyone awarded a doctorate, the highest university degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "medicine"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +702,39 @@
      }
     ]
    },
-   "solution": "BUSINESSCARD"
+   "solution": "BUSINESSCARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BUSINESS CARD",
+    "definitions": [
+     {
+      "text": "Stiff paper, the passing of which facilitates working relationship",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stiff paper, the passing of which",
+      "note": "surface reading: a piece of stiff card handed over, perhaps an exam you pass"
+     },
+     {
+      "clueFragment": "facilitates working relationship",
+      "note": "setter's reading: a small printed card with contact details exchanged on meeting a professional contact"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In this academic puzzle, 'stiff paper' and 'passing' suggest a tough exam you pass; really it is card handed across a table.",
+     "definitionFit": "Professionals swap these small printed cards with name and contact details to set up future dealings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +748,39 @@
     "text": "Level of tension that rises by degrees",
     "enumeration": "11"
    },
-   "solution": "TEMPERATURE"
+   "solution": "TEMPERATURE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEMPERATURE",
+    "definitions": [
+     {
+      "text": "Level of tension that rises by degrees",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Level of tension",
+      "note": "surface reading: how strained a situation has become"
+     },
+     {
+      "clueFragment": "that rises by degrees",
+      "note": "setter's reading: a reading measured in degrees on a thermometer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'By degrees' means gradually in the surface, but literally it is the unit on a thermometer; we also speak of the emotional heat of a meeting.",
+     "definitionFit": "The word describes both heat measured in degrees and, figuratively, how heated feelings in a situation have become."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "degrees"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +794,58 @@
     "text": "Recording what’s in syllabus – overlapping, hence irritation",
     "enumeration": "10"
    },
-   "solution": "DISCONTENT"
+   "solution": "DISCONTENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISCONTENT",
+    "definitions": [
+     {
+      "text": "irritation",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlapping",
+      "for": "deletion",
+      "note": "overlapping pieces share a letter, so one copy of the shared letter drops out"
+     }
+    ],
+    "linkWords": [
+     "hence"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recording",
+      "gives": "DISC",
+      "note": "a disc is a record"
+     },
+     {
+      "clueFragment": "what’s in syllabus",
+      "gives": "CONTENT",
+      "note": "a syllabus lists the content of a course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "ONTENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Students complain about a recording of course material that repeats itself, causing annoyance.",
+     "walkthrough": "The two words share their C, so it appears once where they join.",
+     "definitionFit": "Discontent is dissatisfaction or unhappiness, close in sense to the annoyance of feeling irritated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overlapping"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +859,43 @@
     "text": "Not subject to pressure, like bridge in 18",
     "enumeration": "10"
    },
-   "solution": "UNSTRESSED"
+   "solution": "UNSTRESSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNSTRESSED",
+    "definitions": [
+     {
+      "text": "Not subject to pressure",
+      "at": 0
+     },
+     {
+      "text": "like bridge in 18",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not subject to pressure",
+      "note": "first meaning: free of strain or load"
+     },
+     {
+      "clueFragment": "like bridge in 18",
+      "note": "second meaning: the second syllable of 18-across carries no spoken emphasis"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bridge' looks like a structure bearing loads, but it is the second syllable of CAMBRIDGE, which is spoken without emphasis.",
+     "definitionFit": "The word means free of physical strain and, in phonetics, describes a syllable pronounced without emphasis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +909,47 @@
     "text": "Not advanced degree, as recorded",
     "enumeration": "5"
    },
-   "solution": "BASIC"
+   "solution": "BASIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASIC",
+    "definitions": [
+     {
+      "text": "Not advanced",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "degree",
+      "gives": "BA",
+      "note": "a Bachelor of Arts degree"
+     },
+     {
+      "clueFragment": "as recorded",
+      "gives": "SIC",
+      "note": "sic is Latin for thus, used to show a quotation is copied exactly as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "SIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A note that a certain qualification, as officially logged, is not a higher degree.",
+     "walkthrough": "'Not advanced degree' reads as one phrase, but the definition stops at 'advanced'. 'As recorded' is not a sound signal; it is SIC.",
+     "definitionFit": "Something basic is elementary or at entry level, the opposite of advanced or sophisticated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recorded"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +963,81 @@
     "text": "History professor finally working in funny cliche",
     "enumeration": "9"
    },
-   "solution": "CHRONICLE"
+   "solution": "CHRONICLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "CHRONICLE",
+    "definitions": [
+     {
+      "text": "History",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter is kept"
+     },
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means odd or peculiar, so these letters come out in a strange order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "professor",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter of this word"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     },
+     {
+      "clueFragment": "cliche",
+      "gives": "CLICHE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "R",
+      "ON",
+      "ICLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLICHE",
+       "gives": "CHICLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A history professor is caught using a comical stock phrase.",
+     "walkthrough": "'History professor' reads as one person, but 'History' alone is the definition and 'professor' only lends its final letter.",
+     "definitionFit": "A chronicle is a factual record of events in time order, a written account of the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "professor"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1051,65 @@
     "text": "Type that’s rejected Trinity coming to university in a train, oddly",
     "enumeration": "9"
    },
-   "solution": "UNITARIAN"
+   "solution": "UNITARIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UNITARIAN",
+    "definitions": [
+     {
+      "text": "Type that’s rejected Trinity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "oddly means in a strange way, so these letters are set out in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "coming to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "in a train",
+      "gives": "INATRAIN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NITARIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INATRAIN",
+       "gives": "NITARIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student who turned down Trinity College arrives at another university by train.",
+     "walkthrough": "Trinity is a college at Cambridge, which fits this academic theme, but here it is the Christian doctrine. 'Oddly' looks like a take-the-odd-letters signal; it is an anagram signal.",
+     "definitionFit": "Unitarians are Christians who deny the doctrine of the Trinity, holding that God is one person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trinity"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1123,39 @@
     "text": "Its teams are a shade lighter than opponents",
     "enumeration": "9"
    },
-   "solution": "CAMBRIDGE"
+   "solution": "CAMBRIDGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAMBRIDGE",
+    "definitions": [
+     {
+      "text": "Its teams are a shade lighter than opponents",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Its teams are a shade lighter",
+      "note": "surface reading: a side whose players weigh a little less"
+     },
+     {
+      "clueFragment": "than opponents",
+      "note": "setter's reading: this university's sporting colour is a paler blue than its great rival Oxford's dark blue"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lighter' suggests weight, as in a rowing crew; it means colour. The two ancient English universities compete in light blue and dark blue.",
+     "definitionFit": "This university's sporting colour is light blue, a paler shade than the dark blue worn by its Oxford rivals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lighter"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1169,45 @@
     "text": "Part of education that could be spent in the past",
     "enumeration": "5"
    },
-   "solution": "DUCAT"
+   "solution": "DUCAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DUCAT",
+    "definitions": [
+     {
+      "text": "that could be spent in the past",
+      "at": 18,
+      "note": "a descriptive clause standing for a noun: an old coin"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "a part of something is a piece within it, so look inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "education",
+      "gives": "DUCAT",
+      "note": "the middle letters of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A reflection on which parts of one's schooling might have been better used in earlier years.",
+     "walkthrough": "'Spent' reads as time spent studying, but it means money spent, so the definition is an old coin.",
+     "definitionFit": "The ducat was a gold or silver coin used across Europe for centuries, money no longer in circulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spent"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1221,54 @@
     "text": "Innocence as misrepresented in small-scale theory and research",
     "enumeration": "11"
    },
-   "solution": "NANOSCIENCE"
+   "solution": "NANOSCIENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NANOSCIENCE",
+    "definitions": [
+     {
+      "text": "small-scale theory and research",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misrepresented",
+      "for": "anagram",
+      "note": "something misrepresented is shown wrongly, so these letters are presented in a distorted order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Innocence as",
+      "gives": "INNOCENCEAS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INNOCENCEAS",
+       "gives": "NANOSCIENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that innocence has been portrayed falsely in some minor academic theory.",
+     "walkthrough": "'Small-scale' sounds dismissive, as if the research were minor, but it literally means working at the scale of atoms and molecules.",
+     "definitionFit": "Nanoscience is the study of structures measured in billionths of a metre, covering both theory and experiment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "small-scale"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1282,43 @@
     "text": "Patriarch who, to his friends, explained the gravity of the situation?",
     "enumeration": "5"
    },
-   "solution": "ISAAC"
+   "solution": "ISAAC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ISAAC",
+    "definitions": [
+     {
+      "text": "Patriarch",
+      "at": 0
+     },
+     {
+      "text": "who, to his friends, explained the gravity of the situation",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patriarch",
+      "note": "first meaning: the son of Abraham in Genesis"
+     },
+     {
+      "clueFragment": "who, to his friends, explained the gravity of the situation",
+      "note": "second meaning: the first name of Newton, which only friends would use"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The gravity of the situation' sounds like seriousness, but it means gravitation, explained by Newton; 'to his friends' asks for his first name.",
+     "definitionFit": "The name belongs to the Old Testament patriarch, son of Abraham, and to the physicist Newton who described gravity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gravity"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1332,61 @@
     "text": "Polite form of address reflected academic achievement",
     "enumeration": "4"
    },
-   "solution": "MAAM"
+   "solution": "MAAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MAAM",
+    "definitions": [
+     {
+      "text": "Polite form of address",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection in a mirror shows things back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic achievement",
+      "gives": "MA",
+      "note": "a Master of Arts degree"
+     },
+     {
+      "clueFragment": "academic achievement",
+      "gives": "MA",
+      "note": "the same degree again, this time mirrored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "AM"
+     ],
+     "reversals": [
+      {
+       "from": "MA",
+       "to": "AM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courteous title that reflects someone's academic success.",
+     "walkthrough": "The degree appears, then its mirror image follows it, giving a word that reads the same both ways.",
+     "definitionFit": "Ma'am, short for madam, is a respectful way to speak to a woman, famously used for the Queen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1400,46 @@
     "text": "Assumes they should be experts in their fields",
     "enumeration": "4"
    },
-   "solution": "DONS"
+   "solution": "DONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DONS",
+    "definitions": [
+     {
+      "text": "Assumes",
+      "at": 0
+     },
+     {
+      "text": "experts in their fields",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "they should be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assumes",
+      "note": "first meaning: puts on, as clothing or an air"
+     },
+     {
+      "clueFragment": "experts in their fields",
+      "note": "second meaning: university lecturers, scholars of their subjects"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Assumes' reads as supposes, but it is the sense of taking on clothing. A don is a teacher at Oxford or Cambridge.",
+     "definitionFit": "To don a garment is to put it on, assuming it; dons are learned university teachers specialising in a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Assumes"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1459,63 @@
      }
     ]
    },
-   "solution": "ATONCE"
+   "solution": "ATONCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AT ONCE",
+    "definitions": [
+     {
+      "text": "Immediately",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter only"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in agreement",
+      "gives": "ATONE",
+      "note": "people in agreement are at one"
+     },
+     {
+      "clueFragment": "Classics",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATON",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Students instantly agree on who came top in Classics.",
+     "walkthrough": "'First in Classics' looks like a top degree, but it means only the opening letter, which goes inside AT ONE.",
+     "definitionFit": "Doing something at once means doing it without delay, straight away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1529,67 @@
     "text": "Graduate, note, below me in musical club performances",
     "enumeration": "8"
    },
-   "solution": "CABARETS"
+   "solution": "CABARETS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CABARETS",
+    "definitions": [
+     {
+      "text": "club performances",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below me",
+      "for": "charade",
+      "note": "the speaker asks for the next item to sit beneath, that is after, itself"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "BA",
+      "note": "a Bachelor of Arts"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "re is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "CATS",
+      "note": "Cats is the Lloyd Webber stage musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BA",
+      "RE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate asks for a note placed under them while performing in a musical club's shows.",
+     "walkthrough": "The graduate is the speaker of 'me', so the note comes straight after the degree; in an across answer, below means later.",
+     "definitionFit": "Cabarets are entertainments of song, dance and comedy staged in nightclubs or restaurants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "me"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1603,55 @@
     "text": "Part of one’s old college, including second teacher",
     "enumeration": "6"
    },
-   "solution": "MASTER"
+   "solution": "MASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MASTER",
+    "definitions": [
+     {
+      "text": "teacher",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including something means holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of one’s old college",
+      "gives": "MATER",
+      "note": "the second word of alma mater, Latin for one's former school or college"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "S",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A former student remembers a teacher who was part of their old college.",
+     "walkthrough": "Alma mater means one's old school or university; take its second word and put S inside.",
+     "definitionFit": "A schoolmaster is a male teacher, and the word alone is still used for one in British schools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1665,69 @@
     "text": "Learned university craft with editor after editor",
     "enumeration": "8"
    },
-   "solution": "EDUCATED"
+   "solution": "EDUCATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EDUCATED",
+    "definitions": [
+     {
+      "text": "Learned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so one piece comes later in the line"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the usual abbreviation for editor"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "CAT",
+      "note": "a cat is a catamaran, a type of boat"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "the same abbreviation again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "U",
+      "CAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A learned person at university studies a skill alongside a succession of editors.",
+     "walkthrough": "'Learned' is an adjective meaning scholarly, not the past tense of learn. 'Craft' means a boat, not a skill.",
+     "definitionFit": "Someone educated has received schooling and knowledge, which is what a learned, scholarly person has."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   }
  ]
 }
