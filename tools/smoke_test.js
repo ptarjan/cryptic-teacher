@@ -2105,11 +2105,14 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 // own words. It says whose marks those are, and links to the full write-up.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
+  // A definition read off the letters is ours, and badged so (blogHintsBadge).
+  const blogDef = (e) => !e.annotation && e.blog && (e.blog.definitions || []).length === 1
+    && !(e.blog.inferred || []).includes("definitions");
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog
-    && puzzles[p.id].entries.some((e) => !e.annotation && e.blog && (e.blog.definitions || []).length === 1));
+    && puzzles[p.id].entries.some(blogDef));
   if (assert(target, "the sample holds an un-annotated puzzle with blog facts")) {
     const puz = puzzles[target.id];
-    const e = puz.entries.find((x) => !x.annotation && x.blog && (x.blog.definitions || []).length === 1);
+    const e = puz.entries.find(blogDef);
     // As the page prints it: "Big Dave's" arrives as "Big Dave&#39;s".
     const blogName = puz.blog.name.replace(/&/g, "&amp;").replace(/'/g, "&#39;");
     if (openFromPicker(target.id)) {
