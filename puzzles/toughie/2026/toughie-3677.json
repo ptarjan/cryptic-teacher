@@ -24,6 +24,9 @@
   "date": "2026-04-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,56 @@
     "text": "“Booze Cruise” character on a mission starts to order limoncello",
     "enumeration": "7"
    },
-   "solution": "ETHANOL"
+   "solution": "ETHANOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ETHANOL",
+    "definitions": [
+     {
+      "text": "Booze",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only the first letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruise” character on a mission",
+      "gives": "ETHAN",
+      "note": "Ethan Hunt is the agent Tom Cruise plays in the Mission: Impossible films"
+     },
+     {
+      "clueFragment": "order limoncello",
+      "gives": "OL",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETHAN",
+      "OL"
+     ]
+    },
+    "explanation": {
+     "surface": "A character on a drunken holiday cruise orders a glass of limoncello.",
+     "walkthrough": "The quotation marks join 'Booze Cruise' into a title, but the split falls between the words: Booze is the definition and Cruise is the actor.",
+     "definitionFit": "Ethanol is the chemical name for the alcohol found in every alcoholic drink, so it stands for drink itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cruise"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +103,67 @@
     "text": "New fanzine featuring, primarily, Leeds United that’s infectious",
     "enumeration": "9"
    },
-   "solution": "INFLUENZA"
+   "solution": "INFLUENZA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INFLUENZA",
+    "definitions": [
+     {
+      "text": "that’s infectious",
+      "at": 47,
+      "note": "an adjectival phrase for a noun: the answer is the thing that is infectious"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is remade, so the letters are rebuilt in a different order"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the leading letters are kept"
+     }
+    ],
+    "linkWords": [
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fanzine",
+      "gives": "FANZINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Leeds United",
+      "gives": "LU",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FANZINELU",
+       "gives": "INFLUENZA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new football fanzine about Leeds United is catching on with fans.",
+     "walkthrough": "'Infectious' sounds like praise for the magazine's enthusiasm; it is the definition. Leeds United is an English football club.",
+     "definitionFit": "Influenza is the contagious viral illness commonly called flu, a disease spread from person to person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "infectious"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +177,76 @@
     "text": "Grand Hotel decaying with walls stripped over in poor quarter",
     "enumeration": "6"
    },
-   "solution": "GHETTO"
+   "solution": "GHETTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "GHETTO",
+    "definitions": [
+     {
+      "text": "poor quarter",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "walls stripped",
+      "for": "deletion",
+      "note": "a building's walls are its outside, so stripping them removes the outer letters"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped end to end, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is the abbreviation for grand, a thousand"
+     },
+     {
+      "clueFragment": "Hotel",
+      "gives": "H",
+      "note": "H is Hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "decaying",
+      "gives": "ROTTEN",
+      "note": "something decaying is rotten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "H",
+      "ETTO"
+     ],
+     "reversals": [
+      {
+       "from": "OTTE",
+       "to": "ETTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A once-grand hotel falls apart, its walls stripped bare, in a run-down part of town.",
+     "walkthrough": "With its outer letters gone, the word for decaying leaves OTTE, which is turned over to ETTO after G and H.",
+     "definitionFit": "A ghetto is a deprived urban district, a slum area where poorer people are crowded together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +266,63 @@
      }
     ]
    },
-   "solution": "CIGARBOX"
+   "solution": "CIGARBOX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CIGAR BOX",
+    "definitions": [
+     {
+      "text": "smokes here",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "'in which' says something sits inside the pair just named, so one piece goes within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chapter",
+      "gives": "C",
+      "note": "C is the abbreviation for chapter"
+     },
+     {
+      "clueFragment": "nine",
+      "gives": "IX",
+      "note": "IX is nine in Roman numerals"
+     },
+     {
+      "clueFragment": "cool Swede",
+      "gives": "GARBO",
+      "note": "Greta Garbo, the famously aloof Swedish film star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "I",
+      "GARBO",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A book chapter in which a cool Swedish character lights up a cigarette.",
+     "walkthrough": "'Smokes here' is a cryptic definition: the place where smokes are kept. Garbo was known for wanting to be alone, hence cool.",
+     "definitionFit": "A cigar box is a container in which cigars, informally smokes, are stored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smokes"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +342,66 @@
      }
     ]
    },
-   "solution": "COVERTOPERATION"
+   "solution": "COVERTOPERATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVERT OPERATION",
+    "definitions": [
+     {
+      "text": "secret assignment",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' says what follows comes later in the answer, fixing the running order of the parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "completed",
+      "gives": "OVER",
+      "note": "something completed is over"
+     },
+     {
+      "clueFragment": "Drink",
+      "gives": "TOPE",
+      "note": "to tope is to drink heavily"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a ration is a portion or helping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER",
+      "TOPE",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy is rewarded with a drink after finishing a secret mission.",
+     "walkthrough": "Tope is an old verb meaning to drink alcohol to excess; a toper is a drunkard.",
+     "definitionFit": "A covert operation is a clandestine mission carried out without public knowledge, a hidden task."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +421,57 @@
      }
     ]
    },
-   "solution": "GOLDCARD"
+   "solution": "GOLDCARD",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "GOLD CARD",
+    "definitions": [
+     {
+      "text": "One should give him credit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "William Spooner swapped the opening sounds of words, so the starting sounds trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shivering",
+      "gives": "GOLD",
+      "soundsLike": "COLD",
+      "note": "a shivering person is cold; it takes the opening sound of the next word"
+     },
+     {
+      "clueFragment": "sentry",
+      "gives": "CARD",
+      "soundsLike": "GUARD",
+      "note": "a sentry is a guard; it takes the opening sound of the previous word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLD",
+      "CARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A freezing sentry on duty deserves some credit for sticking it out.",
+     "walkthrough": "'Give him credit' sounds like praise for the guard, but it is literal: a card that lends money to its holder.",
+     "definitionFit": "A gold card is a premium credit card, a plastic payment card offering its holder a high spending limit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +485,48 @@
     "text": "Old Rob discovered much-loved striker Jimmy",
     "enumeration": "5"
    },
-   "solution": "REAVE"
+   "solution": "REAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REAVE",
+    "definitions": [
+     {
+      "text": "Old Rob",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means with its covering taken off, so the outside letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much-loved striker Jimmy",
+      "gives": "GREAVES",
+      "note": "Jimmy Greaves, the prolific England and Tottenham goalscorer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old man named Rob found a beloved footballer called Jimmy.",
+     "walkthrough": "'Discovered' looks like 'found' but means uncovered. A striker is a goalscoring forward in football.",
+     "definitionFit": "Reave is an archaic verb meaning to plunder or carry off by force, hence an old word for steal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +540,39 @@
     "text": "Chap carrying blade who’s up for a row?",
     "enumeration": "7"
    },
-   "solution": "OARSMAN"
+   "solution": "OARSMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OARSMAN",
+    "definitions": [
+     {
+      "text": "Chap carrying blade who’s up for a row?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap carrying blade who’s up for a row?",
+      "note": "surface reading: an armed man spoiling for a fight"
+     },
+     {
+      "clueFragment": "Chap carrying blade",
+      "note": "setter's reading: the blade is the flat end of a rowing oar, and a row is a trip on the water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Row rhymes with cow in the surface and with low in the answer; a blade is part of an oar, not a knife.",
+     "definitionFit": "A person who propels a boat with paddles in a crew is someone ready for a trip on the river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blade"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +586,48 @@
     "text": "One smelt, small fish",
     "enumeration": "6"
    },
-   "solution": "STENCH"
+   "solution": "STENCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STENCH",
+    "definitions": [
+     {
+      "text": "One smelt",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TENCH",
+      "note": "a tench is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sniffs out a small fish that has gone off.",
+     "walkthrough": "A smelt is also a small fish, so the clue seems to be about fish; here smelt is the past tense of smell.",
+     "definitionFit": "A stench is a strong unpleasant odour, something that was noticed by the nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smelt"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +641,74 @@
     "text": "French writer Victor Hugo gutted, left terribly irate",
     "enumeration": "8"
    },
-   "solution": "VOLTAIRE"
+   "solution": "VOLTAIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "VOLTAIRE",
+    "definitions": [
+     {
+      "text": "French writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted thing has had its insides removed, leaving only the outer shell"
+     },
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "something done terribly is badly messed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor Hugo",
+      "gives": "VO",
+      "select": "outer",
+      "note": "the first and last letters of the name"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "irate",
+      "gives": "IRATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VO",
+      "L",
+      "TAIRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRATE",
+       "gives": "TAIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French writer left Victor Hugo devastated and furious.",
+     "walkthrough": "Victor Hugo, a French writer himself, tempts as the definition; he only supplies his outer letters.",
+     "definitionFit": "Voltaire was the pen name of the eighteenth-century Enlightenment author of Candide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hugo"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +722,62 @@
     "text": "Carmen character runs away – such a melt!",
     "enumeration": "8"
    },
-   "solution": "RACLETTE"
+   "solution": "RACLETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RACLETTE",
+    "definitions": [
+     {
+      "text": "such a melt",
+      "at": 29,
+      "note": "a phrase pointing at an example: the answer is a kind of melt"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "what goes away is no longer there, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carmen",
+      "gives": "RAC",
+      "note": "read as car men: the Royal Automobile Club, Britain's motoring organisation"
+     },
+     {
+      "clueFragment": "character",
+      "gives": "LETTER",
+      "note": "a character is a letter of the alphabet"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAC",
+      "LETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A character in the opera Carmen flees the stage, an emotional meltdown.",
+     "walkthrough": "Carmen looks like Bizet's opera; split it into car men. Removing R from the second word leaves LETTE.",
+     "definitionFit": "Raclette is a Swiss dish of cheese heated until soft and scraped onto potatoes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carmen"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +791,59 @@
     "text": "Rich Sixties supergroup last seen in Glastonbury",
     "enumeration": "6"
    },
-   "solution": "CREAMY"
+   "solution": "CREAMY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CREAMY",
+    "definitions": [
+     {
+      "text": "Rich",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last seen",
+      "for": "letter_selection",
+      "note": "the last thing seen of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sixties supergroup",
+      "gives": "CREAM",
+      "note": "Cream was the 1960s band of Eric Clapton, Jack Bruce and Ginger Baker"
+     },
+     {
+      "clueFragment": "Glastonbury",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREAM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy old 1960s supergroup makes a final appearance at Glastonbury.",
+     "walkthrough": "Glastonbury is the big English music festival, which fits the band; it gives only its last letter.",
+     "definitionFit": "Creamy food is full of fat and smooth, the sense of rich used of sauces and desserts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rich"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +857,67 @@
     "text": "Most advanced keep holding a few back",
     "enumeration": "8"
    },
-   "solution": "FOREMOST"
+   "solution": "FOREMOST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FOREMOST",
+    "definitions": [
+     {
+      "text": "Most advanced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to have it inside, so one piece goes within the other"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keep",
+      "gives": "FORT",
+      "note": "a keep is a castle stronghold, a fort"
+     },
+     {
+      "clueFragment": "a few",
+      "gives": "SOME",
+      "note": "a few is some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "EMOS",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "SOME",
+       "to": "EMOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The leading troops hold back a few of their number.",
+     "walkthrough": "'Keep' looks like a verb pairing with 'holding'; it is the noun for a castle tower.",
+     "definitionFit": "Foremost means first in position or rank, the leading one ahead of all others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +937,68 @@
      }
     ]
    },
-   "solution": "ONREMAND"
+   "solution": "ONREMAND",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ON REMAND",
+    "definitions": [
+     {
+      "text": "in custody",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Preserving",
+      "for": "container",
+      "note": "preserving something means keeping it safe within, so one piece is held inside"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond villain",
+      "gives": "DRNO",
+      "note": "Dr No, the villain of the first James Bond film"
+     },
+     {
+      "clueFragment": "reputation",
+      "gives": "NAME",
+      "note": "a good name is a reputation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "R",
+      "EMAN",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DNAMERNO",
+       "to": "ONREMAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Bond villain, keen to protect his good name, ends up back behind bars.",
+     "walkthrough": "The villain's name is split after D to take in the reputation word, and the whole is then turned around.",
+     "definitionFit": "A prisoner on remand is held in jail awaiting trial, so they are detained by the authorities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Preserving"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1012,49 @@
     "text": "Dude, just do one vegetable",
     "enumeration": "9"
    },
-   "solution": "MANGETOUT"
+   "solution": "MANGETOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANGETOUT",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dude",
+      "gives": "MAN",
+      "note": "dude and man are both slang forms of address"
+     },
+     {
+      "clueFragment": "just do one",
+      "gives": "GETOUT",
+      "note": "'do one' is British slang for go away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "GET",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a mate to get lost, calling him a vegetable.",
+     "walkthrough": "'Do one' is rude British slang for clear off. A mangetout is the flat pea pod Americans call a snow pea.",
+     "definitionFit": "Mangetout is a type of pea eaten whole in its pod, a green garden plant grown for the table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1068,67 @@
     "text": "Stew of tuna and gar fed Ordinary Seaman",
     "enumeration": "8"
    },
-   "solution": "ARGONAUT"
+   "solution": "ARGONAUT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "ARGONAUT",
+    "definitions": [
+     {
+      "text": "Seaman",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed",
+      "for": "container",
+      "note": "what is fed is taken inside, so a letter goes in among the others"
+     },
+     {
+      "text": "Stew of",
+      "for": "anagram",
+      "note": "a stew is a mixed jumble cooked together, so the letters are stirred up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tuna",
+      "gives": "TUNA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gar",
+      "gives": "GAR",
+      "note": "taken as written; a gar is a long-snouted fish"
+     },
+     {
+      "clueFragment": "Ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUNAGARO",
+       "gives": "ARGONAUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish stew is served to an ordinary seaman on board ship.",
+     "walkthrough": "'Ordinary Seaman' looks like the rank; Ordinary supplies O and Seaman alone is the definition.",
+     "definitionFit": "The Argonauts were the sailors who crewed the Argo with Jason in Greek myth, hence mariners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ordinary"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1142,43 @@
     "text": "Fulfil agreement to have concealed wire",
     "enumeration": "8"
    },
-   "solution": "FILAGREE"
+   "solution": "FILAGREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FILAGREE",
+    "definitions": [
+     {
+      "text": "wire",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to have concealed",
+      "for": "hidden_word",
+      "note": "what is concealed is tucked away inside, so the answer lies within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fulfil agreement",
+      "gives": "FILAGREE",
+      "note": "runs across the end of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone honours a deal that required them to hide a listening device.",
+     "walkthrough": "Wire suggests a hidden microphone; it is the definition, for delicate metalwork.",
+     "definitionFit": "Filagree, more often spelt filigree, is ornamental work made from fine twisted metal threads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wire"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1202,58 @@
      }
     ]
    },
-   "solution": "INARAGE"
+   "solution": "INARAGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IN A RAGE",
+    "definitions": [
+     {
+      "text": "Furious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stolen from",
+      "for": "deletion",
+      "note": "what is stolen is taken away, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf",
+      "gives": "G",
+      "note": "G is Golf in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "its covered parking spot",
+      "gives": "INAGARAGE",
+      "note": "where a car is kept under cover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INA",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An owner is livid after their VW Golf is stolen from its garage.",
+     "walkthrough": "Golf reads as the Volkswagen car; it is the letter G, taken out of the place where a car sits under cover.",
+     "definitionFit": "Being in a rage means being very angry, an idiom for losing your temper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Golf"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1267,77 @@
     "text": "Frenzied, briefly forgetting year wasted on drug",
     "enumeration": "7"
    },
-   "solution": "FEBRILE"
+   "solution": "FEBRILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "FEBRILE",
+    "definitions": [
+     {
+      "text": "Frenzied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgetting",
+      "for": "deletion",
+      "note": "what is forgotten is left out, so that letter is dropped"
+     },
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "wasted means wrecked or drunk, so the letters stagger into a new order"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down answer one piece written on another sits above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "briefly",
+      "gives": "BRIEFLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEBRIL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRIEFL",
+       "gives": "FEBRIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild spell of frenzy: a short-lived year wasted on drugs.",
+     "walkthrough": "'Briefly' reads as an adverb meaning for a short time, but it is the raw letters to rearrange once Y is gone.",
+     "definitionFit": "Febrile means feverish, and by extension nervously excited or hectic, as in a febrile atmosphere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1351,49 @@
     "text": "Moved around and performed dance again",
     "enumeration": "8"
    },
-   "solution": "REJIGGED"
+   "solution": "REJIGGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REJIGGED",
+    "definitions": [
+     {
+      "text": "Moved around",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "RE",
+      "note": "the prefix meaning again"
+     },
+     {
+      "clueFragment": "performed dance",
+      "gives": "JIGGED",
+      "note": "to jig is to dance a jig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "JIGGED"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer moves about the floor and performs the routine one more time.",
+     "walkthrough": "The wordplay is read in reverse order: the 'again' prefix goes in front of the dancing verb.",
+     "definitionFit": "To rejig is to rearrange or reorganise, so rejigged things have been shifted into new positions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1407,57 @@
     "text": "Rising counsel, a KC, a judge defending a contract killer",
     "enumeration": "6"
    },
-   "solution": "JACKAL"
+   "solution": "JACKAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "JACKAL",
+    "definitions": [
+     {
+      "text": "a contract killer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "hidden_word",
+      "note": "to defend is to keep something safe within, so the answer is held inside the words"
+     },
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down answer rising means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counsel, a KC, a judge",
+      "gives": "LAKCAJ",
+      "note": "spans the last letter of the first word to the first letter of the last"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LAKCAJ",
+       "to": "JACKAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An up-and-coming barrister and a judge defend a hired assassin in court.",
+     "walkthrough": "A KC is a King's Counsel, a senior British barrister; the legal setting is camouflage for a hidden run read upwards.",
+     "definitionFit": "The Jackal is the hired assassin in Frederick Forsyth's thriller The Day of the Jackal, hence a hitman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "defending"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1471,68 @@
     "text": "Singular program for downloading introduction to Homer (old poet)",
     "enumeration": "6"
    },
-   "solution": "SAPPHO"
+   "solution": "SAPPHO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SAPPHO",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular",
+      "gives": "S",
+      "note": "S is the abbreviation for singular"
+     },
+     {
+      "clueFragment": "program for downloading",
+      "gives": "APP",
+      "note": "an app is a downloadable program"
+     },
+     {
+      "clueFragment": "Homer",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of the name"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "APP",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual app lets you download an introduction to Homer, the ancient poet.",
+     "walkthrough": "The bracket makes '(old poet)' look like a gloss on Homer; old gives O and only poet defines.",
+     "definitionFit": "Sappho was the ancient Greek lyric writer from Lesbos, famed for her verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Homer"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1546,53 @@
     "text": "Jumped clear of Sierra car crash",
     "enumeration": "5"
    },
-   "solution": "PRANG"
+   "solution": "PRANG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PRANG",
+    "definitions": [
+     {
+      "text": "car crash",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clear of",
+      "for": "deletion",
+      "note": "to be clear of something is to be free of it, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jumped",
+      "gives": "SPRANG",
+      "note": "sprang is a past tense of spring, to jump"
+     },
+     {
+      "clueFragment": "Sierra",
+      "gives": "S",
+      "note": "S is Sierra in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver leapt out of a Ford Sierra just before it crashed.",
+     "walkthrough": "The Sierra was a popular Ford car, which suits the crash; here it is the letter S. Prang is British slang for a minor crash.",
+     "definitionFit": "A prang is an informal word for a collision involving a vehicle, usually a minor bump."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sierra"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1606,73 @@
     "text": "Tight-lipped, I go after flipping moggy",
     "enumeration": "8"
    },
-   "solution": "TACITURN"
+   "solution": "TACITURN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TACITURN",
+    "definitions": [
+     {
+      "text": "Tight-lipped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the letters run backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the first pieces behind the next one, setting the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moggy",
+      "gives": "CAT",
+      "note": "moggy is British slang for an ordinary cat"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "TURN",
+      "note": "a go in a game is a turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "I",
+      "TURN"
+     ],
+     "reversals": [
+      {
+       "from": "CAT",
+       "to": "TAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays grimly silent while chasing a wildly misbehaving cat.",
+     "walkthrough": "'Flipping' reads as a mild British swearword, as in flipping cat; it is the reversal signal. 'Go' is the noun meaning a turn, not the verb.",
+     "definitionFit": "Taciturn means reserved and saying little, so a taciturn person keeps their mouth shut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1686,81 @@
     "text": "Squid Game essentially in, roughly speaking, nasty lair",
     "enumeration": "8"
    },
-   "solution": "CALAMARI"
+   "solution": "CALAMARI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "CALAMARI",
+    "definitions": [
+     {
+      "text": "Squid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its middle letters are kept"
+     },
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "something nasty is twisted and disagreeable, so the letters are distorted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roughly speaking",
+      "gives": "CA",
+      "note": "ca, for circa, means roughly or approximately"
+     },
+     {
+      "clueFragment": "Game",
+      "gives": "AM",
+      "select": "middle",
+      "note": "the two middle letters of the word"
+     },
+     {
+      "clueFragment": "lair",
+      "gives": "LAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "L",
+      "AM",
+      "ARI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAIR",
+       "gives": "LARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Squid Game, the TV drama, roughly speaking takes place in a horrible den.",
+     "walkthrough": "'Squid Game' is the Korean television series; the title splits, Squid defining and Game supplying its core.",
+     "definitionFit": "Calamari is squid prepared as food, the Italian name for the creature on a menu."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1774,61 @@
     "text": "The Eagle water bottles one pound",
     "enumeration": "6"
    },
-   "solution": "AQUILA"
+   "solution": "AQUILA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AQUILA",
+    "definitions": [
+     {
+      "text": "The Eagle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to seal it inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "AQUA",
+      "note": "aqua is Latin for water"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one in Roman numerals"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the symbol for a pound sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AQU",
+      "I",
+      "L",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The Eagle, a pub perhaps, sells bottled water for a pound.",
+     "walkthrough": "Pound could be a weight, LB; here it is money, L, from the Latin libra.",
+     "definitionFit": "Aquila is a constellation of the northern sky named from the Latin word for that bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1842,56 @@
     "text": "Raise layer covering a rowing boat",
     "enumeration": "8"
    },
-   "solution": "HEIGHTEN"
+   "solution": "HEIGHTEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEIGHTEN",
+    "definitions": [
+     {
+      "text": "Raise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap round it, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "layer",
+      "gives": "HEN",
+      "note": "a hen is a layer of eggs"
+     },
+     {
+      "clueFragment": "a rowing boat",
+      "gives": "EIGHT",
+      "note": "an eight is a racing boat rowed by eight oarsmen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EIGHT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Lift a protective layer over a rowing boat.",
+     "walkthrough": "'Layer' suggests a coat of paint; it is the bird that lays eggs.",
+     "definitionFit": "To heighten is to make higher or increase, just as to raise lifts something up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "layer"
+    }
+   }
   }
  ]
 }
