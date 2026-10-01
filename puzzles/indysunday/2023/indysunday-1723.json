@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,81 @@
     "text": "Pipe is turned back; new plumbing at last stopping flood",
     "enumeration": "6"
    },
-   "solution": "ENGULF"
+   "solution": "ENGULF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ENGULF",
+    "definitions": [
+     {
+      "text": "flood",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is turned back",
+      "for": "reversal",
+      "note": "something turned back faces the other way, so the letters are read from right to left"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final position, so only the closing letter of the word is kept"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so these letters sit inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pipe",
+      "gives": "FLUE",
+      "note": "a flue is a pipe or duct carrying smoke from a fire"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "plumbing",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of plumbing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "G",
+      "ULF"
+     ],
+     "reversals": [
+      {
+       "from": "FLUE",
+       "to": "EULF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber's notes on a flood: a pipe has twisted round, and the new plumbing is finally holding back the water.",
+     "walkthrough": "The reversed pipe EULF opens after its first letter to take N and G, giving E-NG-ULF.",
+     "definitionFit": "To engulf is to swamp or overwhelm with water, which is exactly what a flood does to land or buildings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pipe"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +124,74 @@
     "text": "One's left out of European threesome: keeping English for all time",
     "enumeration": "8"
    },
-   "solution": "ETERNITY"
+   "solution": "ETERNITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ETERNITY",
+    "definitions": [
+     {
+      "text": "all time",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out of",
+      "for": "deletion",
+      "note": "something left out of a group is omitted, so that letter is dropped from the word"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "threesome",
+      "gives": "TRINITY",
+      "note": "a trinity is a group of three"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "E",
+      "RNITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drops out of a three-person European team, which hangs on to its English member forever.",
+     "walkthrough": "'One' is I as a Roman numeral, so 'one's left out' removes an I; the second E then slots in after the opening two letters.",
+     "definitionFit": "Eternity is endless time without beginning or end, the whole of time considered together, a direct synonym phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "threesome"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +211,55 @@
      }
     ]
    },
-   "solution": "GOODOMENS"
+   "solution": "GOODOMENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOOD OMENS",
+    "definitions": [
+     {
+      "text": "Encouraging reports",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "to go round something is to surround it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old comedians",
+      "gives": "GOONS",
+      "note": "the Goons were the comedy team of the 1950s radio programme The Goon Show"
+     },
+     {
+      "clueFragment": "St Paul's",
+      "gives": "DOME",
+      "note": "St Paul's Cathedral in London is famous for its great dome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOO",
+      "DOME",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Tourists hear cheering accounts of veteran comics touring St Paul's Cathedral.",
+     "walkthrough": "The Goons (Spike Milligan, Peter Sellers, Harry Secombe) split as GOO...NS around DOME. The question mark flags St Paul's as an example: the cathedral stands for its dome.",
+     "definitionFit": "Good omens are favourable signs or portents, things that bring hopeful news about what is going to happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reports"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +273,48 @@
     "text": "Ignores out-of-bounds yob",
     "enumeration": "4"
    },
-   "solution": "LOUT"
+   "solution": "LOUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOUT",
+    "definitions": [
+     {
+      "text": "yob",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out-of-bounds",
+      "for": "deletion",
+      "note": "the bounds of a word are its two ends, and putting them out leaves only the inside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ignores",
+      "gives": "FLOUTS",
+      "note": "to flout a rule is to ignore it openly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A thug pays no attention to signs marking forbidden ground.",
+     "walkthrough": "FLOUTS loses its first and last letters to leave LOUT. 'Out-of-bounds' reads as a single adjective describing the yob, but it is the instruction to strip the edges.",
+     "definitionFit": "A yob is a British word for a rough, uncouth young man, and a lout is the same sort of boorish person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out-of-bounds"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +328,68 @@
     "text": "Crazy man kidnaps Heath, Statesman",
     "enumeration": "8"
    },
-   "solution": "AMERICAN"
+   "solution": "AMERICAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AMERICAN",
+    "definitions": [
+     {
+      "text": "Statesman",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crazy",
+      "for": "anagram",
+      "note": "something crazy is disordered, so the letters come out in a jumbled arrangement"
+     },
+     {
+      "text": "kidnaps",
+      "for": "container",
+      "note": "a kidnapper holds a captive, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Heath",
+      "gives": "ERICA",
+      "note": "Erica is the botanical name for heath or heather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "ERICA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAN",
+       "gives": "AMN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged man abducts Edward Heath, the former British Prime Minister and statesman.",
+     "walkthrough": "Heath looks like Edward Heath, British Prime Minister 1970-74, but it is the plant. The definition splits Statesman as States-man: a man from the United States.",
+     "definitionFit": "Read as States-man, a statesman is a man from the States, which is a citizen of the USA, an American."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heath"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +403,62 @@
     "text": "Shy rodent suffering internal reflex: it's often seen standing on hind legs",
     "enumeration": "7"
    },
-   "solution": "MEERKAT"
+   "solution": "MEERKAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MEERKAT",
+    "definitions": [
+     {
+      "text": "it's often seen standing on hind legs",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering internal reflex",
+      "for": "reversal",
+      "note": "a reflex bends back on itself, and an internal one turns round only the letters in the middle of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shy",
+      "gives": "MEEK",
+      "note": "meek means timid or retiring"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "RAT",
+      "note": "a rat is a rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEE",
+      "RK",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "KR",
+       "to": "RK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timid rodent with some inner nervous reaction, typically rearing up on its back legs.",
+     "walkthrough": "The 'internal reflex' turns round only the two letters where the words meet, leaving both ends in place; the definition is a description rather than a synonym.",
+     "definitionFit": "Meerkats famously stand upright on their back feet as sentries, watching for predators across the African scrub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reflex"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +478,61 @@
      }
     ]
    },
-   "solution": "ROWINGBOAT"
+   "solution": "ROWINGBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROWING BOAT",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unexpectedly",
+      "for": "anagram",
+      "note": "something that happens unexpectedly breaks the expected order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go to war",
+      "gives": "GOTOWAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOTOWARINB",
+       "gives": "ROWINGBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation suddenly enters a war aboard a British warship.",
+     "walkthrough": "'In British vessel' reads as a place, but 'in' is fodder alongside the letters of 'go to war' and B.",
+     "definitionFit": "A rowing boat is a small craft propelled by oars, and any boat is a vessel in the general sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +546,47 @@
     "text": "Pick 100-500 sheets of paper",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "Pick",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "500 sheets of paper",
+      "gives": "REAM",
+      "note": "a ream is 500 sheets of paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction at the stationer's: choose a quantity of between one and five hundred sheets.",
+     "walkthrough": "'100-500' looks like a range of numbers but is two separate pieces: 100 on its own, and 500 sheets.",
+     "definitionFit": "The pick of a group is its best part, and the cream is likewise the finest selection, as in the cream of the crop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "100-500"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +600,67 @@
     "text": "Legwear only tossed between partners",
     "enumeration": "6"
    },
-   "solution": "NYLONS"
+   "solution": "NYLONS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NYLONS",
+    "definitions": [
+     {
+      "text": "Legwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed",
+      "for": "anagram",
+      "note": "something tossed is thrown about, so its letters land in a new arrangement"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "something placed between two things is flanked by them, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only",
+      "gives": "ONLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "NS",
+      "note": "North and South are partners at the bridge table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "YLON",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONLY",
+       "gives": "YLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stockings are flung back and forth between a couple.",
+     "walkthrough": "In bridge, the four players are named by compass point, and North-South form one partnership.",
+     "definitionFit": "Nylons are women's stockings made from nylon fibre, so they are a kind of legwear in everyday use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +674,50 @@
     "text": "Launch list of international delegates?",
     "enumeration": "6"
    },
-   "solution": "UNROLL"
+   "solution": "UNROLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNROLL",
+    "definitions": [
+     {
+      "text": "Launch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international delegates",
+      "gives": "UN",
+      "note": "the UN, the United Nations, is the international body of national delegates"
+     },
+     {
+      "clueFragment": "list",
+      "gives": "ROLL",
+      "note": "a roll is an official list of names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "ROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "An announcement that a list of foreign representatives is being published.",
+     "walkthrough": "The question mark flags the cryptic reading: a roll of delegates to the United Nations would be a UN roll.",
+     "definitionFit": "To launch a campaign or product is to roll it out or unroll it, setting it going for the public to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Launch"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +731,66 @@
     "text": "Expressive performance of Queen with cello, leaving out middle part unfortunately",
     "enumeration": "9"
    },
-   "solution": "ELOQUENCE"
+   "solution": "ELOQUENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ELOQUENCE",
+    "definitions": [
+     {
+      "text": "Expressive performance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving out middle part",
+      "for": "deletion",
+      "note": "leaving out the middle part means the central letter of the word is dropped"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that turn out unfortunately go awry, so the letters end up out of order"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "QUEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cello",
+      "gives": "CELO",
+      "note": "cello with its central letter dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUEENCELO",
+       "gives": "ELOQUENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review of a rock band's concert: Queen played with a cellist, but the middle section was sadly cut.",
+     "walkthrough": "Queen wants to be the rock band or ER, but it is taken whole as fodder. CELLO has five letters, so its middle one is the third, an L.",
+     "definitionFit": "Eloquence is fluent, persuasive and moving speech, which is a forceful, expressive use of language in performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +804,47 @@
     "text": "Turn round with order for Rover?",
     "enumeration": "5"
    },
-   "solution": "WHEEL"
+   "solution": "WHEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEEL",
+    "definitions": [
+     {
+      "text": "Turn round",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "order for Rover",
+      "gives": "HEEL",
+      "note": "Heel! is the command telling a dog to walk close behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog trainer tells the dog to turn round.",
+     "walkthrough": "Rover is a stock name for a dog; the question mark flags that Rover is just an example of one.",
+     "definitionFit": "To wheel is to pivot or swing about, as soldiers wheel on parade, so it means turn round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rover"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +858,50 @@
     "text": "Approval withheld for shelter",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "shelter",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "withheld",
+      "gives": "NO",
+      "note": "withholding consent is saying no"
+     },
+     {
+      "clueFragment": "Approval",
+      "gives": "OK",
+      "note": "an OK is approval"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "Planning permission is refused for a shelter.",
+     "walkthrough": "The phrase is read literally: approval is OK, and approval withheld is NO OK.",
+     "definitionFit": "A nook is a small, sheltered corner or recess, a secluded spot offering protection and retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "withheld"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +921,70 @@
      }
     ]
    },
-   "solution": "WORKINGMEN"
+   "solution": "WORKINGMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WORKING MEN",
+    "definitions": [
+     {
+      "text": "They may enjoy club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertain",
+      "for": "container",
+      "note": "to entertain guests is to take them into your home, so the hosting letters wrap round the guests"
+     },
+     {
+      "text": "after another",
+      "for": "charade",
+      "note": "one thing coming after another sets them side by side in a fixed order"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladies",
+      "gives": "WOMEN",
+      "note": "ladies are women"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "R",
+      "note": "R is the chess notation for a rook, another piece"
+     },
+     {
+      "clueFragment": "one piece",
+      "gives": "KING",
+      "note": "the king is a chess piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "R",
+      "KING",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Men frequent a club where the ladies put on a show, one act after another.",
+     "walkthrough": "'Piece' means a chess piece, and 'another' is a second one, the rook, written R in chess notation. A working men's club is a British social club for manual workers.",
+     "definitionFit": "Working men's clubs were founded for labourers, so working men are the members who would enjoy one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +998,56 @@
     "text": "Doris, maybe 27, accompanied by journalist, wasn't paying attention",
     "enumeration": "10"
    },
-   "solution": "DAYDREAMED"
+   "solution": "DAYDREAMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAYDREAMED",
+    "definitions": [
+     {
+      "text": "wasn't paying attention",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "accompanied by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doris, maybe",
+      "gives": "DAY",
+      "note": "Doris Day was the American singer and film star"
+     },
+     {
+      "clueFragment": "27",
+      "gives": "DREAM",
+      "note": "the answer to clue 27, imagine"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, short for editor, is a stock crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAY",
+      "DREAM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Doris, perhaps the 27-year-old, out with a reporter, wasn't listening.",
+     "walkthrough": "'Doris, maybe' signals a surname: Doris is one example of a Day. The 27 refers to the answer at 27-across.",
+     "definitionFit": "To daydream is to let the mind drift into pleasant fantasy, so someone daydreaming is distracted and inattentive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "27"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1061,66 @@
     "text": "Sean was regularly interrupting work for digital growth",
     "enumeration": "7"
    },
-   "solution": "TOENAIL"
+   "solution": "TOENAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOENAIL",
+    "definitions": [
+     {
+      "text": "digital growth",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is taken"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle, so these letters go inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "TOIL",
+      "note": "toil is hard work"
+     },
+     {
+      "clueFragment": "Sean was",
+      "gives": "ENA",
+      "select": "alternate",
+      "note": "the even letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ENA",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "Sean kept butting in on a project about the growth of the digital economy.",
+     "walkthrough": "'Digital' suggests computers, but digits are also fingers and toes.",
+     "definitionFit": "A digit is a toe as well as a finger, and a toenail is the horny plate that grows on one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1134,55 @@
     "text": "Island also claiming catch",
     "enumeration": "6"
    },
-   "solution": "TOBAGO"
+   "solution": "TOBAGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOBAGO",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "to claim something is to take hold of it, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "catch",
+      "gives": "BAG",
+      "note": "to bag is to catch, as a hunter bags game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "BAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An island nation also lays claim to a fishing haul.",
+     "walkthrough": "Tobago is the smaller island of Trinidad and Tobago in the Caribbean.",
+     "definitionFit": "Tobago is a Caribbean island lying north-east of Trinidad, so it is a straightforward example of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1196,51 @@
     "text": "Drag a very dilapidated area for bodies",
     "enumeration": "9"
    },
-   "solution": "GRAVEYARD"
+   "solution": "GRAVEYARD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRAVEYARD",
+    "definitions": [
+     {
+      "text": "area for bodies",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dilapidated",
+      "for": "anagram",
+      "note": "something dilapidated has fallen apart, so the letters are in a broken-down new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drag a very",
+      "gives": "DRAGAVERY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRAGAVERY",
+       "gives": "GRAVEYARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police trawl a run-down patch of ground looking for corpses.",
+     "walkthrough": "'Drag' suggests searching a river for a body, which fits the surface, but it is just letters.",
+     "definitionFit": "A graveyard is a burial ground, a plot of land set aside where the dead are laid to rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Drag"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1254,67 @@
     "text": "Love to be immersed in stormy sea-mist sprays",
     "enumeration": "8"
    },
-   "solution": "ATOMISES"
+   "solution": "ATOMISES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ATOMISES",
+    "definitions": [
+     {
+      "text": "sprays",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be immersed in",
+      "for": "container",
+      "note": "something immersed is plunged inside, so one piece sits within the other"
+     },
+     {
+      "text": "stormy",
+      "for": "anagram",
+      "note": "stormy weather churns everything up, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "sea-mist",
+      "gives": "SEAMIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "O",
+      "MISES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEAMIST",
+       "gives": "ATMISES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic picture: love lost in the spray of a stormy sea mist.",
+     "walkthrough": "The blocks run in answer order: the O lands inside the rearranged sea-mist letters.",
+     "definitionFit": "To atomise a liquid is to break it into a fine mist of droplets, which is what spraying it does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1334,54 @@
      }
     ]
    },
-   "solution": "USEDTO"
+   "solution": "USEDTO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "USED TO",
+    "definitions": [
+     {
+      "text": "Did",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginners",
+      "for": "letter_selection",
+      "note": "beginners are the ones who start, so the first letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undergo some enhancement, dropping team of",
+      "gives": "USEDTO",
+      "select": "first",
+      "note": "the opening letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "S",
+      "E",
+      "D",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone had some improvement work done but quit the training squad for novices.",
+     "walkthrough": "'Team of beginners' looks like a squad of novices, but 'team of' is fodder and 'beginners' is the instruction.",
+     "definitionFit": "Used to expresses past habit, as in I used to swim, and the auxiliary did can stand in the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beginners"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1395,72 @@
     "text": "America supports rising drug firm? It employs suckers!",
     "enumeration": "7"
    },
-   "solution": "OCTOPUS"
+   "solution": "OCTOPUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OCTOPUS",
+    "definitions": [
+     {
+      "text": "It employs suckers!",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means read upwards, so the letters run backwards"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue, a support sits underneath, so this piece comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "POT",
+      "note": "pot is slang for cannabis"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCTOP",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "POTCO",
+       "to": "OCTOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The US backs a growing pharmaceutical company, a business that cons gullible customers.",
+     "walkthrough": "'Suckers' are dupes in the surface, but the definition means the suction cups on tentacles.",
+     "definitionFit": "An octopus grips prey and surfaces with the rows of suction cups along its eight arms, so it literally uses suckers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suckers"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1480,39 @@
      }
     ]
    },
-   "solution": "SEASALT"
+   "solution": "SEASALT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SEA SALT",
+    "definitions": [
+     {
+      "text": "Result of dehydration in the main?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result of dehydration",
+      "note": "surface reading: what happens to a body that has lost too much water"
+     },
+     {
+      "clueFragment": "in the main",
+      "note": "setter's reading: the main is the ocean, so this is what is left when ocean water evaporates"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In the main' passes for 'mostly', but the main is an old poetic word for the open sea.",
+     "definitionFit": "Evaporating ocean water in pans leaves crystals behind, so this product is the residue of drying out the brine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1526,66 @@
     "text": "Amputee on board lives poorly on rum initially",
     "enumeration": "6"
    },
-   "solution": "SILVER"
+   "solution": "SILVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SILVER",
+    "definitions": [
+     {
+      "text": "Amputee on board",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "something done poorly is done badly, so the letters come out wrongly arranged"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lives",
+      "gives": "LIVES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of rum"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIVESR",
+       "gives": "SILVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-legged sailor lives badly, surviving mainly on rum.",
+     "walkthrough": "Long John Silver is the one-legged pirate of Treasure Island; 'on board' puts him on a ship.",
+     "definitionFit": "Long John Silver, the ship's cook in Stevenson's novel, has lost a leg, so he is the amputee at sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1599,57 @@
     "text": "Suit creased: a psychopath wrapping it up",
     "enumeration": "6"
    },
-   "solution": "SPADES"
+   "solution": "SPADES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SPADES",
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapping it",
+      "for": "hidden_word",
+      "note": "something wrapping an object encloses it, so the letters sit inside the words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creased: a psychopath",
+      "gives": "SEDAPS",
+      "note": "the letters spanning the end of the first word, the a, and the start of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SEDAPS",
+       "to": "SPADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creased suit: a psychopath is bundling up the evidence.",
+     "walkthrough": "'Suit' at the start looks like clothing, given 'creased', but it is the card suit.",
+     "definitionFit": "Spades is one of the four suits in a pack of playing cards, alongside hearts, diamonds and clubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1663,58 @@
     "text": "For example, bolt screen to uncovered tiles",
     "enumeration": "10"
    },
-   "solution": "PROJECTILE"
+   "solution": "PROJECTILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PROJECTILE",
+    "definitions": [
+     {
+      "text": "For example, bolt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "uncovering something strips off its outer layer, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screen",
+      "gives": "PROJECT",
+      "note": "to screen a film is to project it"
+     },
+     {
+      "clueFragment": "tiles",
+      "gives": "ILE",
+      "note": "tiles without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROJECT",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "DIY instructions: for example, fix a screen to bare tiles with a bolt.",
+     "walkthrough": "'Bolt' looks like a fixing screw in the DIY surface, but it is the short arrow fired from a crossbow.",
+     "definitionFit": "A crossbow bolt is a missile shot through the air, so it is one example of a thing that is fired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bolt"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1728,43 @@
     "text": "Shown in Europe, Ravel's works",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "works",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Shown in",
+      "for": "hidden_word",
+      "note": "something shown in a display sits inside it, so the letters are inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe, Ravel's",
+      "gives": "OPERA",
+      "note": "the letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "The compositions of Ravel are being performed across Europe.",
+     "walkthrough": "Opera here is the plural of opus, which suits Ravel and is not the staged drama it first suggests.",
+     "definitionFit": "Opera is the Latin plural of opus, a numbered musical composition, so it means a composer's works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1778,51 @@
     "text": "A woman stripped twice for hairdo",
     "enumeration": "4"
    },
-   "solution": "PERM"
+   "solution": "PERM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PERM",
+    "definitions": [
+     {
+      "text": "hairdo",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped twice",
+      "for": "deletion",
+      "note": "stripping takes off the outer layer, and doing it twice removes two letters from each end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A woman",
+      "gives": "SUPERMUM",
+      "note": "a supermum is a mother who copes brilliantly with everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERM"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman undresses twice before getting her hair done.",
+     "walkthrough": "SUPERMUM loses S and M, then U and U, to leave PERM.",
+     "definitionFit": "A perm, short for permanent wave, is a hairstyle in which curls are set chemically to last for months."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1836,57 @@
     "text": "Makers of supplies missing nothing out",
     "enumeration": "4"
    },
-   "solution": "GODS"
+   "solution": "GODS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GODS",
+    "definitions": [
+     {
+      "text": "Makers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so that letter is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "out"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supplies",
+      "gives": "GOODS",
+      "note": "goods are supplies or merchandise"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GODS"
+     ]
+    },
+    "explanation": {
+     "surface": "Manufacturers of provisions are running short of everything.",
+     "walkthrough": "'Makers of supplies' reads as manufacturers, but 'Makers' stands alone and 'of' joins it to the wordplay.",
+     "definitionFit": "In many religions gods are creators of the world, so they are makers in the sense of the Maker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Makers"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1900,55 @@
     "text": "Imagine mother taking religious lessons!",
     "enumeration": "5"
    },
-   "solution": "DREAM"
+   "solution": "DREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAM",
+    "definitions": [
+     {
+      "text": "Imagine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "a dam is an animal's mother"
+     },
+     {
+      "clueFragment": "religious lessons",
+      "gives": "RE",
+      "note": "RE is religious education, a school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RE",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Fancy that: mum is going to religious classes!",
+     "walkthrough": "RE stands for Religious Education, a subject taught in British schools.",
+     "definitionFit": "To dream of something is to picture it in the mind, so as a verb it is a synonym for imagine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1962,73 @@
     "text": "Once coating of oil left out, are rollmops bad for teeth?",
     "enumeration": "9"
    },
-   "solution": "PREMOLARS"
+   "solution": "PREMOLARS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PREMOLARS",
+    "definitions": [
+     {
+      "text": "teeth",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coating of",
+      "for": "letter_selection",
+      "note": "a coating is the outside layer, so only the outer letters of the word are taken"
+     },
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "letters that are left out are removed from the rest"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "something gone bad is spoilt, so these letters are rearranged into another order"
+     }
+    ],
+    "linkWords": [
+     "Once",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil",
+      "gives": "OL",
+      "select": "outer",
+      "note": "the first and last letters of oil"
+     },
+     {
+      "clueFragment": "are rollmops",
+      "gives": "AREROLLMOPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AREROLMPS",
+       "gives": "PREMOLARS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once the oil is drained off, are pickled herrings harmful to your teeth?",
+     "walkthrough": "Rollmops are rolled pickled herring fillets. Remove O and L from 'are rollmops' and rearrange the remaining nine letters.",
+     "definitionFit": "Premolars are the grinding teeth between the canines and molars, so they are one particular kind of tooth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rollmops"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +2042,62 @@
     "text": "David Essex song introduction involving drums, oddly",
     "enumeration": "8"
    },
-   "solution": "STARDUST"
+   "solution": "STARDUST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STARDUST",
+    "definitions": [
+     {
+      "text": "David Essex song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, so the first, third and fifth letters are kept"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to wrap up or include, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "introduction",
+      "gives": "START",
+      "note": "the start is the introduction or opening"
+     },
+     {
+      "clueFragment": "drums",
+      "gives": "DUS",
+      "select": "alternate",
+      "note": "the odd letters of drums"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "DUS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A David Essex song opens with a quirky drum intro.",
+     "walkthrough": "'Introduction' looks like part of the song, but it is a synonym; David Essex was a 1970s British pop star.",
+     "definitionFit": "Stardust was a 1974 hit single for David Essex, from the film of the same name in which he starred."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 30,
@@ -503,7 +2117,43 @@
      }
     ]
    },
-   "solution": "ASIDES"
+   "solution": "ASIDES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ASIDES",
+    "definitions": [
+     {
+      "text": "Principal musical numbers",
+      "at": 0
+     },
+     {
+      "text": "they're delivered sotto voce?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principal musical numbers",
+      "note": "first meaning: the main tracks on vinyl singles, as opposed to the flip sides"
+     },
+     {
+      "clueFragment": "they're delivered sotto voce?",
+      "note": "second meaning: remarks spoken in an undertone, as by an actor to the audience"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as A-sides, the first reading is record tracks; sotto voce is Italian for under the breath, the second reading.",
+     "definitionFit": "On a single the lead track is the A-side, and in theatre an aside is a quiet remark meant only for the audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "numbers"
+    }
+   }
   }
  ]
 }
