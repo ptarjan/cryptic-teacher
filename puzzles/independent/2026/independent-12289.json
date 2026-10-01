@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Grand in cash, say, for mischievous child",
     "enumeration": "6"
    },
-   "solution": "MONKEY"
+   "solution": "MONKEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONKEY",
+    "definitions": [
+     {
+      "text": "mischievous child",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cash, say",
+      "gives": "MONEY",
+      "note": "cash is one example of money, which the 'say' flags"
+     },
+     {
+      "clueFragment": "Grand",
+      "gives": "K",
+      "note": "a grand is a thousand, and K stands for thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "K",
+      "EY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what a thousand pounds in banknotes might buy for a naughty youngster.",
+     "walkthrough": "K for a thousand slips inside MONEY. A monkey is also British slang for £500, a tempting but wrong double-definition reading of 'grand'.",
+     "definitionFit": "Monkey is an affectionate everyday word for a cheeky, playful youngster who gets into trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,67 @@
     "text": "Horse starts to amble into northern part of range",
     "enumeration": "8"
    },
-   "solution": "MOUNTAIN"
+   "solution": "MOUNTAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOUNTAIN",
+    "definitions": [
+     {
+      "text": "part of range",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters"
+     },
+     {
+      "text": "into",
+      "for": "charade",
+      "note": "leading into the next item means coming straight before it in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "MOUNT",
+      "note": "a mount is a horse for riding"
+     },
+     {
+      "clueFragment": "amble into",
+      "gives": "AI",
+      "select": "first",
+      "note": "first letters of the two words"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUNT",
+      "AI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse ambles up into the northern reaches of a mountain range.",
+     "walkthrough": "'Range' looks like open pasture for a horse, but here it is a mountain range.",
+     "definitionFit": "A mountain range is a chain of peaks, so each single peak is one member of that chain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +175,74 @@
     "text": "Trainee accountant discontentedly checking suspect invoice",
     "enumeration": "9"
    },
-   "solution": "NOVICIATE"
+   "solution": "NOVICIATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "NOVICIATE",
+    "definitions": [
+     {
+      "text": "Trainee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontentedly",
+      "for": "letter_selection",
+      "note": "without its contents a word keeps only its outer shell of letters"
+     },
+     {
+      "text": "checking",
+      "for": "container",
+      "note": "to check something is to hold it back, so one piece is held within another"
+     },
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dodgy and not as it should be, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accountant",
+      "gives": "AT",
+      "select": "outer",
+      "note": "outer letters only"
+     },
+     {
+      "clueFragment": "invoice",
+      "gives": "INVOICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOVICI",
+      "AT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INVOICE",
+       "gives": "NOVICIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A junior accountant, unhappy at work, goes through a dodgy bill.",
+     "walkthrough": "'Trainee accountant' reads as one phrase, but the definition is just 'Trainee'; the accountant only supplies its two outer letters.",
+     "definitionFit": "A noviciate, a variant of novitiate, is a novice or probationer still learning the ropes before full admission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accountant"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +256,48 @@
     "text": "Portray nude on a grand scale",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "on a grand scale",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nude",
+      "for": "deletion",
+      "note": "a nude figure has been stripped of its outer covering, so the outside letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Portray",
+      "gives": "DEPICT",
+      "note": "to portray is to depict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist is told to paint a nude on a huge canvas.",
+     "walkthrough": "Stripping DEPICT of its first and last letters leaves EPIC.",
+     "definitionFit": "Epic describes anything vast and heroic in scope, the adjective matching that adverbial phrase about size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +311,56 @@
     "text": "Part of book principal reportedly proscribed",
     "enumeration": "8"
    },
-   "solution": "HEADBAND"
+   "solution": "HEADBAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "HEADBAND",
+    "definitions": [
+     {
+      "text": "Part of book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than seen, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principal",
+      "gives": "HEAD",
+      "note": "a school principal is its head"
+     },
+     {
+      "clueFragment": "proscribed",
+      "gives": "BAND",
+      "soundsLike": "BANNED",
+      "note": "proscribed means banned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "BAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A headteacher has, it is said, banned a particular chapter of a book.",
+     "walkthrough": "'Part of book' looks like the start of the wordplay, but it is the definition.",
+     "definitionFit": "In bookbinding a headband is the decorative strip of cloth at the top of the spine of a volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +374,81 @@
     "text": "English erected sign incorporating extremely refined circles",
     "enumeration": "7"
    },
-   "solution": "ENGIRDS"
+   "solution": "ENGIRDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENGIRDS",
+    "definitions": [
+     {
+      "text": "circles",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erected",
+      "for": "reversal",
+      "note": "in a down clue, putting something up turns it bottom to top"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     },
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "to incorporate is to take into the body, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "SIGN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "refined",
+      "gives": "RD",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NGI",
+      "RD",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SIGN",
+       "to": "NGIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English road sign has been put up with some elegant circular markings on it.",
+     "walkthrough": "'Circles' looks like a noun for the markings, but it is a verb: surrounds.",
+     "definitionFit": "To engird is to encircle or surround something, so engirds is the verb form of circles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circles"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +462,62 @@
     "text": "Diabolic comedian fluffed a line",
     "enumeration": "10"
    },
-   "solution": "DEMONIACAL"
+   "solution": "DEMONIACAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEMONIACAL",
+    "definitions": [
+     {
+      "text": "Diabolic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluffed",
+      "for": "anagram",
+      "note": "a performer who fluffs words garbles them, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedian",
+      "gives": "COMEDIAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COMEDIANAL",
+       "gives": "DEMONIACAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful comic forgot a line on stage.",
+     "walkthrough": "'Diabolic' looks like a verdict on the performance, but it is the definition.",
+     "definitionFit": "Demoniacal means devilish or fiendish, a direct synonym for diabolic, both describing something like a demon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Diabolic"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +531,55 @@
     "text": "Assert old medical condition limits resistance",
     "enumeration": "5"
    },
-   "solution": "ARGUE"
+   "solution": "ARGUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARGUE",
+    "definitions": [
+     {
+      "text": "Assert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "container",
+      "note": "limits form a boundary, so one piece is bounded on both sides by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old medical condition",
+      "gives": "AGUE",
+      "note": "ague is an old name for a malarial fever"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that an old illness restricts a patient's ability to fight back.",
+     "walkthrough": "AGUE holds R after its first letter.",
+     "definitionFit": "To argue a point is to maintain or contend that it is true, so both verbs mean put forward a claim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +593,63 @@
     "text": "Old money essentially funding upper-class jazzmen",
     "enumeration": "6"
    },
-   "solution": "DUCATS"
+   "solution": "DUCATS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DUCATS",
+    "definitions": [
+     {
+      "text": "Old money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so the central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funding",
+      "gives": "D",
+      "select": "middle",
+      "note": "the middle letter of seven"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the standard abbreviation for upper-class"
+     },
+     {
+      "clueFragment": "jazzmen",
+      "gives": "CATS",
+      "note": "cats is slang for jazz musicians"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "U",
+      "CATS"
+     ]
+    },
+    "explanation": {
+     "surface": "Inherited wealth is quietly bankrolling posh jazz players.",
+     "walkthrough": "'Old money' suggests aristocratic wealth, but it is the definition: a former coin.",
+     "definitionFit": "Ducats were gold and silver coins used across Europe for centuries, so they are currency from the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +663,65 @@
     "text": "Shame to keep case of Glenfarclas in farm outbuilding",
     "enumeration": "6"
    },
-   "solution": "PIGSTY"
+   "solution": "PIGSTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PIGSTY",
+    "definitions": [
+     {
+      "text": "farm outbuilding",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outer shell, so only the outermost letters are kept"
+     },
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "keeping something means holding it, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shame",
+      "gives": "PITY",
+      "note": "as in 'it's a shame', 'it's a pity'"
+     },
+     {
+      "clueFragment": "Glenfarclas",
+      "gives": "GS",
+      "select": "outer",
+      "note": "first and last letters; Glenfarclas is a Scotch whisky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "GS",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A pity to hide a case of fine whisky away in a farm shed.",
+     "walkthrough": "PITY holds GS in its middle. Glenfarclas is a Speyside single malt.",
+     "definitionFit": "A pigsty is the pen and shelter on a farm where pigs are housed, a small agricultural building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +735,92 @@
     "text": "Terribly evil nun excited about one German's revelation",
     "enumeration": "9"
    },
-   "solution": "UNVEILING"
+   "solution": "UNVEILING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "UNVEILING",
+    "definitions": [
+     {
+      "text": "revelation",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "something done terribly is botched, so the letters are scrambled"
+     },
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited things are stirred up, so these letters are mixed too"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go around it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nun",
+      "gives": "NUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "EVIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "VEIL",
+      "I",
+      "N",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVIL",
+       "gives": "VEIL"
+      },
+      {
+       "fodder": "NUN",
+       "gives": "UNN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked, agitated nun waits for a German to reveal something.",
+     "walkthrough": "Two separate anagrams are at work here, each indicator rearranging just the word beside it, and the wimple-wearing nun neatly yields a veil.",
+     "definitionFit": "An unveiling is a disclosure or reveal of something previously hidden, the same noun sense as revelation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +834,60 @@
     "text": "Yours truly featured in publication about dark arts",
     "enumeration": "5"
    },
-   "solution": "MAGIC"
+   "solution": "MAGIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGIC",
+    "definitions": [
+     {
+      "text": "dark arts",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "what features in something appears within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publication",
+      "gives": "MAG",
+      "note": "a mag is a magazine"
+     },
+     {
+      "clueFragment": "Yours truly",
+      "gives": "I",
+      "note": "the setter speaking of themself"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, Latin for about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAG",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter boasts of appearing in a magazine article on witchcraft.",
+     "walkthrough": "'About' looks like a link to the topic, but it is C, circa; I goes inside MAG + C.",
+     "definitionFit": "Black magic and sorcery are the dark arts, so magic is the umbrella word for those occult practices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +901,57 @@
     "text": "Some devout Catholics backed diplomacy",
     "enumeration": "4"
    },
-   "solution": "TACT"
+   "solution": "TACT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TACT",
+    "definitions": [
+     {
+      "text": "diplomacy",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a phrase is only a part of its run of letters"
+     },
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "going back means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "devout Catholics",
+      "gives": "TCAT",
+      "note": "a run spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TCAT",
+       "to": "TACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of pious Catholics supported a diplomatic approach.",
+     "walkthrough": "'Backed' reads as supported, but it signals reading the hidden letters in reverse.",
+     "definitionFit": "Tact is sensitivity and skill in handling people delicately, which is the essence of diplomacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +965,66 @@
     "text": "Bitter struggle to take out a cracking spy",
     "enumeration": "10"
    },
-   "solution": "ASTRINGENT"
+   "solution": "ASTRINGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ASTRINGENT",
+    "definitions": [
+     {
+      "text": "Bitter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take out",
+      "for": "deletion",
+      "note": "taking something out removes it"
+     },
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "something cracking a shell breaks into it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "struggle",
+      "gives": "STRAIN",
+      "note": "to struggle is to strain"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     },
+     {
+      "clueFragment": "spy",
+      "gives": "AGENT",
+      "note": "a spy is a secret agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STRIN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bitter fight to assassinate a spy who has broken a case.",
+     "walkthrough": "'Take out' sounds like killing, but it simply removes the letter A from the struggle word.",
+     "definitionFit": "Astringent remarks are sharp and harsh, so the word works as a synonym for biting or bitter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +1038,66 @@
     "text": "Detective left picture taken after Greek expedition",
     "enumeration": "10"
    },
-   "solution": "PILGRIMAGE"
+   "solution": "PILGRIMAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PILGRIMAGE",
+    "definitions": [
+     {
+      "text": "expedition",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken after",
+      "for": "charade",
+      "note": "coming after something places it later in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detective",
+      "gives": "PI",
+      "note": "a PI is a private investigator"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "GR is the abbreviation for Greek"
+     },
+     {
+      "clueFragment": "picture",
+      "gives": "IMAGE",
+      "note": "a picture is an image"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "L",
+      "GR",
+      "IMAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sleuth leaves behind a photograph snapped after a trip to Greece.",
+     "walkthrough": "'Left' looks like a verb, departed, but is just L.",
+     "definitionFit": "A pilgrimage is a journey undertaken to a sacred place, a particular kind of long trip or expedition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1111,65 @@
     "text": "Madness appearing without Suggs's ultimate folly",
     "enumeration": "7"
    },
-   "solution": "INANITY"
+   "solution": "INANITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "INANITY",
+    "definitions": [
+     {
+      "text": "folly",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimate",
+      "for": "letter_selection",
+      "note": "the ultimate item is the last one, so a final letter is taken"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "being without something means lacking it, so it is removed"
+     }
+    ],
+    "linkWords": [
+     "appearing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madness",
+      "gives": "INSANITY",
+      "note": "madness is insanity"
+     },
+     {
+      "clueFragment": "Suggs's",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of Suggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ANITY"
+     ]
+    },
+    "explanation": {
+     "surface": "The pop band Madness playing without their frontman Suggs would be foolish.",
+     "walkthrough": "Suggs is the lead singer of the British ska band Madness, which makes 'Madness' look like a proper noun. Dropping S from INSANITY gives the answer.",
+     "definitionFit": "Inanity is silliness or lack of sense, and folly likewise means foolish behaviour, so the nouns match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Madness"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1183,56 @@
     "text": "Famous actors catching international flight?",
     "enumeration": "6"
    },
-   "solution": "STAIRS"
+   "solution": "STAIRS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAIRS",
+    "definitions": [
+     {
+      "text": "flight?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "to catch something is to hold it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous actors",
+      "gives": "STARS",
+      "note": "famous actors are stars"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "I",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Celebrities hurrying to board an overseas plane.",
+     "walkthrough": "'Flight' with 'international' suggests air travel; the question mark warns it is a flight of steps.",
+     "definitionFit": "A flight is a series of steps between floors, which is what a set of stairs is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight?"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1246,55 @@
     "text": "Ran through part of funeral cortège wearing scarlet",
     "enumeration": "9"
    },
-   "solution": "REHEARSED"
+   "solution": "REHEARSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REHEARSED",
+    "definitions": [
+     {
+      "text": "Ran through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn is inside the clothing that covers it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scarlet",
+      "gives": "RED",
+      "note": "scarlet is a shade of red"
+     },
+     {
+      "clueFragment": "part of funeral cortège",
+      "gives": "HEARSE",
+      "note": "a hearse leads a funeral procession"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEARSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashed through a funeral procession dressed in bright red.",
+     "walkthrough": "'Ran through' suggests running past or stabbing, but it means practised.",
+     "definitionFit": "To run through a play or speech is to practise it beforehand, which is exactly what rehearsing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ran"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1308,62 @@
     "text": "Dunces love interrupting senior examiner",
     "enumeration": "8"
    },
-   "solution": "ASSESSOR"
+   "solution": "ASSESSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASSESSOR",
+    "definitions": [
+     {
+      "text": "examiner",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dunces",
+      "gives": "ASSES",
+      "note": "dunces are asses"
+     },
+     {
+      "clueFragment": "senior",
+      "gives": "SR",
+      "note": "SR is the abbreviation for senior"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis scoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSES",
+      "S",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Romance between dimwitted pupils disrupts a senior examiner.",
+     "walkthrough": "'Senior examiner' reads as one title, but 'senior' is SR, broken by O.",
+     "definitionFit": "An assessor is a person who evaluates or grades work, the job an examiner does in a test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "senior"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1377,47 @@
     "text": "Significance of pause in speech",
     "enumeration": "6"
    },
-   "solution": "WEIGHT"
+   "solution": "WEIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEIGHT",
+    "definitions": [
+     {
+      "text": "Significance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech words are heard, so sound counts, not spelling"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pause",
+      "gives": "WEIGHT",
+      "soundsLike": "WAIT",
+      "note": "a pause is a wait"
+     }
+    ],
+    "explanation": {
+     "surface": "A speaker's dramatic pause adds meaning to what is said.",
+     "walkthrough": "'Pause in speech' reads like an orator's technique, but 'in speech' signals the sound-alike.",
+     "definitionFit": "Weight means importance or influence, as in giving weight to an argument, so it matches significance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1431,67 @@
     "text": "Capture entertaining ace sporting bun",
     "enumeration": "7"
    },
-   "solution": "TEACAKE"
+   "solution": "TEACAKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TEACAKE",
+    "definitions": [
+     {
+      "text": "bun",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sporting",
+      "for": "anagram",
+      "note": "sporting can mean playful, and playing with letters jumbles them"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to have them inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capture",
+      "gives": "TAKE",
+      "note": "to capture is to take"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "ACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EAC",
+      "AKE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACE",
+       "gives": "EAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A champion player wearing a bun is caught on camera.",
+     "walkthrough": "'Sporting' looks like wearing, but it signals rearranging the ace before it goes inside, just after the first letter.",
+     "definitionFit": "A teacake is a light sweet yeast bun, often with currants, usually toasted and buttered in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sporting"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1505,57 @@
     "text": "Pains after exercise? Fruit is the answer!",
     "enumeration": "7"
    },
-   "solution": "PEACHES"
+   "solution": "PEACHES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEACHES",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something places it later in the line"
+     }
+    ],
+    "linkWords": [
+     "is the answer!"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     },
+     {
+      "clueFragment": "Pains",
+      "gives": "ACHES",
+      "note": "pains are aches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "ACHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Sore after a workout? Eating fruit will cure it.",
+     "walkthrough": "PE is physical education, the school name for exercise classes.",
+     "definitionFit": "Peaches are soft, sweet stone fruits with fuzzy skin, so they are an instance of the broader category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1569,54 @@
     "text": "Swift pint at end of esplanade",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROMPT",
+    "definitions": [
+     {
+      "text": "Swift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at end of",
+      "for": "charade",
+      "note": "sitting at the end of something places it last in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "esplanade",
+      "gives": "PROM",
+      "note": "a prom is a seaside promenade"
+     },
+     {
+      "clueFragment": "pint",
+      "gives": "PT",
+      "note": "PT is the abbreviation for pint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROM",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick beer at the end of a seafront walk.",
+     "walkthrough": "An esplanade is a British seaside promenade, shortened to prom.",
+     "definitionFit": "Prompt means done without delay, which matches swift as an adjective for quick action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swift"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1630,43 @@
     "text": "Extinguish national spirit",
     "enumeration": "6"
    },
-   "solution": "SCOTCH"
+   "solution": "SCOTCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCOTCH",
+    "definitions": [
+     {
+      "text": "Extinguish",
+      "at": 0
+     },
+     {
+      "text": "national spirit",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extinguish",
+      "note": "first meaning: to put an end to, as with a rumour"
+     },
+     {
+      "clueFragment": "national spirit",
+      "note": "second meaning: Scotland's whisky"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'National spirit' looks like patriotic feeling, but it is the drink Scotland is famous for.",
+     "definitionFit": "To scotch a rumour is to quash it, and Scotch whisky is the spirit identified with one particular nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1680,61 @@
     "text": "Fierce critic got a racist sacked",
     "enumeration": "10"
    },
-   "solution": "CASTIGATOR"
+   "solution": "CASTIGATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASTIGATOR",
+    "definitions": [
+     {
+      "text": "Fierce critic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacked",
+      "for": "anagram",
+      "note": "a sacked place is ransacked and thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got",
+      "gives": "GOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "racist",
+      "gives": "RACIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOTARACIST",
+       "gives": "CASTIGATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outspoken critic managed to get a bigot fired.",
+     "walkthrough": "'Sacked' reads as dismissed from a job, but it signals scrambling.",
+     "definitionFit": "To castigate is to rebuke severely, so a castigator is someone who harshly reprimands or condemns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1748,59 @@
     "text": "Light-brown sweets son brought in for Charlie",
     "enumeration": "5"
    },
-   "solution": "SANDY"
+   "solution": "SANDY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SANDY",
+    "definitions": [
+     {
+      "text": "Light-brown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought in for",
+      "for": "substitution",
+      "note": "bringing one player in for another means one replaces the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweets",
+      "gives": "CANDY",
+      "note": "candy is sweets"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy fetches some toffee-coloured sweets for Charlie.",
+     "walkthrough": "S replaces the C of CANDY.",
+     "definitionFit": "Sandy describes a pale yellowish-brown colour like sand, commonly used of hair, so it matches the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1814,59 @@
     "text": "Degenerate artist meets knave on vacation",
     "enumeration": "4"
    },
-   "solution": "RAKE"
+   "solution": "RAKE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RAKE",
+    "definitions": [
+     {
+      "text": "Degenerate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a vacated place is emptied, so only the outer letters are left"
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "knave",
+      "gives": "KE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dissolute painter runs into a scoundrel while on holiday.",
+     "walkthrough": "'On vacation' reads as on holiday, but it empties the word.",
+     "definitionFit": "A rake is a dissolute, pleasure-seeking man, so the noun degenerate fits as a description of such a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1880,61 @@
     "text": "Wind up European man of wisdom",
     "enumeration": "4"
    },
-   "solution": "SAGE"
+   "solution": "SAGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAGE",
+    "definitions": [
+     {
+      "text": "man of wisdom",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wind",
+      "gives": "GAS",
+      "note": "wind is gas"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GAS",
+       "to": "SAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Annoying a wise European thinker.",
+     "walkthrough": "'Wind up' reads as tease, but it is GAS turned upwards.",
+     "definitionFit": "A sage is a person revered for profound knowledge and good judgement, a wise elder or philosopher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1948,43 @@
     "text": "Island nation taking part in assault on Gallipoli",
     "enumeration": "5"
    },
-   "solution": "TONGA"
+   "solution": "TONGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TONGA",
+    "definitions": [
+     {
+      "text": "Island nation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "hidden_word",
+      "note": "taking part means being only a portion of the whole"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assault on Gallipoli",
+      "gives": "TONGA",
+      "note": "a run spanning the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Pacific country joins the First World War landings at Gallipoli.",
+     "walkthrough": "'Taking part in' sounds like military participation, but it points to letters inside the phrase.",
+     "definitionFit": "Tonga is a Polynesian kingdom made up of many islands in the South Pacific Ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1998,62 @@
     "text": "Armenia's foremost priest brings up Judges",
     "enumeration": "9"
    },
-   "solution": "APPRAISES"
+   "solution": "APPRAISES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APPRAISES",
+    "definitions": [
+     {
+      "text": "Judges",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "the foremost part is the front, so the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Armenia's",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "PP",
+      "note": "PP is a parish priest"
+     },
+     {
+      "clueFragment": "brings up",
+      "gives": "RAISES",
+      "note": "to bring up a child is to raise it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "RAISES"
+     ]
+    },
+    "explanation": {
+     "surface": "Armenia's leading cleric raises a point about the Book of Judges.",
+     "walkthrough": "'Judges' looks like the Old Testament book, but it is a verb.",
+     "definitionFit": "To appraise is to assess or evaluate something's worth, which is a way of forming a judgement on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judges"
+    }
+   }
   },
   {
    "number": 29,
@@ -459,7 +2073,73 @@
      }
     ]
    },
-   "solution": "HAYFEVER"
+   "solution": "HAYFEVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "HAY FEVER",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "the odd positions in a word are the first, third, fifth and so on"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after something places it later in the line"
+     },
+     {
+      "text": "withdraws",
+      "for": "reversal",
+      "note": "to withdraw is to draw back, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heady offer",
+      "gives": "HAYFE",
+      "select": "alternate",
+      "note": "odd letters of the phrase"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "REV",
+      "note": "Rev is a reverend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAYFE",
+      "VER"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar backs out after an intoxicating proposal and makes a complaint.",
+     "walkthrough": "'Complaint' reads as a grievance, but here it is an ailment.",
+     "definitionFit": "A complaint can be an illness, and hay fever is an allergy to pollen causing sneezing and streaming eyes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 30,
@@ -473,7 +2153,62 @@
     "text": "Binge drink around centre of London",
     "enumeration": "6"
    },
-   "solution": "BENDER"
+   "solution": "BENDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BENDER",
+    "definitions": [
+     {
+      "text": "Binge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around something is to enclose it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "BEER",
+      "note": "beer is a drink"
+     },
+     {
+      "clueFragment": "London",
+      "gives": "ND",
+      "select": "middle",
+      "note": "the middle two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boozy night out drinking around central London.",
+     "walkthrough": "BEER holds ND in its middle.",
+     "definitionFit": "Bender is informal slang for a prolonged bout of heavy drinking, the same thing as a binge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   }
  ]
 }
