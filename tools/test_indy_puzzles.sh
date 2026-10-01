@@ -39,7 +39,7 @@ print("SETTER", [I.setter_of(t) for t in (
     "Independent 7,950 / Morph  (Saturday Prize Crossword 7/04/12)",
     "Independent 7,734 / Saturday Prize Puzzle 10 September 2011 by Mordred",
     "Independent on Sunday 1,102 / Poins. Heart to heart",
-    "Independent 7,700 Saturday Prize Puzzle")])
+    "Independent 7,700 Saturday Prize Puzzle", "Independent on Sunday 1154/Glow-worm")])
 
 # Titles with no "/" or dash before the setter. The setters filed on disk are
 # stubbed: a title that names one anywhere is read for it.
@@ -92,7 +92,7 @@ check "daily titles go to the daily" \
 check "Sunday titles go to the Sunday paper" "['indysunday', 'indysunday']" "$(field SUNDAY)"
 check "a disagreeing title or another puzzle goes nowhere" "[None, None, None, None]" "$(field NONE)"
 check "a print date in the title is not the setter" \
-  "['Monk', 'Monk', 'Morph', 'Mordred', 'Poins', None]" "$(field SETTER)"
+  "['Monk', 'Monk', 'Morph', 'Mordred', 'Poins', None, 'Glow-worm']" "$(field SETTER)"
 check "a byline anywhere, a filed setter's name, a lone name in brackets" \
   "['Glowworm', 'Quixote', 'Anax', 'Hypnos', 'Glow-worm', 'Phi', 'Merlin', 'Virgilius', None, None]" "$(field BYLINE)"
 check "Sunday dates rise with the numbers" \

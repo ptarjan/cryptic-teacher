@@ -231,6 +231,28 @@ print("COLD_MISPARSE", len(apply_solution.check_sources(
 # and a puzzle with no grid is not read against anything
 gridless = {"id": "cryptic-502", "series": "cryptic", "number": 502, "setter": "",
             "entries": [{"number": 1, "direction": "across", "solution": "CAR"}]}
+# fifteensquared's own posts, read off a stub cache: a word from a row's
+# wordplay is no answer, two rows under one number say nothing, and a post
+# about another grid is no record at all.
+posts = tmp / "posts"
+posts.mkdir()
+c.FIFTEENSQUARED_POSTS = posts
+row = "<tr><td>{}</td><td>{}</td><td>{}</td></tr>".format
+agreed_rows = "".join(row(n, f"<b>{a}</b>", "a clue") for n, a in
+                      ((20, "SUN"), (21, "HAT"), (22, "PEN"), (23, "OAK")))
+blog_grid = puzzle("cryptic-501", AGREED + [light(1, "across", 0, 0, "BAT"),
+                                            light(1, "down", 0, 0, "BOX")])
+for pid, body in ((1, agreed_rows + row(1, "<b>BATS</b>", "<b>CAR</b> reversed")
+                   + "<p>Down</p>" + row(1, "COX", "a clue") + row(1, "see above", "")),
+                  (2, row(20, "<b>MOP</b>", "") + row(21, "<b>RIG</b>", ""))):
+    (posts / f"{pid}.json").write_text(json.dumps({
+        "title": {"rendered": "Guardian 501"}, "link": f"post-{pid}",
+        "content": {"rendered": "<p>Across</p><table>" + body + "</table>"}}))
+c._posts["ids"] = {"cryptic-501": [1, 2]}
+print("BLOG_POSTS", [r.url for r in c.fifteensquared(blog_grid)],
+      [r.url for r in c.fifteensquared.every(blog_grid)])
+print("BLOG_ROWS", sorted(f"{n}-{d}" for r in c.fifteensquared(blog_grid) for (n, d) in r.answers
+                          if n < 20) or None)
 print("GRIDLESS", c.corroborate(gridless, [source("f", "fifteensquared", setter="Tramp")]) is gridless)
 PY
 )
@@ -274,6 +296,12 @@ same "a fill the blog disagrees with is refused, naming both answers" \
   "$(field COLD_DISAGREES "$out" | cut -c1-59)" "7-across: the fill has PEIR, but fifteensquared gives PEER."
 same "a fill the blog agrees with passes" "$(field COLD_AGREES "$out")" "0"
 same "a blog answer the fill's crossings rule out does not refuse it" "$(field COLD_MISPARSE "$out")" "0"
+
+echo "fifteensquared's posts"
+same "a post about another grid is no record; .every still lists it" "$(field BLOG_POSTS "$out")" \
+  "['post-1'] ['post-1', 'post-2']"
+same "a wordplay word that fills the light, or a number two rows share, is no answer" \
+  "$(field BLOG_ROWS "$out")" "None"
 
 echo "the ledger and the write path"
 same "the ledger names the rule for each" "$(field LEDGER "$out")" "grid unresolved filled"

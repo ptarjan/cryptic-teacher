@@ -49,6 +49,7 @@ dropped, not counted.
 """
 
 import argparse
+import functools
 import html
 import itertools
 import json
@@ -308,6 +309,19 @@ def georgeho_answer(answer):
     return None if answer == GEORGEHO_MISSING else answer_letters(answer)
 
 
+def same_grid_only(source):
+    """`source` less its records about another grid (same_puzzle): a post filed
+    under the wrong number dissents on nearly every light and witnesses
+    nothing here, so no caller may read it as a vote. `.every` is the source
+    unfiltered, for the sweep that lists those posts."""
+    @functools.wraps(source)
+    def read(puzzle):
+        return [r for r in source(puzzle) if same_puzzle(puzzle, r)]
+    read.every = source
+    return read
+
+
+@same_grid_only
 def georgeho(puzzle):
     """georgeho.org's scrape of fifteensquared, times-xwd-times and bigdave44 (ODbL)."""
     pid = puzzle["id"]
@@ -392,8 +406,13 @@ def blog_rows(content):
     after it whose first cell is empty (the template that prints the clue on
     one row and the answer under it). A clue's own words are never an answer:
     they are not in capitals.
+
+    A light two rows open (a misnumbered row: cryptic-24015's two 21 downs,
+    one of which prints only CU + BING) is left out unless every one of
+    them printed something.
     """
     direction, light, out = None, None, []
+    opened = Counter()
     for m in ROW_OR_HEADING.finditer(content):
         heading = m.group(2) or (re.search(r">\s*(Across|Down)\s*<", m.group(1), re.IGNORECASE)
                                  or [None, None])[1]
@@ -408,13 +427,15 @@ def blog_rows(content):
         if key:
             light = light_key(key, direction) if re.match(r"^\d+[a-z]*(/\d+[a-z]*)*$", key,
                                                           re.IGNORECASE) else None
+            opened[light] += 1
         if light is None:
             continue
         found = [a for cell in cells_[1:] for a in _answers_in(cell)]
         if found:
             out.append((light, found))
             light = None
-    return out
+    printed = Counter(lt for lt, _f in out)
+    return [(lt, f) for lt, f in out if opened[lt] == printed[lt]]
 
 
 def _fifteensquared_index():
@@ -436,6 +457,7 @@ def _fifteensquared_index():
     return ids
 
 
+@same_grid_only
 def fifteensquared(puzzle):
     """fifteensquared.net's posts, from tools/fetch_fifteensquared.py's cache."""
     if "ids" not in _posts:
@@ -452,13 +474,28 @@ def fifteensquared(puzzle):
         title = html.unescape(post["title"]["rendered"])
         rec = Record("fifteensquared", "fifteensquared", post.get("link", ""),
                      setter=blog_setter(title), date=title_date(title))
+        rows = defaultdict(list)
         for light, found in blog_rows(post["content"]["rendered"]):
+            # The row's own answer is its first capitals, or those joined to
+            # the next run; a later word that happens to fill the light is
+            # its wordplay (independent-9846's P + CLEMENT INE for
+            # CLEMENTINES), a vote only for the file's own answer.
+            mine = held.get(light, ())
+            fits = [a for a in found if len(a) in sizes.get(light, ())
+                    and (a.startswith(found[0]) or a in mine)]
+            if fits:
+                rows[light].append(fits)
+        for light, said in rows.items():
+            # Two rows under one number (a misnumbered row: cryptic-24015's
+            # two 21 downs) say nothing about the light unless they agree.
+            common = set.intersection(*map(set, said))
+            fits = [a for a in said[0] if a in common]
+            if not fits:
+                continue
             # The file's own answer when the row prints it anywhere: a row
             # also prints its anagram fodder and its parts in capitals, and
             # only a row without the answer in it is a dissent.
-            fits = [a for a in found if len(a) in sizes.get(light, ())]
-            if fits and light not in rec.answers:
-                rec.answers[light] = next((a for a in fits if a in held.get(light, ())), fits[0])
+            rec.answers[light] = next((a for a in fits if a in held.get(light, ())), fits[0])
         out.append(rec)
     return out
 
@@ -907,7 +944,7 @@ def sweep(write=False):
         if not puzzle.get("series") or not all(
                 "position" in e and e.get("length") for e in puzzle.get("entries") or [None]):
             continue
-        records = [r for s in SOURCES for r in s(puzzle)]
+        records = [r for s in SOURCES for r in getattr(s, "every", s)(puzzle)]
         dropped = [r for r in records if not same_puzzle(puzzle, r)]
         for r in dropped:
             misfiled.append(f"{puzzle['id']}: {r.source} {r.url}")
