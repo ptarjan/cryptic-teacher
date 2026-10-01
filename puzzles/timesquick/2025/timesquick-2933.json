@@ -24,6 +24,9 @@
   "date": "2025-03-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,65 @@
     "text": "Expert off home after end of job",
     "enumeration": "6"
    },
-   "solution": "BOFFIN"
+   "solution": "BOFFIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOFFIN",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one letter is kept"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "job",
+      "gives": "B",
+      "select": "last",
+      "note": "the final letter of job"
+     },
+     {
+      "clueFragment": "off",
+      "gives": "OFF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OFF",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist leaves for home once the job is finished.",
+     "walkthrough": "'After' places the off-home pair after the single letter, so the letter comes first. A boffin is British slang for a scientist or technical expert.",
+     "definitionFit": "Boffin is informal British slang for a clever specialist, especially a scientist or technical whizz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +112,46 @@
     "text": "An ear maybe for something musical",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "An ear maybe",
+      "at": 0
+     },
+     {
+      "text": "something musical",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An ear maybe",
+      "note": "first meaning: a body part, of which the ear is one example"
+     },
+     {
+      "clueFragment": "something musical",
+      "note": "second meaning: a keyboard instrument with pipes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests having an ear for music; 'maybe' flags the ear as one example of a wider class of body parts.",
+     "definitionFit": "The word names both a body part with a specific function, like the ear, and a large church keyboard instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ear"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +165,69 @@
     "text": "Overweight, one visitor needing to shed stone, showing tiredness",
     "enumeration": "7"
    },
-   "solution": "FATIGUE"
+   "solution": "FATIGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FATIGUE",
+    "definitions": [
+     {
+      "text": "tiredness",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing to shed",
+      "for": "deletion",
+      "note": "to shed something is to get rid of it, so letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overweight",
+      "gives": "FAT",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "visitor",
+      "gives": "GUEST",
+      "note": "a guest is someone who visits"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the British unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "I",
+      "GUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy guest has to lose a stone in weight and is visibly worn out by it.",
+     "walkthrough": "The two letters for stone come off the end of the visitor. Stone is a British weight of fourteen pounds, which fits the dieting picture neatly.",
+     "definitionFit": "Fatigue is the noun for extreme weariness, a direct synonym for tiredness after exertion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +241,54 @@
     "text": "Trap number turning up",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "Trap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down light, turning up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trap whose number comes up, like a racing dog's trap.",
+     "walkthrough": "'Number' could be any figure; the three-letter one that flips into a trap is ten.",
+     "definitionFit": "A net is a mesh used for catching fish or animals, so it serves as a snare or trap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trap"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +302,43 @@
     "text": "French city in danger somehow",
     "enumeration": "6"
    },
-   "solution": "ANGERS"
+   "solution": "ANGERS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANGERS",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "danger somehow",
+      "gives": "ANGERS",
+      "note": "found spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A French city finds itself in peril in some unspecified way.",
+     "walkthrough": "The last word reads like an anagram signal, but it only supplies the final letter of the hidden run. Angers is a city on the Loire in western France.",
+     "definitionFit": "Angers is the historic capital of Anjou in western France, a genuine city in the Loire valley."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somehow"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +352,52 @@
     "text": "Awfully bad crones who will do a bunk?",
     "enumeration": "9"
    },
-   "solution": "ABSCONDER"
+   "solution": "ABSCONDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSCONDER",
+    "definitions": [
+     {
+      "text": "who will do a bunk",
+      "at": 19,
+      "note": "a relative clause standing for the noun 'one who will do a bunk'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, so the letters come out in a mess"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad crones",
+      "gives": "BADCRONES",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BADCRONES",
+       "gives": "ABSCONDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wicked old women who will run away without paying.",
+     "walkthrough": "To do a bunk is British slang for running off secretly. The question mark admits the definition is a clause rather than a neat noun.",
+     "definitionFit": "Someone who absconds slips away secretly, often to escape debts or justice, which is exactly doing a bunk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +411,40 @@
     "text": "Third character seen in newspaper in Athens",
     "enumeration": "5"
    },
-   "solution": "GAMMA"
+   "solution": "GAMMA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GAMMA",
+    "definitions": [
+     {
+      "text": "Third character seen in newspaper in Athens",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Third character",
+      "note": "surface reading: the third person to appear in some story"
+     },
+     {
+      "clueFragment": "seen in newspaper in Athens",
+      "note": "setter's reading: the third letter of the alphabet printed in a Greek paper"
+     }
+    ],
+    "explanation": {
+     "surface": "A third figure appears in an Athenian news story.",
+     "walkthrough": "'Character' means a letter, not a person; a newspaper in Athens is printed in the Greek alphabet.",
+     "definitionFit": "Gamma is the third letter of the Greek alphabet, coming after alpha and beta in any Greek text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +458,60 @@
     "text": "Walker to go at easy pace between two rivers",
     "enumeration": "7"
    },
-   "solution": "RAMBLER"
+   "solution": "RAMBLER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAMBLER",
+    "definitions": [
+     {
+      "text": "Walker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "to sit between is to be flanked on either side, so one piece is enclosed by others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rivers",
+      "gives": "R",
+      "note": "the first letter of river, the usual map abbreviation, for the first of the pair"
+     },
+     {
+      "clueFragment": "to go at easy pace",
+      "gives": "AMBLE",
+      "note": "to amble is to walk slowly and leisurely"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "R",
+      "note": "the second of the two rivers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AMBLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker strolls gently along a path between two rivers.",
+     "walkthrough": "'Two rivers' supplies the same abbreviation twice, one on each side of the stroll.",
+     "definitionFit": "A rambler is someone who walks in the countryside for pleasure, a hiker on footpaths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rivers"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +525,70 @@
     "text": "Stirs up a US soldier with a test that’s new",
     "enumeration": "8"
    },
-   "solution": "AGITATES"
+   "solution": "AGITATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AGITATES",
+    "definitions": [
+     {
+      "text": "Stirs up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s new",
+      "for": "anagram",
+      "note": "something made new is remade, so these letters are given a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the standard term for an American soldier"
+     },
+     {
+      "clueFragment": "a test",
+      "gives": "ATEST",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GI",
+      "TATES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATEST",
+       "gives": "TATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone provokes an American soldier by setting him a fresh exam.",
+     "walkthrough": "'New' reads as describing the test, but it is what rearranges those five letters.",
+     "definitionFit": "To agitate is to disturb or rouse, whether a liquid or a crowd, which is to stir it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +602,47 @@
     "text": "Setter duplicated content that goes viral",
     "enumeration": "4"
    },
-   "solution": "MEME"
+   "solution": "MEME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEME",
+    "definitions": [
+     {
+      "text": "content that goes viral",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "ME",
+      "note": "the setter refers to themselves as me"
+     },
+     {
+      "clueFragment": "duplicated",
+      "gives": "ME",
+      "note": "duplicated means the same piece again, a second copy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter's copied material spreads across the internet.",
+     "walkthrough": "In crosswords the setter is often me, the person writing the clue.",
+     "definitionFit": "A meme is an image, video or joke that is copied and shared widely online, spreading like an infection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "duplicated"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +656,54 @@
     "text": "Bar weapons being returned",
     "enumeration": "4"
    },
-   "solution": "SNUG"
+   "solution": "SNUG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNUG",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapons",
+      "gives": "GUNS",
+      "note": "guns are weapons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNUG"
+     ],
+     "reversals": [
+      {
+       "from": "GUNS",
+       "to": "SNUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ban on arms being handed back.",
+     "walkthrough": "'Bar' looks like a verb meaning prohibit, but it is the noun for a room in a pub. A snug is a small cosy private room in a British pub.",
+     "definitionFit": "A snug is a small, separate drinking room in a British pub, so it is one kind of bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +717,43 @@
     "text": "Most likely fit for investigation, seemingly",
     "enumeration": "8"
    },
-   "solution": "PROBABLE"
+   "solution": "PROBABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PROBABLE",
+    "definitions": [
+     {
+      "text": "Most likely",
+      "at": 0
+     },
+     {
+      "text": "fit for investigation, seemingly",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most likely",
+      "note": "first meaning: expected to be the case"
+     },
+     {
+      "clueFragment": "fit for investigation, seemingly",
+      "note": "second meaning: read as probe plus able, capable of being probed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Seemingly' admits the second reading is a pun: the word split as probe-able looks like it means suitable for examining.",
+     "definitionFit": "Something probable is likely to happen or be true, the plain sense, while the jokey split suggests able to be examined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "investigation"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +773,69 @@
      }
     ]
    },
-   "solution": "PASODOBLE"
+   "solution": "PASODOBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PASO DOBLE",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulating",
+      "for": "anagram",
+      "note": "circulating means moving round and round, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad’s",
+      "gives": "PAS",
+      "note": "pa is an informal word for dad, with the possessive s"
+     },
+     {
+      "clueFragment": "blood",
+      "gives": "BLOOD",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy, added to the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "ODOBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLOODE",
+       "gives": "ODOBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father's blood pumps energetically as he takes to the dance floor.",
+     "walkthrough": "'With energy' adds one letter to the five being rearranged before the possessive dad goes in front.",
+     "definitionFit": "The paso doble is a lively Latin ballroom dance modelled on the drama of a Spanish bullfight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circulating"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +849,51 @@
     "text": "Presents in boxes unopened",
     "enumeration": "6"
    },
-   "solution": "OFFERS"
+   "solution": "OFFERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OFFERS",
+    "definitions": [
+     {
+      "text": "Presents",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "an unopened thing has not had its front broken into, so the first letter is missing"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxes",
+      "gives": "COFFERS",
+      "note": "coffers are strong boxes for valuables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFFERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gifts sitting in their boxes, still not unwrapped.",
+     "walkthrough": "'Presents' looks like the noun for gifts, but it is the verb, as in presents an idea.",
+     "definitionFit": "To offer something is to put it forward for acceptance, which is to present or hold it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Presents"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +907,61 @@
     "text": "Silly fool looking embarrassed, dumbfounded",
     "enumeration": "7"
    },
-   "solution": "FLOORED"
+   "solution": "FLOORED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FLOORED",
+    "definitions": [
+     {
+      "text": "dumbfounded",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "silly means foolish and scatterbrained, so the following letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "FOOL",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "looking embarrassed",
+      "gives": "RED",
+      "note": "an embarrassed face goes red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOO",
+      "RED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOOL",
+       "gives": "FLOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish person blushes, utterly lost for words.",
+     "walkthrough": "'Silly' looks like an adjective for the fool, but it is the signal to jumble that word.",
+     "definitionFit": "To be floored is to be so surprised or baffled that you are left speechless, as if knocked down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Silly"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +975,50 @@
     "text": "Some Parisian with wrath and lust?",
     "enumeration": "6"
    },
-   "solution": "DESIRE"
+   "solution": "DESIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESIRE",
+    "definitions": [
+     {
+      "text": "lust",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some Parisian",
+      "gives": "DES",
+      "note": "des is French for some"
+     },
+     {
+      "clueFragment": "with wrath",
+      "gives": "IRE",
+      "note": "ire is anger or wrath"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman given to anger and passion, playing on Parisian stereotypes.",
+     "walkthrough": "'Some Parisian' asks for a French word for some, not a person from Paris. Wrath and lust are also two of the seven deadly sins.",
+     "definitionFit": "Desire is strong wanting, especially sexual longing, so it is a synonym for lust as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1032,55 @@
     "text": "Prominent stranger in street",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Prominent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, held by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, which wraps round"
+     },
+     {
+      "clueFragment": "stranger",
+      "gives": "ALIEN",
+      "note": "an alien is a stranger or foreigner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known outsider is spotted on the road.",
+     "walkthrough": "'Stranger' looks like a comparative adjective, odder, but it is the noun for an outsider.",
+     "definitionFit": "Salient means standing out or most noticeable, as in the salient points, a synonym for prominent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stranger"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1094,48 @@
     "text": "One coming down with another kitchen item",
     "enumeration": "8"
    },
-   "solution": "COLANDER"
+   "solution": "COLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLANDER",
+    "definitions": [
+     {
+      "text": "kitchen item",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with another",
+      "gives": "CO",
+      "note": "the prefix co- means jointly, together with another"
+     },
+     {
+      "clueFragment": "One coming down",
+      "gives": "LANDER",
+      "note": "a lander is a craft or person that comes down to land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls ill alongside a companion, both coming down with something.",
+     "walkthrough": "'Coming down with' suggests catching a cold; split the answer as co-lander, a fellow who lands alongside another.",
+     "definitionFit": "A colander is a perforated bowl used in the kitchen for draining pasta or washing vegetables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1149,43 @@
     "text": "Fine instrument used by dramatist",
     "enumeration": "5"
    },
-   "solution": "AMATI"
+   "solution": "AMATI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMATI",
+    "definitions": [
+     {
+      "text": "Fine instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used by",
+      "for": "hidden_word",
+      "note": "something used by a word is part of it, carried within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dramatist",
+      "gives": "AMATI",
+      "note": "found inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A playwright plays a high-quality instrument.",
+     "walkthrough": "Amati was a family of violin makers in Cremona, whose instruments are still prized.",
+     "definitionFit": "An Amati is a violin made by the famous Cremona family of luthiers, a classic valuable stringed instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1199,56 @@
     "text": "One musical instrument or another not initially loud",
     "enumeration": "4"
    },
-   "solution": "LUTE"
+   "solution": "LUTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUTE",
+    "definitions": [
+     {
+      "text": "One musical instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initially",
+      "for": "deletion",
+      "note": "not at the start means the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "FLUTE",
+      "note": "another musical instrument, a woodwind"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f is forte, the musical marking for loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing between two instruments, one of which is not loud at the start.",
+     "walkthrough": "'Another' means another musical instrument, which loses its opening loud letter.",
+     "definitionFit": "A lute is a plucked stringed instrument with a pear-shaped body, popular in Renaissance music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loud"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1262,46 @@
     "text": "Old character that could get under your skin and be a pain",
     "enumeration": "5"
    },
-   "solution": "THORN"
+   "solution": "THORN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THORN",
+    "definitions": [
+     {
+      "text": "Old character",
+      "at": 0
+     },
+     {
+      "text": "could get under your skin and be a pain",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old character",
+      "note": "first meaning: an Old English letter, written þ, for the th sound"
+     },
+     {
+      "clueFragment": "could get under your skin and be a pain",
+      "note": "second meaning: a sharp spike on a plant that pierces the skin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Old character' suggests an elderly person, but a character here is a letter of an old alphabet. 'Get under your skin' is meant literally.",
+     "definitionFit": "The word names both an obsolete runic letter used in Old English and a sharp plant spike, proverbially a source of irritation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1315,53 @@
     "text": "Stadium overlooking new field",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AREA",
+    "definitions": [
+     {
+      "text": "field",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "to overlook is to ignore or leave out, so a letter is omitted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stadium",
+      "gives": "ARENA",
+      "note": "an arena is a stadium"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AREA"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports ground towers over a freshly laid pitch.",
+     "walkthrough": "'Overlooking' suggests looking down from above, but it means leaving out.",
+     "definitionFit": "An area is a region or sphere of activity, so it matches field in the sense of a subject or zone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1375,51 @@
     "text": "One’s single lab chore must be organised",
     "enumeration": "8"
    },
-   "solution": "BACHELOR"
+   "solution": "BACHELOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BACHELOR",
+    "definitions": [
+     {
+      "text": "One’s single",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be organised",
+      "for": "anagram",
+      "note": "to organise is to put in order, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lab chore",
+      "gives": "LABCHORE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LABCHORE",
+       "gives": "BACHELOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone task in the laboratory has to be sorted out.",
+     "walkthrough": "'Single' looks like it describes the chore, but with 'One's' it says one is single, an unmarried man.",
+     "definitionFit": "A bachelor is a man who has never married, someone who is single by definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1433,48 @@
     "text": "Worry when the bottom drops off vehicle",
     "enumeration": "3"
    },
-   "solution": "CAR"
+   "solution": "CAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CAR",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when the bottom drops off",
+      "for": "deletion",
+      "note": "in a down light the bottom is the last letter, and dropping it removes it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worry",
+      "gives": "CARE",
+      "note": "care means worry or anxiety"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Anxiety that the underside of a vehicle might fall away.",
+     "walkthrough": "In a down entry the bottom is the final letter, so the worry loses its last letter.",
+     "definitionFit": "A car is a motor vehicle for carrying passengers on roads, the everyday example of a vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1488,68 @@
     "text": "Like advert about storing email at regular intervals",
     "enumeration": "6"
    },
-   "solution": "ADMIRE"
+   "solution": "ADMIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ADMIRE",
+    "definitions": [
+     {
+      "text": "Like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "regular intervals means every other letter, so alternate ones are kept"
+     },
+     {
+      "text": "storing",
+      "for": "container",
+      "note": "to store something is to keep it inside, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advert",
+      "gives": "AD",
+      "note": "ad is short for advertisement"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "email",
+      "gives": "MI",
+      "select": "alternate",
+      "note": "the second and fourth letters of email"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MI",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A comparison: something resembling an advert about keeping emails.",
+     "walkthrough": "'Like' reads as meaning similar to, but it is the verb. The advert-plus-about pair holds the selected letters in its middle.",
+     "definitionFit": "To admire someone is to regard them with warm approval and respect, so it is a stronger way to like them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1563,59 @@
     "text": "Cask kept in bar for stout",
     "enumeration": "6"
    },
-   "solution": "ROTUND"
+   "solution": "ROTUND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROTUND",
+    "definitions": [
+     {
+      "text": "stout",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in another is held inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar of metal or wood, which wraps round"
+     },
+     {
+      "clueFragment": "Cask",
+      "gives": "TUN",
+      "note": "a tun is a large cask for beer or wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "TUN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub keeps a barrel behind the bar to serve stout, the dark beer.",
+     "walkthrough": "'Stout' looks like the dark beer from the cask, but it is the adjective meaning plump.",
+     "definitionFit": "Rotund describes a person who is round and plump, the same as stout in its sense of heavily built."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stout"
+    }
+   }
   }
  ]
 }
