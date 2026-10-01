@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Take boat for diving then land",
     "enumeration": "8"
    },
-   "solution": "SUBTRACT"
+   "solution": "SUBTRACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBTRACT",
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat for diving",
+      "gives": "SUB",
+      "note": "a submarine, the boat that dives, is a sub"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "TRACT",
+      "note": "a tract is an area of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "TRACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a day out: go scuba diving from a boat, then come ashore.",
+     "walkthrough": "'Take' looks like 'board' or 'catch', but it is the arithmetic sense, as in take five from ten.",
+     "definitionFit": "To take one number from another is to deduct it, the basic arithmetic operation of finding a difference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,55 @@
     "text": "Charming debate held in silence",
     "enumeration": "6"
    },
-   "solution": "SMOOTH"
+   "solution": "SMOOTH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMOOTH",
+    "definitions": [
+     {
+      "text": "Charming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in something else sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debate",
+      "gives": "MOOT",
+      "note": "to moot a question is to raise it for debate"
+     },
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "'sh!' is the call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MOOT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A debate conducted in delightful hushed tones, as if in a library.",
+     "walkthrough": "MOOT as a verb means to bring up for discussion, and a moot was once a debating assembly.",
+     "definitionFit": "A smooth talker is suave and polished, winning people over with easy, ingratiating manners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silence"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,57 @@
     "text": "Scientific study every NATO battalion keeps up",
     "enumeration": "6"
    },
-   "solution": "BOTANY"
+   "solution": "BOTANY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BOTANY",
+    "definitions": [
+     {
+      "text": "Scientific study",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "hidden_word",
+      "note": "what a phrase keeps is held inside it, so the letters lie within the run of words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from the bottom to the top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every NATO battalion",
+      "gives": "YNATOB",
+      "note": "the letters run across the end of every, all of NATO and the start of battalion"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "YNATOB",
+       "to": "BOTANY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military unit carries on some research project, as every NATO battalion does.",
+     "walkthrough": "The capitals on NATO make it look like a reference to the alliance, but only its letters matter here, read upwards.",
+     "definitionFit": "Botany is the branch of biology concerned with plants, a science in its own right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +225,40 @@
      }
     ]
    },
-   "solution": "RIOGRANDE"
+   "solution": "RIOGRANDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RIO GRANDE",
+    "definitions": [
+     {
+      "text": "Current wanted for cultivation of arid region?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current wanted for cultivation of arid region?",
+      "note": "surface reading: some flow or trend needed if dry country is to be farmed"
+     },
+     {
+      "clueFragment": "Current",
+      "note": "setter's reading: a current is a flowing river, here the great river of the American southwest whose water irrigates desert farmland"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what a dry region needs before anything can be grown there.",
+     "walkthrough": "The RIO GRANDE runs from Colorado through New Mexico and along the Texas-Mexico border, irrigating desert farms; the letters of 'arid region', less one I, also rearrange into it.",
+     "definitionFit": "This big river is the water source that makes farming possible across the dry southwestern United States and northern Mexico."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +278,70 @@
      }
     ]
    },
-   "solution": "CASINOROYALE"
+   "solution": "CASINOROYALE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CASINO ROYALE",
+    "definitions": [
+     {
+      "text": "Blockbuster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling goes inside something, as in a sandwich, so one piece is put within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca. abbreviates circa, Latin for about"
+     },
+     {
+      "clueFragment": "Chinese",
+      "gives": "SINO",
+      "note": "Sino- is the prefix for Chinese, as in Sino-Japanese"
+     },
+     {
+      "clueFragment": "locksmith",
+      "gives": "YALE",
+      "note": "Linus Yale Jr. was the American locksmith behind the Yale lock"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "SIN",
+      "OR",
+      "OYALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A film review: a blockbuster about a Chinese locksmith who has a gold tooth filling.",
+     "walkthrough": "The gold does not sit neatly between the Chinese and the locksmith; it goes in one letter earlier, so the join is easy to miss. Or for gold is heraldic French.",
+     "definitionFit": "This James Bond film was a huge box-office hit, and a blockbuster is exactly such a commercially successful movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +355,65 @@
     "text": "More expensive watch secretly returned for maintenance",
     "enumeration": "6"
    },
-   "solution": "UPKEEP"
+   "solution": "UPKEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UPKEEP",
+    "definitions": [
+     {
+      "text": "maintenance",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters run in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More expensive",
+      "gives": "UP",
+      "note": "when prices are up, things are more expensive"
+     },
+     {
+      "clueFragment": "watch secretly",
+      "gives": "PEEK",
+      "note": "to peek is to look furtively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "KEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pricier watch that was quietly sent back to be serviced.",
+     "walkthrough": "'watch' looks like a timepiece being returned for repair, but it is the verb, to look at.",
+     "definitionFit": "Upkeep is the cost or work of keeping property in good repair, which is what maintenance means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +427,62 @@
     "text": "One article chamber pot contains, something next to stool?",
     "enumeration": "5"
    },
-   "solution": "PIANO"
+   "solution": "PIANO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PIANO",
+    "definitions": [
+     {
+      "text": "something next to stool?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "a vessel that contains things holds them inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "chamber pot",
+      "gives": "PO",
+      "note": "a po is a chamber pot, from the French pot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A lavatorial picture: a chamber pot holding something, kept beside a stool.",
+     "walkthrough": "With a chamber pot in view, 'stool' suggests the lavatory; it is the seat a pianist sits on, hence the question mark.",
+     "definitionFit": "A piano stool is the bench a player sits on, so the instrument stands right beside it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stool"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +496,59 @@
     "text": "Former priest learning Dutch did survey",
     "enumeration": "8"
    },
-   "solution": "EXPLORED"
+   "solution": "EXPLORED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLORED",
+    "definitions": [
+     {
+      "text": "did survey",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "an ex is a former one"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "P",
+      "note": "P is an abbreviation for priest"
+     },
+     {
+      "clueFragment": "learning",
+      "gives": "LORE",
+      "note": "lore is accumulated learning"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "P",
+      "LORE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-priest who studied Dutch went on to conduct a survey.",
+     "walkthrough": "'did survey' is the past-tense definition, matching the -ED ending of the answer.",
+     "definitionFit": "To survey territory is to travel over and examine it, which is what an explorer does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learning"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +562,61 @@
     "text": "Soldier's the one chasing English sucker",
     "enumeration": "8"
    },
-   "solution": "PARASITE"
+   "solution": "PARASITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARASITE",
+    "definitions": [
+     {
+      "text": "sucker",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "a chaser runs right on the heels of its quarry, so the two pieces are placed side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier's",
+      "gives": "PARAS",
+      "note": "a para is a paratrooper; with the 's it reads 'para is'"
+     },
+     {
+      "clueFragment": "the one",
+      "gives": "IT",
+      "note": "in a game of tag, whoever is 'it' is the one doing the chasing"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARAS",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is the one chasing an English mug who has been taken in.",
+     "walkthrough": "'sucker' suggests a dupe, but it means something that sucks blood or sap from a host. 'it' is the chaser in tag, so 'the one chasing' fits it neatly.",
+     "definitionFit": "A parasite such as a leech or tick lives by drawing nourishment from a host, a bloodsucker in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sucker"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +630,62 @@
     "text": "Shed unfashionable stockings worn by upper class",
     "enumeration": "8"
    },
-   "solution": "OUTHOUSE"
+   "solution": "OUTHOUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OUTHOUSE",
+    "definitions": [
+     {
+      "text": "Shed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "clothing worn by someone wraps around them, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfashionable",
+      "gives": "OUT",
+      "note": "out of fashion is out"
+     },
+     {
+      "clueFragment": "stockings",
+      "gives": "HOSE",
+      "note": "hose is the old word for stockings or tights"
+     },
+     {
+      "clueFragment": "upper class",
+      "gives": "U",
+      "note": "U stands for upper-class usage, as in 'U and non-U'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "HO",
+      "U",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Posh people pulling on dated stockings and casting them off.",
+     "walkthrough": "'Shed' reads as a verb, casting off the stockings, but it is the noun for a garden hut.",
+     "definitionFit": "An outhouse is a small outbuilding beside a main house, and a garden shed is one such structure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shed"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +699,50 @@
     "text": "Chat and a fag",
     "enumeration": "6"
    },
-   "solution": "GASPER"
+   "solution": "GASPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GASPER",
+    "definitions": [
+     {
+      "text": "fag",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chat",
+      "gives": "GAS",
+      "note": "to gas is to chatter idly"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "'a' as in 'ten pounds a head', which is per head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "The pleasures of a break: a natter and a cigarette.",
+     "walkthrough": "In British slang a fag is a cigarette, and a gasper is old slang for a cheap one.",
+     "definitionFit": "Both are British slang names for a cigarette, gasper being the older, mocking term for a cheap smoke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +756,70 @@
     "text": "Impossible to get wife to stop drifting near bus lane",
     "enumeration": "12"
    },
-   "solution": "UNANSWERABLE"
+   "solution": "UNANSWERABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNANSWERABLE",
+    "definitions": [
+     {
+      "text": "Impossible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drifting",
+      "for": "anagram",
+      "note": "things that drift wander out of position, so these letters are rearranged"
+     },
+     {
+      "text": "stop",
+      "for": "container",
+      "note": "a stopper plugs a gap from inside, so one letter is placed within the others"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near bus lane",
+      "gives": "NEARBUSLANE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W abbreviates wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNANS",
+      "W",
+      "ERABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEARBUSLANE",
+       "gives": "UNANSERABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated driver cannot stop their wife's car wandering into a bus lane.",
+     "walkthrough": "The wife's initial is the plug: put the W into the rearranged letters of 'near bus lane'. The definition is a stretch: an unanswerable argument is one impossible to refute.",
+     "definitionFit": "An unanswerable case or question cannot be rebutted or replied to; it is impossible to counter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +833,44 @@
     "text": "Pavarotti for one bought enormous trousers",
     "enumeration": "5"
    },
-   "solution": "TENOR"
+   "solution": "TENOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TENOR",
+    "definitions": [
+     {
+      "text": "Pavarotti for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trousers",
+      "for": "hidden_word",
+      "note": "to trouser something is to pocket it, so the letters are tucked away inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bought enormous",
+      "gives": "TENOR",
+      "note": "the end of bought and the start of enormous"
+     }
+    ],
+    "explanation": {
+     "surface": "The famously large opera singer buys himself some very big trousers.",
+     "walkthrough": "'trousers' looks like the garments he bought, but here it is a verb: to trouser is British slang for to pocket.",
+     "definitionFit": "Luciano Pavarotti was one of the most celebrated operatic tenors, so he is an example of the voice type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +884,66 @@
     "text": "Waterproof loose on our son that's taken back to shop",
     "enumeration": "9"
    },
-   "solution": "NONPOROUS"
+   "solution": "NONPOROUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NONPOROUS",
+    "definitions": [
+     {
+      "text": "Waterproof",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "something loose is not held in place, so the letters may move about"
+     },
+     {
+      "text": "back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only the final letter is used"
+     }
+    ],
+    "linkWords": [
+     "that's taken"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on our son",
+      "gives": "ONOURSON",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "P",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONOURSONP",
+       "gives": "NONPOROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rain jacket that hung loose on our boy, so it went back to the store.",
+     "walkthrough": "'back to shop' reads as the return trip, but it takes the back letter of 'shop' to add to the mix.",
+     "definitionFit": "A nonporous material has no pores for liquid to soak through, so water cannot penetrate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +957,75 @@
     "text": "American bangs me entering pub, initially taking offence",
     "enumeration": "12"
    },
-   "solution": "INFRINGEMENT"
+   "solution": "INFRINGEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "INFRINGEMENT",
+    "definitions": [
+     {
+      "text": "offence",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter a place is to go inside it, so these pieces are placed within another"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of a word, so just its opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American bangs",
+      "gives": "FRINGE",
+      "note": "Americans call a fringe of hair bangs"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "taking",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FRINGEME",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An American hits the speaker on walking into a bar, having taken offence.",
+     "walkthrough": "'bangs' looks like a verb for hitting, but it is the American noun for a fringe of hair.",
+     "definitionFit": "An infringement is a breach of a rule or law, a minor violation or offence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bangs"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1039,65 @@
     "text": "Brussels rent that is reduced for playwright",
     "enumeration": "9"
    },
-   "solution": "EURIPIDES"
+   "solution": "EURIPIDES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EURIPIDES",
+    "definitions": [
+     {
+      "text": "playwright",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "something reduced is cut down, so a letter is lost from the end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brussels",
+      "gives": "EU",
+      "note": "Brussels is the seat of the European Union"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "RIP",
+      "note": "a rent is a tear or rip"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IDES",
+      "note": "id est, Latin for 'that is', loses its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "RIP",
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist gets a cut in his Brussels rent.",
+     "walkthrough": "'rent' looks like payment for housing, but it is a tear. 'that is' is usually i.e.; here it is spelled out in full Latin as ID EST before shortening.",
+     "definitionFit": "Euripides was one of the three great tragic dramatists of ancient Athens, author of Medea and The Bacchae."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1111,53 @@
     "text": "Island to rule out bachelor parties",
     "enumeration": "8"
    },
-   "solution": "BARBADOS"
+   "solution": "BARBADOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARBADOS",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to rule out",
+      "gives": "BAR",
+      "note": "to bar is to exclude"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor, as in a BA degree"
+     },
+     {
+      "clueFragment": "parties",
+      "gives": "ADOS",
+      "note": "ados are fusses or to-dos, a sense of parties as commotions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "B",
+      "ADOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday island that bans stag parties.",
+     "walkthrough": "The surface reads as a ban on stag dos; the parts are BAR, B and ADOS, fusses or commotions.",
+     "definitionFit": "Barbados is a Caribbean island nation, the easternmost of the Lesser Antilles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1171,56 @@
     "text": "Local salt on English shellfish",
     "enumeration": "8"
    },
-   "solution": "BARNACLE"
+   "solution": "BARNACLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARNACLE",
+    "definitions": [
+     {
+      "text": "shellfish",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local",
+      "gives": "BAR",
+      "note": "your local is your neighbourhood pub, or bar"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "NACL",
+      "note": "NaCl is the chemical formula for common salt"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "NACL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub's regional dish: English shellfish served with salt.",
+     "walkthrough": "In Britain 'the local' is the pub nearest home. 'salt' looks like a seasoning or an old sailor, but it is the chemical formula.",
+     "definitionFit": "Barnacles are hard-shelled marine crustaceans that cling to rocks and hulls, loosely counted among shellfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1240,63 @@
      }
     ]
    },
-   "solution": "ACADEMYAWARD"
+   "solution": "ACADEMYAWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACADEMY AWARD",
+    "definitions": [
+     {
+      "text": "What e.g. 8 took",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means placed behind it in order, so the pieces are joined in sequence"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "ACADEMY",
+      "note": "an academy is a school"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child needing protection",
+      "gives": "WARD",
+      "note": "a ward is a child under a guardian's protection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACADEMY",
+      "A",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Something taken from a vulnerable child after school, as if by a bully.",
+     "walkthrough": "8 is PARASITE, the Korean film that won the Oscar for Best Picture in 2020; read the surface as theft and the cross-reference is easily missed.",
+     "definitionFit": "An Oscar is formally an Academy Award, and Parasite won one, making it an example of a film that took this prize."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1310,61 @@
     "text": "Wolf one wild feral creature",
     "enumeration": "6"
    },
-   "solution": "PIGEON"
+   "solution": "PIGEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PIGEON",
+    "definitions": [
+     {
+      "text": "feral creature",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wolf",
+      "gives": "PIG",
+      "note": "to wolf food is to pig it, eat greedily"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIG",
+      "EON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "EON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wolf, a wild and untamed animal.",
+     "walkthrough": "'Wolf' wants to be the creature, but it is a verb, to gobble.",
+     "definitionFit": "Feral pigeons are descendants of domesticated birds now living wild in towns, the commonest feral animal in cities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wolf"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1378,61 @@
     "text": "Mountain-climbing fashion-conscious youth dressed in silver, perhaps",
     "enumeration": "6"
    },
-   "solution": "PLATED"
+   "solution": "PLATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PLATED",
+    "definitions": [
+     {
+      "text": "dressed in silver, perhaps",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue climbing means going upwards, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mountain",
+      "gives": "ALP",
+      "note": "an alp is a mountain"
+     },
+     {
+      "clueFragment": "fashion-conscious youth",
+      "gives": "TED",
+      "note": "a Ted, or Teddy boy, was a 1950s British youth in Edwardian-style dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "TED"
+     ],
+     "reversals": [
+      {
+       "from": "ALP",
+       "to": "PLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish young climber scales a peak wearing silver gear.",
+     "walkthrough": "Teddy boys were a 1950s British youth cult known for long drape jackets and quiffs.",
+     "definitionFit": "Plated metal is coated with a thin layer of another metal, silver being a typical example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1446,55 @@
     "text": "Doctor can rub oil in both eyes",
     "enumeration": "9"
    },
-   "solution": "BINOCULAR"
+   "solution": "BINOCULAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BINOCULAR",
+    "definitions": [
+     {
+      "text": "both eyes",
+      "at": 22,
+      "note": "the answer is an adjective, meaning using both eyes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can rub oil",
+      "gives": "CANRUBOIL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANRUBOIL",
+       "gives": "BINOCULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor rubbing ointment into a patient's eyes.",
+     "walkthrough": "'Doctor' looks like the physician applying the oil, but it is a verb, to alter.",
+     "definitionFit": "Binocular vision uses the two eyes together, giving depth perception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1508,64 @@
     "text": "Sailors on bench both losing weight, getting thin fare",
     "enumeration": "5"
    },
-   "solution": "CREPE"
+   "solution": "CREPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CREPE",
+    "definitions": [
+     {
+      "text": "thin fare",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both losing",
+      "for": "deletion",
+      "note": "to lose something is to be without it, and 'both' makes each of two words drop the same letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailors",
+      "gives": "CREW",
+      "note": "a ship's crew are its sailors"
+     },
+     {
+      "clueFragment": "bench",
+      "gives": "PEW",
+      "note": "a pew is a church bench"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W abbreviates weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors sitting on a bench, both slimming down on a meagre diet.",
+     "walkthrough": "'both' tells you the W comes out of each word, not just one.",
+     "definitionFit": "A crêpe is a very thin pancake, so it is food that is literally thin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1579,58 @@
     "text": "Small bottle of very acidic beer unfinished",
     "enumeration": "5"
    },
-   "solution": "PHIAL"
+   "solution": "PHIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PHIAL",
+    "definitions": [
+     {
+      "text": "Small bottle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its ending, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very acidic",
+      "gives": "PHI",
+      "note": "pH 1 is extremely acidic, with the 1 read as I"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHI",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A little bottle of sour beer left half-drunk.",
+     "walkthrough": "On the pH scale, low numbers are acidic, so pH 1 is very acidic; the digit 1 doubles as the letter I.",
+     "definitionFit": "A phial is a small glass vial for medicine or perfume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acidic"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1644,65 @@
     "text": "Touching a thousand fish repelled man unloading boat",
     "enumeration": "6"
    },
-   "solution": "DOCKER"
+   "solution": "DOCKER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DOCKER",
+    "definitions": [
+     {
+      "text": "man unloading boat",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "something repelled is driven back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touching",
+      "gives": "RE",
+      "note": "re means concerning or touching on"
+     },
+     {
+      "clueFragment": "a thousand",
+      "gives": "K",
+      "note": "K stands for a thousand"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "COD",
+      "note": "a cod is a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOCKER"
+     ],
+     "reversals": [
+      {
+       "from": "REKCOD",
+       "to": "DOCKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dockhand moved by a thousand fish turning away as he unloads.",
+     "walkthrough": "'Touching' looks emotional, but it is the formal 'concerning', RE.",
+     "definitionFit": "A docker works at the docks loading and unloading cargo ships, a stevedore or longshoreman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Touching"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1716,68 @@
     "text": "Old Indian spinner bats ten, following the order",
     "enumeration": "8"
    },
-   "solution": "OBEDIENT"
+   "solution": "OBEDIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OBEDIENT",
+    "definitions": [
+     {
+      "text": "following the order",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats means crazy, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O abbreviates old"
+     },
+     {
+      "clueFragment": "Indian spinner",
+      "gives": "BEDI",
+      "note": "Bishan Bedi was a great Indian left-arm spin bowler in cricket"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BEDI",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "ENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cricket: a veteran Indian spin bowler goes in at number ten in the batting order.",
+     "walkthrough": "In cricket a spinner bowls slow, spinning deliveries, and Bishan Bedi was India's best-known one. 'bats' and 'order' feed the cricket picture.",
+     "definitionFit": "An obedient person complies with commands, doing as instructed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1791,59 @@
     "text": "Stick jug by sink after emptying it",
     "enumeration": "6"
    },
-   "solution": "SKEWER"
+   "solution": "SKEWER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKEWER",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after emptying it",
+      "for": "letter_selection",
+      "note": "an emptied word has its insides removed, so only the outer letters are kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "SK",
+      "select": "outer",
+      "note": "only the first and last letters"
+     },
+     {
+      "clueFragment": "jug",
+      "gives": "EWER",
+      "note": "a ewer is a large water jug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "EWER"
+     ]
+    },
+    "explanation": {
+     "surface": "Put the jug next to the sink once you have emptied it.",
+     "walkthrough": "'Stick' reads as a verb, to place, but the definition is either sense of the answer, a spit or to pierce.",
+     "definitionFit": "To skewer is to pierce with a pointed rod, just as to stick a knife into something is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1857,55 @@
     "text": "Logical engineers like 1D",
     "enumeration": "8"
    },
-   "solution": "REASONED"
+   "solution": "REASONED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REASONED",
+    "definitions": [
+     {
+      "text": "Logical",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British Army corps"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like"
+     },
+     {
+      "clueFragment": "1D",
+      "gives": "ONED",
+      "note": "the digit spelled out, plus D"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "AS",
+      "ONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers think rationally, just like the answer to the clue at one down.",
+     "walkthrough": "'1D' looks like a cross-reference to the clue at one down, but it is read literally as ONE and D.",
+     "definitionFit": "A reasoned argument is thought through rationally, which is what logical describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "1D"
+    }
+   }
   }
  ]
 }
