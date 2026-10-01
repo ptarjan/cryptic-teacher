@@ -105,7 +105,12 @@ CLUE_TYPE = re.compile(
     r"^\((?:\d|one|two|three|double|triple|cryptic|straight|&\s*lit)"
     r"[^()]*\bdef", re.I)
 #: Deleted letters, marked two ways across the eras, are not in the answer.
-DELETED = re.compile(r"<(s|strike|del)\b[^>]*>.*?</\1>", re.I | re.S)
+#: A deletion never crosses a cell, paragraph or line break: "</s>e<s>" types
+#: its strike tags backwards, and a strike that runs on to the next "</s>"
+#: deletes every clue between.
+DELETED = re.compile(
+    r"<(s|strike|del)\b[^>]*>(?:(?!</?(?:td|tr|p|li|br|div)\b).)*?</\1>",
+    re.I | re.S)
 #: A braced deletion never crosses a line: "{bu}RI{ed{" mistypes its closing
 #: brace, and a brace that may run on to the next "}" deletes every clue between.
 #: In a clue line -- one ending in its enumeration -- braces mark the hidden
