@@ -1765,6 +1765,10 @@ def byline(data):
     return name if len(name) > 1 else None
 
 
+#: What convert() strips from the front of a clue, and what the schema's
+#: clue.text pattern refuses there: the page's stray spaces, never a typeset one.
+LEADING_SPACE = " \u00a0\t\n\r"
+
 # A sentence of the page's note that is only a link: "Click here for a
 # printable version of this crossword.", "For a printable version of this
 # crossword, click here". The link is not in the text, so on our page it is a
@@ -1791,11 +1795,14 @@ def convert(data):
     entries = []
     for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
         line, italics = flatten_clue(e["clue"])
-        # The page prints some clues with a space in front ("&nbsp;" or a
-        # plain " ", 3,600 of them across cryptic and Quiptic). A clue with no
-        # markup reaches here untouched, space and all; one with markup has
+        # The page prints some clues with a space in front (a plain " " or a
+        # no-break one, 3,600 of them across cryptic and Quiptic). A clue with
+        # no markup reaches here untouched, space and all; one with markup has
         # it dropped by flatten_clue, so no italic range ever starts in it.
-        line = line.lstrip()
+        # Only those two: a typeset space (en, em, thin: U+2000-U+200A) is the
+        # setter's, and cryptic-30059's 14-down is five en spaces and "9", the
+        # gap being the SPACE of SPACE RACE.
+        line = line.lstrip(LEADING_SPACE)
         text, enum = enumeration.split(line)
         seps = separator_list(e.get("separatorLocations"))
         entries.append({
