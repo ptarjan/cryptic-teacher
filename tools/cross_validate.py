@@ -274,6 +274,10 @@ class Independent(Adapter):
     workers = 3
 
     def ids(self):
+        """Each held puzzle's print date as a key, unless a cached key is
+        known to serve it: in 2015 the feed served the Sunday paper a week
+        early and, from 2015-07-13 to 08-16, the daily on the Sunday key,
+        while our files carry the day each was printed."""
         import fetch_independent as fi
         out = {}
         for pid, path in held(self).items():
@@ -281,6 +285,23 @@ class Independent(Adapter):
             ymd = day[2:4] + day[5:7] + day[8:10]
             if len(ymd) == 6 and ymd not in fi.REPEATS:
                 out[pid] = ymd
+        served = self.served()
+        out.update({pid: ymd for pid, ymd in served.items() if pid in out})
+        return out
+
+    def served(self):
+        """{puzzle id: date key} over the 2015 keys cached, read off each
+        key's own title (fetch_independent.parse); keys that fail to parse
+        hold no puzzle we can name."""
+        import fetch_independent as fi
+        out = {}
+        for path in sorted(self.cache.glob("c_15*.xml")):
+            ymd = path.stem[2:]
+            try:
+                pid = fi.parse(path.read_bytes(), ymd)["id"]
+            except Exception:  # noqa: BLE001 — a repeat or staging key names nothing
+                continue
+            out.setdefault(pid, ymd)
         return out
 
     def raw_file(self, ymd):
@@ -313,9 +334,10 @@ def independent_shape(xml_bytes, ymd):
     """The feed's XML in our shape, its entries read without
     fetch_independent's converter: the grid's white cells and letters, each
     <word>'s runs, each clue's words and its format attribute as printed
-    (a period, slash or space in it read as the comma it stands for). A clue
-    fetch_independent.CLUE_FIXES proves garbled is read as printed, as
-    witness() does for a known wrong answer."""
+    (a period, slash or space in it read as the comma it stands for, a
+    trailing comma dropped). A clue or count fetch_independent's CLUE_FIXES
+    or FORMAT_FIXES proves wrong is read as printed, as witness() does for a
+    known wrong answer."""
     import xml.etree.ElementTree as ET
 
     import fetch_independent as fi
@@ -336,7 +358,8 @@ def independent_shape(xml_bytes, ymd):
         nums = [int(n.rstrip("ADad")) for n in (clue.get("number") or "").split("/") if n.strip()]
         text = " ".join(html.unescape("".join(clue.itertext())).split())
         text = fi.fixed_clue(ymd, clue.get("word"), text) or text
-        enum = re.sub(r",+", ",", re.sub(r"[./\s]", ",", (clue.get("format") or "").strip())) or None
+        enum = re.sub(r",+", ",", re.sub(r"[./\s]", ",", (clue.get("format") or "").strip()))
+        enum = fi.FORMAT_FIXES.get((ymd, clue.get("word"), enum), enum).strip(",") or None
         for i, (num, ((x1, x2), (y1, y2))) in enumerate(zip(nums, runs[clue.get("word")])):
             across = x2 > x1 or y1 == y2
             length = (x2 - x1 if across else y2 - y1) + 1

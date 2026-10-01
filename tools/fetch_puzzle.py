@@ -1642,6 +1642,11 @@ SOURCE_ANSWER_WRONG = {
         '"Early closure of one study centre" is UNI(t), one closed early, '
         "and a study centre is a UNI; URI is neither; the second cell is "
         "unchecked, and fifteensquared has UNI"),
+    ("indysunday-1902", "7-down"): (
+        "CHOCOLOHICS", "CHOCOHOLICS",
+        '"Addicts who frequent bars never weary?" is a cryptic definition of '
+        "CHOCOHOLICS, at the chocolate bars; CHOCOLOHICS is not a word; the "
+        "sixth and eighth cells, the two swapped, are unchecked"),
 }
 
 
