@@ -23,6 +23,9 @@
   "date": "2026-03-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "Leave chaps beginning to teach division",
     "enumeration": "10"
    },
-   "solution": "DEPARTMENT"
+   "solution": "DEPARTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEPARTMENT",
+    "definitions": [
+     {
+      "text": "division",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "DEPART",
+      "note": "to leave is to depart"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "teach",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of 'teach'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPART",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A school's staff are told to quit before starting to teach some division of their work.",
+     "walkthrough": "'Division' sounds like arithmetic to be taught, but it is the definition, read as a section of an organisation.",
+     "definitionFit": "A department is a section or branch of a larger organisation, such as a government or company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "division"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +108,43 @@
     "text": "See fruit",
     "enumeration": "4"
    },
-   "solution": "DATE"
+   "solution": "DATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DATE",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     },
+     {
+      "text": "fruit",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "note": "first meaning: to go out with someone romantically, as in 'are you seeing anyone?'"
+     },
+     {
+      "clueFragment": "fruit",
+      "note": "second meaning: the sweet brown fruit of a palm tree"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'See' looks like an instruction pointing at fruit, but it is a definition in its own right: to see someone is to court them.",
+     "definitionFit": "The word is both a verb for courting someone regularly and a noun for the palm tree's sweet sticky produce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +158,70 @@
     "text": "Edge of boggy area to the north circumvented by saint",
     "enumeration": "9"
    },
-   "solution": "PERIMETER"
+   "solution": "PERIMETER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PERIMETER",
+    "definitions": [
+     {
+      "text": "Edge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the north",
+      "for": "reversal",
+      "note": "in a down clue, heading north means reading upwards, so the letters run backwards"
+     },
+     {
+      "text": "circumvented by",
+      "for": "container",
+      "note": "something circumvented is surrounded on all sides, so it sits inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boggy area",
+      "gives": "MIRE",
+      "note": "a mire is a stretch of bog"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "PETER",
+      "note": "St Peter the apostle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ERIM",
+      "ETER"
+     ],
+     "reversals": [
+      {
+       "from": "MIRE",
+       "to": "ERIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rim of a marsh to the north has been walked around by a holy man.",
+     "walkthrough": "'Saint' is not the usual ST here but a named apostle, split after his first letter to take in the upturned bog.",
+     "definitionFit": "The perimeter is the outer boundary or border of an area, which is what its edge is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circumvented"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +241,54 @@
      }
     ]
    },
-   "solution": "RENEDESCARTES"
+   "solution": "RENEDESCARTES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENE DESCARTES",
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "done oddly means done in a strange way, so the letters end up in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rent decreases",
+      "gives": "RENTDECREASES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RENTDECREASES",
+       "gives": "RENEDESCARTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker's rent strangely goes down, as if a landlord has turned generous.",
+     "walkthrough": "'Oddly' tempts a solver to take alternate letters, but that gives far too few; here it signals a rearrangement of all thirteen.",
+     "definitionFit": "Descartes was the seventeenth-century French thinker famous for 'I think, therefore I am'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +302,62 @@
     "text": "Encountered that guy purchasing an essential element of natural gas",
     "enumeration": "7"
    },
-   "solution": "METHANE"
+   "solution": "METHANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "METHANE",
+    "definitions": [
+     {
+      "text": "essential element of natural gas",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "purchasing",
+      "for": "container",
+      "note": "purchasing means getting hold of something, so one piece takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encountered",
+      "gives": "MET",
+      "note": "to have encountered someone is to have met them"
+     },
+     {
+      "clueFragment": "that guy",
+      "gives": "HE",
+      "note": "the pronoun for a man"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "H",
+      "AN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Bumping into a man who is buying the key ingredient of the gas supply.",
+     "walkthrough": "'Purchasing' reads as shopping, but it means gripping: HE holds AN.",
+     "definitionFit": "Methane is the main component of natural gas, making up most of its volume as burned in homes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "purchasing"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +371,58 @@
     "text": "Currently, that woman’s on ecstasy in remote place",
     "enumeration": "7"
    },
-   "solution": "NOWHERE"
+   "solution": "NOWHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOWHERE",
+    "definitions": [
+     {
+      "text": "remote place",
+      "at": 38,
+      "note": "used loosely, as in 'the middle of nowhere'"
+     }
+    ],
+    "linkWords": [
+     "’s on",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Currently",
+      "gives": "NOW",
+      "note": "currently means at present"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "the pronoun for a woman"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOW",
+      "HER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is high on drugs somewhere far from anyone.",
+     "walkthrough": "E for ecstasy is a standard crossword abbreviation from the drug's street name.",
+     "definitionFit": "'In the middle of nowhere' describes an isolated spot, so the word stands for some faraway unknown location."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +436,60 @@
     "text": "Old South American‘s tiny scar discovered",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "INCA",
+    "definitions": [
+     {
+      "text": "Old South American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means having its covers taken off, so each word loses its outside letters"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny",
+      "gives": "IN",
+      "select": "middle",
+      "note": "the inner pair of 'tiny'"
+     },
+     {
+      "clueFragment": "scar",
+      "gives": "CA",
+      "select": "middle",
+      "note": "the inner pair of 'scar'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist uncovers an ancient Peruvian with a small scar.",
+     "walkthrough": "'Discovered' reads as found, but split as dis-covered it means stripped of the outer letters.",
+     "definitionFit": "The Incas were the native people whose empire ruled the Andes until the Spanish conquest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +503,61 @@
     "text": "New operatic song raised money in Nigeria",
     "enumeration": "5"
    },
-   "solution": "NAIRA"
+   "solution": "NAIRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NAIRA",
+    "definitions": [
+     {
+      "text": "money in Nigeria",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it to read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "operatic song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in an opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AIRA"
+     ],
+     "reversals": [
+      {
+       "from": "ARIA",
+       "to": "AIRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new opera number brought in funds in Lagos.",
+     "walkthrough": "'Raised money' suggests fundraising; 'raised' belongs to the wordplay and 'money in Nigeria' is the definition.",
+     "definitionFit": "The naira is the national currency unit of Nigeria, divided into a hundred kobo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +571,70 @@
     "text": "Deals with representatives detaining mere criminal",
     "enumeration": "10"
    },
-   "solution": "AGREEMENTS"
+   "solution": "AGREEMENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AGREEMENTS",
+    "definitions": [
+     {
+      "text": "Deals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detaining",
+      "for": "container",
+      "note": "to detain is to hold someone in, so one piece goes inside another"
+     },
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or wrong, so these letters are bent out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "representatives",
+      "gives": "AGENTS",
+      "note": "agents act as representatives for others"
+     },
+     {
+      "clueFragment": "mere",
+      "gives": "MERE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "REEM",
+      "ENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MERE",
+       "gives": "REEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plea bargains struck by lawyers who are holding a petty offender.",
+     "walkthrough": "'Criminal' looks like a noun for the person detained, but it is the anagram signal for the word before it.",
+     "definitionFit": "Deals are arrangements settled between parties, which is what agreements are; both are plural nouns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +648,58 @@
     "text": "Go around this person’s Italian city",
     "enumeration": "5"
    },
-   "solution": "TURIN"
+   "solution": "TURIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TURIN",
+    "definitions": [
+     {
+      "text": "Italian city",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "TURN",
+      "note": "a go in a game is a turn"
+     },
+     {
+      "clueFragment": "this person",
+      "gives": "I",
+      "note": "this person is the setter, so I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist is told to take a tour of their own city in Italy.",
+     "walkthrough": "'Go around' reads as a single phrase meaning tour; split, 'Go' is TURN and 'around' wraps it round 'this person', the setter.",
+     "definitionFit": "Turin is the capital of Piedmont in northern Italy, home of Fiat and Juventus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +719,65 @@
      }
     ]
    },
-   "solution": "TOWNCRIER"
+   "solution": "TOWNCRIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOWN CRIER",
+    "definitions": [
+     {
+      "text": "former news presenter?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing something means holding it firmly, so one piece is held within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bank",
+      "gives": "TIER",
+      "note": "a tier is a bank, as in a row of seats or a bank of switches"
+     },
+     {
+      "clueFragment": "personal",
+      "gives": "OWN",
+      "note": "your own is personal to you"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OWN",
+      "CR",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank lends money to a retired newsreader on personal credit.",
+     "walkthrough": "'Bank' tempts a financial reading, but it means a tier or row; the question mark flags the playful definition.",
+     "definitionFit": "Before newspapers and broadcasts, a bellman walked the streets shouting public announcements, so he presented the news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +791,73 @@
     "text": "Family established in Cambridgeshire city nursing daughter in secret",
     "enumeration": "13"
    },
-   "solution": "CLANDESTINELY"
+   "solution": "CLANDESTINELY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLANDESTINELY",
+    "definitions": [
+     {
+      "text": "in secret",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "nursing something means holding it close, so one piece takes another into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "CLAN",
+      "note": "a clan is an extended family group"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "EST is the abbreviation for established, seen on shop signs"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Cambridgeshire city",
+      "gives": "ELY",
+      "note": "Ely is a small cathedral city in Cambridgeshire"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAN",
+      "D",
+      "EST",
+      "IN",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "A family settled in a fenland city is secretly looking after a daughter.",
+     "walkthrough": "Ely is an English cathedral city near Cambridge; the daughter is tucked in right after the family, inside the whole string.",
+     "definitionFit": "Doing something clandestinely means doing it covertly, hidden from view; both are adverbial phrases."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nursing"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +871,56 @@
     "text": "Intervene and think carefully, having no time",
     "enumeration": "7"
    },
-   "solution": "MEDIATE"
+   "solution": "MEDIATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MEDIATE",
+    "definitions": [
+     {
+      "text": "Intervene",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having no",
+      "for": "deletion",
+      "note": "having none of something means it is left out of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "think carefully",
+      "gives": "MEDITATE",
+      "note": "to meditate is to think deeply"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDI",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to anyone stepping into a dispute: stop and reflect, though there is no time.",
+     "walkthrough": "Taking the T out of MEDITATE leaves the answer.",
+     "definitionFit": "To mediate is to step in between disputing parties to help them reach a settlement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +934,56 @@
     "text": "Cognisant of fighting in A&E",
     "enumeration": "5"
    },
-   "solution": "AWARE"
+   "solution": "AWARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWARE",
+    "definitions": [
+     {
+      "text": "Cognisant of",
+      "at": 0,
+      "note": "the answer is used with 'of' too: aware of"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "taken as written, letters only"
+     },
+     {
+      "clueFragment": "fighting",
+      "gives": "WAR",
+      "note": "war is fighting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff are well informed about brawls breaking out in the emergency department.",
+     "walkthrough": "A&E is the British hospital emergency department (Accident and Emergency); here only its letters are used.",
+     "definitionFit": "Cognisant and aware are synonyms meaning having knowledge or realisation of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "A&E"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +1003,83 @@
      }
     ]
    },
-   "solution": "WASTEPAPER"
+   "solution": "WASTEPAPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WASTE PAPER",
+    "definitions": [
+     {
+      "text": "Recyclable material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it end to end"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means tipped over, so it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dear",
+      "gives": "PET",
+      "note": "pet is a term of endearment, like dear"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAS",
+      "TEP",
+      "A",
+      "PER"
+     ],
+     "reversals": [
+      {
+       "from": "PET",
+       "to": "TEP"
+      },
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Recycling was flipping expensive, and a salesman is unhappy about it.",
+     "walkthrough": "'Flipping dear' reads as British slang for very expensive; 'flipping' is the reversal sign and 'dear' is PET.",
+     "definitionFit": "Discarded paper is collected and pulped for reuse, making it a common example of recyclable stuff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +1093,46 @@
     "text": "To an extent, part is terrifying for performer",
     "enumeration": "7"
    },
-   "solution": "ARTISTE"
+   "solution": "ARTISTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTISTE",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To an extent",
+      "for": "hidden_word",
+      "note": "only to an extent means partially, so just a stretch of the following letters is used"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part is terrifying",
+      "gives": "ARTISTE",
+      "note": "runs across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A role that is partly scary for the actor taking it on.",
+     "walkthrough": "'Part' looks like a theatrical role tied to the performer, but it just supplies letters.",
+     "definitionFit": "An artiste is a professional entertainer, such as a singer or dancer, on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1146,51 @@
     "text": "Need AGM to change final section",
     "enumeration": "7"
    },
-   "solution": "ENDGAME"
+   "solution": "ENDGAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENDGAME",
+    "definitions": [
+     {
+      "text": "final section",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "changing the letters means reorganising them into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Need AGM",
+      "gives": "NEEDAGM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEEDAGM",
+       "gives": "ENDGAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company needs its annual general meeting to amend the last part of something.",
+     "walkthrough": "An AGM is an annual general meeting, but here it is just three letters.",
+     "definitionFit": "In chess and by extension elsewhere, the endgame is the closing stage of a match or process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "AGM"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1204,46 @@
     "text": "Some fear gent in African country",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARGENTINA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a phrase is only a portion, so a run of its letters is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fear gent in African",
+      "gives": "ARGENTINA",
+      "note": "runs across the words, ending on the first letter of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Some man is afraid while in Africa.",
+     "walkthrough": "'African country' looks like the definition, but the answer is in South America; the A of 'African' ends the hidden run and 'country' alone defines.",
+     "definitionFit": "Argentina is a large South American nation, capital Buenos Aires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "African"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1257,65 @@
     "text": "Royal Navy notice breaking also in storm",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "storm",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "Royal Navy",
+      "gives": "RN",
+      "note": "RN is the abbreviation for Royal Navy"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "RN",
+      "AD",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval announcement goes out during bad weather.",
+     "walkthrough": "'Breaking' sounds like news breaking, but here two pieces break into a third word together.",
+     "definitionFit": "A tornado is a violent rotating column of wind, one of the fiercest kinds of tempest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1329,55 @@
     "text": "Plant king’s daughter is captivated by over and over again",
     "enumeration": "7"
    },
-   "solution": "OREGANO"
+   "solution": "OREGANO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OREGANO",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is captivated by",
+      "for": "container",
+      "note": "someone captivated is held captive, so this piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king’s daughter",
+      "gives": "REGAN",
+      "note": "Regan is one of King Lear's daughters in Shakespeare"
+     },
+     {
+      "clueFragment": "over and over again",
+      "gives": "OO",
+      "note": "O is the cricket abbreviation for an over, given twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "REGAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A princess is enchanted by the same plant time after time.",
+     "walkthrough": "'King's daughter' is not a generic princess but Regan from King Lear; 'over and over again' supplies one O on each side.",
+     "definitionFit": "Oregano is an aromatic herb of the mint family, used in Italian and Greek cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1391,61 @@
     "text": "Understanding current things badly",
     "enumeration": "7"
    },
-   "solution": "INSIGHT"
+   "solution": "INSIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INSIGHT",
+    "definitions": [
+     {
+      "text": "Understanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrongly, so these letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "things",
+      "gives": "THINGS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NSIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THINGS",
+       "gives": "NSIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grasping current affairs poorly.",
+     "walkthrough": "'Current' looks like an adjective for things, but it is the symbol I used in electrical formulas.",
+     "definitionFit": "Insight is a deep, intuitive grasp of a situation, so it is a kind of comprehension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1459,71 @@
     "text": "First one egg, one with endless salt",
     "enumeration": "7"
    },
-   "solution": "INITIAL"
+   "solution": "INITIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INITIAL",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "letter_selection",
+      "note": "without its ends, a word keeps only the letters between them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "NIT",
+      "note": "a nit is a louse's egg"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one again"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "AL",
+      "select": "middle",
+      "note": "the middle pair of letters of 'salt'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NIT",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step: start with one egg, then one more with a little salt.",
+     "walkthrough": "'Endless' removes both ends here, not just the last letter.",
+     "definitionFit": "Initial means occurring at the beginning, so it is a straightforward synonym of first as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1537,67 @@
     "text": "Hint about maintaining the French braid",
     "enumeration": "5"
    },
-   "solution": "PLAIT"
+   "solution": "PLAIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PLAIT",
+    "definitions": [
+     {
+      "text": "braid",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters run backwards"
+     },
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "to maintain something is to keep hold of it, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "TIP",
+      "note": "a tip is a hint"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for 'the' (feminine)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LA",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "TIP",
+       "to": "PIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hairdressing tip about keeping a French-style braid in place.",
+     "walkthrough": "'French braid' is a real hairstyle, but 'the French' gives LA and 'braid' alone defines.",
+     "definitionFit": "A plait is hair or rope woven from three or more interlaced strands, which is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1611,52 @@
     "text": "Questioned male leaving with face covered",
     "enumeration": "5"
    },
-   "solution": "ASKED"
+   "solution": "ASKED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASKED",
+    "definitions": [
+     {
+      "text": "Questioned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so it drops out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "with face covered",
+      "gives": "MASKED",
+      "note": "a masked face is covered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASKED"
+     ]
+    },
+    "explanation": {
+     "surface": "A man was interrogated while leaving in a mask.",
+     "walkthrough": "Removing M from MASKED leaves the answer.",
+     "definitionFit": "Asked and questioned both mean put a query to someone, as past-tense verbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1670,53 @@
     "text": "Rebellion without singular issue",
     "enumeration": "7"
    },
-   "solution": "EDITION"
+   "solution": "EDITION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDITION",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rebellion",
+      "gives": "SEDITION",
+      "note": "sedition is incitement to rebel against authority"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDITION"
+     ]
+    },
+    "explanation": {
+     "surface": "An uprising with no particular cause behind it.",
+     "walkthrough": "'Issue' reads as a matter or problem, but here it is a printed issue of a publication.",
+     "definitionFit": "An edition of a newspaper or magazine is one published number of it, the same as an issue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1730,50 @@
     "text": "Duck has drink by lake",
     "enumeration": "4"
    },
-   "solution": "TEAL"
+   "solution": "TEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEAL",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "TEA",
+      "note": "tea is a drink"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake on maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A water bird takes a sip at the side of a lake.",
+     "walkthrough": "'Duck' could be a verb, but it is the noun: a kind of bird.",
+     "definitionFit": "The teal is a small freshwater dabbling bird of the genus Anas, one of the commonest wildfowl species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1787,73 @@
     "text": "Unorthodox pianist entertaining a king from Asian country",
     "enumeration": "9"
    },
-   "solution": "PAKISTANI"
+   "solution": "PAKISTANI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PAKISTANI",
+    "definitions": [
+     {
+      "text": "from Asian country",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unorthodox",
+      "for": "anagram",
+      "note": "unorthodox means unconventional, so the letters are arranged in a nonstandard way"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining guests has them inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pianist",
+      "gives": "PIANIST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "K",
+      "ISTANI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIANIST",
+       "gives": "PISTANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unconventional musician from South Asia plays for a monarch.",
+     "walkthrough": "The rearranged PIANIST splits after its P to take in A and K.",
+     "definitionFit": "The adjective describes people or things belonging to Pakistan, the nation between India and Afghanistan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1867,61 @@
     "text": "Former priest from the east cast out",
     "enumeration": "5"
    },
-   "solution": "EXILE"
+   "solution": "EXILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXILE",
+    "definitions": [
+     {
+      "text": "cast out",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "in an across clue, coming from the east means reading right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest who raised Samuel in the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ILE"
+     ],
+     "reversals": [
+      {
+       "from": "ELI",
+       "to": "ILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time cleric from the Orient was expelled.",
+     "walkthrough": "ELI is the crossword's favourite priest, from the Book of Samuel.",
+     "definitionFit": "To exile someone is to banish them from their homeland, so the verb matches expelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1935,50 @@
     "text": "Naked women getting married travel by horse",
     "enumeration": "4"
    },
-   "solution": "RIDE"
+   "solution": "RIDE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RIDE",
+    "definitions": [
+     {
+      "text": "travel by horse",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of covering, so the outer letters come off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women getting married",
+      "gives": "RIDE",
+      "select": "middle",
+      "note": "women getting married are brides; strip the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Women at their wedding ride horses unclothed, like Lady Godiva.",
+     "walkthrough": "The phrase gives BRIDES, then 'Naked' strips its outer letters.",
+     "definitionFit": "To ride is to be carried on horseback, a verb that matches the definition phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Naked"
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1992,72 @@
     "text": "Everyone follows strangely lovely British sport",
     "enumeration": "10"
    },
-   "solution": "VOLLEYBALL"
+   "solution": "VOLLEYBALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VOLLEYBALL",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "something done strangely is out of the normal way, so the letters are rearranged"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "following means coming after, so this piece is placed at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lovely",
+      "gives": "LOVELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VOLLEY",
+      "B",
+      "ALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVELY",
+       "gives": "VOLLEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everybody is a fan of an oddly lovely British game.",
+     "walkthrough": "'British sport' looks like the definition, but B comes from 'British' and only 'sport' defines.",
+     "definitionFit": "Volleyball is a team game in which a ball is hit over a high net by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "British"
+    }
+   }
   }
  ]
 }
