@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Budget period lacking information provider",
     "enumeration": "6"
    },
-   "solution": "RATION"
+   "solution": "RATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATION",
+    "definitions": [
+     {
+      "text": "Budget",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "to lack something is to be without it, so one piece must be taken out of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period",
+      "gives": "GENERATION",
+      "note": "a generation is a span of time, roughly thirty years"
+     },
+     {
+      "clueFragment": "information provider",
+      "gives": "GENE",
+      "note": "a gene carries genetic information, so it provides it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A budget planned for some period that left out whoever supplied the data.",
+     "walkthrough": "GENERATION loses GENE from its front, leaving RATION. 'Information provider' looks like a data company, but it is the gene of biology.",
+     "definitionFit": "To ration something is to budget it, allowing out only a fixed limited share at a time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +102,56 @@
      }
     ]
    },
-   "solution": "FIREDOOR"
+   "solution": "FIREDOOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIRE DOOR",
+    "definitions": [
+     {
+      "text": "this might prevent disaster",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing repair",
+      "for": "anagram",
+      "note": "something needing repair is broken, so these letters must be put back into a new working order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dire",
+      "gives": "DIRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roof",
+      "gives": "ROOF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIREROOF",
+       "gives": "FIREDOOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A house owner warned that a terrible roof should be fixed before catastrophe strikes.",
+     "walkthrough": "The surface makes the roof the thing that saves the day, but the letters of DIRE ROOF rearrange into FIRE DOOR.",
+     "definitionFit": "A fire door is built to resist flames and stop a blaze spreading, so it can stop a catastrophe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "roof"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +165,48 @@
     "text": "Author caught in Welsh town",
     "enumeration": "6"
    },
-   "solution": "BARRIE"
+   "solution": "BARRIE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BARRIE",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught",
+      "for": "homophone",
+      "note": "to catch words is to hear them, so we want what is heard, not what is spelt"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh town",
+      "gives": "BARRIE",
+      "soundsLike": "BARRY",
+      "note": "Barry is a seaside town in south Wales, near Cardiff"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer was arrested while visiting a town in Wales.",
+     "walkthrough": "'Caught' reads as arrested, but here it means heard. J. M. Barrie wrote Peter Pan, and his name sounds just like the Welsh town.",
+     "definitionFit": "J. M. Barrie was the Scottish novelist and playwright best known for creating Peter Pan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +220,55 @@
     "text": "Everyman is a former English footballer",
     "enumeration": "7"
    },
-   "solution": "ALLCOCK"
+   "solution": "ALLCOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLCOCK",
+    "definitions": [
+     {
+      "text": "a former English footballer",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "note": "the printed word splits in two, and each half is read separately in the blocks that follow"
+     },
+     {
+      "clueFragment": "Every",
+      "gives": "ALL",
+      "note": "every one is all of them"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "COCK",
+      "note": "a cock is a male bird, and 'old cock' is a matey British way to address a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "COCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that some ex-England player is just an ordinary bloke.",
+     "walkthrough": "'Everyman' looks like one word, and is also the name of a rival crossword series, but it splits into Every and man. Terry Allcock played for Norwich City.",
+     "definitionFit": "Terry Allcock was an English professional footballer who starred for Norwich City in the fifties and sixties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Everyman"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +282,64 @@
     "text": "Singer turned up with coat, it was found over the road",
     "enumeration": "6"
    },
-   "solution": "TARMAC"
+   "solution": "TARMAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TARMAC",
+    "definitions": [
+     {
+      "text": "it was found over the road",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning something up means it now reads from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singer",
+      "gives": "RAT",
+      "note": "an informer who sings to the police is a rat"
+     },
+     {
+      "clueFragment": "coat",
+      "gives": "MAC",
+      "note": "a mac is a raincoat, short for mackintosh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "MAC"
+     ],
+     "reversals": [
+      {
+       "from": "RAT",
+       "to": "TAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist appeared wearing a coat that someone had found lying across the street.",
+     "walkthrough": "The 'singer' is not a vocalist but an informer, a rat. 'It' in the definition is the stuff itself, laid over the road surface.",
+     "definitionFit": "Tarmac is the asphalt surfacing spread on roads, so it lies on top of the roadway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Singer"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +353,78 @@
     "text": "Songbird exhausted eating each of ants at first",
     "enumeration": "6"
    },
-   "solution": "BALLAD"
+   "solution": "BALLAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BALLAD",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exhausted",
+      "for": "letter_selection",
+      "note": "exhausted means emptied out, so only the shell of the word is kept"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "to eat something is to take it inside, so one piece goes within the other"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Songbird",
+      "note": "the printed compound splits: its first half is the definition, its second half the bird used in the next block"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "BD",
+      "select": "outer",
+      "note": "the word emptied of its middle leaves only its ends"
+     },
+     {
+      "clueFragment": "each of",
+      "gives": "ALL",
+      "note": "each of them means all of them"
+     },
+     {
+      "clueFragment": "ants",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALL",
+      "A",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired songbird swallowing the first ant it comes across.",
+     "walkthrough": "'Songbird' looks like one word, but 'Song' is the definition and 'bird' is wordplay; B and D go around ALL plus A.",
+     "definitionFit": "A ballad is a song, usually slow and narrative or sentimental, telling a story in verse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Songbird"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +438,47 @@
     "text": "Spartan friend at heart",
     "enumeration": "9"
    },
-   "solution": "BASICALLY"
+   "solution": "BASICALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASICALLY",
+    "definitions": [
+     {
+      "text": "at heart",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spartan",
+      "gives": "BASIC",
+      "note": "Spartan means austere, plain and without frills"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend or partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASIC",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A warrior from ancient Sparta who is a comrade deep down.",
+     "walkthrough": "'Spartan' wants to be a citizen of Sparta, but here it is the lower-case adjective for frugal.",
+     "definitionFit": "Both phrases mean fundamentally or in essence, describing what is true underneath the surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spartan"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +492,50 @@
     "text": "Islander agreed in Munich to accompany vehicle",
     "enumeration": "5"
    },
-   "solution": "JAVAN"
+   "solution": "JAVAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAVAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to accompany"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreed in Munich",
+      "gives": "JA",
+      "note": "ja is German for yes, and Munich is in Germany"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "VAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An island native who said yes in Bavaria and went along with a car.",
+     "walkthrough": "A foreign city signals a word in that country's language; here German for yes.",
+     "definitionFit": "A Javan is a native or inhabitant of Java, the main island of Indonesia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Munich"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +549,59 @@
     "text": "Divert kids and react excitedly",
     "enumeration": "9"
    },
-   "solution": "SIDETRACK"
+   "solution": "SIDETRACK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDETRACK",
+    "definitions": [
+     {
+      "text": "Divert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excitedly",
+      "for": "anagram",
+      "note": "excited things jump about, so the letters before it are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kids",
+      "gives": "KIDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "react",
+      "gives": "REACT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KIDSREACT",
+       "gives": "SIDETRACK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent distracts the children, and they respond with great enthusiasm.",
+     "walkthrough": "'And' here simply joins the two words whose letters are mixed together.",
+     "definitionFit": "To sidetrack someone is to turn their attention away from the main matter, to distract them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excitedly"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +615,76 @@
     "text": "Blunt force ultimately shown by military, one sailor dismissed?",
     "enumeration": "5"
    },
-   "solution": "EMILY"
+   "solution": "EMILY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EMILY",
+    "definitions": [
+     {
+      "text": "Blunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is wanted"
+     },
+     {
+      "text": "dismissed",
+      "for": "deletion",
+      "note": "dismissed people are sent away, so these letters leave the word"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "military",
+      "gives": "MILITARY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MILY"
+     ]
+    },
+    "explanation": {
+     "surface": "Blunt military force used, with one seaman discharged from service.",
+     "walkthrough": "'Blunt' reads as an adjective for force, but it is the surname of the actress Emily Blunt; the question mark flags the trick. MILITARY loses I and TAR.",
+     "definitionFit": "Emily Blunt is a British film actress, so her first name is defined by her surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blunt"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +698,64 @@
     "text": "Family essentially returned to capital",
     "enumeration": "4"
    },
-   "solution": "LIMA"
+   "solution": "LIMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "LIMA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the middle of the word stays"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "AMIL",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMIL",
+       "to": "LIMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household that basically went back to the big city.",
+     "walkthrough": "The core of FAMILY, read backwards, gives LIMA.",
+     "definitionFit": "Lima is the capital city of Peru, on the Pacific coast of South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +769,48 @@
     "text": "Nancy’s in the Centre again",
     "enumeration": "6"
    },
-   "solution": "ENCORE"
+   "solution": "ENCORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENCORE",
+    "definitions": [
+     {
+      "text": "again",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nancy’s in",
+      "gives": "EN",
+      "note": "Nancy is a city in France, and the French word for in is en"
+     },
+     {
+      "clueFragment": "the Centre",
+      "gives": "CORE",
+      "note": "the core is the centre of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "CORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Nancy is back at the community centre once more.",
+     "walkthrough": "Nancy looks like a woman's name, but it is the French city, so 'Nancy's in' is French for in.",
+     "definitionFit": "Encore is a French word meaning once more, used in English as a call for a repeat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nancy’s"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +824,56 @@
     "text": "Officer content listening to match",
     "enumeration": "8"
    },
-   "solution": "COINCIDE"
+   "solution": "COINCIDE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "COINCIDE",
+    "definitions": [
+     {
+      "text": "match",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listening to",
+      "for": "homophone",
+      "note": "listening attends to sound, so the word is taken as heard, not as spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officer",
+      "gives": "CO",
+      "note": "CO is short for commanding officer"
+     },
+     {
+      "clueFragment": "content",
+      "gives": "INCIDE",
+      "soundsLike": "INSIDE",
+      "note": "content is what is held within a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "INCIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer happily tuning in to a football game.",
+     "walkthrough": "'Content' reads as happy, but it is the noun, what lies within. The second chunk sounds like INSIDE but is spelt to finish COINCIDE.",
+     "definitionFit": "Two things coincide when they agree or correspond exactly, the way matching items do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +887,42 @@
     "text": "One-time British company involved in pharmaceutic industry",
     "enumeration": "3"
    },
-   "solution": "ICI"
+   "solution": "ICI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ICI",
+    "definitions": [
+     {
+      "text": "One-time British company",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "to be involved in something is to be part of it, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pharmaceutic industry",
+      "gives": "ICI",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A former British firm that worked in the drug business.",
+     "walkthrough": "Imperial Chemical Industries really was a big British chemicals firm, so the surface is true.",
+     "definitionFit": "Imperial Chemical Industries was a major British chemical manufacturer, broken up and sold off in the 2000s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +936,51 @@
     "text": "The cycling character",
     "enumeration": "3"
    },
-   "solution": "ETH"
+   "solution": "ETH",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ETH",
+    "definitions": [
+     {
+      "text": "character",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "to cycle is to go round, so the final letter is moved round to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reference to the one person on a bike.",
+     "walkthrough": "THE with its last letter brought to the front gives ETH.",
+     "definitionFit": "Eth is an Old English and Icelandic letter, so it is a written character of the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +994,50 @@
     "text": "Extend beyond and above the knees",
     "enumeration": "7"
    },
-   "solution": "OVERLAP"
+   "solution": "OVERLAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERLAP",
+    "definitions": [
+     {
+      "text": "Extend beyond",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "above",
+      "gives": "OVER",
+      "note": "over means above"
+     },
+     {
+      "clueFragment": "the knees",
+      "gives": "LAP",
+      "note": "the lap is the top of the thighs when seated, just above the knees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "LAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A skirt or coat whose hem reaches past and above the knees.",
+     "walkthrough": "The surface sounds like describing a hemline; the knees are the lap of a seated person.",
+     "definitionFit": "To overlap is to reach past an edge and cover part of something else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knees"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1051,54 @@
     "text": "Product from well-limited stews",
     "enumeration": "3"
    },
-   "solution": "OIL"
+   "solution": "OIL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OIL",
+    "definitions": [
+     {
+      "text": "Product from well",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limited",
+      "for": "letter_selection",
+      "note": "limited means cut back at its limits, so both edge letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stews",
+      "gives": "BOILS",
+      "note": "to stew something is to boil it slowly"
+     },
+     {
+      "clueFragment": "stews",
+      "gives": "OIL",
+      "select": "middle",
+      "note": "the inner letters once both ends are trimmed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Something produced by stews kept within reasonable limits.",
+     "walkthrough": "'Well-limited' looks like one compound adjective; split it, and 'well' joins the definition while 'limited' trims the stews.",
+     "definitionFit": "Petroleum is extracted by drilling and pumping, so crude from a drilled shaft is that shaft's output."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "well-limited"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1112,57 @@
     "text": "Tense, absent from school for a long time",
     "enumeration": "3"
    },
-   "solution": "EON"
+   "solution": "EON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EON",
+    "definitions": [
+     {
+      "text": "a long time",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absent from",
+      "for": "deletion",
+      "note": "something absent is missing, so one letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "ETON",
+      "note": "Eton is the famous English boarding school"
+     },
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous pupil who has skipped school for ages.",
+     "walkthrough": "'Tense' reads as anxious, but it is the grammatical term, abbreviated to T.",
+     "definitionFit": "An eon is an immeasurably long period, an age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1176,57 @@
     "text": "Native American ignoring a priest suffering",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "suffering",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore is to leave out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Native American",
+      "gives": "APACHE",
+      "note": "the Apache are a Native American people"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "P",
+      "note": "P is an abbreviation for priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Native American who pays no heed to a clergyman in distress.",
+     "walkthrough": "APACHE drops A and P from its front, leaving ACHE.",
+     "definitionFit": "An ache is continuous dull pain, a form of physical distress or hurt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1240,51 @@
     "text": "Pet and grope swimmer",
     "enumeration": "7"
    },
-   "solution": "CATFISH"
+   "solution": "CATFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATFISH",
+    "definitions": [
+     {
+      "text": "swimmer",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet",
+      "gives": "CAT",
+      "note": "a cat is a common household pet"
+     },
+     {
+      "clueFragment": "grope",
+      "gives": "FISH",
+      "note": "to fish about is to grope or feel around for something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Kissing and fondling someone, as an unruly date might.",
+     "walkthrough": "'Pet and grope' reads as two verbs of fondling, but both are other senses: the noun pet and to fish about.",
+     "definitionFit": "A catfish is a whiskered fish, and any fish can be called a swimmer in crosswords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1298,63 @@
     "text": "Art school briefly enjoyable before travelling, not being old",
     "enumeration": "8"
    },
-   "solution": "FUTURISM"
+   "solution": "FUTURISM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FUTURISM",
+    "definitions": [
+     {
+      "text": "Art school",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means in short form, so the word loses its last letter"
+     },
+     {
+      "text": "not being old",
+      "for": "deletion",
+      "note": "not being means without, so the letter for old is removed"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enjoyable",
+      "gives": "FUN",
+      "note": "fun means enjoyable"
+     },
+     {
+      "clueFragment": "travelling",
+      "gives": "TOURISM",
+      "note": "tourism is travelling for pleasure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "TURISM"
+     ]
+    },
+    "explanation": {
+     "surface": "A design college offers a quick good time before you set off on your journey.",
+     "walkthrough": "FUN is shortened to FU, and TOURISM loses O, the standard abbreviation for old.",
+     "definitionFit": "Futurism was an early twentieth-century Italian art movement celebrating speed, machines and modernity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1368,48 @@
     "text": "Comes to by nurses",
     "enumeration": "7"
    },
-   "solution": "ATTENDS"
+   "solution": "ATTENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDS",
+    "definitions": [
+     {
+      "text": "Comes to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "AT",
+      "note": "by and at both mean located near, as in 'at the door'"
+     },
+     {
+      "clueFragment": "nurses",
+      "gives": "TENDS",
+      "note": "to nurse a patient is to tend them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient regains consciousness thanks to the hospital staff.",
+     "walkthrough": "'Comes to' suggests waking up, but it means goes to, as with a meeting. 'Nurses' looks like hospital staff but is a verb.",
+     "definitionFit": "To attend an event is to go to it or be present there, so it means comes along."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1429,51 @@
      }
     ]
    },
-   "solution": "LONGSHOT"
+   "solution": "LONGSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONG SHOT",
+    "definitions": [
+     {
+      "text": "Outsider",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers",
+      "gives": "LONGS",
+      "note": "longs is an informal word for long trousers"
+     },
+     {
+      "clueFragment": "sexy",
+      "gives": "HOT",
+      "note": "hot means sexy or attractive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONGS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rank outsider who nonetheless wears seductive trousers.",
+     "walkthrough": "Sexy trousers would be 'hot longs'; read as 'longs hot', the space shifts and the answer appears. The question mark admits the stretch.",
+     "definitionFit": "A long shot is a competitor with little chance of winning, just as a racing outsider is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1493,45 @@
      }
     ]
    },
-   "solution": "ONETWO"
+   "solution": "ONETWO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONE-TWO",
+    "definitions": [
+     {
+      "text": "Numbers",
+      "at": 0
+     },
+     {
+      "text": "consecutive punches",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "note": "first meaning: the first two counting numbers, said in sequence"
+     },
+     {
+      "clueFragment": "consecutive punches",
+      "note": "second meaning: a boxer's quick jab followed straight away by a cross"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like counting a flurry of blows; the first numbers in order also name a boxing combination.",
+     "definitionFit": "In boxing a one-two is a rapid pair of blows, a jab and then a stronger cross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Numbers"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1545,60 @@
     "text": "Girl suppressing a long hiccup",
     "enumeration": "6"
    },
-   "solution": "GLITCH"
+   "solution": "GLITCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GLITCH",
+    "definitions": [
+     {
+      "text": "hiccup",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppressing",
+      "for": "deletion",
+      "note": "to suppress something is to hold it down out of sight, so it is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "GAL",
+      "note": "gal is an informal word for a girl"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ITCH",
+      "note": "to long for something is to itch for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GL",
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman trying to stifle a lengthy bout of hiccups.",
+     "walkthrough": "'A long hiccup' reads as one phrase, but GAL loses A and then takes ITCH. 'Hiccup' is the definition in its figurative sense.",
+     "definitionFit": "A hiccup in plans is a minor setback, the same as a small fault or snag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hiccup"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1612,42 @@
     "text": "When up this might conceal courage",
     "enumeration": "6"
    },
-   "solution": "BOTTLE"
+   "solution": "BOTTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOTTLE",
+    "definitions": [
+     {
+      "text": "When up this might conceal",
+      "at": 0
+     },
+     {
+      "text": "courage",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When up this might conceal",
+      "note": "first meaning: add 'up' and this verb means to keep feelings hidden"
+     },
+     {
+      "clueFragment": "courage",
+      "note": "second meaning: British slang for nerve or daring"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is a cryptic hint: add 'up' to the verb and it means to suppress emotions. In British slang, to lose your bottle is to lose your nerve.",
+     "definitionFit": "In British slang bottle means nerve or daring, so someone with bottle is brave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1661,65 @@
     "text": "Supporter against FA banning children in large republic",
     "enumeration": "6"
    },
-   "solution": "BRAZIL"
+   "solution": "BRAZIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BRAZIL",
+    "definitions": [
+     {
+      "text": "large republic",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banning",
+      "for": "deletion",
+      "note": "to ban is to shut out, so those letters are excluded"
+     }
+    ],
+    "linkWords": [
+     "against",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supporter",
+      "gives": "BRA",
+      "note": "a bra is a supporting undergarment"
+     },
+     {
+      "clueFragment": "FA",
+      "gives": "ZILCH",
+      "note": "sweet FA is British slang for nothing at all, which is zilch"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "ZIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan opposing the Football Association's ban on young players in a big country.",
+     "walkthrough": "FA looks like the Football Association, but here it is 'sweet FA', meaning nothing. ZILCH loses CH.",
+     "definitionFit": "Brazil is the largest country in South America, and a federal republic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "FA"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1739,47 @@
      }
     ]
    },
-   "solution": "LIELOW"
+   "solution": "LIELOW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LIE LOW",
+    "definitions": [
+     {
+      "text": "Hole up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "sound means as heard, so the spoken form of the word is wanted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mattress",
+      "gives": "LIELOW",
+      "soundsLike": "LILO",
+      "note": "a Lilo is a British brand of inflatable air mattress"
+     }
+    ],
+    "explanation": {
+     "surface": "Hiding away inside a decent mattress.",
+     "walkthrough": "'Sound' reads as healthy or solid, describing the mattress, but it flags how the word is heard.",
+     "definitionFit": "To hole up is to hide away and keep out of sight, the same as keeping a low profile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1793,46 @@
     "text": "Finished once more supplying buttered, identical sandwiches",
     "enumeration": "5"
    },
-   "solution": "REDID"
+   "solution": "REDID",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REDID",
+    "definitions": [
+     {
+      "text": "Finished once more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "hidden_word",
+      "note": "a sandwich holds its filling between slices, so the letters lie within the words before it"
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buttered, identical",
+      "gives": "REDID",
+      "note": "the letters span the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone made the same buttered sandwiches all over again.",
+     "walkthrough": "'Sandwiches' looks like the food being made, but it is a verb meaning holds inside.",
+     "definitionFit": "Redid is the past tense of redo, meaning did or completed again a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1846,51 @@
     "text": "Couple again hands to those who put things right",
     "enumeration": "9"
    },
-   "solution": "REPAIRMEN"
+   "solution": "REPAIRMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPAIRMEN",
+    "definitions": [
+     {
+      "text": "those who put things right",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple again",
+      "gives": "REPAIR",
+      "note": "to pair is to couple, and RE- means again"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "MEN",
+      "note": "hands are workers, as in farmhands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPAIR",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Reuniting a pair and passing them on to the fixers.",
+     "walkthrough": "'Couple' reads as a noun, but it is the verb to join, so coupling again is re-pairing.",
+     "definitionFit": "Repairmen are workers who mend broken things, setting faults right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1904,53 @@
     "text": "Double top (which is checkout) easy for beginners",
     "enumeration": "5"
    },
-   "solution": "TWICE"
+   "solution": "TWICE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TWICE",
+    "definitions": [
+     {
+      "text": "Double",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for beginners",
+      "for": "letter_selection",
+      "note": "beginners are what start things, so only opening letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top (which is checkout) easy",
+      "gives": "TWICE",
+      "select": "first",
+      "note": "the opening letter of each of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "I",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Darts advice: double top, the double twenty, is a simple finish for novices.",
+     "walkthrough": "In darts, double top is the double twenty segment and a checkout is the finishing throw. 'Double top' reads as one phrase, but 'Double' alone defines.",
+     "definitionFit": "Double as an adverb means two times over, so it can stand in for the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Double"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +1964,65 @@
     "text": "Son said: ‘I’m ordering for entrée’",
     "enumeration": "9"
    },
-   "solution": "ADMISSION"
+   "solution": "ADMISSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMISSION",
+    "definitions": [
+     {
+      "text": "entrée",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordering",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so these letters are put in a new sequence"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "SON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "said",
+      "gives": "SAID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONSAIDIM",
+       "gives": "ADMISSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a restaurant, a boy announces he is choosing the starter.",
+     "walkthrough": "'Entrée' looks like a course at dinner, but it is the French word for entry; 'ordering' is not choosing food.",
+     "definitionFit": "Entrée means the right to enter, so admission to a club or place is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entrée"
+    }
+   }
   }
  ]
 }
