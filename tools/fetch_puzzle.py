@@ -1765,6 +1765,23 @@ def byline(data):
     return name if len(name) > 1 else None
 
 
+# A sentence of the page's note that is only a link: "Click here for a
+# printable version of this crossword.", "For a printable version of this
+# crossword, click here". The link is not in the text, so on our page it is a
+# promise of something that is not there. Anchored on a sentence's start, so
+# "To see the clues please click here Method: Solve the clues ..." keeps its
+# method.
+LINK_SENTENCE = re.compile(
+    r"(?:^|(?<=[.!?a-z]))\s*(?:Click here|For an? (?:printable|pdf))\b[^.]*(?:\.|$)")
+
+
+def preamble(instructions):
+    """The page's note above the clues as our `preamble`, or None: plain text,
+    one space between words, without the sentences that are only a link."""
+    text = " ".join(plain_text(instructions or "").split())
+    return LINK_SENTENCE.sub("", text).strip() or None
+
+
 def convert(data):
     """Guardian data -> our puzzle object (no annotation on any entry yet)."""
     # Named before the entries are built: correct_source_answers is keyed by the
@@ -1891,7 +1908,7 @@ def convert(data):
         "dimensions": data["dimensions"],
         # The paper's own note above the clues: a themed puzzle's special
         # instructions, or an erratum. Absent when the page has none.
-        **({"preamble": pre} if (pre := " ".join(plain_text(data.get("instructions") or "").split())) else {}),
+        **({"preamble": pre} if (pre := preamble(data.get("instructions"))) else {}),
         "source": {"url": "https://www.theguardian.com/" + data["id"]},
         "entries": entries,
     }
