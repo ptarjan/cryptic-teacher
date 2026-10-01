@@ -80,6 +80,13 @@ def post_setter(title):
     return name.title() if name.isupper() else name
 
 
+def tidy(ln):
+    """tftt.tidy for a fifteensquared FT post: its bloggers' brackets add
+    their own words to an elliptical clue ("Having paid, he [he] recovers"),
+    so a bracket's words stay as they are, never merged into the clue."""
+    return tftt.tidy(ln, link_words=False)
+
+
 def heading(ln):
     m = tftt.HEADING.match(ln)
     return m.group(1).lower() if m else None
@@ -195,9 +202,9 @@ def read_bare(lines):
 
 def read_light(lines, bare=False):
     """(clue, enumeration, printed answer) out of one light's lines, the clue
-    tidied of the blogger's slashes, brackets and stray spaces (tftt.tidy)."""
+    tidied of the blogger's slashes, asides and stray spaces (tidy)."""
     clue, enum, answer = (read_bare if bare else read_counted)(lines)
-    return (tftt.tidy(clue) if clue else clue), enum, answer
+    return (tidy(clue) if clue else clue), enum, answer
 
 
 def read_counted(lines):
@@ -498,9 +505,13 @@ def file(write=True, limit=None):
             skipped["number claimed twice"] += 1
         elif puzzle_path(SERIES, number).exists():
             skipped["already filed"] += 1
-            # Only the date and the tidied clues are rewritten: the date is
-            # fitted to every post, and a post arriving later can move it.
+            # Only a file this tool wrote is rewritten, and only its date and
+            # its tidied clues: the date is fitted to every post, and a post
+            # arriving later can move it. A file from the FT's PDF is dated
+            # by the FT's own crossword page, which no post fit overrides.
             held = read_puzzle_file(puzzle_path(SERIES, number))
+            if (held.get("source") or {}).get("acquiredBy") != GENERATOR:
+                continue
             fix = {}
             day = dates.get(number)
             if day and series_meta.puzzle_day(held) != day:
@@ -508,11 +519,10 @@ def file(write=True, limit=None):
                 fix["date"] = day.isoformat()
             # What a parser fix tidies out of the clues reaches the files
             # written before it (file_blog_puzzles.retext).
-            if (held.get("source") or {}).get("acquiredBy") == GENERATOR:
-                tidied, n = file_blog_puzzles.retext(held, tftt.tidy)
-                if n:
-                    skipped["already filed, clues tidied"] += 1
-                    fix["entries"] = tidied["entries"]
+            tidied, n = file_blog_puzzles.retext(held, tidy)
+            if n:
+                skipped["already filed, clues tidied"] += 1
+                fix["entries"] = tidied["entries"]
             if fix and write:
                 write_puzzle_file(puzzle_path(SERIES, number), {**held, **fix})
         elif limit is not None and len(filed) >= limit:
