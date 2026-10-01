@@ -5,8 +5,9 @@
 # over. daily_update.sh deliberately refuses to annotate above
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
-# gate. Every wave runs at full width or wider (tools/prereset_plan.py --width),
-# from the moment it starts until the week resets.
+# gate. Every wave runs as wide as spends the five-hour window by its reset
+# (tools/prereset_plan.py --width), from the moment it starts until the week
+# resets.
 #
 # The only stops are the meters and the reset itself:
 #   - the FIVE-hour limit: saturate it and nothing more can be bought until it
@@ -76,12 +77,14 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
-# Runs in flight for the next wave, asked before each one: PARALLEL_MAX, wider
-# up to PARALLEL_BURST when the five-hour window is behind (tools/prereset_plan.py).
+# Runs in flight for the next wave, asked before each one with the width now:
+# what spends the five-hour window by its reset, capped by free memory and CPU
+# pressure (tools/prereset_plan.py, which logs its inputs). If it prints no
+# width the current one stands.
 wave_width() {
   local w
-  w=$(python3 tools/prereset_plan.py --width 2>/dev/null)
-  case "$w" in ''|*[!0-9]*|0) echo 14 ;; *) echo "$w" ;; esac
+  w=$(python3 tools/prereset_plan.py --width ${wide:-})
+  case "$w" in ''|*[!0-9]*|0) echo "${wide:-14}" ;; *) echo "$w" ;; esac
 }
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself. The
