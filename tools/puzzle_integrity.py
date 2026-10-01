@@ -142,7 +142,7 @@ from groups import entry_id  # noqa: E402
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
-from fetch_puzzle import (PER_LIGHT_ENUMERATION,  # noqa: E402
+from fetch_puzzle import (PER_LIGHT_ENUMERATION, group_orders,  # noqa: E402
                           has_words, is_bare_letters, is_continuation,
                           prints_own_count, read_puzzle_file, reindex)
 import puzzle_schema  # noqa: E402
@@ -156,7 +156,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "CROSS", "CELLS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
+FLAGS = ("LENGTH", "ORDER", "CROSS", "CELLS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -746,7 +746,7 @@ UNLINKED_IN_SOURCE = dict([
       "3-down + 25-across: clue says (4,4,3,3,7,2) = 23, answer holds 4 alone "
       "or 19 linked"),
      "the WHAT that makes LOOK WHAT THE CAT DRAGGED IN is 21-across, already "
-     "spent on 21-across + 23-down + 9-across + 11-across's WHAT SORT OF TIME "
+     "spent on 21-across + 9-across + 23-down + 11-across's WHAT SORT OF TIME "
      "DO YOU CALL THIS THEN, and a light that starts one answer cannot "
      "continue another"),
     (("cryptic-21893", "11-across: clue says (6,4,2,3,8) = 23, answer holds 12"),
@@ -993,6 +993,17 @@ def check_length(puzzle, checkable, flags):
         flags.append(("LENGTH", pid, finding))
 
 
+
+def check_group_order(puzzle, flags):
+    """A linked answer whose group lists its lights out of word order: see
+    fetch_puzzle.group_orders, which write_puzzle_file applies on every write."""
+    by_id = {entry_id(e): e for e in puzzle.get("entries") or []}
+    for lead, order in group_orders(puzzle).items():
+        flags.append(("ORDER", puzzle.get("id"), (
+            f"{lead}: group {' + '.join(by_id[lead]['group'])} spells "
+            + "".join(by_id[m].get("solution") or "" for m in by_id[lead]["group"])
+            + f"; its words are in the order {' + '.join(order)}")))
+
 def check_grid(puzzle, flags):
     """The grid the entries describe, from tools/apply_solution.py — the same
     check that gates a model fill before it is written. It is asked of the whole
@@ -1182,6 +1193,7 @@ def check_puzzle(puzzle, today, flags):
     check_grid(puzzle, flags)
     check_numbering(puzzle, flags)
     check_length(puzzle, checkable, flags)
+    check_group_order(puzzle, flags)
     check_cross(puzzle, checkable, flags)
     check_extra_cells(puzzle, flags)
     check_puzzle_text(puzzle, flags)
