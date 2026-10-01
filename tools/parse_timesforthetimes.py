@@ -195,7 +195,7 @@ DEF_SLASH = re.compile(r"\s*(?:\s/+|/+\s)\s*")
 #: reads "Unhappy , sulky"; "<strong>bishop</strong> </em>?" reads "bishop ?".
 #: An ellipsis is left alone: ". . ." is how some clues print it; so is a
 #: quoted letter, "drop 's' from".
-SPACED_MARK = re.compile(r"(?<=\S)\s+(?=[,?!;:](?:\s|$)|[\u2019']s\b(?![\u2019']))")
+SPACED_MARK = re.compile(r"(?<=[^\s.])\s+(?=[,?!;:](?:\s|$)|[\u2019']s\b(?![\u2019']))")
 
 #: The blogger's brackets: link words the clue prints, "Opera[’s] curious
 #: piano", "Has a job [in] factory", lose the brackets; an aside, "[sic]",
@@ -204,15 +204,20 @@ BRACKETED_ASIDE = re.compile(r"\s*\[(?:sic|[^\[\]]*\bwords?\b[^\[\]]*|\d[\d,\-\s
 LINK_WORDS = re.compile(r"\[([^\[\]]*)\]")
 
 
-def tidy(ln):
+def tidy(ln, link_words=True):
     """A clue line as the paper printed it: a post-publication correction
     the blogger appended replaces the clue it corrects, and the blogger's
-    definition slashes, brackets and the markup's stray spaces go."""
+    definition slashes, brackets and the markup's stray spaces go.
+    `link_words=False` leaves words in brackets as they are, for a blog whose
+    brackets add the blogger's own words ("and [where] pilots still do
+    [fly]"), not the clue's."""
     m = EDITED.match(ln)
     if m:
         changed = CHANGED_TO.search(m.group(2))
         ln = changed.group(1) if changed and ENUM.search(changed.group(1)) else m.group(1)
-    ln = LINK_WORDS.sub(r"\1", BRACKETED_ASIDE.sub("", ln))
+    ln = BRACKETED_ASIDE.sub("", ln)
+    if link_words:
+        ln = LINK_WORDS.sub(r"\1", ln)
     ln = DEF_SLASH.sub(" ", ln).strip()
     return SPACED_MARK.sub("", ln)
 
