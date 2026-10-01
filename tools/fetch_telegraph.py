@@ -3,6 +3,7 @@
 
     python3 tools/fetch_telegraph.py --holes 200     # up to 200 the bucket has and puzzles/ lacks
     python3 tools/fetch_telegraph.py --holes 0       # list them, fetch nothing
+    python3 tools/fetch_telegraph.py --holes 20 --reindex   # and rebuild the index after
     python3 tools/fetch_telegraph.py SLUG...         # one puzzle, e.g. toughie-crossword-93439
 
 bigdave44.com hints every Telegraph puzzle, but a weekday hints post often
@@ -30,7 +31,9 @@ calendar number that breaks its variant's running order is not that puzzle:
 the Christmas specials are numbered from 100,000, and a few days carry a
 reprint under an old number.
 
-Writes puzzles/<series>/<year>/<series>-<number>.json. It never reindexes.
+Writes puzzles/<series>/<year>/<series>-<number>.json, and rebuilds the index
+only when asked: tools/extend_archive.py counts the index to see whether a
+source added anything.
 """
 import argparse
 import bisect
@@ -256,6 +259,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--holes", type=int, metavar="N",
                     help="fetch up to N puzzles the bucket has and puzzles/ lacks, oldest first")
+    ap.add_argument("--reindex", action="store_true", help="rebuild the index after the walk")
     ap.add_argument("slugs", nargs="*", help="bucket slugs, e.g. cryptic-crossword-37195")
     args = ap.parse_args(argv)
     if args.slugs:
@@ -284,6 +288,9 @@ def main(argv=None):
             print(f"failed: {series}-{number} {slug}: {err}")
         time.sleep(DELAY)
     print(f"done: {done} fetched, {failed} failed")
+    if args.reindex and done:
+        from fetch_puzzle import reindex
+        reindex()
     return 1 if failed and not done else 0
 
 
