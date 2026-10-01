@@ -144,6 +144,13 @@ def in_order(rows):
     return out
 
 
+def cp1252(text):
+    """The older puzzles carry Windows-1252 punctuation read as latin-1: a C1
+    control (U+0080-U+009F) where the dash or quote should be."""
+    return re.sub("[\x80-\x9f]", lambda m: m.group().encode("latin-1").decode("cp1252", "replace"),
+                  text)
+
+
 def span(text):
     """"3-9" -> (3, 9), "7" -> (7, 7); 1-based, as the bucket writes them."""
     a, _, b = str(text).partition("-")
@@ -183,17 +190,20 @@ def parse(doc, variant):
             clues[key] = c
     # A linked answer is printed once, on its first light, whose `links` name
     # the rest; each of those carries "See 1 Across" and no enumeration.
-    entries, done = [], set()
+    # The continuations are found first: one can be listed before its leader.
+    links = {key: [(int(ln["number"]), ln["direction"].lower()) for ln in c.get("links") or ()]
+             for key, c in clues.items()}
+    linked = {m for ms in links.values() for m in ms}
+    entries = []
     for key, c in clues.items():
-        if key in done:
+        if key in linked:
             continue
-        members = [key] + [(int(ln["number"]), ln["direction"].lower())
-                           for ln in c.get("links") or ()]
+        members = [key] + links[key]
         if any(m not in lights for m in members):
             raise ValueError(f"{key[0]} {key[1]}: links a light the grid lacks")
         fmt = re.sub(r"\s+", "", c.get("format") or "") or str(lights[key]["length"])
         seps = separators(fmt, [lights[m]["length"] for m in members])
-        text, italics = flatten_clue(html.unescape(c["clue"]).strip())
+        text, italics = flatten_clue(cp1252(html.unescape(c["clue"])).strip())
         group = [f"{n}-{d}" for n, d in members]
         for i, m in enumerate(members):
             entries.append({
@@ -204,7 +214,6 @@ def parse(doc, variant):
                 **({"group": group} if len(group) > 1 and i == 0 else {}),
                 "solution": lights[m]["solution"],
             })
-            done.add(m)
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
     setter = (copy.get("setter") or copy.get("byline") or "").strip() or None
     return {
