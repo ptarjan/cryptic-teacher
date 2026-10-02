@@ -841,6 +841,8 @@ tools/annotate_audit.py                      ranks what annotation runs spend tu
                                              first-check failures by check, refused tool calls,
                                              cost and turn trend — from the transcripts; daily,
                                              and wakes the room only on a new or worse top item
+tools/annotate_audit.sh                      the scheduled entry: runs the audit from a
+                                             worktree at origin/master
 tools/test_annotate_audit.sh                 tests tools/annotate_audit.py: rule naming from
                                              the validator's AST, and that an unchanged finding
                                              never wakes the room twice
