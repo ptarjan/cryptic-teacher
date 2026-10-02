@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Dress up and show off",
     "enumeration": "4"
    },
-   "solution": "BRAG"
+   "solution": "BRAG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BRAG",
+    "definitions": [
+     {
+      "text": "show off",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from the bottom, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dress",
+      "gives": "GARB",
+      "note": "garb is clothing, a synonym for dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAG"
+     ],
+     "reversals": [
+      {
+       "from": "GARB",
+       "to": "BRAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone putting on finery purely to be admired.",
+     "walkthrough": "'Dress up' reads as one phrasal verb, but 'up' is the signal to turn the clothing word over in this down light.",
+     "definitionFit": "To brag is to boast, which is exactly what showing off means in everyday speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,44 @@
     "text": "'Uncle Ricky': deep down inside, a father",
     "enumeration": "6"
    },
-   "solution": "CLERIC"
+   "solution": "CLERIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CLERIC",
+    "definitions": [
+     {
+      "text": "a father",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deep down inside",
+      "for": "hidden_word",
+      "note": "something deep inside lies within the words, so the letters sit unbroken in the quoted name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncle Ricky",
+      "gives": "CLERIC",
+      "note": "the letters run consecutively across the two words of the name"
+     }
+    ],
+    "explanation": {
+     "surface": "A family member, Uncle Ricky, is at heart a dad.",
+     "walkthrough": "The quoted name looks like a character; it is just the fodder. 'Father' here is a priest's title, not a parent.",
+     "definitionFit": "A Catholic priest is addressed as Father, and a priest is a member of the clergy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +161,63 @@
      }
     ]
    },
-   "solution": "ITBEATSME"
+   "solution": "ITBEATSME",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IT BEATS ME",
+    "definitions": [
+     {
+      "text": "I've no idea why",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "a drunk staggers about out of order, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "'s with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter speaking of himself is I"
+     },
+     {
+      "clueFragment": "best mate",
+      "gives": "BESTMATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITBEATSME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IBESTMATE",
+       "gives": "ITBEATSME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is out with a tipsy friend and baffled by it all.",
+     "walkthrough": "A setter often refers to himself by his pen name, so Everyman stands for I.",
+     "definitionFit": "The idiom expresses bafflement, saying a puzzle has defeated the speaker's understanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunken"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +231,54 @@
     "text": "Sir, a tab's arranged for those at the drinks counter",
     "enumeration": "8"
    },
-   "solution": "BARISTAS"
+   "solution": "BARISTAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BARISTAS",
+    "definitions": [
+     {
+      "text": "those at the drinks counter",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranging puts things in a new order, so the letters are set out differently"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sir, a tab's",
+      "gives": "SIRATABS",
+      "note": "taken as written, ignoring punctuation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIRATABS",
+       "gives": "BARISTAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer is told their bar tab has been sorted for the staff.",
+     "walkthrough": "The bar tab fits the drinks-counter picture, hiding that the words are mere letters to shuffle.",
+     "definitionFit": "Baristas are the staff who make and serve coffee behind a café counter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tab's"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +292,61 @@
     "text": "Topless beekeeper going round trail: his ideas aren't fresh!",
     "enumeration": "10"
    },
-   "solution": "PLAGIARIST"
+   "solution": "PLAGIARIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PLAGIARIST",
+    "definitions": [
+     {
+      "text": "his ideas aren't fresh",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "without a top, the word loses its first letter"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "to go round something is to surround it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beekeeper",
+      "gives": "PIARIST",
+      "note": "an apiarist keeps bees; minus its first letter"
+     },
+     {
+      "clueFragment": "trail",
+      "gives": "LAG",
+      "note": "to trail is to lag behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LAG",
+      "IARIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A shirtless beekeeper on a path, mocked for stale thinking.",
+     "walkthrough": "APIARIST is the formal word for a beekeeper; trail is a verb here, not a path.",
+     "definitionFit": "A plagiarist passes off borrowed work as original, so nothing he offers is new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "trail"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +360,70 @@
     "text": "Pastry's sour: bit of tarragon the French included",
     "enumeration": "7"
    },
-   "solution": "TARTLET"
+   "solution": "TARTLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TARTLET",
+    "definitions": [
+     {
+      "text": "Pastry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a small bit of a word is its opening letter"
+     },
+     {
+      "text": "included",
+      "for": "charade",
+      "note": "being included means added on to the rest, joining the build at the end"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sour",
+      "gives": "TART",
+      "note": "tart means sharp or sour in taste"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "tarragon",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the herb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TART",
+      "LE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook complains a pastry is sour, perhaps from the French tarragon in it.",
+     "walkthrough": "The herb looks like an ingredient of the dish, but only its initial is used, placed last.",
+     "definitionFit": "A tartlet is a small pastry case with a filling, a miniature tart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sour"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +443,40 @@
      }
     ]
    },
-   "solution": "THENUTCRACKER"
+   "solution": "THENUTCRACKER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THE NUTCRACKER",
+    "definitions": [
+     {
+      "text": "Brazil might prove resistant to this ballet?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazil",
+      "note": "surface reading: the country, perhaps a football team or audience"
+     },
+     {
+      "clueFragment": "might prove resistant to this ballet?",
+      "note": "setter's reading: a brazil is a famously hard nut, so it would resist the tool the ballet is named after"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation might not warm to a certain ballet.",
+     "walkthrough": "Brazil, capitalised at the start, looks like the country; it is the hard-shelled brazil nut.",
+     "definitionFit": "Tchaikovsky's Christmas ballet is named after the nut-cracking toy at its heart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brazil"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +490,61 @@
     "text": "Tea room sent back plaited loaf",
     "enumeration": "7"
    },
-   "solution": "CHALLAH"
+   "solution": "CHALLAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CHALLAH",
+    "definitions": [
+     {
+      "text": "plaited loaf",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back returns the way it came, so its letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "CHA",
+      "note": "cha is a colloquial word for tea"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "HALL",
+      "note": "a hall is a large room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "LLAH"
+     ],
+     "reversals": [
+      {
+       "from": "HALL",
+       "to": "LLAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tea room returns a braided loaf it did not want.",
+     "walkthrough": "CHA (also char) is British slang for tea. The tea room looks like one place but is two pieces.",
+     "definitionFit": "Challah is the braided Jewish bread traditionally eaten on the Sabbath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +558,44 @@
     "text": "Announced roadside limit",
     "enumeration": "4"
    },
-   "solution": "CURB"
+   "solution": "CURB",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CURB",
+    "definitions": [
+     {
+      "text": "limit",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Announced",
+      "for": "homophone",
+      "note": "what is announced is spoken out, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roadside",
+      "gives": "CURB",
+      "soundsLike": "KERB",
+      "note": "the kerb is the British spelling of the edge of a pavement"
+     }
+    ],
+    "explanation": {
+     "surface": "A speed restriction is posted by the side of the road.",
+     "walkthrough": "In Britain the stone edge of the pavement is spelt KERB; the clue wants the other spelling.",
+     "definitionFit": "To curb something is to restrain or hold it in check."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roadside"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +615,62 @@
      }
     ]
    },
-   "solution": "HYDRAULICJACK"
+   "solution": "HYDRAULICJACK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HYDRAULIC JACK",
+    "definitions": [
+     {
+      "text": "that'll help in raising",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something rearranges it, so the letters go into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curly hid a",
+      "gives": "CURLYHIDA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "JACK",
+      "note": "the jack, or knave, is a court card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HYDRAULIC",
+      "JACK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CURLYHIDA",
+       "gives": "HYDRAULIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Curly hides a card while playing, which helps them raise the stakes.",
+     "walkthrough": "'Playing card' reads as one thing, but 'playing' acts on the words before it and 'card' alone is the jack.",
+     "definitionFit": "This device lifts heavy loads such as cars using pressurised fluid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 9,
@@ -217,7 +706,49 @@
      }
     ]
    },
-   "solution": "ELGAR"
+   "solution": "ELGAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ELGAR",
+    "definitions": [
+     {
+      "text": "The origin of Emmaus, Liebesahnung, Gloria, Arthur and Rosemary!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The origin of",
+      "for": "letter_selection",
+      "note": "the origin is the starting point, so each listed title gives its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emmaus, Liebesahnung, Gloria, Arthur and Rosemary",
+      "gives": "ELGAR",
+      "select": "first",
+      "note": "the initials of the five titles; 'and' is passed over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELGAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks who lies behind five musical works.",
+     "walkthrough": "The italic titles are all works by the composer, so the whole clue both defines him and spells him. The 'and' merely joins the list.",
+     "definitionFit": "Edward Elgar, the English composer, wrote all five pieces, so he is literally their origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -231,7 +762,50 @@
     "text": "Tried to listen with attention, like a judge",
     "enumeration": "9"
    },
-   "solution": "EARWIGGED"
+   "solution": "EARWIGGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARWIGGED",
+    "definitions": [
+     {
+      "text": "Tried to listen",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to pay attention"
+     },
+     {
+      "clueFragment": "like a judge",
+      "gives": "WIGGED",
+      "note": "British judges wear wigs in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "WIGGED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone listened carefully, as a judge would in court.",
+     "walkthrough": "The judge seems to set the scene of careful listening; he contributes only his wig.",
+     "definitionFit": "To earwig is to eavesdrop, secretly trying to overhear a private conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 11,
@@ -245,7 +819,62 @@
     "text": "Cuthbert, less bold, quivering somewhere in Low Countries",
     "enumeration": "7"
    },
-   "solution": "UTRECHT"
+   "solution": "UTRECHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UTRECHT",
+    "definitions": [
+     {
+      "text": "somewhere in Low Countries",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so a letter is taken away"
+     },
+     {
+      "text": "quivering",
+      "for": "anagram",
+      "note": "quivering things shake about, so the letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cuthbert",
+      "gives": "CUTHBERT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bold",
+      "gives": "B",
+      "note": "B is the abbreviation for bold type"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUTHERT",
+       "gives": "UTRECHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Cuthbert, now timid and trembling, somewhere in Holland.",
+     "walkthrough": "'Less bold' reads as timid, but it means remove the B. The remaining seven letters are shuffled.",
+     "definitionFit": "Utrecht is a city and province in the Netherlands, one of the Low Countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bold"
+    }
+   }
   },
   {
    "number": 12,
@@ -259,7 +888,44 @@
     "text": "Performances: when they're extraordinary, they're secret?",
     "enumeration": "10"
    },
-   "solution": "RENDITIONS"
+   "solution": "RENDITIONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RENDITIONS",
+    "definitions": [
+     {
+      "text": "Performances",
+      "at": 0
+     },
+     {
+      "text": "when they're extraordinary, they're secret?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performances",
+      "note": "first meaning: interpretations of a piece of music or drama"
+     },
+     {
+      "clueFragment": "when they're extraordinary, they're secret?",
+      "note": "second meaning: the phrase for covert transfers of suspects to other countries"
+     }
+    ],
+    "explanation": {
+     "surface": "Remarkable performances are often kept under wraps.",
+     "walkthrough": "'Extraordinary' looks like praise for a performance, but it completes a political term for secret, illegal prisoner transfers.",
+     "definitionFit": "The word means both an artistic performance and, in 'extraordinary rendition', handing a detainee over in secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "extraordinary"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +939,44 @@
     "text": "Some boycott a warmonger: capital!",
     "enumeration": "6"
    },
-   "solution": "OTTAWA"
+   "solution": "OTTAWA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OTTAWA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the words are used, a run of letters within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boycott a warmonger",
+      "gives": "OTTAWA",
+      "note": "the letters run consecutively across three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A call to shun a militarist, ending in a cry of approval.",
+     "walkthrough": "'Capital!' sounds like an old-fashioned exclamation meaning excellent; it is the definition.",
+     "definitionFit": "Ottawa is the seat of government of Canada, its national capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +990,49 @@
     "text": "Set free knight who's regularly hidden assets",
     "enumeration": "9"
    },
-   "solution": "STRENGTHS"
+   "solution": "STRENGTHS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STRENGTHS",
+    "definitions": [
+     {
+      "text": "hidden assets",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other letter, starting from the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set free knight who's",
+      "gives": "STRENGTHS",
+      "select": "alternate",
+      "note": "the odd-numbered letters of the four words, run together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRENGTHS"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight is released, the one whose riches were stashed away.",
+     "walkthrough": "'Set free' looks like the definition; it is only the start of the letter run.",
+     "definitionFit": "Strengths are qualities that serve someone well, assets of character that may not be visible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1052,51 @@
      }
     ]
    },
-   "solution": "CONSUMMATESKILL"
+   "solution": "CONSUMMATESKILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSUMMATE SKILL",
+    "definitions": [
+     {
+      "text": "enormous flair",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Completes, romantically",
+      "gives": "CONSUMMATES",
+      "note": "a marriage or relationship is completed by sexual union"
+     },
+     {
+      "clueFragment": "what icers do",
+      "gives": "KILL",
+      "note": "to ice someone is gangster slang for murdering them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONSUMMATES",
+      "KILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic triumph, and something about people icing cakes, show great talent.",
+     "walkthrough": "'Icers' suggests cake decorators; in slang to ice is to murder. The word break falls in a different place from the pieces.",
+     "definitionFit": "Consummate skill is supreme, perfected ability, the highest degree of talent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "icers"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1110,45 @@
     "text": "'It's used for plastic coating': what Macbeth wanted to hear?",
     "enumeration": "8"
    },
-   "solution": "URETHANE"
+   "solution": "URETHANE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "URETHANE",
+    "definitions": [
+     {
+      "text": "It's used for plastic coating",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hear",
+      "for": "homophone",
+      "note": "hearing involves sound alone, so the answer only has to match a spoken phrase, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what Macbeth wanted",
+      "gives": "URETHANE",
+      "soundsLike": "YOURE THANE",
+      "note": "the witches hail Macbeth with his new titles, the thane of Cawdor and more"
+     }
+    ],
+    "explanation": {
+     "surface": "A quoted definition of a chemical, then an aside about Shakespeare's ambitious lord.",
+     "walkthrough": "A thane is a Scottish lord; Macbeth longed to be told he was one, and then king.",
+     "definitionFit": "Polyurethane resins form tough varnishes and plastic coatings, and urethane is the base chemical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Macbeth"
+    }
+   }
   },
   {
    "number": 17,
@@ -341,7 +1168,44 @@
      }
     ]
    },
-   "solution": "ASIDES"
+   "solution": "ASIDES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A-SIDES",
+    "definitions": [
+     {
+      "text": "Numbers intended to be heard by more",
+      "at": 0
+     },
+     {
+      "text": "words intended to be heard by fewer",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers intended to be heard by more",
+      "note": "first meaning: the main tracks of singles, meant for radio play"
+     },
+     {
+      "clueFragment": "words intended to be heard by fewer",
+      "note": "second meaning: remarks an actor makes to the audience, unheard by others on stage"
+     }
+    ],
+    "explanation": {
+     "surface": "A neat contrast between songs for the masses and words for the few.",
+     "walkthrough": "The two halves are balanced opposites; the hyphen separates the record term from the stage term.",
+     "definitionFit": "On a vinyl single the featured song sat on side A, while a theatrical aside is a confidential remark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Numbers"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1219,60 @@
     "text": "Stretchy base: perhaps Tupperware loses lid",
     "enumeration": "7"
    },
-   "solution": "ELASTIC"
+   "solution": "ELASTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ELASTIC",
+    "definitions": [
+     {
+      "text": "Stretchy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "charade",
+      "note": "perhaps marks an example, so the brand stands for the broader material"
+     },
+     {
+      "text": "loses lid",
+      "for": "deletion",
+      "note": "a lid is the top, so losing it removes the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     },
+     {
+      "clueFragment": "Tupperware",
+      "gives": "PLASTIC",
+      "note": "the brand of food boxes is an example of a material; minus its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LASTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A plastic food box without its top sits on a stretchy base.",
+     "walkthrough": "Tupperware is a brand of plastic food containers. E as a base comes from mathematics.",
+     "definitionFit": "Elastic describes material that stretches and then springs back to its shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1286,60 @@
     "text": "Once clothing removed, managing to treat disorder",
     "enumeration": "6"
    },
-   "solution": "ANGINA"
+   "solution": "ANGINA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANGINA",
+    "definitions": [
+     {
+      "text": "disorder",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing removed",
+      "for": "deletion",
+      "note": "clothing is the outer covering, so stripping it takes off the outside letters"
+     },
+     {
+      "text": "to treat",
+      "for": "anagram",
+      "note": "treating something works it over, so the letters are reprocessed into a new order"
+     }
+    ],
+    "linkWords": [
+     "Once"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managing",
+      "gives": "ANAGIN",
+      "note": "the word stripped of its first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANAGIN",
+       "gives": "ANGINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor, once undressed, sets about treating an illness.",
+     "walkthrough": "'Clothing' looks like garments taken off a patient, but it is the outer letters.",
+     "definitionFit": "Angina is a heart condition causing chest pain, a medical disorder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1353,52 @@
     "text": "Artist seen in mailroom every now and then",
     "enumeration": "4"
    },
-   "solution": "MIRO"
+   "solution": "MIRO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MIRO",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every now and then",
+      "for": "letter_selection",
+      "note": "happening now and then means at intervals, so only alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mailroom",
+      "gives": "MIRO",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter occasionally spotted in the post room.",
+     "walkthrough": "Selecting alternate letters starting at the first gives the name, written without its accent.",
+     "definitionFit": "Joan Miró was a Spanish surrealist painter and sculptor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1412,55 @@
     "text": "Honouring monarch around end of day",
     "enumeration": "9"
    },
-   "solution": "KNIGHTING"
+   "solution": "KNIGHTING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KNIGHTING",
+    "definitions": [
+     {
+      "text": "Honouring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "being around something means enclosing it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monarch",
+      "gives": "KING",
+      "note": "a king is a monarch"
+     },
+     {
+      "clueFragment": "end of day",
+      "gives": "NIGHT",
+      "note": "night comes when the day ends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NIGHT",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch handing out honours late in the day.",
+     "walkthrough": "'End of day' tempts the last letter Y; here it is the time when day ends.",
+     "definitionFit": "Knighting someone confers an honour by dubbing them a knight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1480,74 @@
      }
     ]
    },
-   "solution": "GOUDA"
+   "solution": "GOUDA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GOUDA",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolled over",
+      "for": "reversal",
+      "note": "rolling over turns something end to end, so its letters run backwards"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "having eaten",
+      "for": "container",
+      "note": "what is eaten goes inside, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A pooch",
+      "gives": "ADOG",
+      "note": "a pooch is a dog"
+     },
+     {
+      "clueFragment": "bleu",
+      "gives": "U",
+      "select": "last",
+      "note": "the final letter of the French word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "U",
+      "DA"
+     ],
+     "reversals": [
+      {
+       "from": "ADOG",
+       "to": "GODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog rolls over after eating a piece of blue cheese.",
+     "walkthrough": "Bleu is French for blue, but here only its last letter matters, not the cheese.",
+     "definitionFit": "Gouda is a mild yellow Dutch cheese named after the town where it was traded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bleu"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1561,56 @@
     "text": "Company abandoned voucher: it's over!",
     "enumeration": "4"
    },
-   "solution": "UPON"
+   "solution": "UPON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UPON",
+    "definitions": [
+     {
+      "text": "over",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "what is abandoned is left behind, so those letters drop out"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "voucher",
+      "gives": "COUPON",
+      "note": "a coupon is a voucher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPON"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm drops a voucher scheme and declares it finished.",
+     "walkthrough": "'It's over!' reads as an announcement that something has ended; 'over' is a preposition defining the answer.",
+     "definitionFit": "Upon and over are interchangeable prepositions meaning on top of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1630,42 @@
      }
     ]
    },
-   "solution": "RUNINTO"
+   "solution": "RUNINTO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN INTO",
+    "definitions": [
+     {
+      "text": "Unexpectedly encounter",
+      "at": 0
+     },
+     {
+      "text": "ram",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unexpectedly encounter",
+      "note": "first meaning: to meet someone by chance"
+     },
+     {
+      "clueFragment": "ram",
+      "note": "second meaning: to collide with something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Ram' could be a sheep, but it is a verb meaning to crash into.",
+     "definitionFit": "The phrasal verb covers both a chance meeting and a physical collision with a vehicle or obstacle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ram"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1679,44 @@
     "text": "Health Secretary who reluctantly gave blood?",
     "enumeration": "7"
    },
-   "solution": "HANCOCK"
+   "solution": "HANCOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HANCOCK",
+    "definitions": [
+     {
+      "text": "Health Secretary",
+      "at": 0
+     },
+     {
+      "text": "who reluctantly gave blood?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Health Secretary",
+      "note": "first meaning: the UK cabinet minister for health from 2018 to 2021"
+     },
+     {
+      "clueFragment": "who reluctantly gave blood?",
+      "note": "second meaning: the comedian whose famous sketch has him nervously donating a pint"
+     }
+    ],
+    "explanation": {
+     "surface": "A government health minister grudgingly rolls up a sleeve at a donor session.",
+     "walkthrough": "Matt Hancock was Britain's Health Secretary; Tony Hancock was a British comedian whose 1961 TV episode 'The Blood Donor' is a classic.",
+     "definitionFit": "Two famous British bearers of one surname: a cabinet minister for health and a comic who gave blood on television."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reluctantly"
+    }
+   }
   }
  ]
 }
