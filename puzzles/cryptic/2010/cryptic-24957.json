@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,37 @@
     "text": "Low attention span?",
     "enumeration": "4"
    },
-   "solution": "WATT"
+   "solution": "WATT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WATT",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "span",
+      "for": "hidden_word",
+      "note": "a span stretches across something, so the run of letters bridges the gap between two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low attention",
+      "gives": "WATT",
+      "note": "the last letter of the first word plus the start of the second"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark invites a quip about short concentration, but the letters sit across the join of 'Low' and 'attention'. The answer is a unit of power, one of the puzzle's themed measures, so it gets no definition.",
+     "definitionFit": "Theme entries are left undefined; this one is the SI unit of power, named after James Watt the engineer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "span"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +81,53 @@
     "text": "Old Queen of Castile forgetting to study lines",
     "enumeration": "6"
    },
-   "solution": "STANZA"
+   "solution": "STANZA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STANZA",
+    "definitions": [
+     {
+      "text": "lines",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgetting",
+      "for": "deletion",
+      "note": "to forget something is to leave it out, so a piece is dropped from the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Queen of Castile",
+      "gives": "CONSTANZA",
+      "note": "Constanza (Constance) of Castile, a medieval queen and wife of John of Gaunt"
+     },
+     {
+      "clueFragment": "to study",
+      "gives": "CON",
+      "note": "to con is an old word meaning to study or learn by heart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANZA"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical queen of Castile neglects her studies of verse.",
+     "walkthrough": "Dropping CON from the front of CONSTANZA leaves STANZA. 'Con' for study is old-fashioned but a crossword staple.",
+     "definitionFit": "A stanza is a group of verse lines forming a unit within a poem, like a paragraph in prose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 3,
@@ -68,7 +147,65 @@
      }
     ]
    },
-   "solution": "SOUPTUREEN"
+   "solution": "SOUPTUREEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SOUP TUREEN",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having swallowed",
+      "for": "container",
+      "note": "whatever has been swallowed ends up inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hence",
+      "gives": "SO",
+      "note": "so means therefore, hence"
+     },
+     {
+      "clueFragment": "improvement",
+      "gives": "UPTURN",
+      "note": "an upturn is an improvement in fortunes"
+     },
+     {
+      "clueFragment": "tablets",
+      "gives": "EE",
+      "note": "E is slang for an ecstasy tablet; two of them make the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "UPTUR",
+      "EE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Things got better after some pills were taken with a meal.",
+     "walkthrough": "UPTURN swallows EE between its last two letters, then SO goes in front. E for an ecstasy pill is a common crossword shorthand.",
+     "definitionFit": "A soup tureen is a large deep serving bowl with a lid, a type of dish used at table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tablets"
+    }
+   }
   },
   {
    "number": 4,
@@ -82,7 +219,49 @@
     "text": "19 in West",
     "enumeration": "6"
    },
-   "solution": "MAXIXE"
+   "solution": "MAXIXE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAXIXE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being inside another means it goes within the other's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "19",
+      "gives": "XIX",
+      "note": "nineteen in Roman numerals"
+     },
+     {
+      "clueFragment": "West",
+      "gives": "MAE",
+      "note": "Mae West, the Hollywood actress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "XIX",
+      "E"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'19' looks like a cross-reference to another clue but is just a number in Roman numerals. A measure can be a dance, and this Brazilian dance is one of the themed entries, so it is undefined.",
+     "definitionFit": "The maxixe is a Brazilian ballroom dance resembling the tango, and an old meaning of measure is a stately dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "19"
+    }
+   }
   },
   {
    "number": 5,
@@ -96,7 +275,62 @@
     "text": "More mature, we dipped into \"Lady Chatterley's Lover\", not quite climaxing?",
     "enumeration": "8"
    },
-   "solution": "MELLOWER"
+   "solution": "MELLOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MELLOWER",
+    "definitions": [
+     {
+      "text": "More mature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite climaxing",
+      "for": "deletion",
+      "note": "falling just short of the end means the final letter is lost"
+     },
+     {
+      "text": "dipped into",
+      "for": "container",
+      "note": "something dipped into a thing goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "\"Lady Chatterley's Lover\"",
+      "gives": "MELLORS",
+      "note": "Oliver Mellors is the gamekeeper who is Lady Chatterley's lover in D H Lawrence's novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MELLO",
+      "WE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy confession of reading a racy novel without quite reaching the end.",
+     "walkthrough": "The quotation marks suggest the book title, but the lover is the character, the gamekeeper in D H Lawrence's banned novel. 'Climaxing' is a racy way of saying reaching the end.",
+     "definitionFit": "Mellow describes something softened and ripened by age, so the comparative form means more mature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "climaxing"
+    }
+   }
   },
   {
    "number": 6,
@@ -110,7 +344,49 @@
     "text": "Runs into one",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it within, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace is the one in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The clue reads like streams merging, but it is R placed inside ACE. The answer, a unit of land area, is one of the undefined themed measures.",
+     "definitionFit": "Theme entries are not defined; this is the traditional unit of land area, 4,840 square yards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 7,
@@ -124,7 +400,71 @@
     "text": "Sensational spin bowled by everyone to lout, non-amateur",
     "enumeration": "8"
    },
-   "solution": "BALLYHOO"
+   "solution": "BALLYHOO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BALLYHOO",
+    "definitions": [
+     {
+      "text": "Sensational spin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "non-amateur",
+      "for": "deletion",
+      "note": "without an amateur means the letter standing for amateur is taken out"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowled",
+      "gives": "B",
+      "note": "B is the cricket scorecard abbreviation for bowled"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "lout",
+      "gives": "YAHOO",
+      "note": "a yahoo is a boorish lout, from Swift's Gulliver's Travels"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is the abbreviation for amateur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALL",
+      "YHOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: a sensational spin delivery bowled to a lout who is no amateur.",
+     "walkthrough": "'Spin' and 'bowled' set up a cricket scene, but spin here is publicity. YAHOO loses its A to give YHOO.",
+     "definitionFit": "Ballyhoo is extravagant publicity or hype, the kind of sensational promotional spin used to drum up interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spin"
+    }
+   }
   },
   {
    "number": 8,
@@ -138,7 +478,47 @@
     "text": "Small island in Switzerland",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCH",
+    "definitions": [
+     {
+      "text": "Small island",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH is the international code for Switzerland (Confoederatio Helvetica)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere in landlocked Switzerland there is a little island.",
+     "walkthrough": "Also a themed unit of length, but here it is defined by its Scottish sense; Switzerland is CH on car stickers.",
+     "definitionFit": "In Scotland and Ireland an inch is a small island, from Gaelic innis, as in many place names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 9,
@@ -152,7 +532,66 @@
     "text": "It's a short walk to Lincoln to see old instrument",
     "enumeration": "9"
    },
-   "solution": "ASTROLABE"
+   "solution": "ASTROLABE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASTROLABE",
+    "definitions": [
+     {
+      "text": "old instrument",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the last letter is lopped off"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to",
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "walk",
+      "gives": "STROLL",
+      "note": "a stroll is a leisurely walk"
+     },
+     {
+      "clueFragment": "Lincoln",
+      "gives": "ABE",
+      "note": "Abe Lincoln, US president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STROL",
+      "ABE"
+     ]
+    },
+    "explanation": {
+     "surface": "A short stroll takes you to see an antique in the city of Lincoln.",
+     "walkthrough": "Lincoln looks like the English cathedral city, but it is Abraham Lincoln shortened to ABE.",
+     "definitionFit": "The astrolabe was a medieval astronomical device for measuring the altitude of stars, used in early navigation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lincoln"
+    }
+   }
   },
   {
    "number": 10,
@@ -166,7 +605,56 @@
     "text": "Charlie has no place in M&S, say",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAIN",
+    "definitions": [
+     {
+      "text": "M&S, say",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no",
+      "for": "deletion",
+      "note": "having none of something means it is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "CHAPLIN",
+      "note": "Charlie Chaplin, the silent film comedian"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the abbreviation for place in street names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Charlie can't find a place in Marks & Spencer.",
+     "walkthrough": "Charlie wants to be C in the radio alphabet; it is Chaplin. M&S is Marks & Spencer, a British high-street retailer with stores nationwide.",
+     "definitionFit": "Marks & Spencer is an example of a retail chain, a group of shops under common ownership."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +674,50 @@
      }
     ]
    },
-   "solution": "TONUP"
+   "solution": "TONUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TON-UP",
+    "definitions": [
+     {
+      "text": "may possibly go fast",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion's",
+      "gives": "TON",
+      "note": "ton means fashion or style, from French; the 's is 'has'"
+     },
+     {
+      "clueFragment": "getting pricier",
+      "gives": "UP",
+      "note": "prices that are up have risen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashion keeps getting more expensive and may soon be a passing fad.",
+     "walkthrough": "A ton-up is British slang for a motorcyclist who rides at 100 mph, a 'ton'; the definition hedges with 'may possibly' because not every such rider is speeding.",
+     "definitionFit": "Ton-up describes a speed-loving motorcycle rider, someone liable to travel at a hundred miles an hour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +737,40 @@
      }
     ]
    },
-   "solution": "ILLHEALTH"
+   "solution": "ILLHEALTH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ILL HEALTH",
+    "definitions": [
+     {
+      "text": "Poor state",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor state",
+      "note": "surface reading: an impoverished nation or condition"
+     },
+     {
+      "clueFragment": "almost a contradiction",
+      "note": "setter's reading: the two words of the phrase nearly cancel each other out"
+     }
+    ],
+    "explanation": {
+     "surface": "A struggling country that is nearly a paradox.",
+     "walkthrough": "The phrase pairs a word for sickness with the word for wellbeing, so it comes close to being an oxymoron.",
+     "definitionFit": "Being unwell is a poor physical condition, a state of the body that is not good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +795,39 @@
     "13-across",
     "19-across",
     "22-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MEASURE FOR MEASURE",
+    "definitions": [
+     {
+      "text": "\"Play for Today\"",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"Play for Today\"",
+      "note": "surface reading: the long-running BBC television drama strand"
+     },
+     {
+      "clueFragment": "Play for Today",
+      "note": "setter's reading: a Shakespeare play suiting today's puzzle, whose theme is units"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Play for Today was a BBC series of one-off TV dramas; here it means a play that fits this puzzle's theme, the Shakespeare comedy whose title repeats the theme word.",
+     "definitionFit": "The Shakespeare comedy about justice in Vienna is a play, and its title names the theme of this crossword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Today"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +841,64 @@
     "text": "Roman soldier in Malta lies injured",
     "enumeration": "5"
    },
-   "solution": "MILES"
+   "solution": "MILES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MILES",
+    "definitions": [
+     {
+      "text": "Roman soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injured",
+      "for": "anagram",
+      "note": "something injured is damaged out of its proper shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malta",
+      "gives": "M",
+      "note": "M is the international vehicle code for Malta"
+     },
+     {
+      "clueFragment": "lies",
+      "gives": "LIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIES",
+       "gives": "ILES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wounded legionary lies hurt on Malta.",
+     "walkthrough": "Miles is the Latin word for a soldier; it is also a themed unit, used by 19 down.",
+     "definitionFit": "Miles is the Latin noun for soldier, the term for a Roman legionary or foot soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lies"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +918,71 @@
      }
     ]
    },
-   "solution": "WESTHAM"
+   "solution": "WESTHAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "WEST HAM",
+    "definitions": [
+     {
+      "text": "They're",
+      "at": 0,
+      "note": "a team is referred to in the plural"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground down means crushed and reworked into a new form"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "win",
+      "gives": "W",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "Thames",
+      "gives": "THAMES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ESTHAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THAMES",
+       "gives": "ESTHAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A London football team starting to win at their riverside home.",
+     "walkthrough": "'Ground' looks like a football stadium but signals the anagram. West Ham United is a London football club near the Thames.",
+     "definitionFit": "West Ham is a football club, a group of players who can be called they, just as fans speak of a team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +996,53 @@
     "text": "It lactates (sort of)",
     "enumeration": "10"
    },
-   "solution": "STALACTITE"
+   "solution": "STALACTITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "STALACTITE",
+    "definitions": [
+     {
+      "text": "It lactates (sort of)",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort of",
+      "for": "anagram",
+      "note": "a sort of something is a version of it, so these letters form a variant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It lactates",
+      "gives": "ITLACTATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITLACTATES",
+       "gives": "STALACTITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something produces milk, more or less.",
+     "walkthrough": "The whole clue is both definition and wordplay: a cave formation hangs and drips milky mineral water, rather like an udder.",
+     "definitionFit": "A stalactite grows by dripping calcium-rich water from a cave roof, so it oozes a milky liquid of a kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "lactates"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1056,49 @@
     "text": "Monsieur has to be in his own country",
     "enumeration": "5"
    },
-   "solution": "METRE"
+   "solution": "METRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "METRE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "in his own country",
+      "for": "container",
+      "note": "the phrase marks the next word to be given in a foreign language"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monsieur",
+      "gives": "M",
+      "note": "M. is the abbreviation for Monsieur"
+     },
+     {
+      "clueFragment": "to be",
+      "gives": "ETRE",
+      "note": "être is French for to be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ETRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman longs to be back home.",
+     "walkthrough": "'In his own country' tells us to translate into French. The answer is a themed unit of length, so there is no definition.",
+     "definitionFit": "Theme entries go undefined; this is the SI base unit of length, defined via the speed of light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1112,50 @@
     "text": "Tell stories about Turkey",
     "enumeration": "5"
    },
-   "solution": "LITRE"
+   "solution": "LITRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LITRE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tell stories",
+      "gives": "LIE",
+      "note": "to tell stories is to lie"
+     },
+     {
+      "clueFragment": "Turkey",
+      "gives": "TR",
+      "note": "TR is the international code for Turkey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "TR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spins yarns about Turkey.",
+     "walkthrough": "'Turkey' looks like the bird or the meal, but it is the country code TR. The answer, a metric unit of volume, is a themed entry.",
+     "definitionFit": "Theme entries go undefined; this is the metric unit of capacity, a thousand cubic centimetres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1169,51 @@
     "text": "I met Neil producing \"The History Cycle\" perhaps",
     "enumeration": "8"
    },
-   "solution": "TIMELINE"
+   "solution": "TIMELINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIMELINE",
+    "definitions": [
+     {
+      "text": "\"The History Cycle\" perhaps",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "producing",
+      "for": "anagram",
+      "note": "to produce a work is to create something new out of material, so the letters are reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I met Neil",
+      "gives": "IMETNEIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMETNEIL",
+       "gives": "TIMELINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meeting a TV producer who made a history series.",
+     "walkthrough": "'Producing' looks like a TV producer's credit, but it reworks the letters. The History Cycle sounds like a documentary series, an example of history laid out in order.",
+     "definitionFit": "A timeline lays out events in chronological sequence, so a chronicle of history could be described as one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "producing"
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1246,38 @@
     "text": "16 of these in 2 13",
     "enumeration": "8"
    },
-   "solution": "FURLONGS"
+   "solution": "FURLONGS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FURLONGS",
+    "definitions": [
+     {
+      "text": "16 of these in 2 13",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "16 of these in 2 13",
+      "note": "surface reading: a sum built from other clue numbers"
+     },
+     {
+      "clueFragment": "2 13",
+      "note": "setter's reading: the 13 entry is a distance unit, so this is how many of a shorter unit make two of them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "13 down is MILES, so '2 13' is two miles; a mile is eight of the wanted unit, so sixteen fit in two.",
+     "definitionFit": "There are eight of these horse-racing distance units in a mile, each 220 yards long, so sixteen in two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "16"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1291,51 @@
     "text": "What's happening as a rule",
     "enumeration": "5"
    },
-   "solution": "AFOOT"
+   "solution": "AFOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFOOT",
+    "definitions": [
+     {
+      "text": "What's happening",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "FOOT",
+      "note": "the standard rule, or ruler, is twelve inches long, the imperial unit for that length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FOOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Things that usually occur, as a general principle.",
+     "walkthrough": "'As a rule' reads as 'usually', but a rule is a ruler, and the common one measures a foot.",
+     "definitionFit": "Something afoot is going on or in progress, so the word describes events under way at present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1349,51 @@
     "text": "Student group remains baffled",
     "enumeration": "7"
    },
-   "solution": "SEMINAR"
+   "solution": "SEMINAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMINAR",
+    "definitions": [
+     {
+      "text": "Student group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baffled",
+      "for": "anagram",
+      "note": "a baffled mind is confused and scrambled, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remains",
+      "gives": "REMAINS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REMAINS",
+       "gives": "SEMINAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A class of students stays puzzled.",
+     "walkthrough": "'Remains' reads as a verb, stays, but it supplies the letters, and 'baffled' reorders them.",
+     "definitionFit": "A seminar is a small university class where students meet with a tutor to discuss a topic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1420,58 @@
     "text": "A thousand in cash or half that",
     "enumeration": "6"
    },
-   "solution": "MONKEY"
+   "solution": "MONKEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONKEY",
+    "definitions": [
+     {
+      "text": "half that",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A thousand",
+      "gives": "K",
+      "note": "K is short for a thousand, as in a salary of 50K"
+     },
+     {
+      "clueFragment": "cash",
+      "gives": "MONEY",
+      "note": "cash is money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "K",
+      "EY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's asking a grand in cash, or settling for half.",
+     "walkthrough": "'That' refers back to a thousand pounds; British slang calls £500 a monkey.",
+     "definitionFit": "In British slang a monkey is five hundred pounds, which is exactly half of a thousand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "that"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1485,73 @@
     "text": "Odd venue arranged to host Beethoven's Ninth",
     "enumeration": "6"
    },
-   "solution": "UNEVEN"
+   "solution": "UNEVEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "UNEVEN",
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ninth",
+      "for": "letter_selection",
+      "note": "the ninth is the letter in position nine of the word"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "to arrange is to put in a new order"
+     },
+     {
+      "text": "to host",
+      "for": "container",
+      "note": "a host takes in guests, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "venue",
+      "gives": "VENUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Beethoven's",
+      "gives": "N",
+      "select": 9,
+      "note": "the ninth letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNEVE",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VENUE",
+       "gives": "UNEVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange concert hall is set up to stage Beethoven's Ninth Symphony.",
+     "walkthrough": "Beethoven's Ninth looks like the choral symphony, but it is the ninth letter of his name, which the rearranged venue holds at its end.",
+     "definitionFit": "Odd and uneven are synonyms for numbers not divisible by two, or things irregular and unbalanced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ninth"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1571,38 @@
      }
     ]
    },
-   "solution": "HALFCROWN"
+   "solution": "HALFCROWN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HALF-CROWN",
+    "definitions": [
+     {
+      "text": "2 and 6 (once upon a time)",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2 and 6",
+      "note": "surface reading: two clue numbers, or simply two numbers added"
+     },
+     {
+      "clueFragment": "(once upon a time)",
+      "note": "setter's reading: two shillings and sixpence in pre-decimal British money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The numbers look like cross-references to 2 and 6 down; they are old money, two shillings and six pence, a coin withdrawn after decimalisation in 1971.",
+     "definitionFit": "The old British coin worth two shillings and sixpence was an eighth of a pound, in use until decimal currency arrived."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "2"
+    }
+   }
   },
   {
    "number": 24,
@@ -457,7 +1616,58 @@
     "text": "When river drops river horses find fruit",
     "enumeration": "4"
    },
-   "solution": "HIPS"
+   "solution": "HIPS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HIPS",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so letters are removed"
+     }
+    ],
+    "linkWords": [
+     "When",
+     "find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river horses",
+      "gives": "HIPPOS",
+      "note": "hippopotamus is Greek for river horse"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "PO",
+      "note": "the Po is the main river of northern Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "When the river level falls, hippos go looking for something to eat.",
+     "walkthrough": "The second river is the definition of the first word's meaning: HIPPOS loses PO.",
+     "definitionFit": "Rose hips are the red fruits left on rose bushes after flowering, used for syrup and tea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1681,51 @@
     "text": "Ropy sack container",
     "enumeration": "4"
    },
-   "solution": "CASK"
+   "solution": "CASK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASK",
+    "definitions": [
+     {
+      "text": "container",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ropy",
+      "for": "anagram",
+      "note": "ropy, or ropey, is British slang for shoddy or in poor shape, so the letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sack",
+      "gives": "SACK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SACK",
+       "gives": "CASK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tatty sack used to hold things.",
+     "walkthrough": "Ropy looks like it describes a sack made of rope; it is British slang for poor quality.",
+     "definitionFit": "A cask is a barrel, a wooden vessel used to hold liquids such as beer or wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ropy"
+    }
+   }
   },
   {
    "number": 26,
@@ -485,7 +1739,49 @@
     "text": "Somerville and Ross collection ignored Irish",
     "enumeration": "5"
    },
-   "solution": "THERM"
+   "solution": "THERM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THERM",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "what is ignored is left out, so a word goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somerville and Ross collection",
+      "gives": "THEIRISHRM",
+      "note": "Some Experiences of an Irish R.M. was a story collection by Somerville and Ross, often called The Irish R.M."
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IRISH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "RM"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary collection by two authors leaves out its Irish setting.",
+     "walkthrough": "Somerville and Ross were two Irish women writers; their comic stories of a resident magistrate are known as The Irish R.M. The answer, a unit of heat, is a themed entry.",
+     "definitionFit": "Theme entries go undefined; this is a unit of heat once used for gas bills, a hundred thousand British thermal units."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collection"
+    }
+   }
   },
   {
    "number": 27,
@@ -499,7 +1795,51 @@
     "text": "Matador's first accentless shout",
     "enumeration": "4"
    },
-   "solution": "MOLE"
+   "solution": "MOLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MOLE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matador's",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "accentless shout",
+      "gives": "OLE",
+      "note": "olé is the shout of a bullfight crowd, written here without its accent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "The bullfighter gets the crowd's first cheer.",
+     "walkthrough": "'Accentless' simply licenses dropping the accent from olé. The answer is the SI unit of amount of substance, a themed entry.",
+     "definitionFit": "Theme entries go undefined; this is the SI unit of chemical quantity, about six times ten to the twenty-third particles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Matador's"
+    }
+   }
   },
   {
    "number": 28,
@@ -513,7 +1853,49 @@
     "text": "Indicates nothing's missing",
     "enumeration": "5"
    },
-   "solution": "PINTS"
+   "solution": "PINTS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PINTS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so it is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indicates",
+      "gives": "POINTS",
+      "note": "points means indicates"
+     },
+     {
+      "clueFragment": "nothing's",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "INTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Signals that nothing has gone astray.",
+     "walkthrough": "POINTS loses its O. The answer, a unit of liquid volume, is a themed entry, so the clue has no definition.",
+     "definitionFit": "Theme entries go undefined; these are imperial units of liquid capacity, familiar from beer and milk in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 29,
@@ -533,7 +1915,47 @@
      }
     ]
    },
-   "solution": "GREATDEAL"
+   "solution": "GREATDEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREAT DEAL",
+    "definitions": [
+     {
+      "text": "Fabulous bargain",
+      "at": 0
+     },
+     {
+      "text": "what every card player wants",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fabulous bargain",
+      "note": "first meaning: a terrific bargain"
+     },
+     {
+      "clueFragment": "what every card player wants",
+      "note": "second meaning: a fine hand dealt out in a card game"
+     }
+    ],
+    "explanation": {
+     "surface": "A superb bargain is what every gambler at the table hopes for.",
+     "walkthrough": "The phrase reads first as shopping, then as the cards a dealer hands round.",
+     "definitionFit": "A bargain is a deal, and in cards the deal is the distribution of hands, which every player wants to be good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bargain"
+    }
+   }
   }
  ]
 }
