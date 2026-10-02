@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,49 @@
     "text": "Imitative play every other playroom day",
     "enumeration": "6"
    },
-   "solution": "PARODY"
+   "solution": "PARODY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PARODY",
+    "definitions": [
+     {
+      "text": "Imitative play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every other",
+      "for": "letter_selection",
+      "note": "taking every other one means keeping one, skipping one, and so on along the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playroom day",
+      "gives": "PARODY",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on of these two words run together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARODY"
+     ]
+    },
+    "explanation": {
+     "surface": "A child's pretend game, played on alternate days in the playroom.",
+     "walkthrough": "The two words run together as one string, PLAYROOMDAY, before the alternate letters are taken, starting with the first.",
+     "definitionFit": "A parody is a comic piece that mimics another work's style, so it is a dramatic or written imitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +93,62 @@
     "text": "Turns boat east, overtaken by larger vessel",
     "enumeration": "8"
    },
-   "solution": "SKETCHES"
+   "solution": "SKETCHES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKETCHES",
+    "definitions": [
+     {
+      "text": "Turns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overtaken by",
+      "for": "container",
+      "note": "something overtaken is caught and swallowed up, so it ends up inside the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "KETCH",
+      "note": "a ketch is a two-masted sailing boat"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the compass abbreviation"
+     },
+     {
+      "clueFragment": "larger vessel",
+      "gives": "SS",
+      "note": "SS stands for steamship, bigger than a ketch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KETCH",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A small boat swings east and is overhauled by a bigger ship.",
+     "walkthrough": "'Turns' reads like a verb about the boat's course, but it is the definition, in its theatrical sense: comic turns or acts.",
+     "definitionFit": "In variety theatre a turn is a short performance, and short comic scenes in a revue are sketches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turns"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +162,68 @@
     "text": "Horrible ogre grabs unnamed girl",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "ORANGE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Horrible",
+      "for": "anagram",
+      "note": "something horrible is ugly and misshapen, so these letters are twisted into a new order"
+     },
+     {
+      "text": "grabs",
+      "for": "container",
+      "note": "to grab is to seize and hold, so one part holds the other inside it"
+     },
+     {
+      "text": "unnamed",
+      "for": "deletion",
+      "note": "N is the abbreviation for name, so being without a name means losing that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ogre",
+      "gives": "OGRE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ANN",
+      "note": "Ann is a girl's name; dropping one N leaves AN"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "AN",
+      "GE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OGRE",
+       "gives": "ORGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty monster snatches a nameless girl, like a fairy-tale villain.",
+     "walkthrough": "The preamble says some answers are of one kind, here fruit, with no definition given. Ann loses the N for 'name' and sits inside the rearranged monster.",
+     "definitionFit": "The preamble's shared kind is fruit, and the orange is a familiar citrus fruit from that category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unnamed"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +237,60 @@
     "text": "Fruit exchanged in the event!",
     "enumeration": "7"
    },
-   "solution": "FIXTURE"
+   "solution": "FIXTURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIXTURE",
+    "definitions": [
+     {
+      "text": "event",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "what is changed is altered into a different form, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "gives": "FRUIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "exchanged",
+      "gives": "EX",
+      "note": "the word splits as 'ex' plus 'changed'; the front part, a former partner, is kept as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FRUITEX",
+       "gives": "FIXTURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit gets swapped about at some occasion.",
+     "walkthrough": "Read 'exchanged' as 'ex-changed': its first two letters are added to the fodder and the rest is the anagram signal. The exclamation mark flags the cheeky split.",
+     "definitionFit": "A fixture is a scheduled sporting match or meeting, an event fixed in the calendar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "exchanged"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +304,40 @@
     "text": "One who puts an oar in noisily",
     "enumeration": "6"
    },
-   "solution": "MEDLAR"
+   "solution": "MEDLAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MEDLAR",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "something done noisily is heard rather than seen, so the sound counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who puts an oar in",
+      "gives": "MEDLAR",
+      "soundsLike": "MEDDLER",
+      "note": "to put your oar in is to interfere, so this is a busybody"
+     }
+    ],
+    "explanation": {
+     "surface": "A busybody who loudly sticks their oar into other people's business.",
+     "walkthrough": "To 'put your oar in' is an idiom for interfering. The busybody's name is said the same as a fruit, which the preamble leaves undefined.",
+     "definitionFit": "The medlar is a small brown fruit of the rose family, eaten when half-rotten, so it fits the preamble's shared kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "oar"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +351,60 @@
     "text": "One consumed by passions seen regularly after meat or sugar",
     "enumeration": "6"
    },
-   "solution": "LOAVES"
+   "solution": "LOAVES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOAVES",
+    "definitions": [
+     {
+      "text": "seen regularly after meat or sugar",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "what is consumed is swallowed, so it ends up inside the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passions",
+      "gives": "LO",
+      "note": "loves are passions; this is the front of that word"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "passions",
+      "gives": "VES",
+      "note": "the rest of the same word, which wraps round the inserted letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "A",
+      "VES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eaten up by desire, glimpsed now and then after a meal of meat or sugar.",
+     "walkthrough": "'seen regularly' looks like an alternate-letters signal, but it belongs to the definition: the answer is a word often found after 'meat' or 'sugar'.",
+     "definitionFit": "Meat loaves and sugar loaves are common compounds, so this plural noun regularly follows those words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +418,43 @@
     "text": "Boatman's work may bear this",
     "enumeration": "9"
    },
-   "solution": "JACKFRUIT"
+   "solution": "JACKFRUIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JACKFRUIT",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Boatman's",
+      "gives": "JACK",
+      "note": "a jack, or jack tar, is a sailor, someone who works on boats"
+     },
+     {
+      "clueFragment": "work may bear this",
+      "gives": "FRUIT",
+      "note": "hard work is said to bear fruit when it pays off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "FRUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Boatman, the setter, hopes this puzzle will pay off for the solver.",
+     "walkthrough": "Boatman is this puzzle's setter, so the clue reads as him talking about his own work. Jack is old slang for a sailor; the fruit itself goes undefined, per the preamble.",
+     "definitionFit": "The jackfruit is a huge tropical fruit from South Asia, one of the fruits the preamble groups together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boatman's"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +468,52 @@
     "text": "Lemon crush, sometimes topped with water",
     "enumeration": "5"
    },
-   "solution": "MELON"
+   "solution": "MELON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MELON",
+    "definitions": [
+     {
+      "text": "sometimes topped with water",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crush",
+      "for": "anagram",
+      "note": "something crushed is squashed out of shape, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lemon",
+      "gives": "LEMON",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEMON",
+       "gives": "MELON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lemon squash drink, now and then diluted with water poured on top.",
+     "walkthrough": "'topped with water' means the word is sometimes preceded by 'water', as in watermelon; in an across entry the front is the top-left.",
+     "definitionFit": "Watermelon is a common fruit name, so this word is the one that often carries 'water' in front."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crush"
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +527,58 @@
     "text": "Skill catching fish? It's having good luck",
     "enumeration": "9"
    },
-   "solution": "FORTUNATE"
+   "solution": "FORTUNATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FORTUNATE",
+    "definitions": [
+     {
+      "text": "having good luck",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "to catch is to trap and hold, so one part goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skill",
+      "gives": "FORTE",
+      "note": "a forte is someone's strong point"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TUNA",
+      "note": "tuna is a large sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "TUNA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's talent for landing fish: is it really just being lucky?",
+     "walkthrough": "The question mark ends the wordplay; 'It's' links it to the definition that follows.",
+     "definitionFit": "Fortunate is a straightforward synonym for lucky, describing someone favoured by chance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "catching"
+    }
+   }
   },
   {
    "number": 10,
@@ -160,7 +592,56 @@
     "text": "Nothing wrong about  …",
     "enumeration": "5"
    },
-   "solution": "OLIVE"
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OLIVE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the other way, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "EVIL",
+      "note": "evil is wrongdoing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVIL",
+       "to": "LIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing is wrong about it, the ellipsis says, trailing into the next clue.",
+     "walkthrough": "The ellipsis links the surface to the next clue but plays no part in the wordplay. The fruit is undefined, as the preamble allows.",
+     "definitionFit": "The olive is the small oily stone fruit of the Mediterranean olive tree, matching the preamble's shared kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -174,7 +655,50 @@
     "text": "The Listener goes under quietly",
     "enumeration": "4"
    },
-   "solution": "PEAR"
+   "solution": "PEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEAR",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "goes under",
+      "for": "charade",
+      "note": "in a down entry, going under means being placed lower, so this part follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "The Listener",
+      "gives": "EAR",
+      "note": "the ear is the organ that listens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "The Listener, a famously hard crossword, is quietly being dropped.",
+     "walkthrough": "The Listener is a notoriously difficult Times crossword, which makes the surface read as crossword gossip; here it is just an ear.",
+     "definitionFit": "The pear is a common orchard fruit, one of the fruits the preamble leaves undefined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Listener"
+    }
+   }
   },
   {
    "number": 12,
@@ -188,7 +712,39 @@
     "text": "…  thoroughly cheeky crossword setting",
     "enumeration": "6"
    },
-   "solution": "LYCHEE"
+   "solution": "LYCHEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LYCHEE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "crossword setting",
+      "for": "hidden_word",
+      "note": "a setting is a mount that holds a stone, and the words across hold the answer within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thoroughly cheeky",
+      "gives": "LYCHEE",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue: a very cheeky bit of crossword setting.",
+     "walkthrough": "'crossword setting' reads as composing puzzles, a nod to the setter, but 'setting' is the signal that the letters are held within.",
+     "definitionFit": "The lychee is a small sweet Chinese fruit with a rough red skin, one of the preamble's group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 13,
@@ -202,7 +758,63 @@
     "text": "Seeds at Wimbledon are embarrassingly volatile, but not lamebrain characters",
     "enumeration": "8"
    },
-   "solution": "RYEGRASS"
+   "solution": "RYEGRASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RYEGRASS",
+    "definitions": [
+     {
+      "text": "Seeds at Wimbledon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "volatile",
+      "for": "anagram",
+      "note": "volatile means unstable and liable to change, so the letters do not keep their order"
+     },
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "taking something but not something else means subtracting the second from the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are embarrassingly",
+      "gives": "AREEMBARRASSINGLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lamebrain characters",
+      "gives": "LAMEBRAIN",
+      "note": "the letters of this word are struck out of the longer string"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARERSSGY",
+       "gives": "RYEGRASS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Top-seeded players at Wimbledon are prone to awkward outbursts, though not stupid ones.",
+     "walkthrough": "Remove each letter of LAMEBRAIN from ARE EMBARRASSINGLY, leaving ARERSSGY, then rearrange. 'Seeds' suggests tennis seeds, but the courts are sown with this grass.",
+     "definitionFit": "Wimbledon's grass courts are sown with perennial ryegrass, so the seed sown there is this plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Seeds"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +854,67 @@
     "text": "Busted split up finally to produce electronic dance music",
     "enumeration": "7"
    },
-   "solution": "DUBSTEP"
+   "solution": "DUBSTEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DUBSTEP",
+    "definitions": [
+     {
+      "text": "electronic dance music",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split",
+      "for": "anagram",
+      "note": "something split is broken apart, so its letters can be reassembled differently"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Busted",
+      "gives": "BUSTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "P",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUSTEDP",
+       "gives": "DUBSTEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band that has busted up finally reinvents itself as an electronic act.",
+     "walkthrough": "'Busted' looks like the anagram signal, but it is fodder; 'split' does the rearranging. Busted was also a British pop band that split up.",
+     "definitionFit": "Dubstep is a genre of bass-heavy electronic music that emerged in South London around 2000."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Busted"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +932,46 @@
    "group": [
     "16-down",
     "15-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAMSON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Wandering",
+      "for": "anagram",
+      "note": "wandering things stray from their path, so the letters drift out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nomads",
+      "gives": "NOMADS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOMADS",
+       "gives": "DAMSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nomadic peoples roaming from place to place.",
+     "walkthrough": "'Wandering' seems to describe the nomads, but it signals the rearrangement. The fruit is undefined, per the preamble.",
+     "definitionFit": "The damson is a small dark plum, one of the fruits the preamble groups without definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wandering"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +989,42 @@
    "group": [
     "17-down",
     "14-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANANA",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Suppress",
+      "gives": "BAN",
+      "note": "to ban is to forbid or suppress"
+     },
+     {
+      "clueFragment": "literary gossip",
+      "gives": "ANA",
+      "note": "ana is a collection of anecdotes or table talk about a writer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "ANA"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep the scandal about authors quiet.",
+     "walkthrough": "ANA is an old word for a collection of sayings or gossip about someone, as in the suffix of Victoriana; it is a crossword favourite.",
+     "definitionFit": "The banana is a long curved tropical fruit, which belongs to the preamble's undefined kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suppress"
+    }
+   }
   },
   {
    "number": 18,
@@ -292,7 +1038,61 @@
     "text": "Solver reported on river vessel",
     "enumeration": "4"
    },
-   "solution": "EWER"
+   "solution": "EWER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "EWER",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so its sound is what counts"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one thing on another sits above it, so this part comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solver",
+      "gives": "EWE",
+      "soundsLike": "YOU",
+      "note": "the clue addresses the solver as you; the word for a female sheep is said the same"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver files a report from aboard a river boat.",
+     "walkthrough": "In crosswords the solver is 'you'. 'river vessel' looks like a boat, but the river gives a letter and 'vessel' alone is the definition.",
+     "definitionFit": "A ewer is a large jug with a wide spout, a container for water; vessel covers any container for liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 19,
@@ -306,7 +1106,64 @@
     "text": "Here it is, in b*** downpour",
     "enumeration": "7"
    },
-   "solution": "BRITAIN"
+   "solution": "BRITAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRITAIN",
+    "definitions": [
+     {
+      "text": "Here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a piece placed in another goes inside its letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "b***",
+      "gives": "B",
+      "note": "the starred-out swear word is just its first letter"
+     },
+     {
+      "clueFragment": "downpour",
+      "gives": "RAIN",
+      "note": "rain is a downpour"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "IT",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble about the weather: here we are, in the bloody rain again.",
+     "walkthrough": "The Guardian is a British paper, so 'Here' is where setter and solver are. The censored 'b***' (bloody) is a joke about British swearing and British rain.",
+     "definitionFit": "For a setter of a British newspaper, the place called here is the country where it is published."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Here"
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1177,57 @@
     "text": "River in Devon at its source",
     "enumeration": "8"
    },
-   "solution": "TAMARIND"
+   "solution": "TAMARIND",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TAMARIND",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "at its source",
+      "for": "letter_selection",
+      "note": "a source is where a stream starts, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "TAMAR",
+      "note": "the Tamar forms the border between Devon and Cornwall"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Devon",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the county"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAMAR",
+      "IN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A river in Devon, near the point where it rises.",
+     "walkthrough": "The surface asks for a river in Devon and the River Tamar is one, on the Devon-Cornwall border; but 'in' is literal letters, not location.",
+     "definitionFit": "Tamarind is the sour pod fruit of a tropical tree, used in cooking, one of the preamble's group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1241,60 @@
     "text": "Love the Lakes? Love one of the Moors",
     "enumeration": "7"
    },
-   "solution": "OTHELLO"
+   "solution": "OTHELLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OTHELLO",
+    "definitions": [
+     {
+      "text": "one of the Moors",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lakes",
+      "gives": "LL",
+      "note": "L is lake, doubled for the plural"
+     },
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "the same zero score again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "THE",
+      "LL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Do you love the Lake District, or would you rather love the Yorkshire Moors?",
+     "walkthrough": "The Lakes and the Moors read as English landscapes. 'the Moors' is the definition's trap: here a Moor is a North African, not moorland.",
+     "definitionFit": "Shakespeare's Othello is subtitled the Moor of Venice, so the title character is a famous Moor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Moors"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1308,63 @@
     "text": "It's intended to remind one of time shortly before Spirit Time",
     "enumeration": "8"
    },
-   "solution": "MONUMENT"
+   "solution": "MONUMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONUMENT",
+    "definitions": [
+     {
+      "text": "It's intended to remind one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "coming before means being placed earlier in the line, so this part leads"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time shortly",
+      "gives": "MO",
+      "note": "mo is a short way of saying moment"
+     },
+     {
+      "clueFragment": "Spirit",
+      "gives": "NUMEN",
+      "note": "a numen is a presiding spirit or divinity"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NUMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A device meant to remind someone that Spirit Time is nearly here.",
+     "walkthrough": "NUMEN, a Latin word for a local deity, is the uncommon piece. 'time' and 'Time' do different jobs: one shortened word, one abbreviation.",
+     "definitionFit": "A monument is a statue or structure built to commemorate, which is exactly a reminder of a person or event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1384,64 @@
      }
     ]
    },
-   "solution": "ONEWAY"
+   "solution": "ONEWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ONE WAY",
+    "definitions": [
+     {
+      "text": "Not allowing U-turns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so this part is read the other way"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "ONE",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "change in direction",
+      "gives": "YAW",
+      "note": "a yaw is a swing off course by a ship or aircraft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "WAY"
+     ],
+     "reversals": [
+      {
+       "from": "YAW",
+       "to": "WAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic sign: no U-turns, no changing direction while you back up.",
+     "walkthrough": "The whole clue sounds like a road rule. The reversing applies only to the change in direction, not to the 'a' before it.",
+     "definitionFit": "On a one-way street traffic may flow in a single direction only, so turning round to go back is barred."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1455,68 @@
     "text": "Naked guy, once eager and free",
     "enumeration": "6"
    },
-   "solution": "UNCAGE"
+   "solution": "UNCAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNCAGE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of clothes, so each word loses its outer letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guy",
+      "gives": "U",
+      "select": "middle",
+      "note": "the word without its outside letters"
+     },
+     {
+      "clueFragment": "once",
+      "gives": "NC",
+      "select": "middle",
+      "note": "the word without its outside letters"
+     },
+     {
+      "clueFragment": "eager",
+      "gives": "AGE",
+      "select": "middle",
+      "note": "the word without its outside letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NC",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A naked man, once keen and unrestrained, as in a racy tale.",
+     "walkthrough": "'Naked' applies to all three following words, stripping the first and last letter from each.",
+     "definitionFit": "To uncage an animal is to let it out of its cage, so it is a specific way to set something at liberty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Naked"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1530,50 @@
     "text": "It originates in gonads and might engage the egg",
     "enumeration": "6"
    },
-   "solution": "GAMETE"
+   "solution": "GAMETE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "GAMETE",
+    "definitions": [
+     {
+      "text": "It originates in gonads and might engage the egg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originates in",
+      "for": "letter_selection",
+      "note": "where something originates is its starting point, so the first letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gonads and might engage the egg",
+      "gives": "GAMETE",
+      "select": "first",
+      "note": "the opening letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAMETE"
+     ]
+    },
+    "explanation": {
+     "surface": "A biology lesson on reproductive cells and fertilisation.",
+     "walkthrough": "The whole clue is both definition and wordplay: the initials of the last six words spell the answer, and the sentence describes it.",
+     "definitionFit": "A gamete is a sex cell made in the testes or ovaries; a sperm gamete fuses with the egg in fertilisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "originates"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1587,55 @@
     "text": "Complains, replacing one with another one",
     "enumeration": "6"
    },
-   "solution": "GRAPES"
+   "solution": "GRAPES",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "GRAPES",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing means swapping out one letter and putting a different one in its spot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complains",
+      "gives": "GRIPES",
+      "note": "to gripe is to grumble"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one, which is taken out"
+     },
+     {
+      "clueFragment": "another one",
+      "gives": "A",
+      "note": "a also means one, and it goes in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "A",
+      "PES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles about one thing being swapped for another.",
+     "walkthrough": "Both 'one' and 'another one' stand for a single letter meaning one: Roman I out, the article A in.",
+     "definitionFit": "Grapes are the berries of the vine, eaten fresh or made into wine, and belong to the preamble's fruit set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complains"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1649,51 @@
     "text": "Could be felt inside, as well",
     "enumeration": "6"
    },
-   "solution": "TOMATO"
+   "solution": "TOMATO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOMATO",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something inside is enclosed by the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as well",
+      "gives": "TOO",
+      "note": "too means as well"
+     },
+     {
+      "clueFragment": "Could be felt",
+      "gives": "MAT",
+      "note": "a mat might be made of felt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "MAT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Something might be sensed within you, too.",
+     "walkthrough": "'felt' looks like the past of 'feel', but it is the fabric; a mat is one thing it could be. The fruit itself is undefined, per the preamble.",
+     "definitionFit": "Botanically the tomato is a berry, a fruit, though cooks treat it as a vegetable, so it joins the preamble's group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "felt"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1707,41 @@
     "text": "Penny apiece",
     "enumeration": "5"
    },
-   "solution": "PEACH"
+   "solution": "PEACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEACH",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p is the abbreviation for a penny in British money"
+     },
+     {
+      "clueFragment": "apiece",
+      "gives": "EACH",
+      "note": "apiece means each"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It reads like a price tag, a penny each, which suits a fruit stall. The fruit itself is left undefined, as the preamble says.",
+     "definitionFit": "The peach is a soft downy stone fruit, one of the fruits the preamble leaves undefined in this puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 28,
@@ -452,7 +1755,67 @@
     "text": "Stars Meg and Sarah naughtily snatch a kiss",
     "enumeration": "9"
    },
-   "solution": "HEXAGRAMS"
+   "solution": "HEXAGRAMS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HEXAGRAMS",
+    "definitions": [
+     {
+      "text": "Stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughtily",
+      "for": "anagram",
+      "note": "acting naughtily means misbehaving, so the letters do not stay in line"
+     },
+     {
+      "text": "snatch",
+      "for": "container",
+      "note": "to snatch is to grab and hold, so one part is gripped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meg and Sarah",
+      "gives": "MEGSARAH",
+      "note": "the two names, without the joining word"
+     },
+     {
+      "clueFragment": "a kiss",
+      "gives": "X",
+      "note": "X is the kiss at the end of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "X",
+      "AGRAMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEGSARAH",
+       "gives": "HEAGRAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two film stars named Meg and Sarah cheekily steal a kiss.",
+     "walkthrough": "'Stars' sounds like celebrities, and the names support that, but it is the definition: six-pointed star shapes. 'and' simply joins the names.",
+     "definitionFit": "A hexagram is a six-pointed figure made from two overlapping triangles, such as the Star of David."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Stars"
+    }
+   }
   },
   {
    "number": 29,
@@ -466,7 +1829,60 @@
     "text": "Cycling comic Dave, missing start of ride",
     "enumeration": "5"
    },
-   "solution": "MANGO"
+   "solution": "MANGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "cycling"
+    ],
+    "answer": "MANGO",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Cycling",
+      "for": "cycling",
+      "note": "cycling goes round and round, so letters move from one end of the word to the other"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "what is missing is absent, so that letter is taken away"
+     },
+     {
+      "text": "start of",
+      "for": "deletion",
+      "note": "the start of a word is its opening letter, which is the one removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comic Dave",
+      "gives": "GORMAN",
+      "note": "Dave Gorman is a British stand-up comedian and TV presenter"
+     },
+     {
+      "clueFragment": "ride",
+      "gives": "R",
+      "note": "the first letter, which is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian named Dave out on his bike, missing the start of the ride.",
+     "walkthrough": "Dave Gorman is a British comedian. Remove R to get GOMAN, then move GO from the front to the back. 'Cycling' sounds like the bike ride but moves letters.",
+     "definitionFit": "The mango is a sweet tropical stone fruit, one of the fruits the preamble groups together without definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cycling"
+    }
+   }
   },
   {
    "number": 30,
@@ -480,7 +1896,67 @@
     "text": "Liverpool's terminus follows a three-way interchange",
     "enumeration": "9"
    },
-   "solution": "ALTERNATE"
+   "solution": "ALTERNATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALTERNATE",
+    "definitions": [
+     {
+      "text": "interchange",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "following means coming after, so this part is placed second"
+     },
+     {
+      "text": "terminus",
+      "for": "letter_selection",
+      "note": "a terminus is the end of a line, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Liverpool's",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of the city's name"
+     },
+     {
+      "clueFragment": "three-way",
+      "gives": "TERNATE",
+      "note": "ternate means arranged in threes, a botanical word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "TERNATE"
+     ]
+    },
+    "explanation": {
+     "surface": "At a three-way rail junction, the Liverpool line's final stop comes next.",
+     "walkthrough": "'terminus' and 'interchange' both sound like railway terms. TERNATE describes leaves set in threes. 'interchange' is a verb here: to swap turns.",
+     "definitionFit": "To alternate is to take turns or switch back and forth, so it means to interchange in succession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interchange"
+    }
+   }
   }
  ]
 }
