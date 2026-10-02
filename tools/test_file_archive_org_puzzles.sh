@@ -313,6 +313,50 @@ check("FT numbers the dates imply, and our first ftcryptic's", [True, True, True
       [abs(n - f.ft_expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
        for d, n in [("1975-05-01", 2766), ("1992-06-11", 7870), ("2009-11-12", 13232), ("1995-01-03", 19742)]])
 
+# The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
+# "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick
+# crossword's title is not the cryptic's.
+titles, sols = f.guardian_headings([line("Guardian Crossword No 20,538", 1942, 3103), line("Set by Rufus", 1942, 3155),
+                                    line("□□ CROSSWORD SOLUTION 20^537", 2592, 3510),
+                                    line("CROSSWORD 17,101", 200, 900), line("QUICK CROSSWORD No. 4,575", 200, 200)])
+check("Guardian titles with the setter under, the solution label with a comma read as ^, no Quick",
+      ([(20538, "Rufus"), (17101, None)], [20537]), ([(n, s_) for n, _, s_ in titles], [n for n, _ in sols]))
+check("a solution label whose number is misread is the page's one title's previous puzzle", [20926],
+      [n for n, _ in f.guardian_headings([line("Guardian Crossword No 20,927", 1942, 3103),
+                                          line("□□ CROSSWORD BOLUTION 20^27", 2592, 3510)])[1]])
+check("the Guardian's editions file as cryptic, numbered as the feed's",
+      ("cryptic", [True, True, True]),
+      (f.paper_of(cache / "TheGuardian1996UKEnglish" / "x").series,
+       [abs(n - f.guardian_expected_number(datetime.date.fromisoformat(d))) <= 5
+        for d, n in [("1971-03-16", 12748), ("1996-01-02", 20538), ("1998-04-03", 21239)]]))
+# Three columns: the third right of the grid from under the solution grid
+# (its foot at 3530, its label 15px under);
+# a speck left of the grid's margin and the imprint after "Solution
+# tomorrow" (however misread) are not clues; "Across" in title case heads.
+grid = (1954, 3263, 2586, 3865)
+lines = [line("m", 1916, 3880), line("Across", 1957, 3880), line("1,4 Ancient patriarch (6,8)", 1973, 3909),
+         line("Down", 2284, 3880), line("1 Called once (4,4)", 2284, 3909),
+         line("20^39", 2700, 3545), line("10 Hell of a clue for Pi! (10,3)", 2617, 3726),
+         line("22 Fishy drawing (5)", 2617, 3760), line("Soiuton tamorrow", 2617, 3790),
+         line("Published by Guardian Newspapers", 2617, 3812)]
+check("Guardian columns: left, right, then right of the grid; specks, label and imprint left out",
+      "Across\n1,4 Ancient patriarch (6,8)\nDown\n1 Called once (4,4)\n10 Hell of a clue for Pi! (10,3)\n22 Fishy drawing (5)",
+      f.column_text(f.columns(lines, grid, (f.GUARDIAN_THIRD, 3530 + f.LABEL_DROP), 15)))
+check("a linked clue's numbers read, commas and 'dn' not taken for clue numbers",
+      [[{1}, {4}], [{10}, {9}], [{26}, {27}, {14}], [{4}]],
+      [c["tokens"] for c in f.parse("Across\n1,4 Ancient (6,8)\n10,9dn I am (4,10,3)\n"
+                                    "26,27,14dn That which (10,4,7)\nDown\n4 See 26 ac\n6 Bound (6)")[0]
+       ["across"] + f.parse("Across\n1 A (3)\nDown\n4 See 26 ac\n6 Bound (6)")[0]["down"][:1]])
+check("a clue's opening A run into its next word split; a word, or a commoner word misspelt, kept",
+      "15 A danger out east (5)\n3 Abed (4)\n4 Arived (7)", f.tidy("15 Adanger out east (5)\n3 Abed (4)\n4 Arived (7)"))
+check("rn read as m mended", True, "carnivore" in f.edits("camivore"))
+g = ["...#...", "...#...", "......."]
+pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
+             {"1-across": ("Ancient patriarch", "3,3", ["1-across", "4-across"])}, "TheGuardian1996UKEnglish", 15,
+             series="cryptic", name="Cryptic crossword No {:,}".format(20540))
+check("a linked light the paper prints no clue for reads 'See 1'", "See 1",
+      next(e["clue"]["text"] for e in pz["entries"] if (e["number"], e["direction"]) == (4, "across")))
+
 # match_canberra(): the reading sharing the clue list, printed first, same grid.
 def puzzle(pid, date, clues, cols=3):
     return {"id": pid, "date": date, "dimensions": {"cols": cols, "rows": 3},

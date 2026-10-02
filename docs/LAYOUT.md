@@ -1116,9 +1116,10 @@ tools/fetch_archive_org_editions.py          fetch archive.org newspaper edition
                                              positions and crossword page scans
 
 fetching
-tools/file_archive_org_puzzles.py            files the daily Times cryptics in the editions
-                                             fetch_archive_org_editions.py cached as
-                                             times-<No>: clues voted on by archive.org's OCR,
+tools/file_archive_org_puzzles.py            files the daily Times, FT and Guardian cryptics in
+                                             the editions fetch_archive_org_editions.py cached
+                                             as times-<No>, ftcryptic-<No> and cryptic-<No>
+                                             (--paper): clues voted on by archive.org's OCR,
                                              RapidOCR's two recognisers and Tesseract, the grid
                                              read off the scan or rebuilt, answers off the next
                                              edition's solution grid; every reading kept for

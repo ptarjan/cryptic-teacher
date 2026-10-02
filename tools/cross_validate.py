@@ -965,16 +965,17 @@ def blog_rows(rec):
 
 
 class ArchiveOrg(Adapter):
-    """The Times as printed, 1974-99: tools/file_archive_org_puzzles.py's
-    reading of each daily cryptic in archive.org's scans, kept in
-    ~/cryptic-setter-data/archiveorg-source/times-<No>.json whether or not it
-    was filed. It votes on the times-<No> file a blog or book gave us, and on
+    """The Times, FT and Guardian as printed, 1971-99:
+    tools/file_archive_org_puzzles.py's reading of each daily cryptic in
+    archive.org's scans, kept in ~/cryptic-setter-data/archiveorg-source/
+    (times-<No>.json, ftcryptic-<No>.json, cryptic-<No>.json) whether or not
+    it was filed. It votes on the file of that id another source gave us, and on
     each canberra file whose source names it as the Times puzzle it reprints
     (reprintOf). A file the archive.org filer wrote is that reading, and is
     not compared with itself. Offline: the filer fills the cache."""
     name = "archiveorg"
     authority = SCAN
-    series = ("times", "canberra")
+    series = ("times", "canberra", "ftcryptic", "cryptic")
     offline = True
     filer = "tools/file_archive_org_puzzles.py"
 
@@ -983,7 +984,8 @@ class ArchiveOrg(Adapter):
         return DATA / "archiveorg-source"
 
     def ids(self):
-        out = {p.stem: (p.stem, p) for p in sorted(self.cache.glob("times-*.json"))}
+        out = {p.stem: (p.stem, p) for s in ("times", "ftcryptic", "cryptic")
+               for p in sorted(self.cache.glob(f"{s}-*.json"))}
         for pid, times_id in reprints().items():
             if times_id in out:
                 out[pid] = (pid, out[times_id][1])
