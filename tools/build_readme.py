@@ -449,6 +449,7 @@ LAYOUT = [
     ("fetching", "tools/boilerplate.py", "a preamble's publishing boilerplate is not something a solver needs"),
     ("fetching", "tools/test_boilerplate.sh", "a paper's publishing boilerplate in the preamble goes; a puzzle's instructions, tributes and kept errata stay; the write gate refuses it"),
     ("fetching", "tools/ocr_clues.py", "the clue-text OCR every scan filer shares: the readers, the vote, the check"),
+    ("fetching", "tools/test_clue_record_shift.sh", "does every Guardian clue record land on the light its number names?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
