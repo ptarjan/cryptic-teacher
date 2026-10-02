@@ -44,6 +44,10 @@ import re
 # datedFromNeighbours — the source prints no date, so the filer derives each
 #   from the numbers either side and may be unable to yet. Every other series
 #   must carry a date (tools/puzzle_integrity.py SHAPE and DATE).
+# numberIsDate — the paper prints no number, so the stored number is the print
+#   date, YYYYMMDD once this prefix is put in front of it ("" for a YYYYMMDD
+#   number, "19" for YYMMDD). Every reader-facing name shows the day instead
+#   (number_date()); "No 20,260,922" is a date with thousands separators.
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -89,6 +93,7 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Metro",
         "badge": "metro",
+        "numberIsDate": "",
     },
     "cyclops": {
         # Private Eye ships the grid and the clues but strips the answers -- the
@@ -128,6 +133,7 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Canberra Times",
         "badge": "canberra times",
+        "numberIsDate": "19",
     },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
@@ -655,6 +661,19 @@ def volume_of(series, number):
     return book_row(series, number)["volume"]
 
 
+def number_date(series, number):
+    """The day a date-keyed number names (see numberIsDate), else None.
+
+    Refuses a number that is not a date rather than returning None: in a
+    numberIsDate series that is a filing bug, and None would print it as
+    "No 7" in a heading.
+    """
+    prefix = meta(series).get("numberIsDate")
+    if prefix is None:
+        return None
+    return datetime.datetime.strptime(f"{prefix}{int(number)}", "%Y%m%d").date()
+
+
 def position_of(series, number):
     """The puzzle's place in its book: 18, for book-3018.
 
@@ -672,14 +691,19 @@ def display_number(series, number):
 
     "No 30,089" off a feed. "Penguin book 5 No 18" out of a book, because one
     key covers the whole shelf and "No 3,018" would name a puzzle no book
-    prints. Used everywhere a number is printed WITHOUT the kind beside it —
+    prints. "22 Sep 2026" for a date-keyed number (numberIsDate). Used
+    everywhere a number is printed WITHOUT the kind beside it —
     archive rows, the homepage list, prev/next — where the badge says only
     "book", so this is the only thing on the row that names the book. Where the
     kind is printed too it already carries the volume, and the page prints
     position_of() so the volume is not said twice.
 
-    Mirrored by displayNumber() in app.js for the picker and archive rows.
+    Mirrored by displayNumber() in app.js for the picker and archive rows,
+    bar the date-keyed form: the picker prints the stored number, which its
+    number search matches on, beside the row's own date.
     """
+    if (day := number_date(series, number)):
+        return day.strftime("%-d %b %Y")
     if not is_book(series):
         return f"No {int(number):,}"
     row = book_row(series, number)
