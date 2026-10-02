@@ -557,8 +557,8 @@ def check_link_word_is_not_an_order(tag, ann, clue, warnings):
                if w.strip().lower() in POSITIONAL_JOINERS]
     if not joiners:
         return
-    blocks = [b for b in ann.get("blocks", []) if b.get("gives")]
-    pos = [clue.find(b.get("clueFragment", "")) for b in blocks]
+    blocks = [b for b in ann.get("blocks", []) if b.get("gives") and b.get("clueFragment")]
+    pos = [clue.find(b["clueFragment"]) for b in blocks]
     if len(pos) < 2 or any(p < 0 for p in pos):
         return
     ind_at = [clue.find(i) for i in indicator_texts(ann)]
@@ -2782,6 +2782,11 @@ def validate_puzzle(puzzle, corpus=False):
             if frag and frag not in clue:
                 errors.append(f"{tag}: block fragment {frag!r} not found in clue {clue!r}"
                               + verbatim_hint(frag, clue))
+            # No clue words: letters the puzzle's preamble supplies.
+            if not frag and not (b.get("gives") and puzzle.get("preamble")):
+                errors.append(f"{tag}: a block with no clueFragment is for letters the "
+                              f"preamble supplies, and needs `gives` and a puzzle with a "
+                              f"preamble; otherwise quote the clue words it parses")
 
         # Letter mechanics.
         build = assembly(ann)
