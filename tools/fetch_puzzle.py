@@ -2217,10 +2217,15 @@ def puzzle_is_annotated(puzzle):
     marks that puzzle permanently un-annotated, which buys a full annotation
     run on it every night, for ever, to solve the clues that were already done.
     """
+    return not unannotated_clues(puzzle)
+
+
+def unannotated_clues(puzzle):
+    """The clues puzzle_is_annotated is still waiting on."""
     continuations = groups.leader_of(puzzle["entries"])
-    return all("annotation" in e or not has_words(e["clue"].get("text", ""))
-               or entry_id(e) in continuations
-               for e in puzzle["entries"])
+    return [e for e in puzzle["entries"]
+            if "annotation" not in e and has_words(e["clue"].get("text", ""))
+            and entry_id(e) not in continuations]
 
 
 def clue_coverage(puzzle):
@@ -2252,7 +2257,8 @@ def index_row(path):
     p = read_puzzle_file(path)
     shim, text = shim_path(path), shim_text(path, p)
     shim.write_text(text, encoding="utf-8")
-    annotated = puzzle_is_annotated(p)
+    missing = len(unannotated_clues(p))
+    annotated = not missing
     browser = with_blog_facts(p)
     blog = browser["blog"]["name"] if not annotated and has_blog_hints(browser) else None
     coverage = clue_coverage(p)
@@ -2271,6 +2277,12 @@ def index_row(path):
         # stale puzzle after a re-annotation (see APP.md, cache busting)
         "v": hashlib.md5(text.encode("utf-8")).hexdigest()[:8],
         "annotated": annotated,
+        # Written only on a puzzle that has hints and lacks some, most often
+        # because a data fix cleared the clues it changed: how many it lacks.
+        # The annotation queues take these first, since a run annotates only
+        # the missing clues (tools/annotate_check.py to_write) and is cheap.
+        **({"unannotated": missing}
+           if missing and any("annotation" in e for e in p["entries"]) else {}),
         # Written only where some clue's hints are read off a blog's
         # write-up (has_blog_hints) and the puzzle is not all ours: the
         # blog's name, which it is badged "hints via" instead of "answers

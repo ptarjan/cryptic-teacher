@@ -50,8 +50,8 @@ import groups  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
-from apply_annotations import default_input  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
+from apply_annotations import annotate_only, current_view, default_input, view_path  # noqa: E402
+from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
 from find_answer_leaks import leaks, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
@@ -116,9 +116,20 @@ VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "preamble
              "entries")
 
 
-def view_path(path):
-    """Beside the annotations file, ignored by git (`tools/_*`)."""
-    return TOOLS / f"_puzzle_{path.stem}.json"
+def to_write(puzzle, before):
+    """The ids a run on this puzzle annotates: the clues that lack a hint,
+    plus `before`, the list the run started with, so a clue the run has since
+    written stays its own to fix. Every other annotation is fixed context.
+
+    None, at the start of a run on a puzzle with no hints yet or none
+    missing: the run takes the whole puzzle."""
+    continuations = groups.leader_of(puzzle["entries"])
+    clues = [e for e in puzzle["entries"] if entry_id(e) not in continuations]
+    only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
+            or (not e.get("annotation") and has_words(e["clue"].get("text", "")))]
+    if before is None and (not only or not any(e.get("annotation") for e in clues)):
+        return None
+    return only
 
 
 def write_view(path):
@@ -127,6 +138,13 @@ def write_view(path):
     view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle}
     # The run keys its annotations by entry id, so the view spells each one out.
     view["entries"] = [{"id": entry_id(e), **e} for e in view["entries"]]
+    # A run that started on the whole puzzle stays on it; one that started on
+    # the missing clues keeps that list.
+    started = current_view(path)
+    only = None if started is not None and "annotateOnly" not in started else \
+        to_write(puzzle, (started or {}).get("annotateOnly"))
+    if only is not None:
+        view["annotateOnly"] = only
     view_path(path).write_text(json.dumps(view, indent=1, ensure_ascii=False) + "\n",
                                encoding="utf-8")
     return view_path(path)
@@ -137,7 +155,7 @@ def stuck_allowance(total):
     return max(3, total // 10)
 
 
-def notes(puzzle):
+def notes(puzzle, only=None):
     """Things worth knowing at this point in the run that are not failures.
 
     Each is said here rather than in tools/annotate_prompt.md because it only
@@ -150,7 +168,9 @@ def notes(puzzle):
     the solve rather than rescuing it.
     """
     out = []
-    cds = [entry_id(e) for e in puzzle["entries"]
+    # Advice about annotations this run may not change (`only`) is no use to it.
+    mine = [e for e in puzzle["entries"] if only is None or entry_id(e) in only]
+    cds = [entry_id(e) for e in mine
            if (e.get("annotation") or {}).get("type") == ["cryptic_definition"]]
     if cds:
         out.append(
@@ -159,7 +179,7 @@ def notes(puzzle):
             f"the charade or container first (\"Periods on horseback where British "
             f"king into himself?\" reads as a whole-clue definition of CHUKKAS and is "
             f"CHAS around UK + K); keep the type only if the clue has no wordplay.")
-    likely = [entry_id(e) for e in puzzle["entries"]
+    likely = [entry_id(e) for e in mine
               if e.get("solutionConfidence") == "LIKELY" and e.get("annotation")]
     if likely:
         out.append(
@@ -226,8 +246,10 @@ def fill_missing(path, pending):
         return []
     entries = read_puzzle_file(path)["entries"]
     continuations = groups.leader_of(entries)
+    only = annotate_only(path)
     missing = [entry_id(e) for e in entries
-               if entry_id(e) not in continuations and entry_id(e) not in ann]
+               if entry_id(e) not in continuations and entry_id(e) not in ann
+               and (only is None or entry_id(e) in only)]
     if missing:
         ann.update(dict.fromkeys(missing))
         pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -292,8 +314,9 @@ def preview(path, pending):
         puzzle = read_puzzle_file(path)
         ann = json.loads(pending.read_text(encoding="utf-8"))
         continuations = groups.leader_of(puzzle["entries"])
+        only = annotate_only(path)
         for e in puzzle["entries"]:
-            if entry_id(e) in continuations:
+            if entry_id(e) in continuations or (only is not None and entry_id(e) not in ann):
                 continue
             if ann.get(entry_id(e)) is None:
                 e.pop("annotation", None)
@@ -420,7 +443,7 @@ def main(argv):
         issues.append("the file is not valid JSON")
 
     write_view(path)
-    advice = notes(read_puzzle_file(path))
+    advice = notes(read_puzzle_file(path), annotate_only(path))
     if advice:
         print("\nworth knowing now (not failures):")
         for line in advice:
