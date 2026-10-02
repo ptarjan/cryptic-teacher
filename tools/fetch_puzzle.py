@@ -847,6 +847,19 @@ def generator_of(path):
     return source.get("acquiredBy") or "tools/fetch_puzzle.py"
 
 
+def committed_copy(puzzle):
+    """The puzzle's file as committed at HEAD, or None: what a puzzle that was
+    deleted and is being filed again looked like before."""
+    import subprocess  # noqa: PLC0415
+    rel = puzzle_paths.file_for(puzzle).relative_to(ROOT).as_posix()
+    out = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
+                         capture_output=True, text=True)
+    try:
+        return json.loads(out.stdout) if out.returncode == 0 else None
+    except ValueError:
+        return None
+
+
 def write_puzzle_file(path, puzzle, generator=None):
     """Write `puzzle` and its shim; return the path written.
 
@@ -895,6 +908,16 @@ def write_puzzle_file(path, puzzle, generator=None):
             **(puzzle.get("solutions") or {})}
         if "annotatedBy" not in puzzle and old.get("annotatedBy"):
             puzzle["annotatedBy"] = old["annotatedBy"]
+    # The arrival date only ever moves earlier. A writer's puzzle can carry a
+    # later one (a cache copy stamped the day it was read), and a puzzle
+    # deleted and filed again has no file on disk, only its committed copy.
+    prior = old if old is not None else (committed_copy(puzzle) if corpus else None)
+    dates = [d for d in ((prior or {}).get("source", {}).get("acquiredOn"),
+                         (puzzle.get("source") or {}).get("acquiredOn"))
+             if provenance.ISO_DATE.fullmatch(d or "")]
+    if dates:
+        puzzle = {**puzzle, "source": {**(puzzle.get("source") or {}),
+                                       "acquiredOn": min(dates)}}
     # Every write of a puzzle file records where the puzzle came from, here,
     # rather than in each of the nine tools that write one. See
     # provenance.stamp.
