@@ -220,6 +220,7 @@ quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), so
   "indicators": [{"text": "Fake", "for": "anagram", "note": "something fake is invented or concocted, so these letters are reworked into a new arrangement"}],
   "linkWords": ["by", "is"],
   "blocks": [{"clueFragment": "folio", "gives": "F", "note": "F is the abbreviation for folio"}, {"clueFragment": "made", "gives": "MADE", "note": "taken as written"}, {"clueFragment": "a", "gives": "A", "note": "taken as written"}, {"clueFragment": "conservative", "gives": "TORY", "note": "a Tory is a member of the UK Conservative Party"}],
+  "assembly": {"pieces": ["DEFAM", "A", "TORY"], "anagrams": [{"fodder": "FMADE", "gives": "DEFAM"}]},
   "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Tory is the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
   "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
 }}
