@@ -24,6 +24,9 @@
   "date": "2018-01-22",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,79 @@
     "text": "Airy-fairy Mrs May, trapped by emotional extremes, gets rid of Boris finally",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "ETHEREAL",
+    "definitions": [
+     {
+      "text": "Airy-fairy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+     },
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "something trapped is held inside, so one piece sits within the other"
+     },
+     {
+      "text": "gets rid of",
+      "for": "deletion",
+      "note": "to get rid of something is to throw it away, so a letter is dropped"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at what comes at the very end, so only the closing letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emotional",
+      "gives": "EL",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Mrs May",
+      "gives": "THERESA",
+      "note": "Theresa May, British prime minister 2016-19"
+     },
+     {
+      "clueFragment": "Boris",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THEREA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissive jibe that Theresa May is woolly and emotional, and has sacked Boris Johnson.",
+     "walkthrough": "'Mrs May' is Theresa May, British prime minister when this appeared; Boris Johnson resigned as her Foreign Secretary in 2018, which the surface plays on.",
+     "definitionFit": "Both describe something light, delicate and insubstantial, too refined or vague to be of this world; the words are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "emotional"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +126,60 @@
     "text": "Dished dirt about hot bit",
     "enumeration": "5"
    },
-   "solution": "THIRD"
+   "solution": "THIRD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIRD",
+    "definitions": [
+     {
+      "text": "bit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dished",
+      "for": "anagram",
+      "note": "a dish is ruined or spoilt, so the letters are wrecked and rearranged"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirt",
+      "gives": "DIRT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the standard abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIRTH",
+       "gives": "THIRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spread gossip about a racy, steamy passage.",
+     "walkthrough": "'Dished dirt' reads as a set phrase meaning gossiped, but 'Dished' is the signal to rearrange 'dirt' together with H.",
+     "definitionFit": "A third is one portion of something divided into three equal parts, so it is a share or piece of the whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dished"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +193,64 @@
     "text": "Attlee up for resurrection with English military-style decoration",
     "enumeration": "9"
    },
-   "solution": "EPAULETTE"
+   "solution": "EPAULETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPAULETTE",
+    "definitions": [
+     {
+      "text": "military-style decoration",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for resurrection",
+      "for": "anagram",
+      "note": "something resurrected is raised in a new form, so the letters come back in a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attlee",
+      "gives": "ATTLEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTLEEUPE",
+       "gives": "EPAULETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The post-war Labour prime minister Clement Attlee is being dug up for revival, in a mock-military English fashion.",
+     "walkthrough": "'Up for' looks like 'being considered for', but 'up' is fodder; 'for resurrection' is the signal.",
+     "definitionFit": "An epaulette is the ornamental shoulder piece on a uniform jacket, originally on soldiers' and officers' coats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +264,47 @@
     "text": "Tabloid lover no longer smooth",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPRESS",
+    "definitions": [
+     {
+      "text": "Tabloid",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover no longer",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "smooth",
+      "gives": "PRESS",
+      "note": "to press clothes is to iron them smooth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid newspaper's former sweetheart has lost their charm.",
+     "walkthrough": "The Daily Express is a British tabloid newspaper.",
+     "definitionFit": "The Express is one of Britain's popular mass-circulation daily newspapers in compact format, the kind called a tabloid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smooth"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +318,65 @@
     "text": "Penis hoisted by, er, booty-seeker",
     "enumeration": "6"
    },
-   "solution": "LOOTER"
+   "solution": "LOOTER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LOOTER",
+    "definitions": [
+     {
+      "text": "booty-seeker",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoisted",
+      "for": "reversal",
+      "note": "in a down answer, hoisting lifts the letters so they read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penis",
+      "gives": "TOOL",
+      "note": "tool is slang for the male member"
+     },
+     {
+      "clueFragment": "er",
+      "gives": "ER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOT",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "TOOL",
+       "to": "LOOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty, hesitant line about someone chasing a different kind of booty.",
+     "walkthrough": "The hesitant 'er' looks like filler but supplies the last two letters.",
+     "definitionFit": "A looter goes after plunder, and booty is goods seized or stolen, so a looter is one seeking it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "er"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +390,67 @@
     "text": "Bill to Hillary: \"suppose president's first to go mad\"",
     "enumeration": "6"
    },
-   "solution": "SPOUSE"
+   "solution": "SPOUSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SPOUSE",
+    "definitions": [
+     {
+      "text": "Bill to Hillary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "deletion",
+      "note": "first picks out the opening letter, the one that will be taken away"
+     },
+     {
+      "text": "to go",
+      "for": "deletion",
+      "note": "something told to go leaves, so a letter is removed"
+     },
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "something mad is disordered, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suppose",
+      "gives": "SUPPOSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "president's",
+      "gives": "P",
+      "note": "the first letter of the word, the one removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUPOSE",
+       "gives": "SPOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bill Clinton muses to Hillary about a president going off his head.",
+     "walkthrough": "SUPPOSE drops one P, and the remaining six letters are rearranged.",
+     "definitionFit": "Bill Clinton is Hillary Clinton's husband, so to her he is the marriage partner; the definition works by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +464,56 @@
     "text": "Do a warm-up exercise: after second time, vomit",
     "enumeration": "7"
    },
-   "solution": "STRETCH"
+   "solution": "STRETCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRETCH",
+    "definitions": [
+     {
+      "text": "Do a warm-up exercise",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "vomit",
+      "gives": "RETCH",
+      "note": "to retch is to heave as if to be sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "RETCH"
+     ]
+    },
+    "explanation": {
+     "surface": "An over-ambitious gym session: after a second go at the warm-up, someone throws up.",
+     "walkthrough": "'Second time' looks like a phrase meaning 'again', but each word gives a single abbreviated letter.",
+     "definitionFit": "Stretching the muscles is the usual loosening routine done before sport, so it is the verb for that preparatory activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +533,65 @@
      }
     ]
    },
-   "solution": "ONAIR"
+   "solution": "ONAIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ON-AIR",
+    "definitions": [
+     {
+      "text": "Broadcasting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raising lifts the letters so they read upwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "negative",
+      "gives": "NO",
+      "note": "no is a negative reply"
+     },
+     {
+      "clueFragment": "Sky",
+      "gives": "AIR",
+      "note": "the sky is the air above us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "AIR"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gripe about Sky, the British satellite TV company, putting out negative programming.",
+     "walkthrough": "Sky reads as the broadcaster Sky TV, which fits the surface, but it simply means the air.",
+     "definitionFit": "A programme that is being transmitted live is said to be on air, the radio and television idiom for transmitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sky"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +611,72 @@
      }
     ]
    },
-   "solution": "SWEETWINE"
+   "solution": "SWEETWINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SWEET WINE",
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not marks something to leave out, so those letters are removed"
+     },
+     {
+      "text": "amazingly",
+      "for": "anagram",
+      "note": "something amazing is extraordinary and out of the normal order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weinstein",
+      "gives": "WEINSTEIN",
+      "note": "Harvey Weinstein, the disgraced film producer"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular; these letters are taken out"
+     },
+     {
+      "clueFragment": "Private Eye",
+      "gives": "WE",
+      "note": "the magazine speaks of itself in the editorial plural"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WESTEINWE",
+       "gives": "SWEETWINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The unpopular Weinstein surprisingly takes the magazine out for a drink.",
+     "walkthrough": "WEINSTEIN loses IN to give WESTEIN; adding WE, the editorial voice of Private Eye, gives the nine letters to rearrange.",
+     "definitionFit": "Sweet wine, such as a dessert wine, is an alcoholic beverage, so it is one kind of drink; definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "amazingly"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +694,56 @@
    "group": [
     "9-across",
     "15-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INAPPROPRIATE BEHAVIOUR",
+    "definitions": [
+     {
+      "text": "e.g. unwelcome \"pussy-grabbing\"",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elected",
+      "gives": "IN",
+      "note": "a candidate who is elected gets in"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "APPROPRIATE",
+      "note": "fit in the sense of suitable"
+     },
+     {
+      "clueFragment": "response to stimulus",
+      "gives": "BEHAVIOUR",
+      "note": "behaviour is how an organism responds to stimuli"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "APPROPRIATE",
+      "BEHAVIOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at Donald Trump, elected despite his boast about grabbing women, behaviour widely condemned.",
+     "walkthrough": "The answer runs across two lights, 9 across and 15 down. 'Pussy-grabbing' refers to Trump's notorious recorded boast.",
+     "definitionFit": "Unwanted groping is the standard example of conduct that is improper, the phrase used in harassment complaints; definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Elected"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +757,50 @@
     "text": "Wedding vow needs latitude, darling",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "darling",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wedding vow",
+      "gives": "I DO",
+      "note": "the words said in the marriage ceremony"
+     },
+     {
+      "clueFragment": "latitude",
+      "gives": "L",
+      "note": "L is the abbreviation for latitude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells their darling that their wedding vows need some leeway.",
+     "walkthrough": "'Latitude' suggests freedom, which fits the surface, but it is only the abbreviation L, as on maps.",
+     "definitionFit": "A darling, in the sense of a favourite adored by all, such as the darling of the crowd, is an adored hero."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "latitude"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +814,67 @@
     "text": "Who's responsible for Brexit? Elite circle (tear spilled)",
     "enumeration": "10"
    },
-   "solution": "ELECTORATE"
+   "solution": "ELECTORATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ELECTORATE",
+    "definitions": [
+     {
+      "text": "Who's responsible for Brexit?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spilled",
+      "for": "anagram",
+      "note": "something spilled is scattered and messed up, so the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elite",
+      "gives": "ELECT",
+      "note": "the elect are a chosen elite"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "O",
+      "note": "O is round like a circle"
+     },
+     {
+      "clueFragment": "tear",
+      "gives": "TEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "O",
+      "RATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAR",
+       "gives": "RATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Who is to blame for Brexit? The metropolitan elite, says one side, with a tear shed.",
+     "walkthrough": "'Elite circle' reads as one phrase, but splits into two pieces; 'tear' is the bit to be rearranged.",
+     "definitionFit": "The 2016 referendum result was decided by the voters, so the whole voting population is who brought Brexit about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +888,66 @@
     "text": "Retreat with tits out, as one who might be on the pull",
     "enumeration": "7"
    },
-   "solution": "DENTIST"
+   "solution": "DENTIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DENTIST",
+    "definitions": [
+     {
+      "text": "one who might be on the pull",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or not in place, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retreat",
+      "gives": "DEN",
+      "note": "a den is a private retreat"
+     },
+     {
+      "clueFragment": "tits",
+      "gives": "TITS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "TIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITS",
+       "gives": "TIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bawdy picture of someone topless in their hideaway, out to pick somebody up.",
+     "walkthrough": "'On the pull' is British slang for looking for a sexual partner; here it means pulling teeth.",
+     "definitionFit": "Extracting teeth is part of the job of this medical professional, so the pull is a tooth extraction, not a seduction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pull"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +961,64 @@
     "text": "Sex? Tripe, gruesome – requires energy, ability!",
     "enumeration": "9"
    },
-   "solution": "EXPERTISE"
+   "solution": "EXPERTISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXPERTISE",
+    "definitions": [
+     {
+      "text": "ability",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gruesome",
+      "for": "anagram",
+      "note": "something gruesome is horribly mangled, so the letters are twisted out of shape"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sex",
+      "gives": "SEX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tripe",
+      "gives": "TRIPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEXTRIPEE",
+       "gives": "EXPERTISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that bad sex takes stamina and skill.",
+     "walkthrough": "E for energy joins the fodder before the rearrangement.",
+     "definitionFit": "Expertise is specialist skill or know-how, so it is a near synonym for competence or capability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tripe"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1032,69 @@
     "text": "Bill Cash snapped \"Get rid of Labour leader\", which is very dry",
     "enumeration": "7"
    },
-   "solution": "CHABLIS"
+   "solution": "CHABLIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CHABLIS",
+    "definitions": [
+     {
+      "text": "which is very dry",
+      "at": 46,
+      "note": "a description of the answer rather than a noun for it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Get rid of",
+      "for": "deletion",
+      "note": "getting rid of something discards it, so a letter is removed"
+     },
+     {
+      "text": "leader",
+      "for": "deletion",
+      "note": "a leader comes at the front, so the opening letter is meant"
+     },
+     {
+      "text": "snapped",
+      "for": "anagram",
+      "note": "something snapped is broken, so the letters are broken up and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill Cash",
+      "gives": "BILLCASH",
+      "note": "Bill Cash, the veteran Eurosceptic Conservative MP"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "note": "the first letter of the word, which is removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BILCASH",
+       "gives": "CHABLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Tory Bill Cash barks a demand to oust Jeremy Corbyn, a remark as dry as they come.",
+     "walkthrough": "BILLCASH loses one L, and the remaining seven letters are rearranged.",
+     "definitionFit": "Chablis is a white Burgundy known for its crisp, bone-dry character, so it is a famously dry wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snapped"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1122,75 @@
     "text": "Ed's half into pisspoor Spears covers",
     "enumeration": "7"
    },
-   "solution": "SPREADS"
+   "solution": "SPREADS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SPREADS",
+    "definitions": [
+     {
+      "text": "covers",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half of a two-letter word is just one of its letters, here the back one"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed inside it"
+     },
+     {
+      "text": "pisspoor",
+      "for": "anagram",
+      "note": "something piss-poor is badly done, so the letters are botched into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ed's",
+      "gives": "D",
+      "select": "last",
+      "note": "the second half of ED"
+     },
+     {
+      "clueFragment": "Spears",
+      "gives": "SPEARS",
+      "note": "Britney Spears, the pop singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPREA",
+      "D",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPEARS",
+       "gives": "SPREAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ed Sheeran's contribution to some dreadful Britney Spears cover versions.",
+     "walkthrough": "'Covers' looks like a noun for cover versions, but it is a verb.",
+     "definitionFit": "To spread something over a surface is to coat it, so the verb is a synonym in the third person singular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1204,64 @@
     "text": "Two-faced quality of the French and Italy, sadly",
     "enumeration": "7"
    },
-   "solution": "DUALITY"
+   "solution": "DUALITY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DUALITY",
+    "definitions": [
+     {
+      "text": "Two-faced quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "something gone sadly awry is spoiled, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the French",
+      "gives": "DU",
+      "note": "du is French for 'of the'"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "ITALY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "ALITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITALY",
+       "gives": "ALITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at the French and Italians in Brexit talks as two-faced.",
+     "walkthrough": "'Two-faced' suggests deceit, but here it means simply having two sides.",
+     "definitionFit": "Duality is the state of having two parts or aspects, so two faces make a double nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Two-faced"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1275,68 @@
     "text": "He is in banking; he is pissing around in Rolls Royce?",
     "enumeration": "7"
    },
-   "solution": "CASHIER"
+   "solution": "CASHIER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CASHIER",
+    "definitions": [
+     {
+      "text": "He is in banking",
+      "at": 0,
+      "note": "a clause describing the answer rather than a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pissing around",
+      "for": "anagram",
+      "note": "pissing around means messing about, so the letters are moved about"
+     },
+     {
+      "text": "in Rolls",
+      "for": "container",
+      "note": "in places one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he is",
+      "gives": "HEIS",
+      "note": "the two short words taken as written"
+     },
+     {
+      "clueFragment": "Rolls Royce",
+      "gives": "CAR",
+      "note": "a Rolls Royce is a luxury car, an example, hence the question mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "SHIE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEIS",
+       "gives": "SHIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at bankers: one fooling about in his Rolls Royce.",
+     "walkthrough": "The rearranged pair of words sits inside CAR; the question mark flags the Rolls Royce as just one example of a car.",
+     "definitionFit": "A cashier works behind the counter of a bank handling money, so the job is literally being in banking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rolls"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1350,48 @@
     "text": "Keeping pace with a tit",
     "enumeration": "7"
    },
-   "solution": "ABREAST"
+   "solution": "ABREAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABREAST",
+    "definitions": [
+     {
+      "text": "Keeping pace with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tit",
+      "gives": "BREAST",
+      "note": "slang for part of the female chest, not the bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BREAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone running alongside a small garden bird, or a crude joke about a busty companion.",
+     "walkthrough": "'Tit' could be the bird, as in keeping pace with a small bird, but it is the slang sense.",
+     "definitionFit": "Keeping abreast means staying level and up to date, side by side, the idiom for not falling behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tit"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1409,63 @@
    "group": [
     "20-down",
     "23-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STRING VEST",
+    "definitions": [
+     {
+      "text": "Underwear",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skewers",
+      "for": "container",
+      "note": "a skewer is driven through the middle, so one piece ends up inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "STRING",
+      "note": "a string of things is a row or line of them"
+     },
+     {
+      "clueFragment": "old soldier",
+      "gives": "VET",
+      "note": "a vet is a veteran"
+     },
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "note": "S is the abbreviation for Sun, as for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRING",
+      "VE",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The Sun tabloid lays into an old soldier over a row about underwear.",
+     "walkthrough": "The answer runs across two lights, 20 down and 23 across. 'Row' looks like a quarrel, but it means a line.",
+     "definitionFit": "A string vest is a mesh undershirt, a famously unglamorous British garment, so it is an item worn under clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1485,47 @@
      }
     ]
    },
-   "solution": "GREYMATTER"
+   "solution": "GREYMATTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREY MATTER",
+    "definitions": [
+     {
+      "text": "intelligence",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ex-PM",
+      "gives": "GREY",
+      "note": "Earl Grey, prime minister 1830-34"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "MATTER",
+      "note": "a matter is a question or issue to be dealt with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREY",
+      "MATTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister has his brainpower questioned.",
+     "walkthrough": "Earl Grey, after whom the tea is named, was the Whig prime minister behind the 1832 Reform Act.",
+     "definitionFit": "Grey matter is brain tissue, used informally to mean brains or brainpower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "question"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1539,39 @@
     "text": "Maxwell's property he went off ultimately?",
     "enumeration": "5"
    },
-   "solution": "YACHT"
+   "solution": "YACHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YACHT",
+    "definitions": [
+     {
+      "text": "Maxwell's property he went off ultimately?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maxwell's property",
+      "note": "surface reading: a possession of the late media tycoon Robert Maxwell"
+     },
+     {
+      "clueFragment": "he went off ultimately?",
+      "note": "setter's reading: the thing he finally went over the side of, since Maxwell drowned after vanishing from his boat in 1991"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Went off' sounds like left or went bad, but it means literally fell off; the question mark admits the riddle.",
+     "definitionFit": "Robert Maxwell owned the luxury vessel Lady Ghislaine and was found dead in the sea after going overboard from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1605,71 @@
      }
     ]
    },
-   "solution": "SPYON"
+   "solution": "SPYON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPY ON",
+    "definitions": [
+     {
+      "text": "keep under observation",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "to surround is to go all around, so one piece encloses the other"
+     },
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so the last letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Issue",
+      "gives": "SON",
+      "note": "issue means offspring, so a son"
+     },
+     {
+      "clueFragment": "Trump",
+      "gives": "P",
+      "select": "last",
+      "note": "the final letter of the name"
+     },
+     {
+      "clueFragment": "May",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PY",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A row over Trump's and May's political endings, with the surveillance state watching.",
+     "walkthrough": "'Issue' looks like a matter for debate, but it means offspring.",
+     "definitionFit": "To spy on someone is to watch them secretly, so the phrasal verb means to monitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1683,65 @@
     "text": "Screwed in minicar by politician, making you look bad",
     "enumeration": "13"
    },
-   "solution": "INCRIMINATORY"
+   "solution": "INCRIMINATORY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INCRIMINATORY",
+    "definitions": [
+     {
+      "text": "making you look bad",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Screwed",
+      "for": "anagram",
+      "note": "something screwed up is ruined, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in minicar",
+      "gives": "INMINICAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a Conservative politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCRIMINA",
+      "TORY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INMINICAR",
+       "gives": "INCRIMINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician caught having sex in a tiny car, a scandal that looks bad.",
+     "walkthrough": "'Screwed' looks like part of the scandal, but it signals the rearrangement of the next two words.",
+     "definitionFit": "Incriminatory evidence suggests guilt, so it makes someone appear to have committed a crime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Screwed"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1755,51 @@
     "text": "Upper classes want short military officer put on trial",
     "enumeration": "6"
    },
-   "solution": "GENTRY"
+   "solution": "GENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENTRY",
+    "definitions": [
+     {
+      "text": "Upper classes",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "want",
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short military officer",
+      "gives": "GEN",
+      "note": "GEN is the short form of general"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TRY",
+      "note": "a try is an attempt or trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "The posh set want a diminutive army officer court-martialled.",
+     "walkthrough": "'Short' looks like a description of a small officer, but it shortens the rank.",
+     "definitionFit": "The gentry are the landed families just below the nobility, so they form the upper ranks of society."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1819,57 @@
      }
     ]
    },
-   "solution": "GETDRUNK"
+   "solution": "GETDRUNK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GET DRUNK",
+    "definitions": [
+     {
+      "text": "Go on the piss",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rum",
+      "for": "anagram",
+      "note": "rum means odd or peculiar, so the letters are put into a strange new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grunted",
+      "gives": "GRUNTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the abbreviation for king, as in chess"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRUNTEDK",
+       "gives": "GETDRUNK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd monarch grunts an order to go out on a bender.",
+     "walkthrough": "'Rum' looks like the drink, which suits the boozy surface, but it is the signal meaning strange. 'On the piss' is British slang for a drinking session.",
+     "definitionFit": "Going on the piss is British slang for a heavy session of boozing, so it means to become intoxicated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   }
  ]
 }
