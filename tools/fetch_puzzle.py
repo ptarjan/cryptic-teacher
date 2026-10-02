@@ -1693,6 +1693,11 @@ def bare_letters(solution):
 # which marks a whole puzzle's fill unofficial. This table is the opposite case:
 # an official key, published, with a known error in two of its letters.
 SOURCE_ANSWER_WRONG = {
+    ("cryptic-23022", "1-across"): (
+        "ANTISPUMANTE", "ASTISPUMANTE",
+        '"Since it\'s 10 off, take it for champagne" is printed (4,8), and the '
+        "sparkling wine is ASTI SPUMANTE, its wordplay starting AS (since) + "
+        "TIS (it's); ANTI is no wine; the second cell is unchecked"),
     ("cryptic-23053", "18-across"): (
         "GETSTEADY", "GETSREADY",
         'the clue "Prepares, if year were good, for yesterday" is printed (4,5) '
