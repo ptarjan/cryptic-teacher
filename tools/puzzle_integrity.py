@@ -202,10 +202,6 @@ PUBLISHED_WRONG = {
     ("quiptic-169", "13-down: clue says (4-5) = 9, answer holds 10"):
         "STEPPARENT is the anagram of the clue's own \"Repent past\" and fills the "
         "ten cells the grid gives it, under a count printed (4-5) for STEP-PARENT",
-    ("cryptic-25949",
-     "1-down + 24-across: clue says (4,5) = 9, answer holds 4 alone or 13 linked"):
-        "1-down ASIL is counted (4,5) for ASIL NADIR, but NADIR is 26-across under "
-        "a clue of its own and the paper linked 1-down to 24-across PANOPLIED (9)",
     ("cryptic-22813", "15-down: clue says (2,6) = 8, answer holds 10"):
         "SUSTAINING is one word of ten letters and fills the ten cells the grid "
         "gives it, under a clue the paper printed (2,6)",
@@ -257,18 +253,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-26178", "6-across: clue says (8) = 8, answer holds 4"),
      "the WOOD that would make DASHWOOD is already spent on 1-down + 26-across's "
      "WOODHOUSE"),
-    (("cryptic-25949", "17-across: clue says (5-3,5) = 13, answer holds 5"),
-     "no group in this grid links it to the rest of the phrase, despite its own "
-     "clue naming other numbers"),
-    (("cryptic-25949", "20-across: clue says (7) = 7, answer holds 5"),
-     "no group in this grid links it to the rest of the phrase, despite its own "
-     "clue naming other numbers"),
-    (("cryptic-25949", "22-across: clue says (9) = 9, answer holds 7"),
-     "no group in this grid links it to the rest of the phrase, despite its own "
-     "clue naming other numbers"),
-    (("cryptic-25949", "28-across: clue says (9) = 9, answer holds 5"),
-     "no group in this grid links it to the rest of the phrase, despite its own "
-     "clue naming other numbers"),
     (("cryptic-25430",
       "22-down + 23-down + 12-across: clue says (6,1,5,3,4,2,6,3) = 30, "
       "answer holds 6 alone or 21 linked"),

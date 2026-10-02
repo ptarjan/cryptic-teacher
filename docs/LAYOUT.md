@@ -1261,5 +1261,7 @@ tools/test_boilerplate.sh                    a paper's publishing boilerplate in
                                              errata stay; the write gate refuses it
 tools/ocr_clues.py                           the clue-text OCR every scan filer shares: the
                                              readers, the vote, the check
+tools/test_clue_record_shift.sh              does every Guardian clue record land on the light
+                                             its number names?
 ```
 <!-- LAYOUT-END -->
