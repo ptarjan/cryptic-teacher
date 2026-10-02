@@ -12,6 +12,8 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 FIX="$REPO/tools/fixtures/trove"
+# The desktop VLM is never asked here.
+export VLM_READER_URL=
 fails=0
 check() {  # check <what> <expected> <got>
   if [ "$2" = "$3" ]; then echo "ok   $1"; else
@@ -30,6 +32,9 @@ check "grid read off the 1 June 1972 scan" ".....#......... .#.#.#.#.#.#.#. ....
 # A first run files the cryptic, skips the solution, holds back the one
 # whose count disagrees with its picture.
 cp -r "$FIX" "$tmp/cache"
+# Our readers' text of the 1 June 1972 article's clue zones, as
+# file_trove_puzzles.page_readings caches it: the vote's other voters.
+cp -r "$REPO/tools/fixtures/trove-clues" "$tmp/cache-clues"
 mkdir "$tmp/out"
 first=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out")
 check "first run: one filed" "1" "$(grep -c '  1  filed' <<<"$first")"
@@ -66,6 +71,7 @@ check "second run: the filed puzzle untouched" "$before" "$after"
 # them and marked so; the rebuild is the grid the picture shows.
 mkdir -p "$tmp/nogrid/102024288" "$tmp/out2"
 cp "$FIX/102024288/meta.json" "$FIX/102024288/ocr.txt" "$tmp/nogrid/102024288/"
+cp -r "$REPO/tools/fixtures/trove-clues" "$tmp/nogrid-clues"
 (cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/nogrid" --out "$tmp/out2" >/dev/null)
 got=$(python3 -c "
 import json
@@ -90,7 +96,7 @@ p = json.load(open('$tmp/out3/canberra-670714.json'))
 e = {(x['number'], x['direction']): x['clue'] for x in p['entries']}
 print(p['source']['gridOrigin'], e[(5, 'down')]['text'], '|', e[(5, 'down')].get('enumeration'),
       '|', e[(6, 'down')]['text'], e[(6, 'down')]['enumeration'])")
-check "a lost clue repaired from the clue columns" "published Under which possibly neither Irving Berlin nor Edward German ever sat | None | Rumour that s hardly about the bishop. 11" "$got"
+check "a lost clue repaired from the clue columns, its words voted" "published Under which possibly neither Irving Berlin nor Edward German ever sat | None | Rumour that's hardly about the bishop. 11" "$got"
 rm -r "$tmp/repair/cache-clues" "$tmp/repair/cache/filed.jsonl"
 got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c 'pending: no grid')
 check "without the clue columns it waits" "1" "$got"
@@ -145,7 +151,7 @@ got=$(cd "$REPO/tools" && python3 -c "
 import json, trove_solution_ocr as O
 if O.available():
     print('skip'); raise SystemExit
-p = json.load(open('$REPO/puzzles/canberra/1972/canberra-720602.json'))
+p = json.load(open('$REPO/tools/fixtures/trove-solution/canberra-720602.json'))
 grid = O.puzzle_grid(p)
 acc, st = O.read_answers('$FIX/102024518/grid.jpg', grid)
 hand = {(1, 'across'): 'FOOTPAD', (5, 'across'): 'ALMANAC', (9, 'across'): 'INTERESTS',
@@ -180,5 +186,56 @@ print(T.pending(cache, zones), T.fetch_pending(2, cache, zones, trove=object(), 
       '503' in out.getvalue())")
 check "the nightly fetches only pending articles without zones, capped, past a failure" \
   "['1', '4', '5'] (1, 1, 1) ['1', '4'] True" "$got"
+
+# OCR's made-up words never file. ocr_clues.suspect() names each word no
+# setter wrote -- the 30 June 1972 cryptic's "Start trom Hint" and "What
+# don't they know7", a capital inside a word, a stray mark -- and passes
+# names, abbreviations, counts and the corpus's own coinages. The vote then
+# mends a real word misread as another ("ministers arc" where the readings
+# have "are") and a word only Trove misspelt.
+got=$(cd "$REPO/tools" && python3 -c "
+import ocr_clues as O
+for t in ('Start trom Hint', \"What don't they know7 God knows\", 'RcbufT bacK ofTer',
+          \". . cloudy skirts Wi'.h ethereal\", 'Steps for Plaved'):
+    print([w for w, _ in O.suspect(t)])
+print(O.suspect('Miss Jenkyns of the TUC rang 17ac on the 1st, about 10cc of rosé, iPad and EastEnders'))
+print(O.suspect('Murat here', {'murat'}), O.suspect('A counterthrust; ceasefires overtakin\\' nighttime'))
+others = [O.marked('# Cabinet ministers are - naturally not #', True)] * 2
+print(O.agree('Cabinet ministers arc - naturally not', others)[0])
+print(O.agree('Start trom Hint', [O.marked('# Start from Hint #', True)] * 3)[0])")
+check "made-up words named, real ones passed, misreads voted out" "['trom']
+['know7']
+['RcbufT', 'bacK', 'ofTer']
+[\"Wi'.h\"]
+['Plaved']
+[]
+[] []
+Cabinet ministers are - naturally not
+Start from Hint" "$got"
+
+# A puzzle files only when the vote wins every clue: with the readings it
+# files mended, without them it waits for them.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F, pathlib, tempfile
+d = pathlib.Path(tempfile.mkdtemp())
+(d / 'trove' / '1').mkdir(parents=True)
+z = d / 'trove-clues' / '1'; z.mkdir(parents=True)
+grid = ['...', '.#.', '...']
+laid = {'1-across': ('Start trom Hint', '3', None), '3-across': ('Top', '3', None),
+        '1-down': ('Bun', '3', None), '2-down': ('Arc', '3', None)}
+print(F.vote(d / 'trove' / '1', dict(laid), grid)[1][:30])
+for k in F.ocr_clues.READERS:
+    (z / f'read.{F.ocr_clues.reader_key(k)}.txt').write_text('ACROSS\n1 Start from Hint (3).\n3 Top (3).\nDOWN\n1 Bun (3).\n2 Arc (3).')
+print(F.vote(d / 'trove' / '1', dict(laid), grid)[0]['1-across'][0])
+z2 = d / 'trove-clues' / '1' / 'read.ch.txt'
+z2.write_text(z2.read_text().replace('Start from Hint', 'Start trom Hint'))
+laid['1-across'] = ('Start trom Hint', '3', None)
+print(F.vote(d / 'trove' / '1', dict(laid), grid)[0]['1-across'][0])
+del laid['2-down']
+print(F.vote(d / 'trove' / '1', dict(laid), grid)[1])")
+check "the vote mends a clue, and a lost clue keeps the puzzle back" "no reading of the page's clues
+Start from Hint
+Start from Hint
+no clue for 2-down" "$got"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
