@@ -150,10 +150,10 @@ What each extra is used for:
 
 Licences, and what is committed versus fetched: `tools/data/README.md`.
 
-`build_abbreviations.table()` (H = hard, R = river, ...) is the curated
-`tools/data/abbreviations.json` plus every reading ten or more solved clues
-use, derived from `tools/data/lexicons/blocks.json`. Annotating never writes
-the JSON: an annotation's blocks are its record, and a reading joins the table
+`build_abbreviations.table()` (sailor = AB, about = C, ...) is the FAMILIES
+in `tools/build_abbreviations.py` plus every reading ten or more solved clues
+use, derived from `tools/data/lexicons/blocks.json`. Nothing else is kept by
+hand: an annotation's blocks are its record, and a reading joins the table
 once ten clues use it. Solvers read it too:
 `tools/build_abbreviations.py` publishes it as `abbreviations.js`,
 and the building-blocks rung names the conventions a clue used ("sailor = AB").
