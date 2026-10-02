@@ -36,6 +36,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -49,7 +52,74 @@
     "text": "Smitten sweep travelling west carrying nurse’s heart",
     "enumeration": "5"
    },
-   "solution": "EPRIS"
+   "solution": "EPRIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EPRIS",
+    "definitions": [
+     {
+      "text": "Smitten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling west",
+      "for": "reversal",
+      "note": "across clues read left to right, so heading west runs the letters the other way"
+     },
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter, so only that one is kept"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweep",
+      "gives": "SIPE",
+      "note": "printed with a W that belongs to the clue below; restored it reads seep, for which sipe is a Chambers synonym"
+     },
+     {
+      "clueFragment": "nurse’s",
+      "gives": "R",
+      "select": "middle",
+      "note": "the middle letter of nurse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "R",
+      "IS"
+     ],
+     "reversals": [
+      {
+       "from": "SIPE",
+       "to": "EPIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lovesick chimney sweep heading west with a nurse on his mind.",
+     "walkthrough": "The W in 'sweep' is the moved letter, starting the phrase WHAT GOES UP MUST COME DOWN. Restored, seep gives SIPE, which turns round to EPIS and takes in R.",
+     "definitionFit": "Épris is a French borrowing listed by Chambers meaning enamoured, the lovestruck state of a person who has fallen for someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweep"
+    }
+   }
   },
   {
    "number": 5,
@@ -63,7 +133,66 @@
     "text": "Breaking secondary picket could present red Tony with means of reducing selling",
     "enumeration": "8"
    },
-   "solution": "ICEPACKS"
+   "solution": "ICEPACKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ICEPACKS",
+    "definitions": [
+     {
+      "text": "means of reducing selling",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Breaking",
+      "for": "anagram",
+      "note": "something broken is split up and rebuilt, so the letters get a fresh order"
+     },
+     {
+      "text": "could present",
+      "for": "deletion",
+      "note": "the rearranged letters are said to yield one thing together with another, so taking that other away leaves the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secondary picket",
+      "gives": "SECONDARYPICKET",
+      "note": "taken as written, all fifteen letters"
+     },
+     {
+      "clueFragment": "red Tony",
+      "gives": "REDTONY",
+      "note": "taken as written; these seven letters come out of the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICEPACKS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCAPICKE",
+       "gives": "ICEPACKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strike leader warns that picketing a second firm could hand a left-wing Tony a weapon against sales.",
+     "walkthrough": "A composite anagram: the letters of SECONDARY PICKET equal those of RED TONY plus the answer. 'Selling' has lost its W, which sits in 1 across's 'sweep'; restored it reads swelling.",
+     "definitionFit": "Packs of ice pressed on an injury chill the tissue and so bring down swelling, which is their whole purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "selling"
+    }
+   }
   },
   {
    "number": 10,
@@ -77,7 +206,76 @@
     "text": "Plausible lines added to copy of will, expunging the rights of Auntie Ruth",
     "enumeration": "7"
    },
-   "solution": "PROBALL"
+   "solution": "PROBALL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROBALL",
+    "definitions": [
+     {
+      "text": "Plausible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expunging",
+      "for": "deletion",
+      "note": "to expunge is to strike out, so letters are erased from the word"
+     },
+     {
+      "text": "rights",
+      "for": "letter_selection",
+      "note": "a word's right-hand side is its end, so its last letter is the one wanted"
+     }
+    ],
+    "linkWords": [
+     "added to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy of will",
+      "gives": "PROBATE",
+      "note": "probate is the officially certified copy of a will"
+     },
+     {
+      "clueFragment": "Auntie",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Auntie"
+     },
+     {
+      "clueFragment": "Ruth",
+      "gives": "T",
+      "select": "last",
+      "note": "printed with an H belonging to the clue below; restored it reads Rut, ending in T"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROBA",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A family dispute over a doctored copy of a will that cut out Auntie Ruth.",
+     "walkthrough": "'Ruth' carries the H of 12 across's 'height'; with it removed the name becomes Rut, whose last letter joins Auntie's E as the pair struck from PROBATE.",
+     "definitionFit": "Proball is an old Shakespearean word, in Chambers, for something that seems likely or probable, hence plausible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Auntie"
+    }
+   }
   },
   {
    "number": 12,
@@ -90,7 +288,54 @@
    "clue": {
     "text": "Equip in full all but eight (6, two words)"
    },
-   "solution": "RIGOUT"
+   "solution": "RIGOUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIG OUT",
+    "definitions": [
+     {
+      "text": "Equip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all but",
+      "for": "deletion",
+      "note": "all but means everything except, so some letters are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in full",
+      "gives": "RIGHTOUT",
+      "note": "right out means completely, to the full extent"
+     },
+     {
+      "clueFragment": "eight",
+      "gives": "HT",
+      "note": "printed without its H, which has gone up to 10 across; restored it is height, abbreviated HT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Kitting out a whole rowing crew bar one boat.",
+     "walkthrough": "'Eight' looks like the rowing crew, but restoring its lost H makes height, and HT is its standard abbreviation, removed from RIGHT OUT.",
+     "definitionFit": "To rig someone out is to fit them up with clothes or gear, the usual phrasal verb for equipping fully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eight"
+    }
+   }
   },
   {
    "number": 13,
@@ -104,7 +349,51 @@
     "text": "Tip fag end on sheet",
     "enumeration": "8"
    },
-   "solution": "LAGNAPPE"
+   "solution": "LAGNAPPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAGNAPPE",
+    "definitions": [
+     {
+      "text": "Tip",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fag end",
+      "gives": "LAG",
+      "note": "Chambers gives lag as the hindmost part, the fag end"
+     },
+     {
+      "clueFragment": "sheet",
+      "gives": "NAPPE",
+      "note": "a nappe is a sheet, of rock in geology or of water falling over a weir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAG",
+      "NAPPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Flicking a cigarette butt onto a bedsheet, or an ashtray instruction.",
+     "walkthrough": "'Tip' tempts as a verb for dropping the fag end; it is the noun meaning a gratuity. A fag is British slang for a cigarette.",
+     "definitionFit": "A lagniappe, from Louisiana French, is a small bonus or gratuity given to a customer, much as a tip is a small extra given."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 15,
@@ -118,7 +407,72 @@
     "text": "Ahead of noon and king’s to be found in beer joint",
     "enumeration": "5"
    },
-   "solution": "ANKLE"
+   "solution": "ANKLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ANKLE",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ahead",
+      "for": "letter_selection",
+      "note": "printed with an extra letter; restored as head it points at the leading letter of the word that follows"
+     },
+     {
+      "text": "to be found in",
+      "for": "container",
+      "note": "what is found in something sits inside it, so these letters are placed within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of noon"
+     },
+     {
+      "clueFragment": "king’s",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NK",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A king drinking in a pub before midday.",
+     "walkthrough": "The A in 'Ahead' belongs to 17 across's 'lunch', making launch; with it gone the clue reads head of noon. 'Beer joint' looks like a pub, but joint is the definition.",
+     "definitionFit": "The ankle is the hinge where the foot meets the leg, one of the body's best-known articulations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 17,
@@ -132,7 +486,62 @@
     "text": "One interrupting interminable complimentary lunch",
     "enumeration": "4"
    },
-   "solution": "FIRE"
+   "solution": "FIRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FIRE",
+    "definitions": [
+     {
+      "text": "lunch",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interminable",
+      "for": "deletion",
+      "note": "something interminable has no end, so the final letter is dropped"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into, so one piece sits in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "complimentary",
+      "gives": "FREE",
+      "note": "complimentary means given free of charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "I",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone butting in during a never-ending free lunch.",
+     "walkthrough": "'Lunch' has lost its A to 15 across's 'Ahead'; restored it reads launch, so the free meal is a decoy and the definition is a verb.",
+     "definitionFit": "To fire a rocket or missile is to launch it, sending it off into the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lunch"
+    }
+   }
   },
   {
    "number": 19,
@@ -146,7 +555,55 @@
     "text": "Deft fish swallows a mound of debris",
     "enumeration": "7"
    },
-   "solution": "STELLAR"
+   "solution": "STELLAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STELLAR",
+    "definitions": [
+     {
+      "text": "Deft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SAR",
+      "note": "a sar, or sargus, is a sea bream"
+     },
+     {
+      "clueFragment": "a mound of debris",
+      "gives": "TELL",
+      "note": "a tell is an archaeological mound built up from the remains of settlements"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TELL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A nimble fish gulping down a heap of rubbish.",
+     "walkthrough": "'Deft' carries the T of 21 across's 'top'; without it the definition is def, slang for excellent.",
+     "definitionFit": "Def is hip-hop slang for first-rate, and stellar is the informal word for outstanding, star-quality performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deft"
+    }
+   }
   },
   {
    "number": 21,
@@ -160,7 +617,70 @@
     "text": "Stupidly narrow-minded and backward girl almost cut the op",
     "enumeration": "6"
    },
-   "solution": "POLLED"
+   "solution": "POLLED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "POLLED",
+    "definitions": [
+     {
+      "text": "cut the op",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter goes"
+     },
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "going backward means reading from the far end towards the start"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupidly narrow-minded",
+      "gives": "PO",
+      "note": "short for po-faced, which Chambers glosses as stupidly solemn and narrow-minded"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "DELLA",
+      "note": "Della is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "LLED"
+     ],
+     "reversals": [
+      {
+       "from": "DELL",
+       "to": "LLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dim, bigoted girl botching the surgery.",
+     "walkthrough": "'Op' has lost its T to 19 across's 'Deft'; restored, 'cut the top' is the definition, and the hospital operation is a decoy.",
+     "definitionFit": "Polled trees have been pollarded and polled cattle dehorned: in both cases the top has been lopped off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "op"
+    }
+   }
   },
   {
    "number": 22,
@@ -174,7 +694,51 @@
     "text": "In Oz, dog bone tipped with gold",
     "enumeration": "4"
    },
-   "solution": "TOTO"
+   "solution": "TOTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTO",
+    "definitions": [
+     {
+      "text": "In Oz, dog",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "tipped with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bone",
+      "gives": "TOT",
+      "note": "Chambers gives tot as a bone or other item salvaged from refuse"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "O",
+      "note": "printed with a G from the clue below; restored it reads old, abbreviated O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian dog's bone with a golden tip.",
+     "walkthrough": "'In Oz' suggests Australia, but it is the Land of Oz. The G of 'gold' belongs to 23 across's 'win', making wing.",
+     "definitionFit": "Toto is Dorothy's little dog in The Wizard of Oz, the companion who follows her down the yellow brick road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oz"
+    }
+   }
   },
   {
    "number": 23,
@@ -188,7 +752,66 @@
     "text": "Garter-snake upset asp after win",
     "enumeration": "5"
    },
-   "solution": "ELAPS"
+   "solution": "ELAPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ELAPS",
+    "definitions": [
+     {
+      "text": "Garter-snake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the piece it introduces second, behind what follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "win",
+      "gives": "EL",
+      "note": "printed without its G, which has gone up to 22 across; restored as wing, it is el, an extension of a building"
+     },
+     {
+      "clueFragment": "asp",
+      "gives": "ASP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "APS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASP",
+       "gives": "APS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One snake annoyed when another snake wins.",
+     "walkthrough": "With its G restored 'win' becomes wing, and an el (or ell) is a wing added to a building.",
+     "definitionFit": "Elaps is a genus of small venomous snakes, and Chambers gives garter-snake as one of its common names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "win"
+    }
+   }
   },
   {
    "number": 26,
@@ -202,7 +825,67 @@
     "text": "Abandoning new rule, Lord Lieutenants smashed up bangers",
     "enumeration": "13"
    },
-   "solution": "ANDOUILLETTES"
+   "solution": "ANDOUILLETTES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANDOUILLETTES",
+    "definitions": [
+     {
+      "text": "bangers",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Abandoning",
+      "for": "deletion",
+      "note": "what is abandoned is left behind, so these letters drop out"
+     },
+     {
+      "text": "smashed up",
+      "for": "anagram",
+      "note": "something smashed up lies in fragments, to be reassembled in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lord Lieutenants",
+      "gives": "LORDLIEUTENANTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "R",
+      "note": "R is the abbreviation for rule"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LODLIEUTEANTS",
+       "gives": "ANDOUILLETTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "County grandees, rejecting a new regulation, wreck the sausages.",
+     "walkthrough": "Lord Lieutenants are the monarch's representatives in British counties. A banger is British slang for a sausage.",
+     "definitionFit": "Andouillettes are small French sausages made from pork tripe, so they are a variety of the everyday sausage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smashed"
+    }
+   }
   },
   {
    "number": 29,
@@ -216,7 +899,47 @@
     "text": "Moan goodbye to ...",
     "enumeration": "5"
    },
-   "solution": "VALET"
+   "solution": "VALET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VALET",
+    "definitions": [
+     {
+      "text": "Moan",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goodbye",
+      "gives": "VALE",
+      "note": "vale is Latin for farewell"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "T",
+      "note": "t' is the clipped dialect form, the dots marking the word cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VALE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Grumbling a farewell, trailing off into the next clue.",
+     "walkthrough": "'Moan' carries the O of 32 across's 'huffs'; without it the definition is man, in the sense of a manservant.",
+     "definitionFit": "A man in the old sense is a male servant, and a valet is a gentleman's personal manservant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moan"
+    }
+   }
   },
   {
    "number": 32,
@@ -230,7 +953,66 @@
     "text": "... huffs, only child, roughly ten, leaving infants",
     "enumeration": "4"
    },
-   "solution": "INNS"
+   "solution": "INNS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "INNS",
+    "definitions": [
+     {
+      "text": "huffs",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "roughly means approximately, so the letters keep their form loosely and are rearranged"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "what is leaving goes away, so these letters depart from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infants",
+      "gives": "INNOCENTS",
+      "note": "innocents are young children, as in the Massacre of the Innocents"
+     },
+     {
+      "clueFragment": "only child",
+      "gives": "OC",
+      "note": "the initial letters of only child"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky only child of about ten leaving the little ones behind.",
+     "walkthrough": "'Huffs' has lost its O to 29 across's 'Moan'; restored it is houffs, Scots for haunts. Removing OC and a jumbled TEN from INNOCENTS leaves the answer.",
+     "definitionFit": "A houff (howff) is a Scots word for a regular haunt, especially a pub, which is what an inn is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "infants"
+    }
+   }
   },
   {
    "number": 34,
@@ -244,7 +1026,47 @@
     "text": "Brick office bases",
     "enumeration": "6"
    },
-   "solution": "BURDEN"
+   "solution": "BURDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BURDEN",
+    "definitions": [
+     {
+      "text": "bases",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brick",
+      "gives": "BUR",
+      "note": "a bur or burr is a mass of hard-burnt brick"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "DEN",
+      "note": "a den is a private room for work or study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Brick-built offices forming the foundations of a site.",
+     "walkthrough": "'Bases' carries the E of 36 across's 'Go'; without it the definition is bass, in the musical sense.",
+     "definitionFit": "A burden in music is the bass line or drone of a song or bagpipe, the low part underpinning the tune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bases"
+    }
+   }
   },
   {
    "number": 36,
@@ -258,7 +1080,69 @@
     "text": "Go warn, perhaps, journalist about one coming with teeth",
     "enumeration": "7"
    },
-   "solution": "IVORIED"
+   "solution": "IVORIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IVORIED",
+    "definitions": [
+     {
+      "text": "with teeth",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the collected letters surround one more"
+     }
+    ],
+    "linkWords": [
+     "coming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "I",
+      "note": "printed without its E, which sits in 34 across; restored it is ego, Latin for I"
+     },
+     {
+      "clueFragment": "warn, perhaps",
+      "gives": "VOR",
+      "note": "vor is a Shakespearean word whose meaning Chambers gives only tentatively as warn"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, short for editor"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IVOR",
+      "I",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter told to buzz off, then showing his teeth.",
+     "walkthrough": "With its E restored 'Go' becomes ego, I. 'Perhaps' belongs with warn because Chambers' meaning for vor is only a guess.",
+     "definitionFit": "Ivories is slang for teeth, so something ivoried is furnished with them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 38,
@@ -272,7 +1156,50 @@
     "text": "Beat an unknown, one of the slowest in the RAF",
     "enumeration": "4"
    },
-   "solution": "YERK"
+   "solution": "YERK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YERK",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an algebraic unknown"
+     },
+     {
+      "clueFragment": "one of the slowest in the RAF",
+      "gives": "ERK",
+      "note": "printed with an S from 40 across; restored it is lowest, and an erk is an aircraftman, the bottom rank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ERK"
+     ]
+    },
+    "explanation": {
+     "surface": "Outpacing an anonymous dawdler in the Royal Air Force.",
+     "walkthrough": "'Slowest' carries the S of 40 across's 'He'; restored to lowest, it points to ERK, British service slang for the most junior airman.",
+     "definitionFit": "Yerk is an old dialect verb, listed in Chambers, meaning to strike or lash, so it means to beat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 40,
@@ -286,7 +1213,44 @@
     "text": "He created a colourful hero from orc zygotes",
     "enumeration": "5"
    },
-   "solution": "ORCZY"
+   "solution": "ORCZY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORCZY",
+    "definitions": [
+     {
+      "text": "He created a colourful hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "taken from the run of letters, so the answer is lifted out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orc zygotes",
+      "gives": "ORCZY",
+      "note": "the first five letters, running across the word break"
+     }
+    ],
+    "explanation": {
+     "surface": "A fantasy author breeding a hero from goblin embryos.",
+     "walkthrough": "'He' has lost its S to 38 across's 'slowest'; restored it reads She, because the creator is a woman. The colourful hero is the Scarlet Pimpernel.",
+     "definitionFit": "Baroness Orczy wrote The Scarlet Pimpernel, whose hero is literally named for a red flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "He"
+    }
+   }
   },
   {
    "number": 41,
@@ -300,7 +1264,73 @@
     "text": "French chalk’s used at first on making love wearing support",
     "enumeration": "8"
    },
-   "solution": "STEATITE"
+   "solution": "STEATITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "STEATITE",
+    "definitions": [
+     {
+      "text": "French chalk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means at the start, so only the opening letter is taken"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "what is worn goes around the wearer, so one piece is wrapped about the other"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used",
+      "gives": "S",
+      "select": "first",
+      "note": "printed with a U from 44 across; restored it reads sed, whose first letter is wanted"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee is the peg supporting a golf ball"
+     },
+     {
+      "clueFragment": "making love",
+      "gives": "ATIT",
+      "note": "at it is a colloquial phrase for having sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TE",
+      "ATIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Talcum powder brought out for a romantic encounter.",
+     "walkthrough": "The U in 'used' is the letter displaced from 44 across's 'unit'; once removed, the clue reads sed at first.",
+     "definitionFit": "French chalk is the tailor's name for soapstone, and steatite is the mineralogist's name for that same soft talc rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 44,
@@ -314,7 +1344,89 @@
     "text": "Honeydew melon, just the starter we’d sent back, having found nit left inside",
     "enumeration": "6"
    },
-   "solution": "MILDEW"
+   "solution": "MILDEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "MILDEW",
+    "definitions": [
+     {
+      "text": "Honeydew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just the starter",
+      "for": "letter_selection",
+      "note": "a starter comes first, so only the opening letter is kept"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sending back returns the letters the way they came"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "these go inside, so one pair is placed within the rest"
+     }
+    ],
+    "linkWords": [
+     "having found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "melon",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of melon"
+     },
+     {
+      "clueFragment": "we’d",
+      "gives": "WED",
+      "note": "the contraction's letters, apostrophe dropped"
+     },
+     {
+      "clueFragment": "nit",
+      "gives": "I",
+      "note": "printed without its U, which has moved up to 41 across; restored as unit, it is I, the numeral one"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IL",
+      "DEW"
+     ],
+     "reversals": [
+      {
+       "from": "WED",
+       "to": "DEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner sends back the honeydew melon starter after finding a louse egg in it.",
+     "walkthrough": "'Honeydew melon' reads as one fruit, but the definition is honeydew alone. 'Nit' has lost a U and is really unit, which gives I.",
+     "definitionFit": "Honeydew is a sticky deposit on leaves, and Chambers gives mildew as one of its senses, the blight found on plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Honeydew"
+    }
+   }
   },
   {
    "number": 45,
@@ -328,7 +1440,59 @@
     "text": "Bank’s quiet without spin",
     "enumeration": "7"
    },
-   "solution": "TERRACE"
+   "solution": "TERRACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERRACE",
+    "definitions": [
+     {
+      "text": "Bank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "TACE",
+      "note": "tace is Latin for be silent, used in English as a call for quiet"
+     },
+     {
+      "clueFragment": "spin",
+      "gives": "ERR",
+      "note": "printed with a P from 46 across; restored it reads sin, and to err is to sin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERR",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank boasting of keeping quiet without any spin doctoring.",
+     "walkthrough": "'Without' looks like lacking but means outside. 'Spin' carries the P from 46 across's 'ale'; restored, the word is sin.",
+     "definitionFit": "A terrace is a raised level bank of earth, like the flat steps cut into a hillside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 46,
@@ -342,7 +1506,61 @@
     "text": "Welsh girl swallowing all but the last drop of ale from close to the English border?",
     "enumeration": "8"
    },
-   "solution": "SILURIAN"
+   "solution": "SILURIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SILURIAN",
+    "definitions": [
+     {
+      "text": "from close to the English border?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all but the last drop of",
+      "for": "deletion",
+      "note": "everything except the final drop means the last letter is lost"
+     },
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh girl",
+      "gives": "SIAN",
+      "note": "Siân is a Welsh girl's name"
+     },
+     {
+      "clueFragment": "ale",
+      "gives": "LURID",
+      "note": "printed without its P, which sits in 45 across; restored it is pale, and lurid can mean ghastly pale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "LURI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh girl downing a pint of ale near the border with England.",
+     "walkthrough": "'Ale' has lost its P; restored it is pale, which Chambers gives as one sense of lurid. The question mark flags a definition by description.",
+     "definitionFit": "The Silures were an ancient tribe of south-east Wales, close to the English border, and Silurian means belonging to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ale"
+    }
+   }
   },
   {
    "number": 47,
@@ -356,7 +1574,53 @@
     "text": "Played out time in old squadron",
     "enumeration": "5"
    },
-   "solution": "TIRED"
+   "solution": "TIRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIRED",
+    "definitions": [
+     {
+      "text": "Played out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "note": "i' is the old clipped form of in"
+     },
+     {
+      "clueFragment": "old squadron",
+      "gives": "RED",
+      "note": "the Royal Navy's fleet was once split into red, white and blue squadrons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out veteran's time in a former air squadron.",
+     "walkthrough": "'Played out' looks like a game ending but means exhausted. The Admiral of the Red commanded one of the navy's historical coloured squadrons.",
+     "definitionFit": "Someone played out has no energy left, the state of being worn out or exhausted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Played"
+    }
+   }
   },
   {
    "number": 1,
@@ -370,7 +1634,55 @@
     "text": "Measures of hemp, hashish",
     "enumeration": "5"
    },
-   "solution": "EPHAS"
+   "solution": "EPHAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EPHAS",
+    "definitions": [
+     {
+      "text": "Measures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "deletion",
+      "note": "of here means taken from, a portion drawn out of a longer run with its outer letters trimmed away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hemp,",
+      "gives": "HEP",
+      "note": "printed with an M that belongs to 2 down; restored it reads hep, and the run starts after its first letter"
+     },
+     {
+      "clueFragment": "hashish",
+      "gives": "HASHISH",
+      "note": "taken as written; the run stops after its first three letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "HAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Quantities of cannabis being weighed out.",
+     "walkthrough": "'Hemp' carries the M of 2 down's 'trap'; only with it removed does the run of letters appear.",
+     "definitionFit": "The ephah was a Hebrew dry measure for grain, mentioned in the Bible, so ephahs are units of volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hemp"
+    }
+   }
   },
   {
    "number": 2,
@@ -384,7 +1696,49 @@
     "text": "Person regularly avoided trap",
     "enumeration": "3"
    },
-   "solution": "PRO"
+   "solution": "PRO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PRO",
+    "definitions": [
+     {
+      "text": "trap",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly avoided",
+      "for": "letter_selection",
+      "note": "skipping at regular intervals leaves every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person",
+      "gives": "PRO",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who habitually steered clear of a snare.",
+     "walkthrough": "'Trap' has lost its M to 1 down's 'hemp'; restored it is tramp, in the sense of a promiscuous woman.",
+     "definitionFit": "Tramp is a dated slur for a promiscuous woman, and pro is slang for a prostitute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 3,
@@ -398,7 +1752,81 @@
     "text": "Duress down under finally cut short Aussie oaf having trouble without money",
     "enumeration": "6"
    },
-   "solution": "ROCKET"
+   "solution": "ROCKET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROCKET",
+    "definitions": [
+     {
+      "text": "Duress down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter is kept"
+     },
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short takes off its end"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of under"
+     },
+     {
+      "clueFragment": "Aussie oaf",
+      "gives": "OCKER",
+      "note": "an ocker is an uncouth Australian"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "TROUBLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "ROUBLE",
+      "note": "the rouble is the Russian currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OCKE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian lout, broke and in trouble, under pressure in the outback.",
+     "walkthrough": "'Duress' carries the U of 4 down's 'sites'; restored the definition is dress down. Removing ROUBLE from TROUBLE leaves just T.",
+     "definitionFit": "To rocket someone is British slang for giving a severe reprimand, which is what a dressing down is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Duress"
+    }
+   }
   },
   {
    "number": 4,
@@ -412,7 +1840,61 @@
     "text": "Wood used to make sites, perhaps, in the aspect of overturned goddess",
     "enumeration": "6"
    },
-   "solution": "SAPELE"
+   "solution": "SAPELE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAPELE",
+    "definitions": [
+     {
+      "text": "Wood used to make sites, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "turned over in a down clue means read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the aspect of",
+      "gives": "AS",
+      "note": "as means in the role or character of"
+     },
+     {
+      "clueFragment": "goddess",
+      "gives": "PELE",
+      "note": "Pele is the Hawaiian goddess of volcanoes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "PELE"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Timber chosen for building sites, laid out to honour a toppled goddess.",
+     "walkthrough": "'Sites' has lost its U to 3 down's 'Duress'; restored it is suites, sets of furniture.",
+     "definitionFit": "Sapele is a West African mahogany-like hardwood, widely used for furniture such as dining or bedroom suites."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sites"
+    }
+   }
   },
   {
    "number": 5,
@@ -426,7 +1908,54 @@
     "text": "Misfortunes? Rather not say!",
     "enumeration": "4"
    },
-   "solution": "ILLS"
+   "solution": "ILLS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ILLS",
+    "definitions": [
+     {
+      "text": "Misfortunes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not excludes something, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rather",
+      "gives": "ILLSAY",
+      "note": "rather! and I'll say! are both emphatic agreement"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "AY",
+      "note": "printed with an S from 6 down; restored it reads ay, yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asked about bad luck, someone would prefer not to discuss it.",
+     "walkthrough": "'Rather!' is the British exclamation of keen agreement. Restoring 'say' to ay, the removal leaves I'LL S.",
+     "definitionFit": "A plain plural synonym: troubles, hardships and bad luck are what the noun covers, as in society's many problems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rather"
+    }
+   }
   },
   {
    "number": 6,
@@ -440,7 +1969,59 @@
     "text": "Shifting and, after sign of hesitation, beginning to go",
     "enumeration": "3"
    },
-   "solution": "ERG"
+   "solution": "ERG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERG",
+    "definitions": [
+     {
+      "text": "Shifting and",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "a beginning is the start, so only the first letter counts"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign of hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitating"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fidgeting and hesitating before setting off.",
+     "walkthrough": "'And' has lost its S to 5 down's 'say'; restored the definition is shifting sand.",
+     "definitionFit": "An erg is a vast area of shifting sand dunes in the Sahara."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 7,
@@ -454,7 +2035,48 @@
     "text": "A number of card holders knock tout who’s only just left?",
     "enumeration": "5"
    },
-   "solution": "PINKO"
+   "solution": "PINKO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINKO",
+    "definitions": [
+     {
+      "text": "who’s only just left?",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number of card holders",
+      "gives": "PIN",
+      "note": "a PIN is the personal number a cardholder keys in"
+     },
+     {
+      "clueFragment": "knock tout",
+      "gives": "KO",
+      "note": "printed with a T from 8 down; restored it reads knock out, abbreviated KO"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "KO"
+     ]
+    },
+    "explanation": {
+     "surface": "A ticket tout getting beaten up by a crowd of punters as he barely escapes.",
+     "walkthrough": "'Tout' carries the T of 8 down's 'urn'. 'Only just left' sounds like departing; the question mark signals the political sense.",
+     "definitionFit": "A pinko is someone mildly socialist, pink rather than red, so only slightly to the political left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 8,
@@ -468,7 +2090,57 @@
     "text": "Get one old urn for a flier",
     "enumeration": "7"
    },
-   "solution": "COPILOT"
+   "solution": "COPILOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COPILOT",
+    "definitions": [
+     {
+      "text": "a flier",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "COP",
+      "note": "to cop is to get or catch"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "old urn",
+      "gives": "LOT",
+      "note": "printed without its T, which has gone up to 7 down; restored as old turn, lot is one's allotted turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "I",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trading an antique urn for a leaflet.",
+     "walkthrough": "'Flier' looks like a printed handbill but means someone who flies. 'Urn' has lost its T and is really turn.",
+     "definitionFit": "A co-pilot is the second pilot of an aircraft, someone who flies it alongside the captain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 9,
@@ -482,7 +2154,62 @@
     "text": "Cox nearly drowns gutless Arabs, perhaps",
     "enumeration": "6"
    },
-   "solution": "STEEDS"
+   "solution": "STEEDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STEEDS",
+    "definitions": [
+     {
+      "text": "Arabs, perhaps",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the end letter is lost"
+     },
+     {
+      "text": "gutless",
+      "for": "letter_selection",
+      "note": "removing the guts leaves only the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cox",
+      "gives": "STEER",
+      "note": "printed with a C from 11 down; restored it reads ox, and a steer is a young castrated ox"
+     },
+     {
+      "clueFragment": "drowns",
+      "gives": "DS",
+      "select": "outer",
+      "note": "the outer letters of drowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEE",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cox nearly sinks a boatload of cowardly Arabs.",
+     "walkthrough": "'Cox' suggests a rowing cox, but its C belongs to 11 down's 'Dane'. Arabs are a famous breed of horse.",
+     "definitionFit": "A steed is a horse, especially a spirited riding horse, and Arabs are one well-known example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arabs"
+    }
+   }
   },
   {
    "number": 11,
@@ -496,7 +2223,57 @@
     "text": "Dane in Scotland, we note, is swell",
     "enumeration": "7"
    },
-   "solution": "BALLOON"
+   "solution": "BALLOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALLOON",
+    "definitions": [
+     {
+      "text": "swell",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dane",
+      "gives": "BALL",
+      "note": "printed without its C, which sits in 9 down; restored it is dance, and a ball is a formal dance"
+     },
+     {
+      "clueFragment": "in Scotland, we",
+      "gives": "OO",
+      "note": "oo is a Scots form of we"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "OO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A Danish visitor north of the border says everything is great.",
+     "walkthrough": "'Swell' looks like an adjective for splendid but is a verb. 'Dane' has lost a C and is really dance.",
+     "definitionFit": "To balloon is to swell out or inflate, as a sail or a debt does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swell"
+    }
+   }
   },
   {
    "number": 14,
@@ -510,7 +2287,53 @@
     "text": "A universal good character",
     "enumeration": "4"
    },
-   "solution": "AURA"
+   "solution": "AURA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AURA",
+    "definitions": [
+     {
+      "text": "character",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film-rating abbreviation for universal"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "RA",
+      "note": "printed with an O from 16 down; restored it reads god, and Ra is the Egyptian sun god"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A thoroughly decent person, admired by all.",
+     "walkthrough": "'Good character' reads as a phrase, but 'good' carries the O of 16 down's 'try'; restored it is god.",
+     "definitionFit": "An aura is the distinctive atmosphere or quality surrounding a person, close to their character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 16,
@@ -524,7 +2347,54 @@
     "text": "Something written in Java: try out fruit",
     "enumeration": "5"
    },
-   "solution": "APPLE"
+   "solution": "APPLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APPLE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something written in Java",
+      "gives": "APPLET",
+      "note": "an applet is a small program, classically written in the Java language"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "T",
+      "note": "printed without its O, which has gone up to 14 down; restored it is troy, abbreviated T"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist note from Indonesia urging visitors to sample the fruit.",
+     "walkthrough": "Java looks like the island but is the programming language. 'Try' has lost an O and is really troy, the weight system abbreviated T.",
+     "definitionFit": "The apple is the classic orchard fruit, and in this puzzle the one that fell on Newton's head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Java"
+    }
+   }
   },
   {
    "number": 18,
@@ -538,7 +2408,68 @@
     "text": "Hydrocarbon network turning up in compound",
     "enumeration": "6"
    },
-   "solution": "RETENE"
+   "solution": "RETENE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RETENE",
+    "definitions": [
+     {
+      "text": "Hydrocarbon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "turning upward in a down clue reads the letters from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "network",
+      "gives": "NET",
+      "note": "a net is a mesh, a network of knotted cords"
+     },
+     {
+      "clueFragment": "compound",
+      "gives": "REE",
+      "note": "ree is a Scots word for a walled enclosure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TEN",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "NET",
+       "to": "TEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemical web appearing inside a molecule.",
+     "walkthrough": "'Compound' looks chemical, matching 'Hydrocarbon', but it is an enclosure.",
+     "definitionFit": "Retene is a crystalline hydrocarbon obtained from pine tar and fossil resins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "compound"
+    }
+   }
   },
   {
    "number": 20,
@@ -552,7 +2483,66 @@
     "text": "Mutter “no” to returning string instrument",
     "enumeration": "6"
    },
-   "solution": "TONGUE"
+   "solution": "TONGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TONGUE",
+    "definitions": [
+     {
+      "text": "Mutter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters run the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "T",
+      "note": "t' is the clipped dialect form"
+     },
+     {
+      "clueFragment": "string instrument",
+      "gives": "GUE",
+      "note": "a gue is an old Shetland violin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "GUE"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician grumbling a refusal before picking up the fiddle again.",
+     "walkthrough": "'Mutter' carries the M of 24 down's 'For'; without it the definition is utter.",
+     "definitionFit": "To tongue in old usage is to utter or give voice to something, the tongue being the organ of speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mutter"
+    }
+   }
   },
   {
    "number": 24,
@@ -566,7 +2556,73 @@
     "text": "For a link with missing leaders of Icelandic sledge expedition, arrest missing British climber",
     "enumeration": "5"
    },
-   "solution": "LIANA"
+   "solution": "LIANA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "LIANA",
+    "definitions": [
+     {
+      "text": "climber",
+      "at": 87
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders are at the front, so first letters are picked out"
+     },
+     {
+      "text": "with missing",
+      "for": "deletion",
+      "note": "what is missing is absent, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For a link",
+      "gives": "LIAISE",
+      "note": "printed without its M, which sits in 20 down; restored as form a link, it is liaise"
+     },
+     {
+      "clueFragment": "Icelandic sledge expedition",
+      "gives": "ISE",
+      "select": "first",
+      "note": "the first letters of the three words"
+     },
+     {
+      "clueFragment": "arrest",
+      "gives": "NAB",
+      "note": "to nab is to arrest"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIA",
+      "NA"
+     ]
+    },
+    "explanation": {
+     "surface": "An expedition report about a missing British mountaineer.",
+     "walkthrough": "'Climber' looks like a mountaineer but is a plant. The second 'missing' takes B out of NAB.",
+     "definitionFit": "A liana is a woody climbing plant of tropical forests, the kind that hangs from trees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 25,
@@ -580,7 +2636,66 @@
     "text": "Troublemaker’s the first to spray stripe on casualty in Boston",
     "enumeration": "7"
    },
-   "solution": "STIRRER"
+   "solution": "STIRRER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STIRRER",
+    "definitions": [
+     {
+      "text": "Troublemaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first to",
+      "for": "letter_selection",
+      "note": "the first means the opening letter only is wanted"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spray",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of spray"
+     },
+     {
+      "clueFragment": "stripe",
+      "gives": "TIRR",
+      "note": "printed with an E from 27 down; restored it reads strip, and tirr is a Scots word for to strip"
+     },
+     {
+      "clueFragment": "casualty in Boston",
+      "gives": "ER",
+      "note": "in the US, the hospital casualty department is the ER"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIRR",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A vandal spray-painting a stripe on an American hospital.",
+     "walkthrough": "'Stripe' carries the E of 27 down's 'Dad'. Casualty is the British name for an emergency department.",
+     "definitionFit": "A stirrer is someone who stirs up trouble, deliberately causing friction between others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "casualty"
+    }
+   }
   },
   {
    "number": 27,
@@ -594,7 +2709,72 @@
     "text": "Dad capturing two rooks with a bit of ease for famous naturalist",
     "enumeration": "7"
    },
-   "solution": "DURRELL"
+   "solution": "DURRELL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DURRELL",
+    "definitions": [
+     {
+      "text": "famous naturalist",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small part, so only the first letter is used"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "to capture is to hold inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "DULL",
+      "note": "printed without its E, which sits in 25 down; restored it is dead, and dull means lifeless"
+     },
+     {
+      "clueFragment": "two rooks",
+      "gives": "RR",
+      "note": "R is the chess abbreviation for rook, doubled"
+     },
+     {
+      "clueFragment": "ease",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of ease"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "RRE",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A father catching two birds with ease, as a naturalist would.",
+     "walkthrough": "'Rooks' look like birds, matching the naturalist, but are chess pieces. 'Dad' has lost an E and is really dead.",
+     "definitionFit": "Gerald Durrell was a celebrated British naturalist, zookeeper and author of My Family and Other Animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rooks"
+    }
+   }
   },
   {
    "number": 28,
@@ -608,7 +2788,47 @@
     "text": "To endure mobile service, more than one gorged",
     "enumeration": "6"
    },
-   "solution": "ABYSMS"
+   "solution": "ABYSMS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABYSMS",
+    "definitions": [
+     {
+      "text": "more than one gorged",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To endure",
+      "gives": "ABY",
+      "note": "aby is an old verb meaning to pay the penalty, to endure"
+     },
+     {
+      "clueFragment": "mobile service",
+      "gives": "SMS",
+      "note": "SMS is the text-messaging service on mobile phones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABY",
+      "SMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting up with a phone contract while overeating.",
+     "walkthrough": "'Gorged' carries the D of 30 down's 'off'; restored the definition is more than one gorge.",
+     "definitionFit": "An abysm is an old poetic word for an abyss, a deep chasm, and gorges are deep narrow valleys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gorged"
+    }
+   }
   },
   {
    "number": 30,
@@ -622,7 +2842,60 @@
     "text": "Independent newspaper supporting a pound off?",
     "enumeration": "4"
    },
-   "solution": "LIFT"
+   "solution": "LIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIFT",
+    "definitions": [
+     {
+      "text": "off?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue a support sits underneath, so this piece is written below the one it holds up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a pound",
+      "gives": "L",
+      "note": "L is the abbreviation for pound, from Latin libra"
+     },
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "FT is the Financial Times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "FT"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper backing a cut in sterling.",
+     "walkthrough": "In a down clue, a piece supporting another sits below it. 'Off' has lost its D and is really doff; the Independent is also a British paper, a decoy here.",
+     "definitionFit": "To doff a hat is to raise it in greeting, and to lift one's hat is the same courteous gesture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Independent"
+    }
+   }
   },
   {
    "number": 31,
@@ -636,7 +2909,48 @@
     "text": "Overly artificial, a producer of food hoard for koalas to chew?",
     "enumeration": "6"
    },
-   "solution": "TOOART"
+   "solution": "TOOART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOOART",
+    "definitions": [
+     {
+      "text": "a producer of food hoard for koalas to chew?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overly",
+      "gives": "TOO",
+      "note": "too means excessively"
+     },
+     {
+      "clueFragment": "artificial",
+      "gives": "ART",
+      "note": "the first three letters of artificial, its standard dictionary abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "Fake food being stockpiled for koalas.",
+     "walkthrough": "'Hoard' carries the O of 33 down's 'Ann'; restored it reads hard, and the question mark admits koalas would struggle with it.",
+     "definitionFit": "The tooart, or tuart, is a Western Australian eucalyptus, and eucalyptus leaves are the koala's sole diet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "hoard"
+    }
+   }
   },
   {
    "number": 33,
@@ -650,7 +2964,58 @@
     "text": "Mate well with Ann, and take seed",
     "enumeration": "6"
    },
-   "solution": "NICKAR"
+   "solution": "NICKAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICKAR",
+    "definitions": [
+     {
+      "text": "seed",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mate well",
+      "gives": "NICK",
+      "note": "in animal breeding, to nick is to mate successfully"
+     },
+     {
+      "clueFragment": "Ann",
+      "gives": "A",
+      "note": "printed without its O, which sits in 31 down; restored it is anon, short for anonymous, A"
+     },
+     {
+      "clueFragment": "take",
+      "gives": "R",
+      "note": "R stands for recipe, Latin for take, on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICK",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to pair off happily with Ann and start a family.",
+     "walkthrough": "'Ann' looks like a woman's name, but restored it is anon. 'Seed' looks like a verb about sowing but is the definition, a noun.",
+     "definitionFit": "A nickar is the hard grey seed of the nicker tree, used as a marble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ann"
+    }
+   }
   },
   {
    "number": 35,
@@ -664,7 +3029,55 @@
     "text": "Some seized in arrest were supplying barbiturate, maybe",
     "enumeration": "5"
    },
-   "solution": "ESTER"
+   "solution": "ESTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ESTER",
+    "definitions": [
+     {
+      "text": "supplying barbiturate, maybe",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some seized in",
+      "for": "deletion",
+      "note": "only some of the letters are taken, the stretch seized from within the words, so the rest are discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "ARREST",
+      "note": "taken as written; the run begins after its first three letters"
+     },
+     {
+      "clueFragment": "were",
+      "gives": "ERE",
+      "note": "printed with a W that belongs to 37 down; restored it reads ere, and the run stops before its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Drug dealers caught in a police raid.",
+     "walkthrough": "'Were' carries the W of 37 down's 'ales'. 'Maybe' marks the definition as one example of what the compound does.",
+     "definitionFit": "Barbiturates are synthesised from malonic ester, so such a compound is a source of these sedative drugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arrest"
+    }
+   }
   },
   {
    "number": 37,
@@ -678,7 +3091,55 @@
     "text": "About a quarter of ales used colourings cut by France",
     "enumeration": "5"
    },
-   "solution": "DYFED"
+   "solution": "DYFED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DYFED",
+    "definitions": [
+     {
+      "text": "About a quarter of ales",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "something cut has another piece driven into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used colourings",
+      "gives": "DYED",
+      "note": "used colourings means dyed"
+     },
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international code for France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DY",
+      "F",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A quarter of the beers had colouring added, interrupted by the French.",
+     "walkthrough": "'Ales' has lost its W to 35 down's 'were'; restored it is Wales. Dyfed was a county of south-west Wales.",
+     "definitionFit": "Dyfed was a large administrative county covering roughly a quarter of the land area of Wales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ales"
+    }
+   }
   },
   {
    "number": 39,
@@ -692,7 +3153,60 @@
     "text": "Fix leak with tip of nail",
     "enumeration": "4"
    },
-   "solution": "PEEN"
+   "solution": "PEEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEEN",
+    "definitions": [
+     {
+      "text": "Fix",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip is the end point, so just the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leak",
+      "gives": "PEE",
+      "note": "to take a leak is slang for to pee"
+     },
+     {
+      "clueFragment": "nail",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of nail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Mending a leak by tapping in a nail.",
+     "walkthrough": "'Leak' suggests the plumbing problem to be fixed; it is the slang for urinating.",
+     "definitionFit": "To peen is to hammer metal with the thin end of a hammer head, as when fixing a rivet in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leak"
+    }
+   }
   },
   {
    "number": 42,
@@ -706,7 +3220,65 @@
     "text": "Commonwealth tribe won independence after the end of Amin",
     "enumeration": "3"
    },
-   "solution": "IWI"
+   "solution": "IWI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IWI",
+    "definitions": [
+     {
+      "text": "Commonwealth tribe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end is the last letter, so only that is used"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amin",
+      "gives": "I",
+      "select": "last",
+      "note": "printed with an N from 43 down; restored it reads Ami, ending in I"
+     },
+     {
+      "clueFragment": "won",
+      "gives": "W",
+      "note": "W is the abbreviation for won in sports tables"
+     },
+     {
+      "clueFragment": "independence",
+      "gives": "I",
+      "note": "I is the abbreviation for independence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "W",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A Commonwealth people winning independence once Idi Amin's rule ended.",
+     "walkthrough": "'Amin' suggests the Ugandan dictator, but its N belongs to 43 down's 'electro'.",
+     "definitionFit": "Iwi is the Maori word for a tribe, used in New Zealand, a Commonwealth country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Amin"
+    }
+   }
   },
   {
    "number": 43,
@@ -720,7 +3292,65 @@
     "text": "An intro to Cars by electro genius",
     "enumeration": "3"
    },
-   "solution": "ACE"
+   "solution": "ACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACE",
+    "definitions": [
+     {
+      "text": "genius",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intro to",
+      "for": "letter_selection",
+      "note": "an intro is an opening, so only the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "A",
+      "note": "an is the article a"
+     },
+     {
+      "clueFragment": "Cars",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Cars"
+     },
+     {
+      "clueFragment": "electro",
+      "gives": "E",
+      "note": "printed without its N, which has moved up to 42 down; restored it is electron, symbol e"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An electronic music whizz introducing a track by the Cars.",
+     "walkthrough": "The Cars were an American new-wave band, and electro a dance-music style, together making a music-review surface.",
+     "definitionFit": "An ace is an expert or someone outstandingly skilled, close to a genius in their field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cars"
+    }
+   }
   }
  ]
 }
