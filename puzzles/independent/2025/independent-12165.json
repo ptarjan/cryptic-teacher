@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "I need to add a parting gift bag",
     "enumeration": "8"
    },
-   "solution": "KNAPSACK"
+   "solution": "KNAPSACK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "KNAPSACK",
+    "definitions": [
+     {
+      "text": "bag",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parting",
+      "for": "container",
+      "note": "a word that is parted is split open, leaving a gap for something else to sit in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I need to add",
+      "gives": "PS",
+      "note": "a postscript is what a letter-writer tacks on when there is more to say"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gift",
+      "gives": "KNACK",
+      "note": "a gift for something is a natural knack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNA",
+      "PS",
+      "A",
+      "CK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaving a job realises the farewell present still needs a bag.",
+     "walkthrough": "\"I need to add\" is what a postscript says at the foot of a letter. \"Parting gift\" looks like a leaving present, but it tells you to split the word for gift open.",
+     "definitionFit": "A knapsack is a type of bag carried on the back, so the general word covers it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parting"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,44 @@
     "text": "Difficult offer",
     "enumeration": "6"
    },
-   "solution": "KILLER"
+   "solution": "KILLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KILLER",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0,
+      "note": "adjective; the answer is used attributively, as in 'a killer exam'"
+     },
+     {
+      "text": "offer",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult",
+      "note": "first meaning: extremely hard, as in a punishing climb"
+     },
+     {
+      "clueFragment": "offer",
+      "note": "second meaning, read as off-er: one who offs, slang for kills, someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "\"Offer\" reads as a proposal, but split it as off-er: to off someone is slang for murder, so an off-er is a murderer.",
+     "definitionFit": "Informally something very hard is a real killer, and someone who offs people commits murder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "offer"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,81 @@
     "text": "Tim Key turned up in middle of cast leaks",
     "enumeration": "6"
    },
-   "solution": "ADMITS"
+   "solution": "ADMITS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADMITS",
+    "definitions": [
+     {
+      "text": "leaks",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something up flips it so it reads from the bottom"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, with the ends trimmed off"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, enclosed on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "gives": "D",
+      "note": "D is a musical key"
+     },
+     {
+      "clueFragment": "Tim",
+      "gives": "MIT",
+      "note": "the name written upwards"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "AS",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "MIT",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "TIM",
+       "to": "MIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comedian Tim Key appears in a story about leaks from a cast list.",
+     "walkthrough": "Tim Key is a British comedian, so the pair looks like one name. D plus MIT goes between the A and S of cASt.",
+     "definitionFit": "To leak a secret is to let it out, and a confession admits it; both verbs mean disclose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +250,63 @@
      }
     ]
    },
-   "solution": "SPORTSBRA"
+   "solution": "SPORTSBRA",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SPORTS BRA",
+    "definitions": [
+     {
+      "text": "exercising restraint",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probes",
+      "for": "container",
+      "note": "a probe pushes into something, so one letter is pushed inside the others"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about, letters are moved round into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for Republican"
+     },
+     {
+      "clueFragment": "top brass",
+      "gives": "TOPBRASS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPBRRASS",
+       "gives": "SPORTSBRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican investigates military chiefs who are showing self-control.",
+     "walkthrough": "\"Exercising restraint\" pretends to mean self-control; read literally it is a restraint worn while exercising.",
+     "definitionFit": "This supportive undergarment holds the chest firmly during workouts, a literal piece of gym restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +320,43 @@
     "text": "Walk through legal framework",
     "enumeration": "14"
    },
-   "solution": "CONSTITUTIONAL"
+   "solution": "CONSTITUTIONAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONSTITUTIONAL",
+    "definitions": [
+     {
+      "text": "Walk",
+      "at": 0
+     },
+     {
+      "text": "through legal framework",
+      "at": 5,
+      "note": "adjectival phrase: by way of the constitution"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walk",
+      "note": "first meaning: a stroll taken for the good of one's health"
+     },
+     {
+      "clueFragment": "through legal framework",
+      "note": "second meaning: done in accordance with a state's founding laws"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "\"Walk through\" looks like a phrase meaning rehearse; split it after \"Walk\" to find two senses of one word.",
+     "definitionFit": "A health-giving stroll is traditionally called by this noun, and anything sanctioned by a nation's basic law is described by the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "through"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +370,51 @@
     "text": "Main character is power mad",
     "enumeration": "6"
    },
-   "solution": "PIRATE"
+   "solution": "PIRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIRATE",
+    "definitions": [
+     {
+      "text": "Main character",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "mad",
+      "gives": "IRATE",
+      "note": "mad in the sense of angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "The lead role in a story belongs to someone crazed by power.",
+     "walkthrough": "\"Main character\" suggests a protagonist, but the main is the sea, as in the Spanish Main.",
+     "definitionFit": "Buccaneers famously roamed the Spanish Main, so a seafaring robber is a figure of the high seas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +428,50 @@
     "text": "One holds hands eventually with model",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "model",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "holds hands eventually",
+      "gives": "DEAL",
+      "note": "after the cards are given out, each player eventually holds a hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finally gets to hold hands with a fashion model.",
+     "walkthrough": "The romantic picture hides a card table: a deal is what leaves every player holding a hand.",
+     "definitionFit": "A model example is a perfect one to copy, the standard everything else is measured against."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +485,65 @@
     "text": "What occupies a scoundrel in pub?",
     "enumeration": "8"
    },
-   "solution": "ALEHOUSE"
+   "solution": "ALEHOUSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALEHOUSE",
+    "definitions": [
+     {
+      "text": "pub",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupies",
+      "for": "container",
+      "note": "whatever occupies a space sits inside it, filling it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scoundrel",
+      "gives": "LOUSE",
+      "note": "a louse is a contemptible person"
+     },
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is said when asking someone to repeat themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "EH",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what keeps a rogue busy in the local bar.",
+     "walkthrough": "The question mark makes \"What\" look like the start of a question, but it gives letters: the interjection you say when you haven't heard.",
+     "definitionFit": "An alehouse is an old word for a tavern where beer is served, so it is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +563,68 @@
      }
     ]
    },
-   "solution": "EAGLEEYE"
+   "solution": "EAGLEEYE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone",
+     "charade"
+    ],
+    "answer": "EAGLE EYE",
+    "definitions": [
+     {
+      "text": "what a sight!",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no lead",
+      "for": "deletion",
+      "note": "without its lead means the front is taken away"
+     },
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so it is heard rather than seen"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "to chase is to follow behind, so this comes after the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "EAGLE",
+      "note": "a beagle without its first letter"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "EYE",
+      "soundsLike": "I",
+      "note": "the pronoun spoken sounds like the organ of sight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGLE",
+      "EYE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes running after a dog that has slipped its leash, a funny spectacle.",
+     "walkthrough": "\"With no lead\" suggests a loose dog but means drop the first letter of BEAGLE. \"What a sight!\" is the definition: sight in the sense of eyesight.",
+     "definitionFit": "Exceptionally keen eyesight is likened to a bird of prey's vision, so the phrase names remarkable vision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +644,52 @@
      }
     ]
    },
-   "solution": "GOODIMPRESSION"
+   "solution": "GOODIMPRESSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOOD IMPRESSION",
+    "definitions": [
+     {
+      "text": "It's important to make",
+      "at": 0,
+      "note": "a clause rather than a noun; the answer completes it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "letters set free are no longer bound to their printed order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promise, doing so",
+      "gives": "PROMISEDOINGSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROMISEDOINGSO",
+       "gives": "GOODIMPRESSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that making a promise matters, especially when it is given willingly.",
+     "walkthrough": "The definition is the start of a saying, \"It's important to make a good impression\", with the answer filling the gap.",
+     "definitionFit": "The familiar advice about first meetings ends with this phrase, so the clue's opening words call it up as an idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "freely"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +703,74 @@
     "text": "Ridicule a boring liberal politician with nothing on",
     "enumeration": "7"
    },
-   "solution": "LAMPOON"
+   "solution": "LAMPOON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LAMPOON",
+    "definitions": [
+     {
+      "text": "Ridicule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "something boring drills into another thing and ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP stands for Member of Parliament"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like a zero"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "MP",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking a dull Liberal MP who is wearing no clothes.",
+     "walkthrough": "\"Boring\" looks like dull, describing the politician; it means drilling into, so A goes inside L MP.",
+     "definitionFit": "To lampoon someone is to mock them publicly through satire, which is a form of ridicule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +784,44 @@
     "text": "Lay it on thick like Hollandaise at brunch",
     "enumeration": "7"
    },
-   "solution": "OVEREGG"
+   "solution": "OVEREGG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVEREGG",
+    "definitions": [
+     {
+      "text": "Lay it on thick",
+      "at": 0
+     },
+     {
+      "text": "like Hollandaise at brunch",
+      "at": 16,
+      "note": "describes a position, read as two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lay it on thick",
+      "note": "first meaning: to exaggerate or overdo something"
+     },
+     {
+      "clueFragment": "like Hollandaise at brunch",
+      "note": "second meaning, split in two: where the sauce goes on eggs Benedict"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as OVER EGG: Hollandaise sauce is poured over the egg in eggs Benedict. As one word it is British slang for overdoing it, from 'over-egg the pudding'.",
+     "definitionFit": "Laying it on thick means exaggerating, the same as adding too much egg to a recipe in the British idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thick"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +841,55 @@
      }
     ]
    },
-   "solution": "EATAT"
+   "solution": "EATAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EAT AT",
+    "definitions": [
+     {
+      "text": "distress",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the final letter is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Now",
+      "gives": "EAT",
+      "note": "the present tense of the verb to have, in the sense of consume"
+     },
+     {
+      "clueFragment": "then, have",
+      "gives": "AT",
+      "note": "the past tense, ATE, with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAT",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Occasionally you suffer constant anguish.",
+     "walkthrough": "\"Now and then\" looks like occasionally but splits apart: \"have\" now is EAT, \"have\" then is ATE, which loses its end.",
+     "definitionFit": "Something that eats at you worries and troubles you persistently, so the phrasal verb means to upset."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "then"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +909,70 @@
      }
     ]
    },
-   "solution": "TIDALBORE"
+   "solution": "TIDALBORE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "TIDAL BORE",
+    "definitions": [
+     {
+      "text": "Swell ultimately cutting boat ride off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "the ultimate letter is the very last one"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a thing that cuts another goes into the middle of it"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something gone off has turned bad, so its letters are spoiled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swell",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "boat ride",
+      "gives": "BOATRIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOATRIDEL",
+       "gives": "TIDALBORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sea swell eventually forces a boat trip to be cancelled.",
+     "walkthrough": "The whole clue is both wordplay and definition: a wave surging up a river can indeed cut short a boat trip.",
+     "definitionFit": "A tidal bore is a surge of water travelling upriver on an incoming tide, a swell that would end any outing afloat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +992,65 @@
      }
     ]
    },
-   "solution": "ABSTEMIOUSLY"
+   "solution": "ABSTEMIOUSLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ABSTEMIOUSLY",
+    "definitions": [
+     {
+      "text": "Strictly",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancers move around and swap positions, just as these letters do"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oti Mabuse",
+      "gives": "OTIMABUSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "like a fox",
+      "gives": "SLY",
+      "note": "foxes are proverbially cunning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABSTEMIOU",
+      "SLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTIMABUSE",
+       "gives": "ABSTEMIOU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oti Mabuse dances cunningly on the TV show Strictly Come Dancing.",
+     "walkthrough": "Oti Mabuse was a professional dancer on Strictly Come Dancing, the BBC ballroom show, so the italics invite the TV reading; the definition is the plain adverb.",
+     "definitionFit": "Living strictly, without indulgence in food or drink, is living with restraint and self-denial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strictly"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1070,44 @@
      }
     ]
    },
-   "solution": "ONARRIVAL"
+   "solution": "ONARRIVAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ON ARRIVAL",
+    "definitions": [
+     {
+      "text": "when they get there",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means spoken out loud, so the sound matters rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Praise opponent",
+      "gives": "ONARRIVAL",
+      "soundsLike": "HONOUR RIVAL",
+      "note": "to honour is to praise, and a rival is an opponent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone compliments their opponent in a speech once the rival turns up.",
+     "walkthrough": "The silent H of honour helps the sound run together.",
+     "definitionFit": "The phrase marks the moment of reaching a destination, the same as the time people get there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1121,67 @@
     "text": "Declare endless love for Homer over message",
     "enumeration": "8"
    },
-   "solution": "TELEGRAM"
+   "solution": "TELEGRAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TELEGRAM",
+    "definitions": [
+     {
+      "text": "message",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the final letter is cut away"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, turning over flips the order upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declare",
+      "gives": "TEL",
+      "note": "TELL, to announce, without its last letter"
+     },
+     {
+      "clueFragment": "love for Homer",
+      "gives": "MARGE",
+      "note": "Marge is Homer Simpson's wife in the TV cartoon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEL",
+      "EGRAM"
+     ],
+     "reversals": [
+      {
+       "from": "MARGE",
+       "to": "EGRAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares undying love for the Greek poet Homer in a message.",
+     "walkthrough": "\"Homer\" suggests the poet of the Iliad, but it is Homer Simpson, whose love is his wife Marge.",
+     "definitionFit": "A telegram is a message sent by wire and delivered on paper, so the general word covers it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Homer"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1195,59 @@
     "text": "Mistakenly using stone for weight with heft",
     "enumeration": "8"
    },
-   "solution": "STRONGLY"
+   "solution": "STRONGLY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "STRONGLY",
+    "definitions": [
+     {
+      "text": "with heft",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "substitution",
+      "note": "using one thing for another means putting it in the other's place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mistakenly",
+      "gives": "WRONGLY",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for the stone, a British unit of weight"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RONGLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has wrongly used a stone as a weight because it is heavy.",
+     "walkthrough": "A stone is a British unit of weight, fourteen pounds, which makes the surface sound like a weighing error. ST replaces the W of WRONGLY.",
+     "definitionFit": "Doing something with heft means doing it powerfully and forcefully, so the adverb matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1267,52 @@
      }
     ]
    },
-   "solution": "EXTRACTORFAN"
+   "solution": "EXTRACTORFAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTRACTOR FAN",
+    "definitions": [
+     {
+      "text": "One clears the air",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "an ex is something former"
+     },
+     {
+      "clueFragment": "agriculturalist?",
+      "gives": "TRACTORFAN",
+      "note": "whimsically, someone keen on farm machinery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRACTOR",
+      "FAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired farmer settles an argument and clears the air.",
+     "walkthrough": "The question mark flags the playful definition of agriculturalist: someone who used to love tractors is an EX-TRACTOR FAN.",
+     "definitionFit": "This kitchen or bathroom appliance draws out steam and smells, literally clearing the air of a room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "agriculturalist"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1326,60 @@
     "text": "Couples start union up",
     "enumeration": "6"
    },
-   "solution": "UNITES"
+   "solution": "UNITES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UNITES",
+    "definitions": [
+     {
+      "text": "Couples",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start",
+      "gives": "SETIN",
+      "note": "a season or mood sets in when it starts"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "note": "U is the abbreviation for union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNITES"
+     ],
+     "reversals": [
+      {
+       "from": "SETINU",
+       "to": "UNITES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pairs of people set up a trade union.",
+     "walkthrough": "\"Start union\" looks like the first letter of union, but \"start\" is SET IN, followed by U.",
+     "definitionFit": "To couple things is to join them together, so the verb means the same as joins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1393,61 @@
     "text": "Puzzles force John Robins to lose heart",
     "enumeration": "6"
    },
-   "solution": "FLOORS"
+   "solution": "FLOORS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FLOORS",
+    "definitions": [
+     {
+      "text": "Puzzles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to lose heart",
+      "for": "deletion",
+      "note": "losing the heart means the central letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     },
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "john is slang for toilet, as is loo in Britain"
+     },
+     {
+      "clueFragment": "Robins",
+      "gives": "RS",
+      "note": "only the outer letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOO",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Riddles force comedian John Robins to become discouraged.",
+     "walkthrough": "John Robins is a British comedian, so the name looks whole; John is the toilet, LOO, and Robins keeps only R and S.",
+     "definitionFit": "A question that floors you baffles you completely, so the verb means bewilders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1461,51 @@
     "text": "Naming two animals back to front",
     "enumeration": "9"
    },
-   "solution": "EPONYMOUS"
+   "solution": "EPONYMOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "EPONYMOUS",
+    "definitions": [
+     {
+      "text": "Naming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "what was at the back goes round to the front, rotating the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two animals",
+      "gives": "PONYMOUSE",
+      "note": "a small horse and a small rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PONY",
+      "MOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Listing two creatures in reverse order.",
+     "walkthrough": "\"Back to front\" is not a full reversal: only the last letter, E of MOUSE, moves to the start.",
+     "definitionFit": "An eponymous hero gives his name to the work, so the adjective describes what does the naming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1519,60 @@
     "text": "Some float, laying around in resort",
     "enumeration": "5"
    },
-   "solution": "YALTA"
+   "solution": "YALTA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "YALTA",
+    "definitions": [
+     {
+      "text": "resort",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters are used, a run lifted from inside the words"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the run is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "float, laying",
+      "gives": "ATLAY",
+      "note": "the end of one word and start of the next"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ATLAY",
+       "to": "YALTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some holidaymakers drift on the water, lounging at a seaside resort.",
+     "walkthrough": "Yalta is a resort on the Crimean coast of the Black Sea, famous for the 1945 conference.",
+     "definitionFit": "Yalta is a well-known seaside holiday town, an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "float"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1586,44 @@
     "text": "Siren alarmed in part of peer's tank",
     "enumeration": "5"
    },
-   "solution": "RENAL"
+   "solution": "RENAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RENAL",
+    "definitions": [
+     {
+      "text": "of peer's tank",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, a stretch found inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Siren alarmed",
+      "gives": "RENAL",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An alarm sounds on part of a nobleman's armoured tank.",
+     "walkthrough": "\"Peer\" pretends to be a lord but is someone who pees; the tank is the urinary system.",
+     "definitionFit": "The adjective relates to the kidneys, the organs that feed the bladder, jokingly a pee-er's reservoir."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peer's"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1637,60 @@
     "text": "Knocked back excellent beer - splendid stuff!",
     "enumeration": "7"
    },
-   "solution": "REGALIA"
+   "solution": "REGALIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REGALIA",
+    "definitions": [
+     {
+      "text": "splendid stuff",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Knocked back",
+      "for": "reversal",
+      "note": "something knocked back is pushed in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as the letter I"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "LAGER",
+      "note": "lager is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGALIA"
+     ],
+     "reversals": [
+      {
+       "from": "AILAGER",
+       "to": "REGALIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone downs a great pint and declares it marvellous.",
+     "walkthrough": "\"Knocked back\" suggests drinking, which suits the beer, but it signals the letters going backwards.",
+     "definitionFit": "Regalia are the ceremonial emblems and finery of royalty or office, magnificent trappings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knocked"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1710,71 @@
      }
     ]
    },
-   "solution": "INVITRO"
+   "solution": "INVITRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "IN VITRO",
+    "definitions": [
+     {
+      "text": "using laboratory",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Detailed",
+      "for": "deletion",
+      "note": "read as de-tailed, the tail end is removed"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "request",
+      "gives": "INVIT",
+      "note": "INVITE without its last letter"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR stands for other ranks, ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INVIT",
+      "RO"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thorough request to get workers to return to the lab.",
+     "walkthrough": "\"Detailed\" looks like thorough, but it means de-tailed: lose the end.",
+     "definitionFit": "The Latin phrase means in glass, describing experiments done in test tubes rather than living bodies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Detailed"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1788,53 @@
     "text": "Prime Minister would vote for emergency appeal",
     "enumeration": "6"
    },
-   "solution": "MAYDAY"
+   "solution": "MAYDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAYDAY",
+    "definitions": [
+     {
+      "text": "emergency appeal",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prime Minister",
+      "gives": "MAY",
+      "note": "Theresa May was British Prime Minister from 2016 to 2019"
+     },
+     {
+      "clueFragment": "would",
+      "gives": "D",
+      "note": "'d is the contraction of would"
+     },
+     {
+      "clueFragment": "vote for",
+      "gives": "AY",
+      "note": "aye is the vote in favour, also spelt ay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "D",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "The Prime Minister would support an urgent public appeal.",
+     "walkthrough": "MAY plus 'D for would plus AY, the parliamentary yes vote.",
+     "definitionFit": "Mayday is the international radio distress call, used by ships and aircraft in grave danger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vote"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1848,57 @@
     "text": "Obsessive sibling takes year for breakdown",
     "enumeration": "8"
    },
-   "solution": "ANALYSIS"
+   "solution": "ANALYSIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANALYSIS",
+    "definitions": [
+     {
+      "text": "breakdown",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obsessive",
+      "gives": "ANAL",
+      "note": "informally, fussily obsessed with detail"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "sibling",
+      "gives": "SIS",
+      "note": "short for sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANAL",
+      "Y",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fixated brother or sister needs a year to recover from a breakdown.",
+     "walkthrough": "\"Breakdown\" suggests a collapse, but it is a breaking down into parts. SIS takes Y in front of it.",
+     "definitionFit": "A statistical breakdown separates figures into their parts, which is what examining in detail does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breakdown"
+    }
+   }
   }
  ]
 }
