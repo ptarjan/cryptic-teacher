@@ -676,6 +676,16 @@ tools/test_series_hub.sh                     does /puzzles/ describe each series
                                              series' puzzle total, and each series with enough
                                              rated puzzles gets a difficulty strip whose median
                                              sits where its middle puzzle is
+tools/test_sitemaps.sh                       do new puzzles get found fast? /sitemap.xml must
+                                             be a sitemap index (the URL Search Console holds)
+                                             over a small sitemap-recent.xml, carrying the last
+                                             RECENT_DAYS of puzzles and every page that changes
+                                             daily, and the archive parts holding the rest,
+                                             each puzzle in exactly one. The homepage and
+                                             /puzzles/ link each paper's newest puzzle, one per
+                                             paper, leaving out a back archive; and a puzzle
+                                             page pages Newer/Older within its own series and
+                                             links the series' landing page
 tools/test_date_numbers.sh                   is a date-keyed puzzle number (Metro, the Canberra
                                              Times) named by its day? Their papers print no
                                              number, so the stored number is the print date,
