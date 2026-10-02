@@ -59,6 +59,7 @@ import groups  # noqa: E402 — linked answers; see tools/groups.py
 from groups import entry_id  # noqa: E402
 import definitions  # where each definition sits in its clue; see tools/definitions.py
 import enumeration  # a clue's printed letter counts; see tools/enumeration.py
+import boilerplate  # the paper's publishing notes in the preamble; see tools/boilerplate.py
 import errata  # a paper's corrections in the preamble; see tools/errata.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
@@ -874,8 +875,9 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A linked answer's lights in the order that reads as words, before the
     # sources are compared against the joined answer.
     puzzle = order_groups(puzzle)
-    # A paper's erratum in the preamble fixes its clue, whoever wrote the
-    # file: tools/errata.py.
+    # A paper's publishing notes in the preamble go, and its erratum fixes
+    # its clue, whoever wrote the file: tools/boilerplate.py, tools/errata.py.
+    boilerplate.apply(puzzle)
     errata.apply(puzzle)
     if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
         puzzle = corroborate.corroborate(puzzle)
@@ -1908,10 +1910,12 @@ LINK_SENTENCE = re.compile(
 
 def preamble(instructions):
     """The page's note above the clues as our `preamble`, or None: plain text,
-    one space between words, without the sentences that are only a link."""
+    one space between words, without the sentences that are only a link or
+    the paper's publishing notes (tools/boilerplate.py)."""
     text = " ".join(plain_text(instructions or "").split())
     # Some pages escape the note twice ("F&amp;uuml;hrer", everyman-2977).
     text = LINK_SENTENCE.sub("", html.unescape(text) if re.search(r"&#?\w+;", text) else text).strip()
+    text = boilerplate.strip(text) or ""
     return text if re.search(r"\w\w", text) else None
 
 
