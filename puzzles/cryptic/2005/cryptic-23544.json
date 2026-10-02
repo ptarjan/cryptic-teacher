@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,66 @@
     "text": "A horsy affair turning my monarch off",
     "enumeration": "5"
    },
-   "solution": "GHANA"
+   "solution": "GHANA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "GHANA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so its letters run backwards"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "things taken off are removed, so these letters drop out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A horsy affair",
+      "gives": "GYMKHANA",
+      "note": "a gymkhana is a horse-riding event with races and games"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "K",
+      "note": "K is the abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HANA"
+     ],
+     "reversals": [
+      {
+       "from": "MY",
+       "to": "YM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a pony club event has had enough of their monarch and is switching off.",
+     "walkthrough": "A gymkhana is a British pony-club meeting of riding games. Like nearly half the answers it is an African country, so the preamble supplies the definition.",
+     "definitionFit": "The preamble tells solvers that roughly half the entries are African nations, and this West African state is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +110,54 @@
     "text": "Tips on a horse: they grow in Australia",
     "enumeration": "8"
    },
-   "solution": "GEEBUNGS"
+   "solution": "GEEBUNGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GEEBUNGS",
+    "definitions": [
+     {
+      "text": "they grow in Australia",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one thing sitting on another comes after it, so the pieces stack in that order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a horse",
+      "gives": "GEE",
+      "note": "gee or gee-gee is a childish word for a horse"
+     },
+     {
+      "clueFragment": "Tips",
+      "gives": "BUNGS",
+      "note": "a bung is British slang for a tip or bribe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEE",
+      "BUNGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Racing tips on a horse, followed by a remark about Australian plants.",
+     "walkthrough": "'Tips' looks like racing advice, but it means bribes, which the British call bungs. In a down clue 'on' puts the tips below the horse.",
+     "definitionFit": "Geebungs are Australian shrubs and small trees of the genus Persoonia, bearing edible fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tips"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +171,47 @@
     "text": "The soul of man (I made this up)",
     "enumeration": "5"
    },
-   "solution": "ANIMA"
+   "solution": "ANIMA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANIMA",
+    "definitions": [
+     {
+      "text": "The soul",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "this up",
+      "for": "hidden_word",
+      "note": "the setter admits to making the word up out of neighbouring letters, so it lies inside the words beside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man (I made",
+      "gives": "ANIMA",
+      "note": "the letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer claims to have invented the phrase about the soul of man.",
+     "walkthrough": "The bracket reads as a joking aside, but 'made this up' tells you the answer is assembled from letters running across the neighbouring words.",
+     "definitionFit": "Anima is Latin for life or breath, and Jung used it for the inner self, so it serves as a word for spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 3,
@@ -76,7 +225,54 @@
     "text": "Relating to flight that upset many - do I care?",
     "enumeration": "11"
    },
-   "solution": "AERODYNAMIC"
+   "solution": "AERODYNAMIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AERODYNAMIC",
+    "definitions": [
+     {
+      "text": "Relating to flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "things upset are knocked over and out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many - do I care",
+      "gives": "MANYDOICARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANYDOICARE",
+       "gives": "AERODYNAMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs off the many people annoyed by a decision about flying.",
+     "walkthrough": "'Upset' reads as annoyed, but it is the instruction to rearrange the eleven letters that follow.",
+     "definitionFit": "Aerodynamics is the study of air moving around bodies, the science that keeps aircraft aloft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 4,
@@ -90,7 +286,63 @@
     "text": "S-south 27 country piece - stick around",
     "enumeration": "9"
    },
-   "solution": "SWAZILAND"
+   "solution": "SWAZILAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "SWAZILAND",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "piece",
+      "for": "deletion",
+      "note": "a piece is only part of the whole, so some letters are dropped"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "something placed around another surrounds it, so one goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "S-",
+      "gives": "S",
+      "note": "the stammered first letter, taken as written"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "WAND",
+      "note": "a wand is a slender stick"
+     },
+     {
+      "clueFragment": "south 27 country",
+      "gives": "BRAZIL",
+      "note": "27 is AMERICAN, so this is a South American country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "AZIL",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A stammering speaker describes a piece of a southern country and a stick.",
+     "walkthrough": "The stutter is a real letter, not padding. 'South 27 country' means a South American one, since 27 down is AMERICAN. Swaziland is now officially called Eswatini.",
+     "definitionFit": "The preamble marks about half the entries as African countries, and this small kingdom in southern Africa is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +356,39 @@
     "text": "No hinds at the party?",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "No hinds at the party?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No hinds at the party?",
+      "note": "surface reading: no female deer have come to the gathering"
+     },
+     {
+      "clueFragment": "No hinds at the party?",
+      "note": "setter's reading: a men-only celebration, with hinds standing for women"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A hind is a female deer, and the male deer gives its name to the all-male pre-wedding party.",
+     "definitionFit": "A stag do is the British bachelor party, an evening out for the groom with male friends only."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hinds"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +402,63 @@
     "text": "One training to be a policeman gets to work on a drink",
     "enumeration": "7"
    },
-   "solution": "ALCOPOP"
+   "solution": "ALCOPOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALCOPOP",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry what comes on something sits below it, so the earlier parts follow that one"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One training to be a policeman",
+      "gives": "LCOP",
+      "note": "L for learner, as on a learner driver's plate, plus COP for policeman"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LCOP",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A police cadet starts work on a drink, which sounds like trouble.",
+     "walkthrough": "A learner policeman is an L-COP; he and the work both sit under the A, because this is a down clue.",
+     "definitionFit": "An alcopop is a sweet fizzy alcoholic beverage sold in bottles, styled like a soft drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +472,66 @@
     "text": "Boy at youth club starts on oven",
     "enumeration": "10"
    },
-   "solution": "IVORYCOAST"
+   "solution": "IVORYCOAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IVORYCOAST",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only those are kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one thing on another sits above it, so the earlier part comes first"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "IVOR",
+      "note": "a boy's name"
+     },
+     {
+      "clueFragment": "youth club",
+      "gives": "YC",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "oven",
+      "gives": "OAST",
+      "note": "an oast is a kiln for drying hops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IVOR",
+      "Y",
+      "C",
+      "OAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A lad at the youth club gets started on cooking.",
+     "walkthrough": "An oast is a hop-drying kiln, common in Kent. The country is written as one word here because the grid gives it ten letters.",
+     "definitionFit": "The preamble flags about half the answers as African nations, and Ivory Coast, now Côte d'Ivoire, is in West Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oven"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +545,48 @@
     "text": "A short time (too long!) over 15",
     "enumeration": "4"
    },
-   "solution": "AMIN"
+   "solution": "AMIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMIN",
+    "definitions": [
+     {
+      "text": "over 15",
+      "at": 25,
+      "note": "a ruler: someone over Uganda"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "short time",
+      "gives": "MIN",
+      "note": "MIN is the abbreviation for minute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a brief spell spent above something dragged on.",
+     "walkthrough": "15 is UGANDA. The bracketed '(too long!)' is the setter's comment on how long the dictator was over that country, not wordplay.",
+     "definitionFit": "Idi Amin was the military dictator who ruled Uganda from 1971 to 1979."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +606,66 @@
      }
     ]
    },
-   "solution": "DOGCOLLAR"
+   "solution": "DOGCOLLAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOG COLLAR",
+    "definitions": [
+     {
+      "text": "worn by various shepherds",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excluded",
+      "for": "container",
+      "note": "something shut outside another wraps around it, so the other pieces sit within"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "DOLLAR",
+      "note": "a dollar is money"
+     },
+     {
+      "clueFragment": "Medal",
+      "gives": "GC",
+      "note": "GC is the George Cross, a British gallantry medal"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "GC",
+      "O",
+      "LLAR"
+     ]
+    },
+    "explanation": {
+     "surface": "An award for devotion is handed out without cash and worn by shepherds.",
+     "walkthrough": "The George Cross and love sit inside DOLLAR, which is shut out around them. The shepherds are clergy, pastors of a flock.",
+     "definitionFit": "A clerical collar is the stiff white band worn by priests and ministers, who tend congregations as a flock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shepherds"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +679,51 @@
     "text": "Art in films providing one of the kind with a knighthood",
     "enumeration": "5"
    },
-   "solution": "MALIK"
+   "solution": "MALIK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MALIK",
+    "definitions": [
+     {
+      "text": "Art in films",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of the kind",
+      "gives": "MALI",
+      "note": "one of the puzzle's themed African countries"
+     },
+     {
+      "clueFragment": "a knighthood",
+      "gives": "K",
+      "note": "K stands for a knight, as in KBE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALI",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Cinematic art that turns someone of a certain kind into a knight.",
+     "walkthrough": "'Art in films' looks like the craft of cinema; it is the actor Art Malik. 'The kind' is the preamble's class of answers, African countries.",
+     "definitionFit": "Art Malik is a British actor known for The Jewel in the Crown and True Lies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Art"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +737,61 @@
     "text": "Authoritative kings over central Australia",
     "enumeration": "9"
    },
-   "solution": "MAGISTRAL"
+   "solution": "MAGISTRAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MAGISTRAL",
+    "definitions": [
+     {
+      "text": "Authoritative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central",
+      "for": "letter_selection",
+      "note": "the central part is the core of the word, so only the middle letters are kept"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry one thing over another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kings",
+      "gives": "MAGI",
+      "note": "the Magi are the three kings of the Nativity"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "STRAL",
+      "select": "middle",
+      "note": "the five middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAGI",
+      "STRAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Powerful monarchs rule the red heart of a continent.",
+     "walkthrough": "'Central Australia' sounds like the outback, but it asks for the middle letters of the word.",
+     "definitionFit": "Magistral means of or befitting a master, hence commanding and authoritative in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +805,55 @@
     "text": "It's invariably half mixed",
     "enumeration": "5"
    },
-   "solution": "LIBYA"
+   "solution": "LIBYA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LIBYA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half a word is only part of it, so the other half is dropped"
+     },
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "something mixed has its parts stirred together, so the letters change order"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "invariably",
+      "gives": "INVARIABLY",
+      "note": "taken as written; its second half is kept"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IABLY",
+       "gives": "LIBYA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that something is always a fifty-fifty blend.",
+     "walkthrough": "'Invariably' reads as an adverb meaning always, but it is the raw letters: the back five are rearranged.",
+     "definitionFit": "The preamble tells you nearly half the answers are African countries, and this North African state is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invariably"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +867,70 @@
     "text": "Return of mayor partly depends on him",
     "enumeration": "5"
    },
-   "solution": "KENYA"
+   "solution": "KENYA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "KENYA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "deletion",
+      "note": "partly means only in part, so just some letters survive"
+     },
+     {
+      "text": "Return",
+      "for": "reversal",
+      "note": "returning is going back the way you came, so the letters run backwards"
+     },
+     {
+      "text": "depends on",
+      "for": "charade",
+      "note": "in a down entry what depends hangs below, so the other part comes first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "him",
+      "gives": "KEN",
+      "note": "any man's name will stand for him; Ken is a common one"
+     },
+     {
+      "clueFragment": "mayor",
+      "gives": "MAYOR",
+      "note": "taken as written; its second and third letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEN",
+      "YA"
+     ],
+     "reversals": [
+      {
+       "from": "AY",
+       "to": "YA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The mayor's re-election is partly down to one man.",
+     "walkthrough": "'Return' looks like an election result, but it reverses part of the word, which then hangs below KEN in this down clue.",
+     "definitionFit": "The preamble marks nearly half the answers as African nations, and this East African republic is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Return"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +944,57 @@
     "text": "Central America, sweetheart? Not sure",
     "enumeration": "7"
    },
-   "solution": "ERITREA"
+   "solution": "ERITREA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ERITREA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Central",
+      "for": "letter_selection",
+      "note": "the central part is the core, so only the middle letters are kept"
+     },
+     {
+      "text": "Not sure",
+      "for": "deletion",
+      "note": "the hesitation signals the term is incomplete, so it is cut short"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "ERI",
+      "select": "middle",
+      "note": "the three middle letters"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "TREACLE",
+      "note": "treacle is a British term of endearment, like honey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERI",
+      "TREA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates over whether to call Central America their sweetheart.",
+     "walkthrough": "Treacle, a dark syrup, is used in Britain as an affectionate term like honey or sweetie; here only its first four letters are used.",
+     "definitionFit": "The preamble flags about half the answers as African countries; this one lies on the Red Sea coast of the Horn of Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Central"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +1008,39 @@
     "text": "What's afoot with the books?",
     "enumeration": "7"
    },
-   "solution": "COOKING"
+   "solution": "COOKING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COOKING",
+    "definitions": [
+     {
+      "text": "What's afoot with the books?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's afoot with the books?",
+      "note": "surface reading: what is happening in the library or the reading"
+     },
+     {
+      "clueFragment": "What's afoot with the books?",
+      "note": "setter's reading: what fraud is being done to the accounts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The books' suggests reading matter but means a firm's accounts, and 'what's afoot' means what is going on.",
+     "definitionFit": "To cook the books is an idiom for falsifying financial records, so the activity under way is this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +1054,41 @@
     "text": "Keep talking!",
     "enumeration": "5"
    },
-   "solution": "GABON"
+   "solution": "GABON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GABON",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "talking",
+      "gives": "GAB",
+      "note": "gab is idle talk"
+     },
+     {
+      "clueFragment": "Keep",
+      "gives": "ON",
+      "note": "to keep doing something is to carry on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAB",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Read as an instruction the clue says 'gab on!', which spells the country. The preamble supplies the definition.",
+     "definitionFit": "The preamble says about half the answers are African countries, and this one lies on the Atlantic coast of central Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +1102,48 @@
     "text": "Loathe old English with article",
     "enumeration": "6"
    },
-   "solution": "UGANDA"
+   "solution": "UGANDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UGANDA",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Loathe old English",
+      "gives": "UG",
+      "note": "ug is an obsolete English verb meaning to dread or loathe"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and joins things just as with does"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UG",
+      "AND",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to hate the ancient tongue along with a grammar item.",
+     "walkthrough": "'Old English' sounds like the language of Beowulf, but it marks UG as an archaic word, not a language.",
+     "definitionFit": "The preamble signals nearly half the answers are African nations, and this landlocked East African state is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1157,38 @@
     "text": "... singly active, as you might say?",
     "enumeration": "4"
    },
-   "solution": "SPRY"
+   "solution": "SPRY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPRY",
+    "definitions": [
+     {
+      "text": "singly active",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "... singly active, as you might say?",
+      "note": "surface reading: a trailing remark about being busy on one's own"
+     },
+     {
+      "clueFragment": "... singly active, as you might say?",
+      "note": "setter's reading: a short everyday word for nimble or lively"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The leading dots tie the clue to the one before it; the core is simply a word meaning lively, offered with a question mark because the setter's playful reading is loose.",
+     "definitionFit": "Spry describes someone, typically elderly, who is lively and nimble on their feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singly"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1202,55 @@
     "text": "Bird first going to fly",
     "enumeration": "8"
    },
-   "solution": "BOTSWANA"
+   "solution": "BOTSWANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOTSWANA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "going to",
+      "for": "charade",
+      "note": "going to a place means arriving after it, so those parts are attached at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fly",
+      "gives": "BOT",
+      "note": "a bot is the larva of a botfly"
+     },
+     {
+      "clueFragment": "Bird",
+      "gives": "SWAN",
+      "note": "a swan is a bird"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "A",
+      "note": "A is first in the alphabet, as in A1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOT",
+      "SWAN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird takes off first in the flock.",
+     "walkthrough": "'Fly' reads as a verb but is the insect, a botfly.",
+     "definitionFit": "The preamble tells you about half the entries are African states, and this landlocked southern African one is among them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1264,55 @@
     "text": "First choice last? Good? Let 31 decide",
     "enumeration": "6"
    },
-   "solution": "ZAMBIA"
+   "solution": "ZAMBIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ZAMBIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "last",
+      "for": "charade",
+      "note": "what comes last is placed at the end, so it follows the other part"
+     }
+    ],
+    "linkWords": [
+     "Good?",
+     "Let",
+     "decide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "31",
+      "gives": "MOZAMBIQUE",
+      "note": "31 across; its middle five letters are kept"
+     },
+     {
+      "clueFragment": "First choice",
+      "gives": "A",
+      "note": "A is the top grade or first choice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZAMBI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unsure whether their top option should go last leaves the decision to another.",
+     "walkthrough": "The clue leans on 31, which hides most of this answer in its middle; this one and 31 are clued from each other, so solve them together.",
+     "definitionFit": "The preamble flags about half the answers as African countries, and this landlocked one in southern Africa qualifies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decide"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1326,57 @@
     "text": "Sculptor keeping setter employed?",
     "enumeration": "8"
    },
-   "solution": "CAMEROON"
+   "solution": "CAMEROON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CAMEROON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it, so one part goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sculptor",
+      "gives": "CARO",
+      "note": "Sir Anthony Caro was a British abstract sculptor"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the crossword setter refers to himself as me"
+     },
+     {
+      "clueFragment": "employed",
+      "gives": "ON",
+      "note": "someone on duty is employed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "ME",
+      "RO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Does a sculptor keep the crossword setter in work?",
+     "walkthrough": "Anthony Caro is the sculptor; the setter, Araucaria, goes inside his name, and ON follows.",
+     "definitionFit": "The preamble marks nearly half the answers as African nations, and Cameroon in west-central Africa is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "employed"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1390,50 @@
     "text": "The North Wind a healer?",
     "enumeration": "5"
    },
-   "solution": "GALEN"
+   "solution": "GALEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GALEN",
+    "definitions": [
+     {
+      "text": "a healer?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wind",
+      "gives": "GALE",
+      "note": "a gale is a strong wind"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N for north on a compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Could the north wind have healing powers?",
+     "walkthrough": "'The North Wind' looks like a single named wind, but it splits into two pieces, read in the opposite order to the clue.",
+     "definitionFit": "Galen was the Greek physician of the second century whose medical writings dominated Western medicine for centuries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1447,70 @@
     "text": "Conscription means a break for Eric from gin and ginger",
     "enumeration": "9"
    },
-   "solution": "LANDSTURM"
+   "solution": "LANDSTURM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LANDSTURM",
+    "definitions": [
+     {
+      "text": "Conscription",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking something away from a word removes it, so those letters disappear"
+     }
+    ],
+    "linkWords": [
+     "means",
+     "for",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gin",
+      "gives": "HOLLANDS",
+      "note": "Hollands is a Dutch gin"
+     },
+     {
+      "clueFragment": "a break",
+      "gives": "HOL",
+      "note": "hol is British slang for a holiday"
+     },
+     {
+      "clueFragment": "ginger",
+      "gives": "TURMERIC",
+      "note": "turmeric is a root in the ginger family"
+     },
+     {
+      "clueFragment": "Eric",
+      "gives": "ERIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANDS",
+      "TURM"
+     ]
+    },
+    "explanation": {
+     "surface": "A call-up gives Eric a rest from his gin and ginger.",
+     "walkthrough": "Two removals in parallel: a hol comes out of Hollands gin, and Eric comes out of turmeric, a spice from the ginger family.",
+     "definitionFit": "The Landsturm was the German and Swiss levy of reserve troops raised in emergencies, a general call to arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1524,56 @@
     "text": "Old time vessel for a politician (old time)",
     "enumeration": "7"
    },
-   "solution": "AMPHORA"
+   "solution": "AMPHORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMPHORA",
+    "definitions": [
+     {
+      "text": "Old time vessel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "old time",
+      "gives": "HORA",
+      "note": "hora is Latin for hour, a time in an old language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MP",
+      "HORA"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique vessel intended for a politician.",
+     "walkthrough": "'Old time' appears twice: first as part of the definition, then in brackets for a Latin word.",
+     "definitionFit": "An amphora is a tall two-handled jar used by ancient Greeks and Romans to carry wine or oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1587,58 @@
     "text": "Town in the West of Syria in romance",
     "enumeration": "7"
    },
-   "solution": "LARAMIE"
+   "solution": "LARAMIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LARAMIE",
+    "definitions": [
+     {
+      "text": "Town in the West",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing one thing in another puts it inside, so one piece is wrapped by the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Syria",
+      "gives": "ARAM",
+      "note": "Aram is the biblical name for Syria"
+     },
+     {
+      "clueFragment": "romance",
+      "gives": "LIE",
+      "note": "to romance is to tell fanciful untruths, so a romance is a lie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ARAM",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A settlement in western Syria features in a love story.",
+     "walkthrough": "'The West of Syria' looks like a region of Syria; the break comes after 'West', the American Wild West.",
+     "definitionFit": "Laramie is a city in Wyoming, famous from Western films and the TV series about frontier life there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1652,63 @@
     "text": "Ass keeps performing as tremor is overhead",
     "enumeration": "9"
    },
-   "solution": "MOONQUAKE"
+   "solution": "MOONQUAKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOONQUAKE",
+    "definitions": [
+     {
+      "text": "tremor is overhead",
+      "at": 24,
+      "note": "a clause: a tremor that is up above us"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep is to hold onto, so one part sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ass",
+      "gives": "MOKE",
+      "note": "moke is British slang for a donkey"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer is on stage"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "QUA",
+      "note": "qua is Latin for in the capacity of, as"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ON",
+      "QUA",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "A donkey keeps performing while the ground shakes above.",
+     "walkthrough": "A moke is a donkey in British slang. Qua, as in 'art qua art', means as.",
+     "definitionFit": "A moonquake is a seismic shaking of the lunar surface, so an earthquake happening up in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Ass"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1722,57 @@
     "text": "Number of French scholars with Poles exchanged",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ELEVEN",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchanged",
+      "for": "substitution",
+      "note": "exchanging swaps one thing for another, so one letter replaces another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French scholars",
+      "gives": "ELEVES",
+      "note": "élèves is French for pupils"
+     },
+     {
+      "clueFragment": "Poles",
+      "gives": "SN",
+      "note": "S and N are the south and north poles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A count of French students who traded places with Polish ones.",
+     "walkthrough": "'Poles' looks like people from Poland but means the two magnetic poles: south becomes north at the end of the French word.",
+     "definitionFit": "Eleven is the cardinal number one more than ten, the count in a football or cricket team."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1786,62 @@
     "text": "He backed taking top off bone",
     "enumeration": "7"
    },
-   "solution": "NAMIBIA"
+   "solution": "NAMIBIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NAMIBIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "moving back goes the other way, so the letters run in reverse"
+     },
+     {
+      "text": "taking top off",
+      "for": "deletion",
+      "note": "removing the top of a word drops its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "MAN",
+      "note": "he is a man"
+     },
+     {
+      "clueFragment": "bone",
+      "gives": "TIBIA",
+      "note": "the tibia is the shinbone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAM",
+      "IBIA"
+     ],
+     "reversals": [
+      {
+       "from": "MAN",
+       "to": "NAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man retreats after having the top knocked off a bone.",
+     "walkthrough": "'Backed' sounds like supported, but it turns MAN round.",
+     "definitionFit": "The preamble marks nearly half the answers as African nations, and Namibia on the south-west coast is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1855,67 @@
     "text": "A fellow holds above boy over water",
     "enumeration": "8"
    },
-   "solution": "AMERICAN"
+   "solution": "AMERICAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AMERICAN",
+    "definitions": [
+     {
+      "text": "over water",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "holding something keeps it within, so one piece goes inside"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down entry what is above comes first, so the single letter leads"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "ERIC",
+      "note": "a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "ERIC",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man holds a boy up above the water.",
+     "walkthrough": "'Over water' is the definition: Americans are from across the Atlantic, over the pond as the British say.",
+     "definitionFit": "To a Briton, someone from the USA lives across the ocean, so a person from over the water fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1935,71 @@
      }
     ]
    },
-   "solution": "SIERRALEONE"
+   "solution": "SIERRALEONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone",
+     "container"
+    ],
+    "answer": "SIERRA LEONE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "homophone",
+      "for": "homophone",
+      "note": "a homophone is a word pronounced the same as another, so the spelling changes but the sound does not"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "putting something into another places it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slip",
+      "gives": "ERR",
+      "note": "to err is to slip up"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "LEO",
+      "note": "Leo is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "its",
+      "gives": "SINE",
+      "soundsLike": "SIGN",
+      "note": "the trigonometric function pronounced like the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "ERR",
+      "A",
+      "LEO",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to slide a symbol into a word that sounds like it.",
+     "walkthrough": "'Sign' does double duty: as a zodiac sign it is LEO, and its sound-alike is the trigonometric sine, which wraps around everything else.",
+     "definitionFit": "The preamble flags nearly half the answers as African countries, and Sierra Leone on the West African coast is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +2013,70 @@
     "text": "Say 'Ha bloody ha' when some explosive raised lives",
     "enumeration": "6"
    },
-   "solution": "TMESIS"
+   "solution": "TMESIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TMESIS",
+    "definitions": [
+     {
+      "text": "Say 'Ha bloody ha'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "deletion",
+      "note": "some is only part of the whole, so the rest is dropped"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry raising something turns it upwards, so the letters read in reverse"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explosive",
+      "gives": "SEMTEX",
+      "note": "Semtex is a plastic explosive"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "to live is to be, so lives means is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TMES",
+      "IS"
+     ],
+     "reversals": [
+      {
+       "from": "SEMT",
+       "to": "TMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sarcastic retort when a bomb goes up and people survive.",
+     "walkthrough": "'Say' here means for example: 'Ha bloody ha' splits a phrase with an inserted word, as in abso-bloody-lutely.",
+     "definitionFit": "Tmesis is the rhetorical device of separating parts of a word or phrase by inserting another word between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 30,
@@ -500,7 +2096,78 @@
      }
     ]
    },
-   "solution": "MUSICPAPER"
+   "solution": "MUSICPAPER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "MUSIC PAPER",
+    "definitions": [
+     {
+      "text": "where staff appears repeatedly",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new has been remade, so the letters take a fresh order"
+     },
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "a thing in which another sits holds it, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "campus",
+      "gives": "CAMPUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "PER",
+      "note": "per means by, as in miles per hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUS",
+      "I",
+      "CPA",
+      "PER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAMPUS",
+       "gives": "MUSCPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new university site where I get by, though the staff keep turning up.",
+     "walkthrough": "'Staff' looks like employees, but it is the musical staff or stave, the five lines printed again and again down the page.",
+     "definitionFit": "Music paper is ruled with sets of five-line staves, so the staff recurs all the way down each sheet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 31,
@@ -514,7 +2181,56 @@
     "text": "Most of a fabric contains most of 18",
     "enumeration": "10"
    },
-   "solution": "MOZAMBIQUE"
+   "solution": "MOZAMBIQUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MOZAMBIQUE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of something is not quite all, so letters drop off the end"
+     },
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "a container holds things within, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a fabric",
+      "gives": "MOQUETTE",
+      "note": "moquette is a thick pile fabric used for upholstery and carpets"
+     },
+     {
+      "clueFragment": "18",
+      "gives": "ZAMBIA",
+      "note": "18 down; its last letter is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ZAMBI",
+      "QUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cloth is mostly made of a substance numbered 18.",
+     "walkthrough": "Moquette is the plush fabric on British bus and train seats. Both pieces are trimmed, and 18 is clued from this answer in turn.",
+     "definitionFit": "The preamble marks about half the answers as African countries, and Mozambique on the south-east coast is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fabric"
+    }
+   }
   },
   {
    "number": 32,
@@ -528,7 +2244,53 @@
     "text": "Timeless dance at 27 city",
     "enumeration": "6"
    },
-   "solution": "ANGOLA"
+   "solution": "ANGOLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANGOLA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "without time means losing the letter that stands for time"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "TANGO",
+      "note": "the tango is a dance"
+     },
+     {
+      "clueFragment": "27 city",
+      "gives": "LA",
+      "note": "27 is AMERICAN, and LA is Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGO",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "An eternal dance performed in an American city.",
+     "walkthrough": "T is the abbreviation for time, so 'timeless' strips it from the dance.",
+     "definitionFit": "The preamble flags nearly half the answers as African nations, and Angola on the south-west Atlantic coast qualifies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Timeless"
+    }
+   }
   },
   {
    "number": 33,
@@ -548,7 +2310,66 @@
      }
     ]
    },
-   "solution": "BURKINAFASO"
+   "solution": "BURKINAFASO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BURKINA FASO",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a covering wraps around, so one piece goes inside it"
+     }
+    ],
+    "linkWords": [
+     "of need"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "garment",
+      "gives": "BURKA",
+      "note": "a burka is a full-body covering robe"
+     },
+     {
+      "clueFragment": "Short distance",
+      "gives": "FA",
+      "note": "FAR, a distance, cut short"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "SO",
+      "note": "so and as both mean in this manner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURK",
+      "IN",
+      "A",
+      "FA",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "A short walk inside an enveloping robe, as necessity demands.",
+     "walkthrough": "'Covering garment' reads as one phrase, but 'covering' is the instruction and the garment is a burka. FAR is shortened to FA.",
+     "definitionFit": "The preamble tells you nearly half the answers are African countries; this landlocked West African state is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 34,
@@ -562,7 +2383,57 @@
     "text": "Obsession about Roundhead not going to extremes?",
     "enumeration": "10"
    },
-   "solution": "MAURITANIA"
+   "solution": "MAURITANIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MAURITANIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "not going to extremes",
+      "for": "deletion",
+      "note": "avoiding the extremes means losing both ends, so the first and last letters go"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obsession",
+      "gives": "MANIA",
+      "note": "a mania is an obsession"
+     },
+     {
+      "clueFragment": "Roundhead",
+      "gives": "PURITAN",
+      "note": "the Roundheads of the English Civil War were largely Puritans"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "URITA",
+      "NIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A fixation with a Puritan soldier who never goes too far.",
+     "walkthrough": "Roundheads were Parliament's side in the English Civil War, named for their cropped hair and mostly Puritans; the soldier loses both ends.",
+     "definitionFit": "The preamble flags about half the answers as African states, and Mauritania in north-west Africa is one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "extremes"
+    }
+   }
   },
   {
    "number": 35,
@@ -582,7 +2453,49 @@
      }
     ]
    },
-   "solution": "SOUTHAFRICA"
+   "solution": "SOUTHAFRICA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTH AFRICA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "a change alters the order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chaos, a fruit",
+      "gives": "CHAOSAFRUIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAOSAFRUIT",
+       "gives": "SOUTHAFRICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disorder is described as what comes out of upheaval.",
+     "walkthrough": "'A fruit of change' sounds like a result of reform, perhaps the end of apartheid, but 'change' simply rearranges the letters before it.",
+     "definitionFit": "The preamble marks nearly half the answers as African countries, and South Africa at the continent's southern tip is one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 36,
@@ -596,7 +2509,52 @@
     "text": "Bond is inadequate at 0.9266 kph",
     "enumeration": "9"
    },
-   "solution": "HALFAKNOT"
+   "solution": "HALFAKNOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HALFAKNOT",
+    "definitions": [
+     {
+      "text": "0.9266 kph",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inadequate",
+      "gives": "HALFA",
+      "note": "half a, as in only half a portion, is not enough"
+     },
+     {
+      "clueFragment": "Bond",
+      "gives": "KNOT",
+      "note": "a knot binds things together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALFA",
+      "KNOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy is moving too slowly, at under one kilometre an hour.",
+     "walkthrough": "'Bond' suggests James Bond but means a tie. A knot is one nautical mile, 1.852 km, per hour, so half of it is about 0.926 kph.",
+     "definitionFit": "Since a nautical mile per hour equals about 1.85 kilometres per hour, a speed of around 0.93 kph is precisely half of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 37,
@@ -610,7 +2568,51 @@
     "text": "Entreat key state to stir",
     "enumeration": "9"
    },
-   "solution": "FLAGITATE"
+   "solution": "FLAGITATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAGITATE",
+    "definitions": [
+     {
+      "text": "Entreat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key state",
+      "gives": "FL",
+      "note": "FL is Florida, the US state famous for its Keys"
+     },
+     {
+      "clueFragment": "stir",
+      "gives": "AGITATE",
+      "note": "to agitate is to stir up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "AGITATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea for an important nation to take action.",
+     "walkthrough": "'Key state' looks like an important country, but it is Florida, whose islands are the Florida Keys.",
+     "definitionFit": "Flagitate is a rare word meaning to demand or beg for something with persistence, an importunate request."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 38,
@@ -624,7 +2626,67 @@
     "text": "A lot of old folk in false starts",
     "enumeration": "7"
    },
-   "solution": "NIGERIA"
+   "solution": "NIGERIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NIGERIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "something false is not genuine, so the letters are not in their true order"
+     },
+     {
+      "text": "A lot of",
+      "for": "deletion",
+      "note": "a lot of something is not all of it, so letters fall away"
+     },
+     {
+      "text": "starts",
+      "for": "charade",
+      "note": "what starts comes at the beginning, so this part leads"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old folk",
+      "gives": "GERIATRICS",
+      "note": "geriatrics are elderly people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "GERIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IN",
+       "gives": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many elderly people are involved in a race that keeps beginning badly.",
+     "walkthrough": "'False starts' reads as an athletics term, but it splits: the two-letter word is rearranged and then starts the answer, ahead of most of the old folk.",
+     "definitionFit": "The preamble flags nearly half the answers as African nations, and Nigeria in West Africa is the most populous of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 39,
@@ -638,7 +2700,63 @@
     "text": "English greeting put in hat first",
     "enumeration": "8"
    },
-   "solution": "ETHIOPIA"
+   "solution": "ETHIOPIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ETHIOPIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "something put in a thing goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E for English"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "TOPI",
+      "note": "a topi is a pith helmet worn against the sun"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "A",
+      "note": "A is first, as in A1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "T",
+      "HI",
+      "OPI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman says hello and tips his hat first.",
+     "walkthrough": "A topi or topee is the sun helmet of colonial days. 'First' looks like an instruction to put something at the front, but it supplies the letter A.",
+     "definitionFit": "The preamble marks about half the answers as African countries, and Ethiopia in the Horn of Africa is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 40,
@@ -652,7 +2770,55 @@
     "text": "A following like that one in 9 across",
     "enumeration": "7"
    },
-   "solution": "SOMALIA"
+   "solution": "SOMALIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOMALIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "what follows comes after, so this letter goes at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like that",
+      "gives": "SO",
+      "note": "so means in that way"
+     },
+     {
+      "clueFragment": "one in 9 across",
+      "gives": "MALI",
+      "note": "the country that starts 9 across"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "MALI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone follows the pattern set by an earlier example.",
+     "walkthrough": "9 across, MALIK, contains the country Mali; 'that one in 9 across' points to it.",
+     "definitionFit": "The preamble says nearly half the answers are African nations, and Somalia on the Horn of Africa is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 41,
@@ -666,7 +2832,62 @@
     "text": "Communication with a sweet girl I left",
     "enumeration": "7"
    },
-   "solution": "AIRMAIL"
+   "solution": "AIRMAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRMAIL",
+    "definitions": [
+     {
+      "text": "Communication",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sweet girl",
+      "gives": "IRMA",
+      "note": "Irma la Douce, Irma the sweet, from the musical and film"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IRMA",
+      "I",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A message to a lovely girl I once abandoned.",
+     "walkthrough": "The sweet girl is Irma la Douce, title heroine of a French musical and a Billy Wilder film; douce is French for sweet.",
+     "definitionFit": "Airmail is post carried by aircraft, so a letter sent that way is a form of correspondence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 42,
@@ -680,7 +2901,54 @@
     "text": "Almost all - almost all 38",
     "enumeration": "7"
    },
-   "solution": "ALGERIA"
+   "solution": "ALGERIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALGERIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means just short of the whole, so the final letter goes"
+     },
+     {
+      "text": "almost all",
+      "for": "deletion",
+      "note": "nearly the whole thing is kept, so letters are trimmed off the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "38",
+      "gives": "NIGERIA",
+      "note": "38 across"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "GERIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A terse note that a job is nearly done.",
+     "walkthrough": "The same instruction is applied twice: once to the word all, once to 38, which loses its first two letters.",
+     "definitionFit": "The preamble flags about half the answers as African countries, and Algeria, Africa's largest, is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 43,
@@ -694,7 +2962,70 @@
     "text": "Clumsy bird of 17 is put back in it",
     "enumeration": "5"
    },
-   "solution": "INEPT"
+   "solution": "INEPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "INEPT",
+    "definitions": [
+     {
+      "text": "Clumsy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means turned the other way, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird of 17",
+      "gives": "PEN",
+      "note": "17 contains SWAN, and a pen is a female swan"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NEP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PEN",
+       "to": "NEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An awkward bird from Botswana is returned to its place.",
+     "walkthrough": "17 across, BOTSWANA, has a swan in it; the female swan is a pen.",
+     "definitionFit": "Inept means lacking skill or awkward in action, a straightforward synonym for ham-fisted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 44,
@@ -708,7 +3039,56 @@
     "text": "Russian girl embracing a far country",
     "enumeration": "8"
    },
-   "solution": "TANZANIA"
+   "solution": "TANZANIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TANZANIA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "an embrace wraps arms around, so one part goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian girl",
+      "gives": "TANIA",
+      "note": "Tania is a Russian girl's name"
+     },
+     {
+      "clueFragment": "far country",
+      "gives": "NZ",
+      "note": "New Zealand, as far away as a country can be from Britain"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "NZ",
+      "A",
+      "NIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian girl hugs a faraway land.",
+     "walkthrough": "New Zealand is the far country; it and the A go inside the girl's name.",
+     "definitionFit": "The preamble marks nearly half the answers as African countries, and Tanzania in East Africa is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 44,
@@ -722,7 +3102,55 @@
     "text": "Story about blackboard?",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "board?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about a school blackboard.",
+     "walkthrough": "'Blackboard' looks like one word but splits: black gives a letter and board is the definition.",
+     "definitionFit": "A board can mean a table, as in the festive board or board and lodging, where meals are served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "blackboard"
+    }
+   }
   },
   {
    "number": 45,
@@ -736,7 +3164,44 @@
     "text": "Fool with tomb in play in play",
     "enumeration": "5"
    },
-   "solution": "NINNY"
+   "solution": "NINNY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NINNY",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     },
+     {
+      "text": "with tomb in play in play",
+      "at": 5,
+      "note": "a name: whose tomb appears in the play within the play"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "note": "first meaning: a silly person"
+     },
+     {
+      "clueFragment": "with tomb in play in play",
+      "note": "second meaning: Bottom's misnaming of Ninus in the Pyramus and Thisbe play inside A Midsummer Night's Dream"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The repeated 'in play' is no misprint: in A Midsummer Night's Dream the mechanicals stage a play within the play, where Bottom calls Ninus' tomb 'Ninny's tomb'.",
+     "definitionFit": "A ninny is a foolish simpleton, and the same word is Shakespeare's comic blunder for the tomb of Ninus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 46,
@@ -750,7 +3215,34 @@
     "text": "Boldly in future?",
     "enumeration": "4"
    },
-   "solution": "TOGO"
+   "solution": "TOGO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TOGO",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Boldly in future?",
+      "note": "surface reading: acting bravely in the times ahead"
+     },
+     {
+      "clueFragment": "Boldly in future?",
+      "note": "setter's reading: the phrase meaning still ahead, with boldly placed inside it as in Star Trek's split infinitive"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Star Trek's 'to boldly go' splits a two-word phrase that means yet to come; put boldly in that phrase and you have the motto. It also illustrates 29 down.",
+     "definitionFit": "The preamble flags nearly half the answers as African nations, and this narrow West African state is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boldly"
+    }
+   }
   },
   {
    "number": 47,
@@ -764,7 +3256,55 @@
     "text": "Relation by marriage lost in island",
     "enumeration": "6"
    },
-   "solution": "MALAWI"
+   "solution": "MALAWI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MALAWI",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost has gone missing, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relation by marriage",
+      "gives": "MAINLAW",
+      "note": "a ma-in-law, short for mother-in-law"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; these letters are dropped"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I for island, as on maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALAW",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An in-law has gone missing on an island.",
+     "walkthrough": "'Lost in island' looks like a castaway, but 'lost' takes the IN out of ma-in-law.",
+     "definitionFit": "The preamble marks about half the answers as African countries, and landlocked Malawi in south-east Africa is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 48,
@@ -778,7 +3318,49 @@
     "text": "A man, for example, in church?",
     "enumeration": "5"
    },
-   "solution": "AISLE"
+   "solution": "AISLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AISLE",
+    "definitions": [
+     {
+      "text": "in church?",
+      "at": 20,
+      "note": "describes the answer: something found in church"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man, for example",
+      "gives": "ISLE",
+      "note": "the Isle of Man is an example of an isle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ISLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at church is being offered as an example of a man.",
+     "walkthrough": "'Man' looks like a person but is the Isle of Man, a self-governing island in the Irish Sea.",
+     "definitionFit": "An aisle is the passage between rows of pews in a church, walked by a bride at a wedding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 49,
@@ -792,7 +3374,57 @@
     "text": "Broadcast giving uplift to the enemy?",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Broadcast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplift",
+      "for": "reversal",
+      "note": "lifting up turns a down entry upside down, so its letters read in reverse"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the enemy",
+      "gives": "TIME",
+      "note": "time is the enemy, as in the phrase 'time is the enemy'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Propaganda that boosts the morale of the foe.",
+     "walkthrough": "'The enemy' is time, as in the saying, and the question mark admits the stretch.",
+     "definitionFit": "To emit is to send out, as a transmitter sends out a signal over the airwaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uplift"
+    }
+   }
   },
   {
    "number": 50,
@@ -806,7 +3438,43 @@
     "text": "Head over wall been punched?",
     "enumeration": "4"
    },
-   "solution": "CHAD"
+   "solution": "CHAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHAD",
+    "definitions": [
+     {
+      "text": "Head over wall",
+      "at": 0
+     },
+     {
+      "text": "been punched?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head over wall",
+      "note": "first meaning: the British wartime doodle of a face peeping over a wall, captioned 'Wot no...?'"
+     },
+     {
+      "clueFragment": "been punched?",
+      "note": "second meaning: the scrap of paper knocked out when a hole is punched in a card or ballot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Chad was the British cousin of Kilroy, a cartoon nose and eyes over a wall. It is also an African country, per the preamble.",
+     "definitionFit": "The wartime graffito bore this name, and the same word means the paper fragment from a punched ballot, as in Florida's 'hanging' ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "punched"
+    }
+   }
   },
   {
    "number": 51,
@@ -820,7 +3488,48 @@
     "text": "Kind, not good",
     "enumeration": "5"
    },
-   "solution": "BENIN"
+   "solution": "BENIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BENIN",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means it is absent, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind",
+      "gives": "BENIGN",
+      "note": "benign means kind"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BENI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Kind' looks like a definition, an adjective; here it is wordplay, since the preamble defines the country.",
+     "definitionFit": "The preamble says about half the answers are African countries, and Benin in West Africa is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 52,
@@ -834,7 +3543,61 @@
     "text": "Social worker, more than a bit of a nut, confronts queen",
     "enumeration": "7"
    },
-   "solution": "ALMONER"
+   "solution": "ALMONER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALMONER",
+    "definitions": [
+     {
+      "text": "Social worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "more than a bit of",
+      "for": "deletion",
+      "note": "more than a bit but not the whole, so the final letter is lost"
+     },
+     {
+      "text": "confronts",
+      "for": "charade",
+      "note": "to confront is to stand face to face, so the two parts sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nut",
+      "gives": "ALMOND",
+      "note": "an almond is a nut"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALMON",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A slightly nutty social worker squares up to the Queen.",
+     "walkthrough": "'More than a bit of a nut' reads like a jibe about the worker; it asks for most of the word ALMOND. ER is the royal cipher of Elizabeth Regina.",
+     "definitionFit": "An almoner was a hospital official in Britain who handled patients' welfare, the forerunner of the medical social worker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 53,
@@ -854,7 +3617,54 @@
      }
     ]
    },
-   "solution": "HEADSUP"
+   "solution": "HEADSUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADS-UP",
+    "definitions": [
+     {
+      "text": "Alert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reform",
+      "for": "anagram",
+      "note": "to reform is to form again, so the letters are rebuilt in a new order"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pushed a",
+      "gives": "PUSHEDA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUSHEDA",
+       "gives": "HEADSUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning sounds after someone has driven through a change in the rules.",
+     "walkthrough": "'Alert' is a noun here, a warning, rather than the adjective it first seems to be.",
+     "definitionFit": "A heads-up is an advance warning that lets someone prepare, so it serves as a noun for an alert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 54,
@@ -868,7 +3678,57 @@
     "text": "Say you start gymnastics",
     "enumeration": "5"
    },
-   "solution": "EGYPT"
+   "solution": "EGYPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EGYPT",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "e.g., for example"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "gymnastics",
+      "gives": "PT",
+      "note": "PT, physical training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "Y",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to begin a gym session.",
+     "walkthrough": "'Start' looks like a verb you obey, but it takes the first letter of the word before it. PT is physical training, the British school name for gym lessons.",
+     "definitionFit": "The preamble marks nearly half the answers as African nations, and Egypt in the north-east is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 55,
@@ -888,7 +3748,73 @@
      }
     ]
    },
-   "solution": "EXTRAHARD"
+   "solution": "EXTRAHARD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXTRA HARD",
+    "definitions": [
+     {
+      "text": "HHH, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having caught",
+      "for": "container",
+      "note": "to catch something is to hold it, so one piece goes inside another"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the other way, so the letters read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "DR, the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "AXE",
+      "note": "to axe is to cut"
+     },
+     {
+      "clueFragment": "4 down",
+      "gives": "HART",
+      "note": "4 down is STAG, and a hart is a male deer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRAH",
+      "ARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAHARTXE",
+       "to": "EXTRAHARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pencil grade, perhaps: a doctor who has caught a stag cuts back.",
+     "walkthrough": "Pencils are graded by hardness, with H for hard, so HHH is a very hard lead. 'Back' applies to the whole assembled string, not just the cut.",
+     "definitionFit": "Pencil grades run from B for soft to H for hard, so a triple H lead is a very firm one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 56,
@@ -902,7 +3828,50 @@
     "text": "Musical start for poet and painter?",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start for poet",
+      "gives": "OPE",
+      "note": "ope is a poetic form of open, which means start"
+     },
+     {
+      "clueFragment": "painter",
+      "gives": "RA",
+      "note": "RA, a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPE",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A song-filled opening for a poet and an artist.",
+     "walkthrough": "'Musical' looks like an adjective but is a noun, a musical work; 'start for poet' is the poet's word for open.",
+     "definitionFit": "An opera is a drama set to music and sung throughout, a classical cousin of the stage musical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Musical"
+    }
+   }
   }
  ]
 }
