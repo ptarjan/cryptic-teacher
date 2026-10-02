@@ -34,6 +34,10 @@ So this writes real HTML files alongside the app:
                            from tools/difficulty_page.html with every number
                            filled in from tools/difficulty.py and
                            tools/data/difficulty_check.json.
+  showcase/index.html      puzzles with something unusual about them: a message
+                           hidden in the grid, a jigsaw, a record. Picked by
+                           tools/showcase.py from facts every puzzle page's
+                           render reads off its file, so it costs no extra pass.
   sitemap.xml              a sitemap index: sitemap-recent.xml (the pages that
                            change daily and the last 60 days of puzzles) and
                            sitemap-archive-<n>.xml (every older puzzle), all
@@ -72,6 +76,7 @@ import difficulty  # noqa: E402 — the weights, bands and constants /difficulty
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import provenance  # noqa: E402 — solution_detail(), source_url()
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
+import showcase  # noqa: E402 — which puzzles /showcase/ picks, and why
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
 import puzzle_paths  # noqa: E402 — one puzzles/ for every tool
@@ -344,6 +349,7 @@ FOOTER = f"""<footer>
   <a href="{BASE}/abbreviations/">Crossword abbreviations</a> &middot;
   <a href="{BASE}/indicators/">Crossword indicators</a> &middot;
   <a href="{BASE}/difficulty/">How difficulty is rated</a> &middot;
+  <a href="{BASE}/showcase/">Unusual puzzles</a> &middot;
   <a href="https://github.com/ptarjan/cryptic-teacher">Source code</a>.</p>
 </footer>
 </body>
@@ -730,8 +736,10 @@ def puzzle_page(puz, meta, prev_p, next_p):
 
 # ------------------------------------------------------------------ hub page
 
-def hub_row(p):
-    """One archive row. Every listing page is made of these and nothing else."""
+def hub_row(p, note=None):
+    """One archive row. Every listing page is made of these and nothing else.
+    With `note` it is a showcase row: what is unusual about the puzzle takes
+    the place of the hints badges, which say nothing about why it was picked."""
     d = p.get("difficulty") or {}
     when = datestr(p)
     badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
@@ -745,6 +753,8 @@ def hub_row(p):
     # sourceBadge() in app.js.
     ours = ('<span class="badge auto">unverified answers</span>'
             if p.get("solutionsUnofficial") else "")
+    if note is not None:
+        hints, ours = (f'<span class="badge full">{esc(note)}</span>' if note else ""), ""
     # Every row is badged, because the numbers alone ("No 1,393" among the
     # 30,000s) don't explain themselves and an unbadged row reads as one we
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
@@ -1354,6 +1364,39 @@ def difficulty_page(idx):
         + "\n".join(body) + "\n" + FOOTER
 
 
+# -------------------------------------------------------------- showcase page
+
+def showcase_page(facts, meta):
+    """/showcase/: tools/showcase.py's sections, each a heading, one sentence
+    on what makes its puzzles unusual, and their archive rows."""
+    title = "Unusual cryptic crosswords: hidden messages, jigsaws and records"
+    desc = ("Cryptic crosswords with something special about them: messages hidden in "
+            "the grid, jigsaw grids, every letter of the alphabet, unusual grid shapes, the "
+            "longest answers, the hardest and the oldest puzzles.")
+    canonical = f"{BASE}/showcase/"
+    crumbs = [("Cryptic Teacher", "/"), ("Unusual puzzles", "")]
+    secs = showcase.sections(f for f in facts if f["id"] in meta)
+    body = [masthead(crumbs), '<main class="static-main">',
+            "<h1>Unusual puzzles</h1>",
+            "<p>Most cryptic crosswords follow the same pattern. These break it, or set "
+            "a record. Each one opens on its page with every answer; from there you can "
+            "solve it with hints.</p>",
+            '<p class="s-years">' + " &middot; ".join(
+                f'<a href="#{slug}">{esc(heading)}</a>' for slug, heading, _, _ in secs)
+            + "</p>"]
+    for slug, heading, blurb, cards in secs:
+        body += [f'<section id="{slug}"><h2>{esc(heading)}</h2>', f"<p>{esc(blurb)}</p>",
+                 '<ul class="s-index">'
+                 + "".join(hub_row(meta[f["id"]], note) for f, note in cards)
+                 + "</ul></section>"]
+    body += [f'<p class="s-cta"><a class="cta" href="{BASE}/puzzles/">All puzzles, by paper '
+             "and year &rarr;</a></p>", "</main>"]
+    list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
+               "name": title, "url": canonical, "description": desc}
+    return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
 # --------------------------------------------------------- abbreviations page
 
 def letters_of(s):
@@ -1683,7 +1726,8 @@ def sitemap_urls(idx):
               (f"{BASE}/learn/", "monthly", "0.8", None),
               (f"{BASE}/abbreviations/", "weekly", "0.8", None),
               (f"{BASE}/indicators/", "weekly", "0.8", None),
-              (f"{BASE}/difficulty/", "weekly", "0.6", None)]
+              (f"{BASE}/difficulty/", "weekly", "0.6", None),
+              (f"{BASE}/showcase/", "weekly", "0.7", None)]
     for s, years in listings(idx).items():
         newest = next(iter(years.values()))[0]
         recent.append((site_url(series_path(s)), "daily", "0.9",
@@ -1758,7 +1802,8 @@ def homepage_nav(idx):
      New to cryptics? Start with <a href="{BASE}/learn/">how cryptic clues work</a>,
      the <a href="{BASE}/abbreviations/">common abbreviations</a> and
      <a href="{BASE}/indicators/">indicators</a>, read
-     <a href="{BASE}/difficulty/">how difficulty is rated</a>, or browse
+     <a href="{BASE}/difficulty/">how difficulty is rated</a>, see
+     <a href="{BASE}/showcase/">puzzles with something unusual about them</a>, or browse
      <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>.</p>
 </section>
 {NAV_END}"""
@@ -1919,9 +1964,10 @@ def series_neighbours(stubs):
 def puzzle_page_job(i):
     """Render, check and write puzzle page i of the solved list, in a worker.
 
-    Returns (path, stale, blocks, found): whether the file on disk differed,
-    and this page's own clue_blocks() and clue_indicators() candidates, which
-    outputs() merges in page order into exactly what one serial pass builds.
+    Returns (path, stale, blocks, found, facts): whether the file on disk
+    differed, this page's own clue_blocks() and clue_indicators() candidates,
+    which outputs() merges in page order into exactly what one serial pass
+    builds, and what /showcase/ needs to know about the puzzle.
     The text stays in the worker, so no page crosses a pipe.
     """
     solved, neighbours, meta, check = _PAGES
@@ -1933,7 +1979,8 @@ def puzzle_page_job(i):
     clue_blocks(blocks, puz, page)
     clue_indicators(found, puz, page)
     path = puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html"
-    return path, write_output(path, relative_links(page, PUZZLE_ROOT), check), blocks, found
+    return (path, write_output(path, relative_links(page, PUZZLE_ROOT), check), blocks, found,
+            showcase.facts(puz, meta.get(puz["id"])))
 
 
 def write_output(p, text, check):
@@ -1978,10 +2025,11 @@ def outputs(check=False):
                              "claim one URL, and only one of them could be served")
         claimed.add(p)
 
-    blocks, found = {}, {}
+    blocks, found, facts = {}, {}, []
     _PAGES = solved, series_neighbours(stubs), meta, check
-    for path, stale, page_blocks, page_found in parallel.pmap(puzzle_page_job,
-                                                              range(len(solved))):
+    for path, stale, page_blocks, page_found, page_facts in parallel.pmap(
+            puzzle_page_job, range(len(solved))):
+        facts.append(page_facts)
         for key, cands in page_blocks.items():
             blocks.setdefault(key, []).extend(cands)
         for key, cand in page_found.items():
@@ -2002,6 +2050,7 @@ def outputs(check=False):
         # Relative, like the puzzle pages: nearly four thousand example links.
         yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
         yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
+        yield ROOT / "showcase" / "index.html", showcase_page(facts, meta)
         yield from sitemaps(idx)
         yield home
     for p, text in rest():

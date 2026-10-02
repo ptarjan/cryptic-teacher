@@ -224,6 +224,8 @@ LAYOUT = [
     ("building and checking the site", "tools/stamp_assets.py", "cache-busting ?v= stamps; the smoke test fails on a stale one"),
     ("building and checking the site", "tools/puzzle_tags.py", "what is unusual about each puzzle (pangram, barred grid, special rules…), read off its file; reindex writes the tags into the index, and the app badges them and filters the picker by them"),
     ("building and checking the site", "tools/test_puzzle_tags.sh", "is each tag on a real puzzle that has it and off the look-alike that does not (a feed that lost its clues is not unclued, an erratum is not special rules, a model's solve is never a pangram)?"),
+    ("building and checking the site", "tools/showcase.py", "the puzzles /showcase/ picks out and why (a message hidden in the grid, a jigsaw, a record), from facts build_seo_pages reads off each file as it renders its page"),
+    ("building and checking the site", "tools/test_showcase.sh", "is each showcase detector on a real puzzle that has the feature and off the look-alike (hidden in the clue is not hidden in the grid, a book's year is not a print date), and does a puzzle show only once?"),
     ("building and checking the site", "tools/test_puzzle_tag_badges.js", "does a tagged puzzle's title badge its tag, and does the picker's feature menu list exactly the puzzles with that tag, the double pangrams under pangram?"),
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
     ("building and checking the site", "tools/fake_dom.js", "the fake DOM that boots the real app.js under Node, shared by every harness"),
