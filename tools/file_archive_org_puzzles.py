@@ -61,6 +61,13 @@ beside it over "CROSSWORD SOLUTION 20,537", and three clue columns, the
 third under that solution grid. Its numbers are our cryptic series' (the
 feed starts at 21,620), so a puzzle files as cryptic-N.
 
+--paper telegraph does the same for the Daily Telegraph (items
+TheDailyTelegraph19xxUKEnglish and SundayTelegraph1971UKEnglish): "No.
+18,340 ACROSS" heads the left of two clue columns, DOWN the right, and
+the grid is under them (clues_above); the previous puzzle's grid prints
+under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
+(No 25,846 in Feb 2009), so a puzzle files as telegraph-N.
+
 Resumable: ~/.cache/archive_org_editions/filed.jsonl records each edition's
 headings and verdicts against its files and this code's hash.
 """
@@ -115,7 +122,7 @@ PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
 CODE = [Path(__file__), TOOLS / "file_trove_puzzles.py", TOOLS / "trove_grid.py",
         TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv",
         TOOLS / "data" / "lexicon.tsv", TOOLS / "data" / "clue_lm.tsv.gz",
-        TOOLS / "data" / "archive_org_tess.traineddata", TOOLS / "vlm_reader.py"]
+        TOOLS / "data" / "archive_org_tess.traineddata", TOOLS / "vlm_reader.py", TOOLS / "ocr_clues.py"]
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
@@ -201,13 +208,65 @@ def grid_box(img, title):
     return (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
 
 
-def windows(grid, third=None, margin=40):
+def grid_under_clues(img, title):
+    """Where the grid is when the clues are printed over it: the largest ink
+    in the CLUES_ABOVE_SPAN under the title, which is the left column's
+    head."""
+    x0, _, _, y1 = title
+    crop = (max(0, x0 - 80), y1, min(img.width, x0 + CLUES_ABOVE_SPAN[0]),
+            min(img.height, y1 + CLUES_ABOVE_SPAN[1]))
+    box = ink_box(img.crop(crop))
+    if box is None:
+        return None
+    return (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
+
+
+#: How far right of and below the title of a clues-above puzzle its grid
+#: may reach (the two columns and the grid under them).
+CLUES_ABOVE_SPAN = (800, 1700)
+#: How far the right column of a clues-above puzzle may run past the grid
+#: (its end is the gap nearest the grid's edge in that span; see gutter()).
+OVERHANG = 40
+
+
+def gutter(lines, grid, top, lo=None, hi=None):
+    """The x between two clue columns over the grid: the middle of the
+    longest run of x in [lo, hi) (by default the grid's middle half) that
+    the fewest words (`lines`, every reading's) from `top` down to the grid
+    cross. Near the grid's right edge, it is where the right column ends."""
+    gx0, gy0, gx1, _ = grid
+    lo = int(gx0 + 0.3 * (gx1 - gx0)) if lo is None else int(lo)
+    hi = int(gx0 + 0.75 * (gx1 - gx0)) if hi is None else int(hi)
+    cover = [0] * (hi - lo)
+    for ws in lines:
+        for w in ws:
+            if top <= w[1] < gy0:
+                for x in range(max(lo, w[0]), min(hi, w[2])):
+                    cover[x - lo] += 1
+    least = min(cover)
+    best, run = (0, lo), None
+    for k, c in enumerate(cover + [least + 1]):
+        if c == least:
+            run = k if run is None else run
+        elif run is not None:
+            best = max(best, (k - run, lo + (run + k) // 2))
+            run = None
+    return best[1]
+
+
+def windows(grid, third=None, margin=40, above=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
     top is in it. The two columns under the grid, and with `third`, (width,
     top), a column that wide right of the grid from `top` down. The left
-    column starts `margin` left of the grid (the Times outdents its numbers)."""
+    column starts `margin` left of the grid (the Times outdents its numbers).
+    With `above`, (top, gutter, right), the two columns are over the grid
+    instead, from `top` down, split at the gutter, the right one ending at
+    `right` (it may overhang the grid)."""
     gx0, gy0, gx1, gy1 = grid
+    if above:
+        top, split, right = above
+        return [(gx0 - margin, split, split, top), (split, right, right, top)]
     mid = gx0 + (gx1 - gx0) / 2 - 10
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if third:
@@ -215,13 +274,13 @@ def windows(grid, third=None, margin=40):
     return out
 
 
-def columns(lines, grid, third=None, margin=40):
-    """The clue columns under the grid (and with `third`, right of it; see
-    windows()): [[(y0, y1, x0, x1, text) per line] per column, left to
-    right], each cut where the clues stop."""
+def columns(lines, grid, third=None, margin=40, above=None):
+    """The clue columns under the grid (and with `third`, right of it; with
+    `above`, over it; see windows()): [[(y0, y1, x0, x1, text) per line] per
+    column, left to right], each cut where the clues stop."""
     gx0, gy0, gx1, gy1 = grid
-    bottom = gy1 + 1.8 * (gx1 - gx0)
-    wins = windows(grid, third, margin)
+    bottom = gy0 - 3 if above else gy1 + 1.8 * (gx1 - gx0)
+    wins = windows(grid, third, margin, above)
     cols = [[] for _ in wins]
     for ws in lines:
         for side, (x0, x1, right, top) in enumerate(wins):
@@ -237,6 +296,11 @@ def columns(lines, grid, third=None, margin=40):
         for line in col:
             if kept and (STOP.match(line[4]) or line[0] - last > GAP):
                 break
+            if not re.search(r"[A-Za-z0-9]", line[4]):
+                continue  # specks read as marks: no clue text
+            heading = numbered_heading(line[4])
+            if heading:
+                line = line[:4] + (heading,)
             if not kept and not re.match(r"\W*(across|down)\b", line[4], re.I) and last is None:
                 # The column's first line is ACROSS, DOWN or a clue: a stray
                 # word the grid's numbers left is not.
@@ -249,7 +313,7 @@ def columns(lines, grid, third=None, margin=40):
 
 
 
-def rapid_lines(img, grid, which, cache_path, third=None, margin=40):
+def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON with the crop it read, so a reading of another
@@ -259,6 +323,8 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40):
     box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
     if third:
         box = (box[0], min(gy1, third[1]), min(img.width, gx1 + 15 + third[0]), box[3])
+    if above is not None:
+        box = (max(0, gx0 - margin), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
     if cache_path.exists():
         cached = json.loads(cache_path.read_text())
         if isinstance(cached, list):
@@ -281,7 +347,7 @@ def tidy(text):
     out, prev = [], ""
     for line in text.splitlines():
         line = line.translate(BRACKETS).strip()
-        heading = heading_of(line)
+        heading = heading_of(line) or numbered_heading(line)
         if heading:
             line = heading
         elif out and re.match(r"(?:across|down)\b", line):
@@ -289,7 +355,10 @@ def tidy(text):
             out[-1] += " " + line
             prev = out[-1]
             continue
-        line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z])", r"\1 ", line)
+        if re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev) or heading_of(prev):
+            # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
+            line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
+        line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
         # "15 Adanger out east": a clue's opening "A" run into the next word,
         # unless the whole is a misspelling of a commoner word ("Arived").
         glued = re.match(r"^(\d{1,2}(?:,\s?\d{1,2})*\s+)A([a-z]{3,})\b", line)
@@ -298,12 +367,31 @@ def tidy(text):
                 if e != glued.group(2)):
             line = f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
         line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
+        # Specks after a clue's count ("(8)'", "(5).·") end nothing.
+        line = re.sub(r"(\(\s*[\dSIl,.\- ]{1,9}\))[^\w(]{1,3}$", r"\1", line)
         if (re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev)
                 or re.fullmatch(r"\W*(across|down)\W*", prev, re.I)) and re.match(r"[A-Z][a-z]", line):
             line = "? " + line
         out.append(line)
         prev = line
+    # A count left open at a list's end ("(5r", "(5-" before DOWN): a speck
+    # took its bracket, as nothing follows to carry it on.
+    for k, line in enumerate(out):
+        if k + 1 == len(out) or heading_of(out[k + 1]):
+            out[k] = re.sub(r"\((\d{1,2})[^\d)\s]?$", r"(\1)", line)
     return "\n".join(out)
+
+
+#: A list heading led by the puzzle's number: the Telegraph's "No. 18,340
+#: ACROSS", read "No. T8,338ACROSS", "Ko. 18.339 ACROSS", "No. 18-340ACROM",
+#: "No. 18.339ACR0SS".
+NUMBERED_HEADING = re.compile(r"^\W*[NK][o0]\W{0,3}\s*[\dTIl]\d?[,.\-\s]?\d{3}\s*([A-Za-z0']{3,8})\W*$")
+
+
+def numbered_heading(line):
+    """"ACROSS" or "DOWN" for a heading led by the puzzle's number; else None."""
+    m = NUMBERED_HEADING.match(line)
+    return heading_of(m.group(1)) if m else None
 
 
 def heading_of(line):
@@ -321,7 +409,7 @@ def heading_of(line):
     return None
 
 
-BRACKETS = str.maketrans({"{": "(", "[": "(", "}": ")", "]": ")"})
+BRACKETS = str.maketrans({"{": "(", "[": "(", "<": "(", "}": ")", "]": ")"})
 
 
 def parse(text):
@@ -374,10 +462,11 @@ LOOSE_SHARE = 0.8
 
 
 def lay_loose(parsed, grid, taken=None):
-    """({light: (text, enumeration, None)}, [clues not laid]): each clue laid
+    """({light: (text, enumeration, group)}, [clues not laid]): each clue laid
     alone on the light its number names in its list's direction, when its
     number reads one way that names a light not yet taken and one of its
-    count readings fills that light. Linked and "See" clues are not laid.
+    count readings fills that light; a linked clue on the lights its numbers
+    name, when one count fills them all. "See" clues are not laid.
     With `taken` (the lights every reading laid by number), a clue whose
     number was lost also takes the one light outside `taken` that its laid
     neighbours leave between them."""
@@ -386,6 +475,23 @@ def lay_loose(parsed, grid, taken=None):
     for direction in ("across", "down"):
         at = {}  # the clue's place in its list -> the light number it took
         for k, clue in enumerate(parsed[direction]):
+            if len(clue["tokens"]) > 1 and clue["see"] is None:
+                # A linked clue ("9 & 12"): each number names one free light
+                # in the list's direction, and one count fills them all.
+                # The tails read "See 9", as the paper's own files have it.
+                names = [[n for n in tok if (n, direction) in lights and f"{n}-{direction}" not in out]
+                         for tok in clue["tokens"]]
+                ids = [f"{ns[0]}-{direction}" for ns in names if len(ns) == 1]
+                cells = sum(len(lights[(int(i.split("-")[0]), direction)]) for i in ids)
+                fits = [e for e in clue["enums"] if ftp.count(e) == cells]
+                if len(ids) == len(names) == len(set(ids)) and len(fits) == 1:
+                    out[ids[0]] = (clue["text"], fits[0], ids)
+                    for tail in ids[1:]:
+                        out[tail] = (f"See {ids[0].split('-')[0]}", None, None)
+                    at[k] = int(ids[0].split("-")[0])
+                else:
+                    bad.append(f"{direction} {[sorted(t) for t in clue['tokens']]}")
+                continue
             names = [n for n in clue["tokens"][0]
                      if (n, direction) in lights and f"{n}-{direction}" not in out]
             if len(clue["tokens"]) != 1 or clue["see"] is not None or len(names) != 1:
@@ -678,23 +784,68 @@ def guardian_headings(lines):
     return puzzles, solutions
 
 
+#: Dated Telegraph cryptics: 18,340 read off the 4 January 1985 scan, and
+#: our first telegraph file.
+TELEGRAPH_ANCHORS = ((datetime.date(1985, 1, 4), 18340), (datetime.date(2009, 2, 7), 25846))
+
+
+def telegraph_expected_number(day):
+    return anchored(TELEGRAPH_ANCHORS, day)
+
+
+#: The previous Telegraph puzzle's solution grid, under "SOLUTION No.
+#: 18,339", which is narrower than the grid: the box read_solution crops
+#: around is this wide, centred on the heading.
+TELEGRAPH_SOLUTION = re.compile(r"^\W*s\w?[l1]ut[il1]on\s+n[o0]\W{0,3}\s*([\dTIl]\d?[,.\-\s]?\d{3})\W*$",
+                                re.IGNORECASE)
+TELEGRAPH_SOLUTION_SPAN = 380
+
+
+def digits(text):
+    """A number as OCR reads it, its leading 1 read as T, I or l mended."""
+    return number_of(re.sub(r"^[TIl]", "1", text.strip()))
+
+
+def telegraph_headings(lines):
+    """([(number, box, None)], [(number, box)]): each Telegraph cryptic's
+    title, "No. 18,340 ACROSS" over the left clue column, and each
+    "SOLUTION No. 18,339" heading, its box widened to the solution grid's."""
+    puzzles, solutions = [], []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        m = TELEGRAPH_SOLUTION.match(text)
+        if m:
+            solutions.append((digits(m.group(1)), centred(box_of(ws), TELEGRAPH_SOLUTION_SPAN)))
+            continue
+        m = NUMBERED_HEADING.match(text)
+        if m and heading_of(m.group(1)) == "ACROSS":
+            num = re.search(r"[\dTIl]\d?[,.\-\s]?\d{3}", text)
+            puzzles.append((digits(num.group(0)), box_of(ws), None))
+    return puzzles, solutions
+
+
 class Paper:
     """One newspaper's run of archive.org items: where its editions are, how
     its titles and solution headings read, the number its date implies, and
     the series its puzzles file as."""
 
-    def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40):
+    def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40,
+                 clues_above=False):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
         #: The width of a clue column right of the grid (0: none), whether
-        #: the solution grid is printed above its heading, and how far left
-        #: of the grid the clue numbers may start.
+        #: the solution grid is printed above its heading, how far left
+        #: of the grid the clue numbers may start, and whether the clues are
+        #: printed over the grid, the title heading the left column.
         self.third, self.solution_above, self.margin = third, solution_above, margin
+        self.clues_above = clues_above
 
     def headings(self, lines):
         if self.key == "ft":
             return ft_headings(lines)
         if self.key == "guardian":
             return guardian_headings(lines)
+        if self.key == "telegraph":
+            return telegraph_headings(lines)
         return ([(n, box, None) for n, box in headings(lines, TITLE)], headings(lines, SOLUTION))
 
 
@@ -704,7 +855,9 @@ FT = Paper("ft", "ftcryptic", re.compile(r"FinancialTimes(19\d\d)UKEnglish$"),
 GUARDIAN = Paper("guardian", "cryptic", re.compile(r"TheGuardian(19\d\d)UKEnglish$"),
                  "Cryptic crossword No {:,}", guardian_expected_number, third=GUARDIAN_THIRD, solution_above=True,
                  margin=15)
-PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN)}
+TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\d\d)UKEnglish$"),
+                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, margin=15, clues_above=True)
+PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 
 
 def paper_of(d):
@@ -729,7 +882,7 @@ def read_puzzle(d, found, hit, solutions):
         return verdict, None
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf})[leaf]
-    gbox = grid_box(img, hit["box"])
+    gbox = (grid_under_clues if paper.clues_above else grid_box)(img, hit["box"])
     if gbox is None:
         verdict["refused"] = "no ink under the title"
         return verdict, None
@@ -740,17 +893,25 @@ def read_puzzle(d, found, hit, solutions):
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
     m = paper.margin
-    cols = {"djvu": columns(lines, gbox, third, m)}
+    # Clues over the grid: from the title line down, split where the fewest
+    # words of any reading cross.
+    top = hit["box"][1] - 10 if paper.clues_above else None
+    rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top)
+             for which in READERS}
+    above = None
+    if top is not None:
+        every = lines + [ws for r in rapid.values() for ws in r]
+        above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
+    cols = {"djvu": columns(lines, gbox, third, m, above)}
     for which in READERS:
-        cols[which] = columns(
-            rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m),
-            gbox, third, m)
+        cols[which] = columns(rapid[which], gbox, third, m, above)
     texts = {k: column_text(c) for k, c in cols.items()}
-    wins = windows(gbox, third, m)
+    wins = windows(gbox, third, m, above)
     # The desktop's VLM, when it answers, is one more reading.
     if vlm.reachable():
         try:
-            texts["vlm"] = vlm.column_text(img, wins, list(cols.values()))
+            texts["vlm"] = "\n".join(numbered_heading(t) or t for t in
+                                     vlm.column_text(img, wins, list(cols.values())).splitlines())
         except RuntimeError:
             pass  # gone mid-run: read as without it; run() files it to be read again
     # archive.org's words and RapidOCR's are the two readings; where
@@ -802,15 +963,22 @@ def read_puzzle(d, found, hit, solutions):
         # that do not are misreads, filed blank, never forced to fit.
         # Each light takes the first reading whose clue lies on it, and is
         # checked against another reading than its own.
+        # The readings no pair tried (the VLM's, Tesseract's) come last.
+        lists = [(o, p) for _, _, _, _, o, p, _, _ in tried]
+        for k in texts:
+            if k not in {o[0] for o, _ in lists} and texts[k].strip():
+                p, _ = parse(texts[k])
+                if p is not None:
+                    lists.append(((k,), p))
         loose, src = {}, {}
-        for _, _, _, _, o, p, _, _ in tried:
+        for o, p in lists:
             for lid, v in lay_loose(p, g)[0].items():
                 if lid not in loose:
                     loose[lid], src[lid] = v, o
         # Then the clues whose number was lost, into the lights no reading
         # laid by number.
         by_number = set(loose)
-        for _, _, _, _, o, p, _, _ in tried:
+        for o, p in lists:
             for lid, v in lay_loose(p, g, by_number)[0].items():
                 if lid not in loose:
                     loose[lid], src[lid] = v, o
@@ -1201,7 +1369,8 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
-                    help="whose editions to file: the Times (times-N), the FT (ftcryptic-N) or the Guardian (cryptic-N)")
+                    help="whose editions to file: the Times (times-N), the FT (ftcryptic-N), the Guardian "
+                         "(cryptic-N) or the Telegraph (telegraph-N)")
     ap.add_argument("--match-canberra", action="store_true",
                     help="only name the Times puzzle each canberra file reprints")
     args = ap.parse_args(argv)

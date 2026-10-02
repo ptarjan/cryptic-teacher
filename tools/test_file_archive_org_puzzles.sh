@@ -452,6 +452,60 @@ check("archiveorg does not compare a file it filed with itself", [False, True],
 model = Path(os.environ["TMP"]) / "m.traineddata"
 saved = dict(ocr_clues.TESS_MODELS), dict(ocr_clues._MODEL_HASHES)
 ocr_clues.TESS_MODELS["times"] = model
+# The Telegraph: "No. 18,340 ACROSS" heads the left clue column, DOWN the
+# right, the grid under both; "SOLUTION No. 18,339" over the last grid.
+titles, sols = f.telegraph_headings([line("No. T8,338ACROSS", 168, 2517), line("Ko. 18.339 ACROSS", 217, 2492),
+                                     line("No. 18-340ACROM", 210, 2335), line("SOLUTION No. 18,339", 991, 3698),
+                                     line("QUICK CROSSWORD", 189, 3848), line("No. 12 Down Street", 900, 100)])
+check("Telegraph titles however misread, the solution box the solution grid's width, no Quick",
+      ([18338, 18339, 18340], [(18339, f.TELEGRAPH_SOLUTION_SPAN)]),
+      ([n for n, _, _ in titles], [(n, b[2] - b[0]) for n, b in sols]))
+check("the Telegraph's editions file as telegraph, numbered as the feed's",
+      ("telegraph", "telegraph", [True, True]),
+      (f.paper_of(cache / "TheDailyTelegraph1985UKEnglish" / "x").series,
+       f.paper_of(cache / "SundayTelegraph1971UKEnglish" / "x").series,
+       [abs(n - f.telegraph_expected_number(datetime.date.fromisoformat(d))) <= 5
+        for d, n in [("1985-01-02", 18338), ("2009-02-07", 25846)]]))
+check("a heading led by the puzzle's number, a zero read for O; a street name no heading",
+      ["ACROSS", "ACROSS", None], [f.numbered_heading(t_) for t_ in ("No. 18.339ACR0SS", "No. T8,338ACROSS",
+                                                                       "No. 12 Down Street")])
+# Clues over the grid: split at the gutter, which the left column's long
+# lines pass the grid's middle to reach; the right column overhangs the
+# grid but ends before the next column's words; specks are no line.
+grid = (200, 3100, 900, 3800)
+lines = [line("No. 18,340ACROSS", 210, 2335), line("DOWN", 700, 2335),
+         line("1 Plumber who puts on airs in", 215, 2365), line("Local", 570, 2365, ),
+         line("trader providing people", 640, 2365), line("Lak", 935, 2365),
+         line("Scotland (5)", 240, 2390), line("(8)", 600, 2390), line(", . .", 600, 2415)]
+lines[3] = [(570, 2365, 620, 2381, "1"), (630, 2365, 680, 2381, "Local")]
+top = 2325
+split = f.gutter(lines, grid, top)
+right = f.gutter(lines, grid, top, grid[2] - f.OVERHANG, grid[2] + f.OVERHANG)
+check("gutter between the columns, right edge before the next column", (True, True),
+      (520 <= split < 570, 866 <= right < 935))
+check("clues-above columns: the title read as ACROSS, specks and the next column left out",
+      "ACROSS\n1 Plumber who puts on airs in\nScotland (5)\nDOWN\n1 Local trader providing people\n(8)",
+      f.column_text(f.columns(lines, grid, None, 15, (top, split, right))))
+check("a 1 read as I or l at a clue's start, '<' for '(', specks after a count, a count left open at a list's end",
+      "ACROSS\n1 A fruitful cause (5)\n17 More than two (5-8)\n29 Swallows (5)\nDOWN\n1 Some (5-\n4)",
+      f.tidy("ACROSS\nIA fruitful cause <5)'\nI7 More than two (5-8).\n29 Swallows (5r\nDOWN\n1 Some (5-\n4)"))
+g = ["...#...", "...#...", "......."]
+laid, _ = f.lay_loose(f.parse("ACROSS\n1 & 4 Linked words (3,3)\nDOWN\n1 Down (3)")[0], g)
+check("a linked clue laid on the lights its numbers name when one count fills them; the tail reads See",
+      (("Linked words", "3,3", ["1-across", "4-across"]), "See 1"), (laid.get("1-across"), laid.get("4-across", ("",))[0]))
+laid, _ = f.lay_loose(f.parse("ACROSS\n1 & 4 Linked words (7)\nDOWN\n1 Down (3)")[0], g)
+check("a linked clue whose count does not fill its lights is not laid", None, laid.get("1-across"))
+got, _ = ocr_clues.reconcile({"15-down": ("Entice Fortune, but provoke Nemesis? (5,4) - . 18 & 25 The point of", "9",
+                                          ["15-down", "24-down"])},
+                         ["15 & 24 Entice Fortune, but provoke Nemesis? (5,4)"], {"15-down": 5, "24-down": 4, "25-down": 5})
+check("a run-on cut at the next clue; the count left inside ends the clue and is its count",
+      ("Entice Fortune, but provoke Nemesis?", "5,4"), got["15-down"][:2])
+check("a clue cut at its own count when text follows it", ["Entice Fortune?", "Entice Fortune? (5,4)"],
+      [ocr_clues.cut_at_count("Entice Fortune? (5,4) - 18 &", "5,4"), ocr_clues.cut_at_count("Entice Fortune? (5,4)", "5,4")])
+
+check("a one read as l before a digit, and the space lost after a question mark, mended",
+      "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
+
 for body in (b"old", b"new"):
     model.write_bytes(body)
     ocr_clues._MODEL_HASHES.clear()

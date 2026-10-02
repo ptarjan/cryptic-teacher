@@ -1168,10 +1168,12 @@ tools/fetch_archive_org_editions.py          fetch archive.org newspaper edition
                                              positions and crossword page scans
 
 fetching
-tools/file_archive_org_puzzles.py            files the daily Times, FT and Guardian cryptics in
-                                             the editions fetch_archive_org_editions.py cached
-                                             as times-<No>, ftcryptic-<No> and cryptic-<No>
-                                             (--paper): clues voted on by archive.org's OCR,
+tools/file_archive_org_puzzles.py            files the daily Times, FT, Guardian and Telegraph
+                                             cryptics in the editions
+                                             fetch_archive_org_editions.py cached as
+                                             times-<No>, ftcryptic-<No>, cryptic-<No> and
+                                             telegraph-<No> (--paper): clues voted on by
+                                             archive.org's OCR,
                                              RapidOCR's two recognisers and Tesseract, the grid
                                              read off the scan or rebuilt, answers off the next
                                              edition's solution grid; every reading kept for
@@ -1186,11 +1188,12 @@ tools/measure_archive_org_ocr.py             measure how many clue words and mar
                                              file_archive_org_puzzles.py misreads, against the
                                              hand transcriptions in
                                              tools/data/archive_org_ocr_gold.json
-tools/data/archive_org_ocr_gold.json         Times clues 1974-95 and Listener clues 1998
-                                             transcribed by hand off archive.org's scans, each
-                                             edition marked tune or heldout (listener or
-                                             listener-heldout); Paul's 2% misread bar for
-                                             filing them is judged on the held-out ones
+tools/data/archive_org_ocr_gold.json         Times, Listener, Jumbo, FT, Guardian and
+                                             Telegraph clues transcribed by hand off
+                                             archive.org's scans, each edition marked tune or
+                                             held out (heldout, ft-heldout, ...); the misread
+                                             rate is reported on the held-out ones and never
+                                             gates filing
 tools/build_clue_compounds.py                count how the corpus's clues print two-word
                                              compounds: hyphenated or closed
 tools/data/clue_compounds.tsv                how often the corpus's clues print each two-word
