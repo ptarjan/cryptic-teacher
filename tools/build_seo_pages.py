@@ -34,7 +34,10 @@ So this writes real HTML files alongside the app:
                            from tools/difficulty_page.html with every number
                            filled in from tools/difficulty.py and
                            tools/data/difficulty_check.json.
-  sitemap.xml              all of the above, with real lastmod dates.
+  sitemap.xml              a sitemap index: sitemap-recent.xml (the pages that
+                           change daily and the last 60 days of puzzles) and
+                           sitemap-archive-<n>.xml (every older puzzle), all
+                           with real lastmod dates.
 
 These pages are not doorways: each carries the annotation work for one specific
 puzzle and exists to be read. They also cross-link back into the app with
@@ -57,7 +60,7 @@ import itertools
 import json
 import re
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -609,6 +612,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     if next_p:
         nav.append(f'<a rel="next" href="{BASE}/puzzles/{next_p["id"]}/">'
                    f'Older: {esc(named(next_p))} &rarr;</a>')
+    if meta and nav:
+        nav.append(f'<a href="{site_url(series_path(ls))}">All {esc(series_name(ls))} puzzles</a>')
 
     article_ld = {
         "@context": "https://schema.org", "@type": "Article",
@@ -929,6 +934,7 @@ def hub_page(idx):
         "Under each paper, the bars show where its rated puzzles fall from easiest to "
         "hardest, coloured by band, and the line marks its middle puzzle. "
         f'New to cryptic crosswords? <a href="{BASE}/learn/">Start with how the clues work</a>.</p>',
+        *([f'<h2 id="latest">Latest puzzle in each paper</h2>{latest}'] if (latest := latest_list(idx)) else []),
         *sections,
         "</main>",
     ]
@@ -1051,6 +1057,41 @@ def series_page(series, years, today):
                "name": title, "url": canonical, "description": desc}
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
+
+
+LATEST_WINDOW = 14     # days behind the newest puzzle a series' newest may be
+
+
+def latest_by_series(idx):
+    """The newest puzzle of each series still printing, newest first: each
+    paper's own latest, not the newest dozen of all of them, so the list reads
+    as "today in each paper" rather than as random puzzles. A series whose
+    newest is more than LATEST_WINDOW days behind the newest puzzle anywhere
+    is a back archive (the Canberra Times' 1970s) and is left out, as is the
+    book shelf, which has no newest."""
+    heads = [next(iter(years.values()))[0] for s, years in listings(idx).items()
+             if not series_meta.is_book(s)]
+    heads = [p for p in heads if p.get("date")]
+    if not heads:
+        return []
+    top = max(series_meta.puzzle_day(p) for p in heads)
+    keep = [p for p in heads if (top - series_meta.puzzle_day(p)).days <= LATEST_WINDOW]
+    return sorted(keep, key=lambda p: series_meta.puzzle_day(p), reverse=True)
+
+
+def latest_list(idx):
+    """Crawlable links to each series' newest puzzle and its landing page."""
+    items = []
+    for p in latest_by_series(idx):
+        s = p.get("series") or "cryptic"
+        setter = p.get("setter") or ""
+        by = f" by {esc(setter)}" if setter and setter != kind(p) else ""
+        ident = display_number(p) if number_day(p) else f"No {position(p)}"
+        items.append(
+            f'<li><a href="{site_url(series_path(s))}">{esc(series_name(s))}</a>: '
+            f'<a href="{BASE}/puzzles/{p["id"]}/">{esc(ident)}</a>{by}, '
+            f'{esc(datestr(p))}</li>')
+    return f'<ul class="s-latest">{"".join(items)}</ul>' if items else ""
 
 
 def series_pages(idx, today=None):
@@ -1661,23 +1702,42 @@ def indicators_page(found):
 
 # -------------------------------------------------------------------- sitemap
 
-def sitemap(idx):
-    urls = [(f"{BASE}/", "daily", "1.0", None),
-            (f"{BASE}/puzzles/", "daily", "0.9", None),
-            (f"{BASE}/learn/", "monthly", "0.8", None),
-            (f"{BASE}/abbreviations/", "weekly", "0.8", None),
-            (f"{BASE}/indicators/", "weekly", "0.8", None),
-            (f"{BASE}/difficulty/", "weekly", "0.6", None)]
+RECENT_DAYS = 60       # puzzle pages in the small, fast-changing sitemap
+SITEMAP_MAX = 40000    # URLs per file; the protocol's limit is 50,000
+
+
+def sitemap_urls(idx):
+    """(recent, archive): lists of (loc, changefreq, priority, lastmod).
+
+    Recent is everything that changes daily (the site's own pages, the series
+    landing pages and year listings) and the puzzles of the last RECENT_DAYS
+    before the newest one; archive is every older puzzle. A small file Google
+    re-reads often is what gets a new puzzle crawled the day it lands.
+    """
+    recent = [(f"{BASE}/", "daily", "1.0", None),
+              (f"{BASE}/puzzles/", "daily", "0.9", None),
+              (f"{BASE}/learn/", "monthly", "0.8", None),
+              (f"{BASE}/abbreviations/", "weekly", "0.8", None),
+              (f"{BASE}/indicators/", "weekly", "0.8", None),
+              (f"{BASE}/difficulty/", "weekly", "0.6", None)]
     for s, years in listings(idx).items():
         newest = next(iter(years.values()))[0]
-        urls.append((site_url(series_path(s)), "daily", "0.9",
-                     None if series_meta.is_book(s) else datestr(newest, "%Y-%m-%d") or None))
+        recent.append((site_url(series_path(s)), "daily", "0.9",
+                       None if series_meta.is_book(s) else datestr(newest, "%Y-%m-%d") or None))
         for y in years:
-            urls.append((site_url(listing_path(s, y)), "weekly", "0.6", None))
-    for p in idx["puzzles"]:
-        if p.get("hasSolutions"):
-            urls.append((f"{BASE}/puzzles/{p['id']}/", "monthly", "0.7",
-                         datestr(p, "%Y-%m-%d") or None))
+            recent.append((site_url(listing_path(s, y)), "weekly", "0.6", None))
+    solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
+    days = [d for p in solved if "year" not in p and (d := series_meta.puzzle_day(p))]
+    since = max(days) - timedelta(days=RECENT_DAYS) if days else None
+    archive = []
+    for p in solved:
+        day = None if "year" in p else series_meta.puzzle_day(p)
+        url = (f"{BASE}/puzzles/{p['id']}/", "monthly", "0.7", datestr(p, "%Y-%m-%d") or None)
+        (recent if day and since and day >= since else archive).append(url)
+    return recent, archive
+
+
+def urlset(urls):
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, freq, prio, lastmod in urls:
@@ -1692,6 +1752,26 @@ def sitemap(idx):
     return "\n".join(out) + "\n"
 
 
+def sitemaps(idx):
+    """[(path, text)]: /sitemap.xml as a sitemap index (the URL Search Console
+    holds), sitemap-recent.xml, and the archive in SITEMAP_MAX-URL parts."""
+    recent, archive = sitemap_urls(idx)
+    parts = [("sitemap-recent.xml", recent)] + [
+        (f"sitemap-archive-{i // SITEMAP_MAX + 1}.xml", archive[i:i + SITEMAP_MAX])
+        for i in range(0, len(archive), SITEMAP_MAX)]
+    index = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for name, urls in parts:
+        index.append("  <sitemap>")
+        index.append(f"    <loc>{BASE}/{name}</loc>")
+        if (last := max((u[3] for u in urls if u[3]), default=None)):
+            index.append(f"    <lastmod>{last}</lastmod>")
+        index.append("  </sitemap>")
+    index.append("</sitemapindex>")
+    return ([(ROOT / "sitemap.xml", "\n".join(index) + "\n")]
+            + [(ROOT / name, urlset(urls)) for name, urls in parts])
+
+
 # ------------------------------------------------------- homepage crawl links
 
 def homepage_nav(idx):
@@ -1700,8 +1780,9 @@ def homepage_nav(idx):
     Without these the static pages exist but nothing points at them except the
     sitemap, and a sitemap-only URL is treated as a much weaker signal than one
     that is actually linked. The archive link reaches every puzzle through the
-    series listings; no puzzle is linked by name, because a reader in the middle
-    of one puzzle reads a list of others as random.
+    series listings. The puzzles linked by name are each paper's newest
+    (latest_by_series), one per paper and labelled with it, never the newest
+    dozen of all papers, which reads as a list of random puzzles.
     """
     solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
     return f"""{NAV_START}
@@ -1715,6 +1796,7 @@ def homepage_nav(idx):
      <a href="{BASE}/indicators/">indicators</a>, read
      <a href="{BASE}/difficulty/">how difficulty is rated</a>, or browse
      <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>.</p>
+  {f'<h2>Latest puzzle in each paper</h2>{latest}' if (latest := latest_list(idx)) else ""}
 </section>
 {NAV_END}"""
 
@@ -1957,7 +2039,7 @@ def outputs(check=False):
         # Relative, like the puzzle pages: nearly four thousand example links.
         yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
         yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
-        yield ROOT / "sitemap.xml", sitemap(idx)
+        yield from sitemaps(idx)
         yield home
     for p, text in rest():
         claim(p)
