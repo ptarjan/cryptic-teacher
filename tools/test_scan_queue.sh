@@ -5,10 +5,10 @@
 #
 #     bash tools/test_scan_queue.sh
 #
-# A filer that re-read the same first 150 editions every night, because each
-# code change made every row stale and the queue restarted in disk order,
-# never reached the other 2,600: the ordering is asserted here, on both
-# filers' run(). Temp dirs only; no OCR, no network.
+# A filer keys each source by its inputs alone; an explicit --reread BEFORE
+# reads the rest again, oldest-read first, resuming across capped runs: the
+# ordering and the keying are asserted here, on both filers' run(). Temp
+# dirs only; no OCR, no network.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 tmp=$(mktemp -d)
@@ -45,18 +45,21 @@ with q.lock(ledger) as first:
 with q.lock(ledger) as again:
     check("the ledger is free once the first run ends", True, again)
 
-# The archive.org filer: a code change makes every row stale; the next run
-# reads the never-read edition, then the one read longest ago.
+# The archive.org filer: a row keyed by code and files together reads as
+# done for its files (a change of code alone makes nothing due); --reread
+# BEFORE reads the rows last read before it, the never-read first, then the
+# oldest-read, and a capped rerun resumes rather than restarts.
 import file_archive_org_puzzles as f
+f.vlm.reachable = lambda: False
 cache = Path(os.environ["TMP"]) / "cache"
 eds = []
-for name in ("1990-01-01_1", "1990-01-02_2", "1990-01-03_3"):
+for name in ("1990-01-01_1", "1990-01-02_2", "1990-01-03_3", "1990-01-04_4"):
     d = cache / "NewsUK1990UKEnglish" / name
     d.mkdir(parents=True)
     eds.append(d)
 f.edition_dirs = lambda cache, paper=None: eds
 f.scan = lambda d: {"date": "1990-01-01", "item": "x", "solutions": [], "puzzles": []}
-f.input_hash = lambda d, code: code[:4] or "files"
+f.input_hash = lambda d: "files"
 f.held_numbers = lambda series="times": set()
 aledger = Path(os.environ["TMP"]) / "a.jsonl"
 scan = f.scan(None)
@@ -64,18 +67,30 @@ aledger.write_text("".join(json.dumps(r) + "\n" for r in [
     {"edition": "NewsUK1990UKEnglish/1990-01-01_1", "hash": "old", "scan": scan, "filesHash": "files",
      "solutionsSeen": [], "verdicts": [], "readAt": "2026-10-01T00:00:00+00:00"},
     {"edition": "NewsUK1990UKEnglish/1990-01-02_2", "hash": "old", "scan": scan, "filesHash": "files",
-     "solutionsSeen": [], "verdicts": [], "readAt": "2026-09-01T00:00:00+00:00"},
-    {"edition": "NewsUK1990UKEnglish/1990-01-03_3", "scan": scan, "filesHash": "files"}]))
-order = []
-for limit in (1, 1, 1):
+     "solutionsSeen": [], "verdicts": []},
+    {"edition": "NewsUK1990UKEnglish/1990-01-03_3", "scan": scan, "filesHash": "files"},
+    {"edition": "NewsUK1990UKEnglish/1990-01-04_4", "hash": "old", "scan": scan, "filesHash": "files",
+     "solutionsSeen": [], "verdicts": [], "readAt": "2026-10-03T00:00:00+00:00"}]))
+def aread(**kw):
     before = {json.loads(l)["edition"]: json.loads(l).get("readAt") for l in aledger.read_text().splitlines()}
-    f.run(cache, ledger=aledger, out=io.StringIO(), limit=limit)
+    f.run(cache, ledger=aledger, out=io.StringIO(), **kw)
     after = {json.loads(l)["edition"]: json.loads(l).get("readAt") for l in aledger.read_text().splitlines()}
-    order += [e.split("_")[1] for e in after if after[e] != before[e]]
-check("archive.org: never-read first, then stale oldest-read first, one edition a run", ["3", "2", "1"], order)
+    return [e.split("_")[1] for e in after if after[e] != before[e]]
+check("archive.org: after the key change only the never-read edition is read", ["3"], aread())
+check("archive.org: and then nothing", [], aread())
+stamp = q.when("2026-10-02T00:00:00+00:00")
+check("archive.org: --reread BEFORE reads the oldest-read first (none: first), one a run, then stops",
+      [["2"], ["1"], []], [aread(limit=1, reread=stamp) for _ in range(3)])
+f.vlm.reachable, f.vlm.version = (lambda: True), (lambda: "v1")
+aread()
+check("archive.org: an edition read without the VLM is read again once it answers", ["v1"] * 4,
+      [json.loads(l).get("vlm") for l in aledger.read_text().splitlines()])
+f.vlm.version = lambda: "v2"
+check("archive.org: a new VLM model alone makes nothing due", [], aread())
 
 # The Trove filer, the same way.
 import file_trove_puzzles as F
+F.vlm.reachable = lambda: False
 tcache = Path(os.environ["TMP"]) / "trove"
 for a in ("100", "200", "300"):
     (tcache / a).mkdir(parents=True)
@@ -89,10 +104,17 @@ def slow(d, taken):
     time.sleep(0.2)
     return {"skip": "test"}, None
 F.consider = slow
-F.run(tcache, ledger=tledger, out=io.StringIO(), seconds=0.1)
-F.run(tcache, ledger=tledger, out=io.StringIO(), seconds=0.1)
-F.run(tcache, ledger=tledger, out=io.StringIO(), seconds=0.1)
-check("Trove: never-read first, then stale oldest-read first, the ledger saved after each", ["300", "200", "100"], read)
+def tread(**kw):
+    read.clear()
+    F.run(tcache, ledger=tledger, out=io.StringIO(), **kw)
+    return list(read)
+check("Trove: after the key change only the never-read article is read", ["300"], tread())
+check("Trove: --reread BEFORE reads the oldest-read first, one a slice, the ledger saved after each, then stops",
+      [["200"], ["100"], []], [tread(seconds=0.1, reread=stamp) for _ in range(3)])
+F.vlm.reachable, F.vlm.version = (lambda: True), (lambda: "v1")
+check("Trove: an article read without the VLM is read again once it answers", 3, len(tread()))
+F.vlm.version = lambda: "v2"
+check("Trove: a new VLM model alone makes nothing due", [], tread())
 
 print(f"FAILS {fails}")
 EOF

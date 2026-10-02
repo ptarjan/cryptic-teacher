@@ -2,9 +2,11 @@
 tools/file_trove_puzzles.py).
 
   - order(): what was never read comes first, in the caller's order; then
-    what a change of code or files made stale, the longest since read first
-    (a row's "readAt"). A code change makes every row stale, so a run never
-    starts over: the unread still lead and the stale queue by age.
+    what new input or an explicit --reread made stale, the longest since
+    read first (a row's "readAt"), so a run never starts over: the unread
+    still lead and the stale queue by age. A change of code alone makes
+    nothing stale; when()/read_before() pick the rows --reread BEFORE
+    reads again, so the slices of one re-read resume rather than restart.
   - parallel(): `workers` sources in flight at once, in a process pool, so
     one source's wait on the desktop VLM (one request at a time) overlaps
     another's OCR. No source starts once `deadline` (time.monotonic()) has
@@ -22,6 +24,24 @@ from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
 
 def now():
     return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+
+
+def when(text):
+    """The datetime an ISO `text` names ("now": this moment), None for None:
+    a --reread BEFORE."""
+    if text is None:
+        return None
+    if text == "now":
+        return datetime.datetime.now(datetime.timezone.utc)
+    t = datetime.datetime.fromisoformat(text)
+    return t if t.tzinfo else t.replace(tzinfo=datetime.timezone.utc)
+
+
+def read_before(row, t):
+    """Whether ledger `row` was last read before datetime `t` (no "readAt":
+    it was)."""
+    at = row.get("readAt")
+    return not at or when(at) < t
 
 
 def order(keys, rows, unread):
