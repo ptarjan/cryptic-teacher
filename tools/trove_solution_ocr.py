@@ -163,9 +163,21 @@ def _fit_axis(paper, n):
     return best[1], best[2]
 
 
-def lattice(gray, n):
-    """(x0, y0, pitch_x, pitch_y) of an n x n grid in the image."""
+def lattice(gray, n, tight=False):
+    """(x0, y0, pitch_x, pitch_y) of an n x n grid in the image: fitted
+    within its largest patch of ink, or with `tight` (the image is the grid),
+    between the frame's outer rules."""
     ink = gray < trove_grid.otsu(gray)
+    if tight:
+        # The frame's outer rules are the first and last lines mostly ink;
+        # heavy letters mislead the rule fit over 27 cells.
+        out = []
+        for prof in (ink.mean(0), ink.mean(1)):
+            rules = np.nonzero(prof > 0.5)[0]
+            if len(rules) < 2 or rules[-1] - rules[0] < n * 5:
+                raise ValueError("no frame in the image")
+            out.append((float(rules[0]), (rules[-1] - rules[0]) / n))
+        return out[0][0], out[1][0], out[0][1], out[1][1]
     box = trove_grid.largest_component(ink)
     if box is None:
         raise ValueError("no ink in the image")
@@ -240,7 +252,7 @@ VARIANTS = {
     "thinner": lambda a: np.asarray(Image.fromarray(a).resize((a.shape[1] * 3, a.shape[0] * 3), Image.BICUBIC)
                                     .filter(ImageFilter.MaxFilter(3))),
 }
-def read_answers(image, grid):
+def read_answers(image, grid, tight=False):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
@@ -252,7 +264,7 @@ def read_answers(image, grid):
     recogniser read the light itself as exactly that word, and the word is
     known()."""
     gray = np.asarray(Image.open(image).convert("L"))
-    lat = lattice(gray, len(grid))
+    lat = lattice(gray, len(grid), tight)
     lts = lights(grid)
     sure = {}      # cell -> {letter: [directions that read it surely]}
     full = {}      # light -> every full-length word read for it

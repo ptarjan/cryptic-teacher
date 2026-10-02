@@ -994,7 +994,7 @@ def lay_loose(parsed, grid):
 
 # ------------------------------------------------------------ the puzzle
 
-def build(number, day, grid, how, laid, item, leaf):
+def build(number, day, grid, how, laid, item, leaf, series=SERIES, name=None):
     lights = rg.light_cells(grid)
     by_id, entries = {}, []
     for (n, d), cells in lights.items():
@@ -1021,10 +1021,10 @@ def build(number, day, grid, how, laid, item, leaf):
             e["group"] = groups[lid]
         e["solution"] = None
     return {
-        "id": series_meta.puzzle_id(SERIES, number),
+        "id": series_meta.puzzle_id(series, number),
         "number": number,
-        "series": SERIES,
-        "name": f"Times cryptic crossword No {number:,}",
+        "series": series,
+        "name": name or f"Times cryptic crossword No {number:,}",
         "date": day.isoformat(),
         "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
         "source": {"url": PAGE_URL.format(item=item, leaf=leaf),
