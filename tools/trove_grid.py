@@ -226,7 +226,7 @@ def read_grid(path, block_above=BLOCK_ABOVE):
         if abs(cy - ey) > OFF_LATTICE * pitch or abs(cx - ex) > OFF_LATTICE * pitch:
             return None, f"the white patch at r{r + 1}c{c + 1} sits off the lattice"
         cells.add((r, c))
-    grid = []
+    grid, unsure = [], {}
     for r in range(n):
         row = ""
         for c in range(n):
@@ -242,8 +242,16 @@ def read_grid(path, block_above=BLOCK_ABOVE):
             elif share >= block_above:
                 row += "#"
             else:
-                return None, f"r{r + 1}c{c + 1} is neither a light nor a block ({share:.0%} ink)"
+                row += "?"
+                unsure[(r, c)] = share
         grid.append(row)
+    # A cell neither light nor block (a big number's ink, a pale block) is
+    # what its mirror cell is: a grid stands only when symmetric.
+    for (r, c), share in unsure.items():
+        mirror = grid[n - 1 - r][n - 1 - c]
+        if mirror == "?":
+            return None, f"r{r + 1}c{c + 1} is neither a light nor a block ({share:.0%} ink)"
+        grid[r] = grid[r][:c] + mirror + grid[r][c + 1:]
     return grid, None
 
 

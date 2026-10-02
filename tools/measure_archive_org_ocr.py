@@ -7,14 +7,16 @@
 
 tools/data/archive_org_ocr_gold.json holds clues transcribed by hand off the
 scans, each edition marked "tune" (used to choose the voting rules) or
-"heldout" (never looked at while tuning; Paul's 2% bar is judged on these).
+"heldout" (never looked at while tuning; the rates reported are these).
 Editions with "series": "listener" are Saturday Listeners, read by
 tools/archive_org_listener.py and split "listener" / "listener-heldout";
 "series": "jumbo" ones are Saturday Jumbos, read by tools/archive_org_jumbo.py
 and split "jumbo" / "jumbo-heldout"; "series": "ft" ones are Financial Times
 cryptics (FinancialTimes<year>UKEnglish items), read by the same filer and
 split "ft" / "ft-heldout"; "series": "guardian" ones are Guardian cryptics
-(TheGuardian<year>UKEnglish items), split "guardian" / "guardian-heldout".
+(TheGuardian<year>UKEnglish items), split "guardian" / "guardian-heldout";
+"series": "telegraph" ones are Daily Telegraph cryptics
+(TheDailyTelegraph<year>UKEnglish items), split "telegraph" / "telegraph-heldout".
 Each edition is read as the filer reads it (no solution grid; with the
 desktop's VLM when it answers, tools/vlm_reader.py, so set VLM_READER_URL=
 to measure without it), and every
@@ -27,7 +29,7 @@ is the count of puzzles with every clue filed: only those go into
 puzzles/times, so that count is the measure of what the filer delivers.
 The blank-inclusive rate counts every transcribed word and mark of a blank
 clue as misread, so filling a blank with a wrong guess and blanking it
-cost the same; it is the rate Paul's 2% bar is judged on.
+cost the same. No rate gates filing: only a puzzle with every clue does.
 """
 import argparse
 import json
@@ -113,7 +115,8 @@ def read(edition, number, cache=fa.CACHE, series="times"):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--split", choices=("tune", "heldout", "listener", "listener-heldout", "jumbo", "jumbo-heldout",
-                                        "ft", "ft-heldout", "guardian", "guardian-heldout"))
+                                        "ft", "ft-heldout", "guardian", "guardian-heldout",
+                                        "telegraph", "telegraph-heldout"))
     ap.add_argument("--gold", type=Path, default=GOLD)
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
