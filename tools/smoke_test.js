@@ -5157,6 +5157,9 @@ global.realSetTimeout(() => {
       // so it is skipped rather than guessed at.
       const bl = (a && a.blocks) || [];
       if (bl.length < 2) continue;
+      // The growth check below taps a wrong definition, so the clue needs one in
+      // its own words: not one its puzzle's preamble supplies.
+      if (a.definedByPreamble || !(a.definitions || []).length) continue;
       if (!bl[0].gives || !bl[1].gives || bl[0].gives === bl[1].gives) continue;
       if (!bl[0].clueFragment || !bl[1].clueFragment) continue;
       const spans = bl.map((b) => b.clueFragment ? spanTokens(clueText(e), b.clueFragment) : null);
@@ -5281,7 +5284,8 @@ global.realSetTimeout(() => {
   // Deliberately wrong, so there is a verdict to lose. The last word of a clue is
   // never the whole definition of one that starts with it.
   const last = (panelHTML().match(/id="gw-(\d+)"/g) || []).pop();
-  registry[last.slice(4, -1)].onclick();
+  if (assert(last, "the definition question offers words to tap: " + panelHTML()))
+    registry[last.slice(4, -1)].onclick();
   registry["guess-check"].onclick();
   assert(registry["hint-body"].innerHTML.includes("guess-verdict"), "graded");
   // On to a rung that poses its own question, since that is the moment the old
@@ -6097,7 +6101,7 @@ global.realSetTimeout(() => {
 // definition — is still a building block, and the mirror below holds that.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
-  const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  const bare = (t) => String(t || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
   const isDef = (a, b) => defTexts(a).some((d) => bare(d) === bare(b.clueFragment));
   const plain = (b) => b.note && /^[A-Za-z ,.;:-]+$/.test(b.note) && !b.soundsLike;
   const open = (id, e) => {
