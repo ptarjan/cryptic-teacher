@@ -10,19 +10,18 @@
  },
  "source": {
   "publisher": "Telegraph",
-  "url": "https://bigdave44.com/2025/11/11/dt-31081/",
-  "retrievedFrom": "blog",
-  "acquiredBy": "tools/file_telegraph_puzzles.py",
+  "url": "https://www.telegraph.co.uk/puzzles/",
+  "retrievedFrom": "publisher",
+  "acquiredBy": "tools/fetch_telegraph.py",
   "acquiredOn": "2026-09-26",
-  "gridOrigin": "reconstructed"
+  "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "bigdave44",
-  "url": "https://bigdave44.com/2025/11/11/dt-31081/",
-  "date": "2025-11-11",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +35,55 @@
     "text": "Get ready before army chaplain loses heart",
     "enumeration": "7"
    },
-   "solution": "PREPARE"
+   "solution": "PREPARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PREPARE",
+    "definitions": [
+     {
+      "text": "Get ready",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses heart",
+      "for": "deletion",
+      "note": "to lose the heart is to lose the centre, so the middle letter of the word drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "PRE",
+      "note": "the prefix meaning earlier or in front"
+     },
+     {
+      "clueFragment": "army chaplain",
+      "gives": "PADRE",
+      "note": "a padre is a military chaplain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "PARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is told to get ready before the regimental chaplain's nerve fails him.",
+     "walkthrough": "A padre is a chaplain in the armed forces; 'loses heart' looks like losing courage but removes the single middle letter.",
+     "definitionFit": "To prepare something is to make it ready in advance, so the verb phrase is a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +97,75 @@
     "text": "Country fellow each summer primarily wears short underwear",
     "enumeration": "7"
    },
-   "solution": "PEASANT"
+   "solution": "PEASANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "PEASANT",
+    "definitions": [
+     {
+      "text": "Country fellow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the word is kept"
+     },
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "whatever is worn goes around the wearer, so one piece is put on around another"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short has lost its end, so the final letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "PANTS",
+      "note": "pants are underpants in British usage"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the standard abbreviation for each"
+     },
+     {
+      "clueFragment": "summer",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of summer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EA",
+      "S",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rustic man wears skimpy underwear every summer.",
+     "walkthrough": "In Britain pants means underpants, not trousers; 'short' trims the garment before it goes around the other pieces.",
+     "definitionFit": "A peasant is a farm labourer or smallholder living in the countryside, a rural man of humble standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wears"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +179,65 @@
     "text": "Describe me? Not married, cross and bald",
     "enumeration": "7"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXPLAIN",
+    "definitions": [
+     {
+      "text": "Describe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not married",
+      "for": "deletion",
+      "note": "not married means without the abbreviation for married, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is drawn as an X"
+     },
+     {
+      "clueFragment": "bald",
+      "gives": "PLAIN",
+      "note": "a bald statement is a plain, unadorned one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone invites a description of themselves: unmarried, irritable and hairless.",
+     "walkthrough": "M is the abbreviation for married, so ME without it leaves E. 'Bald' here means blunt or unvarnished, not hairless.",
+     "definitionFit": "To explain something is to set it out clearly in words, which is close to describing or accounting for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bald"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +251,61 @@
     "text": "A sketch picked up prize",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "prize",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, lifting something up makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sketch",
+      "gives": "DRAW",
+      "note": "to sketch is to draw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAW",
+       "to": "WARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drawing collected a prize at an art show.",
+     "walkthrough": "'Picked up' suggests collecting, but in a down clue it turns the word upward.",
+     "definitionFit": "An award is a prize given in recognition of achievement, so the nouns are direct synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +319,62 @@
     "text": "All-important titanium and aluminium found south of German city",
     "enumeration": "9"
    },
-   "solution": "ESSENTIAL"
+   "solution": "ESSENTIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESSENTIAL",
+    "definitions": [
+     {
+      "text": "All-important",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found south of",
+      "for": "charade",
+      "note": "in a down clue, being south of something means coming below it, so these pieces follow the other one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German city",
+      "gives": "ESSEN",
+      "note": "Essen is a city in the Ruhr"
+     },
+     {
+      "clueFragment": "titanium",
+      "gives": "TI",
+      "note": "Ti is the chemical symbol for titanium"
+     },
+     {
+      "clueFragment": "aluminium",
+      "gives": "AL",
+      "note": "Al is the chemical symbol for aluminium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSEN",
+      "TI",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Crucial metals are discovered to the south of an industrial German city.",
+     "walkthrough": "Two chemical symbols sit below the city name in the down light.",
+     "definitionFit": "Something essential is absolutely necessary, of the greatest importance, matching the hyphenated adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +388,61 @@
     "text": "Exclamation of disgust about writer’s chances",
     "enumeration": "7"
    },
-   "solution": "HAPPENS"
+   "solution": "HAPPENS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "HAPPENS",
+    "definitions": [
+     {
+      "text": "chances",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exclamation of disgust",
+      "gives": "PAH",
+      "note": "pah is a scornful interjection"
+     },
+     {
+      "clueFragment": "writer’s",
+      "gives": "PENS",
+      "note": "a pen is a writer, and the apostrophe-s gives the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAP",
+      "PENS"
+     ],
+     "reversals": [
+      {
+       "from": "PAH",
+       "to": "HAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone snorts in disgust at an author's prospects of success.",
+     "walkthrough": "'Chances' looks like a noun meaning prospects, but it is a verb: it so chances that...",
+     "definitionFit": "As a verb, to chance means to occur by accident, which is what happens means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chances"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +456,55 @@
     "text": "Work inside the man had planned",
     "enumeration": "5"
    },
-   "solution": "HOPED"
+   "solution": "HOPED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOPED",
+    "definitions": [
+     {
+      "text": "planned",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one item within the walls of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the man had",
+      "gives": "HED",
+      "note": "he'd is the contraction of he had"
+     },
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OP",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker on the inside had planned the job, like a heist.",
+     "walkthrough": "OP is short for opus, the Latin word used for a numbered musical work.",
+     "definitionFit": "To have hoped to do something is to have intended or aimed at it, a loose synonym for planned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +518,51 @@
     "text": "Parking hotel guest’s Ford?",
     "enumeration": "9"
    },
-   "solution": "PRESIDENT"
+   "solution": "PRESIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESIDENT",
+    "definitions": [
+     {
+      "text": "Ford",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "hotel guest",
+      "gives": "RESIDENT",
+      "note": "a hotel resident is a guest staying there"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel valet parks a guest's Ford car.",
+     "walkthrough": "Ford reads as a car make, but it is Gerald Ford; the apostrophe-s is 'is', and the question mark flags the definition by example.",
+     "definitionFit": "Gerald Ford was the 38th US president, so he is one example of the office holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ford"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +576,62 @@
     "text": "Numerous sand eels at sea adult avoided",
     "enumeration": "7"
    },
-   "solution": "ENDLESS"
+   "solution": "ENDLESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENDLESS",
+    "definitions": [
+     {
+      "text": "Numerous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused or all over the place, so the letters get jumbled"
+     },
+     {
+      "text": "avoided",
+      "for": "deletion",
+      "note": "something avoided is kept out, so that letter is left out of the mix"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sand eels",
+      "gives": "SANDEELS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SNDEELS",
+       "gives": "ENDLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Countless sand eels swim in the sea while a grown-up keeps clear.",
+     "walkthrough": "Remove one A from the two words, then rearrange the remaining seven letters.",
+     "definitionFit": "Something endless seems to have no limit, so loosely it describes things too many to count."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +645,50 @@
     "text": "What horse was, possibly – small and confused",
     "enumeration": "7"
    },
-   "solution": "SADDLED"
+   "solution": "SADDLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SADDLED",
+    "definitions": [
+     {
+      "text": "What horse was, possibly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "confused",
+      "gives": "ADDLED",
+      "note": "addled means muddled or confused"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ADDLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A little horse appears dazed and confused.",
+     "walkthrough": "'Confused' looks like an anagram signal but simply gives a synonym; the definition is a whole descriptive phrase.",
+     "definitionFit": "A horse fitted with a seat for riding has been saddled, which is why 'possibly' hedges the description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "confused"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +702,61 @@
     "text": "Seems dad rejected fruit",
     "enumeration": "7"
    },
-   "solution": "APPEARS"
+   "solution": "APPEARS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "APPEARS",
+    "definitions": [
+     {
+      "text": "Seems",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is turned backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dad",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEARS",
+      "note": "pears are fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PEARS"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It looks as though father turned down the fruit.",
+     "walkthrough": "Only the short word for dad is turned round; the fruit stays as written.",
+     "definitionFit": "To appear is to give an impression of being something, an exact synonym for seems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +770,60 @@
     "text": "Be in charge of following page, editor begged",
     "enumeration": "7"
    },
-   "solution": "PLEADED"
+   "solution": "PLEADED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEADED",
+    "definitions": [
+     {
+      "text": "begged",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so one piece is placed behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "Be in charge of",
+      "gives": "LEAD",
+      "note": "to lead is to be in charge of"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEAD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor pleaded to be put in charge of the next page.",
+     "walkthrough": "The clue's opening phrase comes after the page letter in the answer.",
+     "definitionFit": "To plead is to ask earnestly or implore, so the past tenses are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +837,59 @@
     "text": "A group one daughter deserted",
     "enumeration": "9"
    },
-   "solution": "ABANDONED"
+   "solution": "ABANDONED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDONED",
+    "definitions": [
+     {
+      "text": "deserted",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group, of musicians or people"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter in family trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "ONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A band's member, someone's daughter, walked out on the group.",
+     "walkthrough": "Four short pieces simply line up in clue order.",
+     "definitionFit": "Abandoned and deserted both describe someone or something left behind and forsaken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deserted"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +903,59 @@
     "text": "Perfect goal – Pele’s third",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third",
+      "for": "letter_selection",
+      "note": "third points to one letter by its position in the word"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goal",
+      "gives": "IDEA",
+      "note": "an idea can be an aim or goal, as in 'the idea is to win'"
+     },
+     {
+      "clueFragment": "Pele’s",
+      "gives": "L",
+      "select": 3,
+      "note": "the third letter of the footballer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Pelé's third goal in a match was a perfect strike.",
+     "walkthrough": "'Goal' suggests football, but here it means aim or purpose; Pelé was the Brazilian football great.",
+     "definitionFit": "Ideal as an adjective means flawless or exactly as one would wish, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +969,47 @@
     "text": "Pale brown energy drink",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pale brown",
+      "gives": "TAN",
+      "note": "tan is a light yellowish-brown"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means vigour or energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A light brown energy drink is on offer.",
+     "walkthrough": "'Energy drink' reads as one item but splits; Tango is a British brand of fizzy orange soft drink.",
+     "definitionFit": "Tango is a branded fizzy soft drink sold in Britain, so it is an example of a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +1023,65 @@
     "text": "So is Cognac unfortunately no good for social events?",
     "enumeration": "9"
    },
-   "solution": "OCCASIONS"
+   "solution": "OCCASIONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OCCASIONS",
+    "definitions": [
+     {
+      "text": "social events",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something going unfortunately has gone wrong, so the letters are put out of order"
+     },
+     {
+      "text": "no good",
+      "for": "deletion",
+      "note": "no good means without the abbreviation for good, so that letter is struck out"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So is Cognac",
+      "gives": "SOISCOGNAC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOISCONAC",
+       "gives": "OCCASIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether brandy is sadly unsuitable for parties.",
+     "walkthrough": "Strip the G from the three words, then rearrange the nine letters left.",
+     "definitionFit": "An occasion is a special event or celebration, such as a wedding or party, so the plurals match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1095,56 @@
     "text": "Moved one mile then flattened",
     "enumeration": "9"
    },
-   "solution": "IMPRESSED"
+   "solution": "IMPRESSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPRESSED",
+    "definitions": [
+     {
+      "text": "Moved",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "mile",
+      "gives": "M",
+      "note": "M is the abbreviation for mile"
+     },
+     {
+      "clueFragment": "flattened",
+      "gives": "PRESSED",
+      "note": "to press something is to flatten it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PRESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A road crew shifted something a mile, then rolled it flat.",
+     "walkthrough": "'Moved' reads as physical movement, but it is emotional: touched or affected.",
+     "definitionFit": "To be moved is to be stirred emotionally, and being impressed is a strong favourable reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moved"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1158,64 @@
     "text": "Had gangs used university’s shed?",
     "enumeration": "9"
    },
-   "solution": "POSSESSED"
+   "solution": "POSSESSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "POSSESSED",
+    "definitions": [
+     {
+      "text": "Had",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shed",
+      "for": "deletion",
+      "note": "something shed is cast off, so that letter falls away"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gangs",
+      "gives": "POSSES",
+      "note": "a posse is a band of people, a gang"
+     },
+     {
+      "clueFragment": "used",
+      "gives": "USED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSSES",
+      "SED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether gangs took over a college outbuilding.",
+     "walkthrough": "'Shed' looks like a noun for a hut, but it is a verb; the apostrophe-s is 'is'.",
+     "definitionFit": "To have something is to own it, and possessed is the past tense meaning owned or held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1229,70 @@
     "text": "Guys from Idaho I caught breaking rules",
     "enumeration": "9"
    },
-   "solution": "RIDICULES"
+   "solution": "RIDICULES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIDICULES",
+    "definitions": [
+     {
+      "text": "Guys",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so these letters go within"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rules",
+      "gives": "RULES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Idaho",
+      "gives": "ID",
+      "note": "ID is the postal abbreviation for Idaho"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IDIC",
+      "ULES"
+     ]
+    },
+    "explanation": {
+     "surface": "Men from Idaho say they were caught breaking the rules.",
+     "walkthrough": "'Guys' reads as men, but it is a verb: to guy someone is to mock them.",
+     "definitionFit": "To guy is an old verb for making fun of a person, so guys and ridicules are equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Guys"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1306,61 @@
     "text": "Rumours about pet turning up",
     "enumeration": "7"
    },
-   "solution": "REPORTS"
+   "solution": "REPORTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REPORTS",
+    "definitions": [
+     {
+      "text": "Rumours",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up makes a word read from the bottom upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "STROP",
+      "note": "a pet is a fit of sulking, as is a strop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PORTS"
+     ],
+     "reversals": [
+      {
+       "from": "STROP",
+       "to": "PORTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip spreads about a lost pet that reappeared.",
+     "walkthrough": "'Pet' reads as an animal, but it means a sulk, as in 'in a pet'; a strop is British slang for a bad temper.",
+     "definitionFit": "Reports can be accounts that are passed around unconfirmed, much like rumours or hearsay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1374,60 @@
     "text": "Put down spades I discovered in storehouse",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "Put down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered in",
+      "for": "container",
+      "note": "something discovered in a place is found within it, so these letters sit inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storehouse",
+      "gives": "DEPOT",
+      "note": "a depot is a warehouse"
+     },
+     {
+      "clueFragment": "spades",
+      "gives": "S",
+      "note": "S is the card-suit abbreviation for spades"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPO",
+      "SI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone found spades hidden in a warehouse and set them down.",
+     "walkthrough": "The two short pieces go inside the storehouse word between its O and T.",
+     "definitionFit": "To deposit something is to lay it down or place it somewhere, matching put down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1441,62 @@
     "text": "River boat initially stuck in bank",
     "enumeration": "5"
    },
-   "solution": "TIBER"
+   "solution": "TIBER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TIBER",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is used"
+     },
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "something stuck in another is lodged inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "TIER",
+      "note": "a bank is a row or tier, as of seats or oars"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "B",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A river boat runs aground at first on the riverbank.",
+     "walkthrough": "'Bank' reads as a riverbank, but it means a row, as in a bank of seats.",
+     "definitionFit": "The Tiber is the river flowing through Rome, so it is a specific instance of a river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1510,55 @@
     "text": "Black bird first to leave fence",
     "enumeration": "7"
    },
-   "solution": "BARRIER"
+   "solution": "BARRIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BARRIER",
+    "definitions": [
+     {
+      "text": "fence",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to leave",
+      "for": "deletion",
+      "note": "the first letter leaving means the word loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "HARRIER",
+      "note": "a harrier is a bird of prey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARRIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark bird is the first to fly off a fence.",
+     "walkthrough": "The bird loses its H, leaving ARRIER to follow B.",
+     "definitionFit": "A fence is a structure that blocks passage, which is exactly what a barrier does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1572,62 @@
     "text": "Cryptic puzzles idlers do almost cracked",
     "enumeration": "7"
    },
-   "solution": "RIDDLES"
+   "solution": "RIDDLES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RIDDLES",
+    "definitions": [
+     {
+      "text": "Cryptic puzzles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "cracked means broken apart, so the letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idlers",
+      "gives": "IDLERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "D",
+      "note": "do with its last letter gone"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDLERSD",
+       "gives": "RIDDLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lazy people nearly solve the crosswords they attempt.",
+     "walkthrough": "'Cracked' looks like solved, the natural partner of puzzles, but it is the anagram signal.",
+     "definitionFit": "A riddle is a puzzling question with a hidden or punning answer, a classic kind of cryptic puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1641,55 @@
     "text": "Fizzy drinks enthralling eastern religious leaders",
     "enumeration": "5"
    },
-   "solution": "POPES"
+   "solution": "POPES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POPES",
+    "definitions": [
+     {
+      "text": "religious leaders",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "to enthral is to hold captive, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fizzy drinks",
+      "gives": "POPS",
+      "note": "pop is a fizzy soft drink"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Sparkling drinks delight priests from the East.",
+     "walkthrough": "'Enthralling' reads as captivating, but it signals holding letters inside.",
+     "definitionFit": "A pope is the head of the Roman Catholic Church, so popes are religious leaders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1703,51 @@
     "text": "Change the elders kept safe",
     "enumeration": "9"
    },
-   "solution": "SHELTERED"
+   "solution": "SHELTERED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHELTERED",
+    "definitions": [
+     {
+      "text": "kept safe",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change",
+      "for": "anagram",
+      "note": "to change something is to alter its form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the elders",
+      "gives": "THEELDERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEELDERS",
+       "gives": "SHELTERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coins given as change were kept safe by the old folk.",
+     "walkthrough": "'Change' looks like a noun for coins, but it is the instruction to rearrange.",
+     "definitionFit": "To shelter someone is to protect them from harm or weather, so sheltered means protected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1761,60 @@
     "text": "Disreputable tennis player maybe touching lady’s rear",
     "enumeration": "5"
    },
-   "solution": "SEEDY"
+   "solution": "SEEDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEEDY",
+    "definitions": [
+     {
+      "text": "Disreputable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its tail end, so only the last letter is taken"
+     }
+    ],
+    "linkWords": [
+     "touching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis player maybe",
+      "gives": "SEED",
+      "note": "a seed is a ranked player in a tennis draw"
+     },
+     {
+      "clueFragment": "lady’s",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of lady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady tennis player puts a hand on a woman's bottom.",
+     "walkthrough": "'Touching' here means next to, joining the two pieces end to end.",
+     "definitionFit": "Seedy describes something sleazy or squalid, of doubtful respectability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1828,51 @@
     "text": "The Beano’s regularly chosen for adolescents",
     "enumeration": "5"
    },
-   "solution": "TEENS"
+   "solution": "TEENS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TEENS",
+    "definitions": [
+     {
+      "text": "adolescents",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly chosen",
+      "for": "letter_selection",
+      "note": "picking at regular intervals means every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Beano’s",
+      "gives": "TEENS",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEENS"
+     ]
+    },
+    "explanation": {
+     "surface": "The Beano comic is often picked by young readers.",
+     "walkthrough": "Take the first, third, fifth, seventh and ninth letters; The Beano is a long-running British children's comic.",
+     "definitionFit": "Teens is informal for teenagers, young people between childhood and adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1886,56 @@
     "text": "Empty rifle shop put back",
     "enumeration": "7"
    },
-   "solution": "RESTORE"
+   "solution": "RESTORE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESTORE",
+    "definitions": [
+     {
+      "text": "put back",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, leaving just the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rifle",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the outside letters of rifle"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "STORE",
+      "note": "a store is a shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "STORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has cleaned out a gun shop and must return the stock.",
+     "walkthrough": "'Rifle' could be the verb meaning ransack, but here it is the gun, hollowed out.",
+     "definitionFit": "To restore something is to return it to its original place or owner, so it means to put back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Empty"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1949,56 @@
     "text": "Place is awfully significant",
     "enumeration": "7"
    },
-   "solution": "SPECIAL"
+   "solution": "SPECIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECIAL",
+    "definitions": [
+     {
+      "text": "significant",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, so the letters come out in a mess"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "PLACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLACEIS",
+       "gives": "SPECIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A location is said to be terribly important.",
+     "walkthrough": "'Awfully' reads as an intensifier meaning very, but it is the anagram signal.",
+     "definitionFit": "Something special stands out as important or noteworthy, close to significant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "awfully"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +2012,62 @@
     "text": "Meet perhaps without heads of the international sales force",
     "enumeration": "7"
    },
-   "solution": "SATISFY"
+   "solution": "SATISFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SATISFY",
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "the heads of words are their opening letters"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without can mean outside, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perhaps",
+      "gives": "SAY",
+      "note": "say is used to mean for example or perhaps"
+     },
+     {
+      "clueFragment": "the international sales force",
+      "gives": "TISF",
+      "select": "first",
+      "note": "the opening letters of four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TISF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A sales conference might go ahead without the leaders of the global team.",
+     "walkthrough": "'Without' looks like lacking, but it means outside: SAY goes around the four initials.",
+     "definitionFit": "To meet a demand or requirement is to fulfil it, which is what satisfy means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +2081,44 @@
     "text": "Among nudes, I restrained longings",
     "enumeration": "7"
    },
-   "solution": "DESIRES"
+   "solution": "DESIRES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DESIRES",
+    "definitions": [
+     {
+      "text": "longings",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Among",
+      "for": "hidden_word",
+      "note": "among means in the midst of, so the letters sit within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nudes, I restrained",
+      "gives": "DESIRES",
+      "note": "the letters run on from the end of the first word through to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone surrounded by naked figures held their urges in check.",
+     "walkthrough": "'Restrained' sounds like self-control, but it is padding around the hidden letters; the punctuation and spaces are ignored.",
+     "definitionFit": "Desires are strong wishes or cravings, the same as longings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "restrained"
+    }
+   }
   }
  ]
 }

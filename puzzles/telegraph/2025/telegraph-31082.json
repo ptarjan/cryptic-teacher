@@ -10,19 +10,18 @@
  },
  "source": {
   "publisher": "Telegraph",
-  "url": "https://bigdave44.com/2025/11/12/dt-31082/",
-  "retrievedFrom": "blog",
-  "acquiredBy": "tools/file_telegraph_puzzles.py",
+  "url": "https://www.telegraph.co.uk/puzzles/",
+  "retrievedFrom": "publisher",
+  "acquiredBy": "tools/fetch_telegraph.py",
   "acquiredOn": "2026-09-26",
-  "gridOrigin": "reconstructed"
+  "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "bigdave44",
-  "url": "https://bigdave44.com/2025/11/12/dt-31082/",
-  "date": "2025-11-12",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +35,44 @@
     "text": "Birmingham’s home sweet home?",
     "enumeration": "7"
    },
-   "solution": "ALABAMA"
+   "solution": "ALABAMA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALABAMA",
+    "definitions": [
+     {
+      "text": "Birmingham’s home",
+      "at": 0
+     },
+     {
+      "text": "sweet home",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birmingham’s home",
+      "note": "first meaning: the US state in which the American city of Birmingham stands"
+     },
+     {
+      "clueFragment": "sweet home",
+      "note": "second meaning: the place hailed as 'sweet home' in a famous Lynyrd Skynyrd rock song title"
+     }
+    ],
+    "explanation": {
+     "surface": "Fond words about Birmingham as the place someone loves to come home to.",
+     "walkthrough": "A British solver thinks of the West Midlands, but there is a larger Birmingham in the American South; the song Sweet Home Alabama clinches it.",
+     "definitionFit": "The southern US state contains the city of Birmingham and is the subject of the 1974 rock anthem about returning there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Birmingham’s"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +86,63 @@
     "text": "Look less English, put on the Spanish clobber",
     "enumeration": "7"
    },
-   "solution": "APPAREL"
+   "solution": "APPAREL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "APPAREL",
+    "definitions": [
+     {
+      "text": "clobber",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "having less of something means a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "APPEAR",
+      "note": "to look a certain way is to appear so"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English; it is removed"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPAR",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trying to seem less English by dressing in Spanish gear.",
+     "walkthrough": "'Look less English' seems to describe a disguise, but it is an instruction: a synonym of look loses its E. Clobber is British slang for clothes.",
+     "definitionFit": "Clobber is informal British slang for clothing or gear, and apparel is the formal word for garments worn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +162,65 @@
      }
     ]
    },
-   "solution": "ALEXANDRAPALACE"
+   "solution": "ALEXANDRAPALACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALEXANDRA PALACE",
+    "definitions": [
+     {
+      "text": "game of darts here?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unwind",
+      "for": "anagram",
+      "note": "to unwind is to undo something coiled, so the letters are loosened and set out afresh"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relax",
+      "gives": "RELAX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a lap dance",
+      "gives": "ALAPDANCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article from 'a game', taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELAXALAPDANCEA",
+       "gives": "ALEXANDRAPALACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An evening of relaxing, a lap dance and some darts: a lads' night out.",
+     "walkthrough": "The 'a' of 'a game' does double duty in the fodder. Alexandra Palace, or Ally Pally, is a north London venue that hosts the world darts championship.",
+     "definitionFit": "The professional world darts championship is staged each winter at this north London entertainment venue, so it is where darts is played."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Unwind"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +234,40 @@
     "text": "Swedish foursome that swings both ways?",
     "enumeration": "4"
    },
-   "solution": "ABBA"
+   "solution": "ABBA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ABBA",
+    "definitions": [
+     {
+      "text": "Swedish foursome that swings both ways?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swedish foursome",
+      "note": "surface reading: a pop group of four from Sweden, with a saucy hint about their love lives"
+     },
+     {
+      "clueFragment": "swings both ways",
+      "note": "setter's reading: the band's name reads the same forwards and backwards"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky remark about a Swedish group's private life.",
+     "walkthrough": "The innuendo is a red herring: 'both ways' just means the name reads the same forwards and backwards.",
+     "definitionFit": "The famous Swedish pop group consisted of four members, two couples, who won Eurovision in 1974."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swings"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +281,62 @@
     "text": "Old city against leader of Orthodox Church",
     "enumeration": "7"
    },
-   "solution": "ANTIOCH"
+   "solution": "ANTIOCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ANTIOCH",
+    "definitions": [
+     {
+      "text": "Old city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is whatever comes at its head, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "ANTI",
+      "note": "anti means opposed to"
+     },
+     {
+      "clueFragment": "Orthodox",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "O",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient city opposing the head of the Orthodox Church.",
+     "walkthrough": "'Leader of Orthodox Church' reads as a patriarch, but the leader is only the first letter, and Church stands alone.",
+     "definitionFit": "Antioch was a major ancient Hellenistic city in Syria, now Antakya in Turkey, and an early Christian centre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +350,58 @@
     "text": "Mister Capello, so really entertaining when retired",
     "enumeration": "7"
    },
-   "solution": "AEROSOL"
+   "solution": "AEROSOL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AEROSOL",
+    "definitions": [
+     {
+      "text": "Mister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "hidden_word",
+      "note": "to entertain guests is to hold them within, so the letters sit inside the words"
+     },
+     {
+      "text": "when retired",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capello, so really",
+      "gives": "LOSOREA",
+      "note": "the letters spanning the end of the surname, the whole of 'so', and the start of 'really'"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LOSOREA",
+       "to": "AEROSOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Addressing former England manager Fabio Capello as 'Mister', saying he was great fun in retirement.",
+     "walkthrough": "Mister looks like a form of address for Capello, but it is the definition: a thing that produces mist.",
+     "definitionFit": "A spray can turns liquid into a fine mist, so it is literally a mister in the device sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mister"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +415,55 @@
     "text": "In the morning, taking close companion for scuba, say",
     "enumeration": "7"
    },
-   "solution": "ACRONYM"
+   "solution": "ACRONYM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRONYM",
+    "definitions": [
+     {
+      "text": "scuba, say",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the morning",
+      "gives": "AM",
+      "note": "AM is ante meridiem, before noon"
+     },
+     {
+      "clueFragment": "close companion",
+      "gives": "CRONY",
+      "note": "a crony is a close friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CRONY",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Going diving in the morning with a close friend.",
+     "walkthrough": "AM opens to hold CRONY. Scuba stands for self-contained underwater breathing apparatus, so it is a word built from initials.",
+     "definitionFit": "Scuba is a classic example of a word formed from initial letters and pronounced as a word itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "scuba"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +477,49 @@
     "text": "Timeless court case ready in Iran?",
     "enumeration": "4"
    },
-   "solution": "RIAL"
+   "solution": "RIAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIAL",
+    "definitions": [
+     {
+      "text": "ready in Iran",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "being without time means the abbreviation for time is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court case",
+      "gives": "TRIAL",
+      "note": "a court case is a trial; its T is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A never-ending court case in Iran is finally ready to start.",
+     "walkthrough": "T is the abbreviation for time. 'Ready' is not an adjective here but British slang for cash, as in 'the readies'.",
+     "definitionFit": "The rial is the national currency of Iran, so it is the money, or readies, used there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 7,
@@ -168,7 +547,63 @@
      }
     ]
    },
-   "solution": "SLIPOFTHETONGUE"
+   "solution": "SLIPOFTHETONGUE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SLIP OF THE TONGUE",
+    "definitions": [
+     {
+      "text": "boob",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Snap",
+      "for": "anagram",
+      "note": "something that snaps breaks apart, so the letters are broken and remade"
+     },
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "capturing something means taking it in, so a letter is held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "using telephoto",
+      "gives": "USINGTELEPHOTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USINGTELEPHOTOF",
+       "gives": "SLIPOFTHETONGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paparazzo zooming in for a revealing photo of a woman's chest.",
+     "walkthrough": "'Snap' and 'telephoto' suggest photography, but snap is the anagram signal. Boob is British slang for a blunder as well as the cheeky sense.",
+     "definitionFit": "A boob is an embarrassing mistake, and an accidental wrong word said aloud is one such verbal blunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boob"
+    }
+   }
   },
   {
    "number": 8,
@@ -182,7 +617,62 @@
     "text": "Chimney pot beginning to oxidise – such a pain",
     "enumeration": "7"
    },
-   "solution": "LUMBAGO"
+   "solution": "LUMBAGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LUMBAGO",
+    "definitions": [
+     {
+      "text": "such a pain",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chimney",
+      "gives": "LUM",
+      "note": "lum is a Scots and northern word for a chimney"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "BAG",
+      "note": "to pot game is to shoot it, which is also to bag it"
+     },
+     {
+      "clueFragment": "oxidise",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUM",
+      "BAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A rusting chimney pot is a real nuisance for the householder.",
+     "walkthrough": "'Chimney pot' reads as one thing but splits in two. Pot as a verb means to shoot or capture, the same as bag.",
+     "definitionFit": "Lumbago is a painful condition of the lower back, so it is a particular kind of ache or pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 9,
@@ -196,7 +686,52 @@
     "text": "Britney Spears: I’m changing religious doctrine",
     "enumeration": "15"
    },
-   "solution": "PRESBYTERIANISM"
+   "solution": "PRESBYTERIANISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRESBYTERIANISM",
+    "definitions": [
+     {
+      "text": "religious doctrine",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "when something is changing its form alters, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britney Spears: I’m",
+      "gives": "BRITNEYSPEARSIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRITNEYSPEARSIM",
+       "gives": "PRESBYTERIANISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The pop star announcing that she is switching faiths.",
+     "walkthrough": "The whole of the pop star's name plus I'M makes exactly fifteen letters to rearrange.",
+     "definitionFit": "Presbyterianism is the theology and church government of Reformed Protestant churches run by elders, a body of religious teaching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "changing"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +745,43 @@
     "text": "Wander around the Eternal City, so to speak",
     "enumeration": "4"
    },
-   "solution": "ROAM"
+   "solution": "ROAM",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROAM",
+    "definitions": [
+     {
+      "text": "Wander around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so to speak",
+      "for": "homophone",
+      "note": "speaking points to how words are pronounced rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Eternal City",
+      "gives": "ROAM",
+      "soundsLike": "ROME",
+      "note": "the Eternal City is the traditional nickname of the Italian capital"
+     }
+    ],
+    "explanation": {
+     "surface": "Strolling about Rome as a tourist.",
+     "walkthrough": "The Italian capital and the word for wandering are pronounced identically.",
+     "definitionFit": "To roam is to travel aimlessly over a wide area, the same as wandering about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +795,55 @@
     "text": "Establish nothing’s in the kitty",
     "enumeration": "5"
    },
-   "solution": "FOUND"
+   "solution": "FOUND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOUND",
+    "definitions": [
+     {
+      "text": "Establish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, shaped like O"
+     },
+     {
+      "clueFragment": "the kitty",
+      "gives": "FUND",
+      "note": "a kitty is a pool of money, a fund"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "O",
+      "UND"
+     ]
+    },
+    "explanation": {
+     "surface": "Discovering that the shared kitty is empty.",
+     "walkthrough": "'Kitty' suggests a cat, but here it is a pot of pooled money.",
+     "definitionFit": "To found an organisation is to set it up or bring it into being, which is to establish it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kitty"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +857,53 @@
     "text": "Piece of furniture, very fine article",
     "enumeration": "4"
    },
-   "solution": "SOFA"
+   "solution": "SOFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOFA",
+    "definitions": [
+     {
+      "text": "Piece of furniture",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so means very, as in 'so good'"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "F",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Admiring an excellent piece of furniture.",
+     "walkthrough": "'Very fine article' reads as praise for the furniture but splits into three small pieces.",
+     "definitionFit": "A sofa is an upholstered seat for several people, an item found in most living rooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +917,61 @@
     "text": "Help set up Railway Journal",
     "enumeration": "5"
    },
-   "solution": "DIARY"
+   "solution": "DIARY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIARY",
+    "definitions": [
+     {
+      "text": "Journal",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, setting something up turns it upwards so it reads from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "AID",
+      "note": "aid means help"
+     },
+     {
+      "clueFragment": "Railway",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIA",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone helping to launch a railway magazine.",
+     "walkthrough": "'Railway Journal' reads like a magazine title, but the two words do separate jobs.",
+     "definitionFit": "A diary is a daily record of events and thoughts, which is what a personal journal is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Railway"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +985,47 @@
     "text": "Info on literary style",
     "enumeration": "5"
    },
-   "solution": "GENRE"
+   "solution": "GENRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENRE",
+    "definitions": [
+     {
+      "text": "literary style",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Info",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about, as in a memo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reading up on a particular kind of writing.",
+     "walkthrough": "Gen is informal British for information, as in 'get the gen'.",
+     "definitionFit": "A genre is a category of artistic work such as crime fiction or romance, a kind or style of writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1039,61 @@
     "text": "Like a boisterous youth left his dad upset?",
     "enumeration": "7"
    },
-   "solution": "LADDISH"
+   "solution": "LADDISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LADDISH",
+    "definitions": [
+     {
+      "text": "Like a boisterous youth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "when something is upset it is knocked over and disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "his dad",
+      "gives": "HISDAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ADDISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HISDAD",
+       "gives": "ADDISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy teenager who walked out and left his father distressed.",
+     "walkthrough": "'Left' looks like a verb about abandoning the father, but it supplies a single letter.",
+     "definitionFit": "Laddish describes the brash, rowdy behaviour associated with young men, the manner of a boisterous lad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1107,62 @@
     "text": "Mum established boundaries for Rigoletto conductor",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MAESTRO",
+    "definitions": [
+     {
+      "text": "conductor",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boundaries for",
+      "for": "letter_selection",
+      "note": "the boundaries of a word are its edges, its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is a word for mother"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     },
+     {
+      "clueFragment": "Rigoletto",
+      "gives": "RO",
+      "select": "outer",
+      "note": "the first and last letters of the opera title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "EST",
+      "RO"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother laying down the limits for the man conducting Verdi's opera Rigoletto.",
+     "walkthrough": "The opera name invites musical thinking, but only its outermost letters are used.",
+     "definitionFit": "Maestro is the respectful title for a distinguished conductor of orchestras or opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boundaries"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1176,58 @@
     "text": "Annoyance of Greek stuck in mountain range",
     "enumeration": "7"
    },
-   "solution": "CHAGRIN"
+   "solution": "CHAGRIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAGRIN",
+    "definitions": [
+     {
+      "text": "Annoyance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "being stuck inside something means being held within it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "GR is the abbreviation for Greek"
+     },
+     {
+      "clueFragment": "mountain range",
+      "gives": "CHAIN",
+      "note": "a mountain chain is a range"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "GR",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek hiker's frustration at being trapped in the mountains.",
+     "walkthrough": "A range of mountains is also called a chain, which opens after its third letter to take the abbreviation.",
+     "definitionFit": "Chagrin is distress or vexation at having failed or been humiliated, a feeling of irritation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1241,69 @@
     "text": "Colonel Gaddafi at the front wearing a certain scent",
     "enumeration": "7"
    },
-   "solution": "COLOGNE"
+   "solution": "COLOGNE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "COLOGNE",
+    "definitions": [
+     {
+      "text": "scent",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "what sits at the front of a word is its first letter"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whatever is worn goes around the wearer, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colonel",
+      "gives": "COL",
+      "note": "Col is the abbreviation for colonel"
+     },
+     {
+      "clueFragment": "Gaddafi",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the name"
+     },
+     {
+      "clueFragment": "a certain",
+      "gives": "ONE",
+      "note": "'a certain person' can be 'one'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "O",
+      "G",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "The Libyan dictator leading the way, doused in a particular perfume.",
+     "walkthrough": "'Colonel Gaddafi' reads as one title, but it splits: the rank is abbreviated and only his initial is used, dressed in ONE.",
+     "definitionFit": "Cologne, short for eau de Cologne, is a light perfume, so it is a fragrance or scent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gaddafi"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1317,74 @@
     "text": "Gwen turned up with temperature in A&E in gaol",
     "enumeration": "7"
    },
-   "solution": "NEWGATE"
+   "solution": "NEWGATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "NEWGATE",
+    "definitions": [
+     {
+      "text": "gaol",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something up flips it to read from the bottom"
+     },
+     {
+      "text": "with temperature in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gwen",
+      "gives": "GWEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "A&E is accident and emergency, a hospital casualty department; just its letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEWG",
+      "A",
+      "T",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GWEN",
+       "to": "NEWG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gwen arrives at casualty with a fever, while in prison.",
+     "walkthrough": "A&E is the British hospital emergency department. Newgate was London's notorious old prison.",
+     "definitionFit": "Newgate was a famous London prison for over seven centuries, so it is a particular jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1398,51 @@
     "text": "Upstart VP ran EU ragged",
     "enumeration": "7"
    },
-   "solution": "PARVENU"
+   "solution": "PARVENU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARVENU",
+    "definitions": [
+     {
+      "text": "Upstart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ragged",
+      "for": "anagram",
+      "note": "something ragged is torn and messy, so the letters are in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "VP ran EU",
+      "gives": "VPRANEU",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VPRANEU",
+       "gives": "PARVENU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upstart vice-president ran the European Union into the ground.",
+     "walkthrough": "'Ran ... ragged' reads as an idiom for exhausting someone, but ragged alone signals the rearrangement.",
+     "definitionFit": "A parvenu is a person of humble origins who has newly gained wealth or status, a social climber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ragged"
+    }
+   }
   },
   {
    "number": 19,
@@ -364,7 +1456,47 @@
     "text": "Church revenue ahead of the curve?",
     "enumeration": "7"
    },
-   "solution": "PREBEND"
+   "solution": "PREBEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREBEND",
+    "definitions": [
+     {
+      "text": "Church revenue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ahead of",
+      "gives": "PRE",
+      "note": "pre means before"
+     },
+     {
+      "clueFragment": "the curve",
+      "gives": "BEND",
+      "note": "a curve in a road is a bend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "BEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A church whose income is ahead of the curve, i.e. ahead of trends.",
+     "walkthrough": "'Ahead of the curve' is an idiom for being progressive, but it splits into a prefix and a noun.",
+     "definitionFit": "A prebend is the stipend a canon draws from a cathedral's estates, a portion of ecclesiastical income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "curve"
+    }
+   }
   },
   {
    "number": 20,
@@ -388,7 +1520,42 @@
      }
     ]
    },
-   "solution": "UPFORIT"
+   "solution": "UPFORIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UP FOR IT",
+    "definitions": [
+     {
+      "text": "In court, going to get punished",
+      "at": 0
+     },
+     {
+      "text": "highly motivated",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In court, going to get punished",
+      "note": "first meaning: facing trial and due a penalty, as in being up before the judge"
+     },
+     {
+      "clueFragment": "highly motivated",
+      "note": "second meaning: keen and eager to take part"
+     }
+    ],
+    "explanation": {
+     "surface": "A defendant awaiting sentence while also being very keen.",
+     "walkthrough": "The informal British phrase means both 'in trouble and about to be dealt with' and 'enthusiastic and willing'.",
+     "definitionFit": "The phrase covers someone summoned to answer a charge and also, colloquially, someone eager and willing to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1569,56 @@
     "text": "Boy bored by electronic heavy metal",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAD",
+    "definitions": [
+     {
+      "text": "heavy metal",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bored by",
+      "for": "container",
+      "note": "something bored by a drill has another thing passing through its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager who finds electronic music and heavy metal tedious.",
+     "walkthrough": "'Heavy metal' looks like a music genre alongside 'electronic', but it is literal.",
+     "definitionFit": "Lead is a dense, soft, grey chemical element, one of the heaviest common metals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bored"
+    }
+   }
   },
   {
    "number": 22,
@@ -416,7 +1632,56 @@
     "text": "Bird bowls Beth left completely uncovered",
     "enumeration": "5"
    },
-   "solution": "OWLET"
+   "solution": "OWLET",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OWLET",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left completely uncovered",
+      "for": "letter_selection",
+      "note": "uncovering something strips away its outer layers, leaving only the inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowls",
+      "gives": "OWL",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "Beth",
+      "gives": "ET",
+      "select": "middle",
+      "note": "the name without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWL",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird knocks Beth over and leaves her exposed.",
+     "walkthrough": "'Bowls' looks like a verb, as in knocking someone over, but it is only fodder for its middle.",
+     "definitionFit": "An owlet is a young owl, which is a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bowls"
+    }
+   }
   },
   {
    "number": 23,
@@ -430,7 +1695,58 @@
     "text": "Pack animal‘s run over",
     "enumeration": "4"
    },
-   "solution": "WOLF"
+   "solution": "WOLF",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "WOLF",
+    "definitions": [
+     {
+      "text": "Pack animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turning something over flips it so it reads the other way"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "FLOW",
+      "note": "to run, of water, is to flow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOLF"
+     ],
+     "reversals": [
+      {
+       "from": "FLOW",
+       "to": "WOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beast of burden has been knocked down by a vehicle.",
+     "walkthrough": "'Pack animal' suggests a mule carrying loads; it is an animal that hunts in packs.",
+     "definitionFit": "Wolves live and hunt in family groups called packs, so the wolf is the classic pack animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pack"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1760,65 @@
     "text": "About to get upset, Oscar’s forgotten horn",
     "enumeration": "4"
    },
-   "solution": "TUBA"
+   "solution": "TUBA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "TUBA",
+    "definitions": [
+     {
+      "text": "horn",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get upset",
+      "for": "reversal",
+      "note": "in a down clue, being upset turns something upside down"
+     },
+     {
+      "text": "forgotten",
+      "for": "deletion",
+      "note": "what is forgotten is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "ABOUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUBA"
+     ],
+     "reversals": [
+      {
+       "from": "ABOUT",
+       "to": "TUOBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone about to be upset because Oscar has left his instrument behind.",
+     "walkthrough": "'About to get upset' reads as 'nearly upset', but 'About' is the word turned over, then the O drops out.",
+     "definitionFit": "The tuba is a large, low-pitched brass instrument, and brass instruments are loosely called horns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 25,
@@ -464,7 +1838,50 @@
      }
     ]
    },
-   "solution": "ASIF"
+   "solution": "ASIF",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AS IF",
+    "definitions": [
+     {
+      "text": "in your dreams",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accept succubus is featured",
+      "gives": "ASIF",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASIF"
+     ]
+    },
+    "explanation": {
+     "surface": "A dreamer resigned to a seductive demon appearing in their sleep.",
+     "walkthrough": "A succubus is a female demon said to visit men in dreams, which makes 'in your dreams' look literal.",
+     "definitionFit": "Both are dismissive exclamations meaning that something will never happen, used to scorn an unlikely idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dreams"
+    }
+   }
   },
   {
    "number": 26,
@@ -484,7 +1901,63 @@
      }
     ]
    },
-   "solution": "GRANULATEDSUGAR"
+   "solution": "GRANULATEDSUGAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GRANULATED SUGAR",
+    "definitions": [
+     {
+      "text": "that’s very sweet",
+      "at": 27,
+      "note": "a descriptive phrase for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means it is made over in a different form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lady",
+      "gives": "GRAN",
+      "note": "gran is a grandmother"
+     },
+     {
+      "clueFragment": "LSU graduate",
+      "gives": "LSUGRADUATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAN",
+      "ULATEDSUGAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LSUGRADUATE",
+       "gives": "ULATEDSUGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grandma, a fresh graduate of Louisiana State University, is a real sweetie.",
+     "walkthrough": "LSU is Louisiana State University; 'very sweet' sounds like praise for the gran but describes the answer.",
+     "definitionFit": "Granulated sugar is the common white table sugar in small grains, the substance that makes food taste sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 27,
@@ -498,7 +1971,62 @@
     "text": "Raise tax collected by European shelter",
     "enumeration": "7"
    },
-   "solution": "ELEVATE"
+   "solution": "ELEVATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ELEVATE",
+    "definitions": [
+     {
+      "text": "Raise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "something collected by another is gathered up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "VAT is value added tax"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, away from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "VAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Raising a tax gathered by a European tax haven.",
+     "walkthrough": "VAT, value added tax, is the British sales tax; 'shelter' is the lee, the side out of the wind, not a tax shelter.",
+     "definitionFit": "To elevate something is to lift it to a higher position or level, which is what raising means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shelter"
+    }
+   }
   },
   {
    "number": 28,
@@ -512,7 +2040,61 @@
     "text": "Most silly whim put back trial",
     "enumeration": "7"
    },
-   "solution": "DAFTEST"
+   "solution": "DAFTEST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DAFTEST",
+    "definitions": [
+     {
+      "text": "Most silly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "putting something back sends it the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whim",
+      "gives": "FAD",
+      "note": "a fad is a passing craze or whim"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a trial is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAF",
+      "TEST"
+     ],
+     "reversals": [
+      {
+       "from": "FAD",
+       "to": "DAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish fancy that caused a trial to be postponed.",
+     "walkthrough": "'Put back trial' reads as postponing a court case, but the putting back applies to the word before.",
+     "definitionFit": "Daft is informal British for foolish, so its superlative means the most foolish or silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   }
  ]
 }

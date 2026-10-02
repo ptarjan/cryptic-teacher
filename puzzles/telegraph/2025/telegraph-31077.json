@@ -10,19 +10,18 @@
  },
  "source": {
   "publisher": "Telegraph",
-  "url": "https://bigdave44.com/2025/11/06/dt-31077/",
-  "retrievedFrom": "blog",
-  "acquiredBy": "tools/file_telegraph_puzzles.py",
+  "url": "https://www.telegraph.co.uk/puzzles/",
+  "retrievedFrom": "publisher",
+  "acquiredBy": "tools/fetch_telegraph.py",
   "acquiredOn": "2026-09-26",
-  "gridOrigin": "reconstructed"
+  "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "bigdave44",
-  "url": "https://bigdave44.com/2025/11/06/dt-31077/",
-  "date": "2025-11-06",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +35,67 @@
     "text": "Tempo has changed penning Queen air",
     "enumeration": "10"
    },
-   "solution": "ATMOSPHERE"
+   "solution": "ATMOSPHERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ATMOSPHERE",
+    "definitions": [
+     {
+      "text": "air",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has changed",
+      "for": "anagram",
+      "note": "something that has changed is no longer in its original form, so the letters take a new order"
+     },
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen is to shut in an enclosure, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tempo has",
+      "gives": "TEMPOHAS",
+      "note": "eight letters to rearrange"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the standard abbreviation for the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATMOSPH",
+      "ER",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEMPOHAS",
+       "gives": "ATMOSPHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician notices the tempo of a tune about the Queen has shifted.",
+     "walkthrough": "'has' belongs to the anagram fodder rather than being a link: rearrange TEMPO HAS into ATMOSPHE, then pen ER inside it to make ATMOSPHERE.",
+     "definitionFit": "The atmosphere is the gaseous layer surrounding Earth, so it is simply another word for the air we breathe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +109,52 @@
     "text": "Arrogance and, indeed, real snobbery, initially",
     "enumeration": "4"
    },
-   "solution": "AIRS"
+   "solution": "AIRS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AIRS",
+    "definitions": [
+     {
+      "text": "Arrogance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and, indeed, real snobbery",
+      "gives": "AIRS",
+      "select": "first",
+      "note": "the first letters of four consecutive words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "I",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a person's arrogance really is pure snobbery.",
+     "walkthrough": "'and' looks like a link word joining definition to wordplay, but it supplies the first of the four initial letters.",
+     "definitionFit": "To put on airs is to behave haughtily, so the plural noun names a show of superiority and conceit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +168,68 @@
     "text": "Team acts badly protecting single champ",
     "enumeration": "9"
    },
-   "solution": "MASTICATE"
+   "solution": "MASTICATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MASTICATE",
+    "definitions": [
+     {
+      "text": "champ",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "doing something badly means doing it wrong, so the letters come out jumbled"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "to protect something is to surround and shield it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team acts",
+      "gives": "TEAMACTS",
+      "note": "eight letters to rearrange"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAST",
+      "I",
+      "CATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAMACTS",
+       "gives": "MASTCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report: the team played poorly while defending its lone champion.",
+     "walkthrough": "'champ' reads as a noun, a champion, but it is the verb meaning to chew noisily. The jumbled TEAM ACTS gives MASTCATE, which holds I.",
+     "definitionFit": "To champ is to munch or chew vigorously, and masticate is the formal verb for chewing food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "champ"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +243,43 @@
     "text": "For the audience, harmonious musical piece",
     "enumeration": "5"
    },
-   "solution": "SUITE"
+   "solution": "SUITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUITE",
+    "definitions": [
+     {
+      "text": "musical piece",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For the audience",
+      "for": "homophone",
+      "note": "an audience listens, so what matters is how the word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harmonious",
+      "gives": "SUITE",
+      "soundsLike": "SWEET",
+      "note": "harmonious music is pleasant and melodious"
+     }
+    ],
+    "explanation": {
+     "surface": "A concert programme promising listeners a pleasantly harmonious composition.",
+     "walkthrough": "The two words are pronounced the same, though one is spelt like a hotel suite.",
+     "definitionFit": "A suite is an instrumental composition made of several linked movements, such as a dance or orchestral set."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +293,59 @@
     "text": "Uplifted and entertained around island",
     "enumeration": "7"
    },
-   "solution": "HOISTED"
+   "solution": "HOISTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOISTED",
+    "definitions": [
+     {
+      "text": "Uplifted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertained",
+      "gives": "HOSTED",
+      "note": "to entertain guests is to host them"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is a standard abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "I",
+      "STED"
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers felt uplifted after being entertained on a tour of an island.",
+     "walkthrough": "'Uplifted' suggests cheered up, but the definition is the literal sense of raised up, as with a flag or sail.",
+     "definitionFit": "Hoisted means raised up, typically with ropes or tackle, which is literally being lifted upward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Uplifted"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +359,61 @@
     "text": "Stage riot oddly before play",
     "enumeration": "7"
    },
-   "solution": "ROSTRUM"
+   "solution": "ROSTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSTRUM",
+    "definitions": [
+     {
+      "text": "Stage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, so only first, third and so on are kept"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "placed before means coming earlier in the order, so this part comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riot",
+      "gives": "RO",
+      "select": "alternate",
+      "note": "the first and third letters"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "STRUM",
+      "note": "to strum is to play a guitar casually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "STRUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Theatre directions: stage a riot, then strike up a play.",
+     "walkthrough": "'Stage' looks like a verb as in stage a riot, but it is the noun, a raised platform.",
+     "definitionFit": "A rostrum is a raised platform for a speaker or conductor, which is a kind of small stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stage"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +427,54 @@
     "text": "Can possibly with old sauce",
     "enumeration": "4"
    },
-   "solution": "MAYO"
+   "solution": "MAYO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAYO",
+    "definitions": [
+     {
+      "text": "sauce",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so the two parts are simply set next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can possibly",
+      "gives": "MAY",
+      "note": "may expresses possibility, as in 'it may rain', like can"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A tin, perhaps, alongside a sauce that has gone past its best.",
+     "walkthrough": "'Can' looks like a noun for a tin, but it is the verb of permission or possibility.",
+     "definitionFit": "Mayo is the informal shortening of mayonnaise, the creamy egg and oil dressing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +488,43 @@
     "text": "Realm is gripped by warfare, naturally",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "Realm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is gripped by",
+      "for": "hidden_word",
+      "note": "being gripped means being held inside something, so the letters lie within the text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warfare, naturally",
+      "gives": "ARENA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A kingdom naturally finds itself caught up in conflict.",
+     "walkthrough": "The answer straddles the comma, starting inside 'warfare' and ending in 'naturally'.",
+     "definitionFit": "An arena can mean a sphere of activity or field of influence, as in the political arena, which matches realm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gripped"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +538,54 @@
     "text": "Purge using crushed bitter aloe",
     "enumeration": "10"
    },
-   "solution": "OBLITERATE"
+   "solution": "OBLITERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBLITERATE",
+    "definitions": [
+     {
+      "text": "Purge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushed",
+      "for": "anagram",
+      "note": "crushing something breaks it into fragments, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bitter aloe",
+      "gives": "BITTERALOE",
+      "note": "ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BITTERALOE",
+       "gives": "OBLITERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A herbal remedy: cleanse the system with a mash of bitter aloe.",
+     "walkthrough": "'Purge' suggests a laxative cleanse, fitting aloe, but here it means to wipe out completely.",
+     "definitionFit": "To purge is to get rid of entirely, and obliterate means to destroy or erase utterly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Purge"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +599,62 @@
     "text": "States quietly careless consuming energy",
     "enumeration": "8"
    },
-   "solution": "PREMISES"
+   "solution": "PREMISES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PREMISES",
+    "definitions": [
+     {
+      "text": "States",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "to consume is to take in, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quietly"
+     },
+     {
+      "clueFragment": "careless",
+      "gives": "REMISS",
+      "note": "remiss means negligent"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REMIS",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Nations quietly become negligent while burning through power.",
+     "walkthrough": "'States' looks like a plural noun for countries, but it is the verb, to declare.",
+     "definitionFit": "To premise something is to put it forward as the basis of an argument, so it is a formal synonym for asserting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "States"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +668,57 @@
     "text": "Paganini’s sorry about backing composer",
     "enumeration": "7"
    },
-   "solution": "ROSSINI"
+   "solution": "ROSSINI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ROSSINI",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "hidden_word",
+      "note": "about can mean around or within, so the answer lies inside the surrounding words"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going in the rear direction, so the letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paganini’s sorry",
+      "gives": "INISSOR",
+      "note": "letters spanning the end of the name and the start of the next word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "INISSOR",
+       "to": "ROSSINI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The violinist Paganini apologises for supporting a fellow musician.",
+     "walkthrough": "Paganini looks like part of the definition, but his name merely houses the letters, read backwards.",
+     "definitionFit": "Gioachino Rossini was the Italian composer of operas such as The Barber of Seville and William Tell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +732,59 @@
     "text": "Almost certain Brazilian bread’s bizarre",
     "enumeration": "7"
    },
-   "solution": "SURREAL"
+   "solution": "SURREAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SURREAL",
+    "definitions": [
+     {
+      "text": "bizarre",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "Brazilian bread",
+      "gives": "REAL",
+      "note": "bread is slang for money, and the real is Brazil's currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker is nearly sure some loaf from Brazil is strange.",
+     "walkthrough": "'bread' is old slang for money, so Brazilian bread is the national currency, not a loaf.",
+     "definitionFit": "Surreal describes something dreamlike and strange, like the surrealist paintings, so it matches odd or weird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +798,60 @@
     "text": "Frank Oppenheimer discontented seeing film-maker",
     "enumeration": "8"
    },
-   "solution": "DIRECTOR"
+   "solution": "DIRECTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DIRECTOR",
+    "definitions": [
+     {
+      "text": "film-maker",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "without its content, a word keeps only its outer shell, the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "gives": "DIRECT",
+      "note": "frank and direct both mean candid"
+     },
+     {
+      "clueFragment": "Oppenheimer",
+      "gives": "OR",
+      "select": "outer",
+      "note": "the first and last letters of the surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRECT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Frank Oppenheimer, the physicist's brother, unhappy at meeting a film-maker.",
+     "walkthrough": "'Frank Oppenheimer' reads as a real person's name, but Frank is the adjective meaning candid. A nod to the film Oppenheimer and its director.",
+     "definitionFit": "A director is the person who guides the making of a movie, the creative head of a film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +865,60 @@
     "text": "Proposed being stingy with sweetheart, finally",
     "enumeration": "5"
    },
-   "solution": "MEANT"
+   "solution": "MEANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MEANT",
+    "definitions": [
+     {
+      "text": "Proposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "being",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stingy",
+      "gives": "MEAN",
+      "note": "mean means tight-fisted"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "T",
+      "select": "last",
+      "note": "its closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A proposal of marriage marred by meanness towards the beloved.",
+     "walkthrough": "'Proposed' suggests a marriage offer, fitting the sweetheart, but it means intended.",
+     "definitionFit": "To propose doing something is to intend it, and meant is the past tense of intend in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Proposed"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +932,60 @@
     "text": "Minor fuss over the French perfume",
     "enumeration": "10"
    },
-   "solution": "ADOLESCENT"
+   "solution": "ADOLESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADOLESCENT",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over means placed above, so this part comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuss",
+      "gives": "ADO",
+      "note": "ado is fuss, as in much ado about nothing"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "perfume",
+      "gives": "SCENT",
+      "note": "a scent is a fragrance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO",
+      "LE",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small commotion about some French perfume.",
+     "walkthrough": "'Minor' looks like an adjective qualifying fuss, but it is the noun for someone under age.",
+     "definitionFit": "A minor is a person below the age of legal adulthood, and a teenager is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minor"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +999,64 @@
     "text": "Enlisted and sailed on destroyer’s prow",
     "enumeration": "7"
    },
-   "solution": "DRAFTED"
+   "solution": "DRAFTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRAFTED",
+    "definitions": [
+     {
+      "text": "Enlisted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prow",
+      "for": "letter_selection",
+      "note": "the prow is the front of a ship, so only the leading letter is wanted"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed after, so this part follows the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destroyer’s",
+      "gives": "D",
+      "select": "first",
+      "note": "the leading letter of the warship"
+     },
+     {
+      "clueFragment": "sailed",
+      "gives": "RAFTED",
+      "note": "rafted means travelled on a raft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAFTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A recruit signed up and went to sea at the front of a warship.",
+     "walkthrough": "The naval surface makes 'Enlisted' look like part of the story, but it is the definition.",
+     "definitionFit": "To be drafted is to be conscripted into military service, which is being enlisted in the forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prow"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1070,55 @@
     "text": "Move mass blocking passage",
     "enumeration": "8"
    },
-   "solution": "TRANSMIT"
+   "solution": "TRANSMIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRANSMIT",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "a blockage sits in the middle of a channel, so one piece lodges inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passage",
+      "gives": "TRANSIT",
+      "note": "transit is passage from one place to another"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANS",
+      "M",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to shift a crowd obstructing a corridor.",
+     "walkthrough": "'mass' looks like a crowd of people, but it is the physics symbol M.",
+     "definitionFit": "To transmit is to pass something on from one place or person to another, so it means to convey or shift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1132,54 @@
     "text": "Get wrongly cut off following motorway",
     "enumeration": "7"
    },
-   "solution": "MISHEAR"
+   "solution": "MISHEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISHEAR",
+    "definitions": [
+     {
+      "text": "Get wrongly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so this part is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's main north-south motorway, with the 1 read as the letter I"
+     },
+     {
+      "clueFragment": "cut off",
+      "gives": "SHEAR",
+      "note": "to shear is to cut off, as with fleece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "SHEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver is wrongly cut off by another car after joining the motorway.",
+     "walkthrough": "'Get' here means understand, as in 'I don't get it'. The M1 is a British motorway, and its 1 is taken as I.",
+     "definitionFit": "To get something can mean to catch what is said, so getting it wrongly is to misunderstand spoken words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1193,54 @@
     "text": "Height of evil? Atone somehow",
     "enumeration": "9"
    },
-   "solution": "ELEVATION"
+   "solution": "ELEVATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELEVATION",
+    "definitions": [
+     {
+      "text": "Height",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters can come in any order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evil? Atone",
+      "gives": "EVILATONE",
+      "note": "nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVILATONE",
+       "gives": "ELEVATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moral puzzle: at the very peak of wickedness, make amends somehow.",
+     "walkthrough": "The question mark splits the clue into two sentences, hiding that 'evil' and 'Atone' together form the fodder.",
+     "definitionFit": "Elevation is altitude above a reference level such as the sea, so it is a measure of height."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Height"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1254,61 @@
     "text": "Attract fish turning downwind",
     "enumeration": "7"
    },
-   "solution": "LEEWARD"
+   "solution": "LEEWARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LEEWARD",
+    "definitions": [
+     {
+      "text": "downwind",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attract",
+      "gives": "DRAW",
+      "note": "to draw a crowd is to attract it"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "an eel is a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEE",
+      "WARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAWEEL",
+       "to": "LEEWARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler lures fish by turning their boat to drift with the wind.",
+     "walkthrough": "'turning' seems to describe the fish, but it reverses the whole joined pair.",
+     "definitionFit": "Leeward is the side sheltered from the wind, facing the direction the wind blows towards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1322,57 @@
     "text": "Finished with colleen in Irish county",
     "enumeration": "7"
    },
-   "solution": "DONEGAL"
+   "solution": "DONEGAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONEGAL",
+    "definitions": [
+     {
+      "text": "Irish county",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means together, so the two parts are joined side by side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "DONE",
+      "note": "done means completed"
+     },
+     {
+      "clueFragment": "colleen",
+      "gives": "GAL",
+      "note": "a colleen is an Irish girl, and gal is informal for girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONE",
+      "GAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has broken up with an Irish girlfriend somewhere in Ireland.",
+     "walkthrough": "'in' looks like part of the wordplay, but it is the link to the definition. Colleen is the Irish word for a girl.",
+     "definitionFit": "Donegal is the county in the far north-west of the Republic of Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1386,61 @@
     "text": "Dubious party holding American power",
     "enumeration": "7"
    },
-   "solution": "SUSPECT"
+   "solution": "SUSPECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUSPECT",
+    "definitions": [
+     {
+      "text": "Dubious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within your grasp, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "SECT",
+      "note": "a sect is a faction or party"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A questionable political group with a grip on influence in the United States.",
+     "walkthrough": "'party' suggests a celebration or political party; the setter wants a faction, a sect.",
+     "definitionFit": "Suspect as an adjective means open to doubt or not to be trusted, which is what dubious means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1454,54 @@
     "text": "Top expert beneath waves",
     "enumeration": "7"
    },
-   "solution": "SURFACE"
+   "solution": "SURFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SURFACE",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beneath",
+      "for": "charade",
+      "note": "in a down clue, beneath means placed lower, so this part comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waves",
+      "gives": "SURF",
+      "note": "surf is breaking waves"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is a highly skilled person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURF",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "The best diver is down under the waves.",
+     "walkthrough": "'Top expert' reads as one phrase; split it, as Top is the definition and expert the wordplay.",
+     "definitionFit": "The surface is the uppermost layer or outside of something, so it means the top."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1515,45 @@
     "text": "Soft fabrics used for briefs?",
     "enumeration": "5"
    },
-   "solution": "SILKS"
+   "solution": "SILKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SILKS",
+    "definitions": [
+     {
+      "text": "Soft fabrics",
+      "at": 0
+     },
+     {
+      "text": "used for briefs",
+      "at": 13,
+      "note": "a descriptive phrase standing for the people engaged on legal cases"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soft fabrics",
+      "note": "first meaning: smooth lustrous cloths made from silkworm thread"
+     },
+     {
+      "clueFragment": "used for briefs",
+      "note": "second meaning: senior barristers, who are hired to take on legal cases"
+     }
+    ],
+    "explanation": {
+     "surface": "Delicate materials suited to making underwear.",
+     "walkthrough": "'briefs' wants to be underpants; it is a barrister's case papers. In Britain, senior barristers (King's Counsel) are called silks after their silk gowns.",
+     "definitionFit": "A brief is a lawyer's case, and the senior barristers engaged to argue them are known informally by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "briefs"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1567,57 @@
     "text": "Wobbly toilet’s beginning to explode",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "Wobbly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening, so only the first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet’s",
+      "gives": "LOOS",
+      "note": "a loo is a toilet, plus the possessive S"
+     },
+     {
+      "clueFragment": "explode",
+      "gives": "E",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shaky lavatory is about to blow up.",
+     "walkthrough": "Loo is everyday British slang for a toilet; the apostrophe S is kept as a letter.",
+     "definitionFit": "Something loose is not firmly fixed in place, so it wobbles or rattles about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1631,67 @@
     "text": "Revolting reputation’s right concerning Viking?",
     "enumeration": "8"
    },
-   "solution": "NORSEMAN"
+   "solution": "NORSEMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NORSEMAN",
+    "definitions": [
+     {
+      "text": "Viking",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolting",
+      "for": "reversal",
+      "note": "a revolt is an overturning, so the letters are turned back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reputation’s",
+      "gives": "NAMES",
+      "note": "a name is a reputation, as in making a name, plus the possessive S"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "ON",
+      "note": "on means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOR",
+      "SEMAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAMESRON",
+       "to": "NORSEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a raider's disgusting reputation fair, the question about a Viking runs.",
+     "walkthrough": "'Revolting' looks like disgusting, which suits a Viking's reputation, but it means turned over.",
+     "definitionFit": "A Norseman is a man from medieval Scandinavia, and the Vikings were seafaring Norse raiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Revolting"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1705,63 @@
     "text": "Jack and I supporting rock icon",
     "enumeration": "5"
    },
-   "solution": "EMOJI"
+   "solution": "EMOJI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMOJI",
+    "definitions": [
+     {
+      "text": "icon",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, supporting means holding up from below, so these letters go underneath"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rock",
+      "gives": "EMO",
+      "note": "emo is a genre of emotional rock music"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in playing cards"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMO",
+      "J",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Jack and the speaker back up a famous rock star.",
+     "walkthrough": "'rock icon' reads as a star musician; split it, as rock is a music genre and icon the definition.",
+     "definitionFit": "An emoji is a small digital picture used in messages, a kind of on-screen pictogram."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "icon"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1775,56 @@
     "text": "Man, say, is insulted periodically",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "Man, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insulted",
+      "gives": "ISLE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man, for example, gets abused every so often.",
+     "walkthrough": "'Man' seems to be a person, but it is the Isle of Man in the Irish Sea; 'say' marks it as an example.",
+     "definitionFit": "The Isle of Man is a self-governing island between Britain and Ireland, an example of an island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1838,62 @@
     "text": "Running after sweetheart?",
     "enumeration": "7"
    },
-   "solution": "ELOPING"
+   "solution": "ELOPING",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELOPING",
+    "definitions": [
+     {
+      "text": "Running after sweetheart?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming later in order, so this part is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet",
+      "gives": "E",
+      "select": "middle",
+      "note": "the central letter of the five"
+     },
+     {
+      "clueFragment": "Running",
+      "gives": "LOPING",
+      "note": "loping is running with long easy strides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LOPING"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It reads as a cryptic definition, but 'sweetheart' splits into the heart of 'sweet', with a word for running placed after it. The whole clue also defines the answer, hence the question mark.",
+     "definitionFit": "Couples who elope run off together to marry secretly, so dashing away for a lover describes them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1907,52 @@
     "text": "Go in sea, suffering serious discomfort",
     "enumeration": "7"
    },
-   "solution": "AGONIES"
+   "solution": "AGONIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGONIES",
+    "definitions": [
+     {
+      "text": "serious discomfort",
+      "at": 21,
+      "note": "singular phrase for a plural answer; agonies is used as a mass term for suffering"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is in poor shape, so the letters are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go in sea",
+      "gives": "GOINSEA",
+      "note": "seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOINSEA",
+       "gives": "AGONIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bather goes into cold water and is in real pain.",
+     "walkthrough": "'suffering' looks like part of the definition, but it signals the anagram of the first three words.",
+     "definitionFit": "Agonies are intense physical or mental pains, extreme suffering beyond ordinary distress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1966,55 @@
     "text": "Restraint having run on bank",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIER",
+    "definitions": [
+     {
+      "text": "bank",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having run on",
+      "for": "charade",
+      "note": "having something on means attached at the end, so this part follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restraint",
+      "gives": "TIE",
+      "note": "a tie is something that binds or restricts"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Controls are lifted after a rush of withdrawals at a bank.",
+     "walkthrough": "'bank' wants to be a financial institution, with a run on it; here it is a row, as in a bank of seats.",
+     "definitionFit": "A bank is a row of similar things arranged in a line or level, and a tier is one such row or layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +2028,55 @@
     "text": "Fidelity, for instance, inside marriage?",
     "enumeration": "10"
    },
-   "solution": "ALLEGIANCE"
+   "solution": "ALLEGIANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALLEGIANCE",
+    "definitions": [
+     {
+      "text": "Fidelity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so one piece is placed in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marriage?",
+      "gives": "ALLIANCE",
+      "note": "an alliance is a union, and a marriage is an example, hence the question mark"
+     },
+     {
+      "clueFragment": "for instance",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "EG",
+      "IANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Faithfulness, for example, belongs within a marriage.",
+     "walkthrough": "'Fidelity' in a marriage suggests faithfulness to a spouse; here it means loyalty to a cause or country.",
+     "definitionFit": "Allegiance is loyalty owed to a sovereign, nation or cause, so it is a synonym for faithfulness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marriage"
+    }
+   }
   }
  ]
 }
