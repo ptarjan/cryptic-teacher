@@ -2017,6 +2017,90 @@ def preamble(instructions):
     return text if re.search(r"\w\w", text) else None
 
 
+# Lights the SOURCE's data leaves out of the grid altogether, keyed by puzzle
+# and by the number its own clue record carries: the record is served, the
+# light (position, length, answer) is not. align_clue_records() puts it back
+# so the record has a light to sit on.
+SOURCE_LIGHT_MISSING = {
+    ("cryptic-25949", "29-across"): (
+        {"position": {"x": 6, "y": 13}, "length": 9, "solution": "GALLSTONE"},
+        ("the page has no light for its own clue 29 (9); the nine cells at "
+        "(6,13) are crossed by 19, 22, 15, 23 and 27 down, whose letters "
+        "spell G?L?S?O?E")),
+}
+
+# The fields of a Guardian entry that come from its clue record, as against
+# the ones that come from the grid (position, length, solution).
+CLUE_RECORD = ("id", "number", "clue", "group")
+
+
+def align_clue_records(pid, raw):
+    """Guardian entries with every clue record on the light its number names.
+
+    Each entry the page serves is two facts zipped together: a clue record
+    (number, clue, group) and a light (position, length, answer). When the
+    page drops a record or a light, everything after it in that direction
+    slides one light along: cryptic-25949 serves no record for 19-across and
+    no light for 29-across, so its 20's "See 17" sits on PIE's light, 21's
+    clue on ORDER's, and so on, with clue 29 carried by CUTIE's light.
+
+    A clue number is a pure function of the grid, so the light a record
+    belongs to is the one whose grid number is the record's number. Every
+    record is moved there. A light left with no record gets a blank clue; a
+    record whose number names no light keeps its own light if nothing else
+    claimed it, and is refused otherwise unless SOURCE_LIGHT_MISSING supplies
+    the light."""
+    from reconstruct_grid import light_cells  # imports this module
+    entries = [dict(e) for e in raw["entries"]]
+    for (table_pid, eid), (light, _why) in SOURCE_LIGHT_MISSING.items():
+        _, direction = eid.split("-")
+        if table_pid == pid and not any(
+                (e["position"], e["direction"]) == (light["position"], direction)
+                for e in entries):
+            entries.append({"direction": direction, **light})
+    cols, rows = raw["dimensions"]["cols"], raw["dimensions"]["rows"]
+    white = set()
+    for e in entries:
+        x, y = e["position"]["x"], e["position"]["y"]
+        for i in range(e["length"]):
+            white.add((y, x + i) if e["direction"] == "across" else (y + i, x))
+    grid = ["".join("." if (y, x) in white else "#" for x in range(cols))
+            for y in range(rows)]
+    start = {(cells[0], d): n for (n, d), cells in light_cells(grid).items()}
+    numbered = [(start.get(((e["position"]["y"], e["position"]["x"]), e["direction"])), e)
+                for e in entries]
+    if all(n == e.get("number") for n, e in numbered):
+        return entries
+    lights = {(n, e["direction"]): i for i, (n, e) in enumerate(numbered)}
+    placed, stray = {}, []
+    for i, (_, e) in enumerate(numbered):
+        if "number" not in e:
+            continue
+        rec = {k: e[k] for k in CLUE_RECORD if k in e}
+        at = lights.get((e["number"], e["direction"]))
+        (stray.append((i, rec)) if at is None else placed.__setitem__(at, rec))
+    # A record whose number names no light at all, still on a light no other
+    # record claims, is a misprinted number and not a shift: it stays put and
+    # takes the grid's number (everyman-3572's 6-across at the 3-across cell).
+    renamed = {}
+    for i, rec in stray:
+        if i in placed:
+            raise ValueError(f"{pid}: clue record {rec['id']} names no light in "
+                             "the page's grid; add the light to SOURCE_LIGHT_MISSING")
+        placed[i] = rec
+        n, e = numbered[i]
+        renamed[rec["id"]] = f"{n}-{e['direction']}"
+    out = []
+    for i, (n, e) in enumerate(numbered):
+        eid = f"{n}-{e['direction']}"
+        rec = placed.get(i) or {"clue": "", "group": [eid]}
+        group = [renamed.get(g, g) for g in rec.get("group") or [eid]]
+        out.append({**e, **rec, "group": group, "number": n, "id": eid})
+    print(f"WARNING: {pid}: clue records moved onto the lights their numbers "
+          "name", file=sys.stderr)
+    return out
+
+
 def convert(data):
     """Guardian data -> our puzzle object (no annotation on any entry yet)."""
     # Named before the entries are built: correct_source_answers is keyed by the
@@ -2024,7 +2108,7 @@ def convert(data):
     series = series_of(data["id"])
     pid = series_meta.puzzle_id(series, data["number"])
     entries = []
-    for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
+    for e in sorted(align_clue_records(pid, data), key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
         line, italics = flatten_clue(e["clue"])
         # The page prints some clues with a space in front (a plain " " or a
         # no-break one, 3,600 of them across cryptic and Quiptic). A clue with
