@@ -134,19 +134,51 @@ def to_write(puzzle, before):
     return only
 
 
+def view_line(e, leaders):
+    """One entry as a line: id | group | SOLUTION | clue (enumeration)."""
+    clue = e["clue"]
+    words = clue.get("text") or "(no clue printed)"
+    if clue.get("enumeration"):
+        words += f" ({clue['enumeration']})"
+    eid = entry_id(e)
+    group = "+".join(e["group"]) if e.get("group") else (
+        f"in {leaders[eid]}" if eid in leaders else "-")
+    solution = e.get("solution") or "?"
+    if e.get("solutionConfidence"):
+        solution += f" ({e['solutionConfidence']})"
+    if e.get("alteration"):
+        solution += f" (alteration from {e['alteration']['from']})"
+    return f"{eid} | {group} | {solution} | {words}"
+
+
 def write_view(path):
-    """Write the annotate run's copy of the puzzle file, current as of now."""
+    """Write the annotate run's copy of the puzzle file, current as of now.
+
+    JSON, since apply_annotations reads `annotateOnly` back out of it, but
+    with `entries` one line each (`1-across | group | SOLUTION | clue (enum)`)
+    in place of an object per entry: the run needs the clue, the answer and
+    which lights are linked, and a pretty-printed object per entry was five
+    times the reading for it. An annotation already on an entry the run
+    leaves alone is kept in `existingAnnotations`, for context."""
     puzzle = read_puzzle_file(path)
-    view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle}
-    # The run keys its annotations by entry id, so the view spells each one out.
-    view["entries"] = [{"id": entry_id(e), **e} for e in view["entries"]]
+    view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle and k != "entries"}
     # A run that started on the whole puzzle stays on it; one that started on
     # the missing clues keeps that list.
     started = current_view(path)
     only = None if started is not None and "annotateOnly" not in started else \
         to_write(puzzle, (started or {}).get("annotateOnly"))
+    pending = default_input(path)
+    view["annotationsFile"] = (
+        f"{pending.name} exists: Read it and continue from it" if pending.exists()
+        else f"no {pending.name} yet: write it")
     if only is not None:
         view["annotateOnly"] = only
+    leaders = groups.leader_of(puzzle["entries"])
+    view["entries"] = [view_line(e, leaders) for e in puzzle["entries"]]
+    kept = {entry_id(e): e["annotation"] for e in puzzle["entries"]
+            if e.get("annotation") and only is not None and entry_id(e) not in only}
+    if kept:
+        view["existingAnnotations"] = kept
     view_path(path).write_text(json.dumps(view, indent=1, ensure_ascii=False) + "\n",
                                encoding="utf-8")
     return view_path(path)
@@ -427,7 +459,7 @@ def preview(path, pending):
                 e.pop("annotation", None)
             else:
                 e["annotation"] = normalize(ann[entry_id(e)], e, puzzle["entries"])
-            move_alteration(e)
+                move_alteration(e)
         try:
             definitions.place_puzzle(puzzle)
         except ValueError as err:
