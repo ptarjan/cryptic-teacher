@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,55 @@
     "text": "Where people meet an energy-filled goddess",
     "enumeration": "6"
    },
-   "solution": "VENUES"
+   "solution": "VENUES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VENUES",
+    "definitions": [
+     {
+      "text": "Where people meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled",
+      "for": "container",
+      "note": "something filled has material packed inside it, so the outer piece wraps round the inner one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goddess",
+      "gives": "VENUS",
+      "note": "the Roman goddess of love"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENU",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting with a goddess brimming with vitality.",
+     "walkthrough": "'an energy-filled goddess' reads as a description of the person met, but it is the wordplay: the goddess with E inside.",
+     "definitionFit": "Venues are the places where events are held and crowds gather together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "meet"
+    }
+   }
   },
   {
    "number": 2,
@@ -54,7 +105,65 @@
      }
     ]
    },
-   "solution": "PINACOLADA"
+   "solution": "PINACOLADA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PINA COLADA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowed by",
+      "for": "container",
+      "note": "what is swallowed ends up inside the swallower, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fix",
+      "gives": "PIN",
+      "note": "to pin something is to fix it in place"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ADA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "COLA",
+      "note": "a fizzy soft drink; this is the clue's second use of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "A",
+      "COLA",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mixing a drink while a girl gulps down another.",
+     "walkthrough": "The clue says 'drink' twice: the first is the definition, the second the soft drink sitting inside the girl's name.",
+     "definitionFit": "A pina colada is a cocktail of rum, coconut cream and pineapple juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +183,63 @@
      }
     ]
    },
-   "solution": "MESSEDUP"
+   "solution": "MESSEDUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MESSED UP",
+    "definitions": [
+     {
+      "text": "Jumbled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whoever leaves is no longer present, so those letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "communication",
+      "gives": "MESSAGE",
+      "note": "a message is a communication"
+     },
+     {
+      "clueFragment": "Attorney General",
+      "gives": "AG",
+      "note": "the standard abbreviation, removed here"
+     },
+     {
+      "clueFragment": "Ulster politicians",
+      "gives": "DUP",
+      "note": "the Democratic Unionist Party of Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESSE",
+      "DUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A garbled message after a law officer walks out on Northern Irish politicians.",
+     "walkthrough": "'leaves Ulster politicians' tempts you to drop the politicians, but it is the law officer who walks out of the message. Ulster is the traditional name for Northern Ireland, home of the Democratic Unionist Party.",
+     "definitionFit": "Something messed up is in disorder or confusion, which is what jumbled describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +253,46 @@
     "text": "When it comes to Britten, is Pears the best interpreter?",
     "enumeration": "6"
    },
-   "solution": "SPINET"
+   "solution": "SPINET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPINET",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "When it comes to",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "Britten, is Pears",
+      "gives": "TENISP",
+      "note": "six consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "the best interpreter?",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENISP",
+       "gives": "SPINET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether Peter Pears was the finest singer of Britten's music.",
+     "walkthrough": "Per the preamble, every across answer is a musical instrument whose letters lie concealed in the clue in jumbled order, with no indicator. Pears was the tenor partner of the composer Britten.",
+     "definitionFit": "A spinet is a small harpsichord-like keyboard, one of the many instruments filling the across lights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +306,45 @@
     "text": "Water creature said to be under ledge - said to be beautifully slender",
     "enumeration": "8"
    },
-   "solution": "SYLPHISH"
+   "solution": "SYLPHISH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SYLPHISH",
+    "definitions": [
+     {
+      "text": "beautifully slender",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said to be",
+      "for": "homophone",
+      "note": "what is said is spoken, so the sound of the words gives the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water creature said to be under ledge",
+      "gives": "SYLPHISH",
+      "soundsLike": "SILL FISH",
+      "note": "a fish is a water creature, a sill is a ledge, and in a down entry the fish sits under the sill"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish lurking below a rock shelf is reputed to be gracefully thin.",
+     "walkthrough": "In a down clue 'under' puts the creature below the ledge, so the order is ledge then creature; spoken together they give the adjective.",
+     "definitionFit": "A sylph is a slim graceful girl or airy spirit, so sylphish describes a slight elegant figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "creature"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +358,42 @@
     "text": "Allure returns",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTEREST",
+    "definitions": [
+     {
+      "text": "Allure",
+      "at": 0
+     },
+     {
+      "text": "returns",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allure",
+      "note": "first meaning: the quality that attracts attention"
+     },
+     {
+      "clueFragment": "returns",
+      "note": "second meaning: money earned on savings or a loan"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'returns' looks like a verb, as if the allure comes back, but it is a plural noun for financial yields.",
+     "definitionFit": "The word means both the appeal that draws curiosity and the percentage paid back on invested capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +413,46 @@
      }
     ]
    },
-   "solution": "SIDEDRUM"
+   "solution": "SIDEDRUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDE DRUM",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "At the",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "Eisteddfod, I'm sure Dafydd",
+      "gives": "DIMSURED",
+      "note": "eight consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "will offer fine Welsh music",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIMSURED",
+       "gives": "SIDEDRUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confident prediction that a Welshman will perform well at the national arts festival.",
+     "walkthrough": "As the preamble says, the instrument's letters sit in the clue in scrambled order. An Eisteddfod is a Welsh festival of music and poetry, and Dafydd is the Welsh form of David.",
+     "definitionFit": "A side drum is the snare drum of a band or orchestra, carried at the player's side when marching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +466,51 @@
     "text": "Flight path is shortened",
     "enumeration": "4"
    },
-   "solution": "ROUT"
+   "solution": "ROUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROUT",
+    "definitions": [
+     {
+      "text": "Flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "a thing shortened has been cut down, so its final letter is lost"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "path",
+      "gives": "ROUTE",
+      "note": "a route is a path or way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft's course has been cut back.",
+     "walkthrough": "'Flight path' reads as an aviation phrase, but the two words split: the first is the definition, the second the wordplay.",
+     "definitionFit": "A rout is a disorderly retreat of a defeated army, so it is a headlong running away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +524,55 @@
     "text": "Soldiers capturing a base",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "base",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "captors hold their prisoner inside, so the outer piece surrounds the inner one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "MEN",
+      "note": "men is a common crossword word for soldiers"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops seize an enemy base.",
+     "walkthrough": "'base' looks like a military camp, but it is the adjective meaning low or contemptible.",
+     "definitionFit": "Mean and base both describe ignoble, despicable behaviour lacking moral worth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +586,46 @@
     "text": "The music for Handel's \"Saul\" suits the story's theme",
     "enumeration": "6"
    },
-   "solution": "LITUUS"
+   "solution": "LITUUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LITUUS",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "The music for Handel's",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "Saul\" suits",
+      "gives": "ULSUIT",
+      "note": "six consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "the story's theme",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ULSUIT",
+       "gives": "LITUUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for how Handel's oratorio Saul matches its biblical subject.",
+     "walkthrough": "Following the preamble, the instrument's letters lurk in the clue in jumbled order. Saul is an oratorio by Handel.",
+     "definitionFit": "The lituus was an ancient Roman trumpet with a curved end, a brass instrument of the military."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +645,42 @@
      }
     ]
    },
-   "solution": "BASSTUBA"
+   "solution": "BASSTUBA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BASS TUBA",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Hymns and psalms contribute to",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "melodious Sabbaths",
+      "gives": "USSABBAT",
+      "note": "eight consecutive letters run unbroken across these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USSABBAT",
+       "gives": "BASSTUBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Church singing makes Sundays tuneful.",
+     "walkthrough": "Per the preamble, the instrument is concealed in the clue with its letters in a different order; no indicator flags it.",
+     "definitionFit": "The bass tuba is the large low-pitched brass instrument at the bottom of a band's harmony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +694,46 @@
     "text": "A super Shapiro CD has recently been released",
     "enumeration": "11"
    },
-   "solution": "HARPSICHORD"
+   "solution": "HARPSICHORD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARPSICHORD",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "super Shapiro CD has",
+      "gives": "RSHAPIROCDH",
+      "note": "eleven consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "recently been released",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RSHAPIROCDH",
+       "gives": "HARPSICHORD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record review announcing a fine new album by a performer called Shapiro.",
+     "walkthrough": "As the preamble explains, the instrument's letters hide in the clue in scrambled order, here spread over four words.",
+     "definitionFit": "The harpsichord is a keyboard whose strings are plucked by quills, central to Baroque music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +747,56 @@
     "text": "Pots storing gold salts - important ones",
     "enumeration": "10"
    },
-   "solution": "COMMODORES"
+   "solution": "COMMODORES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMMODORES",
+    "definitions": [
+     {
+      "text": "salts - important ones",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "storing",
+      "for": "container",
+      "note": "a store keeps goods inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pots",
+      "gives": "COMMODES",
+      "note": "a commode is a chamber pot set in a chair"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMOD",
+      "OR",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Jars holding gold and chemical salts, the valuable ones.",
+     "walkthrough": "'salts' suggests chemistry, but an old salt is a sailor, and the important ones are senior naval officers.",
+     "definitionFit": "A commodore is a high-ranking naval officer, so commodores are the senior sailors of a fleet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "salts"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +810,64 @@
     "text": "Clown wants fish served up - old form of food",
     "enumeration": "8"
    },
-   "solution": "COCOANUT"
+   "solution": "COCOANUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "COCOANUT",
+    "definitions": [
+     {
+      "text": "old form of food",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry 'up' means read from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clown",
+      "gives": "COCO",
+      "note": "Coco was a famous circus clown"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TUNA",
+      "note": "a large sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "ANUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUNA",
+       "to": "ANUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clown asks for fish to be brought to the table.",
+     "walkthrough": "Coco the Clown was a celebrated performer with Bertram Mills Circus in Britain. 'old form' tells you this spelling of the nut is archaic.",
+     "definitionFit": "Cocoanut is an obsolete spelling of coconut, the edible fruit of the coconut palm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +881,39 @@
     "text": "One higher up the pop charts?",
     "enumeration": "8"
    },
-   "solution": "ANCESTOR"
+   "solution": "ANCESTOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANCESTOR",
+    "definitions": [
+     {
+      "text": "One higher up the pop charts?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One higher up the pop charts?",
+      "note": "surface reading: a record climbing the hit parade"
+     },
+     {
+      "clueFragment": "pop charts",
+      "note": "setter's reading: pop is father, and the charts are family trees, where forebears sit higher than descendants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pop charts' screams music, but pop is a word for dad, and a family tree places earlier generations at the top.",
+     "definitionFit": "A forebear appears above you on a genealogical diagram, being from an earlier generation of the family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +927,46 @@
     "text": "The first musical I ever saw was probably \"The King and I\"",
     "enumeration": "7"
    },
-   "solution": "SISTRUM"
+   "solution": "SISTRUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SISTRUM",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "first musical",
+      "gives": "RSTMUSI",
+      "note": "seven consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "I ever saw was probably \"The King and I",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RSTMUSI",
+       "gives": "SISTRUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls that the first stage musical they saw was likely the Rodgers and Hammerstein show.",
+     "walkthrough": "Per the preamble, the instrument's letters are concealed in the clue in jumbled order without any signal.",
+     "definitionFit": "A sistrum is an ancient Egyptian rattle of metal rods in a frame, shaken as a percussion instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +980,63 @@
     "text": "Scornful people about to take loathsome king and son",
     "enumeration": "8"
    },
-   "solution": "REVILERS"
+   "solution": "REVILERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVILERS",
+    "definitions": [
+     {
+      "text": "Scornful people",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to take",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "loathsome",
+      "gives": "VILE",
+      "note": "vile means loathsome"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VILE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Disdainful folk are poised to seize a hateful monarch and his heir.",
+     "walkthrough": "'about to take' reads as 'on the point of taking', but 'about' is the first piece and 'to take' merely joins it to the rest.",
+     "definitionFit": "Revilers are those who abuse others with contemptuous words, so they are scornful people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1050,46 @@
     "text": "Elgar encourages thoughts of eternal hope in the British",
     "enumeration": "7"
    },
-   "solution": "ALPHORN"
+   "solution": "ALPHORN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALPHORN",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Elgar encourages thoughts of",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "eternal hope",
+      "gives": "RNALHOP",
+      "note": "seven consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "in the British",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RNALHOP",
+       "gives": "ALPHORN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elgar's patriotic music inspires a sense of lasting optimism in Britons.",
+     "walkthrough": "As the preamble says, the instrument lies in the clue with its letters in a different order. Elgar was the English composer of Land of Hope and Glory.",
+     "definitionFit": "The alphorn is a very long wooden horn played by herdsmen in the Swiss Alps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1109,46 @@
      }
     ]
    },
-   "solution": "VIOLADAMORE"
+   "solution": "VIOLADAMORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VIOLA D'AMORE",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "If you like your sound to be",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "ethereal, avoid modern",
+      "gives": "REALAVOIDMO",
+      "note": "eleven consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "techno",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALAVOIDMO",
+       "gives": "VIOLADAMORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to lovers of airy, otherworldly music: steer clear of electronic dance tracks.",
+     "walkthrough": "Following the preamble, the instrument's letters hide in the clue in scrambled order, spread over three words.",
+     "definitionFit": "The viola d'amore is a Baroque bowed string instrument with sympathetic strings that give a sweet, shimmering tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1162,52 @@
     "text": "A plant? Don't rush me, mother! Give me _____!",
     "enumeration": "6"
    },
-   "solution": "AMOMUM"
+   "solution": "AMOMUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMOMUM",
+    "definitions": [
+     {
+      "text": "A plant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't rush me",
+      "gives": "AMO",
+      "note": "'give me a mo' is what someone says to ask for a moment's patience"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MUM",
+      "note": "the everyday British word for mother"
+     },
+     {
+      "clueFragment": "Give me _____!",
+      "note": "the blank is where the solver writes the plea, completing the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMO",
+      "MUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks their mother to wait a moment before naming a plant.",
+     "walkthrough": "Fill the blank and the plea reads 'Give me a mo, Mum!', where a mo is a British informal moment. Spoken together the words spell the plant.",
+     "definitionFit": "Amomum is a genus of aromatic plants of the ginger family, some yielding cardamom-like spice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1221,59 @@
     "text": "Cliff ending in Athens with vehicle",
     "enumeration": "4"
    },
-   "solution": "SCAR"
+   "solution": "SCAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAR",
+    "definitions": [
+     {
+      "text": "Cliff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "an ending is the final part, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Athens",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the city's name"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a motor vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Cliff finishes his trip in Athens by car.",
+     "walkthrough": "Cliff looks like a man's name, as in Cliff Richard, but it is the definition: a scar is a steep rocky outcrop.",
+     "definitionFit": "A scar is a steep, bare rock face on a hillside, a northern English word for a precipice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cliff"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1287,68 @@
     "text": "Man about to escape from enchantress after upset",
     "enumeration": "4"
    },
-   "solution": "ERIC"
+   "solution": "ERIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ERIC",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to escape from",
+      "for": "deletion",
+      "note": "what escapes gets out, so those letters leave the longer word"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, something upset is turned over, so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enchantress",
+      "gives": "CIRCE",
+      "note": "Circe is the sorceress of the Odyssey who turned men into swine"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, meaning about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIRE",
+       "to": "ERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man plans to get away from a witch once things have gone wrong.",
+     "walkthrough": "'about to escape' reads as 'on the point of escaping', but 'about' is the abbreviation for circa, the second one leaving the sorceress's name.",
+     "definitionFit": "Eric is a common male first name, and crosswords use 'man' to signal any such name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1362,46 @@
     "text": "Rock 'n' roll can irritate grandma",
     "enumeration": "8"
    },
-   "solution": "CARILLON"
+   "solution": "CARILLON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARILLON",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Rock 'n'",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "roll can irritate",
+      "gives": "OLLCANIR",
+      "note": "eight consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "grandma",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLLCANIR",
+       "gives": "CARILLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Granny finds loud pop music annoying.",
+     "walkthrough": "Per the preamble, the instrument's letters sit in the clue in jumbled order with nothing to flag them.",
+     "definitionFit": "A carillon is a set of tuned bells in a tower, played from a keyboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1415,42 @@
     "text": "Here is a compilation of Chopin's earlier nocturnes",
     "enumeration": "6"
    },
-   "solution": "CORNET"
+   "solution": "CORNET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORNET",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Here is a compilation of Chopin's",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "earlier nocturnes",
+      "gives": "ERNOCT",
+      "note": "six consecutive letters run unbroken across these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERNOCT",
+       "gives": "CORNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An album of Chopin's first night pieces is presented.",
+     "walkthrough": "As the preamble explains, the instrument hides in the clue with its letters scrambled.",
+     "definitionFit": "A cornet is a small valved brass instrument like a trumpet, prominent in brass bands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1464,46 @@
     "text": "The maestro preferred orchestras who did what they were told",
     "enumeration": "8"
    },
-   "solution": "RECORDER"
+   "solution": "RECORDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECORDER",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "The maestro",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "preferred orchestras",
+      "gives": "ERREDORC",
+      "note": "eight consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "who did what they were told",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERREDORC",
+       "gives": "RECORDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor liked obedient players.",
+     "walkthrough": "Following the preamble, the instrument's letters lurk in the clue in a different order.",
+     "definitionFit": "A recorder is a simple wooden or plastic woodwind pipe blown at the end, familiar from school music lessons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1517,46 @@
     "text": "It's bebop for you, ragtime for me",
     "enumeration": "6"
    },
-   "solution": "GUITAR"
+   "solution": "GUITAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GUITAR",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "It's bebop for",
+      "note": "surface padding only"
+     },
+     {
+      "clueFragment": "you, ragtime",
+      "gives": "URAGTI",
+      "note": "six consecutive letters run unbroken across these words"
+     },
+     {
+      "clueFragment": "for me",
+      "note": "surface padding only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "URAGTI",
+       "gives": "GUITAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people disagree about their favourite jazz styles.",
+     "walkthrough": "Per the preamble, the instrument is concealed in the clue with its letters rearranged.",
+     "definitionFit": "The guitar is a fretted string instrument that is plucked or strummed, central to jazz and pop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
