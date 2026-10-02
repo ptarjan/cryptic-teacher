@@ -66,6 +66,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import enumeration
+import json_merge
 import provenance
 import series as series_meta
 from groups import entry_id
@@ -887,11 +888,8 @@ def record(pid, disputes, ledger=None):
         }
     if held != before:
         ledger.parent.mkdir(parents=True, exist_ok=True)
-        # One line per entry, so two writers touching different puzzles merge.
-        lines = [f" {json.dumps(k, ensure_ascii=False)}: "
-                 f"{json.dumps(held[k], sort_keys=True, ensure_ascii=False)}"
-                 for k in sorted(held)]
-        ledger.write_text("{\n" + ",\n".join(lines) + "\n}\n", encoding="utf-8")
+        # The layout tools/json_merge.py merges per key (see .gitattributes).
+        ledger.write_text(json_merge.dump_lines(held), encoding="utf-8")
 
 
 def known_wrong(puzzle):
