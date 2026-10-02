@@ -268,7 +268,7 @@ fi
 # articles it has not read yet (its ledger makes the rest free), unsolved, so
 # step 3a solves them. Bounded by wall clock, since reading an article's page
 # image takes 15-100 s: no read starts after this many seconds, and the
-# unread articles stay pending for the next night.
+# unread articles stay pending for the next night, the never-read first.
 TROVE_SECONDS_PER_NIGHT="${TROVE_SECONDS_PER_NIGHT:-1200}"
 # A clue list no grid fits waits on the page scan's clue columns
 # (tools/trove_clue_ocr.py); fetching them is ~30 Trove requests an article,
@@ -294,67 +294,40 @@ if [ -d "$HOME/.cache/trove" ]; then
   rm -f "$trove_out"
 fi
 
-# --- 1c2b. The Times 1974-99, filed off archive.org's scans ---
+# --- 1c2b. The Times 1974-99 and the FT, Guardian and Telegraph, filed off archive.org's scans ---
 # tools/fetch_archive_org_editions.py fills ~/.cache/archive_org_editions;
-# this files the daily cryptics in the editions it has not read yet (its
-# ledger makes the rest free), then names the Times puzzle each canberra file
-# reprints. Bounded: RapidOCR reads an edition's clue columns in ~20s.
-ARCHIVE_ORG_PER_NIGHT="${ARCHIVE_ORG_PER_NIGHT:-150}"
+# this files the cryptics in the editions it has not read yet (its ledger
+# makes the rest free; the never-read go first, then the stale oldest-read
+# first), then names the Times puzzle each canberra file reprints. Bounded
+# by wall clock, shared by the papers: each gets an equal share of what is
+# left, so what a paper with nothing to read leaves goes to the next. The
+# Times goes last, as it has the most. Only a puzzle with every clue read
+# goes into its series, whatever its year; one with a blank clue goes to the
+# scratch dir, since a solver cannot work it. Every reading still reaches
+# archiveorg-source for cross_validate.py. A full pass
+# (tools/ocr_full_pass.sh) holding the ledger makes this a no-op.
+ARCHIVE_ORG_SECONDS_PER_NIGHT="${ARCHIVE_ORG_SECONDS_PER_NIGHT:-1800}"
 if [ -d "$HOME/.cache/archive_org_editions" ]; then
-  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org.XXXXXX")"
   mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
-  # Only a puzzle with every clue read goes into puzzles/times, whatever its
-  # year; one with a blank clue goes to the scratch dir, since a solver
-  # cannot work it. Every reading still reaches archiveorg-source for
-  # cross_validate.py.
-  if python3 tools/file_archive_org_puzzles.py --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" \
-      >"$aorg_out" 2>&1; then
-    cat "$aorg_out"
-    git status --porcelain -- puzzles/times puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
-  else
-    cat "$aorg_out"
-    alert "tools/file_archive_org_puzzles.py failed, so no Times puzzle is filed off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$aorg_out"
-  # The FT 1971-99 (ftcryptic-N) by the same rule: complete puzzles into
-  # puzzles/ftcryptic, ones with a blank clue to the scratch dir.
-  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-ft.XXXXXX")"
-  if python3 tools/file_archive_org_puzzles.py --paper ft --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
-    cat "$aorg_out"
-    git status --porcelain -- puzzles/ftcryptic | grep -q . && python3 tools/fetch_puzzle.py --reindex
-  else
-    cat "$aorg_out"
-    alert "tools/file_archive_org_puzzles.py --paper ft failed, so no FT puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$aorg_out"
-  # The Guardian 1971/1984-85/1995-98 (cryptic-N, below the feed's floor),
-  # by the same rule: complete puzzles into puzzles/cryptic, the rest to the
-  # scratch dir.
-  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-guardian.XXXXXX")"
-  if python3 tools/file_archive_org_puzzles.py --paper guardian --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
-    cat "$aorg_out"
-    git status --porcelain -- puzzles/cryptic | grep -q . && python3 tools/fetch_puzzle.py --reindex
-  else
-    cat "$aorg_out"
-    alert "tools/file_archive_org_puzzles.py --paper guardian failed, so no Guardian puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$aorg_out"
-  # The Daily Telegraph 1971/1984-85 (telegraph-N, far below the feed's
-  # 25,846), by the same rule: complete puzzles into puzzles/telegraph, the
-  # rest to the scratch dir.
-  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-telegraph.XXXXXX")"
-  if python3 tools/file_archive_org_puzzles.py --paper telegraph --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
-    cat "$aorg_out"
-    git status --porcelain -- puzzles/telegraph | grep -q . && python3 tools/fetch_puzzle.py --reindex
-  else
-    cat "$aorg_out"
-    alert "tools/file_archive_org_puzzles.py --paper telegraph failed, so no Telegraph puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$aorg_out"
+  aorg_end=$((SECONDS + ARCHIVE_ORG_SECONDS_PER_NIGHT))
+  aorg_left=4
+  for aorg in "telegraph:telegraph:Telegraph" "guardian:cryptic:Guardian" "ft:ftcryptic:FT" "times:times canberra:Times"; do
+    IFS=: read -r aorg_paper aorg_series aorg_name <<<"$aorg"
+    aorg_secs=$(( (aorg_end - SECONDS) / aorg_left ))
+    aorg_left=$((aorg_left - 1))
+    [ "$aorg_secs" -gt 0 ] || aorg_secs=0
+    aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-$aorg_paper.XXXXXX")"
+    if python3 tools/file_archive_org_puzzles.py --paper "$aorg_paper" --seconds "$aorg_secs" \
+        --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
+      cat "$aorg_out"
+      # shellcheck disable=SC2046,SC2086 # the series are a word list
+      git status --porcelain -- $(printf 'puzzles/%s ' $aorg_series) | grep -q . && python3 tools/fetch_puzzle.py --reindex
+    else
+      cat "$aorg_out"
+      alert "tools/file_archive_org_puzzles.py --paper $aorg_paper failed, so no $aorg_name puzzle is filed off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
+    fi
+    rm -f "$aorg_out"
+  done
 fi
 
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---

@@ -69,7 +69,10 @@ under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
 (No 25,846 in Feb 2009), so a puzzle files as telegraph-N.
 
 Resumable: ~/.cache/archive_org_editions/filed.jsonl records each edition's
-headings and verdicts against its files and this code's hash.
+headings and verdicts against its files and this code's hash, after each
+edition. Editions never read go first, then the stale by when they were read
+(tools/scan_queue.py), so a capped run (--limit, --seconds) never starts over.
+--workers N reads N editions at once (one's VLM wait overlaps another's OCR).
 """
 import argparse
 import datetime
@@ -79,6 +82,7 @@ import json
 import os
 import re
 import sys
+import time
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -91,6 +95,7 @@ import file_trove_puzzles as ftp
 import ocr_clues
 import puzzle_integrity
 import reconstruct_grid as rg
+import scan_queue
 import series as series_meta
 import trove_clue_ocr
 import trove_grid
@@ -144,31 +149,33 @@ def number_of(text):
 
 def leaf_lines(xml_path, leaves):
     """{leaf: [[(x0, y0, x1, y1, text), ...] per printed line]} for the leaves
-    asked for, in one pass over the edition's djvu.xml.gz."""
-    out, n = {}, -1
+    asked for. Only those leaves' OBJECT elements are parsed: the n-th
+    "<OBJECT" in the file is leaf n."""
     with gzip.open(xml_path) as f:
-        for ev, el in ET.iterparse(f, events=("start", "end")):
-            if el.tag != "OBJECT":
-                continue
-            if ev == "start":
-                n += 1
-                continue
-            if n in leaves:
-                lines = []
-                for line in el.iter("LINE"):
-                    ws = []
-                    for w in line.iter("WORD"):
-                        x0, y1, x1, y0 = (int(v) for v in w.get("coords").split(",")[:4])
-                        t = (w.text or "").strip()
-                        if t:
-                            ws.append((x0, y0, x1, y1, t))
-                    if ws:
-                        lines.append(ws)
-                out[n] = lines
-                if len(out) == len(leaves):
-                    break
-            el.clear()
+        data = f.read()
+    out = {}
+    for n, m in enumerate(OBJECT_TAG.finditer(data)):
+        if n not in leaves:
+            continue
+        end = data.index(b"</OBJECT>", m.start()) + len(b"</OBJECT>")
+        el = ET.fromstring(data[m.start():end])
+        lines = []
+        for line in el.iter("LINE"):
+            ws = []
+            for w in line.iter("WORD"):
+                x0, y1, x1, y0 = (int(v) for v in w.get("coords").split(",")[:4])
+                t = (w.text or "").strip()
+                if t:
+                    ws.append((x0, y0, x1, y1, t))
+            if ws:
+                lines.append(ws)
+        out[n] = lines
+        if len(out) == len(leaves):
+            break
     return out
+
+
+OBJECT_TAG = re.compile(rb"<OBJECT[\s>]")
 
 
 def headings(lines, pattern):
@@ -1106,6 +1113,11 @@ def read_solution(sol, grid, above=False):
 
 # ------------------------------------------------------------ the run
 
+#: Editions read at once: the desktop VLM serves one request at a time and
+#: the host has four cores, so two keep both busy.
+WORKERS = 2
+
+
 def code_hash():
     h = hashlib.sha256()
     for p in CODE:
@@ -1143,11 +1155,23 @@ def complete(puzzle):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, paper=None):
+        source=SOURCE, paper=None, seconds=None, workers=1, wait=False):
     """File what is new under `cache`: complete puzzles into the corpus, ones
-    with a blank clue into `puzzles` when given. Returns the ledger rows."""
-    from fetch_puzzle import puzzle_path, write_puzzle_file
+    with a blank clue into `puzzles` when given. At most `limit` editions are
+    read, none started after `seconds`, `workers` at once (scan_queue).
+    Returns the ledger rows; [] when another run holds the ledger and `wait`
+    is not set."""
+    deadline = None if seconds is None else time.monotonic() + seconds
     ledger = Path(ledger or cache / "filed.jsonl")
+    with scan_queue.lock(ledger, wait) as mine:
+        if not mine:
+            print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
+            return []
+        return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers)
+
+
+def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers):
+    from fetch_puzzle import puzzle_path, write_puzzle_file
     known = {}
     if ledger.exists():
         for line in ledger.read_text().splitlines():
@@ -1157,46 +1181,52 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     # The VLM's readings are an input: an edition read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
-    paper = paper or TIMES
     dirs = edition_dirs(cache, paper)
-    # Every heading first: a puzzle's solution is in a later edition.
-    scans = {}
+    rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
+    # Every heading first: a puzzle's solution is in a later edition. The
+    # headings depend on the files alone: a change of code does not make
+    # every edition's djvu.xml worth parsing again.
+    scans, unscanned = {}, {}
     for d in dirs:
-        rel = f"{d.parent.name}/{d.name}"
-        row = known.get(rel)
-        # The headings depend on the files alone: a change of code does not
-        # make every edition's djvu.xml worth parsing again.
+        row = known.get(rels[d])
         fh = input_hash(d, "")
         if row and row.get("filesHash") == fh and "scan" in row:
-            scans[rel] = row["scan"]
+            scans[rels[d]] = row["scan"]
         else:
-            scans[rel] = scan(d)
-            known[rel] = {"edition": rel, "scan": scans[rel], "filesHash": fh}
+            unscanned[d] = fh
+    for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan, workers):
+        scans[rels[d]] = found
+        known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d]}
+    if unscanned and write:
+        save(ledger, known)
     solutions = {}
     for d in dirs:
-        for s in scans[f"{d.parent.name}/{d.name}"]["solutions"]:
+        for s in scans[rels[d]]["solutions"]:
             solutions.setdefault(s["number"], {**s, "dir": d})
     held = held_numbers(paper.series)
-    fresh = 0
+    due = {}
     for d in dirs:
-        rel = f"{d.parent.name}/{d.name}"
+        rel = rels[d]
         h = input_hash(d, code + (f"+vlm-{seen_by}" if seen_by else ""))
         row = known[rel]
         if not seen_by and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
             h = row["hash"]
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        if row.get("hash") == h and row.get("solutionsSeen") == sol_seen:
-            continue
-        if limit is not None and fresh >= limit:
-            continue
+        if row.get("hash") != h or row.get("solutionsSeen") != sol_seen:
+            due[d] = (h, sol_seen)
+    queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "hash" not in row)
+    if limit is not None:
+        queue = queue[:limit]
+    fresh = 0
+    for (d, found), (results, vlm_ok) in scan_queue.parallel(
+            [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
+            init=set_solutions, initargs=(solutions,)):
+        rel = rels[d]
+        h, sol_seen = due[d]
         fresh += 1
         verdicts = []
-        for hit in scans[rel]["puzzles"]:
-            try:
-                verdict, puzzle = read_puzzle(d, scans[rel], hit, solutions)
-            except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
-                verdict, puzzle = {"number": hit["number"], "refused":
-                                   f"crashed: {type(e).__name__}: {e}"}, None
+        for verdict, puzzle in results:
+            hit_number = verdict["number"]
             if puzzle is not None:
                 verdict["id"] = puzzle["id"]
                 if write:
@@ -1210,7 +1240,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 path = (Path(dest) / f"{puzzle['id']}.json" if dest
                         else puzzle_path(paper.series, puzzle["number"]))
                 better = path.exists() and improves(puzzle, path)
-                if hit["number"] in held and not dest and not better:
+                if hit_number in held and not dest and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
                 elif write and (better or not path.exists()):
                     try:
@@ -1219,25 +1249,50 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                         verdict["refusedWrite"] = str(e)
                     else:
                         verdict["wrote"] = True
-                        held.add(hit["number"])
+                        held.add(hit_number)
             verdicts.append(verdict)
-        if seen_by and not vlm.reachable():
+        if seen_by and not vlm_ok:
             # The VLM went down during this edition or before it: filed as
             # read without it, so it is read again when it answers.
             h = input_hash(d, code)
-        known[rel] = {"edition": rel, "hash": h, "scan": scans[rel], "filesHash": input_hash(d, ""),
-                      "solutionsSeen": sol_seen, "verdicts": verdicts}
-        if seen_by and vlm.reachable():
+        known[rel] = {"edition": rel, "hash": h, "scan": found, "filesHash": input_hash(d, ""),
+                      "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
+        if seen_by and vlm_ok:
             known[rel]["vlm"] = seen_by
         if write:
             save(ledger, known)
     if write:
         save(ledger, known)
-    tally = report(known[f"{d.parent.name}/{d.name}"] for d in dirs)
+    tally = report(known[rels[d]] for d in dirs)
+    if len(due) > fresh:
+        tally["left for the next run"] = len(due) - fresh
     print(f"{len(dirs)} {paper.key} editions in {cache}; {fresh} read this run", file=out)
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
+
+
+_SOLUTIONS = {}
+
+
+def set_solutions(solutions):
+    """Each process's {number: solution heading} (read_edition's)."""
+    _SOLUTIONS.clear()
+    _SOLUTIONS.update(solutions)
+
+
+def read_edition(d, found):
+    """([(verdict, puzzle or None)] for each title in an edition, whether the
+    VLM still answers after it)."""
+    results = []
+    for hit in found["puzzles"]:
+        try:
+            verdict, puzzle = read_puzzle(d, found, hit, _SOLUTIONS)
+        except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
+            verdict, puzzle = {"number": hit["number"], "refused":
+                               f"crashed: {type(e).__name__}: {e}"}, None
+        results.append((verdict, puzzle))
+    return results, vlm.reachable()
 
 
 def filled(puzzle):
@@ -1366,6 +1421,12 @@ def main(argv=None):
     ap.add_argument("--source", type=Path, default=SOURCE,
                     help="where every reading goes for cross_validate.py")
     ap.add_argument("--limit", type=int, help="read at most N new or changed editions")
+    ap.add_argument("--seconds", type=float,
+                    help="start no edition after N seconds; the rest wait for the next run")
+    ap.add_argument("--workers", type=int, default=WORKERS,
+                    help=f"editions read at once (default {WORKERS}): one's VLM wait overlaps another's OCR")
+    ap.add_argument("--wait", action="store_true",
+                    help="wait for another run's hold on the ledger instead of reading nothing")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
@@ -1393,7 +1454,8 @@ def main(argv=None):
                           f"{(e['clue'] or {}).get('text', '')} ({(e['clue'] or {}).get('enumeration')})")
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        limit=args.limit, source=args.source, paper=PAPERS[args.paper])
+        limit=args.limit, source=args.source, paper=PAPERS[args.paper], seconds=args.seconds,
+        workers=args.workers, wait=args.wait)
     if args.paper == "times":
         match_canberra(args.source, write=not args.dry_run)
     return 0

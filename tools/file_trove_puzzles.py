@@ -51,9 +51,11 @@ reprint whose clues match a held cryptic-* puzzle is not filed again.
 
 Resumable and idempotent: ~/.cache/trove/filed.jsonl records each article's
 verdict against its files' sizes and times and a hash of this code, so a
-rerun reads only articles that are new or changed. --seconds N stops starting
-new reads once N seconds have passed (a page-image read is 15-100 s); what is
-left keeps its old ledger row, so it stays pending for the next run. A puzzle file on disk is never rewritten.
+rerun reads only articles that are new or changed, the never-read first and
+then the stale by when they were read (tools/scan_queue.py), the ledger saved
+after each. --seconds N stops starting new reads once N seconds have passed
+(a page-image read is 15-100 s); what is left keeps its old ledger row, so it
+stays pending for the next run. --workers N reads N articles at once. A puzzle file on disk is never rewritten.
 """
 import argparse
 import datetime
@@ -72,6 +74,7 @@ sys.path.insert(0, str(TOOLS))
 import enumeration
 import ocr_clues
 import reconstruct_grid as rg
+import scan_queue
 import series as series_meta
 import trove_clue_ocr
 import trove_grid
@@ -90,6 +93,9 @@ ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
 CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py",
         TOOLS / "trove_clue_ocr.py", TOOLS / "ocr_clues.py", TOOLS / "data" / "lexicon.tsv",
         TOOLS / "data" / "clue_lm.tsv.gz", TOOLS / "data" / "clue_compounds.tsv", TOOLS / "vlm_reader.py"]
+#: Articles read at once: the desktop VLM serves one request at a time and
+#: the host has four cores, so two keep both busy.
+WORKERS = 2
 #: How hard reconstruct_grid may try before a clue list counts as not pinning
 #: its grid down: its own cap, ~10s on a 15x15.
 REBUILD_NODES = rg.DEFAULT_MAX_NODES
@@ -711,12 +717,22 @@ def consider(d, taken):
     return verdict, puzzle
 
 
-def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None):
+def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None, workers=1,
+        wait=False):
     """File what is new under `cache`; `puzzles` is a directory to write to
     instead of the corpus (tests). No article is started once `seconds` have
-    passed. Returns the tally it prints."""
+    passed; `workers` are read at once (scan_queue). Returns the tally it
+    prints; None when another run holds the ledger and `wait` is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
     ledger = Path(ledger or cache / "filed.jsonl")
+    with scan_queue.lock(ledger, wait) as mine:
+        if not mine:
+            print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
+            return None
+        return _run(cache, write, ledger, out, puzzles, deadline, workers)
+
+
+def _run(cache, write, ledger, out, puzzles, deadline, workers):
     known = {}
     if ledger.exists():
         for line in ledger.read_text().splitlines():
@@ -727,37 +743,48 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seco
     # The VLM's readings are an input: an article read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
-    tally = {}
     dirs = sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
+    due = {}
     for d in dirs:
-        aid = d.name
         h = input_hash(d, code + (f"+vlm-{seen_by}" if seen_by else ""))
-        row = known.get(aid)
+        row = known.get(d.name)
         if not seen_by and row and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
             h = row["hash"]
         if not (row and row.get("hash") == h):
-            if deadline is not None and time.monotonic() >= deadline:
-                tally["left for the next run"] = tally.get("left for the next run", 0) + 1
-                continue
-            try:
-                verdict, puzzle = consider(d, taken)
-            except Exception as e:  # noqa: BLE001 -- one bad article is a verdict, not a crash
-                verdict, puzzle = {"refused": f"crashed: {type(e).__name__}: {e}"}, None
-            if puzzle is not None and write:
-                path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
-                        else puzzle_path(SERIES, puzzle["number"]))
-                if not path.exists():
-                    write_puzzle_file(path, puzzle, generator=TOOL)
-                    verdict["wrote"] = True
-            if seen_by and not vlm.reachable():
-                h = input_hash(d, code)  # the VLM went down: read again when it answers
-            row = {"article": aid, "hash": h, **verdict}
-            if seen_by and vlm.reachable():
-                row["vlm"] = seen_by
-            if puzzle is not None:
-                taken[puzzle["id"]] = aid
-            if write or not puzzle:
-                known[aid] = row
+            due[d] = h
+    queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
+                             lambda row: row is None)
+    for (d,), (verdict, puzzle, vlm_ok) in scan_queue.parallel(
+            [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,)):
+        aid, h = d.name, due[d]
+        if puzzle is not None and puzzle["id"] in taken and taken[puzzle["id"]] != aid:
+            # Another worker filed this id while this one read.
+            verdict, puzzle = {**verdict, "refused": f"{puzzle['id']} is article {taken[puzzle['id']]}'s"}, None
+            verdict.pop("id", None)
+        if puzzle is not None and write:
+            path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
+                    else puzzle_path(SERIES, puzzle["number"]))
+            if not path.exists():
+                write_puzzle_file(path, puzzle, generator=TOOL)
+                verdict["wrote"] = True
+        if seen_by and not vlm_ok:
+            h = input_hash(d, code)  # the VLM went down: read again when it answers
+        row = {"article": aid, "hash": h, **verdict, "readAt": scan_queue.now()}
+        if seen_by and vlm_ok:
+            row["vlm"] = seen_by
+        if puzzle is not None:
+            taken[puzzle["id"]] = aid
+        if write or not puzzle:
+            known[aid] = row
+        if write:
+            save(ledger, known)
+        del due[d]
+    tally = {}
+    for d in dirs:
+        row = known.get(d.name)
+        if d in due:
+            tally["left for the next run"] = tally.get("left for the next run", 0) + 1
+            continue
         key = ("filed" if row.get("id") else
                f"skipped: {row['skip']}" if row.get("skip") else
                f"pending: {row['pending'].split(':')[0]}" if row.get("pending") else
@@ -769,14 +796,36 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seco
         if row.get("imageDisagrees"):
             tally["image read but disagrees"] = tally.get("image read but disagrees", 0) + 1
     if write:
-        ledger.parent.mkdir(parents=True, exist_ok=True)
-        tmp = ledger.with_suffix(".tmp")
-        tmp.write_text("".join(json.dumps(r) + "\n" for r in known.values()))
-        tmp.replace(ledger)
+        save(ledger, known)
     print(f"{len(dirs)} articles in {cache}", file=out)
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return tally
+
+
+def save(ledger, known):
+    ledger.parent.mkdir(parents=True, exist_ok=True)
+    tmp = ledger.with_suffix(".tmp")
+    tmp.write_text("".join(json.dumps(r) + "\n" for r in known.values()))
+    tmp.replace(ledger)
+
+
+_TAKEN = {}
+
+
+def set_taken(taken):
+    """Each process's {puzzle id: article} (consider_article's)."""
+    _TAKEN.clear()
+    _TAKEN.update(taken)
+
+
+def consider_article(d):
+    """(verdict, puzzle or None, whether the VLM still answers after it)."""
+    try:
+        verdict, puzzle = consider(d, _TAKEN)
+    except Exception as e:  # noqa: BLE001 -- one bad article is a verdict, not a crash
+        verdict, puzzle = {"refused": f"crashed: {type(e).__name__}: {e}"}, None
+    return verdict, puzzle, vlm.reachable()
 
 
 def main(argv=None):
@@ -786,6 +835,10 @@ def main(argv=None):
     ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
     ap.add_argument("--seconds", type=float,
                     help="start no new article read after N seconds; the rest wait for the next run")
+    ap.add_argument("--workers", type=int, default=WORKERS,
+                    help=f"articles read at once (default {WORKERS}): one's VLM wait overlaps another's OCR")
+    ap.add_argument("--wait", action="store_true",
+                    help="wait for another run's hold on the ledger instead of reading nothing")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ID", help="print one article's verdict and grid")
     args = ap.parse_args(argv)
@@ -796,7 +849,7 @@ def main(argv=None):
             print(json.dumps(puzzle, indent=1)[:4000])
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        seconds=args.seconds)
+        seconds=args.seconds, workers=args.workers, wait=args.wait)
     if not args.out:
         trove_solution_ocr.fill_corpus(args.cache, write=not args.dry_run)
     return 0
