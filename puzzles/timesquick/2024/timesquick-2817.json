@@ -24,6 +24,9 @@
   "date": "2024-10-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,77 @@
     "text": "Breathing aids, no less, when swimming around outside of rock",
     "enumeration": "8"
    },
-   "solution": "SNORKELS"
+   "solution": "SNORKELS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SNORKELS",
+    "definitions": [
+     {
+      "text": "Breathing aids",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "letters that are swimming are moving about freely, so they settle in a new order"
+     },
+     {
+      "text": "outside of",
+      "for": "letter_selection",
+      "note": "the outside of a word is its two ends, so only the edge letters are kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to sit around something is to enclose it, so one set of letters wraps another"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no less",
+      "gives": "NOLESS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "RK",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNO",
+      "RK",
+      "ELS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOLESS",
+       "gives": "SNOELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diver insists on breathing gear while swimming around the edge of a rocky outcrop.",
+     "walkthrough": "'Outside of rock' means the word's edge letters, not something outside a rock; 'no less' sounds like emphasis but is the material to rearrange.",
+     "definitionFit": "Snorkels are tubes that let a swimmer take in air with the face underwater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +124,67 @@
     "text": "Lana is confused about time of birth",
     "enumeration": "5"
    },
-   "solution": "NATAL"
+   "solution": "NATAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NATAL",
+    "definitions": [
+     {
+      "text": "of birth",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "something confused is muddled up, so its letters lose their order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go round it, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lana",
+      "gives": "LANA",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "T",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LANA",
+       "gives": "NAAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Lana is muddled about when she was born.",
+     "walkthrough": "'Time of birth' reads as one phrase, but the setter splits it: 'time' is the inserted letter and 'of birth' is the definition.",
+     "definitionFit": "Natal is the adjective describing anything relating to being born, as in a natal chart or prenatal care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +198,59 @@
     "text": "Beam from top of roof, indeed",
     "enumeration": "3"
    },
-   "solution": "RAY"
+   "solution": "RAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RAY",
+    "definitions": [
+     {
+      "text": "Beam",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roof",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "indeed",
+      "gives": "AY",
+      "note": "ay is an old or dialect form of yes, an emphatic agreement like 'indeed'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a beam of light coming from the very top of a roof.",
+     "walkthrough": "'Beam' suggests a wooden roof timber, which fits the surface, but here it is a beam of light.",
+     "definitionFit": "A ray is a narrow line of light or radiation, which is one sense of a beam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Beam"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +264,60 @@
     "text": "Register put up in hall, or nearby",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "Register",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up lifts it so it reads from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hall, or nearby",
+      "gives": "LORNE",
+      "note": "a run of consecutive letters across the end of one word and into the next two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENROL"
+     ],
+     "reversals": [
+      {
+       "from": "LORNE",
+       "to": "ENROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice-board register is pinned up in the hall or close to it.",
+     "walkthrough": "The letters LORNE run from the end of 'hall' through 'or' into 'nearby'; read upwards they give the answer.",
+     "definitionFit": "To enrol is to sign up or enter one's name on a list, which is what registering means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +331,47 @@
     "text": "Cake ingredient for ruler’s wife",
     "enumeration": "7"
    },
-   "solution": "SULTANA"
+   "solution": "SULTANA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SULTANA",
+    "definitions": [
+     {
+      "text": "Cake ingredient",
+      "at": 0
+     },
+     {
+      "text": "ruler’s wife",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cake ingredient",
+      "note": "first meaning: a pale seedless dried grape used in baking"
+     },
+     {
+      "clueFragment": "ruler’s wife",
+      "note": "second meaning: the consort of a Muslim sovereign"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe note: some baking ingredient is set aside for the monarch's spouse.",
+     "walkthrough": "The surface suggests a cake baked for a queen; instead the two phrases are separate meanings of one word.",
+     "definitionFit": "The word names both a dried golden grape found in fruit cakes and the wife of a sultan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +385,54 @@
     "text": "It hurts removing penny from purse!",
     "enumeration": "4"
    },
-   "solution": "OUCH"
+   "solution": "OUCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUCH",
+    "definitions": [
+     {
+      "text": "It hurts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing something takes it away, so a letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purse",
+      "gives": "POUCH",
+      "note": "a pouch is a small bag for carrying money, like a purse"
+     },
+     {
+      "clueFragment": "penny",
+      "gives": "P",
+      "note": "p is the standard abbreviation for a penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that taking even a penny out of their purse is painful.",
+     "walkthrough": "'It hurts' is the definition, standing for the exclamation itself; the exclamation mark points at a cry of pain.",
+     "definitionFit": "Ouch is the cry a person gives when something causes sudden pain, so it expresses 'it hurts'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hurts"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +456,54 @@
      }
     ]
    },
-   "solution": "ONEANDALL"
+   "solution": "ONEANDALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ONE AND ALL",
+    "definitions": [
+     {
+      "text": "absolutely everyone",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been worked into a new form, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Land alone",
+      "gives": "LANDALONE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LANDALONE",
+       "gives": "ONEANDALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lands a plane solo, ready to impress everyone.",
+     "walkthrough": "'Land alone' looks like an instruction to a pilot, but its nine letters are the raw material.",
+     "definitionFit": "The phrase is an idiom meaning every single person without exception, as in a greeting to all present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +517,52 @@
     "text": "Loudly applauded old guerrilla, European socialist",
     "enumeration": "7"
    },
-   "solution": "CHEERED"
+   "solution": "CHEERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEERED",
+    "definitions": [
+     {
+      "text": "Loudly applauded",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old guerrilla",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary of the 1950s and 60s"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is a common label for a left-winger or socialist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "E",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd noisily applauds a veteran guerrilla fighter who is a European socialist.",
+     "walkthrough": "The 'old guerrilla' is Che Guevara, a stock crossword figure; the list of descriptions is three separate pieces placed in a row.",
+     "definitionFit": "To cheer someone is to shout approval, so being cheered means receiving noisy applause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +576,59 @@
     "text": "Remain a year on street",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Remain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one thing placed on another comes after it, so the second-named piece leads"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the standard abbreviation for street"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone decides to live on the same street for another year.",
+     "walkthrough": "In an across clue, 'A on B' puts A after B, so the street abbreviation comes first.",
+     "definitionFit": "To stay somewhere is to keep on being there rather than leave, the same as remaining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +642,54 @@
     "text": "No longer anxious, if somehow ever idle",
     "enumeration": "8"
    },
-   "solution": "RELIEVED"
+   "solution": "RELIEVED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELIEVED",
+    "definitions": [
+     {
+      "text": "No longer anxious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "'somehow' means in some unspecified way, so the letters are arranged in some other way"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ever idle",
+      "gives": "EVERIDLE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVERIDLE",
+       "gives": "RELIEVED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worrier would finally stop fretting if they could ever manage to be idle.",
+     "walkthrough": "The surface sounds like advice about relaxing; 'ever idle' simply supplies eight letters.",
+     "definitionFit": "Being relieved means feeling the release of worry once a feared outcome has passed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "idle"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +703,62 @@
     "text": "Large amount coming in to replenish a small fleet",
     "enumeration": "8"
    },
-   "solution": "FLOTILLA"
+   "solution": "FLOTILLA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FLOTILLA",
+    "definitions": [
+     {
+      "text": "small fleet",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in to",
+      "for": "container",
+      "note": "something coming in to another enters it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large amount",
+      "gives": "LOT",
+      "note": "a lot is a large quantity"
+     },
+     {
+      "clueFragment": "replenish",
+      "gives": "FILL",
+      "note": "to replenish is to fill up again"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOT",
+      "ILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A large shipment arrives to restock a small naval squadron.",
+     "walkthrough": "'Replenish a' looks like it governs the fleet, but 'a small fleet' splits: 'a' joins the wordplay and 'small fleet' is the definition.",
+     "definitionFit": "A flotilla is a modest group of boats or small warships, smaller than a full naval fleet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "replenish"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +772,66 @@
     "text": "Glower when tense, harbouring a mild disease",
     "enumeration": "9"
    },
-   "solution": "TAILLIGHT"
+   "solution": "TAILLIGHT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TAILLIGHT",
+    "definitions": [
+     {
+      "text": "Glower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "harbouring",
+      "for": "container",
+      "note": "a harbour shelters ships within it, so harbouring means holding something inside"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "TIGHT",
+      "note": "tense muscles or ropes are tight"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mild disease",
+      "gives": "ILL",
+      "note": "an ill is an ailment, here a minor one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "ILL",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scowls whenever they're tense from carrying a minor illness.",
+     "walkthrough": "'Glower' normally means scowl; here it is read as 'glow-er', a thing that glows, which a rear lamp on a car does.",
+     "definitionFit": "A tail light is the red lamp at the back of a vehicle, a thing that glows in the dark, jokingly called a glow-er."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Glower"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +845,49 @@
     "text": "Spy name attached to ancient vessel",
     "enumeration": "4"
    },
-   "solution": "NARK"
+   "solution": "NARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NARK",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "ancient vessel",
+      "gives": "ARK",
+      "note": "Noah's Ark, the boat of the Bible story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "An agent's code name is linked to an old ship.",
+     "walkthrough": "Nark is British slang for a police informer, someone who spies and tells.",
+     "definitionFit": "A nark is an informer who secretly watches and reports on others, which is close to a spy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +901,50 @@
     "text": "Behold desire to be rather mean",
     "enumeration": "6"
    },
-   "solution": "LOWISH"
+   "solution": "LOWISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOWISH",
+    "definitions": [
+     {
+      "text": "rather mean",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Behold",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "WISH",
+      "note": "a wish is a desire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "WISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Observe a wish to be somewhat stingy.",
+     "walkthrough": "'Mean' suggests stingy, but here it means low in quality or status, and 'rather' supplies the -ish ending.",
+     "definitionFit": "Mean in the sense of poor or base matches low, and the suffix -ish softens it to 'somewhat'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +964,62 @@
      }
     ]
    },
-   "solution": "ONETIME"
+   "solution": "ONETIME",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ONE-TIME",
+    "definitions": [
+     {
+      "text": "in the past",
+      "at": 28,
+      "note": "an adverbial phrase defining an adjective meaning former"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to call something back is to send it the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A single",
+      "gives": "ONE",
+      "note": "one is a single unit"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "EMIT",
+      "note": "to broadcast a signal is to emit it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "TIME"
+     ],
+     "reversals": [
+      {
+       "from": "EMIT",
+       "to": "TIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single programme broadcast long ago is remembered.",
+     "walkthrough": "'Recalled' suggests memory, which suits 'in the past', but it turns the broadcast word back to front.",
+     "definitionFit": "One-time means former, describing something that was so at an earlier period but is no longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1033,53 @@
     "text": "Is in possession of the chap’s hard drug",
     "enumeration": "7"
    },
-   "solution": "HASHISH"
+   "solution": "HASHISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASHISH",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is in possession of",
+      "gives": "HAS",
+      "note": "to have something is to possess it"
+     },
+     {
+      "clueFragment": "the chap’s",
+      "gives": "HIS",
+      "note": "belonging to a man"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAS",
+      "HIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is caught carrying hard drugs.",
+     "walkthrough": "'Hard drug' reads as one phrase, but 'hard' gives a letter and 'drug' alone is the definition.",
+     "definitionFit": "Hashish is cannabis resin, a narcotic smoked or eaten for its effects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1093,65 @@
     "text": "Ace was crossing road to get prizes",
     "enumeration": "6"
    },
-   "solution": "AWARDS"
+   "solution": "AWARDS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AWARDS",
+    "definitions": [
+     {
+      "text": "prizes",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "something crossing another lies across it, so here one word straddles another"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "A is the card abbreviation for ace"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the standard abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WA",
+      "RD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A star performer was walking across a road to collect trophies.",
+     "walkthrough": "'Crossing road' paints a pedestrian, but it tells one word to straddle another.",
+     "definitionFit": "Awards are honours or trophies given for achievement, the same as prizes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1165,51 @@
     "text": "Musical instrument’s endless beauty",
     "enumeration": "4"
    },
-   "solution": "BELL"
+   "solution": "BELL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BELL",
+    "definitions": [
+     {
+      "text": "Musical instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the word's final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beauty",
+      "gives": "BELLE",
+      "note": "a belle is a beautiful woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instrument is praised for its limitless beauty of sound.",
+     "walkthrough": "The 's after 'instrument' stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A bell is a hollow metal percussion instrument that rings when struck, used in orchestras and churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1223,59 @@
     "text": "Bob and Carol crossing small mountain",
     "enumeration": "8"
    },
-   "solution": "SHILLING"
+   "solution": "SHILLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHILLING",
+    "definitions": [
+     {
+      "text": "Bob",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "something crossing another lies across it, so here one word straddles another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing joyfully"
+     },
+     {
+      "clueFragment": "small mountain",
+      "gives": "HILL",
+      "note": "a hill is a low mountain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HILL",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends, Bob and Carol, hike over a little peak.",
+     "walkthrough": "Bob and Carol look like two people; Bob is old British slang for a shilling, a pre-1971 coin worth five pence, and Carol is a verb.",
+     "definitionFit": "A bob was the everyday British slang name for the shilling coin, twelve old pence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1289,50 @@
     "text": "Popular period for renting property in bay",
     "enumeration": "5"
    },
-   "solution": "INLET"
+   "solution": "INLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INLET",
+    "definitions": [
+     {
+      "text": "bay",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something in is fashionable or popular"
+     },
+     {
+      "clueFragment": "period for renting property",
+      "gives": "LET",
+      "note": "in British usage a let is a period during which a property is rented"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Summer is the busy rental season for holiday homes by the bay.",
+     "walkthrough": "A let is the British term for a lease or rental period on a house or flat.",
+     "definitionFit": "An inlet is a small arm of the sea reaching into the coast, which is a kind of bay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1346,51 @@
     "text": "Approaches RN sea exercises",
     "enumeration": "5"
    },
-   "solution": "NEARS"
+   "solution": "NEARS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEARS",
+    "definitions": [
+     {
+      "text": "Approaches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exercises",
+      "for": "anagram",
+      "note": "exercises put things through their paces, working the letters into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "RN sea",
+      "gives": "RNSEA",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RNSEA",
+       "gives": "NEARS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval vessel draws close during Royal Navy manoeuvres at sea.",
+     "walkthrough": "RN is the Royal Navy; 'Approaches' looks like a noun but is the verb, and 'exercises' is not a noun either.",
+     "definitionFit": "To near a place is to come closer to it, which is what approaching means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercises"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1410,44 @@
      }
     ]
    },
-   "solution": "RINGDIAL"
+   "solution": "RINGDIAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RING DIAL",
+    "definitions": [
+     {
+      "text": "one way to tell Times from Sun",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' means a part of, so only a portion of the letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stirring dialogue",
+      "gives": "RINGDIAL",
+      "note": "a run of letters across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A rousing speech compares The Times newspaper with The Sun.",
+     "walkthrough": "The Times and the Sun look like rival newspapers, but they are the time of day and the sun itself.",
+     "definitionFit": "A ring dial is a portable sundial shaped like a ring, which reads the hour from the sun's light through a small hole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1461,44 @@
     "text": "Advance unaccompanied, according to report",
     "enumeration": "4"
    },
-   "solution": "LOAN"
+   "solution": "LOAN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LOAN",
+    "definitions": [
+     {
+      "text": "Advance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to report",
+      "for": "homophone",
+      "note": "a report is something heard rather than read, so the word goes by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unaccompanied",
+      "gives": "LOAN",
+      "soundsLike": "LONE",
+      "note": "lone means on one's own, without company"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone moves forward alone, so the news story says.",
+     "walkthrough": "'Advance' looks like a verb about going forward; here it is a noun, money paid out ahead of time.",
+     "definitionFit": "An advance is a sum of money lent or paid early, which is a loan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advance"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1512,52 @@
     "text": "Clue not regularly seen as sign",
     "enumeration": "3"
    },
-   "solution": "LEO"
+   "solution": "LEO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LEO",
+    "definitions": [
+     {
+      "text": "sign",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "seen as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clue not",
+      "gives": "LEO",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEO"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword clue that crops up only now and then is taken as a signal.",
+     "walkthrough": "'Not regularly' looks like one phrase meaning occasionally, but 'not' is part of the letters to be thinned.",
+     "definitionFit": "Leo, the lion, is one of the twelve signs of the zodiac used in astrology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1571,47 @@
     "text": "Fresh, right after exercising",
     "enumeration": "4"
    },
-   "solution": "PERT"
+   "solution": "PERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERT",
+    "definitions": [
+     {
+      "text": "Fresh",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercising",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "rt is an abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "RT"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling refreshed straight after a workout.",
+     "walkthrough": "'Fresh' suggests invigorated, but it means cheeky; 'after' places the right abbreviation behind the exercise one.",
+     "definitionFit": "Fresh in the sense of impudent or forward matches pert, meaning cheeky and saucy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1625,55 @@
     "text": "Place for plants: you no longer would have means to water them outside",
     "enumeration": "8"
    },
-   "solution": "HOTHOUSE"
+   "solution": "HOTHOUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOTHOUSE",
+    "definitions": [
+     {
+      "text": "Place for plants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one thing outside another is wrapped round it, so these letters go round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "means to water them",
+      "gives": "HOSE",
+      "note": "a hose is used for watering plants"
+     },
+     {
+      "clueFragment": "you no longer",
+      "gives": "THOU",
+      "note": "thou is the old, no longer used form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "THOU",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener muses that a greenhouse saves them from carrying water to plants outside.",
+     "walkthrough": "'You no longer' looks like part of a sentence about gardening, but it means an archaic form of 'you'.",
+     "definitionFit": "A hothouse is a heated greenhouse where tender plants are grown out of season."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "longer"
+    }
+   }
   }
  ]
 }
