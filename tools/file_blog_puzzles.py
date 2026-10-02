@@ -298,6 +298,8 @@ def from_answer(group, by_id, enumeration, spaced=None, typed=None):
         return ranked[0][0]
     if spaced and re.sub(r"[^A-Z]", "", spaced) == letters:
         return format_parts(answer_parts(spaced))
+    if not all(by_id[gid]["solution"] for gid in group):
+        return None
     parts = []
     for gid in group:
         parts += answer_parts(by_id[gid]["solution"])

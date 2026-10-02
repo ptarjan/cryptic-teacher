@@ -76,6 +76,8 @@ lights = {"a": {"solution": "CONSOLE"}, "b": {"solution": "TABLE"}, "c": {"solut
 print("RECOUNT", F.from_answer(["c"], lights, "7,6", "CONSOLE TABLE"),
       F.from_answer(["c"], lights, "7,6"), F.from_answer(["c"], lights, "7,6", "CONSOLE TABLES"),
       F.from_answer(["a", "b"], lights, "12", "CON-SOLE TABLE"))
+# A light the grid left unsolved spells no enumeration, it does not crash.
+print("UNSOLVED", F.from_answer(["a", "u"], {**lights, "u": {"solution": ""}}, "7,5"))
 # ONETRACK MIND printed, (9,4) typed: the blog lost the hyphen, and its right
 # count over the same answer in other puzzles is the paper's.
 typed = F.typed_counts([{"entries": [{"answer": "ONETRACKMIND", "enumeration": e}
@@ -158,6 +160,8 @@ check "the printed answer's word breaks ride along; the letters-only answer is u
   "CONSOLETABLE/CONSOLE TABLE TEA/None" "$(got SPACED)"
 check "the recount takes the printed breaks, and falls back when they are absent or wrong" \
   "7,5 None None 3-4,5" "$(got RECOUNT)"
+check "a linked group with an unsolved light has no enumeration from its answers" \
+  "None" "$(got UNSOLVED)"
 check "a count typed right elsewhere over the same answer beats the printed breaks" \
   "3-5,4 8,4" "$(got TYPED)"
 check "the title names the series; EV is none of ours" \
