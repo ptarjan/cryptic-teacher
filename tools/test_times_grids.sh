@@ -230,6 +230,25 @@ first["enumeration"] = None
 g, how = T.solve(wrong)
 print("ONE_WRONG", how, g == [TINY])
 
+# A light printed under the wrong number keeps its length and letters, but the
+# number pins where it starts, so no grid fits it even with its letters freed:
+# two 10-acrosses and no 11 (timesjumbo-1334), and 7-down under a 7-across it
+# does not start with (timesjumbo-1304's 14-down MALONE). Its number is freed,
+# and the grid gives the number back, to the solver and to the filer alike.
+def misnumbered(key, to):
+    r = {"series": "Test", "entries": [dict(e) for e in rec["entries"]]}
+    for e in r["entries"]:
+        if (e["number"], e["direction"]) == key:
+            e["number"] = to
+    return r
+for name, key, to in (("MISNUMBERED_TWICE", (11, "across"), 10),
+                      ("MISNUMBERED_CLASH", (8, "down"), 7)):
+    r = misnumbered(key, to)
+    print(name, T.numbering_faults(T.triples(r), [e["answer"] for e in T.printed(r)]) != [],
+          T.numbered_by(misnumbered(key, to), TINY)["entries"] == rec["entries"])
+    g, how = T.solve(r)
+    print(name + "_SOLVED", how, g == [TINY], r["entries"] == rec["entries"])
+
 # A grid taken despite an answer that disagrees with it carries the corrected
 # answer, and only when the correction is determined: each letter a correct
 # crossing's or the blogger's own, the result a real word. DIAG's 5 down is
@@ -328,6 +347,8 @@ many = lambda series, k: {"series": series, "entries": [{}] * k}
 print("SIZE", T.size(many("Weekend Cryptic", 30)), T.size(many("Weekend Cryptic", 60)),
       T.size(many("Daily Cryptic", 60)), T.size(many("Monthly Club Special", 30)),
       T.size(many("TLS Crossword", 30)))
+print("SUPERJUMBO", T.size(many("timesjumbo", 62)), T.size(many("timesjumbo", 90)),
+      T.size(many("Jumbo Cryptic", 90)))
 e = {"number": 1, "direction": "across", "answer": "AB"}
 print("CLUES", T.has_clues({"entries": [dict(e, clue="Clue (2)")] * 10}),
       T.has_clues({"entries": [dict(e, clue="")] * 10}))
@@ -373,6 +394,13 @@ check "an answer cut off inside a phrase keeps its letters; a short one-word ans
   "([(1, 'across', 17), (2, 'down', 6), (3, 'down', 3)], ['WORST', None, 'CAT'])" "$(field ENUM_CUT)"
 check "one wrong light with no enumeration is found by freeing it" \
       "unique, one light wrong at 1 across True" "$(field ONE_WRONG)"
+check "two lights under one number are told apart by the grid" "True True" "$(field MISNUMBERED_TWICE)"
+check "and the grid numbers the second one" \
+      "unique, number freed: 10 across to 11 True True" "$(field MISNUMBERED_TWICE_SOLVED)"
+check "a light under a number another light starts differently is renumbered by the grid" \
+      "True True" "$(field MISNUMBERED_CLASH)"
+check "and the grid rebuilds with it renumbered" \
+      "unique, number freed: 7 down to 8 True True" "$(field MISNUMBERED_CLASH_SOLVED)"
 check "answers that fit the grid need no correction" "" "$(field FIX_NONE)"
 check "a letter a crossing contradicts is corrected from the crossing" \
       "5d:EXOTY>EJOTY" "$(field FIX_LETTER)"
@@ -409,6 +437,8 @@ check "only the Mephisto of the barred series is rebuilt, by the parsed names" \
       "['Other Crosswords'] ['Mephisto', 'mephisto']" "$(field BARRED)"
 check "a Weekend post with a Jumbo's entries is rebuilt at 23x23; the Club and TLS at 15x15" \
       "15 23 15 15 15" "$(field SIZE)"
+check "a Jumbo with more lights than a 23x23 holds is rebuilt at 27x27" \
+      "23 27 27" "$(field SUPERJUMBO)"
 check "every search a puzzle runs draws on one budget" "True truncated" "$(field BOUNDED)"
 check "so does every split of a linked answer" "True truncated" "$(field BOUNDED_LINKED)"
 check "each search is logged under its post" True "$(field LOGGED)"
