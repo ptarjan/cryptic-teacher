@@ -51,5 +51,22 @@ check("at is dropped from blocks and indicators",
       "at" not in got["blocks"][0] and "at" not in got["indicators"][0])
 check("a definition keeps its at", got["definitions"][0]["at"] == 0)
 check("the input is not mutated", sel["type"] == ["charade"] and "at" in sel["blocks"][0])
+# A block with no clueFragment is letters the preamble supplies.
+import contextlib, io
+import puzzle_schema, validate_annotations as V
+for src in F.puzzle_files():
+    pz = F.read_puzzle_file(src)
+    ent = next((x for x in pz["entries"] if (x.get("annotation") or {}).get("blocks")
+                and x["annotation"]["blocks"][0].get("gives")), None)
+    if pz.get("preamble") and ent:
+        break
+ent["annotation"]["blocks"][0]["clueFragment"] = ""
+def findings(pz):
+    pz = puzzle_schema.prune(copy.deepcopy(pz))
+    with contextlib.redirect_stdout(io.StringIO()):
+        errs = V.validate_puzzle(pz)[1]
+    return puzzle_schema.validate(pz) + [x for x in errs if "clueFragment" in x]
+check("an empty clueFragment passes under a preamble", not findings(pz))
+check("and is refused without one", len(findings({**pz, "preamble": ""})) == 1)
 raise SystemExit(1 if fails else 0)
 PY
