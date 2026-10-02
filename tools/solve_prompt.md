@@ -16,7 +16,7 @@ entry. Use it. It is the only thing that can tell you an answer is wrong.
 
 ## Output
 
-Write a JSON file, at the path your task gives you, mapping every entry id to
+Create a JSON file with the Write tool (not a heredoc), at the path your task gives you, mapping every entry id to
 its answer and definition, copied verbatim from the clue:
 
     {"1-across": {"answer": "POPULAR FRONT", "definition": "Left-wing alliance"}, ...}
