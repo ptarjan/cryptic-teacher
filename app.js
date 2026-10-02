@@ -121,7 +121,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, nux: 1, notify: 1, "notify-after": 1, votes: 1, paper: 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, nux: 1, notify: 1, "notify-after": 1, votes: 1, paper: 1, picker: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -6674,15 +6674,20 @@
   function togglePicker(show) {
     const el = $("picker-panel");
     const want = showPanel("picker-panel", show);
-    // Opening always starts from a clean list. A filter left over from last time
-    // would look like puzzles had gone missing; "" is each menu's "all".
+    // The search box starts empty, but the menus keep what they were last set
+    // to: someone working through one paper at one difficulty opens a puzzle,
+    // comes back for the next, and should not have to set both again (Paul,
+    // 2026-10-02). They are ringed "on" while set (renderPicker), which is what
+    // tells a narrowed list from puzzles gone missing. A value the rebuilt menu
+    // no longer offers falls back to "", each menu's "all".
     const box = $("picker-search");
     if (want) {
       if (box) { box.value = ""; }
+      const kept = store.get("ct:picker", null) || {};
       setHTML($("picker-paper"), paperMenuHTML());
       setHTML($("picker-band"), bandMenuHTML());
-      $("picker-paper").value = "";
-      $("picker-band").value = "";
+      $("picker-paper").value = kept.paper || "";
+      $("picker-band").value = kept.band || "";
       renderPicker();
       // The progress numbers need the answers, and a sync pull may have handed
       // this browser progress on a puzzle whose file it has never fetched.
@@ -6726,6 +6731,25 @@
   // app could only ever load one puzzle per page load.
   function at(rel) { return new URL(rel, homeUrl()).href; }
 
+  // The same rule for what goes in the address bar, every form of it: a bare
+  // "?p=<b>" resolves against the bar too, and with the bar at /puzzles/<a>/
+  // gives /puzzles/<a>/?p=<b> — a bar still naming a, which reloads and shares
+  // as a. Kept on this page's own origin, because the canonical
+  // names the production host and replaceState throws on any other.
+  function addressUrl(rel) {
+    const u = new URL(rel, homeUrl());
+    return location.origin && location.origin !== u.origin
+      ? location.origin + u.pathname + u.search : u.href;
+  }
+  // Safari throws once replaceState is called too often. A URL that did not
+  // update must not take the puzzle switch down with it, so the throw is
+  // caught here, the one place the bar is written, and reported.
+  function setAddress(url) {
+    if (!window.history || !window.history.replaceState) return;
+    try { window.history.replaceState(null, "", url); }
+    catch (e) { console.warn("address bar not updated to " + url + ": " + ((e && e.message) || e)); }
+  }
+
   // What the address bar should say, which is what gets pasted. A crawler
   // fetching ?p=30114 gets the app shell and the shell's single og:image, so
   // every link anyone has ever shared previewed as the same card; /puzzles/30114/
@@ -6735,18 +6759,16 @@
   function shareUrl(id, ref) {
     const p = BY_ID[id];
     if (hasPage(p)) {
-      return new URL(`puzzles/${p.id}/${ref ? `?c=${ref}` : ""}`, homeUrl()).href;
+      return addressUrl(`puzzles/${p.id}/${ref ? `?c=${ref}` : ""}`);
     }
-    return `?p=${encodeURIComponent(id)}${ref ? `&c=${ref}` : ""}`;
+    return addressUrl(`?p=${encodeURIComponent(id)}${ref ? `&c=${ref}` : ""}`);
   }
 
   let urlNamesPuzzle = !!new URLSearchParams(location.search).get("p");
   function pointUrlAtPuzzle(id) {
     const p = BY_ID[id];
     urlNamesPuzzle = true;
-    if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, "", shareUrl(id, null));
-    }
+    setAddress(shareUrl(id, null));
     // A reload fetches whatever the address bar now says, which is the static
     // write-up. This flag tells that page's <head> this tab was solving here, so
     // it sends the reload back to the app (app_return in tools/build_seo_pages.py).
@@ -7091,8 +7113,7 @@
     if (ref === urlClue) return;
     urlClue = ref;
     if (!urlNamesPuzzle || !ref || !meta || !meta.id) return;
-    if (!window.history || !window.history.replaceState) return;
-    window.history.replaceState(null, "", shareUrl(meta.id, ref));
+    setAddress(shareUrl(meta.id, ref));
   }
 
   // ---------- boot ----------
@@ -7161,9 +7182,7 @@
     if (scanned.length === 8) {
       params.delete("sync");
       const rest = params.toString();
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, "", location.pathname + (rest ? "?" + rest : ""));
-      }
+      setAddress(location.pathname + (rest ? "?" + rest : ""));
       showPanel("sync-panel", true);
       const already = store.get("ct:sync", null) === scanned;
       if (!already) $("sync-join-code").value = scanned;
@@ -7236,8 +7255,12 @@
     // open, no mouse. Escape gets you back out; the global key handler ignores
     // inputs, so it has to be handled here.
     $("picker-search").addEventListener("input", () => renderPicker());
-    $("picker-paper").addEventListener("change", () => renderPicker());
-    $("picker-band").addEventListener("change", () => renderPicker());
+    const keepMenus = () => {
+      store.set("ct:picker", { paper: $("picker-paper").value || "", band: $("picker-band").value || "" });
+      renderPicker();
+    };
+    $("picker-paper").addEventListener("change", keepMenus);
+    $("picker-band").addEventListener("change", keepMenus);
     $("picker-diff-help").onclick = () => {
       pickerNote = pickerNote === "diff" ? null : "diff";
       renderPicker();
