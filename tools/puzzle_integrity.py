@@ -147,6 +147,7 @@ from groups import entry_id  # noqa: E402
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
+import boilerplate  # noqa: E402
 import errata  # noqa: E402
 from fetch_puzzle import (PER_LIGHT_ENUMERATION, group_orders,  # noqa: E402
                           has_words, is_bare_letters, is_continuation,
@@ -1321,11 +1322,16 @@ def _alpha(s):
 
 
 def check_preamble(puzzle, flags):
-    """A preamble holds no erratum: errata.apply acts on it and takes it out
-    on every write, so one still there was written past that."""
+    """A preamble holds no erratum and no publishing boilerplate: errata.apply
+    and boilerplate.apply take them out on every write, so one still there was
+    written past that."""
     for found in errata.find(puzzle.get("preamble")):
         flags.append(("SHAPE", puzzle.get("id"), f"preamble holds an erratum, not "
                       f"instructions: {found[:120]!r} (tools/errata.py applies it)"))
+    for found in boilerplate.find(puzzle.get("preamble")):
+        flags.append(("SHAPE", puzzle.get("id"), (f"preamble holds the paper's publishing "
+                      f"boilerplate, not instructions: {found[:120]!r} "
+                      f"(tools/boilerplate.py strips it)")))
 
 
 def check_puzzle(puzzle, today, flags):
