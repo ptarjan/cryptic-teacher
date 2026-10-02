@@ -491,7 +491,9 @@ function boot(opts) {
   global.confirm = () => true;
   // app.js reads ?p=<number> so the static answer pages can hand off into the app.
   // Override CT_TEST_QUERY to boot the harness on a specific puzzle.
-  global.location = { search: options.query || process.env.CT_TEST_QUERY || "", href: "", hash: "" };
+  global.location = { search: options.query || process.env.CT_TEST_QUERY || "", href: "", hash: "",
+    // A navigation away is recorded, not made: app.js stops booting after one.
+    replace(url) { this.replaced = String(url); } };
   global.URLSearchParams = URLSearchParams;
   // Node's own fetch would carry app.js to the live sync worker: every grid a
   // test or a sweep opens is a GET /v against production quota. A harness has
