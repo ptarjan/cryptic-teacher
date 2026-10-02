@@ -377,6 +377,9 @@ misread = [clues[0].replace("abx", "abz"), clues[1], clues[2]]
 import io
 got = f.match_canberra(src, write=False, out=io.StringIO(), canberra=can)
 check("a reprint matched through a misread; another grid, or a print before the London one, is not", {"canberra-750101": "times-13677"}, got)
+(src / "times-13679.json").write_text(json.dumps(puzzle("times-13679", "1974-05-04", clues)))
+got = f.match_canberra(src, write=False, out=io.StringIO(), canberra=can)
+check("two readings sharing the clue list alike name neither: the best must lead MATCH_LEAD times over", {}, got)
 
 # read_solution(): the solution grid under its heading, answers keyed as
 # trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.
