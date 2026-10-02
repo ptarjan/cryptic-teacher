@@ -63,6 +63,7 @@ const cors = (origin) => ({
   "access-control-allow-methods": "GET,POST,PUT,OPTIONS",
   "access-control-allow-headers": "content-type",
   "access-control-max-age": "86400",
+  "access-control-expose-headers": "x-ct-internal",
 });
 
 const json = (body, status, origin) =>
@@ -298,10 +299,26 @@ export default {
     // a path or a prefix scan. There is deliberately no endpoint that lists keys.
     if (!CODE_RE.test(code)) return json({ error: "bad code" }, 400, origin);
 
+    /* The site owner's own solving, kept out of the analytics.
+
+       INTERNAL_CODES is a secret (`wrangler secret put INTERNAL_CODES`, codes
+       separated by commas or spaces), so which code is his is not in the repo.
+       The answer rides on the sync response the page already fetches on every
+       load, as a header beside the save rather than a field in it, and the page
+       keeps it in localStorage: while it is set, app.js sends no /e beacons and
+       analytics.js does not load GA. Nothing identifying is added to an event —
+       the event is simply never sent. */
+    const internal = String(env.INTERNAL_CODES || "").toUpperCase().split(/[\s,]+/).includes(code);
+    const reply = (body, status) => {
+      const res = json(body, status, origin);
+      if (internal) res.headers.set("x-ct-internal", "1");
+      return res;
+    };
+
     if (request.method === "GET") {
       const stored = await env.SAVES.get("s:" + code, "json");
-      if (!stored) return json({ error: "no such code" }, 404, origin);
-      return json(stored, 200, origin);
+      if (!stored) return reply({ error: "no such code" }, 404);
+      return reply(stored, 200);
     }
 
     if (request.method !== "PUT") return json({ error: "method not allowed" }, 405, origin);
@@ -330,7 +347,7 @@ export default {
     // re-merged by the next push from either device, and no writing order can
     // remove something that was already in.
     await env.SAVES.put("s:" + code, JSON.stringify(merged), { expirationTtl: TTL });
-    return json(merged, 200, origin);
+    return reply(merged, 200);
   },
 
   /* Every newly annotated puzzle, to everyone who ticked its paper.
