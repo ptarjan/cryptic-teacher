@@ -102,6 +102,9 @@ go(True); go(True)
 check("the VLM answering reads it again, once", [False, True], reads)
 go(False)
 check("the VLM down again leaves its reading standing", [False, True], reads)
+vlm.version = lambda: "v2"
+go(True)
+check("a new VLM model alone reads nothing again (--reread does)", [False, True], reads)
 # The VLM gone during an edition: that edition is filed as read without it.
 state = {"up": True}
 def dies(d, found, hit, sol):
@@ -109,9 +112,10 @@ def dies(d, found, hit, sol):
     state["up"] = False
     return {"number": 18180}, None
 f.read_puzzle = dies
-vlm.version = lambda: "v2"
 vlm.reachable = lambda: state["up"]
-f.run(cache=T / "cache", ledger=ledger, source=T / "src", out=open(os.devnull, "w"))
+import scan_queue
+f.run(cache=T / "cache", ledger=ledger, source=T / "src", out=open(os.devnull, "w"),
+      reread=scan_queue.when("now"))
 row = json.loads(ledger.read_text().splitlines()[-1])
 check("an edition the VLM died during is filed as read without it", ("dies", None),
       (reads[-1], row.get("vlm")))
