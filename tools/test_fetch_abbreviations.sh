@@ -35,6 +35,11 @@ cases = [
     ("a definition gloss is not an expansion",
      entry("A", gloss("A standard size of dry cell battery."), pos="symbol"), []),
     ("a sense without an abbreviation tag is skipped", entry("R", gloss("river")), []),
+    ("an entry spelled with a final period counts its untagged senses",
+     entry("A.", gloss("American"), pos="adj"), [("american", "A")]),
+    ("an untagged sense of a dotted entry that points at another entry is skipped",
+     entry("addns.", {"tags": ["form-of", "plural"], "glosses": ["plural of addn."],
+                      "form_of": [{"word": "addn."}]}), []),
     ("non-ASCII forms are skipped", entry("⠽", gloss("you", ["contraction"])), []),
 ]
 page = "intro <small>XX</small>\n==A==\n"
