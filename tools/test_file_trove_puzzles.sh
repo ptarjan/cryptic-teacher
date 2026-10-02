@@ -238,6 +238,38 @@ Start from Hint
 Start from Hint
 no clue for 2-down" "$got"
 
+# "(Solution Monday)" mid-line ends the DOWN list: the next puzzle's lists
+# after it on the page are not its last clue's text.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+print(F.sections('X\\nACROSS\\n1 A b (3).\\nDOWN\\n2 C d (3). (Solution Monday).\\nPlain crossword 59\\nACROSS 1 Hill.\\n25 Pen.')['down'])")
+check "the list ends at a solution note mid-line" "2 C d (3)." "$got"
+
+# The vote's segmentation: a word other readings spaced out letter by letter,
+# a number in the clue's own text, a mark misread as a digit glued to a word,
+# a speck beside or between words, and "1" for an opening "I".
+got=$(cd "$REPO/tools" && python3 -c "
+import ocr_clues as O
+M = lambda *t: [O.marked(x, breaks=True) for x in t]
+print(O.agree(\"didn't have to walk\", M(\"28 didn't have to w a lk (9). 29 X\", \"28 didn't have to w al k (9) 29 X\"), True)[0])
+print(O.reconcile({'24-across': ('Of the Vale, turn to Map 10 E', '7', None)},
+                  ['24 Of the Vale, turn to Map 10 E (7). 26 The'] * 2, {'24-across': 7, '26-across': 7}))
+print(O.agree(\"What don't they know7 God knows\", M(\"2 What don't they know? God knows (9). 3 S\") * 2, True)[0])
+print(O.agree('Useful people in Hunts7', M('29 Useful people in Hunts? (9). 30 Part') * 3, True)[0])
+print(O.agree('Bombed in WW2 town', M('3 Bombed in WW2 town (5) 4 X') * 2, True)[0])
+print(O.agree('Proposal i» noted?', M('9 Proposal is noted? (4). 10 S') * 2, True)[0])
+print(O.agree('After talk, ■ permitted return', M('16 After talk, permitted return (7). 20 N') * 2, True)[0])
+print(O.reconcile({'12-down': ('1 hear prisons might hold churchgoers', '12', None)},
+                  ['12 I hear prisons might hold churchgoers (12). 15 P'] * 2, {'12-down': 12}, True)[0])")
+check "spaced letters, in-clue numbers, glued digits, specks and an opening 1 voted" "didn't have to walk
+({'24-across': ('Of the Vale, turn to Map 10 E', '7', None)}, {})
+What don't they know? God knows
+Useful people in Hunts?
+Bombed in WW2 town
+Proposal is noted?
+After talk, permitted return
+{'12-down': ('I hear prisons might hold churchgoers', '12', None)}" "$got"
+
 # The nightly is bounded by wall clock: no read starts once the budget is
 # spent, and what is left gets no ledger row, so the next run reads it.
 got=$(cd "$REPO/tools" && python3 -c "

@@ -178,6 +178,8 @@ def similar(a, b):
 
 #: What a mark one reading lacks costs in align(), against 1 for a word.
 MARK_GAP = 0.5
+#: Pairing a digit glued to a word with another reading's mark there.
+DIGIT_MARK = 0.4
 
 
 def align(mine, theirs):
@@ -197,8 +199,13 @@ def align(mine, theirs):
         cost[i][0] = cost[i - 1][0] + gap
         back[i][0] = "up"
         for j in range(1, m + 1):
-            pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1] else inf
+            glued = mine[i - 1].isdigit()  # a number glued to a word ("WW2", "know7")
+            pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1] or (
+                                             glued and theirs[j - 1] == BREAK) else inf
                                          if theirs[j - 1] == BREAK
+                                         # A mark misread as a digit ("know7"), dearer
+                                         # than a number but less than a mark lost.
+                                         else DIGIT_MARK if glued and theirs[j - 1] in MARKS
                                          else 1.2 * (1 - similar(mine[i - 1], theirs[j - 1])))
             # A mark one side lacks (a comma missed) costs less than a word,
             # so a lost mark never outweighs pairing the words after it.
@@ -421,22 +428,24 @@ def ends(pairs, theirs):
 
 
 def rejoin(theirs, low):
-    """Another reading's tokens with a word it split at a line end ("taste.
-    fully", "subter fuge") joined again, when this clue's words (`low`) hold
-    the joined word and it is a dictionary word."""
+    """Another reading's tokens with a word it split joined again, when this
+    clue's words (`low`) hold the joined word and it is a dictionary word: one
+    split at a line end ("taste. fully", "subter fuge") or spaced out letter
+    by letter ("w a lk")."""
     out, k = [], 0
     while k < len(theirs):
-        for step in (1, 2):
-            if k + step < len(theirs) and (step == 1 or theirs[k + 1] in MARKS):
-                a, b = theirs[k], theirs[k + step]
-                joined = (a + b).lower()
-                # Two words with a space between are two words ("of fish"):
-                # only a mark, or a half that is no word, says it was split.
-                apart = step == 2 or not (is_word(a.lower()) and is_word(b.lower()))
-                if a.isalpha() and b.isalpha() and apart and joined in low and is_word(joined):
-                    out.append(a + b)
-                    k += step + 1
-                    break
+        for parts in ([1, 2, 3], [1, 2], [1], [2]):
+            if k + parts[-1] >= len(theirs) or (parts == [2] and theirs[k + 1] not in MARKS):
+                continue
+            pieces = [theirs[k]] + [theirs[k + p] for p in parts]
+            joined = "".join(pieces).lower()
+            # Words with a space between are words ("of fish"): only a mark,
+            # or a piece that is no word, says one was split.
+            apart = parts == [2] or not all(is_word(t.lower()) for t in pieces)
+            if all(t.isalpha() for t in pieces) and apart and joined in low and is_word(joined):
+                out.append("".join(pieces))
+                k += parts[-1] + 1
+                break
         else:
             out.append(theirs[k])
             k += 1
@@ -457,9 +466,35 @@ def agree(clue, others, keep_known=False):
     "he")."""
     if others and isinstance(others[0], str):
         others = [others]
-    mine = marked(clue)
     if not tokens(clue):
         return clue, "no words"
+    mine, spans = [], []  # spans: each token's (start, text) in the clue
+    k = 0
+    for t in marked(clue, breaks=True):
+        if t == BREAK:
+            num = re.compile(r"\d+").search(clue, k)
+            at, t = num.start(), num.group()
+            # A number glued to a word's end ("know7") is a mark misread,
+            # voted on as itself; one standing alone ("Map 10 E") is the
+            # clue's text and pairs with the number other readings have.
+            if not (at and clue[at - 1].isalpha()):
+                mine.append(BREAK)
+                spans.append((at, t))
+                k = at + len(t)
+                continue
+        else:
+            at = clue.find(t, k)
+        mine.append(t)
+        spans.append((at, t))
+        k = at + len(t)
+    while mine and mine[0] == BREAK:
+        mine, spans = mine[1:], spans[1:]
+    while mine and mine[-1] == BREAK:
+        mine, spans = mine[:-1], spans[:-1]
+    # A word with a speck against it ("i»" for "is") is no sure reading.
+    specked = {i for i, (at, t) in enumerate(spans)
+               if JUNK_MARK.match(clue[at + len(t):at + len(t) + 1] or " ")
+               or (at and JUNK_MARK.match(clue[at - 1]))}
     low = [w.lower() for w in mine]
     seen = [{} for _ in mine]  # i -> {reading k: its word}
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
@@ -509,6 +544,15 @@ def agree(clue, others, keep_known=False):
     for i, w in enumerate(mine):
         a = low[i]
         got = {k: v for k, v in seen[i].items() if v not in MARKS and v != BREAK}
+        if w == BREAK:
+            continue
+        if w.isdigit():
+            marks = [v for v in seen[i].values() if v in MARKS]
+            top = max(marks, key=marks.count) if marks else None
+            if top and marks.count(top) * 2 > len(others):
+                fixes[i] = top
+                how = "settled by the readings"
+            continue
         if w in MARKS:
             if others and w not in seen[i].values():
                 drop.add(i)
@@ -523,8 +567,8 @@ def agree(clue, others, keep_known=False):
             # A lone I most readings see nothing at is a speck.
             drop.add(i)
             continue
-        before = next((low[k] for k in range(i - 1, -1, -1) if low[k] not in MARKS), None)
-        after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS), None)
+        before = next((low[k] for k in range(i - 1, -1, -1) if low[k] not in MARKS + BREAK), None)
+        after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS + BREAK), None)
         if not got and len(a) > 3 and not known(a) and not (i and w[0].isupper()) and mend([a], before, after):
             # A word only this reading has, a letter from a known one.
             fix = mend([a], before, after)
@@ -583,7 +627,7 @@ def agree(clue, others, keep_known=False):
                     return None, f"readings differ: {w} / {' / '.join(got.values())}"
                 else:
                     words_ = fits
-        if words_ and keep_known and known(a) and words_[0] != a and not (
+        if words_ and keep_known and known(a) and i not in specked and words_[0] != a and not (
                 len(got) == len(others) and all(v.lower() == words_[0] for v in got.values())):
             pick = a
         elif words_:
@@ -626,11 +670,12 @@ def agree(clue, others, keep_known=False):
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
-    if not fixes and not drop and not adds:
+    if not fixes and not drop and not adds and not (others and JUNK_MARK.search(clue)):
         return clue, how
+    # Specks between the words go: the other readings saw nothing there.
+    speckless = (lambda gap: JUNK_MARK.sub("", gap)) if others else (lambda gap: gap)
     text, k, out = clue, 0, ""
-    for i, old in enumerate(mine):
-        at = text.find(old, k)
+    for i, (at, old) in enumerate(spans):
         new = "" if i in drop else fixes.get(i, old)
         if not new and at > 0 and text[at - 1:at].isalpha() and text[at + len(old):at + len(old) + 1].isalpha():
             new = " "  # a dropped mark between two words ("spirit:after") leaves their space
@@ -642,9 +687,9 @@ def agree(clue, others, keep_known=False):
                 new = new[0].lower() + new[1:]
         elif new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
-        out += text[k:at] + (add[0] + " " if add else "") + new
+        out += speckless(text[k:at]) + (add[0] + " " if add else "") + new
         k = at + len(old)
-    out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + text[k:]
+    out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:])
     if adds and how == "agree":
         how = "settled by the readings"
     if drop and how == "agree":
@@ -786,10 +831,14 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         if SEE_RE.match(text or ""):
             out[lid] = (text, enum, group)
             continue
-        inside = re.search(r"\s(\d{1,2})\s+[A-Z]", text or "")
         own = int(re.match(r"\d+", lid).group())
-        if (inside and int(inside.group(1)) > own and any(
-                k.startswith(inside.group(1) + "-") for k in (lengths or {}))):
+        # A list counts up, so only a number above this clue's own can be
+        # the next clue run on, and with the grid known, only one naming a
+        # light: "Map 10 E" in 24 across is the clue's text.
+        inside = next((m for m in re.finditer(r"\s(\d{1,2})\s+[A-Z]", text or "")
+                       if int(m.group(1)) > own and (not lengths or any(
+                           k.startswith(m.group(1) + "-") for k in lengths))), None)
+        if inside and lengths:
             # The next clue run on after this one's count: cut it off, and
             # the count with it, which the grid gives.
             text = re.sub(r"\s*\([^)]*$", "", text[:inside.start()]).rstrip()
@@ -799,6 +848,9 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
+        if text:
+            # "1 hear" opens "I hear"; were the opening lost, the vote finds it.
+            text = re.sub(r"^1(?=\s+[a-z])", "I", text)
         if re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
             # Lower case first: the clue's opening ("23s about") was lost.
             blank[lid] = "starts mid-clue"
@@ -896,7 +948,8 @@ def formed(word):
 
 #: Print specks OCR reads as symbols no clue prints, alone or on a word
 #: ("is»", "of£", "■").
-JUNK = re.compile(r"[■»«•|^~¬§¤©®°±¶¦]|(?<=[a-z])[£$]|[£$](?=[a-z])")
+JUNK_MARK = re.compile(r"[■»«•|^~¬§¤©®°±¶¦]")
+JUNK = re.compile(JUNK_MARK.pattern + r"|(?<=[a-z])[£$]|[£$](?=[a-z])")
 
 
 def doubled(text):

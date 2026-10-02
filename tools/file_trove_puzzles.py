@@ -217,9 +217,11 @@ def sections(ocr):
     # with a digit: "ACROSS II" is a rule the OCR read, not clue 11.
     def rest(text):
         return text if re.match(r"\s*\d", text) else ""
-    # The paper's "(Solution Monday)" after the last clue is not its text.
-    down = re.sub(r"(?<=[).])\s*\(?\.?\s*solution\b[^()]{0,25}\)?[.*]?\s*$", "",
+    # The paper's "(Solution Monday)" after the last clue is not its text,
+    # nor is what follows it on the page (the next puzzle's lists).
+    down = re.sub(r"(?<=[).])\s*\(\s*solution\b[^()]{0,25}\)[\s\S]*$", "",
                   rejoin([rest(d_rest)] + lines[d + 1:end]), flags=re.IGNORECASE)
+    down = re.sub(r"(?<=[).])\s*\(?\.?\s*solution\b[^()]{0,25}\)?[.*]?\s*$", "", down, flags=re.IGNORECASE)
     return {"across": rejoin([rest(a_rest)] + lines[a + 1:d]), "down": down}
 
 
