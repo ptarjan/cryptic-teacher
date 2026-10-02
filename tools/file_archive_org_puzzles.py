@@ -430,6 +430,33 @@ def is_word(word):
     return rank(word) is not None or word.lower() in ("a", "i")
 
 
+#: The letters the print's worn type turns into one another, both ways.
+SLIPS = (("c", "e"), ("c", "t"), ("h", "b"), ("n", "u"), ("l", "i"), ("l", "t"), ("f", "t"),
+         ("i", "t"), ("rn", "m"), ("li", "h"), ("cl", "d"))
+#: How much commoner a slip's word must be than the word read.
+SLIP_RATIO = 20
+#: Words commoner than this rank are read right too often to doubt ("lie", not "he").
+SLIP_FLOOR = 8000
+
+
+def common_slip(word):
+    """A word one SLIPS swap from `word` that the lexicon ranks SLIP_RATIO
+    times commoner ("with" for "wich", "on" for "ou"), else None: every
+    reader can share that misread, so the reading is not to be trusted."""
+    low = word.lower()
+    r = rank(low)
+    if r is None or r < SLIP_FLOOR:
+        return None
+    for a, b in SLIPS + tuple((b, a) for a, b in SLIPS):
+        at = low.find(a)
+        while at >= 0:
+            v = low[:at] + b + low[at + len(a):]
+            if (rank(v) or 10 ** 9) * SLIP_RATIO < r:
+                return v
+            at = low.find(a, at + 1)
+    return None
+
+
 #: Punctuation inside a clue that the readings vote on like words.
 MARKS = ",;:!?"
 
@@ -546,13 +573,14 @@ def agree(clue, others):
             # A capital one reader saw inside the clue and another did not.
             spelt[a] = next(v for v in got.values() if v.lower() == a)
             how = "settled by the dictionary"
-        # Of the dictionary spellings like this one (or shared by two
-        # readings), the one most readings share stands; a tie goes to the one
+        # Of the dictionary spellings like this one and about as long (or
+        # shared by two readings), the one most readings share stands; a tie goes to the one
         # far more like every reading's word (its support), else no spelling
         # wins.
         read = [a] + [v.lower() for v in got.values()]
         support = {s: sum(similar(s, r) for r in read) for s in votes}
-        words_ = sorted((s for s in votes if is_word(s) and (votes[s] > 1 or similar(a, s) >= 0.5)),
+        words_ = sorted((s for s in votes if is_word(s) and (votes[s] > 1 or (
+                            similar(a, s) >= 0.5 and abs(len(s) - len(a)) <= max(1, len(a) // 4)))),
                         key=lambda s: (-votes[s], -support[s]))
         if len(words_) > 1:
             top, nxt = words_[0], words_[1]
@@ -562,7 +590,7 @@ def agree(clue, others):
             pick = words_[0]
             if pick != a or votes[a] == 1:
                 how = "settled by the dictionary"
-        elif votes[a] >= 3 or (votes[a] > 1 and i and w[0].isupper() and w[1:].islower()):
+        elif len(a) > 2 and (votes[a] >= 3 or (votes[a] > 1 and i and w[0].isupper() and w[1:].islower())):
             # No reading a dictionary word: what three readers saw stands,
             # and a name two saw inside the clue (the first word's capital
             # says nothing).
@@ -572,6 +600,9 @@ def agree(clue, others):
         else:
             return None, (f"both read {w!r}, not a word" if votes[a] > 1
                           else f"readings differ: {w} / {' / '.join(got.values())}")
+        slip = common_slip(pick)
+        if slip:
+            return None, f"{pick!r} is rare and one ink slip from the far commoner {slip!r}"
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
@@ -581,6 +612,8 @@ def agree(clue, others):
     for i, old in enumerate(mine):
         at = text.find(old, k)
         new = "" if i in drop else fixes.get(i, old)
+        if not new and at > 0 and text[at - 1:at].isalpha() and text[at + len(old):at + len(old) + 1].isalpha():
+            new = " "  # a dropped mark between two words ("spirit:after") leaves their space
         add = adds.get(i)
         if i == 0 and add and add[0][0].isalpha():
             # Lost opening words take the clue's capital.
@@ -611,6 +644,8 @@ def clean(text):
     full stop or an I is put back."""
     text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
     text = text.replace("\u2019", "'").replace("\u2018", "'")
+    # A backslash inside a word is a letter the scan broke ("sal\\ age").
+    text = re.sub(r"(?<=[a-z])\\\s?(?=[a-z])", "", text)
     # A clue's sentence never stops before a lower-case word: a full stop
     # there is a comma the print's low ink lost the tail of.
     text = re.sub(r"(?<=[a-z]{2})\.(?=\s+[a-z])", ",", text)
