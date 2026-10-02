@@ -109,7 +109,7 @@ def components(mask):
     return out
 
 
-def read_grid(path):
+def read_grid(path, block_above=BLOCK_ABOVE):
     """(rows, None) or (None, why): see the module docstring."""
     gray = np.asarray(Image.open(path).convert("L"), dtype=np.uint8)
     cut = otsu(gray)
@@ -196,7 +196,7 @@ def read_grid(path):
                                 max(0, int(ex - q)):int(ex + q) + 1].mean())
             if (r, c) in cells or share <= WHITE_BELOW:
                 row += "."
-            elif share >= BLOCK_ABOVE:
+            elif share >= block_above:
                 row += "#"
             else:
                 return None, f"r{r + 1}c{c + 1} is neither a light nor a block ({share:.0%} ink)"
