@@ -532,7 +532,7 @@ def fake_read(d, found, hit, solutions):
     return {"number": hit["number"]}, {"id": f"times-{hit['number']}", "number": hit["number"],
             "entries": [{"clue": {"text": "Top"}}, {"clue": {"text": "" if blank else "Left"}}]}
 f.read_puzzle = fake_read
-f.input_hash = lambda d, code: "h"
+f.input_hash = lambda d: "h"
 f.held_numbers = lambda series="times": set()
 fetch_puzzle.puzzle_path = lambda series, n: Path(os.environ["TMP"]) / "corpus" / f"times-{n}.json"
 fetch_puzzle.write_puzzle_file = lambda path, puzzle, generator: wrote.append(path.parent.name + "/" + path.name)

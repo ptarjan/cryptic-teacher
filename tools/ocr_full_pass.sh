@@ -1,6 +1,6 @@
 #!/bin/bash
 # Read every Trove article and archive.org edition the scan filers have not
-# read yet, to the end, then stop.
+# read yet, and those REREAD_BEFORE asks for again, to the end, then stop.
 #
 #     setsid nohup bash tools/ocr_full_pass.sh >>~/.cache/ocr_full_pass.log 2>&1 </dev/null &
 #
@@ -14,12 +14,19 @@
 # archiveorg-source). While this holds a ledger, the nightly's step for it
 # reads nothing; this waits for the nightly's hold in turn.
 #
+# A code change makes nothing due by itself: whoever makes one that should
+# change past readings sets REREAD_BEFORE to the time it landed, and this
+# reads again every source last read before then (each filer's --reread).
+# Rows read after it are done, so slices and reruns resume, not restart.
+#
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 
 CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-2}"
+# 1ef1de8 (lost list headings, misread clue numbers laid by the grid).
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-02T15:00:00+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
@@ -48,10 +55,10 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
   done
 }
 
-slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py || exit 1
+slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 for paper in telegraph guardian ft times; do
   slices "$paper off archive.org" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
-    --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
+    --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
 done
 echo "=== full pass done $(date '+%F %T') ==="
