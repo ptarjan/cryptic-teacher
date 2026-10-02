@@ -596,6 +596,18 @@ tools/make_icons.py                          renders every favicon and PWA icon 
                                              of truth
 tools/stamp_assets.py                        cache-busting ?v= stamps; the smoke test fails on
                                              a stale one
+tools/puzzle_tags.py                         what is unusual about each puzzle (pangram, barred
+                                             grid, special rules…), read off its file; reindex
+                                             writes the tags into the index, and the app badges
+                                             them and filters the picker by them
+tools/test_puzzle_tags.sh                    is each tag on a real puzzle that has it and off
+                                             the look-alike that does not (a feed that lost its
+                                             clues is not unclued, an erratum is not special
+                                             rules, a model's solve is never a pangram)?
+tools/test_puzzle_tag_badges.js              does a tagged puzzle's title badge its tag, and
+                                             does the picker's feature menu list exactly the
+                                             puzzles with that tag, the double pangrams under
+                                             pangram?
 tools/smoke_test.js                          the whole app driven headless against the real
                                              corpus
 tools/fake_dom.js                            the fake DOM that boots the real app.js under

@@ -6035,6 +6035,20 @@
   // clues' hints are read off (has_blog_hints in tools/fetch_puzzle.py, the
   // index's `blog`), and then the puzzle has hints, just not ours; only with
   // no blog either is it "answers only".
+  // What is unusual about a puzzle (pangram, barred grid, special rules…), as
+  // tools/puzzle_tags.py read it off the file. Labels and blurbs come from the
+  // index, so a tag added there is named and explained here with no table to
+  // keep in step.
+  function tagBadges(p) {
+    const info = INDEX.tags || {};
+    return (p.tags || []).filter((k) => info[k]).map((k) =>
+      `<span class="badge feature" title="${esc(info[k].blurb)}">${esc(info[k].label)}</span>`).join("");
+  }
+  // A tag includes the weaker one it `implies`: a double pangram is a pangram.
+  function hasTag(p, t) {
+    const info = INDEX.tags || {};
+    return (p.tags || []).some((k) => k === t || (info[k] && info[k].implies === t));
+  }
   function hintsBadge(annotated, blog) {
     if (annotated) return "";
     if (blog) return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints come from the ${esc(blog)} write-up: the definitions, clue types and pieces it marked, with some of what it left out worked out from the letters. Each clue links to the full explanation there, and a clue it marked nothing on has no hints yet.">hints via ${esc(blog)}</span>`;
@@ -6300,7 +6314,8 @@
     return (staticHay[p.id] = [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"),
       displayNumber(p), p.setter, dd.iso, dd.day,
       series, (SERIES_BADGE[series] || [""])[0],
-      p.difficulty ? p.difficulty.band : ""].join(" ").toLowerCase());
+      p.difficulty ? p.difficulty.band : "",
+      ...(p.tags || []).map((k) => ((INDEX.tags || {})[k] || {}).label || "")].join(" ").toLowerCase());
   }
   // "solved" and "started" are searchable for the same reason the row shows
   // them: "which ones have I already done" is a filter, not just a thing to read
@@ -6430,14 +6445,24 @@
     return `<option value="">Any difficulty</option>`
       + pickerBandList().map((b) => `<option value="${esc(b)}">${esc(titleCase(b))}</option>`).join("");
   }
-  // The rows the two menus allow, or null when both say "all".
+  // Only the tags some listed puzzle carries, in the index's order: an option
+  // that matches nothing is a dead end.
+  function tagMenuHTML() {
+    const info = INDEX.tags || {};
+    const used = Object.keys(info).filter((t) => INDEX.puzzles.some((p) => hasTag(p, t)));
+    return `<option value="">Any feature</option>`
+      + used.map((t) => `<option value="${esc(t)}">${esc(titleCase(info[t].label))}</option>`).join("");
+  }
+  // The rows the three menus allow, or null when all say "all".
   function pickerFilter() {
     const paper = ($("picker-paper") || {}).value || "";
     const band = ($("picker-band") || {}).value || "";
-    if (!paper && !band) return null;
+    const tag = ($("picker-tag") || {}).value || "";
+    if (!paper && !band && !tag) return null;
     const keys = new Set(paper.split(","));
     return (p) => (!paper || keys.has(p.series || "cryptic"))
-      && (!band || (!!p.difficulty && String(p.difficulty.band).toLowerCase() === band));
+      && (!band || (!!p.difficulty && String(p.difficulty.band).toLowerCase() === band))
+      && (!tag || hasTag(p, tag));
   }
 
   function pickerRows(q) {
@@ -6524,7 +6549,7 @@
     btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
         <span class="p-setter">${esc(p.setter || "")}</span>
         <span class="p-meta">${d}</span>
-        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}
+        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}${tagBadges(p)}
           ${!st.filled ? ""
             : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
             : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters filled</span>`}</span>`;
@@ -6583,9 +6608,13 @@
         renderPicker();
       };
     });
-    ["picker-paper", "picker-band"].forEach((id) => $(id).classList.toggle("on", !!$(id).value));
+    ["picker-paper", "picker-band", "picker-tag"].forEach((id) => $(id).classList.toggle("on", !!$(id).value));
     $("picker-diff-help").setAttribute("aria-expanded", String(pickerNote === "diff"));
-    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML() : "");
+    // A chosen feature says what it means where the bands do. Choosing it is
+    // the asking, so it needs no ? of its own; an open band note wins.
+    const tagInfo = (INDEX.tags || {})[($("picker-tag") || {}).value || ""];
+    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML()
+      : tagInfo ? esc(tagInfo.blurb) : "");
     const filtered = !!(q || pickerFilter());
     const rows = pickerRows(q);
     // This render is throwing away the list the last observer was watching.
@@ -6679,7 +6708,7 @@
     const want = showPanel("picker-panel", show);
     // The search box starts empty, but the menus keep what they were last set
     // to: someone working through one paper at one difficulty opens a puzzle,
-    // comes back for the next, and should not have to set both again (Paul,
+    // comes back for the next, and should not have to set them again (Paul,
     // 2026-10-02). They are ringed "on" while set (renderPicker), which is what
     // tells a narrowed list from puzzles gone missing. A value the rebuilt menu
     // no longer offers falls back to "", each menu's "all".
@@ -6689,8 +6718,10 @@
       const kept = store.get("ct:picker", null) || {};
       setHTML($("picker-paper"), paperMenuHTML());
       setHTML($("picker-band"), bandMenuHTML());
+      setHTML($("picker-tag"), tagMenuHTML());
       $("picker-paper").value = kept.paper || "";
       $("picker-band").value = kept.band || "";
+      $("picker-tag").value = kept.tag || "";
       renderPicker();
       // The progress numbers need the answers, and a sync pull may have handed
       // this browser progress on a puzzle whose file it has never fetched.
@@ -6864,7 +6895,8 @@
       // is then measured against a machine's answer, not the paper's, and
       // someone being told they are wrong deserves to know who is telling them
       // — which the picker's own badge already says, in the same words.
-      (meta.solutionsUnofficial ? " " + sourceBadge(meta) : "");
+      (meta.solutionsUnofficial ? " " + sourceBadge(meta) : "") +
+      (meta.tags ? " " + tagBadges(meta) : "");
     // A themed puzzle's special instructions, printed above the clues as the
     // paper prints them: some answers are defined by nothing else.
     $("puzzle-preamble").textContent = P.preamble || "";
@@ -7260,11 +7292,13 @@
     // inputs, so it has to be handled here.
     $("picker-search").addEventListener("input", () => renderPicker());
     const keepMenus = () => {
-      store.set("ct:picker", { paper: $("picker-paper").value || "", band: $("picker-band").value || "" });
+      store.set("ct:picker", { paper: $("picker-paper").value || "", band: $("picker-band").value || "",
+                               tag: $("picker-tag").value || "" });
       renderPicker();
     };
     $("picker-paper").addEventListener("change", keepMenus);
     $("picker-band").addEventListener("change", keepMenus);
+    $("picker-tag").addEventListener("change", keepMenus);
     $("picker-diff-help").onclick = () => {
       pickerNote = pickerNote === "diff" ? null : "diff";
       renderPicker();
