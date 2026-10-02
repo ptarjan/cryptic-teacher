@@ -4778,6 +4778,10 @@ global.realSetTimeout(() => {
   assert(literals.length >= 5, "app.js reports events at all: " + literals.join(","));
   literals.forEach((n) => assert(EVENTS.indexOf(n) >= 0,
     `app.js reports "${n}", which is not on the list in sync/events.js`));
+  const nuxIds = [...app.matchAll(/\{ id: "(\w+)",/g)].map((m) => m[1]).filter((i) => i !== "welcome");
+  assert(/beacon\("nux-" \+ line\.id\)/.test(app) && nuxIds.join() === "ladder,free,score,done",
+    "app.js reports each tour line by id: " + nuxIds.join());
+  nuxIds.forEach((i) => assert(EVENTS.indexOf("nux-" + i) >= 0, `tour line "${i}" has no "nux-${i}" on the list in sync/events.js`));
   // The rung beacons are named for the rung rather than written out, so the
   // grep above cannot see them: take the rungs from the ladder itself — every
   // key of RUNG_TIER, plus the answer rung, which sits outside the tiers — and
