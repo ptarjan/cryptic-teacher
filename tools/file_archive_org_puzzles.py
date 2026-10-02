@@ -1618,17 +1618,14 @@ def held_numbers(series=SERIES):
     return {int(p.stem.split("-")[1]) for p in (ROOT / "puzzles" / series).glob("*/*.json")}
 
 
-def destination(puzzles, file_from, date, complete=True):
-    """Where an edition dated `date` (YYYY-MM-DD) files its puzzle: the
-    `puzzles` dir, None for the corpus, or False for nowhere. With
-    `file_from`, editions of that year or later go to the corpus even when
-    `puzzles` is set. A puzzle with a blank clue (not `complete`) never goes
-    to the corpus: a solver cannot work it."""
-    if not complete:
-        return puzzles or False
-    if puzzles and file_from and int((date or "0")[:4]) >= file_from:
+def destination(puzzles, complete=True):
+    """Where a puzzle files: None for the corpus, the `puzzles` dir, or False
+    for nowhere. Only a `complete` puzzle (every clue has text) goes to the
+    corpus, whatever the paper or year: a solver cannot work one with a blank
+    clue, so that one goes to `puzzles` (--out) when given, else nowhere."""
+    if complete:
         return None
-    return puzzles
+    return puzzles or False
 
 
 def complete(puzzle):
@@ -1637,9 +1634,9 @@ def complete(puzzle):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, file_from=None, paper=None):
-    """File what is new under `cache`; `puzzles` writes there instead of the
-    corpus (tests, and editions before `file_from`). Returns the ledger rows."""
+        source=SOURCE, paper=None):
+    """File what is new under `cache`: complete puzzles into the corpus, ones
+    with a blank clue into `puzzles` when given. Returns the ledger rows."""
     from fetch_puzzle import puzzle_path, write_puzzle_file
     ledger = Path(ledger or cache / "filed.jsonl")
     known = {}
@@ -1691,7 +1688,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 if write:
                     source.mkdir(parents=True, exist_ok=True)
                     (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
-                dest = destination(puzzles, file_from, scans[rel].get("date"), complete(puzzle))
+                dest = destination(puzzles, complete(puzzle))
                 if dest is False:
                     verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
                     verdicts.append(verdict)
@@ -1844,9 +1841,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl")
-    ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
-    ap.add_argument("--file-from", type=int, metavar="YEAR",
-                    help="with --out, complete puzzles of YEAR or later still go into puzzles/")
+    ap.add_argument("--out", type=Path,
+                    help="write puzzles with a blank clue here; complete ones still go into puzzles/")
     ap.add_argument("--source", type=Path, default=SOURCE,
                     help="where every reading goes for cross_validate.py")
     ap.add_argument("--limit", type=int, help="read at most N new or changed editions")
@@ -1876,8 +1872,8 @@ def main(argv=None):
                           f"{(e['clue'] or {}).get('text', '')} ({(e['clue'] or {}).get('enumeration')})")
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        limit=args.limit, source=args.source, file_from=args.file_from, paper=PAPERS[args.paper])
-    if not args.out and args.paper == "times":
+        limit=args.limit, source=args.source, paper=PAPERS[args.paper])
+    if args.paper == "times":
         match_canberra(args.source, write=not args.dry_run)
     return 0
 
