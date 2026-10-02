@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Live in a dream, initially sleeping?",
     "enumeration": "4"
    },
-   "solution": "ABED"
+   "solution": "ABED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ABED",
+    "definitions": [
+     {
+      "text": "sleeping",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' means at the start, so only the opening letter of the word is wanted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it, wrapped by the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dream",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of dream"
+     },
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to live or exist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drifting through life in a dreamlike haze, half asleep.",
+     "walkthrough": "'Live' looks like the definition but supplies BE, which goes inside A plus the first letter of dream to make ABED.",
+     "definitionFit": "Abed is an old-fashioned word meaning lying in one's bed, typically asleep or resting there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,65 @@
     "text": "Country boy at day’s end: traditional scourge of 13ac/26ac guests?",
     "enumeration": "8"
    },
-   "solution": "LANDLADY"
+   "solution": "LANDLADY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LANDLADY",
+    "definitions": [
+     {
+      "text": "traditional scourge of 13ac/26ac guests",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "an end is the final point, so the last letter alone is kept"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "LAND",
+      "note": "a country is a land"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "day’s",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAND",
+      "LAD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A country boy finishing his day, and the stern figure who rules over guests at a seaside guesthouse.",
+     "walkthrough": "13ac/26ac means SEASIDE B AND B: a B and B is a British bed-and-breakfast guesthouse, whose proprietor is famously strict with guests.",
+     "definitionFit": "The woman running a seaside boarding house is a stock comic figure, notorious for rules about curfews and wet towels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +182,56 @@
     "text": "Ball caught by female trainer?",
     "enumeration": "4"
    },
-   "solution": "SHOE"
+   "solution": "SHOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHOE",
+    "definitions": [
+     {
+      "text": "trainer",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught is held in the catcher's grasp, so it ends up enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     },
+     {
+      "clueFragment": "Ball",
+      "gives": "O",
+      "note": "O is round like a ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "O",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman coach catching a ball during practice.",
+     "walkthrough": "'Trainer' suggests a coach, but here it is a sports shoe, as British English calls a sneaker a trainer.",
+     "definitionFit": "In Britain a trainer is a sneaker or running shoe, so it is a kind of footwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trainer"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +251,73 @@
      }
     ]
    },
-   "solution": "ICECREAM"
+   "solution": "ICECREAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ICE CREAM",
+    "definitions": [
+     {
+      "text": "Treat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unnamed",
+      "for": "deletion",
+      "note": "without a name means losing the abbreviation for name, a single letter"
+     },
+     {
+      "text": "wounded",
+      "for": "anagram",
+      "note": "something wounded is damaged and knocked out of shape, so its letters are rearranged"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crimean",
+      "gives": "CRIMEA",
+      "note": "the word minus N, the abbreviation for name"
+     },
+     {
+      "clueFragment": "the church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CE",
+      "CREAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIMEA",
+       "gives": "ICREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Caring for an anonymous soldier wounded in the Crimean War, outside a church.",
+     "walkthrough": "'Unnamed' is the trick: N stands for name, so dropping it leaves six letters to rearrange before they wrap the church abbreviation.",
+     "definitionFit": "Ice cream is a classic sweet indulgence, the sort of thing you would buy someone as a reward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Treat"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +337,66 @@
      }
     ]
    },
-   "solution": "DRYROT"
+   "solution": "DRYROT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DRY ROT",
+    "definitions": [
+     {
+      "text": "threat to the cabinet",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one thing on another sits above it, so the first piece is written before the second"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Politician",
+      "gives": "TORY",
+      "note": "a Tory is a British Conservative politician"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRYROT"
+     ],
+     "reversals": [
+      {
+       "from": "TORYRD",
+       "to": "DRYROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician on the comeback trail who poses a danger to the government cabinet.",
+     "walkthrough": "'Cabinet' suggests government ministers, but it is a wooden cupboard; the whole of politician-plus-road is read backwards.",
+     "definitionFit": "Dry rot is a fungus that decays timber, so it endangers wooden furniture such as a cupboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cabinet"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +410,51 @@
     "text": "Short-lived construction scandal set to blow up",
     "enumeration": "10"
    },
-   "solution": "SANDCASTLE"
+   "solution": "SANDCASTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANDCASTLE",
+    "definitions": [
+     {
+      "text": "Short-lived construction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to blow up",
+      "for": "anagram",
+      "note": "an explosion scatters things, so the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scandal set",
+      "gives": "SCANDALSET",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCANDALSET",
+       "gives": "SANDCASTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building-industry scandal that is about to explode in the press.",
+     "walkthrough": "'Construction' and 'scandal' suggest a building-trade story; the definition is cryptic, as the tide soon washes the structure away.",
+     "definitionFit": "A model castle built from beach sand lasts only until the tide comes in, so it is temporary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "construction"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +468,43 @@
     "text": "It contains rain a lot",
     "enumeration": "6"
    },
-   "solution": "BUCKET"
+   "solution": "BUCKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUCKET",
+    "definitions": [
+     {
+      "text": "It contains",
+      "at": 0
+     },
+     {
+      "text": "rain a lot",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It contains",
+      "note": "first meaning: a pail, a container"
+     },
+     {
+      "clueFragment": "rain a lot",
+      "note": "second meaning: a British verb for pouring with rain"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one sentence about something holding rainwater, but splits after 'contains'; to bucket down is British slang for heavy rain.",
+     "definitionFit": "A pail is a vessel that holds things, and the verb describes rain falling heavily, as in bucketing down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "contains"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +518,60 @@
     "text": "Jack, always against leaving scoff",
     "enumeration": "4"
    },
-   "solution": "JEER"
+   "solution": "JEER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "JEER",
+    "definitions": [
+     {
+      "text": "scoff",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so those letters drop out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in cards"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v is short for versus, against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "Jack is always objecting to people walking out of a meal.",
+     "walkthrough": "'Scoff' suggests eating greedily (British slang), but here it means mock; EVER loses V to give EER.",
+     "definitionFit": "To jeer is to mock or ridicule, which is the sense of scoff as an expression of derision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scoff"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +585,62 @@
     "text": "Composer going round end of The Strand",
     "enumeration": "5"
    },
-   "solution": "BEACH"
+   "solution": "BEACH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEACH",
+    "definitions": [
+     {
+      "text": "The Strand",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is kept"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means encircling it, so the outer word wraps the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "BACH",
+      "note": "J S Bach, the German composer"
+     },
+     {
+      "clueFragment": "The",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of The"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer strolling around the end of the Strand, the famous London street.",
+     "walkthrough": "The Strand is a well-known street in central London, which makes it look like a place name; here a strand is a shore.",
+     "definitionFit": "Strand is a literary word for the shore of a sea or lake, the sandy stretch by the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strand"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +654,61 @@
     "text": "Deviation from a straight – old city tax to be invested in remedy",
     "enumeration": "9"
    },
-   "solution": "CURVATURE"
+   "solution": "CURVATURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CURVATURE",
+    "definitions": [
+     {
+      "text": "Deviation from a straight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be invested in",
+      "for": "container",
+      "note": "money invested in something is put into it, so these letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Mesopotamian city"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "value added tax"
+     },
+     {
+      "clueFragment": "remedy",
+      "gives": "CURE",
+      "note": "a cure is a remedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "URVAT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient city's tax being put into a medicine, after departing from a straight course.",
+     "walkthrough": "Ur, the ancient Mesopotamian city, is the crossword's favourite 'old city'; 'a straight' is a straight line, not a strait of water.",
+     "definitionFit": "Curvature is the degree to which a line or surface bends away from being perfectly flat or linear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +728,71 @@
      }
     ]
    },
-   "solution": "DODGEMCAR"
+   "solution": "DODGEMCAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DODGEM CAR",
+    "definitions": [
+     {
+      "text": "fun ride",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "renovated",
+      "for": "anagram",
+      "note": "renovating something remakes it, so its letters are rebuilt in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odd",
+      "gives": "ODD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jet, say",
+      "gives": "GEM",
+      "note": "jet is a black gemstone, an example of a gem"
+     },
+     {
+      "clueFragment": "estate, possibly",
+      "gives": "CAR",
+      "note": "an estate is a British station wagon, an example of a car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOD",
+      "GEM",
+      "CAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ODD",
+       "gives": "DOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strangely refitted jet plane on a housing estate, offered as a fairground thrill.",
+     "walkthrough": "'Jet' looks like an aircraft but is the gemstone; an estate car is the British name for a station wagon.",
+     "definitionFit": "Dodgems are small electric bumper cars at a fairground, driven for amusement by bumping each other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jet"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +806,54 @@
     "text": "Doctor also called inside city",
     "enumeration": "5"
    },
-   "solution": "DAKAR"
+   "solution": "DAKAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DAKAR",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "being inside something means it is enclosed within the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "also called",
+      "gives": "AKA",
+      "note": "aka, also known as"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AKA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who has also been summoned to work within the city.",
+     "walkthrough": "'Also called' is the abbreviation aka, which sits inside DR.",
+     "definitionFit": "Dakar is the capital of Senegal in West Africa, a large port on the Atlantic coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +867,48 @@
     "text": "At which Blackpool is the main team",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEASIDE",
+    "definitions": [
+     {
+      "text": "At which Blackpool is",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the main",
+      "gives": "SEA",
+      "note": "the main is a poetic name for the open sea"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A football boast: Blackpool is the leading team.",
+     "walkthrough": "Blackpool is a football club, so 'main team' reads as praise; Blackpool is also a famous English coastal resort in Lancashire.",
+     "definitionFit": "Blackpool lies on the Lancashire coast, a classic resort by the shore of the Irish Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +922,49 @@
     "text": "Suit-shortening tool",
     "enumeration": "5"
    },
-   "solution": "SPADE"
+   "solution": "SPADE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPADE",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortening",
+      "for": "deletion",
+      "note": "making something shorter trims its tail, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suit",
+      "gives": "SPADES",
+      "note": "one of the four card suits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPADE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor's gadget for taking up the length of a suit.",
+     "walkthrough": "The hyphen makes it look like a tailoring tool; in fact the card suit loses its last letter.",
+     "definitionFit": "A spade is a digging implement with a flat blade, used in gardens and on beaches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +978,77 @@
     "text": "Etching: ‘In Bed over Sunday in Georgian Capital’",
     "enumeration": "10"
    },
-   "solution": "INSCRIBING"
+   "solution": "INSCRIBING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSCRIBING",
+    "definitions": [
+     {
+      "text": "Etching",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Capital",
+      "for": "letter_selection",
+      "note": "a capital is an initial letter, so only the first letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "first letter of Sunday, as in its short form Sun"
+     },
+     {
+      "clueFragment": "Bed",
+      "gives": "CRIB",
+      "note": "a crib is a bed, especially a baby's"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Georgian",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of Georgian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "CRIB",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "The title of an etching, like a painting of a bed in Tbilisi on a Sunday.",
+     "walkthrough": "The quoted title suggests an artwork in the Georgian capital, Tbilisi; 'Capital' just takes the first letter of Georgian. 'Over' places the bed after Sunday.",
+     "definitionFit": "Etching is cutting lines or letters into a surface, which is exactly what carving an inscription involves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1062,51 @@
     "text": "Shads sweat it out",
     "enumeration": "7"
    },
-   "solution": "TWAITES"
+   "solution": "TWAITES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TWAITES",
+    "definitions": [
+     {
+      "text": "Shads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "something out of order is disarranged, so the letters must be put back differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweat it",
+      "gives": "SWEATIT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SWEATIT",
+       "gives": "TWAITES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telling others to endure an ordeal until it is over.",
+     "walkthrough": "'Sweat it out' reads as an idiom for enduring; 'Shads' at the start is an unusual word, a type of fish.",
+     "definitionFit": "The twaite is a European species of shad, a herring-like fish that swims upriver to spawn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1120,44 @@
     "text": "Hull put under fire",
     "enumeration": "5"
    },
-   "solution": "SHELL"
+   "solution": "SHELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHELL",
+    "definitions": [
+     {
+      "text": "Hull",
+      "at": 0
+     },
+     {
+      "text": "put under fire",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hull",
+      "note": "first meaning: an outer casing, as of a nut or boat"
+     },
+     {
+      "clueFragment": "put under fire",
+      "note": "second meaning: to bombard with artillery"
+     }
+    ],
+    "explanation": {
+     "surface": "The city of Hull coming under bombardment.",
+     "walkthrough": "Hull is an English port city, which makes it look like a place under attack; as a lower-case word it means a casing.",
+     "definitionFit": "A hull is the outer husk or casing of something, and shelling means attacking with explosive artillery rounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hull"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1171,55 @@
     "text": "Fool around next to Gulf",
     "enumeration": "5"
    },
-   "solution": "ABYSS"
+   "solution": "ABYSS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABYSS",
+    "definitions": [
+     {
+      "text": "Gulf",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "being around something means encircling it, so the outer word wraps the inner one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "next to",
+      "gives": "BY",
+      "note": "by means beside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BY",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone messing about beside the Gulf, the Persian Gulf region.",
+     "walkthrough": "'Fool around' reads as a phrasal verb, but 'around' is the container signal; 'Gulf' looks like a place but means a chasm.",
+     "definitionFit": "A gulf can be a deep chasm or wide gap, the same sense as a bottomless pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gulf"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1233,54 @@
     "text": "Drive home over a month",
     "enumeration": "3"
    },
-   "solution": "MAR"
+   "solution": "MAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MAR",
+    "definitions": [
+     {
+      "text": "a month",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turning something over flips it, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drive home",
+      "gives": "RAM",
+      "note": "to ram is to drive something home forcefully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAM",
+       "to": "MAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Driving back home after spending a month away.",
+     "walkthrough": "'Drive home' reads as a commute, but means to ram a point or nail in.",
+     "definitionFit": "Mar is the standard calendar abbreviation for March, the third month of the year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1300,67 @@
      }
     ]
    },
-   "solution": "REEQUIPS"
+   "solution": "REEQUIPS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RE-EQUIPS",
+    "definitions": [
+     {
+      "text": "supplies again",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upsetting something tips it upside down, which in a down entry reverses the letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "being about something means around it, so the outer letters surround the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observer",
+      "gives": "SEER",
+      "note": "a seer is one who sees, an observer"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "QUIP",
+      "note": "a crack is a joke, a quip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REE",
+      "QUIP",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SEER",
+       "to": "REES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A watcher troubled by the drug trade's renewed deliveries.",
+     "walkthrough": "'Crack' and 'supplies' suggest drugs, but a crack is a wisecrack and 'supplies' is a verb meaning provides.",
+     "definitionFit": "To re-equip is to furnish with fresh gear or provisions, providing them once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1374,57 @@
     "text": "Propose a pill when temperature’s taken",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "Propose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken",
+      "for": "deletion",
+      "note": "something taken is removed, so that letter is lost from the word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a pill",
+      "gives": "TABLET",
+      "note": "a tablet is a pill"
+     },
+     {
+      "clueFragment": "temperature’s",
+      "gives": "T",
+      "note": "first letter of temperature, its usual symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse suggesting a pill once a patient's temperature has been measured.",
+     "walkthrough": "'Temperature's taken' sounds like a medical routine; it actually removes T from TABLET.",
+     "definitionFit": "In British usage, to table a motion is to put it forward formally for discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1438,57 @@
     "text": "Love mixing with a bad lot? Just what the cruise company wants!",
     "enumeration": "8"
    },
-   "solution": "BOATLOAD"
+   "solution": "BOATLOAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOATLOAD",
+    "definitions": [
+     {
+      "text": "Just what the cruise company wants!",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing with",
+      "for": "anagram",
+      "note": "things mixed together are stirred up, so the combined letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, O"
+     },
+     {
+      "clueFragment": "a bad lot",
+      "gives": "ABADLOT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OABADLOT",
+       "gives": "BOATLOAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romance with a bad crowd, followed by a quip about what a cruise operator hopes for.",
+     "walkthrough": "The definition is a playful description rather than a synonym: a ship operator wants every berth filled.",
+     "definitionFit": "A full complement of passengers on a vessel is what any cruise line wants for profit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1502,66 @@
     "text": "Eastern politician wrong to eject Republican leader",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "leader",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eject",
+      "for": "deletion",
+      "note": "ejecting something throws it out, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "ERROR",
+      "note": "a wrong is an error"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "EROR"
+     ]
+    },
+    "explanation": {
+     "surface": "An Eastern politician wrongly ousting the head of the Republican party.",
+     "walkthrough": "'Republican leader' looks like a phrase, but 'leader' is the definition and R comes out of ERROR.",
+     "definitionFit": "An emperor is the supreme ruler of an empire, so the word fits the general term for a head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1575,67 @@
     "text": "Hat, one switched between parents",
     "enumeration": "6"
    },
-   "solution": "PANAMA"
+   "solution": "PANAMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PANAMA",
+    "definitions": [
+     {
+      "text": "Hat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switched",
+      "for": "reversal",
+      "note": "switching two things swaps their positions, so the pair of letters is turned round"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "being between two things means sitting inside them, flanked on each side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parents",
+      "gives": "PAMA",
+      "note": "pa and ma are parents"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an is the indefinite article, meaning one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NA",
+      "MA"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hat passed back and forth between a mother and a father.",
+     "walkthrough": "'One' here is the indefinite article rather than A or I, which is why it has two letters to turn round.",
+     "definitionFit": "A Panama is a lightweight straw hat, popular in summer and at the beach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1649,47 @@
     "text": "Holiday spot needing to make new arrangements",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESORT",
+    "definitions": [
+     {
+      "text": "Holiday spot",
+      "at": 0
+     },
+     {
+      "text": "to make new arrangements",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holiday spot",
+      "note": "first meaning: a place people go on vacation"
+     },
+     {
+      "clueFragment": "to make new arrangements",
+      "note": "second meaning: to sort again"
+     }
+    ],
+    "explanation": {
+     "surface": "A holiday destination that needs to rethink its plans.",
+     "walkthrough": "The second meaning splits the word as re-sort, to sort once more.",
+     "definitionFit": "A resort is a vacation town, and re-sorting is organising items into a fresh order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "arrangements"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1703,49 @@
     "text": "Confront detective at party",
     "enumeration": "7"
    },
-   "solution": "EYEBALL"
+   "solution": "EYEBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYEBALL",
+    "definitions": [
+     {
+      "text": "Confront",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "EYE",
+      "note": "a private eye is a detective"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BALL",
+      "note": "a ball is a formal party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Challenging a detective at a party.",
+     "walkthrough": "'At' simply joins the two pieces here.",
+     "definitionFit": "To eyeball someone is to stare at them challengingly, squaring up face to face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1769,47 @@
      }
     ]
    },
-   "solution": "BANDB"
+   "solution": "BANDB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "B AND B",
+    "definitions": [
+     {
+      "text": "Digs",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rock group",
+      "gives": "BAND",
+      "note": "a rock group is a band"
+     },
+     {
+      "clueFragment": "secondary",
+      "gives": "B",
+      "note": "B is second-class, as in a B grade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A second-rate rock band, or one that excavates.",
+     "walkthrough": "'Digs' looks like a verb but is British slang for lodgings; a B and B is a bed-and-breakfast guesthouse.",
+     "definitionFit": "Digs is informal British for rented lodgings, and a bed-and-breakfast provides a room for paying guests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Digs"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1823,47 @@
     "text": "Dance and cry loudly to audience",
     "enumeration": "4"
    },
-   "solution": "BALL"
+   "solution": "BALL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BALL",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to audience",
+      "for": "homophone",
+      "note": "what reaches an audience is what they hear, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cry loudly",
+      "gives": "BALL",
+      "soundsLike": "BAWL",
+      "note": "to bawl is to cry loudly"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer dancing and weeping noisily before the spectators.",
+     "walkthrough": "The two words sound the same in most accents.",
+     "definitionFit": "A ball is a large formal social gathering held for dancing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1883,47 @@
      }
     ]
    },
-   "solution": "SQUARELEG"
+   "solution": "SQUARELEG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUARE LEG",
+    "definitions": [
+     {
+      "text": "position on field",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old-fashioned",
+      "gives": "SQUARE",
+      "note": "square is slang for conventional, unfashionable"
+     },
+     {
+      "clueFragment": "stage’s",
+      "gives": "LEG",
+      "note": "a leg is a stage of a journey; the 's stands for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARE",
+      "LEG"
+     ]
+    },
+    "explanation": {
+     "surface": "An outdated theatrical stage finding its place on a field.",
+     "walkthrough": "'Stage' suggests a theatre but means a leg of a journey; square leg is a fielding position in cricket, level with the batsman on the leg side.",
+     "definitionFit": "In cricket, square leg is where a fielder stands beside the batsman, at right angles to the pitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stage’s"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1937,39 @@
     "text": "A sticky sweet?",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROCK",
+    "definitions": [
+     {
+      "text": "A sticky sweet?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sticky sweet?",
+      "note": "surface reading: a candy that is gooey and clings to the fingers"
+     },
+     {
+      "clueFragment": "A sticky sweet?",
+      "note": "setter's reading: a sweet that comes in the form of a stick, the British seaside candy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Seaside rock is a hard British candy sold in long cylindrical sticks, often with the resort's name running through it; 'sticky' means stick-shaped, not gooey.",
+     "definitionFit": "Rock is a hard boiled confection sold as sticks in British coastal resorts like Blackpool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sticky"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +1983,39 @@
     "text": "Water etc with this added would create a scandal",
     "enumeration": "4"
    },
-   "solution": "GATE"
+   "solution": "GATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GATE",
+    "definitions": [
+     {
+      "text": "Water etc with this added would create a scandal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water etc with this added would create a scandal",
+      "note": "surface reading: something added to the water supply causing an outrage, like contamination"
+     },
+     {
+      "clueFragment": "Water etc with this added would create a scandal",
+      "note": "setter's reading: a suffix attached to Water and other words to name political scandals, after the Nixon affair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Watergate affair brought down President Nixon, and since then the suffix has been tacked onto many words to label a scandal; 'etc' covers those other cases.",
+     "definitionFit": "The ending taken from Watergate is now a standard journalistic suffix meaning a political scandal or cover-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Water"
+    }
+   }
   },
   {
    "number": 30,
@@ -513,7 +2035,70 @@
      }
     ]
    },
-   "solution": "LEMONDROP"
+   "solution": "LEMONDROP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "LEMON DROP",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unkempt",
+      "for": "anagram",
+      "note": "unkempt means untidy and dishevelled, so the letters are left in a mess"
+     },
+     {
+      "text": "cut off",
+      "for": "deletion",
+      "note": "cutting off trims the end, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old men",
+      "gives": "OLDMEN",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "tie",
+      "gives": "ROPE",
+      "note": "a rope is something used to tie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEMOND",
+      "ROP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDMEN",
+       "gives": "LEMOND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charming, scruffy old gentlemen whose neckties have been snipped off.",
+     "walkthrough": "'Sweet old men' reads as affectionate, but 'Sweet' is the definition and 'old' is part of the anagram; ROPE loses its last letter.",
+     "definitionFit": "A lemon drop is a hard citrus-flavoured boiled candy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 31,
@@ -527,7 +2112,55 @@
     "text": "Succeed effortlessly when in bed",
     "enumeration": "5"
    },
-   "solution": "COAST"
+   "solution": "COAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COAST",
+    "definitions": [
+     {
+      "text": "Succeed effortlessly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means lying inside it, enclosed by the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I arrived'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Achieving things with no effort while lying in bed.",
+     "walkthrough": "'In bed' sounds like lounging around, fitting the surface, but 'in' is the container signal and 'when' supplies the inner letters.",
+     "definitionFit": "To coast is to move along without exertion, and figuratively to win or progress easily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   }
  ]
 }
