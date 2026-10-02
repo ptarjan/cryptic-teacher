@@ -44,8 +44,9 @@ PLAUSIBLE = {
     "Daily Cryptic": (24, 34),
     "Quick Cryptic": (20, 30),
     "Weekend Cryptic": (24, 34),
-    # A Times Jumbo runs to 62 lights, a Sunday Times Jumbo to 70.
-    "Jumbo Cryptic": (40, 72),
+    # No ceiling: a Jumbo's grid is sized from its count (times_grids.size),
+    # and an anniversary Superjumbo (1423) prints 90 lights on 27x27.
+    "Jumbo Cryptic": (40, None),
     "Mephisto": (24, 42),
     "Monthly Club Special": (24, 42),
     "TLS Crossword": (24, 36),
@@ -1111,7 +1112,8 @@ def plausible(rec):
     ranges = [PLAUSIBLE.get(rec["series"])]
     if rec["series"] == "Weekend Cryptic":
         ranges.append(PLAUSIBLE["Jumbo Cryptic"])
-    return ranges[0] is None or any(lo <= n <= hi for lo, hi in ranges)
+    return ranges[0] is None or any(lo <= n and (hi is None or n <= hi)
+                                    for lo, hi in ranges)
 
 
 def run(write=True, limit=None):
