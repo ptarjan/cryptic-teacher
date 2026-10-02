@@ -23,6 +23,9 @@
   "date": "2025-03-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,73 @@
     "text": "Learned Irishman travelling west, damned without St John",
     "enumeration": "5"
    },
-   "solution": "OLLAV"
+   "solution": "OLLAV",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "OLLAV",
+    "definitions": [
+     {
+      "text": "Learned Irishman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling west",
+      "for": "reversal",
+      "note": "in an across entry, going west means reading right to left, so the letters run backwards"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' here means lacking, so some letters are taken away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damned",
+      "gives": "LOST",
+      "note": "the damned are lost souls"
+     },
+     {
+      "clueFragment": "St",
+      "gives": "ST",
+      "note": "the usual abbreviation for saint, removed from the previous word"
+     },
+     {
+      "clueFragment": "John",
+      "gives": "LAV",
+      "note": "john is slang for a toilet, as is lav"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OL",
+      "LAV"
+     ],
+     "reversals": [
+      {
+       "from": "LO",
+       "to": "OL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An educated Irishman heading west in disgrace, with no saint to help him.",
+     "walkthrough": "'John' looks like the saint's name continuing 'St John', but the saint is only the abbreviation to remove; John alone is slang for a toilet.",
+     "definitionFit": "An ollav was a master scholar or poet of ancient Ireland, a title for a learned man of rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +119,72 @@
     "text": "Snowflake periodically baleful, upsetting group of old fossils",
     "enumeration": "9"
    },
-   "solution": "OLENELLUS"
+   "solution": "OLENELLUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "OLENELLUS",
+    "definitions": [
+     {
+      "text": "group of old fossils",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically recurs at fixed intervals, so only letters at regular spacing are kept"
+     },
+     {
+      "text": "upsetting",
+      "for": "reversal",
+      "note": "in a down entry, upsetting tips the word over so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snowflake",
+      "gives": "OLE",
+      "select": "regular",
+      "note": "every third letter: the 3rd, 6th and 9th"
+     },
+     {
+      "clueFragment": "baleful",
+      "gives": "SULLEN",
+      "note": "baleful and sullen both describe a gloomy, menacing look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLE",
+      "NELLUS"
+     ],
+     "reversals": [
+      {
+       "from": "SULLEN",
+       "to": "NELLUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sensitive soul, now and then glowering, upsets a group of old fogeys.",
+     "walkthrough": "'Old fossils' looks like slang for elderly people, but the definition is literal. Only SULLEN is reversed; the letters from 'Snowflake' are taken every third place.",
+     "definitionFit": "Olenellus is a genus of Cambrian trilobites, extinct marine arthropods known only from rock specimens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fossils"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +198,62 @@
     "text": "Like a phalarope — shy, mottled, with head slightly dipped",
     "enumeration": "7"
    },
-   "solution": "LOBIPED"
+   "solution": "LOBIPED",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "LOBIPED",
+    "definitions": [
+     {
+      "text": "Like a phalarope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with head slightly dipped",
+      "for": "cycling",
+      "note": "dipping the head a little lowers the leading letter just one place, so the word's order shifts slightly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shy",
+      "gives": "LOB",
+      "note": "to shy is to throw, as is to lob"
+     },
+     {
+      "clueFragment": "mottled",
+      "gives": "PIED",
+      "note": "pied means patched in two colours, like a magpie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOB",
+      "IPED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIED",
+       "gives": "IPED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wading bird described as timid, speckled and ducking its head.",
+     "walkthrough": "'Shy' reads as timid but is the verb to throw. In PIED the first letter moves down one place, giving IPED.",
+     "definitionFit": "Phalaropes have lobed toes for swimming, and lobiped means having lobed feet, so it describes the bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shy"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +267,73 @@
     "text": "Seaweed containing iodine, mostly cut up",
     "enumeration": "5"
    },
-   "solution": "VRAIC"
+   "solution": "VRAIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "VRAIC",
+    "definitions": [
+     {
+      "text": "Seaweed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters read from the bottom upwards"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "CARVE",
+      "note": "to cut meat is to carve it"
+     },
+     {
+      "clueFragment": "iodine",
+      "gives": "I",
+      "note": "I is the chemical symbol for iodine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VRA",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CARV",
+       "to": "VRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kelp that is rich in iodine, chopped almost to bits.",
+     "walkthrough": "CARVE loses its last letter and is reversed to VRAC, which then holds the I. 'Cut up' looks like a single phrase but splits into the word and its reversal signal.",
+     "definitionFit": "Vraic is the Channel Islands name for seaweed gathered from the shore and used as fertiliser or fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +347,81 @@
     "text": "British single about embracing semi-uneasy charms",
     "enumeration": "9"
    },
-   "solution": "BRELOQUES"
+   "solution": "BRELOQUES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "BRELOQUES",
+    "definitions": [
+     {
+      "text": "charms",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the word faces the other way"
+     },
+     {
+      "text": "semi-",
+      "for": "deletion",
+      "note": "semi means half, so only half of the next word is kept"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hug, so one part wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "BR",
+      "note": "a standard abbreviation for British"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "SOLE",
+      "note": "sole means one and only"
+     },
+     {
+      "clueFragment": "uneasy",
+      "gives": "QUEASY",
+      "note": "queasy means uneasy or unsettled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "ELO",
+      "QUE",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SOLE",
+       "to": "ELOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British record that wraps itself round songs that half-unsettle and charm.",
+     "walkthrough": "'Single' looks like a pop record, but it means one and only; 'about' turns that word round rather than meaning concerning.",
+     "definitionFit": "Breloques are small ornaments hung from a watch chain, trinkets also called charms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +441,63 @@
      }
     ]
    },
-   "solution": "BEEBALM"
+   "solution": "BEEBALM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BEE BALM",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pollarded",
+      "for": "deletion",
+      "note": "pollarding cuts the top growth off, so the head letter of the word is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "channel",
+      "gives": "BEEB",
+      "note": "the Beeb is a nickname for the BBC, the British broadcaster"
+     },
+     {
+      "clueFragment": "adjacent to",
+      "note": "placed next to, so the pieces simply join"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "PALM",
+      "note": "the palm is a tree; it loses its top"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEEB",
+      "ALM"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower growing in a ditch next to a cut-back tree.",
+     "walkthrough": "'Channel' looks like a watercourse but is a TV channel: the Beeb is the British nickname for the BBC. PALM minus its top gives ALM.",
+     "definitionFit": "Bee balm, or bergamot, is a North American plant of the mint family grown for its scarlet blossoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +511,63 @@
     "text": "See island immersed in total state of delight",
     "enumeration": "7"
    },
-   "solution": "ELYSIUM"
+   "solution": "ELYSIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELYSIUM",
+    "definitions": [
+     {
+      "text": "state of delight",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "immersed in",
+      "for": "container",
+      "note": "something immersed sits inside a liquid, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "ELY",
+      "note": "a see is a bishop's seat; Ely is a cathedral city in Cambridgeshire"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "total",
+      "gives": "SUM",
+      "note": "a total is a sum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELY",
+      "S",
+      "I",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "Picture an island steeped in pure bliss.",
+     "walkthrough": "'See' reads as the verb to look, but it is a bishop's see; Ely is an English cathedral city in the fens.",
+     "definitionFit": "Elysium was the Greek paradise for heroes, and by extension any condition of perfect happiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +581,77 @@
     "text": "Little wood pigeon’s half worried with hawks beginning to attack",
     "enumeration": "9"
    },
-   "solution": "OAKENSHAW"
+   "solution": "OAKENSHAW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OAKENSHAW",
+    "definitions": [
+     {
+      "text": "Little wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half means only one of two equal parts is kept"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     },
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "something worried is fretted and shaken about, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pigeon’s",
+      "gives": "EON",
+      "note": "the back half of the bird's name"
+     },
+     {
+      "clueFragment": "hawks",
+      "gives": "HAWKS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EONHAWKSA",
+       "gives": "OAKENSHAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small pigeon fretting as hawks begin their attack.",
+     "walkthrough": "'Little wood pigeon' wants to be one phrase, a small wood pigeon; in fact 'Little wood' is the definition and 'pigeon's half' supplies letters.",
+     "definitionFit": "An oakenshaw is a small oak wood; shaw is an old word for a thicket or copse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +665,63 @@
     "text": "Let me see both sides of beaver before Edmund’s visor",
     "enumeration": "7"
    },
-   "solution": "UMBRERE"
+   "solution": "UMBRERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UMBRERE",
+    "definitions": [
+     {
+      "text": "Edmund’s visor",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both sides of",
+      "for": "letter_selection",
+      "note": "the two sides of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let me see",
+      "gives": "UM",
+      "note": "um is the noise of someone pausing to think"
+     },
+     {
+      "clueFragment": "beaver",
+      "gives": "BR",
+      "select": "outer",
+      "note": "the first and last letters of the animal"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is a poetic word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "BR",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pauses over a beaver and a mysterious Edmund's visor.",
+     "walkthrough": "Edmund is Edmund Spenser, author of The Faerie Queene. A beaver is also part of a helmet, which nudges toward armour, but here it just supplies its outer letters.",
+     "definitionFit": "Umbrere is Spenser's spelling of umbrere or umbriere, the movable face guard on a helmet that shades the eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beaver"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +735,60 @@
     "text": "Exhausted sheep and deer shiver up north",
     "enumeration": "5"
    },
-   "solution": "SPELK"
+   "solution": "SPELK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPELK",
+    "definitions": [
+     {
+      "text": "shiver up north",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exhausted",
+      "for": "letter_selection",
+      "note": "exhausted means emptied, so the inside letters are gone and only the outer ones remain"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep",
+      "gives": "SP",
+      "select": "outer",
+      "note": "the word emptied of its middle"
+     },
+     {
+      "clueFragment": "deer",
+      "gives": "ELK",
+      "note": "the elk is a large deer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ELK"
+     ]
+    },
+    "explanation": {
+     "surface": "Tired sheep and deer shivering in the cold of the north.",
+     "walkthrough": "'Shiver' looks like trembling with cold, but here it is a noun meaning a splinter; 'up north' marks a northern English dialect word.",
+     "definitionFit": "Spelk is a northern dialect noun for a splinter or sliver of wood, which a shiver also means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shiver"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +802,68 @@
     "text": "Abrasive retrospective energy provider probes corruption of jury",
     "enumeration": "9"
    },
-   "solution": "EMBRACERY"
+   "solution": "EMBRACERY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EMBRACERY",
+    "definitions": [
+     {
+      "text": "corruption of jury",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospective",
+      "for": "reversal",
+      "note": "a retrospective looks backwards, so the word reads in reverse"
+     },
+     {
+      "text": "probes",
+      "for": "container",
+      "note": "a probe pushes inside something, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abrasive",
+      "gives": "EMERY",
+      "note": "emery is a gritty abrasive powder"
+     },
+     {
+      "clueFragment": "energy provider",
+      "gives": "CARB",
+      "note": "a carb (carbohydrate) is a food that supplies energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BRAC",
+      "ERY"
+     ],
+     "reversals": [
+      {
+       "from": "CARB",
+       "to": "BRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scratchy retrospective by a power company investigates jury tampering.",
+     "walkthrough": "'Energy provider' suggests a utility company, but it is a food that fuels the body, a carbohydrate.",
+     "definitionFit": "Embracery is the legal offence of trying to influence a juror by bribes or threats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "provider"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +877,75 @@
     "text": "Back in dock, bishop entering affray exposed churchman once",
     "enumeration": "5"
    },
-   "solution": "KEBLE"
+   "solution": "KEBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "KEBLE",
+    "definitions": [
+     {
+      "text": "churchman once",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "exposed",
+      "for": "deletion",
+      "note": "exposed means stripped of its covering, so the outer letters are removed"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dock",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "affray",
+      "gives": "MELEE",
+      "note": "an affray is a brawl, a melee"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "E",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop dragged into a brawl and exposed, back in the dock.",
+     "walkthrough": "MELEE stripped of its outer letters gives ELE, into which B goes; 'dock' sounds like a courtroom but just gives its last letter.",
+     "definitionFit": "John Keble was a nineteenth-century Anglican priest and poet, a leader of the Oxford Movement, so a cleric of the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +965,83 @@
      }
     ]
    },
-   "solution": "EXPECTATIONWEEK"
+   "solution": "EXPECTATIONWEEK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EXPECTATION WEEK",
+    "definitions": [
+     {
+      "text": "When spirit is due",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outside covering, so only the outer letters are meant"
+     },
+     {
+      "text": "swapping",
+      "for": "substitution",
+      "note": "to swap is to exchange places, so two letters trade positions"
+     },
+     {
+      "text": "bottled",
+      "for": "anagram",
+      "note": "bottled is slang for drunk, and drunk letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "EXCEPT",
+      "note": "bar as a preposition means except"
+     },
+     {
+      "clueFragment": "cheap",
+      "gives": "CP",
+      "select": "outer",
+      "note": "the outside letters of the word; these two trade places"
+     },
+     {
+      "clueFragment": "wine with tea, OK",
+      "gives": "WINETEAOK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXPECT",
+      "ATIONWEEK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WINETEAOK",
+       "gives": "ATIONWEEK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the pub, someone trades a case of cheap wine for tea instead, and that's fine.",
+     "walkthrough": "In EXCEPT the C and P swap places to make EXPECT. 'Bottled' looks like it describes the wine, but it is the anagram signal, slang for drunk.",
+     "definitionFit": "Expectation Week is the church name for the days between Ascension and Whitsun, when the disciples awaited the Holy Spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +1055,54 @@
     "text": "Resin, the first university’s extracted from opiate",
     "enumeration": "7"
    },
-   "solution": "LADANUM"
+   "solution": "LADANUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LADANUM",
+    "definitions": [
+     {
+      "text": "Resin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "deletion",
+      "note": "to extract is to pull out, so letters are removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opiate",
+      "gives": "LAUDANUM",
+      "note": "laudanum is a tincture of opium"
+     },
+     {
+      "clueFragment": "the first university",
+      "gives": "U",
+      "note": "U is the abbreviation for university; only its first occurrence goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "DANUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A resin forms after a university has extracted it from an opium drug.",
+     "walkthrough": "LAUDANUM has two Us; 'the first' says only the earlier one is removed.",
+     "definitionFit": "Ladanum (labdanum) is a sticky gum exuded by rockrose shrubs and used in perfumery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "university’s"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +1116,66 @@
     "text": "US finance hub introducing trade agreement primarily cuts off one with diminished vision",
     "enumeration": "9"
    },
-   "solution": "NYCTALOPS"
+   "solution": "NYCTALOPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NYCTALOPS",
+    "definitions": [
+     {
+      "text": "one with diminished vision",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US finance hub",
+      "gives": "NYC",
+      "note": "New York City, home of Wall Street"
+     },
+     {
+      "clueFragment": "introducing",
+      "note": "placed in front of what follows"
+     },
+     {
+      "clueFragment": "trade agreement",
+      "gives": "TA",
+      "select": "first",
+      "note": "the first letters of the two words"
+     },
+     {
+      "clueFragment": "cuts off",
+      "gives": "LOPS",
+      "note": "to lop is to cut off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NYC",
+      "TA",
+      "LOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Wall Street launching a trade deal that cuts someone short-sighted out.",
+     "walkthrough": "'Cuts off' looks like a deletion signal but is plain wordplay for LOPS.",
+     "definitionFit": "A nyctalops is a person with night blindness (or, in older use, day blindness), so their sight is impaired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +1189,61 @@
     "text": "I now understand male prophet catches fish",
     "enumeration": "7"
    },
-   "solution": "MAHSEER"
+   "solution": "MAHSEER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MAHSEER",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catches",
+      "for": "container",
+      "note": "to catch is to hold, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I now understand",
+      "gives": "AH",
+      "note": "ah is the exclamation of sudden realisation"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "prophet",
+      "gives": "SEER",
+      "note": "a seer foresees the future"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AH",
+      "SEER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone realises a male prophet is catching fish.",
+     "walkthrough": "The exclamation goes between M and SEER, held inside them.",
+     "definitionFit": "The mahseer is a large freshwater game fish of South Asian rivers, related to carp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catches"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1257,80 @@
     "text": "Little fliers notary distributed about church hospital charges",
     "enumeration": "9"
    },
-   "solution": "RHYNCHOTA"
+   "solution": "RHYNCHOTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RHYNCHOTA",
+    "definitions": [
+     {
+      "text": "Little fliers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "distributed things are scattered about, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     },
+     {
+      "text": "charges",
+      "for": "container",
+      "note": "to charge is to rush in, so one piece enters another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notary",
+      "gives": "NOTARY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "YN",
+      "CH",
+      "OTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTARY",
+       "gives": "RYNOTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notary hands out leaflets about church hospital fees.",
+     "walkthrough": "'Little fliers' suggests leaflets but means insects. The shuffled notary goes round CH, then H charges into the whole.",
+     "definitionFit": "Rhynchota is an old name for the Hemiptera, the true bugs, many of which are small winged insects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fliers"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1344,56 @@
     "text": "Might they drop round in Caledonian coastal waters?",
     "enumeration": "7"
    },
-   "solution": "SEALCHS"
+   "solution": "SEALCHS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "SEALCHS",
+    "definitions": [
+     {
+      "text": "Might they drop round in Caledonian coastal waters?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop",
+      "for": "deletion",
+      "note": "to drop something is to let it fall away, so a letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape is the letter O"
+     },
+     {
+      "clueFragment": "Caledonian coastal waters",
+      "gives": "SEALOCHS",
+      "note": "sea lochs are Scottish inlets; Caledonian means Scottish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAL",
+      "CHS"
+     ]
+    },
+    "explanation": {
+     "surface": "Do these creatures pop in for a visit in Scottish coastal inlets?",
+     "walkthrough": "'Drop round' reads as visiting, but it means drop O; the whole clue also describes seals turning up in sea lochs.",
+     "definitionFit": "Sealch is the Scots word for a seal, the marine mammal common in the inlets of the Scottish coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1407,67 @@
     "text": "Mineral rights initially squandered throughout separate ceremony",
     "enumeration": "7"
    },
-   "solution": "APATITE"
+   "solution": "APATITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "APATITE",
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so the opening letter is taken"
+     },
+     {
+      "text": "squandered throughout",
+      "for": "deletion",
+      "note": "squandered means wasted away, and throughout says it happens in every piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rights",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "separate",
+      "gives": "APART",
+      "note": "apart means separate"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ritual ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APAT",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mining rights were wasted all through a divorce ceremony.",
+     "walkthrough": "The R goes from both words: APART becomes APAT and RITE becomes ITE.",
+     "definitionFit": "Apatite is a common phosphate mineral found in rocks, teeth and bones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rights"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1481,51 @@
     "text": "Boer pedlar‘s small, effective kitty",
     "enumeration": "7"
    },
-   "solution": "SMOUSER"
+   "solution": "SMOUSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMOUSER",
+    "definitions": [
+     {
+      "text": "Boer pedlar",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "effective kitty",
+      "gives": "MOUSER",
+      "note": "a cat that is good at catching mice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MOUSER"
+     ]
+    },
+    "explanation": {
+     "surface": "A South African hawker's cat is small but a good hunter.",
+     "walkthrough": "'Kitty' could suggest a pool of money, but it is a cat, and an effective one is a mouser.",
+     "definitionFit": "Smouser is South African slang for an itinerant trader or hawker, from the Dutch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kitty"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1539,67 @@
     "text": "Ivy barely turning yellow, as is sequoia",
     "enumeration": "7"
    },
-   "solution": "VOWELLY"
+   "solution": "VOWELLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "VOWELLY",
+    "definitions": [
+     {
+      "text": "as is sequoia",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "letter_selection",
+      "note": "barely means stripped bare, so the outer letters go and only the middle remains"
+     },
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning things move about, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ivy",
+      "gives": "V",
+      "select": "middle",
+      "note": "the plant's name stripped of its outside letters"
+     },
+     {
+      "clueFragment": "yellow",
+      "gives": "YELLOW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VYELLOW",
+       "gives": "VOWELLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ivy hardly yellowing, just like a giant redwood.",
+     "walkthrough": "The surface reads as botany, but sequoia is cited as a word: it contains all five vowels.",
+     "definitionFit": "Sequoia has five vowels and only two consonants, so it is rich in vowels, which is the sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sequoia"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1613,60 @@
     "text": "Film involves new network site that Norsemen visited",
     "enumeration": "7"
    },
-   "solution": "VINLAND"
+   "solution": "VINLAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VINLAND",
+    "definitions": [
+     {
+      "text": "site that Norsemen visited",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "to involve is to take in, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "gives": "VID",
+      "note": "vid is short for video, a film"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "network",
+      "gives": "LAN",
+      "note": "a local area network"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "N",
+      "LAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A documentary features a new network at a Viking landing site.",
+     "walkthrough": "Vid is informal shorthand for a video, and a LAN is a local area network of computers.",
+     "definitionFit": "Vinland is the Norse name for the part of North America reached by Leif Erikson around 1000 AD."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1680,79 @@
     "text": "Shot rang out, echo pervading large lake",
     "enumeration": "7"
    },
-   "solution": "LANGREL"
+   "solution": "LANGREL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "LANGREL",
+    "definitions": [
+     {
+      "text": "Shot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the letters are rearranged"
+     },
+     {
+      "text": "pervading",
+      "for": "container",
+      "note": "to pervade is to spread right through, so the pieces sit within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rang",
+      "gives": "RANG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "echo",
+      "gives": "E",
+      "note": "Echo is E in the NATO alphabet"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ANGR",
+      "E",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RANG",
+       "gives": "ANGR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gunshot rang out, its echo carrying across a big lake.",
+     "walkthrough": "'Shot' looks like a verb but is the noun, the definition. The rearranged letters plus E fill the space between two Ls.",
+     "definitionFit": "Langrel, or langrage, is case shot of iron scraps fired from a cannon to tear an enemy's rigging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1766,51 @@
     "text": "Possibly not a coma, nothing close to death",
     "enumeration": "15"
    },
-   "solution": "THANATOGNOMINIC"
+   "solution": "THANATOGNOMONIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THANATOGNOMONIC",
+    "definitions": [
+     {
+      "text": "close to death",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly suggests one arrangement among many that might be made, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not a coma, nothing",
+      "gives": "NOTACOMANOTHING",
+      "note": "taken as written; all fifteen letters are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTACOMANOTHING",
+       "gives": "THANATOGNOMONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Maybe it isn't a coma at all, nothing like being on the brink of dying.",
+     "walkthrough": "'Coma' and 'close to death' sit together naturally, but the coma is only letters; all fifteen of the first four words are rearranged, with 'Possibly' as the signal.",
+     "definitionFit": "Thanatognomonic is a medical term for a symptom indicating that a patient is about to die."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coma"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1824,49 @@
     "text": "Crown taken off royal family tree",
     "enumeration": "5"
    },
-   "solution": "TUART"
+   "solution": "TUART",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TUART",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crown taken off",
+      "for": "deletion",
+      "note": "removing the crown takes off the top, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "royal family",
+      "gives": "STUART",
+      "note": "the Stuarts were a royal house of Scotland and England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUART"
+     ]
+    },
+    "explanation": {
+     "surface": "The crown is stripped from a royal dynasty.",
+     "walkthrough": "'Crown' suggests a monarch's headgear, apt for royalty, but it means the top letter.",
+     "definitionFit": "The tuart is a Western Australian eucalyptus prized for its hard, durable timber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Crown"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1880,62 @@
     "text": "Ace pop duo served up alcohol",
     "enumeration": "5"
    },
-   "solution": "MAHWA"
+   "solution": "MAHWA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MAHWA",
+    "definitions": [
+     {
+      "text": "alcohol",
+      "at": 22,
+      "note": "mahwa is the tree whose flowers are distilled into a spirit; the definition names the drink"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, served up means sent upwards, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "A is the abbreviation for ace in cards"
+     },
+     {
+      "clueFragment": "pop duo",
+      "gives": "WHAM",
+      "note": "Wham! were George Michael and Andrew Ridgeley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAHWA"
+     ],
+     "reversals": [
+      {
+       "from": "AWHAM",
+       "to": "MAHWA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brilliant pop pair dished out drinks.",
+     "walkthrough": "'Served up' looks like a waiter's job, but it signals a reversal in a down clue.",
+     "definitionFit": "Mahwa, or mahua, is an Indian tree whose sweet flowers are fermented and distilled into a liquor of the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1949,62 @@
     "text": "Former dispatch boat is to put in river shortly",
     "enumeration": "5"
    },
-   "solution": "AVISO"
+   "solution": "AVISO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AVISO",
+    "definitions": [
+     {
+      "text": "Former dispatch boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the last letter goes"
+     },
+     {
+      "text": "to put in",
+      "for": "container",
+      "note": "putting something in means placing it inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "AVON",
+      "note": "the Avon is an English river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "IS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An old dispatch boat is about to be launched on a river soon.",
+     "walkthrough": "'Shortly' reads as 'soon' but means the river's name loses its final letter.",
+     "definitionFit": "An aviso was a fast naval vessel once used to carry messages and orders between ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +2018,62 @@
     "text": "Hit Victorian dandy into endless smut",
     "enumeration": "9"
    },
-   "solution": "SMASHEROO"
+   "solution": "SMASHEROO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SMASHEROO",
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an end, so the final letter is cut"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one piece goes into another, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victorian dandy",
+      "gives": "MASHER",
+      "note": "a masher was a Victorian fop who pestered women"
+     },
+     {
+      "clueFragment": "smut",
+      "gives": "SOOT",
+      "note": "smut is a flake of soot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MASHER",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "Punching a Victorian toff into an unending pile of filth.",
+     "walkthrough": "'Smut' suggests obscenity, but here it is the older sense, a flake of soot. A masher was a Victorian ladies' man.",
+     "definitionFit": "A smasheroo is slang for a huge success, the same sense as a hit show or song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smut"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +2087,54 @@
     "text": "Very confident daughter displaying subordinary signs",
     "enumeration": "9"
    },
-   "solution": "TRESSURED"
+   "solution": "TRESSURED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRESSURED",
+    "definitions": [
+     {
+      "text": "displaying subordinary signs",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "TRES",
+      "note": "très is French for very"
+     },
+     {
+      "clueFragment": "confident",
+      "gives": "SURE",
+      "note": "sure means confident"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRES",
+      "SURE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-assured daughter shows signs of inferiority.",
+     "walkthrough": "'Subordinary' reads like 'subordinate', but a subordinary is a heraldic charge; the tressure is a thin inner border on a shield.",
+     "definitionFit": "A shield is tressured when it bears a tressure, one of the minor heraldic charges called subordinaries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "subordinary"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +2148,67 @@
     "text": "At last, tea urn sent round Clackmannanshire town",
     "enumeration": "5"
    },
-   "solution": "ALLOA"
+   "solution": "ALLOA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALLOA",
+    "definitions": [
+     {
+      "text": "Clackmannanshire town",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At last",
+      "for": "letter_selection",
+      "note": "at last points to the very end of a word, its final letter"
+     },
+     {
+      "text": "sent round",
+      "for": "reversal",
+      "note": "sending something round turns it to face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of the drink"
+     },
+     {
+      "clueFragment": "urn",
+      "gives": "OLLA",
+      "note": "an olla is an earthenware pot or urn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLOA"
+     ],
+     "reversals": [
+      {
+       "from": "AOLLA",
+       "to": "ALLOA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finally the tea urn is passed around a small Scottish town.",
+     "walkthrough": "'At last' looks like 'finally', but it takes the last letter of the following word. Clackmannanshire is a small county in central Scotland.",
+     "definitionFit": "Alloa is the main town of Clackmannanshire, on the north bank of the Forth in Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "urn"
+    }
+   }
   }
  ]
 }
