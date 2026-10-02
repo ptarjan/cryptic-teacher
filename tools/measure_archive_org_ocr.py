@@ -8,6 +8,8 @@
 tools/data/archive_org_ocr_gold.json holds clues transcribed by hand off the
 scans, each edition marked "tune" (used to choose the voting rules) or
 "heldout" (never looked at while tuning; Paul's 2% bar is judged on these).
+Editions with "series": "listener" are Saturday Listeners, read by
+tools/archive_org_listener.py and split "listener" / "listener-heldout".
 Each edition is read as the filer reads it (no solution grid), and every
 clue it files non-blank is scored against the transcription: the misreads
 are the word-level edit distance between the two lists of words and voted
@@ -27,6 +29,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import archive_org_listener as listener
 import file_archive_org_puzzles as fa
 
 GOLD = TOOLS / "data" / "archive_org_ocr_gold.json"
@@ -67,9 +70,16 @@ def score(gold, read):
     return out
 
 
-def read(edition, number, cache=fa.CACHE):
+def read(edition, number, cache=fa.CACHE, series="times"):
     """{light: clue text} as the filer files edition's puzzle `number`."""
     d = cache / edition
+    if series == "listener":
+        found = listener.scan(d)
+        for hit in found["puzzles"]:
+            if hit["number"] == number:
+                verdict, laid = listener.read(d, hit, found["solutions"])
+                return {lid: t for lid, (t, _, _) in (laid or {}).items()}, verdict
+        return {}, {"refused": f"no heading for Listener No {number}"}
     found = fa.scan(d)
     for hit in found["puzzles"]:
         if hit["number"] == number:
@@ -83,7 +93,7 @@ def read(edition, number, cache=fa.CACHE):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--split", choices=("tune", "heldout"))
+    ap.add_argument("--split", choices=("tune", "heldout", "listener", "listener-heldout"))
     ap.add_argument("--gold", type=Path, default=GOLD)
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
@@ -93,18 +103,20 @@ def main(argv=None):
     for ed in json.loads(args.gold.read_text()):
         if args.split and ed["split"] != args.split:
             continue
-        got, verdict = read(ed["edition"], ed["number"])
+        got, verdict = read(ed["edition"], ed["number"], series=ed.get("series", "times"))
         s = score(ed["clues"], got)
         for k in total:
             total[k] += s[k]
         rate = s["misreads"] / max(s["tokens"], 1)
         puzzles += 1
-        full = bool(got) and all((t or "").strip() for t in got.values())
+        # A light the reading lost is a blank too.
+        full = bool(got) and all((got.get(lid) or "").strip() for lid in ed["clues"]) \
+            and all((t or "").strip() for t in got.values())
         whole += full
         if full:
             complete["tokens"] += s["tokens"]
             complete["misreads"] += s["misreads"]
-        print(f"times-{ed['number']} {ed['split']:7s} {s['misreads']:3d}/{s['tokens']:4d} "
+        print(f"{ed.get('series', 'times')}-{ed['number']} {ed['split']:7s} {s['misreads']:3d}/{s['tokens']:4d} "
               f"{rate:6.1%}  filed {s['filed']}/{s['clues']}  "
               f"with blanks {(s['misreads'] + s['blank']) / max(s['tokens'] + s['blank'], 1):6.1%}"
               + ("" if got else f"  {verdict.get('refused') or verdict.get('pending')}"))

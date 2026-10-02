@@ -414,13 +414,15 @@ LAYOUT = [
     ("fetching", "tools/file_archive_org_puzzles.py", "files the daily Times cryptics in the editions fetch_archive_org_editions.py cached as times-<No>: clues voted on by archive.org's OCR, RapidOCR's two recognisers and Tesseract, the grid read off the scan or rebuilt, answers off the next edition's solution grid; every reading kept for cross_validate.py's archiveorg adapter; names the Times puzzle each canberra file reprints"),
     ("fetching", "tools/test_file_archive_org_puzzles.sh", "does tools/file_archive_org_puzzles.py find the Times cryptic's title and not its neighbours', read the clue columns in order, keep only the clues both readings agree on, and match a Canberra reprint only when it is one?"),
     ("fetching", "tools/measure_archive_org_ocr.py", "measure how many clue words and marks file_archive_org_puzzles.py misreads, against the hand transcriptions in tools/data/archive_org_ocr_gold.json"),
-    ("fetching", "tools/data/archive_org_ocr_gold.json", "Times clues 1974-95 transcribed by hand off archive.org's scans, each edition marked tune or heldout; Paul's 2% misread bar for filing them is judged on the heldout ones"),
+    ("fetching", "tools/data/archive_org_ocr_gold.json", "Times clues 1974-95 and Listener clues 1998 transcribed by hand off archive.org's scans, each edition marked tune or heldout (listener or listener-heldout); Paul's 2% misread bar for filing them is judged on the held-out ones"),
     ("fetching", "tools/build_clue_compounds.py", "count how the corpus's clues print two-word compounds: hyphenated or closed"),
     ("fetching", "tools/data/clue_compounds.tsv", "how often the corpus's clues print each two-word compound hyphenated and closed (build_clue_compounds.py)"),
     ("fetching", "tools/build_clue_lm.py", "count the words and word pairs of every clue in the corpus, and its answers"),
     ("fetching", "tools/data/clue_lm.tsv.gz", "how often the corpus's clues print each word and word pair, and its answers each word; settles OCR readings that differ (build_clue_lm.py)"),
     ("fetching", "tools/data/archive_org_tess.traineddata", "Tesseract's English LSTM fine-tuned on Times clue lines; the archive.org filer's Tesseract reader (train_archive_org_tesseract.py)"),
     ("fetching", "tools/train_archive_org_tesseract.py", "fine-tune Tesseract's English LSTM on Times clue lines, for the archive.org filer"),
+    ("fetching", "tools/archive_org_listener.py", "read the Listener crosswords in archive.org's scans of The Times' Saturday editions"),
+    ("fetching", "tools/test_archive_org_listener.sh", "does tools/archive_org_listener.py find the Listener's own heading (not the coupon's), split the clue columns at DOWN (not the title's \"8 DOWN\"), carry across clues that run into the second column, read a list past a line that does not parse, and blank a clue no two readings agree on or that runs on?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
