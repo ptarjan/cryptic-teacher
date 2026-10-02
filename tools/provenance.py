@@ -223,7 +223,8 @@ ACQUIRED_BY = {
                 "where the scan disagrees with the clues, rebuilt from them"},
     "tools/file_archive_org_puzzles.py": {
         "channel": "newspaper",
-        "what": "a page of The Times in archive.org's scans (tools/fetch_archive_org_editions.py): "
+        "what": "a page of The Times, the FT or the Guardian in archive.org's scans "
+                "(tools/fetch_archive_org_editions.py): "
                 "clues where archive.org's OCR and RapidOCR agree, the grid read off the scan or "
                 "rebuilt from the clues, answers off a later edition's solution grid"},
     "tools/file_times_puzzles.py": {
@@ -309,6 +310,8 @@ ACQUISITION_BY_SOURCE = {
                                "tools/fetch_metro.py --wayback"),
     ("canberra", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),
     ("times", "archive.org"): ("tools/file_archive_org_puzzles.py",),
+    ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
+    ("cryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     # Ours: set in this repo and never fetched, so there is no url and no host.
     ("authored", ""): ("tools/build_authored_puzzle.py",),
 }
