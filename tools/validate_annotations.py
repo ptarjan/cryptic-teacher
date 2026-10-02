@@ -2903,7 +2903,9 @@ def load_backlog():
 
 
 def count_backlog(warnings):
-    return {f: sum(any(m in w for m in ms) for w in warnings)
+    """Clues, not warnings: a clue missing two indicator notes warns twice, and
+    noting one of them must not make the puzzle count more than before."""
+    return {f: len({w.split(":", 1)[0] for w in warnings if any(m in w for m in ms)})
             for f, ms in BACKLOG_MARKERS.items()}
 
 
@@ -3031,7 +3033,7 @@ def backlog_errors(stem, warnings, allowed=None):
         cap = allowed[field].get(stem, 0)
         if n > cap:
             errors.append(
-                f"{n} warning(s) for {field}, and this puzzle is allowed {cap} — "
+                f"{n} clue(s) missing {field}, and this puzzle is allowed {cap} — "
                 f"{field} is required on everything annotated since it was added. "
                 f"The warnings above name them and say what to write.")
     return errors
