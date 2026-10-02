@@ -23,6 +23,9 @@
   "date": "2024-04-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "Irish clan established around Priesthaggard originally",
     "enumeration": "4"
    },
-   "solution": "SEPT"
+   "solution": "SEPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SEPT",
+    "definitions": [
+     {
+      "text": "Irish clan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what something was originally is how it began, so only the opening letter of the word is used"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to sit around something is to surround it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "established",
+      "gives": "SET",
+      "note": "something established is set, as in set up or fixed"
+     },
+     {
+      "clueFragment": "Priesthaggard",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the invented place name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "P",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A family clan setting up home near an Irish-sounding village called Priesthaggard.",
+     "walkthrough": "Priesthaggard is not a real place to look up; it exists only to supply its first letter, which sits inside SET to give SEPT.",
+     "definitionFit": "A sept is a branch or subdivision of a family, used especially of the old Irish and Scottish clan system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "established"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +108,65 @@
     "text": "Sultan’s palace complex is large and old",
     "enumeration": "8"
    },
-   "solution": "SERAGLIO"
+   "solution": "SERAGLIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERAGLIO",
+    "definitions": [
+     {
+      "text": "Sultan’s palace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complex",
+      "for": "anagram",
+      "note": "something complex is intricate and tangled, so the letters that follow are mixed up"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "LARGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISLARGEO",
+       "gives": "SERAGLIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a sultan's palace complex as being big and ancient.",
+     "walkthrough": "'Complex' reads as a noun next to 'palace', as in a palace complex, but it is the signal to rearrange the letters that follow it.",
+     "definitionFit": "A seraglio is the walled women's quarters or palace of a Turkish sultan, the Topkapi in Istanbul being the famous example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +180,71 @@
     "text": "Joke I’d set up and attempt, expressing expert opinion",
     "enumeration": "8"
    },
-   "solution": "PUNDITRY"
+   "solution": "PUNDITRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PUNDITRY",
+    "definitions": [
+     {
+      "text": "expressing expert opinion",
+      "at": 29,
+      "note": "a gerund phrase standing for the noun, the activity itself"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, setting something up raises it, so its letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "the contraction written without its apostrophe"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "to try is to attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "DI",
+      "TRY"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian rigging a gag and then having a go, while sounding off like an expert.",
+     "walkthrough": "Only the I'd is turned round; the joke and the attempt sit either side in their normal order.",
+     "definitionFit": "Punditry is the giving of opinions by pundits, the experts called on by television and newspapers to comment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +258,67 @@
     "text": "Landlord initially thrown by elusive girl’s rental arrangement",
     "enumeration": "10"
    },
-   "solution": "SUBTENANCY"
+   "solution": "SUBTENANCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUBTENANCY",
+    "definitions": [
+     {
+      "text": "rental arrangement",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "what comes initially comes first, so only the opening letter is meant"
+     },
+     {
+      "text": "thrown by",
+      "for": "deletion",
+      "note": "a rider thrown by a horse is ejected from it, so one letter is cast out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Landlord",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "elusive",
+      "gives": "SUBTLE",
+      "note": "something elusive is subtle, hard to pin down"
+     },
+     {
+      "clueFragment": "girl’s",
+      "gives": "NANCY",
+      "note": "a girl's name; the 's joins it to what follows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUBTE",
+      "NANCY"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord is thrown off balance by a slippery young woman's arrangement for renting a property.",
+     "walkthrough": "The landlord looks like a character in the story, but he only supplies one letter, and 'thrown by' means that letter is ejected rather than that he is confused.",
+     "definitionFit": "A subtenancy is the letting of a property by an existing tenant to someone else, a sublet being one kind of rental arrangement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +332,68 @@
     "text": "Old soldier’s high-class article about hard left",
     "enumeration": "5"
    },
-   "solution": "UHLAN"
+   "solution": "UHLAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UHLAN",
+    "definitions": [
+     {
+      "text": "Old soldier’s",
+      "at": 0,
+      "note": "the 's stands for 'is', linking definition to wordplay"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be around it, so the outer letters wrap the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "high-class",
+      "gives": "U",
+      "note": "U is the old label for upper-class speech and manners"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "H",
+      "L",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran soldier writes a posh newspaper piece about the hard left of politics.",
+     "walkthrough": "U and AN together form the outer shell, with H and L placed between them. 'Hard left' reads as a political phrase but is just two abbreviations.",
+     "definitionFit": "An uhlan was a lancer in the cavalry of several European armies, notably the Polish and Prussian, now a historical type of soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +407,55 @@
     "text": "Body artist first to support military pageant",
     "enumeration": "9"
    },
-   "solution": "TATTOOIST"
+   "solution": "TATTOOIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TATTOOIST",
+    "definitions": [
+     {
+      "text": "Body artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue, whatever supports something holds it up from below, so it comes after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military pageant",
+      "gives": "TATTOO",
+      "note": "a tattoo is a military display of marching and music, like the Edinburgh one"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, with the digit 1 written as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TATTOO",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist who paints bodies is the first to back a military parade.",
+     "walkthrough": "'Body artist first' looks like one phrase, but the definition stops at 'artist'. Crosswords often write the digit 1 as I, so 1st becomes IST.",
+     "definitionFit": "A tattooist decorates people's skin with permanent designs, so the human body is the canvas this artist works on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +469,68 @@
     "text": "Miners rational about famous statue, endlessly studying figures",
     "enumeration": "13"
    },
-   "solution": "NUMEROLOGICAL"
+   "solution": "NUMEROLOGICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "NUMEROLOGICAL",
+    "definitions": [
+     {
+      "text": "studying figures",
+      "at": 47,
+      "note": "a participle phrase standing for the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end the word stops short, so its final letter goes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be around it, so the outer pair wraps the inner piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miners",
+      "gives": "NUM",
+      "note": "the NUM is the National Union of Mineworkers, the British miners' union"
+     },
+     {
+      "clueFragment": "famous statue",
+      "gives": "EROS",
+      "note": "Eros is the well-known statue at Piccadilly Circus in London"
+     },
+     {
+      "clueFragment": "rational",
+      "gives": "LOGICAL",
+      "note": "rational thinking is logical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUM",
+      "ERO",
+      "LOGICAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Sensible miners gathered round a celebrated statue, poring over statistics.",
+     "walkthrough": "The miners and the rational pair together form the outer shell, and the shortened statue goes between them. Eros at Piccadilly Circus is the statue crosswords mean by famous.",
+     "definitionFit": "Numerology is the study of the supposed mystical meaning of numbers, so anything numerological concerns that study of figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miners"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +544,74 @@
     "text": "Scandinavian chap raised one in the Washington area",
     "enumeration": "6"
    },
-   "solution": "NORDIC"
+   "solution": "NORDIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "NORDIC",
+    "definitions": [
+     {
+      "text": "Scandinavian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it so it reads bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "RON",
+      "note": "a man's name standing for any chap"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "the Washington area",
+      "gives": "DC",
+      "note": "the District of Columbia, the area covered by the city of Washington"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOR",
+      "D",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "RON",
+       "to": "NOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scandinavian man grew up as the only one of his kind around Washington.",
+     "walkthrough": "'Raised' suggests bringing up a child, but it turns the name round; the I then goes inside DC.",
+     "definitionFit": "Nordic is the adjective for the peoples and countries of northern Europe, including Scandinavia, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +625,48 @@
     "text": "Cowardly to react thus to being hurt?",
     "enumeration": "6"
    },
-   "solution": "YELLOW"
+   "solution": "YELLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YELLOW",
+    "definitions": [
+     {
+      "text": "Cowardly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to react",
+      "gives": "YELL",
+      "note": "to yell is to react by shouting"
+     },
+     {
+      "clueFragment": "thus to being hurt?",
+      "gives": "OW",
+      "note": "the cry anyone makes on being hurt; 'thus' says what is shouted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YELL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether reacting this way to pain shows a lack of courage.",
+     "walkthrough": "The question mark flags that the second half is a little scene: you yell the cry of pain. The reader must supply the word for the cry.",
+     "definitionFit": "Yellow is an informal word for timid, from the old association of that colour with a lack of courage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thus"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +680,67 @@
     "text": "Frenchman introducing canon backing restoration",
     "enumeration": "7"
    },
-   "solution": "RENEWAL"
+   "solution": "RENEWAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RENEWAL",
+    "definitions": [
+     {
+      "text": "restoration",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "charade",
+      "note": "whoever introduces someone comes first and presents them, so this piece leads"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "something backing goes backwards, so its letters read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "RENE",
+      "note": "René is a typical French man's name"
+     },
+     {
+      "clueFragment": "canon",
+      "gives": "LAW",
+      "note": "a canon is a law or rule, especially of the church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RENE",
+      "WAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAW",
+       "to": "WAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman brings in a churchman who supports the restoration of a building.",
+     "walkthrough": "'Canon' suggests a cathedral clergyman, which fits the restoration story, but here it means a rule.",
+     "definitionFit": "A renewal is the act of making something new or fresh again, which is what a restoration also does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "canon"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +764,60 @@
      }
     ]
    },
-   "solution": "WESTSIDESTORY"
+   "solution": "WESTSIDESTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEST SIDE STORY",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "charade",
+      "note": "in a down clue, a thing overwhelmed by others lies beneath them, so it comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bridge-player’s",
+      "gives": "WESTS",
+      "note": "West is one of the four seats at a bridge table; the 's adds an S"
+     },
+     {
+      "clueFragment": "tragic day",
+      "gives": "IDES",
+      "note": "the Ides of March, the day Julius Caesar was assassinated"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a member of Britain's Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WESTS",
+      "IDES",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician is crushed by a card player's disastrous day, set to music.",
+     "walkthrough": "The breaks between the pieces fall in different places from the breaks in the title. In bridge the players are named by compass points.",
+     "definitionFit": "West Side Story is the Bernstein and Sondheim stage show retelling Romeo and Juliet among New York gangs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tragic"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +831,66 @@
     "text": "Wood turns tail, having left instrument in the kitchen",
     "enumeration": "7"
    },
-   "solution": "TIMBREL"
+   "solution": "TIMBREL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TIMBREL",
+    "definitions": [
+     {
+      "text": "instrument in the kitchen",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns tail",
+      "for": "reversal",
+      "note": "turning the tail round flips the last part of the word, so the final pair swap order"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wood",
+      "gives": "TIMBER",
+      "note": "timber is wood used for building"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIMB",
+      "RE",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wooden object turns round after someone left a musical instrument in the kitchen.",
+     "walkthrough": "The kitchen is orchestral slang for the percussion section, so this is a percussion instrument, not a cooking utensil. Only the last two letters of TIMBER swap.",
+     "definitionFit": "A timbrel is an old word for a tambourine or hand drum, which belongs to the percussion section of an orchestra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kitchen"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +904,51 @@
     "text": "Broadcast losing sad musical slide",
     "enumeration": "9"
    },
-   "solution": "GLISSANDO"
+   "solution": "GLISSANDO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLISSANDO",
+    "definitions": [
+     {
+      "text": "musical slide",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "anagram",
+      "note": "seed that is broadcast is scattered widely, so these letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "losing sad",
+      "gives": "LOSINGSAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOSINGSAD",
+       "gives": "GLISSANDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio programme drops a melancholy song about sliding.",
+     "walkthrough": "'Broadcast' looks like a noun or a verb about radio, and 'losing' like a deletion signal, but both of the last two words are the letters to scramble.",
+     "definitionFit": "A glissando is a rapid slide through a series of notes, as when a pianist sweeps a finger along the keys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "losing"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +962,56 @@
     "text": "Character in Thessaloniki carrying home money",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "something carrying another holds it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Character in Thessaloniki",
+      "gives": "RHO",
+      "note": "rho is a letter of the Greek alphabet, and Thessaloniki is a Greek city"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a Greek city takes cash back to the house.",
+     "walkthrough": "'Character' suggests a person, but it means a letter of the alphabet; the city tells you which alphabet.",
+     "definitionFit": "Rhino is old British slang for cash, recorded since the seventeenth century, so it is a colloquial synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +1025,68 @@
     "text": "Enticing berries I still mostly supply",
     "enumeration": "12"
    },
-   "solution": "IRRESISTIBLE"
+   "solution": "IRRESISTIBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IRRESISTIBLE",
+    "definitions": [
+     {
+      "text": "Enticing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most of something is all but a little of it, so the final letter is dropped"
+     },
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as 'in a supple way', bending flexibly, so the letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "berries",
+      "gives": "BERRIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "STIL",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BERRIESISTIL",
+       "gives": "IRRESISTIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greengrocer still keeps a stock of tempting berries.",
+     "walkthrough": "'Supply' is not the verb or noun meaning provide: it is the adverb from supple, pronounced sup-lee, a rare anagram signal.",
+     "definitionFit": "Something enticing is so attractive it is hard to resist, which is just what the adjective irresistible describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +1100,70 @@
     "text": "Most of deprived area in resort, one serving Italian food",
     "enumeration": "9"
    },
-   "solution": "SPAGHETTI"
+   "solution": "SPAGHETTI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "SPAGHETTI",
+    "definitions": [
+     {
+      "text": "Italian food",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of something is all but a little of it, so the last letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "serving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resort",
+      "gives": "SPA",
+      "note": "a spa is a resort town with mineral springs"
+     },
+     {
+      "clueFragment": "deprived area",
+      "gives": "GHETTO",
+      "note": "a ghetto is a poor, run-down area of a city"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPA",
+      "GHETT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Much of a poor district in a holiday town is made up of a single restaurant dishing up Italian food.",
+     "walkthrough": "'One serving' looks like a waiter, but 'one' is only I, added after the resort; 'serving' just joins wordplay to the dish.",
+     "definitionFit": "Spaghetti is the long thin string-shaped pasta, one of the best-known staples of the cooking of Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +1177,63 @@
     "text": "A lot of skill required to capture neat craft?",
     "enumeration": "8"
    },
-   "solution": "FOXINESS"
+   "solution": "FOXINESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FOXINESS",
+    "definitions": [
+     {
+      "text": "craft?",
+      "at": 40,
+      "note": "the question mark flags the less common sense, cunning rather than skill or a boat"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A lot of",
+      "for": "deletion",
+      "note": "a lot of something stops short of all of it, so the last letter goes"
+     },
+     {
+      "text": "required to capture",
+      "for": "container",
+      "note": "to capture is to take and hold inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skill",
+      "gives": "FINESSE",
+      "note": "finesse is delicate skill"
+     },
+     {
+      "clueFragment": "neat",
+      "gives": "OX",
+      "note": "neat is an old word for cattle, of which an ox is one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OX",
+      "INESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Building a tidy little boat takes great skill.",
+     "walkthrough": "'Neat' reads as tidy, but crosswords use it in its old sense of cattle. 'Craft' then means cunning, not a boat.",
+     "definitionFit": "Foxiness is slyness or cunning, like that of the fox in fables, and craft is likewise a word for wily cunning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "neat"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1247,66 @@
     "text": "A second US statesman perhaps, not a political enabler",
     "enumeration": "8"
    },
-   "solution": "ASSENTOR"
+   "solution": "ASSENTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASSENTOR",
+    "definitions": [
+     {
+      "text": "political enabler",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' says the next word is excluded, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     },
+     {
+      "clueFragment": "US statesman perhaps",
+      "gives": "SENATOR",
+      "note": "a member of the US Senate, given as an example by 'perhaps'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "SENTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A deputy American politician, maybe, who refuses to back someone's campaign.",
+     "walkthrough": "'Not a' looks like a negation of the definition, but it is the instruction to remove one A from SENATOR.",
+     "definitionFit": "In British elections an assentor is one of the voters who sign a candidate's nomination paper, so enabling the candidacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1320,81 @@
     "text": "Useful publicity label on vehicle taking MDMA round the States",
     "enumeration": "12"
    },
-   "solution": "ADVANTAGEOUS"
+   "solution": "ADVANTAGEOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVANTAGEOUS",
+    "definitions": [
+     {
+      "text": "Useful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another is added after it"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "TAG",
+      "note": "a tag is a label"
+     },
+     {
+      "clueFragment": "MDMA",
+      "gives": "E",
+      "note": "E is slang for ecstasy, the drug MDMA"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round"
+     },
+     {
+      "clueFragment": "the States",
+      "gives": "US",
+      "note": "the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VAN",
+      "TAG",
+      "E",
+      "O",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Promotional stickers on a van carrying drugs around America prove handy.",
+     "walkthrough": "'Round' looks like it puts one piece around another, but it simply gives O in sequence.",
+     "definitionFit": "Something advantageous gives an advantage or benefit, so it is helpful in the same way as anything useful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1408,63 @@
     "text": "Old woman’s ultimately serious condition, a rocky situation",
     "enumeration": "6"
    },
-   "solution": "MASSIF"
+   "solution": "MASSIF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASSIF",
+    "definitions": [
+     {
+      "text": "a rocky situation",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "what comes ultimately comes at the very end, so the final letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old woman’s",
+      "gives": "MAS",
+      "note": "ma is a mother, an old woman in slang, with the 's"
+     },
+     {
+      "clueFragment": "serious",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "IF",
+      "note": "if introduces a condition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "S",
+      "IF"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother's grave illness turns out to be a difficult, stony time.",
+     "walkthrough": "'A rocky situation' sounds like a crisis, but it is a literal pile of rock. 'Old woman' is slang for mother.",
+     "definitionFit": "A massif is a compact group of mountains, a great mass of rock occupying one place in the landscape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rocky"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1478,83 @@
     "text": "Asian dish having edge over a French fricassee initially",
     "enumeration": "6"
    },
-   "solution": "PILAFF"
+   "solution": "PILAFF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PILAFF",
+    "definitions": [
+     {
+      "text": "Asian dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "something turned over is upside down, so in a down clue the letters read upward"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "what comes initially comes first, so only the opening letter is meant"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "edge",
+      "gives": "LIP",
+      "note": "a lip is the edge of a cup or jug"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "F",
+      "note": "F is the standard abbreviation for French"
+     },
+     {
+      "clueFragment": "fricassee",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIL",
+      "A",
+      "F",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "LIP",
+       "to": "PIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Eastern rice dish claims an advantage over a French stew.",
+     "walkthrough": "'Having edge over' reads as being better than, but 'edge' is LIP and 'over' turns it round.",
+     "definitionFit": "Pilaff is a rice dish cooked in stock with spices, found from Turkey through Iran to India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1568,58 @@
     "text": "Idiot crossing motorway? That’s out of order",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMISS",
+    "definitions": [
+     {
+      "text": "out of order",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something here is to span it, so one piece stretches around another"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1, the London to Leeds motorway, with the 1 written as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MI",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool dodging traffic on a motorway gets told off for unacceptable behaviour.",
+     "walkthrough": "The M1 is Britain's first and best-known motorway, and crosswords write its 1 as I.",
+     "definitionFit": "Something amiss is wrong or not as it should be, just as something out of order is faulty or improper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1633,59 @@
     "text": "Holy Willie, type involved with choir",
     "enumeration": "9"
    },
-   "solution": "HYPOCRITE"
+   "solution": "HYPOCRITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HYPOCRITE",
+    "definitions": [
+     {
+      "text": "Holy Willie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled and complicated, so the letters are knotted into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type",
+      "gives": "TYPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "choir",
+      "gives": "CHOIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TYPECHOIR",
+       "gives": "HYPOCRITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pious man named Willie is the sort who gets mixed up with the church choir.",
+     "walkthrough": "Holy Willie is the sanctimonious churchman of Robert Burns's satirical poem Holy Willie's Prayer, a byword for false piety.",
+     "definitionFit": "Burns's Holy Willie condemns others' sins while excusing his own, the very model of a person who fakes virtue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1699,56 @@
     "text": "Advance after crossing island",
     "enumeration": "5"
    },
-   "solution": "POSIT"
+   "solution": "POSIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POSIT",
+    "definitions": [
+     {
+      "text": "Advance",
+      "at": 0,
+      "note": "the verb, to put forward an idea"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something here is to span it, so one piece stretches around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "POST",
+      "note": "post- is the prefix meaning after"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moves forward having crossed an island.",
+     "walkthrough": "'Advance' reads as moving forward, but the sense needed is putting forward an argument.",
+     "definitionFit": "To posit is to put forward a proposition for argument, the same as advancing a theory or claim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advance"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1762,62 @@
     "text": "European in South Africa left Durban for example",
     "enumeration": "7"
    },
-   "solution": "SEAPORT"
+   "solution": "SEAPORT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SEAPORT",
+    "definitions": [
+     {
+      "text": "Durban for example",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "SA is the abbreviation for South Africa"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "A",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A European in South Africa departed from Durban, for instance.",
+     "walkthrough": "'Left' reads as departed, fitting the travel story, but it is the nautical word for left.",
+     "definitionFit": "Durban, on the Indian Ocean coast of KwaZulu-Natal, is one of Africa's busiest harbours, an example of a coastal town for shipping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1831,61 @@
     "text": "Conspicuous way to accommodate a legal right",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Conspicuous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accommodate",
+      "for": "container",
+      "note": "to accommodate a guest is to house them, so one piece is put up inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "legal right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to hold property until a debt is paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "LIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An obvious route is laid out to allow for a right granted by law.",
+     "walkthrough": "The road abbreviation splits open to take the A and the legal term between its two letters.",
+     "definitionFit": "Salient means most noticeable or prominent, as in the salient points of an argument, matching the sense of standing out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1905,40 @@
      }
     ]
    },
-   "solution": "FIFTYFIFTY"
+   "solution": "FIFTYFIFTY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FIFTY-FIFTY",
+    "definitions": [
+     {
+      "text": "sharing equally",
+      "at": 45
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What’s shown by a couple of Liberals briefly",
+      "note": "surface reading: what two members of the Liberal party might display"
+     },
+     {
+      "clueFragment": "a couple of Liberals briefly",
+      "note": "setter's reading: two Liberals abbreviated are LL, and each L is the Roman numeral for 50"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how two Liberal politicians would divide things evenly.",
+     "walkthrough": "The trick is to write the two abbreviated Liberals down as LL and then read each L as a Roman numeral, spelling out its value in words.",
+     "definitionFit": "Fifty-fifty describes a split into two halves of equal size, so both parties get the same amount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Liberals"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1952,43 @@
     "text": "In Massachusetts, a respected national leader once",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "national leader once",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "'in' says the letters are found inside the words that follow, running across the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Massachusetts, a respected",
+      "gives": "TSAR",
+      "note": "the run of letters spanning the end of the state name, the article and the start of the adjective"
+     }
+    ],
+    "explanation": {
+     "surface": "A well-regarded former national leader comes from the state of Massachusetts.",
+     "walkthrough": "The comma between the state and the article must be ignored for the letters to join up.",
+     "definitionFit": "The tsar was the emperor of Russia until the 1917 revolution, so the title belongs to a national ruler of the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "respected"
+    }
+   }
   }
  ]
 }
