@@ -146,8 +146,12 @@
      devices; this is a counter. Someone who has never opened the sync panel is
      counted the same as someone who has. */
   let eventsSent = new Set();
+  // Not "ct:"-prefixed, so localEnvelope() never mistakes it for a puzzle.
+  // analytics.js reads the same key by name.
+  const INTERNAL_KEY = "ct-internal";
   function beacon(name) {
     if (eventsSent.has(name)) return;
+    try { if (localStorage.getItem(INTERNAL_KEY)) return; } catch (e) { /* counted */ }
     eventsSent.add(name);
     // The list is the contract with the Worker and is checked at both ends, so a
     // name that is not on it is a bug in this file and stops here.
@@ -1236,6 +1240,14 @@
       headers: body ? { "content-type": "application/json" } : undefined,
       body: body ? JSON.stringify(body) : undefined,
     }).then((r) => {
+      // The Worker marks the site owner's own code, and this browser then
+      // stays out of the counts until a sync says otherwise (sync/worker.js).
+      if (r.status < 500) {
+        try {
+          if (r.headers.get("x-ct-internal") === "1") localStorage.setItem(INTERNAL_KEY, "1");
+          else localStorage.removeItem(INTERNAL_KEY);
+        } catch (e) { /* private mode: counted, which is the safe way to be wrong */ }
+      }
       if (r.status === 404 && method === "GET") return null; // code not used yet
       if (!r.ok) throw new Error("sync " + r.status);
       return r.json();

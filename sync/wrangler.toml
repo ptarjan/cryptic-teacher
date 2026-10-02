@@ -32,3 +32,7 @@ VAPID_SUBJECT = "https://cryptic.paultarjan.com/"
 #   wrangler secret put VAPID_PRIVATE_JWK      # the private JWK, one line
 # Losing it costs every subscriber their subscription: a new pair means the keys
 # the browsers already hold no longer verify, and each one has to subscribe again.
+#   wrangler secret put INTERNAL_CODES         # the owner's sync code(s), comma-separated
+# Kept out of the file because a code is the whole account. A code listed there
+# gets an x-ct-internal header on its sync replies, and its browsers then send
+# no analytics at all (see worker.js).
