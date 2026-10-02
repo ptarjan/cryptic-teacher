@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,58 @@
     "text": "Insure junk is standing",
     "enumeration": "7"
    },
-   "solution": "STATURE"
+   "solution": "STATURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STATURE",
+    "definitions": [
+     {
+      "text": "standing",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "the opening word splits into a preposition placing one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insure",
+      "gives": "SURE",
+      "note": "read as two words, 'In sure'; the second word is taken as written"
+     },
+     {
+      "clueFragment": "junk",
+      "gives": "TAT",
+      "note": "tat is cheap, worthless stuff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insures a pile of junk, perhaps a car that is still standing.",
+     "walkthrough": "The first word must be split in two, giving a placement instruction and a word to hold the junk. Tat is British slang for tasteless rubbish.",
+     "definitionFit": "Stature means status or reputation, the standing a person holds in others' eyes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Insure"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +102,57 @@
     "text": "With her fashionable pork-pie hat",
     "enumeration": "7"
    },
-   "solution": "TOPKAPI"
+   "solution": "TOPKAPI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TOPKAPI",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "With",
+      "for": "deletion",
+      "note": "the answer together with these letters makes the phrase, so they must be removed from it to get back"
+     },
+     {
+      "text": "fashionable",
+      "for": "anagram",
+      "note": "to fashion is to shape or make, so the letters are formed into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pork-pie hat",
+      "gives": "PORKPIEHAT",
+      "note": "the phrase whose letters hold the answer plus the extra word"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written; these are the letters removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POKPIAT",
+       "gives": "TOPKAPI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman wears a stylish pork-pie hat.",
+     "walkthrough": "This works backwards: the answer plus HER, rearranged, makes PORK-PIE HAT, so take HER out of those letters and rearrange the rest. Per the preamble the answer is one of the palaces.",
+     "definitionFit": "The Topkapi in Istanbul was the main residence of the Ottoman sultans, so it fits the preamble's palace theme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashionable"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +166,44 @@
     "text": "Washington gallery exhibits a friendly place",
     "enumeration": "5"
    },
-   "solution": "TONGA"
+   "solution": "TONGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TONGA",
+    "definitions": [
+     {
+      "text": "a friendly place",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exhibits",
+      "for": "hidden_word",
+      "note": "to exhibit is to put on show, so the letters are on display inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washington gallery",
+      "gives": "TONGA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Washington art gallery is praised as a welcoming place to visit.",
+     "walkthrough": "'Washington gallery' looks like a museum name, but it simply holds the letters. Tonga was named the Friendly Islands by Captain Cook.",
+     "definitionFit": "Cook's name for the Tongan archipelago, the Friendly Islands, makes it a cryptic description of the Pacific kingdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "exhibits"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +217,72 @@
     "text": "Nice location a compiler spotted in Jordan first, perhaps",
     "enumeration": "7"
    },
-   "solution": "RIVIERA"
+   "solution": "RIVIERA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RIVIERA",
+    "definitions": [
+     {
+      "text": "Nice location",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spotted in",
+      "for": "container",
+      "note": "something spotted in a place is seen inside it, so one piece sits within another"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "this sets the order, putting the larger piece before the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jordan",
+      "gives": "RIVER",
+      "note": "the Jordan is a river"
+     },
+     {
+      "clueFragment": "compiler",
+      "gives": "I",
+      "note": "the crossword compiler refers to themself as I"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "perhaps",
+      "note": "surface padding: it marks Jordan as just one example of a river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIV",
+      "I",
+      "ER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter tells of being seen in Jordan before heading to a resort.",
+     "walkthrough": "'Nice' is the French city, not the adjective; the capital letter at the start of the clue hides that. 'perhaps' marks Jordan as one example of a river.",
+     "definitionFit": "Nice is one of the main resort cities on the French Riviera, the Mediterranean coastline of southern France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +296,63 @@
     "text": "Fruit of wasting the end of the month attached to bed",
     "enumeration": "7"
    },
-   "solution": "APRICOT"
+   "solution": "APRICOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "APRICOT",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasting the end of",
+      "for": "deletion",
+      "note": "wasting away loses something, here the tail letter of the word that follows"
+     },
+     {
+      "text": "attached to",
+      "for": "charade",
+      "note": "being attached means joined on, so one piece is fixed to the next"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the month",
+      "gives": "APRIL",
+      "note": "the month is April, cluing the last letter it loses"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APRI",
+      "COT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit left to waste at the end of the month on a bed.",
+     "walkthrough": "'the month' could be any month; only April shortened by one letter fits with a bed after it.",
+     "definitionFit": "An apricot is a soft orange stone fruit related to the peach and plum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasting"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +366,50 @@
     "text": "Dandy finds exercise painful",
     "enumeration": "6"
    },
-   "solution": "PEACHY"
+   "solution": "PEACHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEACHY",
+    "definitions": [
+     {
+      "text": "Dandy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     },
+     {
+      "clueFragment": "painful",
+      "gives": "ACHY",
+      "note": "achy means aching, sore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "ACHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable man discovers that working out hurts.",
+     "walkthrough": "'Dandy' reads as a noun, a vain dresser, but here it is the adjective meaning excellent.",
+     "definitionFit": "In informal American use both words mean fine or excellent, as in 'everything's just dandy'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dandy"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +423,59 @@
     "text": "Setter criticises a poor city",
     "enumeration": "9"
    },
-   "solution": "ISLAMABAD"
+   "solution": "ISLAMABAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLAMABAD",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "criticises",
+      "gives": "SLAM",
+      "note": "to slam is to criticise harshly; with I as subject it takes no S"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "BAD",
+      "note": "poor quality is bad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLAM",
+      "A",
+      "BAD"
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler is attacking some dreadful city.",
+     "walkthrough": "'Setter criticises' reads as third person, but Setter is I, so the verb becomes I SLAM.",
+     "definitionFit": "Islamabad is the capital city of Pakistan, built as a planned capital in the 1960s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +489,50 @@
     "text": "18 production of cricket terms",
     "enumeration": "7"
    },
-   "solution": "OVERRUN"
+   "solution": "OVERRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERRUN",
+    "definitions": [
+     {
+      "text": "18 production",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket terms",
+      "gives": "OVER",
+      "note": "an over is a set of six balls in cricket"
+     },
+     {
+      "clueFragment": "cricket terms",
+      "gives": "RUN",
+      "note": "a run is the unit of scoring in cricket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket rule book produced at excessive length.",
+     "walkthrough": "18 is TOO MUCH, so the definition reads 'too much production'. 'cricket terms' supplies two words from the game, side by side.",
+     "definitionFit": "An overrun is output or spending beyond what was planned, as in a production run that exceeds its target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +546,77 @@
     "text": "Finds the ark built right with branches outside",
     "enumeration": "13"
    },
-   "solution": "BREAKTHROUGHS"
+   "solution": "BREAKTHROUGHS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "BREAKTHROUGHS",
+    "definitions": [
+     {
+      "text": "Finds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "built",
+      "for": "anagram",
+      "note": "something built is assembled from parts, so the letters are put together in a new form"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside means surrounding, so one piece wraps round the rest"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the ark",
+      "gives": "THEARK",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "branches",
+      "gives": "BOUGHS",
+      "note": "boughs are the branches of a tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "REAKTH",
+      "R",
+      "OUGHS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEARK",
+       "gives": "REAKTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discovers Noah's ark, properly built and with branches around it.",
+     "walkthrough": "'Finds' looks like a verb but is a plural noun, discoveries. The ark's letters are rearranged and R added before the branches go round them.",
+     "definitionFit": "Breakthroughs are important discoveries or sudden advances, the kind of finds that change a field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finds"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +634,41 @@
    "group": [
     "10-across",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPANKING",
+    "definitions": [
+     {
+      "text": "Brisk",
+      "at": 0
+     },
+     {
+      "text": "punishment",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brisk",
+      "note": "first meaning: lively and fast, as in a quick pace"
+     },
+     {
+      "clueFragment": "punishment",
+      "note": "second meaning: a beating with an open hand on the bottom"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read like one phrase about swift discipline, but each is a separate meaning of the same word.",
+     "definitionFit": "The word is both an adjective for a lively, vigorous pace and a noun for smacking a child as a penalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +682,46 @@
     "text": "Poor A levels, sir",
     "enumeration": "10"
    },
-   "solution": "VERSAILLES"
+   "solution": "VERSAILLES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERSAILLES",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "poor results are in a bad state, so the letters are in a state of disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A levels, sir",
+      "gives": "ALEVELSSIR",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALEVELSSIR",
+       "gives": "VERSAILLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil reports disappointing exam grades to a teacher.",
+     "walkthrough": "A levels are the English school-leaving exams. Per the preamble the answer is one of the palaces, with no further definition.",
+     "definitionFit": "Versailles near Paris was the grand royal residence of Louis XIV, so it fits the preamble's palace theme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +735,65 @@
     "text": "27's house is regularly clean, kept in step",
     "enumeration": "6"
    },
-   "solution": "PALACE"
+   "solution": "PALACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PALACE",
+    "definitions": [
+     {
+      "text": "27's house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is used"
+     },
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "what is kept in something is held inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "step",
+      "gives": "PACE",
+      "note": "a pace is a single step"
+     },
+     {
+      "clueFragment": "clean",
+      "gives": "LA",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "LA",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal residence is cleaned on schedule while staff keep in step.",
+     "walkthrough": "27 is KING, so the definition is 'king's house'. Take the even letters of 'clean' and put them inside a step.",
+     "definitionFit": "A palace is the official residence of a monarch, the home of a king or queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +807,59 @@
     "text": "Abraham Lincoln's first amendment",
     "enumeration": "8"
    },
-   "solution": "ALHAMBRA"
+   "solution": "ALHAMBRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ALHAMBRA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first means the opening letter only of the preceding name"
+     },
+     {
+      "text": "amendment",
+      "for": "anagram",
+      "note": "an amendment is a change, so the letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abraham",
+      "gives": "ABRAHAM",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "Lincoln's",
+      "gives": "L",
+      "select": "first",
+      "note": "the initial of the surname"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABRAHAML",
+       "gives": "ALHAMBRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A history lesson on the first change to the US Constitution under President Lincoln.",
+     "walkthrough": "The surface points to the US Constitution's First Amendment; instead Abraham plus Lincoln's initial are rearranged. Per the preamble the answer is a palace.",
+     "definitionFit": "The Alhambra in Granada is a Moorish fortress and royal residence, so it fits the preamble's palace theme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "amendment"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +873,57 @@
     "text": "Leaving it to be dealt with properly is not his style",
     "enumeration": "9"
    },
-   "solution": "VIGILANTE"
+   "solution": "VIGILANTE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "VIGILANTE",
+    "definitions": [
+     {
+      "text": "Leaving it to be dealt with properly is not his style",
+      "at": 0,
+      "note": "the whole clue describes the answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be dealt with",
+      "for": "anagram",
+      "note": "cards that are dealt are shuffled first, so these letters get redistributed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaving it",
+      "gives": "LEAVINGIT",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "properly is not his style",
+      "note": "completes the description: he will not leave crime to the proper authorities"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAVINGIT",
+       "gives": "VIGILANTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who never leaves a job to be handled by the right people.",
+     "walkthrough": "The opening two words are the fodder and the whole sentence is the definition: such a person will not leave crime to the police and courts.",
+     "definitionFit": "A vigilante is a self-appointed enforcer who punishes wrongdoers without legal authority instead of trusting police or courts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "properly"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +943,64 @@
      }
     ]
    },
-   "solution": "ICEHOCKEY"
+   "solution": "ICEHOCKEY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ICE HOCKEY",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Correct",
+      "for": "anagram",
+      "note": "to correct is to put right, so the letters are changed into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choice",
+      "gives": "CHOICE",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "essential",
+      "gives": "KEY",
+      "note": "key means essential, vital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICEHOC",
+      "KEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOICE",
+       "gives": "ICEHOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picking the right option is vital in any sport.",
+     "walkthrough": "'Correct' reads as an adjective describing the choice, but it is a verb telling you to rearrange it.",
+     "definitionFit": "Ice hockey is a team game played on ice with sticks and a puck, a sport in its own right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Correct"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +1014,59 @@
     "text": "Waistline finally slim and dark  …",
     "enumeration": "5"
    },
-   "solution": "EBONY"
+   "solution": "EBONY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EBONY",
+    "definitions": [
+     {
+      "text": "dark",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the preceding word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waistline",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "slim",
+      "gives": "BONY",
+      "note": "bony means very thin, slim to the point of showing bone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "BONY"
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter's waist is at last slender and toned.",
+     "walkthrough": "The ellipsis runs the surface into the next clue but the two are solved separately.",
+     "definitionFit": "Ebony is a very dark wood, and the word is used as an adjective for a deep black colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Waistline"
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +1080,51 @@
     "text": "...  having skimmed the fat, say",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skimmed",
+      "for": "deletion",
+      "note": "skimming takes the top layer off, so the first letter is removed"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the fat",
+      "gives": "BUTTER",
+      "note": "butter is a dairy fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the dieter's tale, slimness comes from taking the fat off.",
+     "walkthrough": "Skimming milk takes the cream off the top; here it takes the top letter off a fat. In a down-reading sense the top is the first letter.",
+     "definitionFit": "To utter is to speak or voice words, so it is a direct synonym of the verb meaning to speak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skimmed"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1144,62 @@
      }
     ]
    },
-   "solution": "TOOMUCH"
+   "solution": "TOOMUCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOO MUCH",
+    "definitions": [
+     {
+      "text": "more than necessary",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders go in front, so the opening letters are taken"
+     },
+     {
+      "text": "get in",
+      "for": "container",
+      "note": "to get in is to enter, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Occasionally, military",
+      "gives": "OM",
+      "select": "first",
+      "note": "the initial letters of the two words"
+     },
+     {
+      "clueFragment": "touch",
+      "gives": "TOUCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "OM",
+      "UCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Army commanders sometimes keep in contact more than is needed.",
+     "walkthrough": "'Occasionally' looks like an alternate-letters signal, but it is fodder; 'leaders' takes the first letters of it and the next word.",
+     "definitionFit": "Too much describes an excess, an amount beyond what is needed or wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Occasionally"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1219,65 @@
      }
     ]
    },
-   "solution": "CRASHDIVE"
+   "solution": "CRASHDIVE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CRASH-DIVE",
+    "definitions": [
+     {
+      "text": "drop fast",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "CD",
+      "note": "a CD is a compact disc, a record"
+     },
+     {
+      "clueFragment": "spots",
+      "gives": "RASH",
+      "note": "a rash is an outbreak of spots on the skin"
+     },
+     {
+      "clueFragment": "compiler has",
+      "gives": "IVE",
+      "note": "the compiler is I, and I have shortens to I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RASH",
+      "D",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter with a recording of spots must suddenly plunge.",
+     "walkthrough": "'compiler has' becomes I'VE, the setter speaking of themself; the apostrophe is dropped in the grid.",
+     "definitionFit": "A crash-dive is a submarine's emergency rapid descent, so as a verb it means to plunge downward quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spots"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1291,43 @@
     "text": "Found in haste, a merchant ship",
     "enumeration": "7"
    },
-   "solution": "STEAMER"
+   "solution": "STEAMER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STEAMER",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Found in",
+      "for": "hidden_word",
+      "note": "what is found in something lies within it, here inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "haste, a merchant",
+      "gives": "STEAMER",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A merchant ship founded in a hurry.",
+     "walkthrough": "'merchant ship' looks like one definition, but only the last word defines; the start of 'merchant' supplies the end of the answer.",
+     "definitionFit": "A steamer is a ship driven by steam engines, once the standard ocean-going vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "merchant"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1341,58 @@
     "text": "Mount with vigour outside in a state",
     "enumeration": "7"
    },
-   "solution": "VIETNAM"
+   "solution": "VIETNAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VIETNAM",
+    "definitions": [
+     {
+      "text": "a state",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mount",
+      "gives": "ETNA",
+      "note": "Etna is a volcano in Sicily"
+     },
+     {
+      "clueFragment": "vigour",
+      "gives": "VIM",
+      "note": "vim is energy, vigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "ETNA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone climbs a horse or a mountain energetically, while in a flustered state.",
+     "walkthrough": "'Mount' wants to be a verb; it is a mountain, the Sicilian volcano. 'in a state' sounds like being upset, but 'a state' means a country.",
+     "definitionFit": "Vietnam is a sovereign country in Southeast Asia, and a state is a nation with its own government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mount"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1406,63 @@
     "text": "Leave half the quantity first in the body",
     "enumeration": "6"
    },
-   "solution": "QUANGO"
+   "solution": "QUANGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "QUANGO",
+    "definitions": [
+     {
+      "text": "body",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half means only part is kept, so the back portion is dropped"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "this sets the order, putting the shortened word in front"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the quantity",
+      "gives": "QUANTITY",
+      "note": "taken as written, losing its last four letters"
+     },
+     {
+      "clueFragment": "Leave",
+      "gives": "GO",
+      "note": "to go is to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUAN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to leave, with half the amount going to their body first.",
+     "walkthrough": "'body' means an organisation, not a person's frame. A quango is a British term for a public agency.",
+     "definitionFit": "A quango is a quasi-autonomous non-governmental organisation, a semi-public administrative body funded by government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1476,66 @@
     "text": "Oh no! Swinging sixties pop star appears in Hawaii",
     "enumeration": "8"
    },
-   "solution": "HONOLULU"
+   "solution": "HONOLULU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HONOLULU",
+    "definitions": [
+     {
+      "text": "in Hawaii",
+      "at": 41,
+      "note": "the place is in Hawaii, so it is defined by location"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Swinging",
+      "for": "anagram",
+      "note": "swinging means moving to and fro, so the letters are moved about"
+     }
+    ],
+    "linkWords": [
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh no!",
+      "gives": "OHNO",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "sixties pop star",
+      "gives": "LULU",
+      "note": "Lulu is a Scottish singer who had hits in the 1960s, including 'Shout'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HONO",
+      "LULU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OHNO",
+       "gives": "HONO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan gasps as a star from the Swinging Sixties shows up in Hawaii.",
+     "walkthrough": "'Swinging sixties' looks like a fixed phrase for the 1960s, but 'Swinging' is the signal working on the exclamation before it.",
+     "definitionFit": "Honolulu is the capital and largest city of the US state of Hawaii, on Oahu."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swinging"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1549,42 @@
     "text": "Sees",
     "enumeration": "6"
    },
-   "solution": "ELYSEE"
+   "solution": "ELYSEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELYSEE",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Sees",
+      "gives": "ELY",
+      "note": "Ely is a cathedral city and the seat of a bishop's see"
+     },
+     {
+      "clueFragment": "Sees",
+      "gives": "SEE",
+      "note": "taken as written, a second see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELY",
+      "SEE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The one word stands for two sees: Ely, an English diocese, and SEE itself. Per the preamble the answer is a palace.",
+     "definitionFit": "The Elysée Palace in Paris is the official residence of the French president, fitting the preamble's palace theme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sees"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1598,51 @@
     "text": "My key is lost",
     "enumeration": "5"
    },
-   "solution": "YIKES"
+   "solution": "YIKES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YIKES",
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so the letters wander out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key is",
+      "gives": "KEYIS",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KEYIS",
+       "gives": "YIKES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discovers their key has gone missing.",
+     "walkthrough": "'My' looks like a possessive but is the exclamation of surprise, as in 'My! What a mess'.",
+     "definitionFit": "Both are exclamations of surprise or alarm, interjections blurted out at an unexpected shock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1656,62 @@
     "text": "Sponge soaks up tea, including 27",
     "enumeration": "10"
    },
-   "solution": "BUCKINGHAM"
+   "solution": "BUCKINGHAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BUCKINGHAM",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "soaks up",
+      "for": "container",
+      "note": "soaking something up takes it inside, so one piece absorbs another"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking in, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sponge",
+      "gives": "BUM",
+      "note": "to bum is to sponge or cadge off others"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is a British slang word for tea"
+     },
+     {
+      "clueFragment": "27",
+      "gives": "KING",
+      "note": "the answer to clue 27, the second half of 10's answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "C",
+      "KING",
+      "HA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A sponge cake absorbs the tea, along with a monarch.",
+     "walkthrough": "'Sponge' reads as a noun but is a verb, to scrounge. Per the preamble the answer is a palace.",
+     "definitionFit": "Buckingham Palace in London is the official residence of the British monarch, fitting the preamble's palace theme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sponge"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1748,70 @@
      }
     ]
    },
-   "solution": "OHMYGOD"
+   "solution": "OHMYGOD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OH MY GOD",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits to",
+      "for": "letter_selection",
+      "note": "limits are the edges, so only the outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some resistance",
+      "gives": "OHM",
+      "note": "the ohm is the unit of electrical resistance"
+     },
+     {
+      "clueFragment": "young",
+      "gives": "YG",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OD",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "alike",
+      "note": "surface padding: it shows both words are treated the same way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OHM",
+      "YG",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "Young and old alike offer a little resistance and cry out.",
+     "walkthrough": "25 is YIKES, so the definition is another cry of alarm. 'alike' shows the same limits apply to both words.",
+     "definitionFit": "Both are interjections of shock or dismay, exclamations used when something alarming happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +1825,56 @@
     "text": "One smoker can be irritating",
     "enumeration": "7"
    },
-   "solution": "IRKSOME"
+   "solution": "IRKSOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRKSOME",
+    "definitions": [
+     {
+      "text": "irritating",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be",
+      "for": "anagram",
+      "note": "can be suggests what something might become, so the letters may form a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "smoker",
+      "gives": "SMOKER",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISMOKER",
+       "gives": "IRKSOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single person lighting up can annoy those nearby.",
+     "walkthrough": "The surface is a plain statement about smokers; 'can be' does the work of signalling the rearrangement.",
+     "definitionFit": "Irksome means annoying or tiresome, something that bothers or vexes people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   }
  ]
 }
