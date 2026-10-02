@@ -257,6 +257,14 @@ V.check_definition_not_fodder([entry("1-across", annotation={"type": ["charade"]
     "definitions": [{"text": "rock"}], "blocks": [{"clueFragment": "rock", "gives": "ROC"}]})], [], w)
 say("fodder_reuse_says_leave_it", len(w) == 1 and "leave it" in w[0])
 
+# A given entry prints its answer as its clue, so quoting the clue leaks nothing;
+# a definition the annotator wrote that spells the answer still fails.
+errs = []
+V.check_no_answer_in_early_rungs("24A", {"answer": "MEAE", "definitions": [{"text": "MEAE"}]}, "MEAE", errs, [])
+say("given_entry_definition_passes", errs == [])
+V.check_no_answer_in_early_rungs("3D", {"answer": "ABCD", "definitions": [{"text": "ABCD"}]}, "Letters (4)", errs, [])
+say("written_answer_still_fails", len(errs) == 1)
+
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io
 errs = []

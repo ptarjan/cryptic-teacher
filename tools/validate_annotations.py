@@ -1179,11 +1179,14 @@ def check_definition_fit(tag, ann, errors, warnings):
 EARLY_RUNG_FIELDS = ("definitions", "indicators", "linkWords")
 
 
-def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
-    """No field shown before the building blocks may spell out the answer."""
+def check_no_answer_in_early_rungs(tag, ann, clue, errors, warnings):
+    """No field shown before the building blocks may spell out the answer,
+    unless the field quotes clue words that already do: a given entry (Listener
+    29 24A, clue "MEAE") prints its answer as its clue."""
     ans = re.sub(r"[^a-z]", "", str(ann.get("answer") or "").lower())
     if len(ans) < 4:
         return  # too short to distinguish a leak from a coincidence
+    on_screen = says(clue or "", ans)
     for field in EARLY_RUNG_FIELDS:
         val = ann.get(field)
         if not val:
@@ -1196,7 +1199,7 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
         else:
             parts = val if isinstance(val, list) else [val]
         for part in parts:
-            if says(part, ans):
+            if says(part, ans) and not (on_screen and str(part).lower() in (clue or "").lower()):
                 errors.append(
                     f"{tag}: {field} {part!r} contains the answer — it is shown "
                     f"before the building blocks, so it hands over the solve for "
@@ -2842,7 +2845,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_sound_is_not_a_letter_swap(tag, ann, errors, warnings)
         check_indicators(tag, ann, clue, errors, warnings)
         check_unmarked_hidden_word(tag, ann, clue, errors)
-        check_no_answer_in_early_rungs(tag, ann, errors, warnings)
+        check_no_answer_in_early_rungs(tag, ann, clue, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
         check_indicator_notes_name_no_block(tag, ann, errors)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
