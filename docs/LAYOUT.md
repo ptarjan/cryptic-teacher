@@ -1118,16 +1118,24 @@ tools/fetch_archive_org_editions.py          fetch archive.org newspaper edition
 fetching
 tools/file_archive_org_puzzles.py            files the daily Times cryptics in the editions
                                              fetch_archive_org_editions.py cached as
-                                             times-<No>: clues where archive.org's OCR and
-                                             RapidOCR agree, the grid read off the scan or
-                                             rebuilt, answers off the next edition's solution
-                                             grid; every reading kept for cross_validate.py's
-                                             archiveorg adapter; names the Times puzzle each
-                                             canberra file reprints
+                                             times-<No>: clues voted on by archive.org's OCR,
+                                             RapidOCR's two recognisers and Tesseract, the grid
+                                             read off the scan or rebuilt, answers off the next
+                                             edition's solution grid; every reading kept for
+                                             cross_validate.py's archiveorg adapter; names the
+                                             Times puzzle each canberra file reprints
 tools/test_file_archive_org_puzzles.sh       does tools/file_archive_org_puzzles.py find the
                                              Times cryptic's title and not its neighbours',
                                              read the clue columns in order, keep only the
                                              clues both readings agree on, and match a Canberra
                                              reprint only when it is one?
+tools/measure_archive_org_ocr.py             measure how many clue words and marks
+                                             file_archive_org_puzzles.py misreads, against the
+                                             hand transcriptions in
+                                             tools/data/archive_org_ocr_gold.json
+tools/data/archive_org_ocr_gold.json         Times clues 1974-95 transcribed by hand off
+                                             archive.org's scans, each edition marked tune or
+                                             heldout; Paul's 2% misread bar for filing them is
+                                             judged on the heldout ones
 ```
 <!-- LAYOUT-END -->
