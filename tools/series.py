@@ -37,7 +37,8 @@ import re
 #   the publisher. A Sunday sister paper sets its weekday paper's, so the
 #   Sunday Times sits with the Times while its publisher stays "Sunday Times".
 # bylined — the source names the setter on every puzzle, so a null setter is
-#   one the fetcher failed to read (tools/puzzle_integrity.py SETTER).
+#   one the fetcher failed to read (tools/puzzle_integrity.py SETTER). Not
+#   claimed for a puzzle read off a newspaper scan, whose page may print none.
 # renumberedBelow — the series started its numbering again: numbers below this
 #   are the newer run, and each run is its own sequence.
 # datedFromNeighbours — the source prints no date, so the filer derives each

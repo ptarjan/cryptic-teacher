@@ -82,6 +82,22 @@ p = copy.deepcopy(indy)
 p["date"] = None
 write("feed-undated", p)
 
+# A complete puzzle read off a newspaper scan writes with no byline (the 1970s
+# FT printed none) and no answers (an unreadable solution grid).
+ft = real("ftcryptic-13232")
+p = {k: v for k, v in copy.deepcopy(ft).items()
+     if k not in ("setter", "source", "solutions", "annotatedBy")}
+p["source"] = {"url": "https://archive.org/details/FinancialTimes1975UKEnglish/page/n20"}
+for e in p["entries"]:
+    e.pop("solution", None)
+    e.pop("annotation", None)
+try:
+    fetcher.write_puzzle_file(tmp / f"{p['id']}.json", p, generator="tools/file_archive_org_puzzles.py")
+    print("WROTE scan-no-byline-no-answers")
+except ValueError as err:
+    print(f"REFUSED scan-no-byline-no-answers {err}")
+
+
 p = copy.deepcopy(indy)
 p["entries"][0]["clue"]["text"] = "dishe{s a la Mi}lanese " + p["entries"][0]["clue"]["text"]
 write("braced-clue", p)
@@ -173,6 +189,7 @@ same "a placeholder setter is refused" "$(grep ' placeholder-setter' <<<"$out")"
 same "a syndication suffix on a setter is refused" "$(grep ' licensed-setter' <<<"$out")" "REFUSED licensed-setter SETTER"
 same "a setter with stray whitespace is refused" "$(grep ' padded-setter' <<<"$out")" "REFUSED padded-setter SETTER"
 same "a bylined series with no setter is refused" "$(grep ' bylined-null-setter' <<<"$out")" "REFUSED bylined-null-setter SETTER"
+same "a complete scanned puzzle with no byline and no answers writes" "$(grep ' scan-no-byline-no-answers' <<<"$out")" "WROTE scan-no-byline-no-answers"
 same "a feed puzzle with no date is refused" "$(grep ' feed-undated' <<<"$out")" "REFUSED feed-undated SHAPE"
 same "a blog's braces in a clue are refused" "$(grep ' braced-clue' <<<"$out")" "REFUSED braced-clue SHAPE"
 same "HTML in a clue is refused" "$(grep ' markup-clue' <<<"$out")" "REFUSED markup-clue SHAPE"
