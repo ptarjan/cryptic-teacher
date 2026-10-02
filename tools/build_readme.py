@@ -456,6 +456,7 @@ LAYOUT = [
     ("fetching", "tools/ocr_full_pass.sh", "read every Trove article and archive.org edition the scan filers have not read yet, to the end, then stop"),
     ("fetching", "tools/scan_queue.py", "the read queue the scan filers share (tools/file_archive_org_puzzles.py,"),
     ("fetching", "tools/test_scan_queue.sh", "does tools/scan_queue.py read the never-read first, never send the queue back to the start, keep N sources in flight, stop at its deadline, and let only one run hold a ledger?"),
+    ("fetching", "tools/test_ann_normalize.sh", "what apply_annotations.normalize computes, so the run need not write it"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
