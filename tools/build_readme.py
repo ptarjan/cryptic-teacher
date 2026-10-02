@@ -230,6 +230,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_notify_race.js", "ticks two papers over a slow network, where a tick that landed during a save used to be thrown away"),
     ("building and checking the site", "tools/test_solve_clock.js", "walks away from a puzzle and comes back, so the time spent elsewhere is proved never to be counted as solving"),
     ("building and checking the site", "tools/test_paper_mode.js", "paper mode hides every right/wrong signal until \"I'm done\", then hands it all back"),
+    ("building and checking the site", "tools/test_share_url.js", "picking a puzzle points the address bar at it, from whatever the bar said before; and the picker's menus are still set when you come back to it"),
     ("building and checking the site", "tools/test_unclued_squares.js", "a square only an unclued light covers can be revealed, and the picker asks for it"),
     ("building and checking the site", "tools/ci_shards.js", "splits the test scripts across the workflow’s parallel jobs, so the suite takes as long as its slowest single script rather than all of them added up"),
     ("building and checking the site", "tools/test_ci_coverage.js", "checks every test in tools/ is run, in exactly one shard, by the workflow a later push cannot cancel, so no check is quietly optional"),

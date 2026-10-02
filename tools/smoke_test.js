@@ -2050,7 +2050,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // more thing about what is on screen.
   const shared = autoPuzzle.hasSolutions
     ? new RegExp(`^https://cryptic\\.paultarjan\\.com/puzzles/${autoPuzzle.id}/(\\?c=\\d+[AD])?$`)
-    : new RegExp(`^\\?p=${autoPuzzle.id}(&c=\\d+[AD])?$`);
+    : new RegExp(`^https://cryptic\\.paultarjan\\.com/\\?p=${autoPuzzle.id}(&c=\\d+[AD])?$`);
   assert(shared.test(last),
     `opening No ${autoPuzzle.number} should leave its share URL in the address bar, `
       + `got ${JSON.stringify(urls)}`);
