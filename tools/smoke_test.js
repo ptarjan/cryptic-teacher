@@ -4613,7 +4613,11 @@ global.realSetTimeout(() => {
   // already in the grid when it opened belongs to the session that made it.
   // Without this a returning solver's every visit would report a finished
   // puzzle again, and "how many people finish" would count sessions.
-  assert(reported(reopen).join(",") === "open",
+  // Opening it through the picker reports "picker" too; that is a panel
+  // being used, not the solve, so the panel names (the ones events.js lists
+  // after "done") are left out of what is compared.
+  const panels = EVENTS.slice(EVENTS.indexOf("done") + 1);
+  assert(reported(reopen).filter((n) => panels.indexOf(n) < 0).join(",") === "open",
     "re-opening a finished puzzle reports only that it was opened: "
       + reported(reopen).join(","));
 

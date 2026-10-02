@@ -41,7 +41,7 @@ SENTENCE = re.compile("|".join([
 #: A clause that is the paper's inside a sentence that is not.
 CLAUSE = re.compile(
     r",\s*(?:the second part of )?which (?:can|may) be found here(?:,(?= and))?"
-    r"|\b(?:To see|For) the clues (?:for|to) this crossword,? please click here\b\.?\s*"
+    r"|\b(?:To see|For) the clues(?: (?:for|to) this crossword)?,? please click here\b\.?\s*"
     r"|\bgdn\.[\w.]+(?:\(\d*\))?", re.IGNORECASE)
 
 
