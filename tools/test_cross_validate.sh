@@ -86,7 +86,7 @@ gap = [e for e in held["entries"] if (e["number"], e["direction"]) == (14, "down
 same("the schema takes the typeset gap", puzzle_schema.validate(held), [])
 gap["clue"]["text"] = " 9"
 same("and refuses a stray plain space", len(puzzle_schema.validate(held)), 1)
-same("a note's sentences that are only a link are not kept",
+same("a note's link sentences and link clauses are not kept",
      [fp.preamble("Eight solutions are of a kind.Click here for annotated solutions."),
       fp.preamble("For a printable version of this crossword, click here."),
       fp.preamble("To see the clues please click here Method: fit them in."),
@@ -97,8 +97,8 @@ same("a note's sentences that are only a link are not kept",
       fp.preamble("x"),
       fp.preamble("God to a F&amp;uuml;hrer"),
       fp.preamble("A Hogmanay puzzle (see perimeter)For a printable version of this crossword click here")],
-     ["Eight solutions are of a kind.", None, "To see the clues please click here Method: fit them in.",
-      None, "Theme: rivers.", None, "Method: Solve the clue, which can be found here, and fit them in.",
+     ["Eight solutions are of a kind.", None, "Method: fit them in.",
+      None, "Theme: rivers.", None, "Method: Solve the clue and fit them in.",
       None, "God to a F\u00fchrer", "A Hogmanay puzzle (see perimeter)"])
 
 INDY = b"""<?xml version="1.0" encoding="UTF-8"?>
