@@ -3458,6 +3458,21 @@
     // tile to where it belongs without being told.
     ring.pins = ringPins(ring.letters, key);
     ring.order = applyRingPins(ring.order, ring.pins);
+    // The deal is checked against the forbidden words BEFORE the pins move its
+    // tiles, so a clean deal can still pin into one: with the M of MERIT already
+    // in the grid, the other four letters fall in deal order behind it, and one
+    // deal in 24 lands on MERIT itself. The check is therefore made again on what
+    // is actually drawn, and a forbidden word re-deals only the positions still
+    // in play, the way the shuffle button does.
+    const spelled = ring.order.map((i) => ring.letters[i]).join("");
+    const bad = ring.forbidden.map((w) => (w || "").toUpperCase().replace(/[^A-Z]/g, ""));
+    if (bad.indexOf(spelled) >= 0) {
+      const free = [];
+      ring.order.forEach((idx, pos) => {
+        if (!ring.struck[idx] && ring.pins[pos] === undefined) free.push(pos);
+      });
+      ring.order = dealRing(ring.letters, ring.forbidden, ring.order, free);
+    }
     const pinnedTile = {};
     Object.keys(ring.pins).forEach((p) => { pinnedTile[ring.pins[p]] = true; });
     const n = ring.letters.length;
