@@ -268,6 +268,44 @@ check("editions from --file-from's year go to the corpus, earlier ones to --out"
        f.destination(None, 1983, "1975-01-01"), f.destination("out", None, "1999-01-01"),
        f.destination(None, None, "1999-01-01")])
 
+check("a puzzle with a blank clue goes to --out or nowhere, never the corpus",
+      ["out", False, "out"],
+      [f.destination("out", 1983, "1990-01-01", False), f.destination(None, None, "1990-01-01", False),
+       f.destination("out", None, "1975-01-01", False)])
+check("complete() is every clue having text", [True, False],
+      [f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": "B"}}]}),
+       f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": " "}}]})])
+
+import fetch_puzzle
+ed_dir = Path(os.environ["TMP"]) / "runcache" / "NewsUK1990UKEnglish" / "1990-01-01_1"
+ed_dir.mkdir(parents=True)
+wrote = []
+saved = (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
+         fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file)
+f.edition_dirs = lambda cache: [ed_dir]
+f.scan = lambda d: {"date": "1990-01-01", "item": "NewsUK1990UKEnglish", "solutions": [],
+                    "puzzles": [{"number": 18179, "leaf": 1, "box": None},
+                                {"number": 18180, "leaf": 2, "box": None}]}
+def fake_read(d, found, hit, solutions):
+    blank = hit["number"] == 18179
+    return {"number": hit["number"]}, {"id": f"times-{hit['number']}", "number": hit["number"],
+            "entries": [{"clue": {"text": "Top"}}, {"clue": {"text": "" if blank else "Left"}}]}
+f.read_puzzle = fake_read
+f.input_hash = lambda d, code: "h"
+f.held_numbers = set
+fetch_puzzle.puzzle_path = lambda series, n: Path(os.environ["TMP"]) / "corpus" / f"times-{n}.json"
+fetch_puzzle.write_puzzle_file = lambda path, puzzle, generator: wrote.append(path.parent.name + "/" + path.name)
+rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled", file_from=1983,
+             source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
+check("run files the complete puzzle in the corpus and the one with a blank clue in --out",
+      ["unfiled/times-18179.json", "corpus/times-18180.json"], sorted(wrote, reverse=True))
+wrote.clear()
+rows = f.run(cache=ed_dir.parent.parent, ledger=Path(os.environ["TMP"]) / "l2.jsonl",
+             source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
+check("without --out a puzzle with a blank clue is written nowhere", ["corpus/times-18180.json"], wrote)
+(f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
+ fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file) = saved
+
 import cross_validate
 a = cross_validate.ArchiveOrg()
 check("archiveorg does not compare a file it filed with itself", [False, True],

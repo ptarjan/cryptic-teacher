@@ -13,7 +13,9 @@ clue it files non-blank is scored against the transcription: the misreads
 are the word-level edit distance between the two lists of words and voted
 marks (file_archive_org_puzzles.marked, words compared without case), over
 the transcription's words and marks in those clues. A clue filed blank is
-no misread; the share of clues filed is reported beside the rate.
+no misread; the share of clues filed is reported beside the rate, and so
+is the count of puzzles with every clue filed: only those go into
+puzzles/times, so that count is the measure of what the filer delivers.
 """
 import argparse
 import json
@@ -81,6 +83,7 @@ def main(argv=None):
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
     total = {"tokens": 0, "misreads": 0, "clues": 0, "filed": 0}
+    puzzles = whole = 0
     for ed in json.loads(args.gold.read_text()):
         if args.split and ed["split"] != args.split:
             continue
@@ -89,6 +92,8 @@ def main(argv=None):
         for k in total:
             total[k] += s[k]
         rate = s["misreads"] / max(s["tokens"], 1)
+        puzzles += 1
+        whole += bool(got) and all((t or "").strip() for t in got.values())
         print(f"times-{ed['number']} {ed['split']:7s} {s['misreads']:3d}/{s['tokens']:4d} "
               f"{rate:6.1%}  filed {s['filed']}/{s['clues']}"
               + ("" if got else f"  {verdict.get('refused') or verdict.get('pending')}"))
@@ -97,7 +102,8 @@ def main(argv=None):
                 print(f"    {lid:10s} {want}\n    {'':10s} {have}")
     rate = total["misreads"] / max(total["tokens"], 1)
     print(f"total {total['misreads']}/{total['tokens']} = {rate:.2%} misread; "
-          f"filed {total['filed']}/{total['clues']} clues")
+          f"filed {total['filed']}/{total['clues']} clues; "
+          f"{whole}/{puzzles} puzzles have every clue")
     return 0
 
 

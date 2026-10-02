@@ -39,6 +39,8 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     "Solution to Puzzle No N", read by tools/trove_solution_ocr.py: a light
     only when every letter is read surely and no crossing disagrees, and the
     whole solution only when its blocks are the puzzle's.
+  - Only a puzzle whose every clue has text goes into puzzles/times: one
+    with a blank clue goes to --out (or nowhere without it).
   - A number already held is not written (unless this tool filed it and the
     new reading beats it on clues or answers, improves): the reading goes to
     ~/cryptic-setter-data/archiveorg-source/, where tools/cross_validate.py's
@@ -987,13 +989,22 @@ def held_numbers():
     return {int(p.stem.split("-")[1]) for p in (ROOT / "puzzles" / SERIES).glob("*/*.json")}
 
 
-def destination(puzzles, file_from, date):
+def destination(puzzles, file_from, date, complete=True):
     """Where an edition dated `date` (YYYY-MM-DD) files its puzzle: the
-    `puzzles` dir, or None for the corpus. With `file_from`, editions of that
-    year or later go to the corpus even when `puzzles` is set."""
+    `puzzles` dir, None for the corpus, or False for nowhere. With
+    `file_from`, editions of that year or later go to the corpus even when
+    `puzzles` is set. A puzzle with a blank clue (not `complete`) never goes
+    to the corpus: a solver cannot work it."""
+    if not complete:
+        return puzzles or False
     if puzzles and file_from and int((date or "0")[:4]) >= file_from:
         return None
     return puzzles
+
+
+def complete(puzzle):
+    """Whether every clue of a puzzle has text."""
+    return filled(puzzle)[0] == len(puzzle["entries"])
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
@@ -1039,7 +1050,6 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             continue
         fresh += 1
         verdicts = []
-        dest = destination(puzzles, file_from, scans[rel].get("date"))
         for hit in scans[rel]["puzzles"]:
             try:
                 verdict, puzzle = read_puzzle(d, scans[rel], hit, solutions)
@@ -1051,6 +1061,11 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 if write:
                     source.mkdir(parents=True, exist_ok=True)
                     (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
+                dest = destination(puzzles, file_from, scans[rel].get("date"), complete(puzzle))
+                if dest is False:
+                    verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
+                    verdicts.append(verdict)
+                    continue
                 path = (Path(dest) / f"{puzzle['id']}.json" if dest
                         else puzzle_path(SERIES, puzzle["number"]))
                 better = path.exists() and improves(puzzle, path)
@@ -1201,7 +1216,7 @@ def main(argv=None):
     ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl")
     ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
     ap.add_argument("--file-from", type=int, metavar="YEAR",
-                    help="with --out, editions of YEAR or later still go into puzzles/")
+                    help="with --out, complete puzzles of YEAR or later still go into puzzles/")
     ap.add_argument("--source", type=Path, default=SOURCE,
                     help="where every reading goes for cross_validate.py")
     ap.add_argument("--limit", type=int, help="read at most N new or changed editions")
