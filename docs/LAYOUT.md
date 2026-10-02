@@ -1175,5 +1175,12 @@ tools/test_archive_org_jumbo.sh              does tools/archive_org_jumbo.py tak
                                              middle prints grey?
 tools/test_difficulty_barred.sh              is a barred grid's checking rated against barred
                                              grids, not blocked ones?
+tools/test_no_doubled_paper.sh               does any series' page say the same word twice
+                                             running ("Listener Listener")? The Listener is its
+                                             own publisher and kind, so joining the two doubled
+                                             it. Renders a crawlable page for every series in
+                                             tools/series.py and refuses a repeated adjacent
+                                             word in the title, heading, description or series
+                                             name
 ```
 <!-- LAYOUT-END -->

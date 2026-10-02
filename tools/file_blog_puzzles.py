@@ -452,12 +452,13 @@ def build(rec, row, series, date, setter, typed=None):
     if recounted:
         check += (f"; the grid proves the blog's enumeration wrong at "
                   f"{', '.join(recounted)}, recounted from the answer here")
-    kind = series_meta.kind(series)
+    pub, kind = series_meta.publisher(series), series_meta.kind(series).lower()
+    lead = pub if kind == pub.lower() else f"{pub} {kind}"   # not "Listener listener"
     return {
         "id": series_meta.puzzle_id(series, number),
         "number": number,
         "series": series,
-        "name": f"{series_meta.publisher(series)} {kind.lower()} crossword No {number:,}",
+        "name": f"{lead} crossword No {number:,}",
         "setter": setter,
         "date": date.isoformat() if date else None,
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},

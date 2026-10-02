@@ -540,6 +540,18 @@ def badge(series):
     return meta(series).get("badge", series or "cryptic")
 
 
+def paper_kind(series, number=None):
+    """"{publisher} {kind}" as prose, never saying the same word twice.
+
+    The Listener is its own publisher and its own kind, so the plain join read
+    "Listener Listener Crossword No 3,974". Every heading, description and
+    name that joins the two goes through here, so the doubling is not something
+    a new series' row can reintroduce at a call site.
+    """
+    pub, kind_ = publisher(series, number), kind(series, number)
+    return pub if kind_.lower() == pub.lower() else f"{pub} {kind_}"
+
+
 def official_key(series):
     """"never" where no publisher will ever print an answer key for this series.
 
