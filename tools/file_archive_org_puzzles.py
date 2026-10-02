@@ -54,6 +54,13 @@ numbers run on into our ftcryptic series (No 13,232 in Nov 2009), so a
 puzzle files as ftcryptic-N, with the setter when the name is one our
 ftcryptic files know or a dictionary word.
 
+--paper guardian does the same for the Guardian (items
+TheGuardian19xxUKEnglish: 1971, 1984-85, 1995-98): "Guardian Crossword No
+20,538" over "Set by Rufus", the grid under it, the previous puzzle's grid
+beside it over "CROSSWORD SOLUTION 20,537", and three clue columns, the
+third under that solution grid. Its numbers are our cryptic series' (the
+feed starts at 21,620), so a puzzle files as cryptic-N.
+
 Resumable: ~/.cache/archive_org_editions/filed.jsonl records each edition's
 headings and verdicts against its files and this code's hash.
 """
@@ -103,7 +110,7 @@ TITLE = re.compile(r"^\W*(?:the\s+)?times\s+crossword\s+(?:puzzle\s+)?no\.?\s*" 
 SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, re.I)
 #: A column line that ends the clues.
 STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword"
-                  r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle)\b", re.I)
+                  r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by)\b", re.I)
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
 GAP = 80
 
@@ -180,18 +187,31 @@ def grid_box(img, title):
     return (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
 
 
-def columns(lines, grid):
-    """The two clue columns under the grid: [[(y0, y1, x0, x1, text) per line]
-    for the left, then the right], each cut where the clues stop."""
+def windows(grid, third=None, margin=40):
+    """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
+    is in [x0, x1), right edge at most the right edge and top at least the
+    top is in it. The two columns under the grid, and with `third`, (width,
+    top), a column that wide right of the grid from `top` down. The left
+    column starts `margin` left of the grid (the Times outdents its numbers)."""
     gx0, gy0, gx1, gy1 = grid
-    gw = gx1 - gx0
-    mid = gx0 + gw / 2 - 10
-    bottom = gy1 + 1.8 * gw
-    cols = [[], []]
+    mid = gx0 + (gx1 - gx0) / 2 - 10
+    out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
+    if third:
+        out.append((gx1 + 15, gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
+    return out
+
+
+def columns(lines, grid, third=None, margin=40):
+    """The clue columns under the grid (and with `third`, right of it; see
+    windows()): [[(y0, y1, x0, x1, text) per line] per column, left to
+    right], each cut where the clues stop."""
+    gx0, gy0, gx1, gy1 = grid
+    bottom = gy1 + 1.8 * (gx1 - gx0)
+    wins = windows(grid, third, margin)
+    cols = [[] for _ in wins]
     for ws in lines:
-        for side in (0, 1):
-            part = [w for w in ws if gx0 - 40 <= w[0] and w[2] <= gx1 + 15 and gy1 - 5 <= w[1] <= bottom
-                    and (w[0] < mid) == (side == 0)]
+        for side, (x0, x1, right, top) in enumerate(wins):
+            part = [w for w in ws if x0 <= w[0] < x1 and w[2] <= right and top <= w[1] <= bottom]
             if part:
                 cols[side].append((min(w[1] for w in part), max(w[3] for w in part),
                                    min(w[0] for w in part), max(w[2] for w in part),
@@ -306,16 +326,23 @@ def tesseract_words(crop, model=None):
     return words
 
 
-def rapid_lines(img, grid, which, cache_path):
+def rapid_lines(img, grid, which, cache_path, third=None, margin=40):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
-    coordinates; cached as JSON."""
-    if cache_path.exists():
-        return [[tuple(w)] for w in json.loads(cache_path.read_text())]
+    coordinates; cached as JSON with the crop it read, so a reading of another
+    crop is read again (a bare list is a cache from before crops were kept)."""
     import numpy as np
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
-    box = (max(0, gx0 - 40), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
+    box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
+    if third:
+        box = (box[0], min(gy1, third[1]), min(img.width, gx1 + 15 + third[0]), box[3])
+    if cache_path.exists():
+        cached = json.loads(cache_path.read_text())
+        if isinstance(cached, list):
+            return [[tuple(w)] for w in cached]
+        if tuple(cached["box"]) == box:
+            return [[tuple(w)] for w in cached["words"]]
     crop = img.crop(box).convert("RGB")
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
     if which in TESS_MODELS:
@@ -329,7 +356,7 @@ def rapid_lines(img, grid, which, cache_path):
         words.append((int(min(xs)) + box[0], int(min(ys)) + box[1],
                       int(max(xs)) + box[0], int(max(ys)) + box[1], t))
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps(words))
+    cache_path.write_text(json.dumps({"box": box, "words": words}))
     return [[w] for w in words]
 
 
@@ -351,6 +378,13 @@ def tidy(text):
             prev = out[-1]
             continue
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z])", r"\1 ", line)
+        # "15 Adanger out east": a clue's opening "A" run into the next word,
+        # unless the whole is a misspelling of a commoner word ("Arived").
+        glued = re.match(r"^(\d{1,2}(?:,\s?\d{1,2})*\s+)A([a-z]{3,})\b", line)
+        if glued and is_word(glued.group(2)) and not is_word("a" + glued.group(2)) and not any(
+                rank(e) and rank(e) < rank(glued.group(2)) for e in edits("a" + glued.group(2))
+                if e != glued.group(2)):
+            line = f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
         line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
         if (re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev)
                 or re.fullmatch(r"\W*(across|down)\W*", prev, re.I)) and re.match(r"[A-Z][a-z]", line):
@@ -364,6 +398,9 @@ def heading_of(line):
     """"ACROSS" or "DOWN" for a line that is the list's heading alone, read
     however badly ("DOW'N", "DOIN", "AROSS"); else None."""
     letters = re.sub(r"[^A-Za-z]", "", line)
+    if len(line) <= 9 and letters in ("Across", "Down"):
+        # The Guardian's, in title case: read whole, never guessed at.
+        return letters.upper()
     if len(line) > 9 or not 3 <= len(letters) <= 7 or not letters.isupper():
         return None
     for word in ("ACROSS", "DOWN"):
@@ -556,11 +593,14 @@ FIT_MARGIN = 1.0
 
 
 def edits(word):
-    """The spellings one letter's change, loss or addition from `word`."""
+    """The spellings one letter's change, loss or addition from `word`, or
+    one "rn" read as "m" or back ("camivore")."""
     w, abc = word.lower(), "abcdefghijklmnopqrstuvwxyz"
     splits = [(w[:k], w[k:]) for k in range(len(w) + 1)]
+    rn = {w[:k] + new + w[k + len(old):] for old, new in (("m", "rn"), ("rn", "m"))
+          for k in range(len(w)) if w.startswith(old, k)}
     return ({a + b[1:] for a, b in splits if b} | {a + c + b[1:] for a, b in splits if b for c in abc}
-            | {a + c + b for a, b in splits for c in abc}) - {w}
+            | {a + c + b for a, b in splits for c in abc} | rn) - {w}
 
 
 def within_one(a, b):
@@ -1085,6 +1125,13 @@ def build(number, day, grid, how, laid, item, leaf, series=SERIES, name=None):
                 continue
             if group:
                 groups[lid] = group
+    # A linked light with no clue of its own ("1,4 Ancient ..." prints none
+    # for 4) reads "See 1", as the paper's own files have it.
+    laid = dict(laid)
+    for lid, group in groups.items():
+        for tail in group[1:]:
+            if not (laid.get(tail) or ("",))[0].strip():
+                laid[tail] = (f"See {lid.split('-')[0]}", None, None)
     for e in entries:
         lid = entry_id(e)
         text, enum, _ = laid.get(lid, ("", None, None))
@@ -1167,14 +1214,28 @@ FT_ANCHORS = ((datetime.date(1975, 5, 1), 2766), (datetime.date(1995, 1, 3), 865
               (datetime.date(2009, 11, 12), 13232))
 
 
-def ft_expected_number(day):
-    pts = FT_ANCHORS
-    k = 0 if day < pts[1][0] else 1
-    (d0, n0), (d1, n1) = pts[k], pts[k + 1]
-    if day < d0 or day > d1:
-        start, number = (d0, n0) if day < d0 else (d1, n1)
+def anchored(pts, day):
+    """The number a date implies from dated (day, number) anchors in order:
+    interpolated between two, run on six a week outside them."""
+    if day <= pts[0][0] or day >= pts[-1][0]:
+        start, number = pts[0] if day <= pts[0][0] else pts[-1]
         return number + round((day - start).days * 6 / 7)
+    (d0, n0), (d1, n1) = next((a, b) for a, b in zip(pts, pts[1:]) if day <= b[0])
     return n0 + round((n1 - n0) * (day - d0).days / (d1 - d0).days)
+
+
+def ft_expected_number(day):
+    return anchored(FT_ANCHORS, day)
+
+
+#: Dated Guardian cryptics: our own 1970, 1982 and first 1999 files, and
+#: 20,538 read off the 2 January 1996 scan.
+GUARDIAN_ANCHORS = ((datetime.date(1970, 8, 25), 12575), (datetime.date(1982, 1, 27), 16176),
+                    (datetime.date(1996, 1, 2), 20538), (datetime.date(1999, 6, 24), 21620))
+
+
+def guardian_expected_number(day):
+    return anchored(GUARDIAN_ANCHORS, day)
 
 
 #: The FT's title: "CROSSWORD" (or "MONDAY PRIZE CROSSWORD") over
@@ -1202,16 +1263,15 @@ def centred(box, span):
     return (cx - span // 2, box[1], cx + span // 2, box[3])
 
 
-_FT_SETTERS = None
+_SETTERS = {}
 
 
-def ft_setters():
-    """The setters our ftcryptic files name."""
-    global _FT_SETTERS
-    if _FT_SETTERS is None:
-        _FT_SETTERS = {json.loads(p.read_text()).get("setter")
-                       for p in (ROOT / "puzzles" / FT.series).glob("*/*.json")}
-    return _FT_SETTERS
+def setters(series):
+    """The setters our files of `series` name."""
+    if series not in _SETTERS:
+        _SETTERS[series] = {json.loads(p.read_text()).get("setter")
+                            for p in (ROOT / "puzzles" / series).glob("*/*.json")}
+    return _SETTERS[series]
 
 
 def ft_headings(lines):
@@ -1257,24 +1317,75 @@ def ft_headings(lines):
     return puzzles, solutions
 
 
+#: The Guardian's title, "Guardian Crossword No 20,538" over "Set by
+#: Rufus" ("CROSSWORD 17,101" in the 1980s), and the previous puzzle's solution grid, over its label
+#: "CROSSWORD SOLUTION 20,537". archive.org reads a comma as "^" at times.
+G_NUMBER = r"(\d{2}[,.\s^']?\d{3})"
+GUARDIAN_TITLE = re.compile(r"^\W*(?:the\s+)?(?:guardian\s+)?(?:prize\s+)?crossword\s+(?:puzzle\s+)?(?:no\W{0,2}\s*)?"
+                            + G_NUMBER + r"\b(.*)$", re.IGNORECASE)
+GUARDIAN_SOLUTION = re.compile(r"^\W*(?:guardian\s+)?(?:prize\s+)?crossword\s+\w?o[l1]ut[il1]on\b\W*(.*)$",
+                               re.IGNORECASE)
+#: The Guardian's third clue column, right of the grid under the solution
+#: grid: this wide, from its left edge.
+GUARDIAN_THIRD = 360
+
+
+def guardian_headings(lines):
+    """([(number, box, setter)], [(number, box)]): each Guardian crossword
+    title with the setter on it or the line under it, and each solution
+    label (the solution grid is above it). A label whose number is misread
+    ("20^39") is the previous puzzle's, beside the page's one title."""
+    puzzles, solutions = [], []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        m = GUARDIAN_SOLUTION.match(text)
+        if m:
+            num = re.fullmatch(G_NUMBER + r"\W*", m.group(1))
+            solutions.append((number_of(num.group(1)) if num else None, box_of(ws)))
+            continue
+        m = GUARDIAN_TITLE.match(text)
+        if not m:
+            continue
+        box = box_of(ws)
+        setter = FT_SETTER.search(m.group(2))
+        if not setter:
+            for v in lines:
+                b = box_of(v)
+                if v is not ws and box[3] - 5 <= b[1] <= box[3] + 80 and abs(b[0] - box[0]) <= 150:
+                    setter = FT_SETTER.search(" ".join(w[4] for w in v)) or setter
+        puzzles.append((number_of(m.group(1)), box, setter.group(1).title() if setter else None))
+    solutions = [(n if n is not None else puzzles[0][0] - 1, box) for n, box in solutions
+                 if n is not None or len(puzzles) == 1]
+    return puzzles, solutions
+
+
 class Paper:
     """One newspaper's run of archive.org items: where its editions are, how
     its titles and solution headings read, the number its date implies, and
     the series its puzzles file as."""
 
-    def __init__(self, key, series, item, name, expected):
+    def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
+        #: The width of a clue column right of the grid (0: none), whether
+        #: the solution grid is printed above its heading, and how far left
+        #: of the grid the clue numbers may start.
+        self.third, self.solution_above, self.margin = third, solution_above, margin
 
     def headings(self, lines):
         if self.key == "ft":
             return ft_headings(lines)
+        if self.key == "guardian":
+            return guardian_headings(lines)
         return ([(n, box, None) for n, box in headings(lines, TITLE)], headings(lines, SOLUTION))
 
 
 TIMES = Paper("times", SERIES, ITEM, "Times cryptic crossword No {:,}", expected_number)
 FT = Paper("ft", "ftcryptic", re.compile(r"FinancialTimes(19\d\d)UKEnglish$"),
            "Financial Times cryptic crossword No {:,}", ft_expected_number)
-PAPERS = {p.key: p for p in (TIMES, FT)}
+GUARDIAN = Paper("guardian", "cryptic", re.compile(r"TheGuardian(19\d\d)UKEnglish$"),
+                 "Cryptic crossword No {:,}", guardian_expected_number, third=GUARDIAN_THIRD, solution_above=True,
+                 margin=15)
+PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN)}
 
 
 def paper_of(d):
@@ -1308,10 +1419,13 @@ def read_puzzle(d, found, hit, solutions):
         verdict["refused"] = f"the ink under the title is {gw}x{gh}, not a grid"
         return verdict, None
     key = f"{d.name}_{n}"
-    texts = {"djvu": column_text(columns(lines, gbox))}
+    third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
+    m = paper.margin
+    texts = {"djvu": column_text(columns(lines, gbox, third, m))}
     for which in READERS:
         texts[which] = column_text(columns(
-            rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json"), gbox))
+            rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m),
+            gbox, third, m))
     # archive.org's words and RapidOCR's are the two readings; where
     # archive.org's OCR has no words for the columns, RapidOCR's two
     # recognisers are.
@@ -1398,24 +1512,44 @@ def read_puzzle(d, found, hit, solutions):
         verdict["blank"] = blank
     puzzle = build(n, day, grid, how, laid, found["item"], leaf, series=paper.series,
                    name=paper.name.format(n))
-    setter = byline(img, hit)
+    setter = byline(img, hit, paper.series)
     if setter:
         puzzle["setter"] = setter
     sol = solutions.get(n)
     if sol:
-        answers, info = read_solution(sol, grid)
+        answers, info = read_solution(sol, grid, above=paper_of(sol["dir"]).solution_above)
         verdict["solutionFrom"] = f"{sol['dir'].name} leaf {sol['leaf']}"
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
 
 
-def byline(img, hit):
+def third_top(img, grid, width):
+    """Where the clue column right of the grid starts: under the solution
+    grid printed beside the grid and its label ("CROSSWORD SOLUTION
+    20,539", whose top lies within LABEL_DROP of the grid's foot), or level
+    with the grid when none is there."""
+    gx0, gy0, gx1, gy1 = grid
+    crop = (gx1 + 15, max(0, gy0 - 60), min(img.width, gx1 + 15 + width), gy1)
+    box = ink_box(img.crop(crop))
+    if box is None:
+        return gy0 - 5
+    bw, bh = box[2] - box[0], box[3] - box[1]
+    if not (0.4 * width <= bw <= width and 0.85 <= bw / max(bh, 1) <= 1.18):
+        return gy0 - 5
+    return crop[1] + box[3] + LABEL_DROP
+
+
+#: How far under the solution grid its label's top may lie.
+LABEL_DROP = 25
+
+
+def byline(img, hit, series=FT.series):
     """The setter archive.org's words name under the title ("Set by DANTE"),
-    when it is one our ftcryptic files name, a dictionary word, or what
+    when it is one the series' files name, a dictionary word, or what
     RapidOCR reads there too: archive.org alone misreads ("Grifftn")."""
     read = hit.get("setterRead")
-    if not read or read in ft_setters() or is_word(read.lower()):
+    if not read or read in setters(series) or is_word(read.lower()):
         return read
     import numpy as np
     x0, y0, x1, y1 = hit["box"]
@@ -1434,15 +1568,17 @@ def byline(img, hit):
 SOLUTION_BLOCKS = 0.97
 
 
-def read_solution(sol, grid):
+def read_solution(sol, grid, above=False):
     """({light: answer}, stats) read off the solution grid under a "Solution
-    to Puzzle No N" heading."""
+    to Puzzle No N" heading, or with `above`, over it (the Guardian's)."""
     d, leaf = sol["dir"], sol["leaf"]
     x0, y0, x1, y1 = sol["box"]
     from PIL import Image
     img = page(d, leaf)
     w = x1 - x0
     crop = (max(0, x0 - 80), y1, min(img.width, x1 + 140), min(img.height, y1 + int(1.4 * w) + 60))
+    if above:
+        crop = (max(0, x0 - 80), max(0, y0 - int(1.4 * w) - 60), min(img.width, x1 + 140), y0)
     box = ink_box(img.crop(crop))
     if box is None:
         return {}, {"refused": "no ink under the heading"}
@@ -1717,7 +1853,7 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
-                    help="whose editions to file: the Times (times-N) or the FT (ftcryptic-N)")
+                    help="whose editions to file: the Times (times-N), the FT (ftcryptic-N) or the Guardian (cryptic-N)")
     ap.add_argument("--match-canberra", action="store_true",
                     help="only name the Times puzzle each canberra file reprints")
     args = ap.parse_args(argv)
