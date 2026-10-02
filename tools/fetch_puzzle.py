@@ -1890,19 +1890,22 @@ LEADING_SPACE = " \u00a0\t\n\r"
 
 # A sentence of the page's note that is only a link: "Click here for a
 # printable version of this crossword.", "For a printable version of this
-# crossword, click here". The link is not in the text, so on our page it is a
-# promise of something that is not there. Anchored on a sentence's start, so
-# "To see the clues please click here Method: Solve the clues ..." keeps its
-# method.
+# crossword, click here", and any sentence pointing "here" at annotated
+# solutions or a printable/pdf copy. The link is not in the text, so on our
+# page it is a promise of something that is not there. Anchored on a
+# sentence's start, so "To see the clues please click here Method: Solve the
+# clues ..." keeps its method. A note left with no word at all ("x") is none.
 LINK_SENTENCE = re.compile(
-    r"(?:^|(?<=[.!?a-z]))\s*(?:Click here|For an? (?:printable|pdf))\b[^.]*(?:\.|$)")
+    r"(?:^|(?<=[.!?a-z]))\s*(?:Click here|For an? (?:printable|pdf))\b[^.]*(?:\.|$)"
+    r"|(?:^|(?<=[.!?)a-z]))\s*(?:(?:To see|For (?:the|an?)|An?)\b|(?=Annotated))[^.!?)]*"
+    r"\b(?i:annotated|printable|pdf)\b[^.!?]*\bhere\b[^.!?]*(?:[.!?]|$)")
 
 
 def preamble(instructions):
     """The page's note above the clues as our `preamble`, or None: plain text,
     one space between words, without the sentences that are only a link."""
-    text = " ".join(plain_text(instructions or "").split())
-    return LINK_SENTENCE.sub("", text).strip() or None
+    text = LINK_SENTENCE.sub("", " ".join(plain_text(instructions or "").split())).strip()
+    return text if re.search(r"\w\w", text) else None
 
 
 def convert(data):
