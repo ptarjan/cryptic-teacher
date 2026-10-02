@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,58 @@
     "text": "The price includes the house and help at home",
     "enumeration": "2-4"
    },
-   "solution": "COHOST"
+   "solution": "COHOST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CO-HOST",
+    "definitions": [
+     {
+      "text": "help at home",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "to include something is to take it within, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The price",
+      "gives": "COST",
+      "note": "the price of something is what it costs"
+     },
+     {
+      "clueFragment": "the house",
+      "gives": "HO",
+      "note": "HO is the standard abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "HO",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A household budget where the cost covers both the property and a domestic helper.",
+     "walkthrough": "'Help at home' suggests a cleaner or housekeeper, but the help is given to the host of a party or show in their own home.",
+     "definitionFit": "A co-host shares hosting duties, assisting the main host when guests are received at a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "help"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +102,73 @@
     "text": "I'm drunk: to frighten lawyer kept my head",
     "enumeration": "4,4"
    },
-   "solution": "COWSMILK"
+   "solution": "COWSMILK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "COWS MILK",
+    "definitions": [
+     {
+      "text": "I'm drunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "a head is the top or front, so only the opening letter of the word is wanted"
+     },
+     {
+      "text": "kept",
+      "for": "container",
+      "note": "something kept is held inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to frighten",
+      "gives": "COW",
+      "note": "to cow someone is to intimidate them"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "SILK",
+      "note": "a silk is a senior barrister, from the silk gown of a King's Counsel"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of 'my'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COW",
+      "S",
+      "M",
+      "ILK"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk confesses that his frightening lawyer kept him from losing his head.",
+     "walkthrough": "'I'm drunk' reads as a confession of intoxication, but it is the answer speaking: milk is a thing that is drunk. The M slips in after the S of SILK.",
+     "definitionFit": "Milk from cows is a beverage, so it can say of itself that people swallow it as a drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +182,56 @@
     "text": "Hospitals keeping lots of heads sans cover",
     "enumeration": "8"
    },
-   "solution": "HOODLESS"
+   "solution": "HOODLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOODLESS",
+    "definitions": [
+     {
+      "text": "of heads sans cover",
+      "at": 23,
+      "note": "an adjectival phrase describing heads, as the answer is an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep is to hold on to, so the outer piece wraps around the inner one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospitals",
+      "gives": "HS",
+      "note": "H is the map abbreviation for hospital, doubled as a plural"
+     },
+     {
+      "clueFragment": "lots",
+      "gives": "OODLES",
+      "note": "oodles means a great quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OODLES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Hospital wards are full of patients with bare heads.",
+     "walkthrough": "Plural abbreviations are often made by doubling or adding S; here H plus S frames the filling.",
+     "definitionFit": "A hood covers the head, so being without one leaves the head bare and uncovered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 3,
@@ -76,7 +245,44 @@
     "text": "Cooks taking time - red lights are in these areas",
     "enumeration": "5"
    },
-   "solution": "STEWS"
+   "solution": "STEWS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEWS",
+    "definitions": [
+     {
+      "text": "Cooks taking time",
+      "at": 0
+     },
+     {
+      "text": "red lights are in these areas",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cooks taking time",
+      "note": "first meaning: simmers food slowly over a long period"
+     },
+     {
+      "clueFragment": "red lights are in these areas",
+      "note": "second meaning: old word for brothels or the districts that held them"
+     }
+    ],
+    "explanation": {
+     "surface": "Slow cooks wait for food while red lights glow, as in a kitchen or a seedy quarter.",
+     "walkthrough": "The archaic sense is the one solvers miss: in Shakespeare's time 'the stews' were London's brothel districts, the original red-light areas.",
+     "definitionFit": "The verb means slow simmering in liquid, while the old plural noun named brothels, the places where red lamps advertised trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lights"
+    }
+   }
   },
   {
    "number": 4,
@@ -90,7 +296,46 @@
     "text": "Foreword to mobile, as one has ascended",
     "enumeration": "8"
    },
-   "solution": "UPWARDLY"
+   "solution": "UPWARDLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UPWARDLY",
+    "definitions": [
+     {
+      "text": "Foreword to mobile",
+      "at": 0
+     },
+     {
+      "text": "as one has ascended",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreword to mobile",
+      "note": "first meaning: the word that comes before 'mobile' in the stock phrase for social climbers"
+     },
+     {
+      "clueFragment": "as one has ascended",
+      "note": "second meaning: in a rising direction"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Foreword' looks like a book's preface, but it is literally the word placed in front of 'mobile'.",
+     "definitionFit": "The adverb describes motion towards higher ground, and it also opens the set phrase for people climbing the social ladder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Foreword"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +349,68 @@
     "text": "Guards murphies - even TV's split inside",
     "enumeration": "13"
    },
-   "solution": "PREVENTATIVES"
+   "solution": "PREVENTATIVES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREVENTATIVES",
+    "definitions": [
+     {
+      "text": "Guards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split",
+      "for": "container",
+      "note": "being split means broken into separate parts that go to different places"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so these letters go into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "murphies",
+      "gives": "PRATIES",
+      "note": "praties is an Irish dialect word for potatoes, and murphies is a slang word for them too"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "EVEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "TV's",
+      "gives": "TV",
+      "note": "taken as written, the two letters to be separated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "EVEN",
+      "T",
+      "ATI",
+      "V",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protecting their potatoes while the television set breaks apart.",
+     "walkthrough": "The TV is split: its T follows the first insert, its V goes in further along. Murphies and praties are both Irish-flavoured words for potatoes.",
+     "definitionFit": "Preventatives are measures taken to stop something happening, which is what a protective safeguard does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guards"
+    }
+   }
   },
   {
    "number": 6,
@@ -118,7 +424,54 @@
     "text": "An age we took to fix - will shortly come",
     "enumeration": "1,4,2,2"
    },
-   "solution": "AWEEKTOGO"
+   "solution": "AWEEKTOGO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A WEEK TO GO",
+    "definitions": [
+     {
+      "text": "will shortly come",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to fix",
+      "for": "anagram",
+      "note": "fixing something means putting it into working order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "An"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "age we took",
+      "gives": "AGEWETOOK",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGEWETOOK",
+       "gives": "AWEEKTOGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a repair job dragged on for ages.",
+     "walkthrough": "'An age' and 'shortly' pull in opposite directions in the surface; the answer is a phrase for an event that is only days away.",
+     "definitionFit": "Saying there are seven days left means the event is imminent, arriving soon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +485,57 @@
     "text": "Got my own back up, worn in extreme youth",
     "enumeration": "6"
    },
-   "solution": "DIAPER"
+   "solution": "DIAPER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DIAPER",
+    "definitions": [
+     {
+      "text": "worn in extreme youth",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from the bottom, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got my own",
+      "gives": "REPAID",
+      "note": "to get one's own back is to repay a wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAPER"
+     ],
+     "reversals": [
+      {
+       "from": "REPAID",
+       "to": "DIAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking revenge while wearing something from babyhood.",
+     "walkthrough": "'Back' does double duty in the surface, as part of 'got my own back'; in the wordplay 'back up' tells you to read upwards. Diaper is the American word for a nappy.",
+     "definitionFit": "Babies wear nappies, called diapers in America, during the very earliest stage of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 8,
@@ -146,7 +549,59 @@
     "text": "You start too soon, though regularly planned",
     "enumeration": "6"
    },
-   "solution": "YEARLY"
+   "solution": "YEARLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YEARLY",
+    "definitions": [
+     {
+      "text": "regularly planned",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of 'You'"
+     },
+     {
+      "clueFragment": "too soon",
+      "gives": "EARLY",
+      "note": "too soon means before the expected time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EARLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that someone jumped the gun on something scheduled.",
+     "walkthrough": "'You start' reads as a verb phrase, but it means the beginning of the word 'You'.",
+     "definitionFit": "Something annual recurs on a fixed schedule once every twelve months, so it is planned at regular intervals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 9,
@@ -160,7 +615,52 @@
     "text": "Was authorising tower to be designed",
     "enumeration": "5"
    },
-   "solution": "WROTE"
+   "solution": "WROTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WROTE",
+    "definitions": [
+     {
+      "text": "Was authorising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be designed",
+      "for": "anagram",
+      "note": "designing means planning a new shape, so the letters are set into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tower",
+      "gives": "TOWER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOWER",
+       "gives": "WROTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official giving permission for a tower to be planned.",
+     "walkthrough": "'Authorising' suggests granting permission; it is being used in the literal sense of acting as an author.",
+     "definitionFit": "To be authoring a text is to be writing it, so the past tense of writing fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "authorising"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +679,56 @@
     "10-across",
     "10-down",
     "22-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THERE WAS A TRAGEDIAN FROM GWELO",
+    "definitions": [
+     {
+      "text": "Who W a Z-an Othello",
+      "at": 45,
+      "note": "the following line of the limerick, given in abbreviated form"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s mended",
+      "for": "anagram",
+      "note": "something mended has been reworked and put back together, so these letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wee dram for a Glaswegian: the rot",
+      "gives": "WEEDRAMFORAGLASWEGIANTHEROT",
+      "note": "taken as written, twenty-seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEEDRAMFORAGLASWEGIANTHEROT",
+       "gives": "THEREWASATRAGEDIANFROMGWELO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small Scotch whisky for a man from Glasgow, as the rot is cured.",
+     "walkthrough": "The answer is the opening line of a limerick, and the quoted part is its second line squeezed down: 'Who was a Zimbabwean Othello'. Gwelo is a town in Zimbabwe, now called Gweru.",
+     "definitionFit": "A limerick's first line sets up a rhyme the next line completes, so naming the second line identifies the first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "dram"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +756,51 @@
     "text": "Spy with black suit to dig a creature out",
     "enumeration": "4,5"
    },
-   "solution": "MOLESPADE"
+   "solution": "MOLESPADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOLE SPADE",
+    "definitions": [
+     {
+      "text": "to dig a creature out",
+      "at": 20,
+      "note": "describes the tool's purpose rather than naming a noun"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy",
+      "gives": "MOLE",
+      "note": "a mole is a spy planted inside an organisation"
+     },
+     {
+      "clueFragment": "black suit",
+      "gives": "SPADE",
+      "note": "spades is one of the two black suits in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOLE",
+      "SPADE"
+     ]
+    },
+    "explanation": {
+     "surface": "An undercover agent in a dark suit sent to unearth an informant.",
+     "walkthrough": "The 'creature' is the small burrowing animal, not a spy's quarry.",
+     "definitionFit": "A gardener uses this narrow digging implement to excavate tunnels and remove burrowing animals from a lawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "creature"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +814,51 @@
     "text": "Must be Charles II's girl, with mournful tone",
     "enumeration": "5"
    },
-   "solution": "KNELL"
+   "solution": "KNELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNELL",
+    "definitions": [
+     {
+      "text": "mournful tone",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "Must be",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charles II",
+      "gives": "K",
+      "note": "Charles II was a king, abbreviated K"
+     },
+     {
+      "clueFragment": "'s girl",
+      "gives": "NELL",
+      "note": "Nell Gwyn was the actress who was Charles II's famous mistress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Speculation that a sad-voiced woman is the Restoration king's mistress.",
+     "walkthrough": "Nell Gwyn, an orange-seller turned actress, was the best-known mistress of England's King Charles II.",
+     "definitionFit": "A knell is the slow toll of a bell rung for a death or funeral, a sorrowful sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +872,47 @@
     "text": "Quiz ends with cobblers' thing, a sort of mark",
     "enumeration": "4,8"
    },
-   "solution": "LASTQUESTION"
+   "solution": "LASTQUESTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAST QUESTION",
+    "definitions": [
+     {
+      "text": "Quiz ends with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cobblers' thing",
+      "gives": "LAST",
+      "note": "a last is the foot-shaped block a shoemaker works on"
+     },
+     {
+      "clueFragment": "a sort of mark",
+      "gives": "QUESTION",
+      "note": "a question mark is one sort of punctuation mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAST",
+      "QUESTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz that finishes on shoemaking and punctuation.",
+     "walkthrough": "'Cobblers' is also British slang for nonsense, which colours the surface; here it means shoemakers.",
+     "definitionFit": "Every quiz finishes with a final query, the one that comes after all the rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cobblers'"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +926,65 @@
     "text": "Friendly as will be found with hikers various",
     "enumeration": "9"
    },
-   "solution": "QUAKERISH"
+   "solution": "QUAKERISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "QUAKERISH",
+    "definitions": [
+     {
+      "text": "Friendly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "various",
+      "for": "anagram",
+      "note": "various means of differing kinds, so the letters take a different form"
+     }
+    ],
+    "linkWords": [
+     "will be found with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "QUA",
+      "note": "qua is Latin for in the capacity of, or as"
+     },
+     {
+      "clueFragment": "hikers",
+      "gives": "HIKERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUA",
+      "KERISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIKERS",
+       "gives": "KERISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Walkers of all kinds are found to be sociable.",
+     "walkthrough": "'Friendly' seems to mean sociable, but the Quakers are the Religious Society of Friends, so it takes a capital-F sense.",
+     "definitionFit": "Quakers belong to the Society of Friends, so being like a Quaker is being like a Friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Friendly"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +998,62 @@
     "text": "Last setter's Gilbert, Guardian of the land",
     "enumeration": "8"
    },
-   "solution": "ZIMBABWE"
+   "solution": "ZIMBABWE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZIMBABWE",
+    "definitions": [
+     {
+      "text": "the land",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last",
+      "gives": "Z",
+      "note": "Z is the last letter of the alphabet"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "IM",
+      "note": "the setter says 'I am', shortened"
+     },
+     {
+      "clueFragment": "Gilbert",
+      "gives": "BAB",
+      "note": "Bab was W. S. Gilbert's pen name, as in the Bab Ballads"
+     },
+     {
+      "clueFragment": "Guardian",
+      "gives": "WE",
+      "note": "the newspaper's leader column speaks as 'we'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "IM",
+      "BAB",
+      "WE"
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword setter names Gilbert as a protector of his country.",
+     "walkthrough": "The Guardian is the newspaper that printed this puzzle; its editorials use the collective 'we'. The country is home to Gwelo from the limerick at 10.",
+     "definitionFit": "Zimbabwe is a country in southern Africa, a nation and its territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1067,55 @@
     "text": "Not so! Her C17 playwright's about",
     "enumeration": "5,3"
    },
-   "solution": "OTHERWAY"
+   "solution": "OTHERWAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OTHER WAY",
+    "definitions": [
+     {
+      "text": "Not so!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "C17 playwright's",
+      "gives": "OTWAY",
+      "note": "Thomas Otway was an English Restoration dramatist"
+     },
+     {
+      "clueFragment": "Her",
+      "gives": "HER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OT",
+      "HER",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A contradiction, then a remark about a seventeenth-century dramatist's woman.",
+     "walkthrough": "Otway wrote Venice Preserv'd; C17 stands for the seventeenth century.",
+     "definitionFit": "Saying it is the reverse of what was said contradicts it, rejecting the claim as wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Her"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1129,67 @@
     "text": "Verse song, is it not? (Brahms, or like fellow)",
     "enumeration": "12"
    },
-   "solution": "VARIATIONIST"
+   "solution": "VARIATIONIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VARIATIONIST",
+    "definitions": [
+     {
+      "text": "Brahms, or like fellow",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "?",
+      "for": "anagram",
+      "note": "the question mark signals that this phrase is not to be taken at face value but jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in opera"
+     },
+     {
+      "clueFragment": "is it not",
+      "gives": "ISITNOT",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ARIA",
+      "TIONIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISITNOT",
+       "gives": "TIONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a piece of verse is a song, with Brahms cited as an example.",
+     "walkthrough": "Brahms wrote famous sets of variations on themes by Handel, Haydn and Paganini.",
+     "definitionFit": "A composer of variations on a theme, as Brahms was, can be called by this rare noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "song"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1203,58 @@
     "text": "Born mid Yanks' roughage, I'm not one for truth",
     "enumeration": "6"
    },
-   "solution": "FIBBER"
+   "solution": "FIBBER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FIBBER",
+    "definitions": [
+     {
+      "text": "I'm not one for truth",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mid",
+      "for": "container",
+      "note": "mid means in the middle of, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yanks' roughage",
+      "gives": "FIBER",
+      "note": "fiber is the American spelling of dietary fibre"
+     },
+     {
+      "clueFragment": "Born",
+      "gives": "B",
+      "note": "B is the abbreviation for born"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIB",
+      "B",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone born among Americans disowns honesty while talking about diet.",
+     "walkthrough": "Yanks are Americans, hence the US spelling FIBER rather than British fibre.",
+     "definitionFit": "A fibber tells small lies, so this person would admit to having little regard for honesty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "roughage"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1268,55 @@
     "text": "Measures of love held by Jim's fellow-lover",
     "enumeration": "6"
    },
-   "solution": "JOULES"
+   "solution": "JOULES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JOULES",
+    "definitions": [
+     {
+      "text": "Measures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held is gripped inside, so it sits within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jim's fellow-lover",
+      "gives": "JULES",
+      "note": "Jules et Jim is Truffaut's film about two friends who love the same woman"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, written O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "O",
+      "ULES"
+     ]
+    },
+    "explanation": {
+     "surface": "Quantifying love within a romantic triangle.",
+     "walkthrough": "In Truffaut's film Jules and Jim are rivals for Catherine; 'love' is zero in a tennis score.",
+     "definitionFit": "The joule is the SI unit of energy, so joules are units used in measurement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1330,50 @@
     "text": "The setter's poem gets on line from phone",
     "enumeration": "5"
    },
-   "solution": "IMODE"
+   "solution": "IMODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMODE",
+    "definitions": [
+     {
+      "text": "on line from phone",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The setter's",
+      "gives": "IM",
+      "note": "the setter says 'I am', shortened"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter posts a poem online from his mobile.",
+     "walkthrough": "i-mode was a Japanese mobile internet service, an early way of going online from a handset.",
+     "definitionFit": "The service let handset users browse the web, so it was a means of internet access from mobiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1387,54 @@
     "text": "Prepared for shipping, sodium number (Clark)",
     "enumeration": "9"
    },
-   "solution": "NAVIGABLE"
+   "solution": "NAVIGABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAVIGABLE",
+    "definitions": [
+     {
+      "text": "Prepared for shipping",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sodium",
+      "gives": "NA",
+      "note": "Na is the chemical symbol for sodium"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "VI",
+      "note": "six in Roman numerals"
+     },
+     {
+      "clueFragment": "(Clark)",
+      "gives": "GABLE",
+      "note": "Clark Gable was the Hollywood star of Gone with the Wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "VI",
+      "GABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipping note listing salt-like goods and an actor's name.",
+     "walkthrough": "'Prepared for shipping' suggests packing goods; here shipping means ships, and a river fit for them is navigable.",
+     "definitionFit": "A waterway deep and wide enough for vessels to pass is ready to carry boats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shipping"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1462,62 @@
     "text": "Sick one splits poet's game with whites and red",
     "enumeration": "9"
    },
-   "solution": "BILLIARDS"
+   "solution": "BILLIARDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BILLIARDS",
+    "definitions": [
+     {
+      "text": "game with whites and red",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splits",
+      "for": "container",
+      "note": "splitting something opens it up so another piece can sit in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet's",
+      "gives": "BARDS",
+      "note": "a bard is a poet"
+     },
+     {
+      "clueFragment": "Sick",
+      "gives": "ILL",
+      "note": "sick means unwell"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ILL",
+      "I",
+      "ARDS"
+     ]
+    },
+    "explanation": {
+     "surface": "An unwell player disrupts a poet's game of wine, white and red.",
+     "walkthrough": "'Whites and red' suggests wine, but English billiards uses two white cue balls and one red.",
+     "definitionFit": "English billiards is played on a cloth table with three balls: two white cue balls and a red object ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "whites"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1531,48 @@
     "text": "The Spanish front: I need some room, it's said",
     "enumeration": "5"
    },
-   "solution": "ELBOW"
+   "solution": "ELBOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELBOW",
+    "definitions": [
+     {
+      "text": "I need some room, it's said",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish definite article"
+     },
+     {
+      "clueFragment": "front",
+      "gives": "BOW",
+      "note": "the bow is the front of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spaniard at the front of a crowd asking for space.",
+     "walkthrough": "The definition leans on the saying 'elbow room', meaning space to move freely.",
+     "definitionFit": "The stock phrase 'elbow room' means enough space, so this joint is what needs room in the saying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1586,51 @@
     "text": "Framer of theorems will care provide",
     "enumeration": "4,4"
    },
-   "solution": "RESTHOME"
+   "solution": "RESTHOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REST HOME",
+    "definitions": [
+     {
+      "text": "will care provide",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Framer of",
+      "for": "anagram",
+      "note": "a framer constructs a new structure, so the letters are built into a fresh shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theorems",
+      "gives": "THEOREMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEOREMS",
+       "gives": "RESTHOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician who devises proofs promises to look after someone.",
+     "walkthrough": "The definition is a verb phrase standing in for the noun: a place that will provide care.",
+     "definitionFit": "Elderly or convalescent residents live in such an institution and are looked after by staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Framer"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1644,57 @@
     "text": "Fraction type: record put for start to find",
     "enumeration": "1,4,1"
    },
-   "solution": "XOVERY"
+   "solution": "XOVERY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "X OVER Y",
+    "definitions": [
+     {
+      "text": "Fraction type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put for",
+      "for": "substitution",
+      "note": "putting one thing for another means swapping it into that place"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "X",
+      "note": "to record a vote is to mark an X"
+     },
+     {
+      "clueFragment": "start to find",
+      "gives": "OVERY",
+      "note": "find is DISCOVERY, whose start DISC is the part replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "OVERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about types of fraction and how to locate a record.",
+     "walkthrough": "Find gives DISCOVERY; its start is DISC, itself a record, and an X goes in its place.",
+     "definitionFit": "In algebra a fraction is written with a numerator above a denominator, as in this general example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   }
  ]
 }
