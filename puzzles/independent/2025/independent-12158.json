@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Expensive ban, keeping British out",
     "enumeration": "4"
    },
-   "solution": "DEAR"
+   "solution": "DEAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEAR",
+    "definitions": [
+     {
+      "text": "Expensive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "deletion",
+      "note": "keeping something out means excluding it, so a letter is removed from the word in hand"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ban",
+      "gives": "DEBAR",
+      "note": "to debar someone is to ban or bar them"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the standard abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a costly prohibition that shuts British people or goods out.",
+     "walkthrough": "Take the B out of DEBAR to leave DEAR; 'ban' must be read as the verb debar, not the plain noun.",
+     "definitionFit": "Dear is a common British way of saying something costs a lot, as in 'petrol is dear'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ban"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,53 @@
     "text": "He’s to pay to get manipulated - in this?",
     "enumeration": "10"
    },
-   "solution": "OSTEOPATHY"
+   "solution": "OSTEOPATHY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "OSTEOPATHY",
+    "definitions": [
+     {
+      "text": "He’s to pay to get manipulated - in this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get manipulated",
+      "for": "anagram",
+      "note": "manipulated letters are pushed and pulled about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He’s to pay to",
+      "gives": "HESTOPAYTO",
+      "note": "the ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESTOPAYTO",
+       "gives": "OSTEOPATHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient pays to have their body manipulated, and the clue asks what treatment that is.",
+     "walkthrough": "The whole clue is both wordplay and definition: the patient pays to get manipulated, which is exactly what happens in osteopathy, and the anagram letters spell it.",
+     "definitionFit": "Osteopathy is a therapy in which practitioners massage and manipulate bones and muscles, and patients pay for sessions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "manipulated"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +157,51 @@
     "text": "Worthless, you grant, after review",
     "enumeration": "8"
    },
-   "solution": "NUGATORY"
+   "solution": "NUGATORY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUGATORY",
+    "definitions": [
+     {
+      "text": "Worthless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after review",
+      "for": "anagram",
+      "note": "a review revises and reworks material, so these letters come out in a revised order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you grant",
+      "gives": "YOUGRANT",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOUGRANT",
+       "gives": "NUGATORY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone concedes, once they have looked again, that a thing is of no value.",
+     "walkthrough": "'you grant' reads like a concession in an argument, but it supplies the letters.",
+     "definitionFit": "Nugatory is a formal word for something of no value or importance, a direct synonym of trifling or useless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grant"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +215,67 @@
     "text": "Commit crime - that is, against pinching article? On the contrary",
     "enumeration": "6"
    },
-   "solution": "THIEVE"
+   "solution": "THIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THIEVE",
+    "definitions": [
+     {
+      "text": "Commit crime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grip tightly, so one piece holds another"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "this flips the stated relationship, so the holder becomes the thing held"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of the Latin id est, that is"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v. stands for versus, against"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "IEV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone commits an offence by stealing an item, and the clue then reverses the claim.",
+     "walkthrough": "Read literally, the abbreviations would pinch the article; 'On the contrary' swaps the roles so the article does the pinching. 'pinching' doubles as a pun on stealing.",
+     "definitionFit": "To thieve is to steal, which is the commonest crime and a fair example of committing one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +289,67 @@
     "text": "Yank returned, having received liberal surplus",
     "enumeration": "4"
    },
-   "solution": "GLUT"
+   "solution": "GLUT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GLUT",
+    "definitions": [
+     {
+      "text": "surplus",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word runs backwards"
+     },
+     {
+      "text": "having received",
+      "for": "container",
+      "note": "receiving something means taking it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yank",
+      "gives": "TUG",
+      "note": "to yank is to tug sharply"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "UT"
+     ],
+     "reversals": [
+      {
+       "from": "TUG",
+       "to": "GUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American comes home after being handed a generous surplus.",
+     "walkthrough": "'Yank' looks like an American, but it is the verb meaning pull.",
+     "definitionFit": "A glut is an excessive supply of something, more than is needed, so it is a synonym of surplus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yank"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +373,42 @@
      }
     ]
    },
-   "solution": "OFFTHEHOOK"
+   "solution": "OFFTHEHOOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFF THE HOOK",
+    "definitions": [
+     {
+      "text": "No longer in trouble",
+      "at": 0
+     },
+     {
+      "text": "receiving no calls?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No longer in trouble",
+      "note": "first meaning: freed from blame or difficulty"
+     },
+     {
+      "clueFragment": "receiving no calls?",
+      "note": "second meaning: a telephone receiver left lifted so calls cannot get through"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the literal second sense: an old landline with its handset lifted off its cradle cannot ring.",
+     "definitionFit": "The idiom means escaped from a difficult situation, while the literal phrase describes a phone handset lifted so nobody can call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +422,48 @@
     "text": "Emphasise cutting first hair",
     "enumeration": "5"
    },
-   "solution": "TRESS"
+   "solution": "TRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRESS",
+    "definitions": [
+     {
+      "text": "hair",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting first",
+      "for": "deletion",
+      "note": "cutting the first means chopping off the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emphasise",
+      "gives": "STRESS",
+      "note": "to stress something is to emphasise it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to make a point of trimming the hair first.",
+     "walkthrough": "'cutting' sits naturally beside 'hair' as a haircut, but it is the instruction to drop the first letter of STRESS.",
+     "definitionFit": "A tress is a long lock of a person's hair, so it is a specific example of hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +477,55 @@
     "text": "Bar Tennessee having internal state",
     "enumeration": "6"
    },
-   "solution": "TAVERN"
+   "solution": "TAVERN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAVERN",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having internal",
+      "for": "container",
+      "note": "having something internal means it sits inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tennessee",
+      "gives": "TN",
+      "note": "TN is the postal abbreviation for Tennessee"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to state or assert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AVER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A bar in Tennessee with something going on inside the state.",
+     "walkthrough": "'state' looks like a US state alongside Tennessee, but it is the verb meaning declare.",
+     "definitionFit": "A tavern is an inn or public house serving drinks, so it is a synonym of bar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +539,75 @@
     "text": "University’s new commotion about sources of private finance, usually troublesome",
     "enumeration": "9"
    },
-   "solution": "UNHELPFUL"
+   "solution": "UNHELPFUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNHELPFUL",
+    "definitions": [
+     {
+      "text": "troublesome",
+      "at": 69
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sources of",
+      "for": "letter_selection",
+      "note": "a source is where something begins, so only the opening letters are kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "being about something means surrounding it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University’s",
+      "gives": "U",
+      "note": "U is the first letter of University, a standard abbreviation"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "commotion",
+      "gives": "HELL",
+      "note": "hell, as in raising hell, is an uproar or commotion"
+     },
+     {
+      "clueFragment": "private finance, usually",
+      "gives": "PFU",
+      "select": "first",
+      "note": "initial letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "HEL",
+      "PFU",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A university's latest row about private funding causes the usual trouble.",
+     "walkthrough": "'usually' belongs to the letter selection, not the surface's sense of 'as a rule'.",
+     "definitionFit": "Something unhelpful creates difficulties rather than easing them, so it is close in sense to troublesome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "usually"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +627,47 @@
      }
     ]
    },
-   "solution": "LPLATE"
+   "solution": "LPLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "L-PLATE",
+    "definitions": [
+     {
+      "text": "Evidence of inexperience",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recording",
+      "gives": "LP",
+      "note": "an LP is a long-playing record"
+     },
+     {
+      "clueFragment": "missing release date",
+      "gives": "LATE",
+      "note": "something that misses its release date is overdue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LP",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An album slips past its release date, which looks like a sign of a novice.",
+     "walkthrough": "An L-plate is the red L sign a British learner driver must display on the car.",
+     "definitionFit": "The sign marks a learner who has not yet passed the driving test, so it visibly shows inexperience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +681,59 @@
     "text": "Diversify, disrupting average with it",
     "enumeration": "9"
    },
-   "solution": "VARIEGATE"
+   "solution": "VARIEGATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VARIEGATE",
+    "definitions": [
+     {
+      "text": "Diversify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupting",
+      "for": "anagram",
+      "note": "disruption throws things into disorder, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "average",
+      "gives": "AVERAGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AVERAGEIT",
+       "gives": "VARIEGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to branch out by breaking up the ordinary.",
+     "walkthrough": "Both 'average' and 'it' go into the mix.",
+     "definitionFit": "To variegate is to introduce variety, especially of colour, which is to make something more diverse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "average"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +747,61 @@
     "text": "Complete set of books contributing to endless story",
     "enumeration": "5"
    },
-   "solution": "TOTAL"
+   "solution": "TOTAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TOTAL",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the final letter is dropped"
+     },
+     {
+      "text": "contributing to",
+      "for": "container",
+      "note": "a contribution goes into something, so one piece is put inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set of books",
+      "gives": "OT",
+      "note": "OT, the Old Testament, is a set of books of the Bible"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A full collection of volumes adds to a never-ending saga.",
+     "walkthrough": "'Complete set' reads as one phrase, but the definition is 'Complete' alone and 'set of books' is OT.",
+     "definitionFit": "Total and complete both mean entire or absolute, as in total silence or complete silence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complete"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +821,64 @@
      }
     ]
    },
-   "solution": "RUNUP"
+   "solution": "RUNUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RUN-UP",
+    "definitions": [
+     {
+      "text": "some preparation",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters run from end to start"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "you are",
+      "gives": "UR",
+      "note": "UR is text-speak for you are"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "NUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUNUR",
+       "to": "RUNUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian's comeback gag shows evidence of rehearsal.",
+     "walkthrough": "Both pieces turn round together.",
+     "definitionFit": "A run-up is the preparatory period or approach before an event, as in the run-up to an election."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +892,50 @@
     "text": "Sonic scale rearranged in Stravinsky’s style",
     "enumeration": "10"
    },
-   "solution": "NEOCLASSIC"
+   "solution": "NEOCLASSIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEOCLASSIC",
+    "definitions": [
+     {
+      "text": "in Stravinsky’s style",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rearranged",
+      "for": "anagram",
+      "note": "rearranging puts things into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sonic scale",
+      "gives": "SONICSCALE",
+      "note": "the ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONICSCALE",
+       "gives": "NEOCLASSIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical scale reordered in the manner of Stravinsky.",
+     "walkthrough": "The musical surface fits the answer: Stravinsky led the neoclassical movement in twentieth-century music.",
+     "definitionFit": "Stravinsky's middle period, with works like Pulcinella, is the best-known example of neoclassical composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +949,51 @@
     "text": "Out of money? Never stop working",
     "enumeration": "9"
    },
-   "solution": "OVERSPENT"
+   "solution": "OVERSPENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERSPENT",
+    "definitions": [
+     {
+      "text": "Out of money?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working implies being worked over or processed, so these letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Never stop",
+      "gives": "NEVERSTOP",
+      "note": "the nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEVERSTOP",
+       "gives": "OVERSPENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Broke? Then keep on with your job without a break.",
+     "walkthrough": "'working' looks like the end of a piece of advice but signals the anagram.",
+     "definitionFit": "Someone who has overspent has paid out more than they had, leaving them without funds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1007,50 @@
     "text": "Display areas work in inactive period",
     "enumeration": "10"
    },
-   "solution": "STANDSTILL"
+   "solution": "STANDSTILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANDSTILL",
+    "definitions": [
+     {
+      "text": "inactive period",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Display areas",
+      "gives": "STANDS",
+      "note": "stands are display areas at a trade show"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "TILL",
+      "note": "to till is to work the soil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANDS",
+      "TILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Exhibition stalls get worked on during a quiet spell.",
+     "walkthrough": "'in' looks like it puts one piece inside another, but it only joins wordplay to definition.",
+     "definitionFit": "A standstill is a halt where nothing moves or progresses, which is a state of inactivity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1064,60 @@
     "text": "Stout and wine likely to be emptied",
     "enumeration": "6"
    },
-   "solution": "PORTLY"
+   "solution": "PORTLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PORTLY",
+    "definitions": [
+     {
+      "text": "Stout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be emptied",
+      "for": "letter_selection",
+      "note": "emptying removes the contents, so only the outer letters stay"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     },
+     {
+      "clueFragment": "likely",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Stout beer and wine, both likely to be drunk to the last drop.",
+     "walkthrough": "'Stout' reads as the dark beer, but it is the adjective meaning fat.",
+     "definitionFit": "Portly describes a rather fat or rotund person, the same sense as stout applied to body shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stout"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1131,51 @@
     "text": "It could be yellow, magenta or cyan, possibly",
     "enumeration": "6"
    },
-   "solution": "CRAYON"
+   "solution": "CRAYON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRAYON",
+    "definitions": [
+     {
+      "text": "It could be yellow, magenta",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several possible arrangements of these letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or cyan",
+      "gives": "ORCYAN",
+      "note": "the six letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORCYAN",
+       "gives": "CRAYON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of the printing colours, wondering which one something is.",
+     "walkthrough": "The list of three colours seems to run to the end, but 'cyan' joins 'or' as letters to rearrange.",
+     "definitionFit": "Crayons come in every colour, so a yellow or magenta stick of coloured wax is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cyan"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1189,65 @@
     "text": "Conservative to begrudge accommodating another in street of houses",
     "enumeration": "8"
    },
-   "solution": "CRESCENT"
+   "solution": "CRESCENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CRESCENT",
+    "definitions": [
+     {
+      "text": "street of houses",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "to accommodate is to give room to, so one piece is housed within a second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "to begrudge",
+      "gives": "RESENT",
+      "note": "to resent is to begrudge"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "C",
+      "note": "a second Conservative, so the same abbreviation again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RES",
+      "C",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory resents taking in another resident on a residential street.",
+     "walkthrough": "'another' means another Conservative, so the same letter appears twice.",
+     "definitionFit": "In British usage a crescent is a curved street of houses, named for its arc shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1261,62 @@
     "text": "A poet welcoming love in a train?",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "in a train?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "BARD",
+      "note": "a bard is a poet"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "O",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet finds romance on a railway journey.",
+     "walkthrough": "The question mark admits the definition is one example: aboard can apply to a ship or plane as well as a train.",
+     "definitionFit": "To be aboard is to be on or in a vehicle, and a train passenger is one instance of that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1330,55 @@
     "text": "Corps cornered in amusing manoeuvre",
     "enumeration": "6"
    },
-   "solution": "JOCKEY"
+   "solution": "JOCKEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JOCKEY",
+    "definitions": [
+     {
+      "text": "manoeuvre",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cornered in",
+      "for": "container",
+      "note": "something cornered is trapped and hemmed in, so it ends up enclosed by another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amusing",
+      "gives": "JOKEY",
+      "note": "jokey means joking, amusing"
+     },
+     {
+      "clueFragment": "Corps",
+      "gives": "C",
+      "note": "C is a dictionary abbreviation for Corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JO",
+      "C",
+      "KEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A military unit trapped in a farcical exercise.",
+     "walkthrough": "'manoeuvre' looks like the military exercise of the surface, but it is a verb.",
+     "definitionFit": "To jockey, as in jockeying for position, is to manoeuvre skilfully to gain an advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvre"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1392,84 @@
     "text": "Rebuffed variable lines in sand leading to European complaint",
     "enumeration": "9"
    },
-   "solution": "BELLYACHE"
+   "solution": "BELLYACHE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "BELLYACHE",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rebuffed",
+      "for": "reversal",
+      "note": "rebuffed suggests being pushed back, so these letters run in the opposite direction"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within another"
+     },
+     {
+      "text": "leading to",
+      "for": "charade",
+      "note": "leading to means coming just before, so one piece is placed ahead of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "variable",
+      "gives": "Y",
+      "note": "Y is an algebraic variable"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is an abbreviation for line, doubled for the plural"
+     },
+     {
+      "clueFragment": "sand",
+      "gives": "BEACH",
+      "note": "a beach is a stretch of sand"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LLY",
+      "ACH",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "YLL",
+       "to": "LLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lines drawn in the sand get scrubbed out, leading to a European's grumble.",
+     "walkthrough": "'complaint' could mean an illness, a sore stomach, but here it is the whining sense.",
+     "definitionFit": "Bellyache is an informal word for a moan or grumble, so it is a slang synonym of complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sand"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1483,58 @@
     "text": "Religious court ditching latest computer programs and other oddities",
     "enumeration": "6"
    },
-   "solution": "CURIOS"
+   "solution": "CURIOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CURIOS",
+    "definitions": [
+     {
+      "text": "other oddities",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ditching latest",
+      "for": "deletion",
+      "note": "ditching the latest part drops the final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Religious court",
+      "gives": "CURIA",
+      "note": "the Curia is the papal court of the Roman Catholic Church"
+     },
+     {
+      "clueFragment": "computer programs",
+      "gives": "OS",
+      "note": "OS, operating system, is the program that runs a computer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURI",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "A church court abandons its newest software and other strange items.",
+     "walkthrough": "'latest' sounds like newest software, but it means the last letter of the court.",
+     "definitionFit": "Curios are rare or unusual objects collected as curiosities, so they are a kind of oddity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "latest"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1548,67 @@
     "text": "Agreed to retain King after revolution - look",
     "enumeration": "5"
    },
-   "solution": "DEKKO"
+   "solution": "DEKKO",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DEKKO",
+    "definitions": [
+     {
+      "text": "look",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retain",
+      "for": "container",
+      "note": "retaining something means keeping it inside, so one piece holds another"
+     },
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns things right round, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreed",
+      "gives": "OKED",
+      "note": "OK'd, okayed, means agreed"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the abbreviation for king in chess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEK",
+      "K",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OKKED",
+       "to": "DEKKO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary settlement that keeps the monarch in place.",
+     "walkthrough": "Dekko is British slang, from Hindi, for a quick look, as in 'have a dekko'.",
+     "definitionFit": "A dekko is an informal word for a glance, so it is a slang synonym of look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1622,61 @@
     "text": "Mostly felt bad about second passage",
     "enumeration": "5"
    },
-   "solution": "AISLE"
+   "solution": "AISLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AISLE",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter goes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "being about something means surrounding it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt bad",
+      "gives": "AILED",
+      "note": "ailed means was unwell, felt bad"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "S",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone largely felt guilty about a second journey.",
+     "walkthrough": "'felt bad' suggests guilt, but here it means being ill.",
+     "definitionFit": "An aisle is a walkway between rows of seats or shelves, a narrow passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1690,60 @@
     "text": "Some poetical lessons recalled by Fitzgerald?",
     "enumeration": "4"
    },
-   "solution": "ELLA"
+   "solution": "ELLA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ELLA",
+    "definitions": [
+     {
+      "text": "Fitzgerald?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the words means only a part of them is used"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the letters come back in the opposite order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poetical lessons",
+      "gives": "ALLE",
+      "note": "letters straddling the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ALLE",
+       "to": "ELLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Verse lessons remembered by a writer called Fitzgerald.",
+     "walkthrough": "Fitzgerald suggests the novelist F. Scott or the poet Edward FitzGerald, matching 'poetical'; the answer is the jazz singer.",
+     "definitionFit": "Ella Fitzgerald was the American jazz singer, so Ella is a first name that goes with that surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fitzgerald"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1757,65 @@
     "text": "Right to retain excellent framework for sporting venue",
     "enumeration": "9"
    },
-   "solution": "RACETRACK"
+   "solution": "RACETRACK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RACETRACK",
+    "definitions": [
+     {
+      "text": "sporting venue",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retain",
+      "for": "container",
+      "note": "retaining something means keeping it inside, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "RT",
+      "note": "RT is an abbreviation for right"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace means excellent"
+     },
+     {
+      "clueFragment": "framework",
+      "gives": "RACK",
+      "note": "a rack is a framework for holding things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ACE",
+      "T",
+      "RACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim to a fine structure for a sports ground.",
+     "walkthrough": "'Right' looks like a single R, but the two-letter abbreviation RT is needed to hold ACE.",
+     "definitionFit": "A racetrack is a course where horses, cars or runners compete, so it is a type of sporting venue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1829,55 @@
     "text": "Reduction in expenditure, importing large car part",
     "enumeration": "4"
    },
-   "solution": "AXLE"
+   "solution": "AXLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AXLE",
+    "definitions": [
+     {
+      "text": "car part",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "importing brings something in, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reduction in expenditure",
+      "gives": "AXE",
+      "note": "the axe is a severe cut in spending"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AX",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Spending cuts hit imports of big car components.",
+     "walkthrough": "'importing' sounds like trade, but it just puts one piece inside another.",
+     "definitionFit": "An axle is the rod on which a car's wheels turn, so it is one component of a vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "importing"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1897,54 @@
      }
     ]
    },
-   "solution": "DRILLDOWN"
+   "solution": "DRILLDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRILL DOWN",
+    "definitions": [
+     {
+      "text": "Deeply explore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming behind, so the first piece named is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercises",
+      "gives": "DRILL",
+      "note": "drill is repeated training exercises"
+     },
+     {
+      "clueFragment": "feeling unhappy",
+      "gives": "DOWN",
+      "note": "feeling down means feeling low"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRILL",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels gloomy after a workout and looks inward.",
+     "walkthrough": "The pieces appear in reverse order in the clue.",
+     "definitionFit": "To drill down is to investigate data or a problem in increasing detail, which is exploring it in depth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercises"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1958,59 @@
     "text": "Relax with last of robbery money",
     "enumeration": "5"
    },
-   "solution": "LOLLY"
+   "solution": "LOLLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOLLY",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of something is its end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relax",
+      "gives": "LOLL",
+      "note": "to loll is to lounge or relax lazily"
+     },
+     {
+      "clueFragment": "robbery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOLL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief kicks back with what remains of the stolen cash.",
+     "walkthrough": "Lolly is British slang for money.",
+     "definitionFit": "Lolly is informal British slang for cash, so it is a colloquial synonym of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Relax"
+    }
+   }
   }
  ]
 }
