@@ -128,6 +128,11 @@ w = []
 V.check_surface("1A", {"type": ["charade"]}, "Behaved antisocially and gave birth", w)
 say("surface_absent_warns", len(w) == 1 and "no explanation.surface" in w[0])
 say("surface_counted_by_ratchet", V.count_backlog(w)["explanation.surface"] == 1)
+# The ratchet counts clues: noting one of a clue's two indicators splits one
+# warning into one per missing note, and must not count the clue twice.
+say("note_backlog_counts_clues", V.count_backlog(
+    ["7D: indicator 'in' has no note", "7D: indicator 'lifting' has no note",
+     "9A: no indicator notes"])["indicators.note"] == 2)
 w = []
 V.check_surface("1A", {"type": ["charade"]}, "Flat pack", w)
 V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger", w)
