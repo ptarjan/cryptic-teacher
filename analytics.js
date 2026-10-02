@@ -15,9 +15,14 @@
    Which clue, which puzzle and which answer are not sent to either.
 
    Fails silently from file:// and behind a blocker, like every other thing on
-   this page that is not the crossword. */
+   this page that is not the crossword.
+
+   Not loaded at all in the site owner's own browsers: app.js sets
+   localStorage "ct-internal" when the sync server says the code is his (see
+   sync/worker.js), so his visits never reach GA and no GA filter is needed. */
 (function () {
   "use strict";
+  try { if (localStorage.getItem("ct-internal")) return; } catch (e) { /* counted */ }
   var ID = "G-JX21DWG8J5";
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
