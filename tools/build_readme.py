@@ -83,7 +83,9 @@ LAYOUT = [
     ("fetching", "tools/trove_grid.py", "reads a crossword's black squares off a scanned grid image: walled white cells, a lattice fitted to them through any skew, solid ink for blocks; refuses rather than guesses"),
     ("fetching", "tools/test_file_trove_puzzles.sh", "files three real Trove articles: the grid read cell for cell, the solution grid skipped, a count the OCR misread held back by name, a second run touching nothing, and the clues alone filing a puzzle whose picture is missing"),
     ("fetching", "tools/trove_clue_ocr.py", "repairs the clues Trove's OCR loses (a number read as junk, a broken bracket, \"(S)\") from RapidOCR's reading of the page's clue columns, cached in ~/.cache/trove-clues; file_trove_puzzles.py applies it, anchored on text both readings share"),
-    ("fetching", "tools/fixtures/trove-repair/", "the 14 July 1967 cryptic, whose OCR glued 6-down onto 5-down, and RapidOCR's reading of its clue columns: the repair test_file_trove_puzzles.sh checks"),
+    ("fetching", "tools/fixtures/trove-repair/", "the 14 July 1967 cryptic, whose OCR glued 6-down onto 5-down, with RapidOCR's reading of its clue columns and our three readers' text of them: the repair and vote test_file_trove_puzzles.sh checks"),
+    ("fetching", "tools/fixtures/trove-clues/", "our three OCR readers' text of the 1 June 1972 article's clue zones, the other voters test_file_trove_puzzles.sh puts Trove's text to"),
+    ("fetching", "tools/fixtures/trove-solution/", "the 2 June 1972 cryptic as first filed, whose grid test_file_trove_puzzles.sh reads that day's printed solution against"),
     ("fetching", "tools/fixtures/trove/", "three Canberra Times articles as fetch_trove.py caches them (meta.json, ocr.txt, grid.jpg), the fixtures test_file_trove_puzzles.sh reads"),
     ("fetching", "tools/repair_fetched.py", "applies the fetchers’ current rules to puzzles already on disk — bare-capital solutions, a masked prize answer, a group that is really a cross-reference in the wordplay, a linked answer the paper never grouped — and reports the dates their own neighbours contradict"),
     ("fetching", "tools/test_repair_fetched.sh", "builds a puzzle file with each of those defects and proves the repair fixes it, leaves a clean file and a real Cyclops per-light group byte-identical, and is clean on the second run"),
@@ -444,6 +446,7 @@ LAYOUT = [
     ("fetching", "tools/test_errata.sh", "a paper's erratum in the preamble fixes its clue and leaves the preamble; the instructions beside it stay, and the write gate refuses one left behind"),
     ("fetching", "tools/boilerplate.py", "a preamble's publishing boilerplate is not something a solver needs"),
     ("fetching", "tools/test_boilerplate.sh", "a paper's publishing boilerplate in the preamble goes; a puzzle's instructions, tributes and kept errata stay; the write gate refuses it"),
+    ("fetching", "tools/ocr_clues.py", "the clue-text OCR every scan filer shares: the readers, the vote, the check"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
@@ -459,6 +462,8 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/data/yt_solvers/                       # covered by the directory line
     | ^tools/fixtures/trove/                        # covered by the directory line
     | ^tools/fixtures/trove-repair/                 # covered by the directory line
+    | ^tools/fixtures/trove-clues/                  # covered by the directory line
+    | ^tools/fixtures/trove-solution/               # covered by the directory line
     | ^household-plugins/           # covered by the <name>/plugin.toml line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line

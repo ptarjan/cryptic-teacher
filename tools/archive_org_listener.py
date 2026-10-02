@@ -39,6 +39,7 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
+import ocr_clues
 
 NUMBER = r"(\d[,.]?\d{3})"
 HEAD = re.compile(r"^\W*listener\s+crossword\s+no\.?\s*" + NUMBER, re.IGNORECASE)
@@ -250,7 +251,7 @@ CORROBORATE = 0.7
 
 def sound(text):
     """A clue text that is one clue: words, starting as a clue starts (a
-    lone "1" is the I fa.clean makes of it), with no count or clue number
+    lone "1" is the I ocr_clues.clean makes of it), with no count or clue number
     inside it."""
     return bool(text and re.match(r"[A-Z\"'.\u2018\u201c]|1\s", text)
                 and not RUN_ON.search(text) and not NEXT_NUMBER.search(text))
@@ -267,28 +268,28 @@ def pick(lays):
         have = [laid[lid] for laid in lays if lid in laid]
         texts = [v[0].lower() for v in have]
         good = [v for k, v in enumerate(have) if sound(v[0]) and any(
-            j != k and fa.similar(texts[k], t) >= CORROBORATE for j, t in enumerate(texts))]
+            j != k and ocr_clues.similar(texts[k], t) >= CORROBORATE for j, t in enumerate(texts))]
         enum = next((v[1] for v in have if v[1]), None)
         out[lid] = good[0] if good else ("", enum, None)
     return out
 
 
 def ocr_words(img, box, which, cache_path):
-    """[(x0, y0, x1, y1, text)] one reader (fa.READERS) finds in `box`, read at
-    fa.UPSCALE as the daily's columns are, in page coordinates; cached."""
+    """[(x0, y0, x1, y1, text)] one reader (ocr_clues.READERS) finds in `box`, read at
+    ocr_clues.UPSCALE as the daily's columns are, in page coordinates; cached."""
     if cache_path.exists():
         return [tuple(w) for w in json.loads(cache_path.read_text())]
     import numpy as np
     crop = img.crop(box).convert("RGB")
-    crop = crop.resize((crop.width * fa.UPSCALE, crop.height * fa.UPSCALE))
-    if which in fa.TESS_MODELS:
+    crop = crop.resize((crop.width * ocr_clues.UPSCALE, crop.height * ocr_clues.UPSCALE))
+    if which in ocr_clues.TESS_MODELS:
         res = [(((x0, y0), (x1, y1)), t, None)
-               for x0, y0, x1, y1, t in fa.tesseract_words(crop, fa.TESS_MODELS[which])]
+               for x0, y0, x1, y1, t in ocr_clues.tesseract_words(crop, ocr_clues.TESS_MODELS[which])]
     else:
-        res, _ = fa.engine(which)(np.asarray(crop), use_cls=False)
+        res, _ = ocr_clues.engine(which)(np.asarray(crop), use_cls=False)
     words = []
     for b, t, _ in res or ():
-        xs, ys = [p[0] / fa.UPSCALE for p in b], [p[1] / fa.UPSCALE for p in b]
+        xs, ys = [p[0] / ocr_clues.UPSCALE for p in b], [p[1] / ocr_clues.UPSCALE for p in b]
         words.append((int(min(xs)) + box[0], int(min(ys)) + box[1],
                       int(max(xs)) + box[0], int(max(ys)) + box[1], t))
     cache_path.parent.mkdir(parents=True, exist_ok=True)
@@ -317,18 +318,18 @@ def read(d, hit, solutions=()):
 def read_box(d, leaf, img, box, key, verdict, split=None):
     """(verdict, {light: (text, enumeration, None)} or None) for the ACROSS
     and DOWN columns inside `box` on one leaf: archive.org's words and every
-    fa.READERS reading (cached under `key`), parsed, laid by number (pick)
-    and voted on (fa.reconcile). With `split` (the x between the columns),
+    ocr_clues.READERS reading (cached under `key`), parsed, laid by number (pick)
+    and voted on (ocr_clues.reconcile). With `split` (the x between the columns),
     Tesseract reads each column alone: over two columns its line finder
     runs lines of both together."""
     words = {"djvu": [w for ws in fa.leaf_lines(d / "djvu.xml.gz", {leaf})[leaf] for w in ws
                       if box[0] <= w[0] and w[2] <= box[2] and box[1] <= w[1] <= box[3]]}
-    for which in fa.READERS:
-        path = fa.CROPS / "rapid" / f"{key}.{fa.reader_key(which)}.json"
-        if split and which in fa.TESS_MODELS:
+    for which in ocr_clues.READERS:
+        path = fa.CROPS / "rapid" / f"{key}.{ocr_clues.reader_key(which)}.json"
+        if split and which in ocr_clues.TESS_MODELS:
             halves = ((box[0], box[1], split, box[3]), (split, box[1], box[2], box[3]))
             words[which] = [w for k, half in enumerate(halves) for w in ocr_words(
-                img, half, which, path.with_name(f"{key}.col{k}.{fa.reader_key(which)}.json"))]
+                img, half, which, path.with_name(f"{key}.col{k}.{ocr_clues.reader_key(which)}.json"))]
         else:
             words[which] = ocr_words(img, box, which, path)
     texts = {k: tidy(fa.tidy(text_of(columns(w)))) for k, w in words.items()}
@@ -348,7 +349,7 @@ def read_box(d, leaf, img, box, key, verdict, split=None):
     laid = pick([lay(t[3]) for t in tried])
     lengths = {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     stream = [t for k, t in texts.items() if k != best and t.strip()]
-    laid, blank = fa.reconcile(laid, stream, lengths)
+    laid, blank = ocr_clues.reconcile(laid, stream, lengths)
     for lid, (t, e, g) in laid.items():
         if t and not sound(t):
             # The vote put back words that run on into the next clue.
