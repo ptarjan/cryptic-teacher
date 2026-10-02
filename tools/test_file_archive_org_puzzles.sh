@@ -84,7 +84,7 @@ check("a capital only one reader saw inside the clue dropped", ("What is stated"
       f.agree("What Is stated", f.tokens("27 What is stated (9)")))
 got, _ = f.reconcile({"25-across": ("As worn by agitator in back- street", "8", None)},
                      "25 As worn by agitator in back-\nstreet (8)")
-check("a word hyphenated over a line end keeps its hyphen, no space", "As worn by agitator in back-street",
+check("a word hyphenated over a line end is joined as the corpus prints it", "As worn by agitator in backstreet",
       got["25-across"][0])
 check("the clue's first word keeps its capital", ("Bottom of a ship", "agree"),
       f.agree("Bottom of a ship", f.tokens("bottom of a ship")))
@@ -145,6 +145,27 @@ check("an I last before the count is an exclamation mark", "Flirted outrageously
       f.clean("Flirted outrageously I (7)"))
 check("a word broken over a line end is joined", "Almost admire a lieutenant unknown",
       f.clean("Almost admire a lieutenant un-\nknown"))
+check("a line-end hyphen the corpus's clues print closed is the line break's", "agitator in backstreet",
+      f.clean("agitator in back-\nstreet"))
+check("a line-end hyphen the corpus's clues print hyphenated is the compound's", "start is short-lived",
+      f.clean("start is short-\nlived"))
+check("a name hyphenated over a line end is joined", "resembling Palgrave's Treasury",
+      f.clean("resembling Pal-\ngrave's Treasury"))
+check("a compound the corpus never prints keeps its hyphen", "Wisdom shown by school-head",
+      f.clean("Wisdom shown by school-\nhead"))
+check("a 1 standing as a word inside a clue is an I", "in letter I posted (4)", f.clean("in letter 1 posted (4)"))
+check("a 1 naming a light stays", ["see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film"],
+      [f.clean(t) for t in ("see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film")])
+check("a lone I some reading lacks is a speck", ["Turn on at length an item", "Turn on at length an item"],
+      [f.agree("Turn on at length an item", [f.marked(t, breaks=True) for t in (
+           "8 Turn on at length 1 an item (6)", "8 Turn on at length 1 an item (6)", "8 Turn on at length an item (6)")])[0],
+       f.agree("Turn on at length I an item", [f.marked(t, breaks=True) for t in (
+           "8 Turn on at length an item (6)", "8 Turn on at length an item (6)", "8 Turn on at length I an item (6)")])[0]])
+check("a lone I every reading has stands", "in letter I posted",
+      f.agree("in letter I posted", [f.marked(f.clean("8 in letter 1 posted (6)"), breaks=True)] * 3)[0])
+got, blank = f.reconcile({"1-down": ("Unusual way over the mountains", "7", None)},
+                         ["25 Vanquished (8)\nDOWN\nI Unusual way over the mountains (7)"] * 2)
+check("the DOWN heading over 1 down is no lost word of it", "Unusual way over the mountains", got["1-down"][0])
 check("a possessive of a dictionary word is a word", True, f.is_word("Lear's") and f.is_word("bookie's"))
 
 # The solution grid's blocks: a heavy print's block flecked with paper is a
