@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,55 @@
     "text": "Guitar sound always found in R&B",
     "enumeration": "6"
    },
-   "solution": "REVERB"
+   "solution": "REVERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVERB",
+    "definitions": [
+     {
+      "text": "Guitar sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another sits inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "R&B",
+      "gives": "RB",
+      "note": "the music genre rhythm and blues, written with its two letters"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in 'ever hopeful'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A guitarist notes that a certain echoing effect turns up on every rhythm and blues record.",
+     "walkthrough": "The ampersand in R&B is ignored; only the R and the B are used, and they wrap round the word for always.",
+     "definitionFit": "Reverb is the echo effect added to an electric guitar's signal, so it is a guitar sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +99,49 @@
     "text": "Wood regularly red-brown",
     "enumeration": "4"
    },
-   "solution": "EBON"
+   "solution": "EBON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EBON",
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red-brown",
+      "gives": "EBON",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of the hyphenated pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EBON"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of timber with a reddish-brown colour.",
+     "walkthrough": "The hyphen is ignored when counting letters; starting with the second letter gives the even ones.",
+     "definitionFit": "Ebon is a poetic or archaic name for ebony, a dark hardwood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 3,
@@ -68,7 +161,66 @@
      }
     ]
    },
-   "solution": "EROTICART"
+   "solution": "EROTICART",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EROTIC ART",
+    "definitions": [
+     {
+      "text": "Provocative pieces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stir up",
+      "for": "anagram",
+      "note": "to stir something up is to agitate and mix it, so these letters are churned into a new order"
+     },
+     {
+      "text": "leadership",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so leadership here means taking only the opening letter"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "race riot",
+      "gives": "RACERIOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Trump's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACERIOTT",
+       "gives": "EROTICART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inflammatory material whips up racial unrest under a demagogue's lead, a political headline.",
+     "walkthrough": "The surface is all politics, but 'Provocative pieces' turns out to mean works of art designed to arouse.",
+     "definitionFit": "Works intended to arouse desire are provocative pieces in the sexual sense of provocative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Provocative"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +240,48 @@
      }
     ]
    },
-   "solution": "BUYSHARES"
+   "solution": "BUYSHARES",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "BUY SHARES",
+    "definitions": [
+     {
+      "text": "Contrarian advice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the starting sounds of words, so his name signals that swap"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short sellers",
+      "gives": "BUY SHARES",
+      "soundsLike": "SHY BEARS",
+      "note": "shy means short of something, and bears are traders who sell short, betting on a fall"
+     }
+    ],
+    "explanation": {
+     "surface": "A financial tip that goes against what the market's pessimists are doing.",
+     "walkthrough": "Swap the opening sounds of 'shy bears' to get the answer. A bear on the stock market sells shares expecting prices to drop.",
+     "definitionFit": "When everyone is selling, a contrarian investor recommends doing the opposite and purchasing stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +295,68 @@
     "text": "I understand you're going to diet around Xmas",
     "enumeration": "8"
    },
-   "solution": "YULETIDE"
+   "solution": "YULETIDE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "anagram",
+     "charade"
+    ],
+    "answer": "YULETIDE",
+    "definitions": [
+     {
+      "text": "Xmas",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I understand",
+      "for": "homophone",
+      "note": "understanding by ear: what the setter hears said, rather than reads, is the source here"
+     },
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "turned around means moved about, so these letters are put in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you're going to",
+      "gives": "YULE",
+      "soundsLike": "YOU'LL",
+      "note": "'you will' contracted, which is how you say 'you're going to'"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YULE",
+      "TIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIET",
+       "gives": "TIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acknowledges a friend's plan to slim down over the festive season.",
+     "walkthrough": "'I understand' reads as sympathy, but it signals a sound-alike: 'you'll' is said like YULE. 'Around' looks like 'about the time of' but jumbles the diet.",
+     "definitionFit": "Yuletide is an old name for the Christmas season, which Xmas abbreviates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +384,52 @@
      }
     ]
    },
-   "solution": "YOUMUSTBEJOKING"
+   "solution": "YOUMUSTBEJOKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YOU MUST BE JOKING",
+    "definedByPreamble": true,
+    "linkWords": [
+     "Hello!"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I presume?",
+      "gives": "YOUMUSTBE",
+      "note": "a presumption about who someone is, put as 'you must be...'"
+     },
+     {
+      "clueFragment": "little sister Joanna",
+      "gives": "JO",
+      "note": "Jo is the short, little form of the name Joanna"
+     },
+     {
+      "clueFragment": "BB's",
+      "gives": "KING",
+      "note": "BB King, the blues guitarist; his sister would share his surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YOUMUSTBE",
+      "JO",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A greeting to a stranger, in the style of 'Dr Livingstone, I presume?', guessing she is a famous musician's sibling.",
+     "walkthrough": "This is one of the four clues with no definition. The joke is an imaginary Jo King, sister of the bluesman, greeted with 'You must be Jo King'.",
+     "definitionFit": "The preamble says this clue carries no definition; the phrase is a standard expression of disbelief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Joanna"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +443,63 @@
     "text": "Neil Diamond's original remixed, with added material",
     "enumeration": "5"
    },
-   "solution": "LINED"
+   "solution": "LINED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LINED",
+    "definitions": [
+     {
+      "text": "with added material",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "the original is what comes first, so only the opening letter is used"
+     },
+     {
+      "text": "remixed",
+      "for": "anagram",
+      "note": "a remix reworks a recording into a new version, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neil",
+      "gives": "NEIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Diamond's",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the surname"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEILD",
+       "gives": "LINED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record producer reissues a Neil Diamond song in a new mix with extra tracks.",
+     "walkthrough": "The singer's name is split: his first name is used whole, his surname only for its initial.",
+     "definitionFit": "A garment or box that is lined has an extra layer of material fixed inside it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +513,43 @@
     "text": "Hotel concierge cuddles phone operator",
     "enumeration": "5"
    },
-   "solution": "TELCO"
+   "solution": "TELCO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TELCO",
+    "definitions": [
+     {
+      "text": "phone operator",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuddles",
+      "for": "hidden_word",
+      "note": "to cuddle is to hold close in an embrace, so the words around enclose what is sought"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hotel concierge",
+      "gives": "TELCO",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel's concierge gets very friendly with a switchboard worker.",
+     "walkthrough": "'Phone operator' suggests a person at a switchboard, but it means a company providing telephone service.",
+     "definitionFit": "Telco is a short informal name for a telecommunications company, which operates phone networks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "operator"
+    }
+   }
   },
   {
    "number": 8,
@@ -178,7 +569,44 @@
      }
     ]
    },
-   "solution": "DRYROASTED"
+   "solution": "DRYROASTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRY-ROASTED",
+    "definitions": [
+     {
+      "text": "Cooked without oil",
+      "at": 0
+     },
+     {
+      "text": "oven-glazed with Merlot",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cooked without oil",
+      "note": "first meaning: heated in an oven or pan with no fat added, as with nuts"
+     },
+     {
+      "clueFragment": "oven-glazed with Merlot",
+      "note": "second, playful meaning: done in the oven with a coating of a wine that is not sweet"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe note: the dish is cooked fat-free, then glazed with red wine in the oven.",
+     "walkthrough": "The question mark flags the whimsical second reading: Merlot is a dry red wine, and roasting is oven cooking, so a joint glazed with it is roasted in something dry.",
+     "definitionFit": "Dry-roasted food, peanuts especially, is cooked by dry heat with no fat or liquid involved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Merlot"
+    }
+   }
   },
   {
    "number": 9,
@@ -206,7 +634,63 @@
      }
     ]
    },
-   "solution": "NOTONYOURNELLY"
+   "solution": "NOTONYOURNELLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NOT ON YOUR NELLY",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "is stuck in",
+      "for": "container",
+      "note": "something stuck in a place is lodged inside it, so the earlier pieces go within the later one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "the standard abbreviation for the city and state"
+     },
+     {
+      "clueFragment": "Appeal to Blair",
+      "gives": "OTONY",
+      "note": "an appeal addressed to Tony Blair, the former British prime minister, in the old vocative form 'O Tony'"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little girl",
+      "gives": "NELL",
+      "note": "Nell is a short, little form of a girl's name such as Eleanor or Helen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OTONY",
+      "OUR",
+      "NELL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to a prime minister about a daughter trapped in Manhattan.",
+     "walkthrough": "This is one of the four clues with no definition. The two letters of the city split to hold everything else; 'O' before a name is the old poetic way of calling on someone.",
+     "definitionFit": "The preamble says this clue carries no definition; the phrase is a British idiom for an emphatic refusal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appeal"
+    }
+   }
   },
   {
    "number": 10,
@@ -230,7 +714,63 @@
      }
     ]
    },
-   "solution": "ISHOULDCOCOA"
+   "solution": "ISHOULDCOCOA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "homophone",
+     "charade"
+    ],
+    "answer": "I SHOULD COCOA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny can mean odd or peculiar, so the letters come out in a strange order"
+     },
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "radio carries only sound, so what is wanted is a word that is heard, not seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loudish",
+      "gives": "LOUDISH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clown",
+      "gives": "COCOA",
+      "soundsLike": "COCO",
+      "note": "Coco the Clown was a famous circus clown in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISHOULD",
+      "COCOA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOUDISH",
+       "gives": "ISHOULD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rather noisy comic clown performing on a radio show.",
+     "walkthrough": "This is one of the four clues with no definition. 'Funny' sits beside 'clown' as if describing it, but it shuffles the word before it.",
+     "definitionFit": "The preamble says this clue carries no definition; the phrase is dated British slang meaning 'certainly not'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 11,
@@ -244,7 +784,68 @@
     "text": "Police car despatched to guard Republican function",
     "enumeration": "10"
    },
-   "solution": "RECIPROCAL"
+   "solution": "RECIPROCAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RECIPROCAL",
+    "definitions": [
+     {
+      "text": "function",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "despatched",
+      "for": "anagram",
+      "note": "something despatched is sent off and broken up from where it was, so the letters are scattered and rearranged"
+     },
+     {
+      "text": "to guard",
+      "for": "container",
+      "note": "a guard stands round what it protects, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police car",
+      "gives": "POLICECAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the usual abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECIP",
+      "R",
+      "OCAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLICECAR",
+       "gives": "RECIPOCAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A squad car is sent out to protect a party political event.",
+     "walkthrough": "'Function' looks like a party event in the surface, but it is the mathematical sense. The mixed letters hold R between their fifth and sixth letters.",
+     "definitionFit": "In mathematics the reciprocal, one divided by x, is a standard function."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 12,
@@ -270,7 +871,69 @@
      }
     ]
    },
-   "solution": "BELAIR"
+   "solution": "BELAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BEL AIR",
+    "definitions": [
+     {
+      "text": "scene of Sunset Boulevard",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so just the first letter of the word is wanted"
+     },
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "a screen stands around and shields something, so the pair encloses a piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to live is to be, to exist"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "lavish",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "L",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV channel shows live the lavish opening scene of the classic Hollywood film Sunset Boulevard.",
+     "walkthrough": "The italics make Sunset Boulevard the film, but here it is the actual road in Los Angeles; the question mark admits the trick.",
+     "definitionFit": "Bel Air is a wealthy Los Angeles neighbourhood that the real Sunset Boulevard runs through, so it is a location along it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scene"
+    }
+   }
   },
   {
    "number": 13,
@@ -290,7 +953,62 @@
      }
     ]
    },
-   "solution": "TIMEFUSE"
+   "solution": "TIMEFUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TIME FUSE",
+    "definitions": [
+     {
+      "text": "It's used to blow up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clad in",
+      "for": "container",
+      "note": "something clad in a material is covered all over by it, so one piece is wrapped by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magazine",
+      "gives": "TIME",
+      "note": "Time is a well-known American news magazine"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "US",
+      "note": "we, in the object form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIME",
+      "F",
+      "US",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an armour-plated store of explosives and its detonating mechanism.",
+     "walkthrough": "'Magazine' suggests an ammunition store, which fits the explosive surface, but it is a periodical. 'We' must become its object form to fit inside.",
+     "definitionFit": "A time fuse sets off a bomb after a set delay, so it is a device for detonating explosives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 14,
@@ -304,7 +1022,83 @@
     "text": "Front two of Manchester United struggling to eclipse the primacy of Giggs' greatness",
     "enumeration": "9"
    },
-   "solution": "MAGNITUDE"
+   "solution": "MAGNITUDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAGNITUDE",
+    "definitions": [
+     {
+      "text": "greatness",
+      "at": 75
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Front two",
+      "for": "letter_selection",
+      "note": "the front pair of a word are its opening couple of letters"
+     },
+     {
+      "text": "primacy",
+      "for": "letter_selection",
+      "note": "primacy means being first, so only the first letter is wanted"
+     },
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "a team that is struggling is in disarray, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "to eclipse the",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manchester",
+      "gives": "MA",
+      "select": "first",
+      "note": "the first letters of the city's name: its first two"
+     },
+     {
+      "clueFragment": "Giggs'",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the surname"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "UNITED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GNITUDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUNITED",
+       "gives": "GNITUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Manchester United's strike pair find it hard to outshine the brilliance of Ryan Giggs, the club's legendary winger.",
+     "walkthrough": "The G is mixed in with the other letters; the jumbled word together with it is placed after the opening pair of the city.",
+     "definitionFit": "Magnitude means size or importance, which is the same idea as greatness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 15,
@@ -324,7 +1118,57 @@
      }
     ]
    },
-   "solution": "FATCHANCE"
+   "solution": "FATCHANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FAT CHANCE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "takes over",
+      "for": "container",
+      "note": "to take something over is to take it in and hold it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overweight",
+      "gives": "FAT",
+      "note": "fat means overweight"
+     },
+     {
+      "clueFragment": "rebel",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary"
+     },
+     {
+      "clueFragment": "South Africa's ruling party",
+      "gives": "ANC",
+      "note": "the African National Congress, which has governed South Africa since 1994"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "CH",
+      "ANC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A portly insurgent seizes control of South Africa's governing party.",
+     "walkthrough": "This is one of the four clues with no definition. The famous revolutionary known by his first name opens up to hold the party's initials.",
+     "definitionFit": "The preamble says this clue carries no definition; the phrase is an ironic idiom meaning there is no possibility at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 16,
@@ -338,7 +1182,50 @@
     "text": "A lack of appreciation for girl's discernment",
     "enumeration": "8"
    },
-   "solution": "DISTASTE"
+   "solution": "DISTASTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTASTE",
+    "definitions": [
+     {
+      "text": "A lack of appreciation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl's",
+      "gives": "DIS",
+      "note": "Di is a girl's name, short for Diana; with the possessive it becomes Di's"
+     },
+     {
+      "clueFragment": "discernment",
+      "gives": "TASTE",
+      "note": "taste is discernment in judging what is good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "TASTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fails to value a young woman's good judgement.",
+     "walkthrough": "The apostrophe-s stays in the wordplay as a letter S, a common crossword liberty.",
+     "definitionFit": "Distaste is dislike or aversion, the opposite of enjoying or valuing something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl's"
+    }
+   }
   },
   {
    "number": 17,
@@ -352,7 +1239,44 @@
     "text": "Flicker, like a candle in Oscar's observatory?",
     "enumeration": "6"
    },
-   "solution": "GUTTER"
+   "solution": "GUTTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUTTER",
+    "definitions": [
+     {
+      "text": "Flicker, like a candle",
+      "at": 0
+     },
+     {
+      "text": "Oscar's observatory",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flicker, like a candle",
+      "note": "first meaning: a candle flame wavers and runs with melted wax"
+     },
+     {
+      "clueFragment": "Oscar's observatory",
+      "note": "second meaning: Oscar Wilde said we all lie in a low place, though some of us look up at the stars from it"
+     }
+    ],
+    "explanation": {
+     "surface": "A candle's flame wavers inside some astronomical observatory belonging to someone called Oscar.",
+     "walkthrough": "The second half alludes to Oscar Wilde's line about looking at the stars from the gutter, so that street drain is where he does his stargazing.",
+     "definitionFit": "A candle is said to gutter when its flame flickers and wax runs down, and Wilde's stargazers sit in a roadside drain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "observatory"
+    }
+   }
   },
   {
    "number": 18,
@@ -372,7 +1296,44 @@
      }
     ]
    },
-   "solution": "FRENCHPOLISH"
+   "solution": "FRENCHPOLISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRENCH POLISH",
+    "definitions": [
+     {
+      "text": "Gloss over",
+      "at": 0
+     },
+     {
+      "text": "Roman Polanski's background",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloss over",
+      "note": "first meaning: to give furniture a high shine with shellac"
+     },
+     {
+      "clueFragment": "Roman Polanski's background",
+      "note": "second meaning: the film director holds French and Polish heritage and citizenship"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone skates over the troubled past of the film director Roman Polanski.",
+     "walkthrough": "'Gloss over' reads as 'avoid discussing', which fits Polanski's notorious history, but here it means to finish wood. Polanski was born in Paris to Polish parents.",
+     "definitionFit": "French polishing is a technique for giving wooden furniture a glossy surface, and the director's nationality is French-Polish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gloss"
+    }
+   }
   },
   {
    "number": 19,
@@ -386,7 +1347,67 @@
     "text": "African people exercise during sun's retreat",
     "enumeration": "5"
    },
-   "solution": "NUPES"
+   "solution": "NUPES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NUPES",
+    "definitions": [
+     {
+      "text": "African people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreat",
+      "for": "reversal",
+      "note": "to retreat is to go back the way one came, so the word runs backwards"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a period falls within it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     },
+     {
+      "clueFragment": "sun's",
+      "gives": "SUN",
+      "note": "taken as written; the apostrophe-s ties it to the next word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "PE",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SUN",
+       "to": "NUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People in Africa work out while the sun is going down.",
+     "walkthrough": "'Sun's retreat' suggests sunset, but the word itself goes backwards and takes the exercise inside it.",
+     "definitionFit": "The Nupe are an ethnic group of central Nigeria, so Nupes are an African people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 20,
@@ -400,7 +1421,66 @@
     "text": "Destination for Hispaniola vacation I note",
     "enumeration": "5"
    },
-   "solution": "HAITI"
+   "solution": "HAITI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HAITI",
+    "definitions": [
+     {
+      "text": "Destination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacation",
+      "for": "letter_selection",
+      "note": "to vacate is to empty, so the word loses its middle and keeps only its ends"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hispaniola",
+      "gives": "HA",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TI",
+      "note": "ti is a note of the sol-fa scale, also spelt te"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "I",
+      "TI"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller names a Caribbean island holiday spot and jots it down.",
+     "walkthrough": "'Destination for Hispaniola' reads as one phrase, but 'Destination' alone is the definition; 'Vacation' looks like a holiday but means emptying the island's name out.",
+     "definitionFit": "Haiti, the country on the western part of Hispaniola, is a place a traveller might head to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 21,
@@ -414,7 +1494,43 @@
     "text": "Observe one involved in cyber espionage?",
     "enumeration": "4"
    },
-   "solution": "ESPY"
+   "solution": "ESPY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ESPY",
+    "definitions": [
+     {
+      "text": "Observe",
+      "at": 0
+     },
+     {
+      "text": "one involved in cyber espionage",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observe",
+      "note": "first meaning: to catch sight of"
+     },
+     {
+      "clueFragment": "one involved in cyber espionage",
+      "note": "second, playful meaning: an online spy, with the E- prefix used for electronic things like email"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the invented word: like e-commerce and e-book, an e-spy would be a spy working electronically.",
+     "definitionFit": "To espy is to catch sight of or spot something, which is to see it at a distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cyber"
+    }
+   }
   },
   {
    "number": 22,
@@ -428,7 +1544,54 @@
     "text": "The unpredictable nature of madcap US conspiracies!",
     "enumeration": "14"
    },
-   "solution": "CAPRICIOUSNESS"
+   "solution": "CAPRICIOUSNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAPRICIOUSNESS",
+    "definitions": [
+     {
+      "text": "The unpredictable nature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "madcap",
+      "for": "anagram",
+      "note": "madcap means wildly reckless, so the letters are thrown about crazily"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US conspiracies",
+      "gives": "USCONSPIRACIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USCONSPIRACIES",
+       "gives": "CAPRICIOUSNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims at how wild and erratic American conspiracy theories are.",
+     "walkthrough": "'Madcap' looks like an adjective for the theories, and it is; it also tells you to mix up the two words after it.",
+     "definitionFit": "Capriciousness means a tendency to sudden whims and changes of mood, which is being unpredictable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "madcap"
+    }
+   }
   },
   {
    "number": 23,
@@ -442,7 +1605,69 @@
     "text": "Red wine addict introduced to bin end of Riesling",
     "enumeration": "8"
    },
-   "solution": "BLUSHING"
+   "solution": "BLUSHING",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLUSHING",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "something introduced to a place is put into it, so one piece goes inside another"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bin",
+      "gives": "BIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wine addict",
+      "gives": "LUSH",
+      "note": "a lush is a drunkard"
+     },
+     {
+      "clueFragment": "Riesling",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of the grape name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUSH",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy drinker is shown the cut-price oddments bin of red wine and German Riesling.",
+     "walkthrough": "'Red wine' reads as one phrase, but it splits: 'Red' is the definition and 'wine addict' is the wordplay. A bin end is a cheap last bottle of a wine line.",
+     "definitionFit": "Someone blushing goes red in the face from embarrassment, so the adjective matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 24,
@@ -456,7 +1681,62 @@
     "text": "Man still defending Londonderry extremists",
     "enumeration": "6"
    },
-   "solution": "EVELYN"
+   "solution": "EVELYN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EVELYN",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "a defender surrounds what it protects, so one piece encloses the other"
+     },
+     {
+      "text": "extremists",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its outermost letters, at either end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "EVEN",
+      "note": "even can mean still, as in 'even better' meaning 'still better'"
+     },
+     {
+      "clueFragment": "Londonderry",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of the city name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "LY",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is still defending militant hardliners in the Northern Ireland city of Londonderry.",
+     "walkthrough": "'Extremists' looks political in the surface but only asks for the city's end letters.",
+     "definitionFit": "Evelyn can be a man's name, as with the novelist Evelyn Waugh, so it fits a generic male."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   }
  ]
 }
