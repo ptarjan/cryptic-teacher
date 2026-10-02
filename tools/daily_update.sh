@@ -318,6 +318,20 @@ if [ -d "$HOME/.cache/archive_org_editions" ]; then
     alert "tools/file_archive_org_puzzles.py failed, so no Times puzzle is filed off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
   rm -f "$aorg_out"
+  # The FT 1971-99 (ftcryptic-N) the same way. Its held-out gold measures
+  # over 2%, so every reading goes to the scratch dir until it does; then
+  # set ARCHIVE_ORG_FT_FILE_FROM to the first year that measures under it.
+  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-ft.XXXXXX")"
+  if python3 tools/file_archive_org_puzzles.py --paper ft --limit "$ARCHIVE_ORG_PER_NIGHT" \
+      --out "$HOME/.cache/archive_org_crops/unfiled" \
+      ${ARCHIVE_ORG_FT_FILE_FROM:+--file-from "$ARCHIVE_ORG_FT_FILE_FROM"} >"$aorg_out" 2>&1; then
+    cat "$aorg_out"
+    git status --porcelain -- puzzles/ftcryptic | grep -q . && python3 tools/fetch_puzzle.py --reindex
+  else
+    cat "$aorg_out"
+    alert "tools/file_archive_org_puzzles.py --paper ft failed, so no FT puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
+  rm -f "$aorg_out"
 fi
 
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---

@@ -46,6 +46,14 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     ~/cryptic-setter-data/archiveorg-source/, where tools/cross_validate.py's
     `archiveorg` adapter votes with it. Every reading goes there, filed or not.
 
+--paper ft does the same for the Financial Times (items
+FinancialTimes19xxUKEnglish, the same uploader): "CROSSWORD" over "No. 8,650
+Set by DANTE", the grid under it and two clue columns under the grid, the
+previous puzzle's grid under "Solution 8,649" in the next edition. Its
+numbers run on into our ftcryptic series (No 13,232 in Nov 2009), so a
+puzzle files as ftcryptic-N, with the setter when the name is one our
+ftcryptic files know or a dictionary word.
+
 Resumable: ~/.cache/archive_org_editions/filed.jsonl records each edition's
 headings and verdicts against its files and this code's hash.
 """
@@ -387,10 +395,16 @@ def merge_rows(col):
     for piece in sorted(col, key=lambda l: (l[0] + l[1]) / 2):
         mid = (piece[0] + piece[1]) / 2
         if rows and rows[-1][0][0] <= mid <= rows[-1][0][1]:
-            # The OCR's second copy of words it already has is dropped.
-            if not any(min(p[3], piece[3]) - max(p[2], piece[2]) > 0.5 * (piece[3] - piece[2])
-                       for p in rows[-1]):
+            over = [p for p in rows[-1] if min(p[3], piece[3]) - max(p[2], piece[2])
+                    > 0.5 * (piece[3] - piece[2])]
+            if not over:
                 rows[-1].append(piece)
+            elif (mid > max(p[1] for p in rows[-1]) - 0.5 * (piece[1] - piece[0])
+                  and not any(similar(p[4], piece[4]) > 0.5 or piece[4] in p[4] for p in over)):
+                # Under the row, not beside it: a short last line ("turn
+                # (6)") whose box the line above overhangs.
+                rows.append([piece])
+            # Else the OCR's second copy of words it already has: dropped.
         else:
             rows.append([piece])
     out = []
@@ -415,6 +429,10 @@ def similar(a, b):
     return SequenceMatcher(None, a, b, autojunk=False).ratio()
 
 
+#: What a mark one reading lacks costs in align(), against 1 for a word.
+MARK_GAP = 0.5
+
+
 def align(mine, theirs):
     """[(i, j)] pairing clue words `mine` with words of the other reading
     `theirs` (None for a word the other side lacks, and (None, j) for a word
@@ -435,7 +453,10 @@ def align(mine, theirs):
             pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1] else inf
                                          if theirs[j - 1] == BREAK
                                          else 1.2 * (1 - similar(mine[i - 1], theirs[j - 1])))
-            up, left = cost[i - 1][j] + gap, cost[i][j - 1] + gap
+            # A mark one side lacks (a comma missed) costs less than a word,
+            # so a lost mark never outweighs pairing the words after it.
+            up = cost[i - 1][j] + (MARK_GAP if mine[i - 1] in MARKS else gap)
+            left = cost[i][j - 1] + (MARK_GAP if theirs[j - 1] in MARKS else gap)
             cost[i][j], back[i][j] = min((pair, "pair"), (up, "up"), (left, "left"))
     j = min(range(m + 1), key=lambda k: cost[n][k])
     out, i = [], n
@@ -635,6 +656,29 @@ def ends(pairs, theirs):
     return tuple(lead) if lead_ok else None, tuple(trail) if trail_ok else None
 
 
+def rejoin(theirs, low):
+    """Another reading's tokens with a word it split at a line end ("taste.
+    fully", "subter fuge") joined again, when this clue's words (`low`) hold
+    the joined word and it is a dictionary word."""
+    out, k = [], 0
+    while k < len(theirs):
+        for step in (1, 2):
+            if k + step < len(theirs) and (step == 1 or theirs[k + 1] in MARKS):
+                a, b = theirs[k], theirs[k + step]
+                joined = (a + b).lower()
+                # Two words with a space between are two words ("of fish"):
+                # only a mark, or a half that is no word, says it was split.
+                apart = step == 2 or not (is_word(a.lower()) and is_word(b.lower()))
+                if a.isalpha() and b.isalpha() and apart and joined in low and is_word(joined):
+                    out.append(a + b)
+                    k += step + 1
+                    break
+        else:
+            out.append(theirs[k])
+            k += 1
+    return out
+
+
 def agree(clue, others):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
@@ -653,6 +697,7 @@ def agree(clue, others):
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
     leads, trails = [], []
     for k, theirs in enumerate(others):
+        theirs = rejoin(theirs, low)
         at = 0
         pairs = align(low, [w.lower() for w in theirs])
         lead, trail = ends(pairs, theirs)
@@ -969,15 +1014,19 @@ def reconcile(laid, streams, lengths=None):
 LOOSE_SHARE = 0.8
 
 
-def lay_loose(parsed, grid):
+def lay_loose(parsed, grid, taken=None):
     """({light: (text, enumeration, None)}, [clues not laid]): each clue laid
     alone on the light its number names in its list's direction, when its
     number reads one way that names a light not yet taken and one of its
-    count readings fills that light. Linked and "See" clues are not laid."""
+    count readings fills that light. Linked and "See" clues are not laid.
+    With `taken` (the lights every reading laid by number), a clue whose
+    number was lost also takes the one light outside `taken` that its laid
+    neighbours leave between them."""
     lights = rg.light_cells(grid)
     out, bad = {}, []
     for direction in ("across", "down"):
-        for clue in parsed[direction]:
+        at = {}  # the clue's place in its list -> the light number it took
+        for k, clue in enumerate(parsed[direction]):
             names = [n for n in clue["tokens"][0]
                      if (n, direction) in lights and f"{n}-{direction}" not in out]
             if len(clue["tokens"]) != 1 or clue["see"] is not None or len(names) != 1:
@@ -989,6 +1038,30 @@ def lay_loose(parsed, grid):
                 bad.append(lid)
                 continue
             out[lid] = (clue["text"], fits[0], None)
+            at[k] = names[0]
+        # Clues whose numbers were lost ("Made to smile ... (6)" between 1
+        # and 9) take the lights their laid neighbours in the list leave
+        # free between them, in order, when there are as many of each and
+        # every count fills its light.
+        clues = parsed[direction]
+        if taken is None:
+            continue
+        laid_at = sorted(at)
+        for lo_k, hi_k in zip([-1] + laid_at, laid_at + [len(clues)]):
+            between = list(range(lo_k + 1, hi_k))
+            if not between or hi_k == len(clues) or any(
+                    clues[j]["tokens"] != [set()] or clues[j]["see"] is not None for j in between):
+                continue
+            lo = at[lo_k] if lo_k >= 0 else 0
+            free = sorted(n for (n, d) in lights if d == direction and lo < n < at[hi_k]
+                          and f"{n}-{d}" not in out and f"{n}-{d}" not in taken)
+            if len(free) != len(between):
+                continue
+            fits = [[e for e in clues[j]["enums"] if ftp.count(e) == len(lights[(n, direction)])]
+                    for j, n in zip(between, free)]
+            if all(len(f) == 1 for f in fits):
+                for j, n, f in zip(between, free, fits):
+                    out[f"{n}-{direction}"] = (clues[j]["text"], f[0], None)
     return out, bad
 
 
@@ -1035,14 +1108,14 @@ def build(number, day, grid, how, laid, item, leaf, series=SERIES, name=None):
 
 # ------------------------------------------------------------ an edition
 
-def edition_dirs(cache=CACHE):
-    """Every cached Times edition, the years taken in turn (each year's first
+def edition_dirs(cache=CACHE, paper=None):
+    """Every cached edition of `paper` (the Times by default), the years taken in turn (each year's first
     edition, then each year's second, ...), so a capped run reaches every
     decade the fetch has."""
     if not cache.exists():
         return []
     years = [sorted(d for d in item.iterdir() if (d / "pages.json").exists())
-             for item in sorted(cache.iterdir()) if ITEM.match(item.name)]
+             for item in sorted(cache.iterdir()) if (paper or TIMES).item.match(item.name)]
     out = []
     for k in range(max(map(len, years), default=0)):
         out += [y[k] for y in years if k < len(y)]
@@ -1058,10 +1131,12 @@ def scan(d):
     found = {"date": pages["date"], "item": pages["item"], "puzzles": [], "solutions": []}
     if not leaves or not (d / "djvu.xml.gz").exists():
         return found
+    paper = paper_of(d)
     for leaf, lines in leaf_lines(d / "djvu.xml.gz", leaves).items():
-        for n, box in headings(lines, TITLE):
-            found["puzzles"].append({"number": n, "leaf": leaf, "box": box})
-        for n, box in headings(lines, SOLUTION):
+        titles, sols = paper.headings(lines)
+        for n, box, setter in titles:
+            found["puzzles"].append({"number": n, "leaf": leaf, "box": box, **({"setter": setter} if setter else {})})
+        for n, box in sols:
             found["solutions"].append({"number": n, "leaf": leaf, "box": box})
     return found
 
@@ -1086,6 +1161,129 @@ def expected_number(day):
     return number + round((day - start).days * 6 / 7)
 
 
+#: Dated FT cryptics read off the scans and our own first ftcryptic file:
+#: the number between two is interpolated, outside them run on six a week.
+FT_ANCHORS = ((datetime.date(1975, 5, 1), 2766), (datetime.date(1995, 1, 3), 8650),
+              (datetime.date(2009, 11, 12), 13232))
+
+
+def ft_expected_number(day):
+    pts = FT_ANCHORS
+    k = 0 if day < pts[1][0] else 1
+    (d0, n0), (d1, n1) = pts[k], pts[k + 1]
+    if day < d0 or day > d1:
+        start, number = (d0, n0) if day < d0 else (d1, n1)
+        return number + round((day - start).days * 6 / 7)
+    return n0 + round((n1 - n0) * (day - d0).days / (d1 - d0).days)
+
+
+#: The FT's title: "CROSSWORD" (or "MONDAY PRIZE CROSSWORD") over
+#: "No. 8,650 Set by DANTE" in the 1990s, "CROSSWORD PUZZLE No. 2,766" on
+#: one line in the 1970s.
+FT_TITLE = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word(?:\s+puzzle)?\b\W*(.*)$", re.IGNORECASE)
+FT_NUMBER = re.compile(r"^\W*no\W{0,2}\s*(\d[,.]?\d{3})\b(.*)$", re.IGNORECASE)
+FT_SETTER = re.compile(r"set\s+by\s+([A-Za-z][A-Za-z'-]+)", re.IGNORECASE)
+#: The previous puzzle's solution grid: "Solution 8,650", or in the 1970s
+#: "SOLUTION TO PUZZLE" over "No. 2,765".
+FT_SOLUTION = re.compile(r"^\W*solution\s+(?:(?:to|of)\s+)?(?:puzzle\b)?\W*(.*)$", re.IGNORECASE)
+#: The width of the grid and of the solution grid under an FT heading,
+#: which is narrower than either: the box grid_box and read_solution crop
+#: around is this wide, centred on the heading.
+FT_GRID_SPAN = 960
+FT_SOLUTION_SPAN = 360
+
+
+def box_of(ws):
+    return (min(w[0] for w in ws), min(w[1] for w in ws), max(w[2] for w in ws), max(w[3] for w in ws))
+
+
+def centred(box, span):
+    cx = (box[0] + box[2]) // 2
+    return (cx - span // 2, box[1], cx + span // 2, box[3])
+
+
+_FT_SETTERS = None
+
+
+def ft_setters():
+    """The setters our ftcryptic files name: a pseudonym read off a scan
+    ("Grifftn") stands only when it is one of them or a dictionary word."""
+    global _FT_SETTERS
+    if _FT_SETTERS is None:
+        _FT_SETTERS = {json.loads(p.read_text()).get("setter")
+                       for p in (ROOT / "puzzles" / FT.series).glob("*/*.json")}
+    return _FT_SETTERS
+
+
+def ft_headings(lines):
+    """([(number, box, setter)], [(number, box)]): each FT crossword title,
+    its number on its own line or the line just under it, and each
+    "Solution N" heading; boxes widened to the grid's span."""
+    def numbered(ws, rest):
+        """(the "No. N" match, the line it is on): on this line, else
+        on a line just under it."""
+        num = FT_NUMBER.match(rest)
+        if num or re.search(r"\d", rest):
+            return num, ws
+        box = box_of(ws)
+        cx = (box[0] + box[2]) / 2
+        for v in lines:
+            if v is not ws and box[3] - 5 <= box_of(v)[1] <= box[3] + 80 \
+                    and box_of(v)[0] - 150 <= cx <= box_of(v)[2] + 150:
+                num = FT_NUMBER.match(" ".join(w[4] for w in v))
+                if num:
+                    return num, v
+        return None, ws
+
+    puzzles, solutions = [], []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        m = FT_SOLUTION.match(text)
+        if m:
+            rest = m.group(1)
+            num, under = numbered(ws, rest if re.match(r"\W*no\b", rest, re.IGNORECASE) else "no " + rest)
+            if num and not num.group(2).strip(" .'"):
+                solutions.append((number_of(num.group(1)), centred(box_of(ws + under), FT_SOLUTION_SPAN)))
+            continue
+        m = FT_TITLE.match(text)
+        if not m:
+            continue
+        num, under = numbered(ws, m.group(1))
+        if not num:
+            continue
+        box, whole = box_of(ws), box_of(ws + under)
+        setter = FT_SETTER.search(num.group(2))
+        setter = setter and setter.group(1).title()
+        puzzles.append((number_of(num.group(1)), centred((box[0], whole[1], box[2], whole[3]), FT_GRID_SPAN),
+                        setter if setter and (setter in ft_setters() or is_word(setter.lower())) else None))
+    return puzzles, solutions
+
+
+class Paper:
+    """One newspaper's run of archive.org items: where its editions are, how
+    its titles and solution headings read, the number its date implies, and
+    the series its puzzles file as."""
+
+    def __init__(self, key, series, item, name, expected):
+        self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
+
+    def headings(self, lines):
+        if self.key == "ft":
+            return ft_headings(lines)
+        return ([(n, box, None) for n, box in headings(lines, TITLE)], headings(lines, SOLUTION))
+
+
+TIMES = Paper("times", SERIES, ITEM, "Times cryptic crossword No {:,}", expected_number)
+FT = Paper("ft", "ftcryptic", re.compile(r"FinancialTimes(19\d\d)UKEnglish$"),
+           "Financial Times cryptic crossword No {:,}", ft_expected_number)
+PAPERS = {p.key: p for p in (TIMES, FT)}
+
+
+def paper_of(d):
+    """The Paper an edition directory's item belongs to."""
+    return next((p for p in PAPERS.values() if p.item.match(Path(d).parent.name)), TIMES)
+
+
 #: The Times of the 1970s-80s prints its blocks grey (67-82% ink in the
 #: scans), not solid; the grid must still be symmetric to stand.
 BLOCK_ABOVE = 0.6
@@ -1095,9 +1293,10 @@ def read_puzzle(d, found, hit, solutions):
     """(verdict, puzzle or None) for one title on one page."""
     n, leaf = hit["number"], hit["leaf"]
     verdict = {"number": n, "leaf": leaf}
+    paper = paper_of(d)
     day = datetime.date.fromisoformat(found["date"])
-    if abs(n - expected_number(day)) > NUMBER_SLACK:
-        verdict["refused"] = (f"No {n} is not near the {expected_number(day)} the date "
+    if abs(n - paper.expected(day)) > NUMBER_SLACK:
+        verdict["refused"] = (f"No {n} is not near the {paper.expected(day)} the date "
                               f"{day} implies: the item's date is wrong")
         return verdict, None
     img = page(d, leaf)
@@ -1169,6 +1368,13 @@ def read_puzzle(d, found, hit, solutions):
             for lid, v in lay_loose(p, g)[0].items():
                 if lid not in loose:
                     loose[lid], src[lid] = v, o
+        # Then the clues whose number was lost, into the lights no reading
+        # laid by number.
+        by_number = set(loose)
+        for _, _, _, _, o, p, _, _ in tried:
+            for lid, v in lay_loose(p, g, by_number)[0].items():
+                if lid not in loose:
+                    loose[lid], src[lid] = v, o
         verdict["looseLaid"] = len(loose)
         if len(loose) >= LOOSE_SHARE * len(rg.light_cells(g)):
             grid, how, laid = g, "image", loose
@@ -1192,7 +1398,10 @@ def read_puzzle(d, found, hit, solutions):
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
         verdict["blank"] = blank
-    puzzle = build(n, day, grid, how, laid, found["item"], leaf)
+    puzzle = build(n, day, grid, how, laid, found["item"], leaf, series=paper.series,
+                   name=paper.name.format(n))
+    if hit.get("setter"):
+        puzzle["setter"] = hit["setter"]
     sol = solutions.get(n)
     if sol:
         answers, info = read_solution(sol, grid)
@@ -1251,8 +1460,8 @@ def input_hash(d, code):
     return h.hexdigest()[:16]
 
 
-def held_numbers():
-    return {int(p.stem.split("-")[1]) for p in (ROOT / "puzzles" / SERIES).glob("*/*.json")}
+def held_numbers(series=SERIES):
+    return {int(p.stem.split("-")[1]) for p in (ROOT / "puzzles" / series).glob("*/*.json")}
 
 
 def destination(puzzles, file_from, date, complete=True):
@@ -1274,7 +1483,7 @@ def complete(puzzle):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, file_from=None):
+        source=SOURCE, file_from=None, paper=None):
     """File what is new under `cache`; `puzzles` writes there instead of the
     corpus (tests, and editions before `file_from`). Returns the ledger rows."""
     from fetch_puzzle import puzzle_path, write_puzzle_file
@@ -1285,7 +1494,8 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             row = json.loads(line)
             known[row["edition"]] = row
     code = code_hash()
-    dirs = edition_dirs(cache)
+    paper = paper or TIMES
+    dirs = edition_dirs(cache, paper)
     # Every heading first: a puzzle's solution is in a later edition.
     scans = {}
     for d in dirs:
@@ -1303,7 +1513,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     for d in dirs:
         for s in scans[f"{d.parent.name}/{d.name}"]["solutions"]:
             solutions.setdefault(s["number"], {**s, "dir": d})
-    held = held_numbers()
+    held = held_numbers(paper.series)
     fresh = 0
     for d in dirs:
         rel = f"{d.parent.name}/{d.name}"
@@ -1333,7 +1543,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                     verdicts.append(verdict)
                     continue
                 path = (Path(dest) / f"{puzzle['id']}.json" if dest
-                        else puzzle_path(SERIES, puzzle["number"]))
+                        else puzzle_path(paper.series, puzzle["number"]))
                 better = path.exists() and improves(puzzle, path)
                 if hit["number"] in held and not dest and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
@@ -1352,8 +1562,8 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             save(ledger, known)
     if write:
         save(ledger, known)
-    tally = report(known.values())
-    print(f"{len(dirs)} Times editions in {cache}; {fresh} read this run", file=out)
+    tally = report(known[f"{d.parent.name}/{d.name}"] for d in dirs)
+    print(f"{len(dirs)} {paper.key} editions in {cache}; {fresh} read this run", file=out)
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
@@ -1488,6 +1698,8 @@ def main(argv=None):
     ap.add_argument("--limit", type=int, help="read at most N new or changed editions")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
+    ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
+                    help="whose editions to file: the Times (times-N) or the FT (ftcryptic-N)")
     ap.add_argument("--match-canberra", action="store_true",
                     help="only name the Times puzzle each canberra file reprints")
     args = ap.parse_args(argv)
@@ -1498,7 +1710,7 @@ def main(argv=None):
         d = args.cache / args.show
         found = scan(d)
         sols = {}
-        for e in edition_dirs(args.cache):
+        for e in edition_dirs(args.cache, paper_of(d)):
             for s in scan(e)["solutions"] if e.parent == d.parent else ():
                 sols.setdefault(s["number"], {**s, "dir": e})
         for hit in found["puzzles"]:
@@ -1510,8 +1722,8 @@ def main(argv=None):
                           f"{(e['clue'] or {}).get('text', '')} ({(e['clue'] or {}).get('enumeration')})")
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        limit=args.limit, source=args.source, file_from=args.file_from)
-    if not args.out:
+        limit=args.limit, source=args.source, file_from=args.file_from, paper=PAPERS[args.paper])
+    if not args.out and args.paper == "times":
         match_canberra(args.source, write=not args.dry_run)
     return 0
 
