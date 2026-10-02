@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,63 @@
     "text": "Right answer initially confused member of the clergy",
     "enumeration": "8"
    },
-   "solution": "ACCURATE"
+   "solution": "ACCURATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCURATE",
+    "definitions": [
+     {
+      "text": "Right",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the very start, so only the opening letter of each of the two words before it is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter of 'answer'"
+     },
+     {
+      "clueFragment": "confused",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter of 'confused', since 'initially' covers both words"
+     },
+     {
+      "clueFragment": "member of the clergy",
+      "gives": "CURATE",
+      "note": "a curate is an assistant parish priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "CURATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives the right answer at first, leaving a puzzled vicar's assistant flummoxed.",
+     "walkthrough": "'Confused' looks like an anagram signal, but 'initially' reaches back over both 'answer' and 'confused', taking A and C before CURATE.",
+     "definitionFit": "Accurate is a straightforward synonym of right in the sense of correct or free from error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confused"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +105,63 @@
     "text": "Just with a female on occasion",
     "enumeration": "6"
    },
-   "solution": "AFFAIR"
+   "solution": "AFFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFAIR",
+    "definitions": [
+     {
+      "text": "occasion",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one thing placed on another sits above it, so these letters come first in the column"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     },
+     {
+      "clueFragment": "Just",
+      "gives": "FAIR",
+      "note": "just and fair both mean even-handed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is only occasionally accompanied by a woman.",
+     "walkthrough": "'On occasion' reads as an idiom meaning sometimes, but 'on' places A F above FAIR in the down entry and 'occasion' alone is the definition.",
+     "definitionFit": "An affair can mean an event or social function, as in 'a grand affair', which matches occasion as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +175,45 @@
     "text": "Pick tobacco wads, we're told",
     "enumeration": "6"
    },
-   "solution": "CHOOSE"
+   "solution": "CHOOSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHOOSE",
+    "definitions": [
+     {
+      "text": "Pick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the word is identified by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tobacco wads",
+      "gives": "CHOOSE",
+      "soundsLike": "CHEWS",
+      "note": "chews are wads of chewing tobacco"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone selects plugs of chewing tobacco on a friend's recommendation.",
+     "walkthrough": "A chew is a lump of tobacco held in the mouth; the plural 'chews' is pronounced exactly like the verb for picking.",
+     "definitionFit": "To choose is to pick or select from several options, a direct synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +227,62 @@
     "text": "Country really oddly conceals ancient city",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, so the first, third and fifth letters are kept"
+     },
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "to conceal is to hide something inside, so one set of letters wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "really",
+      "gives": "RAL",
+      "select": "alternate",
+      "note": "first, third and fifth letters of 'really'"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "UR",
+      "note": "Ur was a city of ancient Mesopotamia, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation is described as truly strange for hiding a lost historic city.",
+     "walkthrough": "'Country' looks like the nation of the surface, but here it is an adjective, as in country life.",
+     "definitionFit": "Rural describes the countryside, the same as country used as an adjective in 'country lanes'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +296,46 @@
     "text": "From some mittens I only get tightness",
     "enumeration": "7"
    },
-   "solution": "TENSION"
+   "solution": "TENSION",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TENSION",
+    "definitions": [
+     {
+      "text": "tightness",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "From some",
+      "for": "hidden_word",
+      "note": "taking from some of the following words means lifting a run of letters out of them"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mittens I only",
+      "gives": "TENSION",
+      "note": "the letters run across the end of 'mittens', the 'I' and the start of 'only'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone complains that their gloves only ever feel too tight.",
+     "walkthrough": "The letters bridge three words, so the break between 'mittens' and 'I' hides the join.",
+     "definitionFit": "Tension is the state of being stretched taut, which is exactly what tightness describes in a rope or muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mittens"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +349,64 @@
     "text": "Foxtrot with one group is exciting",
     "enumeration": "6"
    },
-   "solution": "FIRING"
+   "solution": "FIRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIRING",
+    "definitions": [
+     {
+      "text": "exciting",
+      "at": 26,
+      "note": "verb participle: firing up, stirring"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so the pieces are simply set next to one another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foxtrot",
+      "gives": "F",
+      "note": "Foxtrot is F in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "RING",
+      "note": "a ring is a group of people, such as a spy ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "I",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Dancing the foxtrot with a single partner group proves thrilling.",
+     "walkthrough": "'Foxtrot' suggests ballroom dancing, but it is just the radio code word for F.",
+     "definitionFit": "To fire someone's imagination is to stir it, so firing works as a participle meaning stimulating or rousing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Foxtrot"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +420,51 @@
     "text": "The same suspect in citadel",
     "enumeration": "9"
    },
-   "solution": "IDENTICAL"
+   "solution": "IDENTICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDENTICAL",
+    "definitions": [
+     {
+      "text": "The same",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "as an adjective, suspect means dubious or not to be trusted, so the letters that follow are not in their genuine order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in citadel",
+      "gives": "INCITADEL",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCITADEL",
+       "gives": "IDENTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The same suspicious figure is lurking inside the fortress.",
+     "walkthrough": "'Suspect' reads as a noun for a person under suspicion, but it is an adjective telling you the letters are dodgy.",
+     "definitionFit": "Identical means exactly alike in every detail, a direct synonym of the phrase the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +478,47 @@
     "text": "Climb up to the minute ridge",
     "enumeration": "8"
    },
-   "solution": "INCREASE"
+   "solution": "INCREASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCREASE",
+    "definitions": [
+     {
+      "text": "Climb",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up to the minute",
+      "gives": "IN",
+      "note": "something that is in is fashionable, bang up to date"
+     },
+     {
+      "clueFragment": "ridge",
+      "gives": "CREASE",
+      "note": "a crease is a raised line or ridge in cloth or paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CREASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker scrambles to the top of a tiny mountain crest.",
+     "walkthrough": "'Climb up' looks like one phrasal verb and 'minute' like the adjective for tiny; in fact 'up to the minute' is a single phrase meaning trendy.",
+     "definitionFit": "Prices or numbers that climb go upward, so increase is a synonym of climb as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +532,47 @@
     "text": "Best large estate",
     "enumeration": "8"
    },
-   "solution": "GREATEST"
+   "solution": "GREATEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREATEST",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "GREAT",
+      "note": "great and large both mean big"
+     },
+     {
+      "clueFragment": "estate",
+      "gives": "EST",
+      "note": "EST is a common abbreviation for estate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREAT",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praises a big country property as the finest around.",
+     "walkthrough": "The clue reads as a description of a property, but the first word alone is the definition.",
+     "definitionFit": "Greatest is the superlative of great, matching best as the top of a ranking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +586,43 @@
     "text": "Stunning carpet?",
     "enumeration": "8"
    },
-   "solution": "FLOORING"
+   "solution": "FLOORING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLOORING",
+    "definitions": [
+     {
+      "text": "Stunning",
+      "at": 0
+     },
+     {
+      "text": "carpet",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stunning",
+      "note": "first meaning: knocking down or astonishing someone, as in a floored opponent"
+     },
+     {
+      "clueFragment": "carpet",
+      "note": "second meaning: material laid as a floor covering"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stunning carpet' looks like praise for a beautiful rug; the question mark warns that each word is a separate meaning.",
+     "definitionFit": "To floor someone is to knock them down or astonish them, and flooring is also the general term for floor coverings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stunning"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +636,55 @@
     "text": "Retrieve short rest, something snooker player might use",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Retrieve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a word cut short is missing its full length, so it loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "something snooker player might use",
+      "gives": "CUE",
+      "note": "the cue is the stick used to strike the ball in snooker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player fetching a short rest, the support for awkward shots.",
+     "walkthrough": "In snooker a rest is itself a piece of equipment, so the surface makes 'short rest' and 'something snooker player might use' look like one item.",
+     "definitionFit": "To rescue something is to save it or get it back from danger, close to retrieve as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +698,66 @@
     "text": "Uniform? European's after a good fit",
     "enumeration": "4"
    },
-   "solution": "AGUE"
+   "solution": "AGUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGUE",
+    "definitions": [
+     {
+      "text": "fit",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following on, so these letters are placed behind the earlier ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is a common abbreviation for good"
+     },
+     {
+      "clueFragment": "Uniform",
+      "gives": "U",
+      "note": "Uniform is U in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A European wonders whether a school uniform will fit properly.",
+     "walkthrough": "'Fit' reads as a garment fitting well, but it is a noun: a bout of illness.",
+     "definitionFit": "An ague is an old word for a malarial fever or fit of shivering, so a fit in the sense of an attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +771,67 @@
     "text": "Humiliating sunlit shot in golf",
     "enumeration": "9"
    },
-   "solution": "INSULTING"
+   "solution": "INSULTING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INSULTING",
+    "definitions": [
+     {
+      "text": "Humiliating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or broken, so the letters before it are wrecked and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sunlit",
+      "gives": "SUNLIT",
+      "note": "taken as written, six letters to rearrange"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "Golf is G in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSULT",
+      "IN",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUNLIT",
+       "gives": "INSULT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's embarrassing stroke played out in bright sunshine.",
+     "walkthrough": "'Shot in golf' looks like one golfing phrase, but 'shot' signals the rearrangement and 'golf' is the radio code word.",
+     "definitionFit": "Insulting remarks demean and belittle, which is what humiliating means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +845,47 @@
     "text": "Pretty tense form of communication",
     "enumeration": "5"
    },
-   "solution": "TWEET"
+   "solution": "TWEET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWEET",
+    "definitions": [
+     {
+      "text": "form of communication",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pretty",
+      "gives": "TWEE",
+      "note": "twee means excessively pretty or quaint"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fairly strained way of getting a message across.",
+     "walkthrough": "'Pretty tense' reads as 'rather nervous', with pretty as an adverb; here it is the adjective, and tense is the grammar term.",
+     "definitionFit": "A tweet is a short post on the social network X, formerly Twitter, a modern way of sending messages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pretty"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +899,54 @@
     "text": "Murderer I incarcerated in jail",
     "enumeration": "4"
    },
-   "solution": "CAIN"
+   "solution": "CAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAIN",
+    "definitions": [
+     {
+      "text": "Murderer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incarcerated in",
+      "for": "container",
+      "note": "a prisoner who is incarcerated is shut inside a prison, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jail",
+      "gives": "CAN",
+      "note": "the can is slang for prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A killer confesses that he was locked up in prison.",
+     "walkthrough": "'The can' is informal, mainly American slang for a jail.",
+     "definitionFit": "In Genesis, Cain killed his brother Abel, making him the first murderer in the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +960,56 @@
     "text": "Link toes with Isaac, naughtily",
     "enumeration": "9"
    },
-   "solution": "ASSOCIATE"
+   "solution": "ASSOCIATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSOCIATE",
+    "definitions": [
+     {
+      "text": "Link",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughtily",
+      "for": "anagram",
+      "note": "acting naughtily means misbehaving, so the letters refuse to stay in their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toes",
+      "gives": "TOES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Isaac",
+      "gives": "ISAAC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOESISAAC",
+       "gives": "ASSOCIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheekily entwines their toes with Isaac's under the table.",
+     "walkthrough": "'With' simply joins the two words whose letters are mixed together.",
+     "definitionFit": "To associate two things is to connect them in the mind, so it is a synonym of link as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Link"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1023,70 @@
     "text": "Justifies getting third in race after old exercises",
     "enumeration": "7"
    },
-   "solution": "EXCUSES"
+   "solution": "EXCUSES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXCUSES",
+    "definitions": [
+     {
+      "text": "Justifies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third in",
+      "for": "letter_selection",
+      "note": "the third in a word is the letter standing in position three, so only that one is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following on, so the selected letter is placed behind the earlier piece"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "C",
+      "select": 3,
+      "note": "third letter of 'race'"
+     },
+     {
+      "clueFragment": "exercises",
+      "gives": "USES",
+      "note": "to exercise a right or skill is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "C",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains away coming third in a race by blaming previous workouts.",
+     "walkthrough": "'Exercises' looks like a noun for workouts, but it is the verb, as in exercising power.",
+     "definitionFit": "If something excuses an action it provides a reason that makes it acceptable, as justifies does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercises"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1100,61 @@
     "text": "Spades divert ant so it stops on the line",
     "enumeration": "8"
    },
-   "solution": "STATIONS"
+   "solution": "STATIONS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STATIONS",
+    "definitions": [
+     {
+      "text": "stops on the line",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "divert",
+      "for": "anagram",
+      "note": "to divert is to send something off its normal course, so the letters are rerouted into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spades",
+      "gives": "S",
+      "note": "S is the abbreviation for spades in card games"
+     },
+     {
+      "clueFragment": "ant so it",
+      "gives": "ANTSOIT",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TATIONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANTSOIT",
+       "gives": "TATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener uses spades to steer an ant away so it halts at a line.",
+     "walkthrough": "'So' reads as a joining word meaning 'so that', but its letters belong to the mixed group along with 'ant' and 'it'.",
+     "definitionFit": "Stations are the places where trains halt along a railway route, so stops on the line describes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Spades"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1168,53 @@
     "text": "Commanding Officer married father's friend",
     "enumeration": "8"
    },
-   "solution": "COMPADRE"
+   "solution": "COMPADRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMPADRE",
+    "definitions": [
+     {
+      "text": "friend",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commanding Officer",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for Commanding Officer"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "father's",
+      "gives": "PADRE",
+      "note": "padre means father, the title of a priest or a military chaplain; the 's is read as 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "PADRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedded army commander turns out to be an old pal of Dad's.",
+     "walkthrough": "'Father's friend' looks like one possessive phrase; split it and the apostrophe-s becomes 'is', linking the wordplay to 'friend'.",
+     "definitionFit": "Compadre is a Spanish-derived word for a companion or buddy, used informally in English for a close pal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "father's"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1228,48 @@
     "text": "Jeans perhaps with no rear pocket",
     "enumeration": "7"
    },
-   "solution": "TROUSER"
+   "solution": "TROUSER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TROUSER",
+    "definitions": [
+     {
+      "text": "pocket",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no rear",
+      "for": "deletion",
+      "note": "having no rear means lacking its back end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jeans perhaps",
+      "gives": "TROUSERS",
+      "note": "jeans are one kind of legwear, flagged as an example by 'perhaps'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROUSER"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of jeans that has no back pocket.",
+     "walkthrough": "'Pocket' looks like a noun completing the jeans picture, but it is a verb, and trouser is British slang for pocketing cash.",
+     "definitionFit": "To trouser money is informal British usage for taking it, often dishonestly, which is what pocketing it means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pocket"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1283,62 @@
     "text": "King is welcoming British guys",
     "enumeration": "4"
    },
-   "solution": "RIBS"
+   "solution": "RIBS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RIBS",
+    "definitions": [
+     {
+      "text": "guys",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "B",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch graciously receives some men from Britain.",
+     "walkthrough": "'Guys' reads as a plural noun for men, but it is a verb meaning mocks.",
+     "definitionFit": "To rib someone is to tease them good-naturedly, and to guy someone also means to make fun of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guys"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1352,41 @@
     "text": "Completely healthy",
     "enumeration": "4"
    },
-   "solution": "WELL"
+   "solution": "WELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WELL",
+    "definitions": [
+     {
+      "text": "Completely",
+      "at": 0
+     },
+     {
+      "text": "healthy",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Completely",
+      "note": "first meaning: thoroughly"
+     },
+     {
+      "clueFragment": "healthy",
+      "note": "second meaning: in good health, not ill"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The pair reads as 'totally fit', but each word is a separate meaning of the same short word.",
+     "definitionFit": "As an adverb the word means thoroughly or fully, and as an adjective it means in good health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1400,60 @@
     "text": "Pipe cleaner finally removed from US artist",
     "enumeration": "7"
    },
-   "solution": "WHISTLE"
+   "solution": "WHISTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "WHISTLE",
+    "definitions": [
+     {
+      "text": "Pipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the very end, so only the closing letter of the word is taken"
+     },
+     {
+      "text": "removed from",
+      "for": "deletion",
+      "note": "taking a part out of a whole leaves the remainder behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US artist",
+      "gives": "WHISTLER",
+      "note": "the American painter famous for the portrait of his mother"
+     },
+     {
+      "clueFragment": "cleaner",
+      "gives": "R",
+      "select": "last",
+      "note": "closing letter of 'cleaner'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHISTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pipe cleaner has been taken off an American painter's canvas.",
+     "walkthrough": "'Pipe cleaner' looks like one object, but 'Pipe' is the definition and 'cleaner' supplies the letter to drop. Whistler painted the famous portrait of his mother.",
+     "definitionFit": "A pipe can be a simple wind instrument or a shrill sound, and a whistle is both a small blown instrument and its note."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1467,55 @@
     "text": "Perceived jazz fan adopting expression of disgust",
     "enumeration": "6"
    },
-   "solution": "CAUGHT"
+   "solution": "CAUGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAUGHT",
+    "definitions": [
+     {
+      "text": "Perceived",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "to adopt is to take in, so one piece is brought inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jazz fan",
+      "gives": "CAT",
+      "note": "cat is old slang for a jazz enthusiast"
+     },
+     {
+      "clueFragment": "expression of disgust",
+      "gives": "UGH",
+      "note": "ugh is an exclamation of disgust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "UGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz lover was seen pulling a face of revulsion.",
+     "walkthrough": "Cat as a hip jazz fan is mid-century slang that crosswords still use often.",
+     "definitionFit": "To catch something is to hear or notice it, as in 'I didn't catch that', so caught matches perceived."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopting"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1529,70 @@
     "text": "Kept getting embarrassed after son took bottom half off",
     "enumeration": "6"
    },
-   "solution": "STORED"
+   "solution": "STORED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STORED",
+    "definitions": [
+     {
+      "text": "Kept",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom half off",
+      "for": "deletion",
+      "note": "in a down entry the bottom half is the second half, and taking it off leaves only the first half"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following on, so these letters are placed behind the earlier ones"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "took",
+      "gives": "TOOK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "someone embarrassed goes red in the face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TO",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy blushed after his son pulled his trousers down in public.",
+     "walkthrough": "'Took bottom half off' reads as undressing, but it tells you to remove the second half of the word 'took'.",
+     "definitionFit": "Stored means put away and retained for later, which is the sense of kept as a past tense verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1606,55 @@
     "text": "Sign of nerves about work matter",
     "enumeration": "5"
    },
-   "solution": "TOPIC"
+   "solution": "TOPIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOPIC",
+    "definitions": [
+     {
+      "text": "matter",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign of nerves",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch, often a sign of nervousness"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OP",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Fretting about a job shows up as a sign of anxiety.",
+     "walkthrough": "'Work matter' looks like an office issue, but 'matter' stands alone as the definition. OP is the musician's abbreviation for opus.",
+     "definitionFit": "A topic is the subject under discussion, and matter can mean the same, as in 'the matter in hand'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1668,61 @@
     "text": "Fantastic fish – I want head removed",
     "enumeration": "9"
    },
-   "solution": "BRILLIANT"
+   "solution": "BRILLIANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BRILLIANT",
+    "definitions": [
+     {
+      "text": "Fantastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head removed",
+      "for": "deletion",
+      "note": "with its head removed a word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "BRILL",
+      "note": "brill is a European flatfish"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "WANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRILL",
+      "I",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner declares the fish wonderful but insists its head be cut off first.",
+     "walkthrough": "'Head removed' sounds like preparing the fish, but it applies to 'want' beside it.",
+     "definitionFit": "Brilliant is an informal term of high praise meaning excellent, just like fantastic used as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1736,59 @@
     "text": "John regularly is fed for free",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "john is slang for a toilet, and loo is the British word for one"
+     },
+     {
+      "clueFragment": "is fed",
+      "gives": "SE",
+      "select": "alternate",
+      "note": "second and fourth letters of 'is fed'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named John gets regular meals without paying.",
+     "walkthrough": "'John' looks like a man's name, but in slang a john is a lavatory, and loo is the everyday British word.",
+     "definitionFit": "An animal that is loose has escaped and roams at liberty, matching free as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1808,54 @@
      }
     ]
    },
-   "solution": "OHDEAR"
+   "solution": "OHDEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OH DEAR",
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0,
+      "note": "exclamation of surprise or dismay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "Adorable",
+      "gives": "DEAR",
+      "note": "dear means lovable or sweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "H",
+      "DEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife calls her elderly husband sweet.",
+     "walkthrough": "'My' looks like a possessive, but it is the exclamation, as in 'my, how you've grown'.",
+     "definitionFit": "Both are mild exclamations of surprise or dismay, so one interjection can stand in for the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1869,63 @@
     "text": "Harder empty nut Roger's cracked",
     "enumeration": "8"
    },
-   "solution": "STRONGER"
+   "solution": "STRONGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STRONGER",
+    "definitions": [
+     {
+      "text": "Harder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its contents, leaving just its first and last letters"
+     },
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "cracked means broken, so the letters are smashed and rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut",
+      "gives": "NT",
+      "select": "outer",
+      "note": "outer letters of 'nut'"
+     },
+     {
+      "clueFragment": "Roger's",
+      "gives": "ROGERS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NTROGERS",
+       "gives": "STRONGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Roger has managed to break open a tough nut with nothing inside.",
+     "walkthrough": "The surface pictures cracking a nut, but 'nut' is cut down first and 'cracked' works on Roger's letters too.",
+     "definitionFit": "Stronger means tougher or more robust, and harder carries the same comparative sense of resistance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 29,
@@ -458,7 +1939,60 @@
     "text": "Looked almost sordid embracing this writer",
     "enumeration": "6"
    },
-   "solution": "SEEMED"
+   "solution": "SEEMED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SEEMED",
+    "definitions": [
+     {
+      "text": "Looked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word stops one letter short"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to wrap arms around, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sordid",
+      "gives": "SEEDY",
+      "note": "seedy means squalid or disreputable"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter refers to themselves, so this writer is me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone appeared nearly sleazy while hugging the author.",
+     "walkthrough": "'This writer' is the setter's standard way of saying me.",
+     "definitionFit": "Seemed means appeared to be, as in 'he looked tired', so looked works as a synonym in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -472,7 +2006,57 @@
     "text": "Licked feet? Dead kinky",
     "enumeration": "8"
    },
-   "solution": "DEFEATED"
+   "solution": "DEFEATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEFEATED",
+    "definitions": [
+     {
+      "text": "Licked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kinky",
+      "for": "anagram",
+      "note": "kinky means twisted or bent out of line, so the letters are twisted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feet",
+      "gives": "FEET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Dead",
+      "gives": "DEAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEETDEAD",
+       "gives": "DEFEATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recounts a foot-licking episode and calls it seriously perverted.",
+     "walkthrough": "'Licked' sets up a cheeky bedroom picture, but it means beaten, as in licked in a contest.",
+     "definitionFit": "To lick an opponent is informal for beating them soundly, so licked means beaten or overcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Licked"
+    }
+   }
   }
  ]
 }
