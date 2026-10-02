@@ -14,6 +14,13 @@ tags or is a Symbol, and its expansion is what the dictionary says it stands
 for: the alt_of/form_of words, or a gloss of four words or fewer when it gives
 none ("month" for mon, "copper" for Cu's "Chemical element symbol for copper").
 
+An entry spelled with a final period is an abbreviation by its spelling, and
+Wiktionary often writes its senses as bare links with no tag (A.: American,
+acre, army). Those entries are the members of Wiktionary's category "English
+terms spelled with .", each read from kaikki.org's per-word file (about 3,400
+small requests), and their untagged senses count too, except one that points
+at another entry (plural of addn.).
+
 The second is Wikipedia's "Crossword abbreviations" article, at the revision
 LIST_REVISION pins: the setters' conventions Wiktionary has no sense for (son S,
 old O, love O, cold C, sailor AB, at home IN). Each "* Word - <small>X</small>"
@@ -27,7 +34,10 @@ beside the file. build_abbreviations.table() reads the result.
 import json
 import re
 import sys
+import urllib.error
+import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -44,6 +54,8 @@ SOURCES = [
     "Translingual/pos-symbol/kaikki.org-dictionary-Translingual-by-pos-symbol.jsonl",
     "Translingual/pos-num/kaikki.org-dictionary-Translingual-by-pos-num.jsonl",
 ]
+DOTTED = "Category:English terms spelled with ."
+API = "https://en.wiktionary.org/w/api.php?"
 LIST = "https://en.wikipedia.org/w/index.php?action=raw&title=Crossword_abbreviations&oldid="
 LIST_REVISION = 1375193762
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
@@ -104,8 +116,10 @@ def senses(entry):
     letters = letters_of(form)
     if not letters:
         return
+    dotted = form.endswith(".")
     for s in entry.get("senses", []):
-        if not (TAGS & set(s.get("tags", [])) or entry.get("pos") == "symbol"):
+        if not (TAGS & set(s.get("tags", [])) or entry.get("pos") == "symbol"
+                or dotted and not (s.get("alt_of") or s.get("form_of"))):
             continue
         # wiktextract splits a gloss's commas into alt_of entries: the first is
         # the expansion and a second is a trailing remark ("Abbreviation of
@@ -153,6 +167,43 @@ def lexicon_words():
                      .splitlines() if line and not line.startswith("#"))
 
 
+def get_json(url):
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120) as r:
+        return json.load(r)
+
+
+def dotted_titles():
+    """The category's members that end in a period: A., e.g., Ph.D."""
+    titles, more = [], {}
+    while True:
+        r = get_json(API + urllib.parse.urlencode(dict(
+            action="query", list="categorymembers", cmtitle=DOTTED, cmnamespace=0,
+            cmlimit="max", format="json", **more)))
+        titles += [m["title"] for m in r["query"]["categorymembers"]]
+        if "continue" not in r:
+            return [t for t in titles if t.endswith(".")]
+        more = r["continue"]
+
+
+def word_url(word):
+    """kaikki.org's per-word file: A. is meaning/A/A_/A_dot_.jsonl."""
+    name = word.replace(".", "_dot_").replace("/", "_slash_")
+    q = urllib.parse.quote
+    return f"{BASE}English/meaning/{q(name[0])}/{q(name[:2])}/{q(name)}.jsonl"
+
+
+def word_entries(word):
+    """Every entry on one word's kaikki.org page; none when it has no file."""
+    try:
+        with urllib.request.urlopen(urllib.request.Request(word_url(word), headers=UA),
+                                    timeout=120) as r:
+            return [json.loads(line) for line in r]
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return []
+        raise
+
+
 def fetch():
     table = {}
     req = urllib.request.Request(LIST + str(LIST_REVISION), headers=UA)
@@ -172,6 +223,15 @@ def fetch():
                     table.setdefault(w, set()).add(k)
         print(f"{path.rsplit('/', 1)[1]}: {sum(map(len, table.values())):,} senses so far",
               file=sys.stderr)
+    titles = dotted_titles()
+    with ThreadPoolExecutor(8) as pool:
+        for entries in pool.map(word_entries, titles):
+            for entry in entries:
+                if entry.get("lang_code") == "en":
+                    for w, k in senses(entry):
+                        table.setdefault(w, set()).add(k)
+    print(f"{len(titles):,} entries spelled with a final period: "
+          f"{sum(map(len, table.values())):,} senses so far", file=sys.stderr)
     return table
 
 
