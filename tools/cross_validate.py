@@ -1673,7 +1673,31 @@ def apply_majority(ours, verdicts):
                                                if where(e) == v["at"])
                 v.update(fixed=False, winner=v["ours"], kind="split",
                          why="crossings disagree with it")
+    drop_stale_annotations(ours, new)
     return new
+
+
+def group_answer(puzzle, e):
+    """The answer `e` leads: its own, or its group's lights end to end."""
+    by_id = {groups.entry_id(x): x for x in puzzle["entries"]}
+    return "".join(by_id[m].get("solution") or "" for m in e.get("group") or
+                   [groups.entry_id(e)] if m in by_id)
+
+
+def drop_stale_annotations(old, puzzle):
+    """Drop, in place, each annotation of `puzzle` whose light's answer
+    differs from `old`'s and no longer matches the annotation's, so the light
+    is annotated again rather than explained as the answer it replaced."""
+    was = {where(e): group_answer(old, e) for e in old["entries"]}
+    for e in puzzle["entries"]:
+        ann = e.get("annotation")
+        answer = group_answer(puzzle, e)
+        if not isinstance(ann, dict) or not ann.get("answer") or was.get(where(e)) == answer:
+            continue
+        if re.sub(r"[^A-Z]", "", ann["answer"].upper()) != answer.upper():
+            del e["annotation"]
+    if puzzle.get("annotatedBy") and not any(e.get("annotation") for e in puzzle["entries"]):
+        del puzzle["annotatedBy"]
 
 
 def ledger_majority(pid, verdicts):

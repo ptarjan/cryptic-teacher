@@ -351,6 +351,13 @@ same("majority: a clue is fixed from the paper's own print",
 vs, new = verdict(bee(text="Hummer", ann="Hummer: a car"), (Fake("a"), bee()), (Fake("b"), bee()))
 same("majority: a clue an annotation quotes stays ours",
      (vs, new["entries"][3]["clue"]["text"]), ([("CLUE", "3-across", False)], "Hummer"))
+vs, new = verdict(bee("BYE", ann={"answer": "BYE", "definitions": []}),
+                  (Fake("a"), bee()), (Fake("b"), bee()))
+same("majority: a fixed answer drops the annotation written for the old one",
+     (new["entries"][3]["solution"], "annotation" in new["entries"][3]), ("BEE", False))
+vs, new = verdict(bee("BYE", ann={"answer": "BYE", "definitions": []}), (Fake("a"), bee()))
+same("majority: an answer left standing keeps its annotation",
+     new["entries"][3].get("annotation"), {"answer": "BYE", "definitions": []})
 vs, new = verdict(bee(enum="1,2"), (Fake("a"), bee()), (Fake("b"), bee()))
 same("majority: a count is fixed", new["entries"][3]["clue"]["enumeration"], "3")
 vs, new = verdict(bee(), (Fake("a"), bee("TEE")), (Fake("b"), bee("TEE")))
