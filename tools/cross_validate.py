@@ -63,15 +63,16 @@ settle ANSWER, ENUMERATION and CLUE; the structural classes are tallied and
 left to the per-source refiles.
 
 Every copy we hold, by series. "own" is the paper's own feed, app or page; an
-adapter in brackets reads it. * = compared nightly before 2026-10-01 (each
-against ours alone); every cell marked with an adapter is now compared
-nightly by `all`, tonight's filings and a rotating slice of the corpus.
+adapter in brackets reads it; a cell marked with an adapter is compared by
+`all`. The nightly runs `all --new` on tonight's filings; a pass over the rest
+(`all --apply --limit N`, resuming at a cursor) is run by hand after a change
+to an adapter or to majority().
 
   series                     primary (where ours came from)     other copies we hold
-  cryptic quiptic everyman   own page (fetch_puzzle)            own page [guardian]*, fifteensquared
+  cryptic quiptic everyman   own page (fetch_puzzle)            own page [guardian], fifteensquared
                                                                 [fifteensquared], georgeho
                                                                 [georgeho, fifteensquared's origin]
-  independent indysunday     own feed from 2015-06, else        own feed [independent]*, fifteensquared
+  independent indysunday     own feed from 2015-06, else        own feed [independent], fifteensquared
                              fifteensquared rebuild             [fifteensquared], georgeho
   cyclops                    own .puz (fetch_privateeye)        fifteensquared [fifteensquared], georgeho
   telegraph sundaytel        own app bucket from 2015, else     app bucket [telegraph], bigdave44
@@ -79,11 +80,11 @@ nightly by `all`, tonight's filings and a rotating slice of the corpus.
   times sundaytimes          timesforthetimes rebuild           georgeho (the same blog, to 2023-07: a
   timesjumbo mephisto                                           split is a lead, never a fix); the
   timesclub tls                                                 Times listing's dates (corroborate.py)
-  timesquick                 timesforthetimes rebuild to 3105   Globe [globe]* for the blog copy from
+  timesquick                 timesforthetimes rebuild to 3105   Globe [globe] for the blog copy from
                                                                 3106, georgeho
-  globeandmail               own Amuse payload                  own payload [globe]*, timesforthetimes
+  globeandmail               own Amuse payload                  own payload [globe], timesforthetimes
                                                                 [timesforthetimes]
-  ftcryptic                  FT PDF 2006-12, else               FT PDF [ft]*, the fifteensquared post
+  ftcryptic                  FT PDF 2006-12, else               FT PDF [ft], the fifteensquared post
                              fifteensquared rebuild             the rebuild came from
   canberra                   Trove scan                         none yet
   book metro listener        the book, the paper, the PDF       none
@@ -1735,7 +1736,7 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
     """Every copy of each selected puzzle against ours at once (majority()),
     fixing what a majority settles when `write`. The selection is `only`, the
     files `new` names, or the next `limit` held puzzles after the cursor,
-    wrapping, so a bounded nightly run walks the whole corpus in turn (the
+    wrapping, so bounded runs walk the whole corpus in turn (the
     cursor moves only when `write`, so a report-only run leaves it)."""
     adapters = [cls() for cls in ADAPTERS.values()
                 if series is None or set(cls.series) & set(series)]
