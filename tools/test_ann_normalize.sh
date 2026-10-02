@@ -68,5 +68,14 @@ def findings(pz):
     return puzzle_schema.validate(pz) + [x for x in errs if "clueFragment" in x]
 check("an empty clueFragment passes under a preamble", not findings(pz))
 check("and is refused without one", len(findings({**pz, "preamble": ""})) == 1)
+# explanation.walkthrough is optional: the blocks may say it all.
+pz2 = F.read_puzzle_file(src)
+for x in pz2["entries"]:
+    (x.get("annotation") or {}).pop("explanation", None)
+pz2 = puzzle_schema.prune(pz2)
+with contextlib.redirect_stdout(io.StringIO()):
+    errs2 = V.validate_puzzle(pz2)[1]
+check("no explanation at all is not a finding",
+      not [x for x in puzzle_schema.validate(pz2) + errs2 if "explanation" in x or "walkthrough" in x])
 raise SystemExit(1 if fails else 0)
 PY

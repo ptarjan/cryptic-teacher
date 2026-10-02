@@ -41,7 +41,7 @@ Two worked annotations close this file. A puzzle's file is
 ```json
 {
   "type": ["every mechanism, in the order applied, from the Reference below"],
-  "answer": "DISPLAY FORM: the solution's letters, spaced only where the enumeration is",
+  "answer": "optional: the grid solution in display form is filled in when absent",
   "definitions": [{"text": "exact substring of the clue", "note": "only if it disagrees with the answer in number or part of speech"}],
   "definedByPreamble": "true instead of definitions, only when the puzzle's preamble defines this answer",
   "indicators": [{"text": "exact substring", "for": "one of this clue's own type names", "note": "why THESE words signal that operation here"}],
@@ -58,7 +58,7 @@ Two worked annotations close this file. A puzzle's file is
   },
   "explanation": {
     "surface": "one sentence, 25 words max: what the clue pretends to be about",
-    "walkthrough": "1-2 sentences, 45 words max: what the blocks cannot show",
+    "walkthrough": "optional, 1-2 sentences, 45 words max: what the blocks cannot show",
     "definitionFit": "one sentence, 30 words max: why the answer means the definition"
   },
   "features": {

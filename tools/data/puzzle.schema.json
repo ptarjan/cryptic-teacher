@@ -561,8 +561,7 @@
    "required": [
     "type",
     "answer",
-    "blocks",
-    "explanation"
+    "blocks"
    ],
    "anyOf": [
     {
@@ -731,9 +730,6 @@
     "explanation": {
      "description": "The prose a solver reads on the last hint rung, after the blocks: what the clue seems to say, how the trick works, and why the answer means the definition. Each is plain text, one or two sentences.",
      "type": "object",
-     "required": [
-      "walkthrough"
-     ],
      "additionalProperties": false,
      "properties": {
       "surface": {
@@ -742,7 +738,7 @@
        "minLength": 1
       },
       "walkthrough": {
-       "description": "One or two sentences on what the blocks cannot show: why the surface misleads, a convention the solver may not know, why a definition is fair.",
+       "description": "One or two sentences on what the blocks cannot show: why the surface misleads, a convention the solver may not know, why a definition is fair. Absent when the blocks say it all.",
        "type": "string",
        "minLength": 1
       },
