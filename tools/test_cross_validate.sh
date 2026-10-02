@@ -89,8 +89,16 @@ same("and refuses a stray plain space", len(puzzle_schema.validate(held)), 1)
 same("a note's sentences that are only a link are not kept",
      [fp.preamble("Eight solutions are of a kind.Click here for annotated solutions."),
       fp.preamble("For a printable version of this crossword, click here."),
-      fp.preamble("To see the clues please click here Method: fit them in.")],
-     ["Eight solutions are of a kind.", None, "To see the clues please click here Method: fit them in."])
+      fp.preamble("To see the clues please click here Method: fit them in."),
+      fp.preamble("For the printable version of this crossword click here"),
+      fp.preamble("Theme: rivers. Annotated solutions are available here."),
+      fp.preamble("An annotated guide to solutions can be found by clicking here"),
+      fp.preamble("Method: Solve the clue, which can be found here, and fit them in."),
+      fp.preamble("x"),
+      fp.preamble("A Hogmanay puzzle (see perimeter)For a printable version of this crossword click here")],
+     ["Eight solutions are of a kind.", None, "To see the clues please click here Method: fit them in.",
+      None, "Theme: rivers.", None, "Method: Solve the clue, which can be found here, and fit them in.",
+      None, "A Hogmanay puzzle (see perimeter)"])
 
 INDY = b"""<?xml version="1.0" encoding="UTF-8"?>
 <crossword-compiler xmlns="http://crossword.info/xml/crossword-compiler">
