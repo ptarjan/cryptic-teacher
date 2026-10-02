@@ -40,7 +40,7 @@ import parse_timesforthetimes as tftt
 import puzzle_integrity
 import series as series_meta
 import times_grids as tg
-from fetch_puzzle import puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
+from fetch_puzzle import correct_source_answers, puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
 
 SERIES = "ftcryptic"
 #: The blog's category, and the label its records carry into times_grids.
@@ -478,6 +478,7 @@ def file(write=True, limit=None):
                 continue
             if write:
                 try:
+                    correct_source_answers(puzzle["id"], puzzle["entries"])
                     write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=GENERATOR)
                 except ValueError as e:     # puzzle_integrity's write check
                     skipped[f"refused on write: {str(e).split(': ', 1)[-1][:120]}"] += 1
