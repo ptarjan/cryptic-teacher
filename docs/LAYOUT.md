@@ -1211,5 +1211,10 @@ tools/vlm_pick_prompt.md                     what the VLM reader is told when th
                                              disagree on one clue
 tools/test_annotate_partial.sh               a puzzle that has hints and lacks some is
                                              annotated only where it lacks them
+tools/errata.py                              a paper's erratum is a fix to the puzzle, not a
+                                             preamble
+tools/test_errata.sh                         a paper's erratum in the preamble fixes its clue
+                                             and leaves the preamble; the instructions beside
+                                             it stay, and the write gate refuses one left behind
 ```
 <!-- LAYOUT-END -->

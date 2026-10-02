@@ -147,6 +147,7 @@ from groups import entry_id  # noqa: E402
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
+import errata  # noqa: E402
 from fetch_puzzle import (PER_LIGHT_ENUMERATION, group_orders,  # noqa: E402
                           has_words, is_bare_letters, is_continuation,
                           prints_own_count, read_puzzle_file, reindex)
@@ -1319,6 +1320,14 @@ def _alpha(s):
     return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
 
 
+def check_preamble(puzzle, flags):
+    """A preamble holds no erratum: errata.apply acts on it and takes it out
+    on every write, so one still there was written past that."""
+    for found in errata.find(puzzle.get("preamble")):
+        flags.append(("SHAPE", puzzle.get("id"), f"preamble holds an erratum, not "
+                      f"instructions: {found[:120]!r} (tools/errata.py applies it)"))
+
+
 def check_puzzle(puzzle, today, flags):
     """Every check that one puzzle file answers on its own. audit() runs it on
     the corpus and fetch_puzzle.write_puzzle_file on every write, so a fetcher
@@ -1340,6 +1349,7 @@ def check_puzzle(puzzle, today, flags):
     check_extra_cells(puzzle, flags)
     check_alterations(puzzle, flags)
     check_puzzle_text(puzzle, flags)
+    check_preamble(puzzle, flags)
 
 
 def check_rewrite(old, new, flags):
