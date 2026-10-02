@@ -98,6 +98,12 @@ T.ATTEMPTS.write_text(
     + json.dumps({"post_id": 5, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
                   "settled": T.settled_digest(fix)}) + "\n")
 print("RETRY_SETTLED", sorted(T.attempted(6000000, {4: fix, 5: {(1, "across"): "COT"}})))
+T.ATTEMPTS.write_text("".join(json.dumps(dict(
+    {"post_id": pid, "how": how, "max_nodes": 6000000, "search": T.SEARCH}, **extra)) + "\n"
+    for pid, how, extra in ((6, "refused: 5 down EJTY fits no word", {"settle": T.SETTLE}),
+                            (7, "refused: 5 down EJTY fits no word", {}),
+                            (8, "no grid", {}))))
+print("RETRY_REFUSED", sorted({6, 7, 8} - T.attempted(6000000)))
 # A linked answer the post prints whole (the Times and Telegraph parsers keep
 # its letters and count, no word breaks) is split by the grid: the search
 # that left it out fitted no grid for want of its lights. A post holding one
@@ -282,6 +288,9 @@ def counted(blog, enum):
 print("FIX_DROPPED_COUNT", show(fixes(counted("EOTY", "4"))))
 print("FIX_PHRASE", show(fixes(counted("EOTY", "2,2"), {2: {"EJ"}, 3: {"OTY"}})))
 print("FIX_PHRASE_ONE_WORD", show(fixes(counted("EOTY", "4"), {2: {"EJ"}, 3: {"OTY"}})))
+print("FIX_LENGTH_EITHER", show(fixes(counted("EOTY", "5"), {5: {"EJOTY", "EJETY"}})))
+blank = rec_of(DIAG, **{"5d": ""})
+print("FIX_BLANK", T.answers_fit(DIAG, blank), show(fixes(blank)))
 print("FIX_WRONG_GRID", show(T.settle(TINY, rec_of(DIAG), vocab))[:39])
 
 # The job itself applies it: a run writes the corrections into the grid row,
@@ -408,8 +417,8 @@ check "two letters typed the wrong way round are put back" \
       "5d:EOJTY>EJOTY" "$(field FIX_SWAP)"
 check "an answer at the wrong length is corrected to the light's" \
       "5d:EJOTYEJOTY>EJOTY" "$(field FIX_LENGTH)"
-check "a letter no crossing and no blogger gives is not filled in" \
-      "refused: 5 down EJTY fits no word" "$(field FIX_UNCHECKED)"
+check "a short answer no word corrects is blanked for the answer fill, not filled in" \
+      "5d:EJTY>" "$(field FIX_UNCHECKED)"
 check "a correction that is not a word is refused" \
       "refused: 5 down EXOTY fits no word; 6 across FGHIJ fits no word" "$(field FIX_NOT_A_WORD)"
 check "two corrections that are both words are refused" \
@@ -420,8 +429,13 @@ check "a count typed over the dropped letter does not veto the correction" \
       "5d:EOTY>EJOTY" "$(field FIX_DROPPED_COUNT)"
 check "a phrase is a real word when each of its words is" \
       "5d:EOTY>EJOTY" "$(field FIX_PHRASE)"
-check "but only when the blog wrote it as that many words" \
-      "refused: 5 down EOTY fits no word" "$(field FIX_PHRASE_ONE_WORD)"
+check "but only when the blog wrote it as that many words; else it is blanked" \
+      "5d:EOTY>" "$(field FIX_PHRASE_ONE_WORD)"
+check "a short answer two words correct is blanked, not guessed between" \
+      "5d:EOTY>" "$(field FIX_LENGTH_EITHER)"
+check "a blank answer is no answer: it fits any grid and is never corrected" \
+      "True" "$(field FIX_BLANK)"
+check "a puzzle an older settle() refused is tried again" "[7]" "$(field RETRY_REFUSED)"
 check "a grid its answers do not number is refused, not corrected" \
       "refused: lights differ from the grid at" "$(field FIX_WRONG_GRID)"
 check "a run writes the corrected answer into the grid row" \

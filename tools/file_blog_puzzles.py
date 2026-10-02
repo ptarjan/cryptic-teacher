@@ -438,7 +438,9 @@ def build(rec, row, series, date, setter, typed=None):
             e["solution"] = solution  # last, as every other series writes it
 
     number = row["number"]
-    fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())]
+    fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ()) if c["answer"]]
+    blanked = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())
+               if not c["answer"]]
     barred = rg.barred(row["grid"])
     check = (f"{'bars' if barred else 'grid'} rebuilt from the blog's "
              f"{'numbered answers' if barred else 'light list'} ({row['how']}); every "
@@ -449,6 +451,9 @@ def build(rec, row, series, date, setter, typed=None):
     if fixed:
         check += (f"; the grid proves the blog's answer wrong at "
                   f"{', '.join(fixed)}, corrected here")
+    if blanked:
+        check += (f"; the grid proves the blog's answer wrong at "
+                  f"{', '.join(blanked)}, and no one word corrects it, so it is left blank")
     if recounted:
         check += (f"; the grid proves the blog's enumeration wrong at "
                   f"{', '.join(recounted)}, recounted from the answer here")
