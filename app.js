@@ -3980,7 +3980,7 @@
       key: "walkthrough",
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
-        joke + `<p><b class="wt-part">The trick</b>${esc(prose.walkthrough)}</p>${fit}${note}` +
+        joke + (prose.walkthrough ? `<p><b class="wt-part">The trick</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     // Ordered by how much each rung gives away, cheapest first — not by the
