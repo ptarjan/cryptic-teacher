@@ -252,9 +252,113 @@ lost = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None}
                    {"tokens": [{9}], "text": "End", "enums": {"3"}, "see": None}],
         "down": []}
 base = {"1-across": "Top", "7-across": "Middle", "8-across": "Low", "9-across": "End"}
-check("a lost number laid between its neighbours only with every reading's numbered lights known",
-      (base, {**base, "4-across": "Lost"}, base),
+check("a lost number laid between its neighbours only on the second pass, with every reading's numbered lights known",
+      (base, {**base, "4-across": "Lost"}, {**base, "4-across": "Lost"}),
       tuple({k: v[0] for k, v in f.lay_loose(lost, g, *t)[0].items()} for t in ((), (set(),), ({"4-across"},))))
+
+# Real readings whose list headings the OCR lost. The lists are put back
+# where the clue numbers start rising again (file_trove_puzzles.heads).
+# The Times, 1974-05-14, archive.org's reading: no ACROSS, and DOWN read
+# "DORVN" (left out here: no heading at all).
+times_13686 = """1 The sort of look to keEp a
+pet in iuhpense ? |7).
+5 Unconventionally mad sort
+ot hcreen success (7).
+9 No oao around for her (S).
+10 Here's a Up i9>.
+12 The poet has a donkey to gel
+around 1 5).
+15 Stress importance of tne
+Tube (9).
+25 Electrical effect of bringing
+in the new vicar (9).
+27 Unhappv Is the good man sei
+aback by their cruelty (7).
+2s Rose shade in ballet (7).
+1 Are they too sweet to be
+taken seriously? (?l-
+2 Only two ducks in the team
+of ISO It seems i4. 51-
+3 Dog calls for silence 1 51. _
+5 Fed np with getting dates
+wrong (5).
+6 Rare set-up for creating
+openings (9).
+14 Do they make for perfection
+in the Health Service ? f9>*
+16 Doctor Border's bed-clearing
+operations (9)."""
+p, why = f.parse(times_13686)
+check("both headings lost: across runs 1 to 28 (read '2s'), down from 1 (16 runs into 14, whose count reads 'f9>*')",
+      ([{1}, {25, 28}], [{1}, {14}]),
+      p and ([p["across"][0]["tokens"][0], p["across"][-1]["tokens"][0]],
+             [p["down"][0]["tokens"][0], p["down"][-1]["tokens"][0]]) or why)
+# The Times, 1974-05-04, archive.org's reading: ACROSS kept, DOWN lost
+# along with 2-down's number. DOWN goes back before "3 Norfolk"; the
+# unnumbered lines stay with 27-across, for the vote to cut.
+import file_trove_puzzles as ftp
+times_13679 = """ACROSS
+1 Succeed In &«?mns apple, one
+over ten feet f4. 4i-
+24 Deceive lover with a torch
+(81-
+25 Article with two points gives
+penetration (6L
+27 However doctored tapes are
+. distinct (81-
+honoured "TOSeS
+• whh Russell, an old Greek
+(7J- .
+3 Norfolk town lo register as !
+nonconformist (91. I
+4 Smuggled Benedictine — J
+that’s Irregular <6i.
+S Etisineer MP’S recall iSI.
+7 After ten maybe drink makes
+one weave about f7j."""
+check("DOWN lost: put back where the numbers fall from 27 to 3",
+      "(7J- .\nDOWN\n3 Norfolk town lo register as !",
+      "\n".join(ftp.heads(times_13679.splitlines())[11:14]))
+# 1984-01-02, RapidOCR: the grid's crop took ACROSS; DOWN is there.
+times_16324 = """1 Meaningless sounds occur in nis
+brig. perhaps (9).
+6 Sciled opinion of an intelligent
+judge (5).
+9 Miss Wickfield(5).
+10 Chichcsier. cg.or parts of
+Cathy's island (9).
+DOWN
+1 A changc. mabe, for this
+soldier?(9).
+2 Ecccnirc bom an unknown
+place (6)."""
+check("ACROSS lost: put back before the first numbered line", "ACROSS",
+      ftp.heads(times_16324.splitlines())[0])
+check("a lone run of numbers gets no heading made up", ["1 One (3)", "2 Two (3)", "3 Three (5)"],
+      ftp.heads(["1 One (3)", "2 Two (3)", "3 Three (5)"]))
+# A speck or star before the first number after a heading (1977-01-08,
+# 1985-01-02): the number still leads the clue.
+check("a speck or star before a clue's number is not text",
+      ["DOWN", "1 Miss Write's worried about everything (5)", "1 Land of Hope and—(7)"],
+      f.tidy("DOWN\n. 1 Miss Write's worried about everything (5)\nDOWN\n*1 Land of Hope and—(7)")
+      .splitlines()[:2] + f.tidy("DOWN\n*1 Land of Hope and—(7)").splitlines()[1:])
+
+# A misread number ("74" for 4) or the list's lost last number: the clue
+# takes the light its laid neighbours leave, when its count fills it; a
+# clue that ran into the next ("(7) 9 Two") never does.
+g = ["...#...", ".......", "...#..."]
+mis = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                  {"tokens": [{74}], "text": "Misread", "enums": {"3"}, "see": None},
+                  {"tokens": [{7}], "text": "Middle", "enums": {"7"}, "see": None},
+                  {"tokens": [{8}], "text": "Low", "enums": {"3"}, "see": None},
+                  {"tokens": [set()], "text": "End", "enums": {"3"}, "see": None}],
+       "down": []}
+check("a misread number and a lost last one laid by the grid's numbering",
+      {"1-across": "Top", "4-across": "Misread", "7-across": "Middle", "8-across": "Low", "9-across": "End"},
+      {k: v[0] for k, v in f.lay_loose(mis, g, set())[0].items()})
+mis["across"][1]["text"] = "Misread (7). 9 Two clues"
+check("a run-on clue is not laid by position", False,
+      "4-across" in f.lay_loose(mis, g, set())[0])
 
 # Short last line: "turn (6)" under a line whose box overhangs it is kept;
 # a second copy of the line is not.

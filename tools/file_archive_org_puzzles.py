@@ -79,6 +79,7 @@ import datetime
 import gzip
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -362,7 +363,9 @@ def tidy(text):
             out[-1] += " " + line
             prev = out[-1]
             continue
-        if re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev) or heading_of(prev):
+        if re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev) or heading_of(prev) or not out:
+            # A speck or star before a clue's number: ". 1 Miss", ":1 An", "*1 Land".
+            line = re.sub(r"^[.,:;*'_•·]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
             # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
             line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
@@ -468,15 +471,22 @@ def column_text(cols):
 LOOSE_SHARE = 0.8
 
 
+#: Two clues read as one: a count, or a clue's number and capital, inside the
+#: text. Never laid by position, where the count that ends it proves nothing.
+RUN_ON = re.compile(r"\(\s*\d|[?!.,;)]\s+\d{1,2}\s+[A-Z]")
+
+
 def lay_loose(parsed, grid, taken=None):
     """({light: (text, enumeration, group)}, [clues not laid]): each clue laid
     alone on the light its number names in its list's direction, when its
     number reads one way that names a light not yet taken and one of its
     count readings fills that light; a linked clue on the lights its numbers
     name, when one count fills them all. "See" clues are not laid.
-    With `taken` (the lights every reading laid by number), a clue whose
-    number was lost also takes the one light outside `taken` that its laid
-    neighbours leave between them."""
+    With `taken` (the lights every reading laid by number), clues whose
+    numbers were lost or misread also take the lights their laid neighbours
+    leave between them, one each in order: the lights outside `taken`, or
+    failing that every light this reading left free, when there are as many
+    lights as clues and each count fills its light."""
     lights = rg.light_cells(grid)
     out, bad = {}, []
     for direction in ("across", "down"):
@@ -511,23 +521,29 @@ def lay_loose(parsed, grid, taken=None):
                 continue
             out[lid] = (clue["text"], fits[0], None)
             at[k] = names[0]
-        # Clues whose numbers were lost ("Made to smile ... (6)" between 1
-        # and 9) take the lights their laid neighbours in the list leave
-        # free between them, in order, when there are as many of each and
-        # every count fills its light.
+        # Clues whose numbers were lost or misread ("Made to smile ... (6)"
+        # or "74 Made ..." between 1 and 9, or after the list's last laid
+        # clue) take the lights their laid neighbours in the list leave free
+        # between them, in order, when there are as many of each and every
+        # count fills its light.
         clues = parsed[direction]
         if taken is None:
             continue
         laid_at = sorted(at)
         for lo_k, hi_k in zip([-1] + laid_at, laid_at + [len(clues)]):
             between = list(range(lo_k + 1, hi_k))
-            if not between or hi_k == len(clues) or any(
-                    clues[j]["tokens"] != [set()] or clues[j]["see"] is not None for j in between):
+            if not between or any(len(clues[j]["tokens"]) != 1 or clues[j]["see"] is not None
+                                  or RUN_ON.search(clues[j]["text"]) for j in between):
                 continue
             lo = at[lo_k] if lo_k >= 0 else 0
-            free = sorted(n for (n, d) in lights if d == direction and lo < n < at[hi_k]
-                          and f"{n}-{d}" not in out and f"{n}-{d}" not in taken)
-            if len(free) != len(between):
+            hi = at[hi_k] if hi_k < len(clues) else math.inf
+            # The lights no reading laid by number, else every light this
+            # reading left free: one clue a light either way.
+            free = [sorted(n for (n, d) in lights if d == direction and lo < n < hi
+                           and f"{n}-{d}" not in out and (f"{n}-{d}" not in taken or every))
+                    for every in (False, True)]
+            free = next((f for f in free if len(f) == len(between)), None)
+            if free is None:
                 continue
             fits = [[e for e in clues[j]["enums"] if ftp.count(e) == len(lights[(n, direction)])]
                     for j, n in zip(between, free)]

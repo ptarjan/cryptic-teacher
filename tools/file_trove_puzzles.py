@@ -204,12 +204,67 @@ def rejoin(lines):
     return out
 
 
+HEADING_RE = re.compile(r"\s*(clues\s+)?(across|down)\b\W*", re.IGNORECASE)
+#: A line led by a clue's number: "12 Forcing", "I1 If he's", "S What".
+LEAD = re.compile(rf"\s*({NUM})[.,]?\s+[^\W\d_]")
+#: The fewest clues a list put back without its heading must number in order.
+HEADLESS_RUN = 3
+
+
+def rising(leads):
+    """The most of `leads` (each a set of number readings, in order) that can
+    read as a strictly increasing run."""
+    best = {}  # last number of a run -> its length
+    for opts in leads:
+        step = {n: 1 + max([v for m, v in best.items() if m < n], default=0) for n in opts}
+        for n, v in step.items():
+            best[n] = max(best.get(n, 0), v)
+    return max(best.values(), default=0)
+
+
+def heads(lines):
+    """`lines` with a lost ACROSS or DOWN heading put back. The lists are
+    numbered runs: the down list starts where the clue numbers start rising
+    again (the split leaving the longest rising run on each side), and the
+    across list at the first numbered line before it. Nothing is put back
+    unless each side numbers HEADLESS_RUN clues in order."""
+    def mark(word):
+        return next((i for i, line in enumerate(lines)
+                     if (m := HEADING_RE.match(line)) and m.group(2).lower() == word), None)
+    across, down = mark("across"), mark("down")
+    if across is not None and down is not None:
+        return lines
+    leads = [(i, readings(m.group(1))) for i, line in enumerate(lines)
+             if (m := LEAD.match(line)) and (across is None or i > across)]
+    leads = [(i, {n for n in r if n <= 99}) for i, r in leads if any(n <= 99 for n in r)]
+    if down is None:
+        best = None
+        for s in range(HEADLESS_RUN, len(leads) - HEADLESS_RUN + 1):
+            a, b = rising([r for _, r in leads[:s]]), rising([r for _, r in leads[s:]])
+            if a < HEADLESS_RUN or b < HEADLESS_RUN or min(leads[s][1]) >= max(leads[s - 1][1]):
+                continue
+            score = (a + b, -min(leads[s][1]))
+            if best is None or score > best[0]:
+                best = (score, s)
+        if best is None or best[0][0] - rising([r for _, r in leads]) < HEADLESS_RUN:
+            return lines
+        down = leads[best[1]][0]
+        lines = lines[:down] + ["DOWN"] + lines[down:]
+    if across is None:
+        first = next((i for i, _ in leads if i < down), None)
+        if first is None or rising([r for i, r in leads if i < down]) < HEADLESS_RUN:
+            return lines
+        lines = lines[:first] + ["ACROSS"] + lines[first:]
+    return lines
+
+
 def sections(ocr):
-    """{"across": text, "down": text}, or None when either list is missing."""
-    lines = ocr.splitlines()
+    """{"across": text, "down": text}, or None when either list is missing
+    and cannot be put back from the clue numbers (heads())."""
+    lines = heads(ocr.splitlines())
     marks = {}
     for i, line in enumerate(lines):
-        m = re.match(r"\s*(clues\s+)?(across|down)\b\W*", line, re.IGNORECASE)
+        m = HEADING_RE.match(line)
         if m and m.group(2).lower() not in marks:
             marks[m.group(2).lower()] = (i, line[m.end():])
     if set(marks) != {"across", "down"} or marks["across"][0] > marks["down"][0]:
