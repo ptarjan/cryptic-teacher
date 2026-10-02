@@ -113,8 +113,9 @@ def sense_block(ann, b):
     if b.get("soundsLike") or (gives and gives != answer
                                and gives != _whole_word(b.get("clueFragment"))):
         return False
-    frag = _whole_word(b.get("clueFragment"))
-    defs = [_whole_word(d.get("text")) for d in ann["definitions"]]
+    key = lambda t: re.sub(r"[^A-Z0-9]", "", str(t or "").upper())  # "31" is a definition
+    frag = key(b.get("clueFragment"))
+    defs = [key(d.get("text")) for d in ann["definitions"]]
     return bool(frag) and any(d and (frag in d or d in frag) for d in defs)
 
 

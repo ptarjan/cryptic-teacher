@@ -3116,8 +3116,11 @@
     const defs = ann.definitions || [];
     if (defs.length < 2 || !(ann.type || []).includes("double_definition")) return false;
     if (b.soundsLike || blockLetters(ann, b)) return false;
-    const frag = wholeWord(b.clueFragment);
-    return !!frag && defs.map((d) => wholeWord(d.text))
+    // Digits count: a definition can be a cross-reference ("31"), which has no
+    // letters at all.
+    const key = (t) => String(t || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    const frag = key(b.clueFragment);
+    return !!frag && defs.map((d) => key(d.text))
       .some((d) => d && (d.includes(frag) || frag.includes(d)));
   }
   const buildingBlocks = (ann) => (ann.blocks || []).filter((b) => !senseBlock(ann, b));
