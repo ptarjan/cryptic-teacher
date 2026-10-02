@@ -1142,5 +1142,10 @@ tools/build_clue_compounds.py                count how the corpus's clues print 
 tools/data/clue_compounds.tsv                how often the corpus's clues print each two-word
                                              compound hyphenated and closed
                                              (build_clue_compounds.py)
+tools/build_clue_lm.py                       count the words and word pairs of every clue in
+                                             the corpus, and its answers
+tools/data/clue_lm.tsv.gz                    how often the corpus's clues print each word and
+                                             word pair, and its answers each word; settles OCR
+                                             readings that differ (build_clue_lm.py)
 ```
 <!-- LAYOUT-END -->

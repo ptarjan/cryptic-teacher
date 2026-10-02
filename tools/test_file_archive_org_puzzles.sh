@@ -78,7 +78,8 @@ check("the clue's misread replaced by the other reading's word",
       ("Hope created this exalted", "settled by the dictionary"), f.agree("Hope crealed this exalted", stream))
 check("two non-words are a disagreement", None, f.agree("Prinz Ahdq", stream)[0])
 check("a word the other reading lacks is a disagreement", None, f.agree("Bottom of a big ship", stream)[0])
-check("both readers' one non-word is not kept", None, f.agree("Nurse hoiding note", stream)[0])
+check("both readers' one non-word mended to the known word a letter off", "Nurse holding note",
+      f.agree("Nurse hoiding note", stream)[0])
 
 check("a capital only one reader saw inside the clue dropped", ("What is stated", "settled by the dictionary"),
       f.agree("What Is stated", f.tokens("27 What is stated (9)")))
@@ -103,8 +104,12 @@ check("the spelling the other two readings share outvotes mine (dictionary words
                                            [f.marked("Cashing in on Nigel's air")] * 2)[0])
 check("a word one of two other readings has stands", "Sun god's not out",
       f.agree("Sun god's not out", [f.marked("Son god's not out"), f.marked("Sun gods not out")])[0])
-check("a non-word all three readings have kept", "Get production up sevenfoldx",
-      f.agree("Get production up sevenfoldx", [f.marked("Get production up sevenfoldx")] * 2)[0])
+check("a non-word all three readings have, no letter from a word, kept", "Get production up qzxvbn",
+      f.agree("Get production up qzxvbn", [f.marked("Get production up qzxvbn")] * 2)[0])
+check("a name the corpus's clues know is a word", "Captain Hornblower at sea",
+      f.agree("Captain Hornblower at sea", [f.marked("3 Captain Hornblower at sea (7)", breaks=True)] * 2)[0])
+check("a lone letter no other reading has is a speck", "Annual production",
+      f.agree("Annual l production", [f.marked("4 Annual production (5)", breaks=True)] * 2)[0])
 got, blank = f.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)},
                          ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
 check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
@@ -124,14 +129,25 @@ check("lost opening words the readings differ on blank the clue", None,
                                  ("18 It's no go when caught (8)", "18 Is so go when caught (8)")])[0])
 check("lost closing words most readings have put in", "Girls were well sustained by it",
       f.agree("Girls were well sustained by", [f.marked("19 Girls were well sustained by it (7)", breaks=True)] * 2)[0])
-check("a dictionary tie between readings blanks the word", None,
+check("a dictionary tie goes to the word the corpus's clues put there", "A boy is backward",
       f.agree("A bny is backward", [f.marked("19 A boy is backward (4)", breaks=True),
                                     f.marked("19 A bay is backward (4)", breaks=True)])[0])
+check("a dictionary tie no neighbour settles blanks the word", None,
+      f.agree("Qxv bny qxv", [f.marked("1 Qxv boy qxv (3)", breaks=True),
+                              f.marked("1 Qxv bay qxv (3)", breaks=True)])[0])
 check("one reading's far shorter dictionary word is no rival", "Chucked one in",
       f.agree("Chucked one in", [f.marked("24 Chuckeu one in (5)", breaks=True),
                                  f.marked("24 Che one in (5)", breaks=True)])[0])
-check("a rare word one ink slip from a far commoner one blanks the clue", None,
+check("a rare word one ink slip from a far commoner one takes the commoner", "Bob hangs on to this",
       f.agree("Bob hangs ou to this", [f.marked("3 Bob hangs ou to this (5)", breaks=True)] * 3)[0])
+check("the next clue run on is cut off, the count from the grid",
+      ({"5-down": ("Twists ends of osier into knot", "7", None)}, {}),
+      f.reconcile({"5-down": ("Twists ends of osier into knot (7k 6 Protection for working", None, None)},
+                  ["5 Twists ends of osier into knot (7) 6 Protection for working"], {"5-down": 7, "6-down": 3}))
+check("a lone letter after the clue is its misread count, the count from the grid",
+      ({"2-down": ("A bit of nice dark wood", "5", None)}, {}),
+      f.reconcile({"2-down": ("A bit of nice dark wood", None, None)},
+                  ["2 A bit of nice dark wood s 3 Next", "2 A bit of nice dark wood a 3 Next"], {"2-down": 5}))
 check("a mark dropped between two words leaves their space", "Lack of spirit after a storm",
       f.agree("Lack of spirit:after a storm", [f.marked("1 Lack of spirit after a storm (4)", breaks=True)] * 2)[0])
 check("a misread clue number before the capital dropped", "Not small horse-pistols",
