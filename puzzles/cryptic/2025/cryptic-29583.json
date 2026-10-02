@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,56 @@
     "text": "So, not the right time to diet",
     "enumeration": "4"
    },
-   "solution": "SLOW"
+   "solution": "SLOW",
+   "alteration": {
+    "from": "FAST",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLOW",
+    "definitions": [
+     {
+      "text": "not the right time",
+      "at": 4
+     },
+     {
+      "text": "diet",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "So",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not the right time",
+      "note": "first meaning: a clock that is ahead shows the wrong time"
+     },
+     {
+      "clueFragment": "diet",
+      "note": "second meaning: to go without food"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone decides this is a bad moment to start slimming.",
+     "walkthrough": "Both meanings lead to FAST: a clock running ahead, and going without food. The preamble says to enter the antonym, so the grid takes SLOW.",
+     "definitionFit": "A clock gaining minutes is said to run fast, and abstaining from food is fasting; the opposite of that speed word goes in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +100,64 @@
     "text": "Facing surgery, postie gets transferred",
     "enumeration": "8"
    },
-   "solution": "OPPOSITE"
+   "solution": "OPPOSITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OPPOSITE",
+    "definitions": [
+     {
+      "text": "Facing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transferred",
+      "for": "anagram",
+      "note": "things transferred are moved about, so the letters are shifted into a new order"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surgery",
+      "gives": "OP",
+      "note": "OP is short for an operation"
+     },
+     {
+      "clueFragment": "postie",
+      "gives": "POSTIE",
+      "note": "taken as written; a postie is a British postman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "POSITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POSTIE",
+       "gives": "POSITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A postman facing an operation finds he has been moved to another round.",
+     "walkthrough": "'Facing' looks like part of the story about surgery, but it is the definition.",
+     "definitionFit": "Two houses that face each other across a street stand on contrary sides, which is the preposition's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transferred"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +171,65 @@
     "text": "Land up with agent at university",
     "enumeration": "4"
    },
-   "solution": "PERU"
+   "solution": "PERU",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PERU",
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative, an agent for a firm"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "U"
+     ],
+     "reversals": [
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ends up hiring a representative while at college.",
+     "walkthrough": "'Land up' reads as the phrase meaning to end up; split it, and 'Land' is the definition while 'up' turns the agent around.",
+     "definitionFit": "A land is a country or nation, and this South American republic is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +255,57 @@
      }
     ]
    },
-   "solution": "OPENPLAN"
+   "solution": "OPENPLAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN-PLAN",
+    "definitions": [
+     {
+      "text": "Office Type",
+      "at": 22,
+      "note": "the answer is an adjective describing a type of office"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     },
+     {
+      "clueFragment": "plot",
+      "gives": "PLAN",
+      "note": "a plot is a scheme or plan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN",
+      "PLAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An old author's storyline for a work titled Office Type.",
+     "walkthrough": "The italics make 'Office Type' look like a book title the old writer is plotting; it is the definition. The 's after writer just joins writer to plot.",
+     "definitionFit": "Workplaces with no partition walls, where everyone shares one large floor, are a common layout of modern offices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +319,54 @@
     "text": "Good grass is free",
     "enumeration": "6"
    },
-   "solution": "GRATIS"
+   "solution": "GRATIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRATIS",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "RAT",
+      "note": "to grass is British slang for informing on someone, as is to rat"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAT",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like a happy announcement that some fine lawn or cannabis costs nothing.",
+     "walkthrough": "'Grass' reads as a noun, but here it is the verb: in British slang to grass is to inform to the police.",
+     "definitionFit": "Something given without charge costs nothing, the Latin-derived word for no payment required."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +386,62 @@
      }
     ]
    },
-   "solution": "MAKEPUBLIC"
+   "solution": "MAKEPUBLIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MAKE PUBLIC",
+    "definitions": [
+     {
+      "text": "Broadcast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of something means it falls just short, so its final letter goes"
+     },
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is smashed up, so the letters are broken and rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back-up",
+      "gives": "BACKUP",
+      "note": "taken as written, without the hyphen"
+     },
+     {
+      "clueFragment": "Miles",
+      "gives": "MILE",
+      "note": "the word with its final S removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BACKUPMILE",
+       "gives": "MAKEPUBLIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report that the backup for someone called Miles has been destroyed.",
+     "walkthrough": "'Broadcast' looks like a verb about a news report, and it is the definition, but the rest is not news: it is letters to rearrange.",
+     "definitionFit": "To broadcast information is to spread it widely so that everyone gets to know it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miles"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +455,63 @@
     "text": "Mighty T. Rex’s taken in air",
     "enumeration": "6"
    },
-   "solution": "FEEBLE"
+   "solution": "FEEBLE",
+   "alteration": {
+    "from": "STRONG",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEEBLE",
+    "definitions": [
+     {
+      "text": "Mighty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in",
+      "for": "container",
+      "note": "something taken in is received inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air",
+      "gives": "SONG",
+      "note": "an air is a tune or song"
+     },
+     {
+      "clueFragment": "T. Rex",
+      "gives": "TR",
+      "note": "the initials T and R from the dinosaur's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TR",
+      "ONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A mighty tyrannosaurus has been lifted up into the air.",
+     "walkthrough": "The wordplay builds STRONG, which 'Mighty' defines; the preamble says to enter its antonym, so the grid takes FEEBLE. The 's after T. Rex stands for 'has'.",
+     "definitionFit": "Mighty and powerful both describe great force; the entered word is its opposite, lacking strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +525,57 @@
     "text": "Predicament of upset weak people",
     "enumeration": "4"
    },
-   "solution": "STEW"
+   "solution": "STEW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEW",
+    "definitions": [
+     {
+      "text": "Predicament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, and in a down clue that turns the letters upside down"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weak people",
+      "gives": "WETS",
+      "note": "wets is British slang for feeble, ineffectual people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEW"
+     ],
+     "reversals": [
+      {
+       "from": "WETS",
+       "to": "STEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weak people get into trouble when they are upset.",
+     "walkthrough": "'Upset' looks like an adjective about the weak people's feelings, but it is the turnaround signal. Wets are drips or wimps in British usage.",
+     "definitionFit": "To be in a stew is an idiom for being in a worried, troubled state or awkward fix."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +589,51 @@
     "text": "Mistake, extending legs by quarter",
     "enumeration": "5"
    },
-   "solution": "LAPSE"
+   "solution": "LAPSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAPSE",
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "extending",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legs",
+      "gives": "LAPS",
+      "note": "legs of a race are laps"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "E",
+      "note": "a quarter is a compass point, here East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone errs by making the race legs a quarter longer.",
+     "walkthrough": "A quarter in crosswords is one of the four compass points: N, S, E or W.",
+     "definitionFit": "A lapse is a slip or small error, such as a moment of forgetfulness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +647,80 @@
     "text": "Short-term attempt to trap English politician, ‘love god’",
     "enumeration": "9"
    },
-   "solution": "PERMANENT"
+   "solution": "PERMANENT",
+   "alteration": {
+    "from": "TEMPORARY",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PERMANENT",
+    "definitions": [
+     {
+      "text": "Short-term",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to trap",
+      "for": "container",
+      "note": "to trap something is to catch and hold it, so one piece closes around the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "an attempt is a try"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "god",
+      "gives": "RA",
+      "note": "Ra is the Egyptian sun god"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EMPORA",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief bid to snare an English politician styled as a love god.",
+     "walkthrough": "The wordplay builds TEMPORARY, which 'Short-term' defines; the preamble says to enter its antonym, PERMANENT.",
+     "definitionFit": "Something lasting only a short while is temporary; the entered word is its opposite, lasting indefinitely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +734,59 @@
     "text": "Hindu town represented in novel form",
     "enumeration": "9"
    },
-   "solution": "WHODUNNIT"
+   "solution": "WHODUNNIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHODUNNIT",
+    "definitions": [
+     {
+      "text": "novel form",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "to represent something is to present it again in a fresh form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hindu",
+      "gives": "HINDU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "TOWN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HINDUTOWN",
+       "gives": "WHODUNNIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian town is portrayed in a work of fiction.",
+     "walkthrough": "'Novel' looks like another rearrangement signal, but it belongs to the definition, 'novel form'.",
+     "definitionFit": "A detective story built around a murder mystery is a well-known genre of fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +800,70 @@
     "text": "Bender makes you totter back, losing key",
     "enumeration": "5"
    },
-   "solution": "ELBOW"
+   "solution": "ELBOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "ELBOW",
+    "definitions": [
+     {
+      "text": "Bender",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters are read from right to left"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "to lose something is to be left without it, so that letter drops out"
+     }
+    ],
+    "linkWords": [
+     "makes you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "totter",
+      "gives": "WOBBLE",
+      "note": "to totter is to wobble"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "B",
+      "note": "B is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "BOW"
+     ],
+     "reversals": [
+      {
+       "from": "WOBBLE",
+       "to": "ELBBOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinking binge leaves you staggering backwards and without your door key.",
+     "walkthrough": "A bender is British slang for a drinking spree, which the surface uses; here it means something that bends. Turned round, the totter word has a double B, and one goes.",
+     "definitionFit": "The joint in the middle of your arm is where it bends, so it is a thing that bends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bender"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +877,65 @@
     "text": "South-eastern city with American grave",
     "enumeration": "7"
    },
-   "solution": "TRIVIAL"
+   "solution": "TRIVIAL",
+   "alteration": {
+    "from": "SERIOUS",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIVIAL",
+    "definitions": [
+     {
+      "text": "grave",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South-eastern",
+      "gives": "SE",
+      "note": "the compass abbreviation for south-east"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the Brazilian city"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for United States, hence American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RIO",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A city in the south-east of some country contains an American's burial place.",
+     "walkthrough": "The wordplay builds SERIOUS, which 'grave' defines; the preamble says to enter its antonym, TRIVIAL. 'Grave' reads as a burial place but is the adjective.",
+     "definitionFit": "Grave as an adjective means solemn and weighty; the entered word is its opposite, of little importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +949,67 @@
     "text": "Capital university: ‘grabbing balls is immoral!’",
     "enumeration": "5"
    },
-   "solution": "TIGHT"
+   "solution": "TIGHT",
+   "alteration": {
+    "from": "LOOSE",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIGHT",
+    "definitions": [
+     {
+      "text": "immoral",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "to grab something is to clutch it, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capital university",
+      "gives": "LSE",
+      "note": "the London School of Economics, a university in the capital"
+     },
+     {
+      "clueFragment": "balls",
+      "gives": "OO",
+      "note": "two balls, round like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A university in the capital issues a stern warning against groping.",
+     "walkthrough": "The wordplay builds LOOSE, which 'immoral' defines in its old sense of a loose woman or loose living; the preamble says to enter the antonym, TIGHT.",
+     "definitionFit": "Loose living means dissolute, immoral conduct; the entered word is the opposite of loose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +1023,64 @@
     "text": "Hybridize insects or bats without resistance",
     "enumeration": "10"
    },
-   "solution": "INTERCROSS"
+   "solution": "INTERCROSS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERCROSS",
+    "definitions": [
+     {
+      "text": "Hybridize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats is slang for crazy, so the letters go wild and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "without"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insects",
+      "gives": "INSECTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSECTSORR",
+       "gives": "INTERCROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breeding insects or bats with each other meets no opposition.",
+     "walkthrough": "'Without' looks like it takes the R away, but it is used in its old sense of outside, so R stands with the rest of the letters to be mixed.",
+     "definitionFit": "To interbreed two varieties or species is to produce a hybrid, which is crossing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1094,59 @@
     "text": "Apprentice gives boss endless fun",
     "enumeration": "7"
    },
-   "solution": "STUDENT"
+   "solution": "STUDENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STUDENT",
+    "definitions": [
+     {
+      "text": "Apprentice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means cut short, so the word loses its tail"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss",
+      "gives": "STUD",
+      "note": "a boss is a raised knob or stud"
+     },
+     {
+      "clueFragment": "fun",
+      "gives": "ENT",
+      "note": "short for entertainment, which is fun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee gives the boss no end of amusement.",
+     "walkthrough": "'Boss' reads as an employer but is the ornamental knob on a shield or ceiling. Entertainment is cut down to its first three letters.",
+     "definitionFit": "An apprentice is a learner of a trade, and anyone being taught is a learner too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1160,66 @@
     "text": "Trump’s possibly millions short, getting thinner!",
     "enumeration": "5"
    },
-   "solution": "TURPS"
+   "solution": "TURPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TURPS",
+    "definitions": [
+     {
+      "text": "thinner",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one possible version, so the letters may come in another order"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "falling short means something is missing, so a letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump’s",
+      "gives": "TRUMPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUPS",
+       "gives": "TURPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a well-known businessman is millions down and getting slimmer.",
+     "walkthrough": "'Thinner' looks like the comparative adjective about weight loss, but it is a noun: a solvent that thins paint.",
+     "definitionFit": "Turps is short for turpentine, a solvent used to dilute oil paint, which painters call a thinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thinner"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1233,43 @@
     "text": "In vogue, star chat show booking?",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "chat show booking?",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in means inside, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vogue, star",
+      "gives": "GUEST",
+      "note": "the end of the first word runs into the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A fashionable celebrity is booked for a television interview programme.",
+     "walkthrough": "'In vogue' reads as a phrase meaning fashionable; here 'In' alone points inside the words. The question mark marks a definition by example.",
+     "definitionFit": "A talk show books celebrities to appear and be interviewed, so each one is a booked visitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1283,61 @@
     "text": "Circle Line – many getting on",
     "enumeration": "3"
    },
-   "solution": "NEW"
+   "solution": "NEW",
+   "alteration": {
+    "from": "OLD",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEW",
+    "definitions": [
+     {
+      "text": "getting on",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "a circle is shaped like O"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals, a large number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds board a train on the Circle Line of the London Underground.",
+     "walkthrough": "The wordplay builds OLD, which 'getting on' defines; the preamble says to enter the antonym, NEW. The Circle Line is a London Underground route.",
+     "definitionFit": "Getting on is an idiom for growing elderly; the entered word is the opposite of aged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Circle"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1351,65 @@
     "text": "Useless types clean bowled, say, by spinner initially",
     "enumeration": "8"
    },
-   "solution": "WASHOUTS"
+   "solution": "WASHOUTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WASHOUTS",
+    "definitions": [
+     {
+      "text": "Useless types",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean",
+      "gives": "WASH",
+      "note": "to clean is to wash"
+     },
+     {
+      "clueFragment": "bowled, say",
+      "gives": "OUT",
+      "note": "in cricket, being bowled is one way of being out"
+     },
+     {
+      "clueFragment": "spinner",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of spinner, a slow bowler in cricket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WASH",
+      "OUT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: hopeless batsmen are clean bowled by the spin bowler.",
+     "walkthrough": "'Clean bowled' is a cricket phrase for a ball hitting the stumps, but it splits: 'clean' and 'bowled, say'. The 'say' marks bowled as one example of OUT.",
+     "definitionFit": "A washout is a failure, and people who are failures are called useless types."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1423,57 @@
     "text": "Acclaim powerless lift",
     "enumeration": "5"
    },
-   "solution": "LOWER"
+   "solution": "LOWER",
+   "alteration": {
+    "from": "RAISE",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOWER",
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "powerless",
+      "for": "deletion",
+      "note": "the suffix -less means without, so the abbreviation for this quantity is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acclaim",
+      "gives": "PRAISE",
+      "note": "to acclaim is to praise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAISE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheers a broken lift that has no electricity.",
+     "walkthrough": "P is the physics symbol for power. The wordplay builds RAISE, which 'lift' defines; the preamble says to enter the antonym, LOWER.",
+     "definitionFit": "To lift something is to hoist it upward; the entered word means to bring it down instead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1487,57 @@
     "text": "On which many work, said to be frail, numb",
     "enumeration": "8"
    },
-   "solution": "WEEKDAYS"
+   "solution": "WEEKDAYS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEEKDAYS",
+    "definitions": [
+     {
+      "text": "On which many work",
+      "at": 0,
+      "note": "the definition is a descriptive phrase for a plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said to be",
+      "for": "homophone",
+      "note": "said means spoken, so what follows is judged by its pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frail",
+      "gives": "WEEK",
+      "soundsLike": "WEAK",
+      "note": "frail means weak"
+     },
+     {
+      "clueFragment": "numb",
+      "gives": "DAYS",
+      "soundsLike": "DAZE",
+      "note": "being numb is being in a daze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEEK",
+      "DAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who many depend on is described as frail and numb.",
+     "walkthrough": "The definition is the whole opening phrase; 'On which' wants to be a link, but it describes the days of the working week.",
+     "definitionFit": "Monday to Friday are the usual working days for most employees, as opposed to the weekend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "numb"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1557,51 @@
      }
     ]
    },
-   "solution": "TURNRED"
+   "solution": "TURNRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURN RED",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0,
+      "note": "a verb: to colour is to blush"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wheel",
+      "gives": "TURN",
+      "note": "to wheel is to turn"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is a kind of wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's colour wheel is linked with wine shades.",
+     "walkthrough": "'Colour wheel' reads as an artist's chart, but the words split: 'Colour' is the definition, a verb meaning to blush.",
+     "definitionFit": "When someone colours with embarrassment, their face flushes and blushes crimson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Colour"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1615,64 @@
     "text": "Take a type of mushroom during operation",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "alteration": {
+    "from": "ACCEPT",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REFUSE",
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means in the course of, so one piece falls inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operation",
+      "gives": "ACT",
+      "note": "an act is an operation or deed"
+     },
+     {
+      "clueFragment": "a type of mushroom",
+      "gives": "CEP",
+      "note": "the cep is an edible mushroom, the porcino"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CEP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats a kind of mushroom in the middle of surgery.",
+     "walkthrough": "The wordplay builds ACCEPT, which 'Take' defines; the preamble says to enter the antonym, REFUSE.",
+     "definitionFit": "To take an offer is to agree to receive it; the entered word means to turn it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1686,61 @@
     "text": "Order child to turn over rubbish",
     "enumeration": "6"
    },
-   "solution": "DIKTAT"
+   "solution": "DIKTAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIKTAT",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn over",
+      "for": "reversal",
+      "note": "turning something over flips it, so the letters are read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TAT",
+      "note": "tat is British slang for cheap, worthless goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIK",
+      "TAT"
+     ],
+     "reversals": [
+      {
+       "from": "KID",
+       "to": "DIK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent tells a child to sort through the junk.",
+     "walkthrough": "'Order' looks like the parent's instruction in the story, and it is the definition, but a noun.",
+     "definitionFit": "A diktat is a harsh decree imposed without consultation, so it is a command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "child"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1754,70 @@
     "text": "Miss dancing, if a temptation",
     "enumeration": "7"
    },
-   "solution": "SUCCESS"
+   "solution": "SUCCESS",
+   "alteration": {
+    "from": "FAILURE",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUCCESS",
+    "definitions": [
+     {
+      "text": "Miss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing means moving about, so these letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if a",
+      "gives": "IFA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "temptation",
+      "gives": "LURE",
+      "note": "a lure is a temptation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAI",
+      "LURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IFA",
+       "gives": "FAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young lady finds dancing tempting.",
+     "walkthrough": "The wordplay builds FAILURE, which 'Miss' defines; the preamble says to enter the antonym, SUCCESS. 'Miss' reads as a young woman, but here it is a failed attempt.",
+     "definitionFit": "A miss is a shot that fails to hit; the entered word is its opposite, a hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1831,64 @@
     "text": "Slice a few rocks by river",
     "enumeration": "5"
    },
-   "solution": "WAFER"
+   "solution": "WAFER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WAFER",
+    "definitions": [
+     {
+      "text": "Slice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "rocks is a verb here, to shake or sway, so the letters are shaken up"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a few",
+      "gives": "AFEW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAFE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFEW",
+       "gives": "WAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cuts a few stones beside a river.",
+     "walkthrough": "'Rocks' looks like a plural noun for stones, but it is a verb meaning shakes.",
+     "definitionFit": "A wafer is a very thin piece of something, like a thin slice of ham or silicon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1902,58 @@
     "text": "I say Latin is quite acceptable",
     "enumeration": "4"
    },
-   "solution": "WARM"
+   "solution": "WARM",
+   "alteration": {
+    "from": "COOL",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARM",
+    "definitions": [
+     {
+      "text": "quite acceptable",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I say",
+      "gives": "COO",
+      "note": "coo is a British exclamation of surprise, like I say"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker declares that using Latin is perfectly fine.",
+     "walkthrough": "The wordplay builds COOL, which 'quite acceptable' defines in its informal sense; the preamble says to enter the antonym, WARM, taking the temperature sense.",
+     "definitionFit": "Saying something is cool means it is fine or allowed; the entered word is the opposite of cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1967,92 @@
     "text": "Unawareness of topless Italian can possibly lead to embarrassment",
     "enumeration": "9"
    },
-   "solution": "KNOWLEDGE"
+   "solution": "KNOWLEDGE",
+   "alteration": {
+    "from": "IGNORANCE",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KNOWLEDGE",
+    "definitions": [
+     {
+      "text": "Unawareness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "with its top removed, a word across loses its first letter"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several versions, so the letters may be rearranged"
+     },
+     {
+      "text": "lead to",
+      "for": "letter_selection",
+      "note": "the lead of something is its front, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian",
+      "gives": "IGNOR",
+      "note": "signor, the Italian for a gentleman, without its first letter"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "embarrassment",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGNOR",
+      "ANC",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAN",
+       "gives": "ANC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Not knowing about a bare-chested Italian could leave you blushing.",
+     "walkthrough": "The wordplay builds IGNORANCE, which 'Unawareness' defines; the preamble says to enter the antonym, KNOWLEDGE. Signor is the Italian form of address for a man.",
+     "definitionFit": "Ignorance means lack of awareness or information; the entered word is the opposite, knowing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +2066,43 @@
     "text": "Affordable affluent housing sheet",
     "enumeration": "4"
    },
-   "solution": "LEAF"
+   "solution": "LEAF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEAF",
+    "definitions": [
+     {
+      "text": "sheet",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "housing means giving shelter, so the words hold the letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Affordable affluent",
+      "gives": "LEAF",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A report on affordable housing for wealthy people.",
+     "walkthrough": "'Affordable housing' is a familiar phrase in planning debates, which hides that 'housing' is the signal to look inside the words.",
+     "definitionFit": "A leaf of a book or of paper is a single page or thin layer of material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +2116,60 @@
     "text": "Firm shiver on removing top",
     "enumeration": "4"
    },
-   "solution": "EASY"
+   "solution": "EASY",
+   "alteration": {
+    "from": "HARD",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EASY",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing top",
+      "for": "deletion",
+      "note": "in a down clue the top is the first letter, so that letter is taken off"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shiver",
+      "gives": "SHARD",
+      "note": "a shiver is a splinter or broken fragment, as is a shard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A company starts to shake when someone takes off their top.",
+     "walkthrough": "The wordplay builds HARD, which 'Firm' defines; the preamble says to enter the antonym, EASY. 'Shiver' looks like a verb about cold, but it is a noun meaning a fragment.",
+     "definitionFit": "Firm as an adjective means solid or tough; the entered word is the opposite, as in simple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shiver"
+    }
+   }
   },
   {
    "number": 30,
@@ -492,7 +2183,67 @@
     "text": "Proof saint’s conversion in balance",
     "enumeration": "9"
    },
-   "solution": "RESISTANT"
+   "solution": "RESISTANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RESISTANT",
+    "definitions": [
+     {
+      "text": "Proof",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conversion",
+      "for": "anagram",
+      "note": "a conversion changes something into a different form, so the letters are reworked"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means inside, so the reworked letters sit within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "SAINT",
+      "note": "taken as written; the 's joins it to what follows"
+     },
+     {
+      "clueFragment": "balance",
+      "gives": "REST",
+      "note": "the rest is the balance, what remains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "ISTAN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAINT",
+       "gives": "ISTAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The proof that a saint converted to the faith hangs in the balance.",
+     "walkthrough": "'Proof' reads as evidence, but here it is the suffix sense in words like waterproof: able to withstand.",
+     "definitionFit": "Something proof against water or fire withstands it, so it holds out against attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Proof"
+    }
+   }
   },
   {
    "number": 31,
@@ -506,7 +2257,55 @@
     "text": "Fool around next to chasm",
     "enumeration": "5"
    },
-   "solution": "ABYSS"
+   "solution": "ABYSS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABYSS",
+    "definitions": [
+     {
+      "text": "chasm",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "next to",
+      "gives": "BY",
+      "note": "by means beside, next to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BY",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clowns about dangerously near the edge of a ravine.",
+     "walkthrough": "'Fool around' reads as one phrase meaning to mess about; it splits into the fool and the signal to wrap him round the next piece.",
+     "definitionFit": "A chasm is a deep, seemingly bottomless gulf in the earth, a deep pit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   }
  ]
 }
