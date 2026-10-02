@@ -959,16 +959,20 @@ tools/data/fill_floors.json                  grid_fill.py's clueability and fami
                                              per entry length, the 25th percentile of published
                                              answers, measured by build_fill_floors.py
 tools/data/lexicons/abbreviations.json       clue word -> letters, every abbreviation English
-                                             Wiktionary lists (CC BY-SA), written by
+                                             Wiktionary or Wikipedia's crossword abbreviation
+                                             list gives (CC BY-SA), written by
                                              fetch_abbreviations.py;
                                              build_abbreviations.table() holds the ones clues
                                              use
 tools/fetch_abbreviations.py                 streams kaikki.org's Wiktionary abbreviation,
                                              initialism, acronym, contraction and symbol
-                                             extracts into lexicons/abbreviations.json
+                                             extracts, and Wikipedia's Crossword abbreviations
+                                             list, into lexicons/abbreviations.json
 tools/test_fetch_abbreviations.sh            fetch_abbreviations.senses() reads what a
                                              wiktextract entry says an abbreviation stands for,
-                                             and nothing it only mentions
+                                             and nothing it only mentions; list_senses() reads
+                                             the crossword list's readings and skips the
+                                             synonyms it mentions
 tools/data/lexicons/blocks.json              clue word -> letters -> clues, off the blogs and
                                              our annotations (tools/letter_facts.py
                                              --lexicons); the abbreviations/ page lists its

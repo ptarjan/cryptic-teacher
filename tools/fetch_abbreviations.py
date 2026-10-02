@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Write tools/data/lexicons/abbreviations.json: every abbreviation
-English Wiktionary lists, as clue word -> the letters it abbreviates to.
+English Wiktionary or Wikipedia's crossword abbreviation list gives, as clue
+word -> the letters it abbreviates to. A sense is in when either source lists it.
 
     python3 tools/fetch_abbreviations.py
 
-The source is kaikki.org's wiktextract extract of English Wiktionary, read
+The first source is kaikki.org's wiktextract extract of English Wiktionary, read
 through its per-tag downloads (abbreviation, initialism, acronym, contraction,
 symbol), the Symbol part of speech, and Translingual's Symbol and Numeral
 parts of speech, where chemical symbols, units and Roman numerals live: about 125 MB streamed line by line, so
@@ -13,8 +14,15 @@ tags or is a Symbol, and its expansion is what the dictionary says it stands
 for: the alt_of/form_of words, or a gloss of four words or fewer when it gives
 none ("month" for mon, "copper" for Cu's "Chemical element symbol for copper").
 
-Wiktionary text is CC BY-SA 4.0 and GFDL; tools/data/README.md says so beside
-the file. build_abbreviations.table() reads the result.
+The second is Wikipedia's "Crossword abbreviations" article, at the revision
+LIST_REVISION pins: the setters' conventions Wiktionary has no sense for (son S,
+old O, love O, cold C, sailor AB, at home IN). Each "* Word - <small>X</small>"
+line gives its readings. A reading of three or more letters that is itself a
+word in tools/data/lexicon.tsv is a synonym the list mentions (sailor TAR, work
+OPUS), not an abbreviation, and is skipped.
+
+Wiktionary and Wikipedia text is CC BY-SA 4.0; tools/data/README.md says so
+beside the file. build_abbreviations.table() reads the result.
 """
 import json
 import re
@@ -36,6 +44,9 @@ SOURCES = [
     "Translingual/pos-symbol/kaikki.org-dictionary-Translingual-by-pos-symbol.jsonl",
     "Translingual/pos-num/kaikki.org-dictionary-Translingual-by-pos-num.jsonl",
 ]
+LIST = "https://en.wikipedia.org/w/index.php?action=raw&title=Crossword_abbreviations&oldid="
+LIST_REVISION = 1375193762
+LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 TAGS = {"abbreviation", "initialism", "acronym", "contraction", "symbol"}
 UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
@@ -113,8 +124,43 @@ def senses(entry):
                     yield w, letters
 
 
+def unlink(text):
+    """Wikitext with [[target|shown]] and [[shown]] links reduced to what they show."""
+    return re.sub(r"\[\[(?:[^\]|]*\|)?([^\]]*)\]\]", r"\1", text)
+
+
+def list_senses(wikitext, words=frozenset()):
+    """(clue word, letters) for each reading on the article's A-to-Z lines:
+    "* Old – <small>O</small>, <small>OL</small> (e.g. ...)". A line may name
+    several clue words ("Sleep, Snooze or Asleep"). `words` are dictionary
+    words; a reading of three or more letters among them is a synonym."""
+    for line in wikitext[wikitext.find("==A=="):].splitlines():
+        m = re.match(r"\*\s*([^<\[{]+?)\s+[–—-]\s+(.*<small>.*)", line)
+        if not m:
+            continue
+        readings = [letters_of(unlink(r)) for r in re.findall(r"<small>(.*?)</small>", m.group(2))]
+        for w in re.split(r",\s*|\s+or\s+", m.group(1)):
+            w = re.sub(r"\s+", " ", w).strip().lower()
+            if not WORDS.fullmatch(w):
+                continue
+            for k in readings:
+                if k and k != letters_of(w) and not (len(k) >= 3 and k in words):
+                    yield w, k
+
+
+def lexicon_words():
+    return frozenset(line.split("\t", 1)[0] for line in LEXICON.read_text(encoding="utf-8")
+                     .splitlines() if line and not line.startswith("#"))
+
+
 def fetch():
     table = {}
+    req = urllib.request.Request(LIST + str(LIST_REVISION), headers=UA)
+    with urllib.request.urlopen(req, timeout=120) as r:
+        for w, k in list_senses(r.read().decode("utf-8"), lexicon_words()):
+            table.setdefault(w, set()).add(k)
+    print(f"Crossword abbreviations: {sum(map(len, table.values())):,} senses",
+          file=sys.stderr)
     for path in SOURCES:
         req = urllib.request.Request(BASE + path, headers=UA)
         with urllib.request.urlopen(req, timeout=120) as r:

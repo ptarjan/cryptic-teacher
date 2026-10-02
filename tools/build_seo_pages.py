@@ -1516,7 +1516,8 @@ def abbreviations_page(blocks):
         "that matches the definition.</p>",
         "<p>Find the word from your clue; the letters it stands for are next to it, "
         "most used first, each with the number of clues in these puzzles that use it. "
-        "Every one is an abbreviation the dictionary (Wiktionary) lists and a clue "
+        "Every one is an abbreviation Wiktionary or Wikipedia's list of crossword "
+        "abbreviations gives and a clue "
         "here uses, plus the codes in the sets below.</p>",
         f"<p>{len(links)} of the words are links to a real clue that uses that "
         "abbreviation, explained step by step.</p>",
