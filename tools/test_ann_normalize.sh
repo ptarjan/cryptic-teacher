@@ -43,5 +43,13 @@ puzzle, e = pick
 ann = copy.deepcopy(e["annotation"]); want = ann.pop("answer")
 check("a missing answer is derived", A.normalize(ann, e, puzzle["entries"]).get("answer", "").replace(" ", "").replace("-", "") == e["solution"])
 check("a written answer stays", A.normalize({**ann, "answer": "X"}, e, puzzle["entries"])["answer"] == "X")
+sel = {"type": ["charade"], "blocks": [{"clueFragment": "x", "select": "first", "at": 3}],
+       "indicators": [{"text": "y", "at": 4}], "definitions": [{"text": "z", "at": 0}]}
+got = A.normalize(sel, e, puzzle["entries"])
+check("select adds letter_selection to type", got["type"] == ["charade", "letter_selection"])
+check("at is dropped from blocks and indicators",
+      "at" not in got["blocks"][0] and "at" not in got["indicators"][0])
+check("a definition keeps its at", got["definitions"][0]["at"] == 0)
+check("the input is not mutated", sel["type"] == ["charade"] and "at" in sel["blocks"][0])
 raise SystemExit(1 if fails else 0)
 PY
