@@ -266,12 +266,49 @@ V.check_no_answer_in_early_rungs("3D", {"answer": "ABCD", "definitions": [{"text
 say("written_answer_still_fails", len(errs) == 1)
 
 # A linked answer's lights are answers too: a note naming one light leaks it,
-# though the whole answer is never said. A function word light leaks nothing.
+# though the whole answer is never said, unless a block prints that light as
+# its letters on the same rung. A function word light leaks nothing.
+errs = []
+V.check_block_notes_dont_name_the_answer("1A", {"answer": "PRIME MINISTER", "blocks": [
+    {"note": "to prime a gun is to make it ready", "gives": "PRIM"}]}, errs, [],
+    ["PRIME", "MINISTER"])
+say("light_answer_named_fails", len(errs) == 1 and "'PRIME'" in errs[0])
 errs = []
 V.check_block_notes_dont_name_the_answer("1A", {"answer": "PRIME MINISTER", "blocks": [
     {"note": "to prime a gun is to make it ready", "gives": "PRIME"}]}, errs, [],
     ["PRIME", "MINISTER"])
-say("light_answer_named_fails", len(errs) == 1 and "'PRIME'" in errs[0])
+say("light_the_block_prints_passes", errs == [])
+
+# A run of words that only looks like the answer is no leak: an article before
+# a one-word answer, a last word lending one letter or the note's copula, and
+# pieces the rung already prints.
+for answer, gives, note in [("AJAR", ["A", "JAR"], "a jar is a glass container"),
+                            ("LUNGI", ["LUNG", "I"], "lung is one of the organs sold as offal"),
+                            ("TUNIS", ["TUNS", "I"], "a tun is a large cask"),
+                            ("JUT", ["JUTE"], "the Jutes were a Germanic people"),
+                            ("YONIS", ["YON", "IS"], "yon is an old word for that"),
+                            ("AS IS", ["A", "SIS"], "a sis is a sister"),
+                            ("GLOUCESTER", ["DOUBLEGLOUCESTER"], "Double Gloucester is a hard cheese")]:
+    errs = []
+    V.check_block_notes_dont_name_the_answer("1A", {"answer": answer, "blocks": [
+        {"note": note, "gives": g} for g in gives]}, errs, [])
+    say(f"lookalike_run_passes_{answer.replace(' ', '_')}", errs == [])
+# Mirror: the same shapes still fail when they are the answer.
+for answer, note in [("AFLOAT", "an AFLOAT boat"), ("PLEASE", "to please is to delight"),
+                     ("TRUMP CARDS", "trump cards win tricks"), ("CANT", "can't is a contraction"),
+                     ("ALPHA", "fin(AL PHA)se")]:
+    errs = []
+    V.check_block_notes_dont_name_the_answer("1A", {"answer": answer, "blocks": [
+        {"note": note, "gives": "XYZ"}]}, errs, [])
+    say(f"answer_run_fails_{answer.replace(' ', '_')}", len(errs) == 1)
+
+# A double definition's sense is blanked where no rule can drop the answer.
+from find_answer_leaks import unname as _un
+say("dd_sense_blanked", _un("first meaning: Lambert Simnel, who claimed the throne in 1487",
+                            "SIMNEL", None, "", (), blank=True)
+    == "first meaning: Lambert ..., who claimed the throne in 1487")
+say("blank_only_without_letters", _un("first meaning: Lambert Simnel, who claimed the throne",
+                                      "SIMNEL", "SIMNEL", "") is None)
 errs = []
 V.check_block_notes_dont_name_the_answer("1A", {"answer": "THE LADY", "blocks": [
     {"note": "the rack stretched a prisoner", "gives": "THE"}]}, errs, [], ["THE", "LADY"])
@@ -285,7 +322,7 @@ linked.write_text(json.dumps({"entries": [
      "clue": {"text": "Prepare a cleric for high office (5,8)"}},
     {"number": 2, "direction": "down", "solution": "MINISTER", "clue": {"text": "See 1"}}]}))
 pending.write_text(json.dumps({"1-across": {"answer": "PRIME MINISTER", "blocks": [
-    {"note": "to prime is to prepare", "gives": "PRIME"}]}}))
+    {"note": "to prime is to prepare", "gives": "PRIM"}]}}))
 say("light_name_unnamed", AC.unname_block_notes(linked, pending) == ["1-across"]
     and json.loads(pending.read_text())["1-across"]["blocks"][0]["note"] == "to prepare")
 
