@@ -87,13 +87,22 @@ BARRED = {"Mephisto", "mephisto"}
 #: A 15x15 holds at most this many lights; a Weekend post with more is the
 #: Sunday Times's Christmas Jumbo, printed at the Jumbo's 23x23.
 MOST_LIGHTS_15 = 38
+#: A 23x23 Jumbo holds at most this many lights (every one filed tops out at
+#: 62); a Jumbo with more is a Superjumbo, printed at SUPERJUMBO. Jumbo 1423,
+#: 90 clues for the crossword's 90 years, is 27x27 in the Times's own feed.
+MOST_LIGHTS_23 = 70
+SUPERJUMBO = 27
+JUMBOS = {"Jumbo Cryptic", "timesjumbo"}
 
 
 def size(rec):
     """The grid's side for this record: its series', but a Weekend post with
-    more entries than a 15x15 holds is a Jumbo."""
+    more entries than a 15x15 holds is a Jumbo, and a Jumbo with more than a
+    23x23 holds is a Superjumbo."""
     if rec["series"] == "Weekend Cryptic" and len(rec["entries"]) > MOST_LIGHTS_15:
         return SIZE["Jumbo Cryptic"]
+    if rec["series"] in JUMBOS and len(rec["entries"]) > MOST_LIGHTS_23:
+        return SUPERJUMBO
     return SIZE[rec["series"]]
 
 
@@ -188,7 +197,7 @@ def black_run(rec):
 #: Which search wrote an attempt. A failure logged by an older search is not
 #: a failure of this one -- 414 Jumbos this search solves in seconds sat in
 #: the log as `truncated` -- so it is tried again. Bump it with the search.
-SEARCH = 3
+SEARCH = 4
 
 
 def by_enumeration(rec):
@@ -274,6 +283,93 @@ def one_light_wrong(lights, words, n, cap=TIMES_BLACK_RUN, budget=None):
     if len(found) == 1:
         return found.pop(), "one light wrong at " + ", ".join(freed)
     return None, None
+
+
+def numbering_faults(lights, words):
+    """Indices of the lights whose number the list itself contradicts: two
+    lights one direction numbers alike, an across and a down sharing a number
+    whose answers start with different letters, and the lights numbered either
+    side of a number no light carries."""
+    at = collections.defaultdict(list)
+    for i, (num, _d, _n) in enumerate(lights):
+        at[num].append(i)
+    bad = set()
+    for ix in at.values():
+        dirs = [lights[i][1] for i in ix]
+        firsts = {words[i][0] for i in ix if words[i]}
+        if len(set(dirs)) < len(dirs) or len(firsts) > 1:
+            bad.update(ix)
+    for gap in set(range(1, max(at, default=0) + 1)) - set(at):
+        bad.update(at.get(gap - 1, []) + at.get(gap + 1, []))
+    return sorted(bad)
+
+
+def one_number_wrong(lights, words, n, cap=TIMES_BLACK_RUN, budget=None):
+    """The one grid that fits when exactly one light numbering_faults() names
+    has its number freed, whichever of them it is; else None.
+
+    A light printed under the wrong number -- 14-down MALONE under 14-across
+    HARPSICHORD, two 52-acrosses and no 53 -- is a list no grid fits, and no
+    grid fits it with the light's letters freed either, because the number
+    still pins where the light starts. Its length and letters are right, so
+    they stay; only the number goes.
+    """
+    budget = budget or Budget(len(lights) * LOOSE_NODES, log=False)
+    found, nodes, t = set(), budget.left, time.monotonic()
+    faults = numbering_faults(lights, words)
+    for i in faults:
+        spec = list(lights)
+        spec[i] = (None,) + tuple(lights[i][1:])
+        try:
+            sols, info = budget.search("one number freed", spec, LOOSE_NODES, quiet=True,
+                                       cols=n, rows=n, limit=2, words=words,
+                                       max_black_run=cap)
+        except ValueError:                   # another light still numbered twice
+            continue
+        if budget.spent():
+            budget.note(f"one number freed: budget spent after {faults.index(i)} of "
+                        f"{len(faults)} lights")
+            return None
+        found.update(sols)
+        if len(found) > 1 or (sols and info["truncated"]):
+            return None
+    budget.note(f"one number freed: {len(faults)} searches, {len(found)} grid(s), "
+                f"{nodes - budget.left} nodes, {time.monotonic() - t:.1f}s")
+    return found.pop() if len(found) == 1 else None
+
+
+def _written(grid, entries):
+    """Do these answers write into the grid's lights without a clash? An
+    answer shorter than its light (georgeho's TAM for TAM-O'-SHANTER) is
+    written from the light's first square."""
+    lights, seen = rg.light_cells(grid), {}
+    for e in entries:
+        cells = lights.get((e["number"], e["direction"]))
+        if cells is None or len(e["answer"]) > len(cells):
+            return False
+        for cell, letter in zip(cells, e["answer"]):
+            if seen.setdefault(cell, letter) != letter:
+                return False
+    return True
+
+
+def numbered_by(rec, grid):
+    """rec, or rec with the one light it misnumbers given the number the grid
+    gives it (one_number_wrong's grid)."""
+    lights = rg.light_cells(grid)
+    named = collections.Counter((e["number"], e["direction"]) for e in rec["entries"])
+    unnamed = [k for k in lights if k not in named]
+    if len(unnamed) != 1 or len(rec["entries"]) != len(lights):
+        return rec
+    (num, way), = unnamed
+    fits = []
+    for i, e in enumerate(rec["entries"]):
+        if e["direction"] == way:
+            entries = list(rec["entries"])
+            entries[i] = dict(e, number=num)
+            if _written(grid, entries):
+                fits.append(entries)
+    return {**rec, "entries": fits[0]} if len(fits) == 1 else rec
 
 
 LEXICON = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
@@ -627,6 +723,23 @@ def solve_linked(rec, limit, max_nodes, budget):
     return grids, why + ", linked answer split by the grid"
 
 
+def renumbered(rec, lights, words, n, budget):
+    """(grids, how) for a list numbering_faults() faults, as one_number_wrong
+    rebuilds it, as blogged and then at its enumeration's lengths; the grid's
+    number is written into rec's entries. ([], why) when neither does."""
+    for spec, ws in [(lights, words)] + [x for x in [by_enumeration(rec)] if x]:
+        grid = one_number_wrong(spec, ws, n, black_run(rec), budget)
+        if budget.spent():
+            return [], f"truncated: puzzle budget spent at {budget.spent_at or 'one number freed'}"
+        fixed = numbered_by(rec, grid) if grid else rec
+        if fixed is not rec:
+            moved = [f"{e['number']} {e['direction']} to {f['number']}"
+                     for e, f in zip(rec["entries"], fixed["entries"]) if e != f]
+            rec["entries"] = fixed["entries"]
+            return [grid], "unique, number freed: " + ", ".join(moved)
+    return [], "no grid"
+
+
 def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None):
     """(grids, how) for one puzzle. `how` is why it ended where it did.
 
@@ -663,8 +776,15 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
         sols, info = budget.search("answers in", lights, max_nodes, cols=n, rows=n,
                                    limit=limit, words=words,
                                    max_black_run=black_run(rec))
+        refused = None
     except Exception as e:                       # a light longer than the grid
-        return [], f"rejected: {e}"
+        sols, info, refused = [], {"truncated": False}, f"rejected: {e}"
+    if not sols and not info["truncated"] and numbering_faults(lights, words):
+        grids, why = renumbered(rec, lights, words, n, budget)
+        if grids or budget.spent():
+            return grids, why
+    if refused:
+        return [], refused
     if info.get("gaps"):
         return [], "no grid: no light numbered " + ", ".join(map(str, info["gaps"]))
     if sols:
