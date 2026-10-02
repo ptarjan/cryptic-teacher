@@ -51,8 +51,9 @@ reprint whose clues match a held cryptic-* puzzle is not filed again.
 
 Resumable and idempotent: ~/.cache/trove/filed.jsonl records each article's
 verdict against its files' sizes and times and a hash of this code, so a
-rerun reads only articles that are new or changed (--limit N caps those per
-run). A puzzle file on disk is never rewritten.
+rerun reads only articles that are new or changed. --seconds N stops starting
+new reads once N seconds have passed (a page-image read is 15-100 s); what is
+left keeps its old ledger row, so it stays pending for the next run. A puzzle file on disk is never rewritten.
 """
 import argparse
 import datetime
@@ -62,6 +63,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -707,9 +709,11 @@ def consider(d, taken):
     return verdict, puzzle
 
 
-def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None):
+def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None):
     """File what is new under `cache`; `puzzles` is a directory to write to
-    instead of the corpus (tests). Returns the tally it prints."""
+    instead of the corpus (tests). No article is started once `seconds` have
+    passed. Returns the tally it prints."""
+    deadline = None if seconds is None else time.monotonic() + seconds
     ledger = Path(ledger or cache / "filed.jsonl")
     known = {}
     if ledger.exists():
@@ -721,7 +725,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     # The VLM's readings are an input: an article read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
-    tally, fresh = {}, 0
+    tally = {}
     dirs = sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
     for d in dirs:
         aid = d.name
@@ -730,10 +734,9 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
         if not seen_by and row and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
             h = row["hash"]
         if not (row and row.get("hash") == h):
-            if limit is not None and fresh >= limit:
+            if deadline is not None and time.monotonic() >= deadline:
                 tally["left for the next run"] = tally.get("left for the next run", 0) + 1
                 continue
-            fresh += 1
             try:
                 verdict, puzzle = consider(d, taken)
             except Exception as e:  # noqa: BLE001 -- one bad article is a verdict, not a crash
@@ -779,7 +782,8 @@ def main(argv=None):
     ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl")
     ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
-    ap.add_argument("--limit", type=int, help="read at most N new or changed articles")
+    ap.add_argument("--seconds", type=float,
+                    help="start no new article read after N seconds; the rest wait for the next run")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ID", help="print one article's verdict and grid")
     args = ap.parse_args(argv)
@@ -790,7 +794,7 @@ def main(argv=None):
             print(json.dumps(puzzle, indent=1)[:4000])
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        limit=args.limit)
+        seconds=args.seconds)
     if not args.out:
         trove_solution_ocr.fill_corpus(args.cache, write=not args.dry_run)
     return 0
