@@ -514,9 +514,6 @@ tools/check_annotation_loss.py               shouts when an annotation run leave
                                              good one
 tools/find_answer_leaks.py                   finds a block note that says the answer out loud,
                                              a rung before the walkthrough sells it
-tools/build_indicator_note_words.py          lists the words hundreds of indicator notes use,
-                                             which name no block when a block happens to use
-                                             them too
 tools/find_renarration.py                    flags a walkthrough that only restates the blocks
                                              instead of teaching past them
 tools/clue_quality.py                        warns about the clue shapes that lost to human
@@ -961,8 +958,6 @@ tools/data/fill_floors.json                  grid_fill.py's clueability and fami
 tools/data/abbreviations.json                the hand-curated standard abbreviations;
                                              build_abbreviations.table() adds every reading ten
                                              or more clues use
-tools/data/indicator_note_words.json         the words of the language indicator notes are
-                                             written in, from build_indicator_note_words.py
 tools/data/lexicons/blocks.json              clue word -> letters -> clues, off the blogs and
                                              our annotations (tools/letter_facts.py
                                              --lexicons); the abbreviations/ page lists its
