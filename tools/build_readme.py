@@ -428,6 +428,10 @@ LAYOUT = [
     ("fetching", "tools/test_archive_org_jumbo.sh", "does tools/archive_org_jumbo.py take the Jumbo's number from the prize text (the banner's is cut short), read \"SOLUTION TO JUMBO 17 8\" as 178, look for an unheaded solution in the edition two weeks on, blank a light whose count is short of it, keep the clue columns left of the Times Two's, and match a solution grid by its blocks when its middle prints grey?"),
     ("fetching", "tools/test_difficulty_barred.sh", "is a barred grid's checking rated against barred grids, not blocked ones?"),
     ("fetching", "tools/test_no_doubled_paper.sh", "does any series' page say the same word twice running (\"Listener Listener\")? The Listener is its own publisher and kind, so joining the two doubled it. Renders a crawlable page for every series in tools/series.py and refuses a repeated adjacent word in the title, heading, description or series name"),
+    ("fetching", "tools/test_vlm_reader.sh", "does tools/vlm_reader.py stay out of the way when the desktop's VLM does not answer, cache what it asks, crop each clue column alone, and does file_archive_org_puzzles.py fill a blank clue with its reading and re-read an edition once it answers?"),
+    ("fetching", "tools/vlm_reader.py", "a vision-language model as one more reader of scanned clue columns"),
+    ("fetching", "tools/vlm_column_prompt.md", "what the VLM reader is told when transcribing a clue column verbatim"),
+    ("fetching", "tools/vlm_pick_prompt.md", "what the VLM reader is told when the readers disagree on one clue"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
