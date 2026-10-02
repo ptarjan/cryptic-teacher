@@ -851,7 +851,10 @@ def committed_copy(puzzle):
     """The puzzle's file as committed at HEAD, or None: what a puzzle that was
     deleted and is being filed again looked like before."""
     import subprocess  # noqa: PLC0415
-    rel = puzzle_paths.file_for(puzzle).relative_to(ROOT).as_posix()
+    path = puzzle_paths.file_for(puzzle)
+    if path is None or not path.is_relative_to(ROOT):
+        return None
+    rel = path.relative_to(ROOT).as_posix()
     out = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
                          capture_output=True, text=True)
     try:
