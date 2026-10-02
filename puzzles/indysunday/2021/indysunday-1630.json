@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Share of party vote going west?",
     "enumeration": "6"
    },
-   "solution": "DOLLOP"
+   "solution": "DOLLOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DOLLOP",
+    "definitions": [
+     {
+      "text": "Share",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going west",
+      "for": "reversal",
+      "note": "in an across entry, travelling west means reading from right to left, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party or celebration"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "POLL",
+      "note": "a poll is a vote or ballot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "LLOP"
+     ],
+     "reversals": [
+      {
+       "from": "POLL",
+       "to": "LLOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what fraction of a party's support is drifting rightward, or westward, in an election.",
+     "walkthrough": "'Share of party vote' reads as one political phrase, but 'Share' is the definition and only the vote is turned round.",
+     "definitionFit": "A dollop is a lump or helping of something, so it can stand for a portion handed out to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,49 @@
     "text": "Discourage careful eater, second to quit",
     "enumeration": "5"
    },
-   "solution": "DETER"
+   "solution": "DETER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DETER",
+    "definitions": [
+     {
+      "text": "Discourage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second to quit",
+      "for": "deletion",
+      "note": "the letter in position two is told to leave, so it is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "careful eater",
+      "gives": "DIETER",
+      "note": "someone on a diet watches carefully what they eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ETER"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to put off a fussy eater, with a second helping withdrawn.",
+     "walkthrough": "'Second' sounds like a second course; it means the second letter, the I of DIETER, which goes to leave DETER.",
+     "definitionFit": "To deter someone is to put them off doing something, which is a plain synonym for discouraging them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,63 @@
     "text": "Enthusiastic rally, regularly itch to get involved",
     "enumeration": "7"
    },
-   "solution": "LYRICAL"
+   "solution": "LYRICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LYRICAL",
+    "definitions": [
+     {
+      "text": "Enthusiastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means taking every other letter of the word"
+     },
+     {
+      "text": "to get involved",
+      "for": "anagram",
+      "note": "things that get involved become tangled together, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rally",
+      "gives": "RALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "itch",
+      "gives": "IC",
+      "select": "alternate",
+      "note": "first and third letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RALLYIC",
+       "gives": "LYRICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excited crowd at a rally, with fidgety supporters itching to join in.",
+     "walkthrough": "The two letters from 'itch' join the letters of 'rally', and all seven are rearranged.",
+     "definitionFit": "Waxing lyrical means speaking with great gushing praise, so lyrical describes effusive, eager feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +233,43 @@
     "text": "Home let - tenant brings in food",
     "enumeration": "8"
    },
-   "solution": "OMELETTE"
+   "solution": "OMELETTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMELETTE",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brings in",
+      "for": "hidden_word",
+      "note": "the phrase brings something inside itself, so the word sits within the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home let - tenant",
+      "gives": "OMELETTE",
+      "note": "the letters run across the three words once the dash and spaces are ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "A landlord's note: a house is let and the tenant pays rent, or brings in provisions.",
+     "walkthrough": "The answer spans 'hOME LET TEnant', ignoring the dash; 'food' is the definition at the end.",
+     "definitionFit": "An omelette is a dish of beaten eggs cooked in a pan, a particular example of something you eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brings"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +283,43 @@
     "text": "Some lass! A man thanks her",
     "enumeration": "8"
    },
-   "solution": "SAMANTHA"
+   "solution": "SAMANTHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SAMANTHA",
+    "definitions": [
+     {
+      "text": "her",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only part of the following words is wanted, a portion of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lass! A man thanks",
+      "gives": "SAMANTHA",
+      "note": "the letters run from the end of the first word into the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "An admiring exclamation about a fine girl, whom a man then thanks.",
+     "walkthrough": "'Some lass!' reads as praise, but 'Some' is the signal; the name sits in 'laSS A MAN THAnks', and 'her' is the vague definition.",
+     "definitionFit": "Samantha is a woman's first name, so any woman called that can be referred to by the pronoun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +333,77 @@
     "text": "Ship carrying computer equipment and beer going north supplying islands",
     "enumeration": "11"
    },
-   "solution": "ARCHIPELAGO"
+   "solution": "ARCHIPELAGO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "ARCHIPELAGO",
+    "definitions": [
+     {
+      "text": "islands",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vessel carrying cargo holds it inside, so one word goes inside another"
+     },
+     {
+      "text": "going north",
+      "for": "reversal",
+      "note": "in a down entry, travelling north means reading upward, so the word is turned round"
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ship",
+      "gives": "ARGO",
+      "note": "the Argo was the ship of Jason and the Argonauts in Greek myth"
+     },
+     {
+      "clueFragment": "computer equipment",
+      "gives": "CHIP",
+      "note": "a silicon chip is a computer component"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a kind of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CHIP",
+      "ELA",
+      "GO"
+     ],
+     "reversals": [
+      {
+       "from": "ALE",
+       "to": "ELA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cargo ship heading north with computers and beer to supply a group of islands.",
+     "walkthrough": "The ship is the classical Argo, not a generic vessel; it holds the chip and the upturned ale.",
+     "definitionFit": "An archipelago is a cluster or chain of isles in a sea, so the plural noun names it well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ship"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +417,48 @@
     "text": "Out-and-out guarantee leader’s been ousted",
     "enumeration": "6"
    },
-   "solution": "ARRANT"
+   "solution": "ARRANT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARRANT",
+    "definitions": [
+     {
+      "text": "Out-and-out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader’s been ousted",
+      "for": "deletion",
+      "note": "the leader of a word is its first letter, and ousting it removes that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guarantee",
+      "gives": "WARRANT",
+      "note": "a warranty or warrant is a guarantee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A complete promise that a political leader has been thrown out.",
+     "walkthrough": "Dropping the W from WARRANT leaves the answer; 'leader' looks political but means the first letter.",
+     "definitionFit": "Arrant means utter or complete, as in arrant nonsense, matching the adjective meaning thoroughgoing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader’s"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +472,59 @@
     "text": "Enter four or six in test? Of little importance",
     "enumeration": "7"
    },
-   "solution": "TRIVIAL"
+   "solution": "TRIVIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIVIAL",
+    "definitions": [
+     {
+      "text": "Of little importance",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Enter",
+      "for": "container",
+      "note": "to enter is to go into something, so these letters are put inside another word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "four or six",
+      "gives": "IV",
+      "note": "Roman numeral for four; the six, VI, works equally well"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "IV",
+      "IAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer hitting a boundary for four or six in a Test match, then shrugging it off.",
+     "walkthrough": "'Four or six' sounds like cricket scoring; either Roman numeral fits the gap in the test, landing on the same letters, which is why the setter can offer both.",
+     "definitionFit": "Trivial things are minor and unimportant, so the adjective matches the phrase about small significance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +544,74 @@
      }
     ]
    },
-   "solution": "AUNATUREL"
+   "solution": "AUNATUREL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "AU NATUREL",
+    "definitions": [
+     {
+      "text": "Lacking cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduces",
+      "for": "container",
+      "note": "to introduce something is to put it in, so one piece goes inside the other"
+     },
+     {
+      "text": "bizarre",
+      "for": "anagram",
+      "note": "something bizarre is strange and out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "RULE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUN",
+      "A",
+      "T",
+      "UREL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RULE",
+       "gives": "UREL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eccentric aunt bringing in a strange rule that nobody need wear clothes.",
+     "walkthrough": "'introduces' means the relative takes the A inside her, just before her last letter, with the jumbled rule tacked on after.",
+     "definitionFit": "Au naturel is French for in the natural state, used in English to mean naked or unclothed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +631,69 @@
      }
     ]
    },
-   "solution": "TARGET"
+   "solution": "TARGET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TARGET",
+    "definitions": [
+     {
+      "text": "goal",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes around what it covers, so outer letters enclose the rest"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so those letters are left out"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "TT",
+      "note": "T is the abbreviation for time, so two times are T and T"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "ARGUE",
+      "note": "to row is to quarrel or argue"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the standard abbreviation for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ARGE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper report on a football row, with Manchester United failing to score.",
+     "walkthrough": "The italics make 'Times' look like the newspaper; it is simply two Ts, holding ARGUE with its U removed.",
+     "definitionFit": "A target is an aim or objective you work toward, a direct synonym for goal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +707,50 @@
     "text": "Arachnid is on crop unfortunately",
     "enumeration": "8"
    },
-   "solution": "SCORPION"
+   "solution": "SCORPION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCORPION",
+    "definitions": [
+     {
+      "text": "Arachnid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "an unfortunate outcome is one that went wrong, so the letters come out disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is on crop",
+      "gives": "ISONCROP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISONCROP",
+       "gives": "SCORPION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer's bad news: a spider-like creature has been found on the harvest.",
+     "walkthrough": "The definition comes first; the three short words supply exactly eight letters to rearrange.",
+     "definitionFit": "A scorpion belongs to the class of eight-legged creatures that includes spiders, mites and ticks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +770,54 @@
      }
     ]
    },
-   "solution": "ROCKETSCIENTIST"
+   "solution": "ROCKETSCIENTIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROCKET SCIENTIST",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "play",
+      "for": "anagram",
+      "note": "letters put into play are free to move around and take new positions"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sorts nice ticket",
+      "gives": "SORTSNICETICKET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORTSNICETICKET",
+       "gives": "ROCKETSCIENTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knowledgeable person arranges a good ticket for a theatre show.",
+     "walkthrough": "'sorts' looks like the verb of the surface, but it is part of the fodder; 'play' is the signal.",
+     "definitionFit": "A rocket scientist is the stock idiom for a very clever person, as in 'it doesn't take one'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sorts"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +831,43 @@
     "text": "As chambermaid might for computer program",
     "enumeration": "11"
    },
-   "solution": "SPREADSHEET"
+   "solution": "SPREADSHEET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPREADSHEET",
+    "definitions": [
+     {
+      "text": "computer program",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As chambermaid might",
+      "note": "surface: describing what a hotel maid does when making a bed"
+     },
+     {
+      "clueFragment": "computer program",
+      "note": "setter's reading: that bed-making action, put as two words, is also the name of software for tables of figures"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel maid's routine likened to some piece of software.",
+     "walkthrough": "A chambermaid making beds would spread a sheet; joined up, that phrase is the program.",
+     "definitionFit": "A spreadsheet is application software arranging numbers in rows and columns for calculation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chambermaid"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +887,43 @@
      }
     ]
    },
-   "solution": "TALKTURKEY"
+   "solution": "TALKTURKEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TALK TURKEY",
+    "definitions": [
+     {
+      "text": "Frankly discuss",
+      "at": 0
+     },
+     {
+      "text": "seasonal meal?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frankly discuss",
+      "note": "first meaning: the idiom for speaking bluntly and getting down to business"
+     },
+     {
+      "clueFragment": "seasonal meal?",
+      "note": "second meaning, taken literally: chatting about the bird eaten at Christmas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful literal reading: the turkey is the Christmas dinner centrepiece.",
+     "definitionFit": "To talk turkey is an idiom meaning to speak plainly about practical matters, especially in negotiation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seasonal"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +943,55 @@
      }
     ]
    },
-   "solution": "TESTPILOT"
+   "solution": "TESTPILOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEST PILOT",
+    "definitions": [
+     {
+      "text": "He’s up with what’s new",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributing",
+      "for": "anagram",
+      "note": "distributing spreads things out into new places, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top titles",
+      "gives": "TOPTITLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPTITLES",
+       "gives": "TESTPILOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy publisher who keeps up with fashion and hands out bestsellers.",
+     "walkthrough": "'up with what's new' sounds like being fashionable; here 'up' means airborne in a new aircraft.",
+     "definitionFit": "A test pilot flies newly built aircraft to check them, so he is literally aloft in new machines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1005,56 @@
     "text": "Smear, brutal, unfair - extremely",
     "enumeration": "4"
    },
-   "solution": "BLUR"
+   "solution": "BLUR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BLUR",
+    "definitions": [
+     {
+      "text": "Smear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only those letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brutal",
+      "gives": "BL",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "unfair",
+      "gives": "UR",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BL",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a smear campaign was savage and deeply unjust.",
+     "walkthrough": "'extremely' looks like an intensifier for 'unfair'; it applies to both words before it.",
+     "definitionFit": "To smear something makes it indistinct, and a blur is a smudged, unclear mark or image."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1068,54 @@
     "text": "Flab lost exercising in US game?",
     "enumeration": "8"
    },
-   "solution": "SOFTBALL"
+   "solution": "SOFTBALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOFTBALL",
+    "definitions": [
+     {
+      "text": "US game?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exercising",
+      "for": "anagram",
+      "note": "exercising works things over and moves them about, so the letters are put in motion"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flab lost",
+      "gives": "FLABLOST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLABLOST",
+       "gives": "SOFTBALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shedding weight by playing an American sport.",
+     "walkthrough": "'US game' is the definition, with the question mark nodding at the surface's weight-loss story.",
+     "definitionFit": "Softball is a variant of baseball with a larger ball, widely played across America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1129,80 @@
     "text": "Dress is taken back over a rip primarily",
     "enumeration": "4"
    },
-   "solution": "SARI"
+   "solution": "SARI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SARI",
+    "definitions": [
+     {
+      "text": "Dress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken back",
+      "for": "reversal",
+      "note": "taking something back returns it the way it came, so the letters run backwards"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so only the opening letter is used"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "one thing laid over another can cover it on both sides, wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rip",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "R",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dress returned to the shop because it has a tear.",
+     "walkthrough": "IS turned round gives SI, which goes around A and the first letter of 'rip'.",
+     "definitionFit": "A sari is a long draped garment worn by women in South Asia, a kind of dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1216,42 @@
     "text": "Wine selection from clarets in Athens",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "selection from",
+      "for": "hidden_word",
+      "note": "a selection from something is a part of it, so the word sits inside the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clarets in Athens",
+      "gives": "RETSINA",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine list in a Greek restaurant offering a choice of red Bordeaux.",
+     "walkthrough": "Hidden in 'claRETS IN Athens'; the Greek setting is a fair hint, since the answer is a Greek wine.",
+     "definitionFit": "Retsina is a Greek white or rosé flavoured with pine resin, a particular kind of vino."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1271,56 @@
      }
     ]
    },
-   "solution": "PARANORMAL"
+   "solution": "PARANORMAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARANORMAL",
+    "definitions": [
+     {
+      "text": "Hard to explain",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disturbed, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Both sides",
+      "gives": "LR",
+      "note": "left and right are L and R"
+     },
+     {
+      "clueFragment": "Panorama",
+      "gives": "PANORAMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LRPANORAMA",
+       "gives": "PARANORMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Politicians from both sides angry at a TV documentary; Panorama is the BBC's long-running investigative programme.",
+     "walkthrough": "'Both sides' reads as political parties; it gives L and R, which join the eight letters of the programme name.",
+     "definitionFit": "Paranormal events lie beyond normal scientific understanding, so they resist rational explanation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1334,62 @@
     "text": "House island boy, first person to be admitted",
     "enumeration": "7"
    },
-   "solution": "MANSION"
+   "solution": "MANSION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MANSION",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be admitted",
+      "for": "container",
+      "note": "someone admitted is let inside, so this letter goes into the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "MAN",
+      "note": "the Isle of Man, in the Irish Sea"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     },
+     {
+      "clueFragment": "first person",
+      "gives": "I",
+      "note": "I is the first person singular pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "S",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand house on an island where a boy is the first to be let in.",
+     "walkthrough": "'first person' sounds like whoever arrives first; it is the grammatical first person.",
+     "definitionFit": "A mansion is a large and stately dwelling, a grand kind of residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1403,54 @@
     "text": "Last stop - overlooking Northern River",
     "enumeration": "6"
    },
-   "solution": "ENDURE"
+   "solution": "ENDURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDURE",
+    "definitions": [
+     {
+      "text": "Last",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "charade",
+      "note": "in a down entry, one thing overlooking another sits above it, setting the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "END",
+      "note": "to stop is to end"
+     },
+     {
+      "clueFragment": "Northern River",
+      "gives": "URE",
+      "note": "the Ure is a river in North Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "The final halt on a route, with a view across a river in the North.",
+     "walkthrough": "'Last stop' reads as one phrase, but 'Last' is the verb definition and 'overlooking' means placed above.",
+     "definitionFit": "To last is to go on or survive over time, and to endure has exactly that verbal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1482,39 @@
      }
     ]
    },
-   "solution": "PUTONESFOOTINIT"
+   "solution": "PUTONESFOOTINIT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PUT ONES FOOT IN IT",
+    "definitions": [
+     {
+      "text": "Do wrong in lowdown way?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do wrong",
+      "note": "surface: making a mistake, perhaps sneakily"
+     },
+     {
+      "clueFragment": "lowdown way",
+      "note": "setter's reading: 'lowdown' means near the ground, where the body part used for walking is, so the blunder is made with that part"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'lowdown' suggests something mean or underhand; the joke is that the offending body part is the lowest one.",
+     "definitionFit": "The idiom means to make an embarrassing tactless blunder, a social error rather than a crime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lowdown"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1528,55 @@
     "text": "Casks I observed inside port",
     "enumeration": "5"
    },
-   "solution": "TUNIS"
+   "solution": "TUNIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TUNIS",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed inside",
+      "for": "container",
+      "note": "to be seen inside something is to be within it, so one piece sits in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casks",
+      "gives": "TUNS",
+      "note": "large barrels for wine or beer, plural"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A customs officer reporting barrels spotted in a harbour.",
+     "walkthrough": "'I observed' reads as the speaker witnessing; I is the letter that goes inside.",
+     "definitionFit": "Tunis is the capital of Tunisia, a city with a harbour on the Mediterranean coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "observed"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1590,62 @@
     "text": "Was first to go around India certainly not needing to work",
     "enumeration": "8"
    },
-   "solution": "LEISURED"
+   "solution": "LEISURED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LEISURED",
+    "definitions": [
+     {
+      "text": "not needing to work",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go around",
+      "for": "container",
+      "note": "going around something encircles it, so the outer word wraps the inner letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was first",
+      "gives": "LED",
+      "note": "to be first, at the front, is to have led"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "'sure' is an informal way of saying certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "I",
+      "SURE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy traveller who was first to tour India and never had to earn a living.",
+     "walkthrough": "'go around India' suggests travel; here the past tense of lead encloses I and SURE.",
+     "definitionFit": "The leisured classes have ample free time, living on private means without having to earn wages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1659,57 @@
     "text": "Excellent upright character with article favouring gradual change",
     "enumeration": "6"
    },
-   "solution": "FABIAN"
+   "solution": "FABIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FABIAN",
+    "definitions": [
+     {
+      "text": "favouring gradual change",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "FAB",
+      "note": "fab is short for fabulous"
+     },
+     {
+      "clueFragment": "upright character",
+      "gives": "I",
+      "note": "the letter I is a single vertical stroke"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAB",
+      "I",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for an honest person who writes a piece advocating slow reform.",
+     "walkthrough": "'upright character' sounds like an honest person; it is the letter shaped like a vertical line.",
+     "definitionFit": "The Fabian Society, a British socialist group, advocates reform by slow steps rather than revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1723,69 @@
     "text": "Cross about ultimately bitter Bible parody",
     "enumeration": "8"
    },
-   "solution": "TRAVESTY"
+   "solution": "TRAVESTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TRAVESTY",
+    "definitions": [
+     {
+      "text": "parody",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the outer word encircles the others"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letter is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "gives": "TESTY",
+      "note": "cross and testy both mean irritable"
+     },
+     {
+      "clueFragment": "bitter",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "Bible",
+      "gives": "AV",
+      "note": "AV is the Authorised Version of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AV",
+      "ESTY"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry believer furious about a mocking spoof of scripture.",
+     "walkthrough": "'Cross' could suggest a crucifix in a Bible surface; it means bad-tempered.",
+     "definitionFit": "A travesty is a grotesque or absurd imitation of something, a mocking version like a parody."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1799,68 @@
     "text": "Kinnock maybe good Labour leader? Electorate not yet sure, for a start",
     "enumeration": "6"
    },
-   "solution": "GLENYS"
+   "solution": "GLENYS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLENYS",
+    "definitions": [
+     {
+      "text": "Kinnock maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     },
+     {
+      "text": "for a start",
+      "for": "letter_selection",
+      "note": "the start of each word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Electorate not yet sure",
+      "gives": "ENYS",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "ENYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Was Kinnock a good Labour leader? Voters still undecided at the outset; Neil Kinnock led Britain's Labour Party in the 1980s.",
+     "walkthrough": "The surface points to Neil Kinnock, but 'maybe' signals an example: his wife, also a Labour politician.",
+     "definitionFit": "Glenys Kinnock was a Labour MEP and minister, so she is one person bearing that surname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Kinnock"
+    }
+   }
   }
  ]
 }
