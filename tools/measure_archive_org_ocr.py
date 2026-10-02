@@ -11,7 +11,9 @@ scans, each edition marked "tune" (used to choose the voting rules) or
 Editions with "series": "listener" are Saturday Listeners, read by
 tools/archive_org_listener.py and split "listener" / "listener-heldout";
 "series": "jumbo" ones are Saturday Jumbos, read by tools/archive_org_jumbo.py
-and split "jumbo" / "jumbo-heldout".
+and split "jumbo" / "jumbo-heldout"; "series": "ft" ones are Financial Times
+cryptics (FinancialTimes<year>UKEnglish items), read by the same filer and
+split "ft" / "ft-heldout".
 Each edition is read as the filer reads it (no solution grid), and every
 clue it files non-blank is scored against the transcription: the misreads
 are the word-level edit distance between the two lists of words and voted
@@ -106,7 +108,8 @@ def read(edition, number, cache=fa.CACHE, series="times"):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--split", choices=("tune", "heldout", "listener", "listener-heldout", "jumbo", "jumbo-heldout"))
+    ap.add_argument("--split", choices=("tune", "heldout", "listener", "listener-heldout", "jumbo", "jumbo-heldout",
+                                        "ft", "ft-heldout"))
     ap.add_argument("--gold", type=Path, default=GOLD)
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
