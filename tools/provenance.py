@@ -223,7 +223,7 @@ ACQUIRED_BY = {
                 "where the scan disagrees with the clues, rebuilt from them"},
     "tools/file_archive_org_puzzles.py": {
         "channel": "newspaper",
-        "what": "a page of The Times, the FT or the Guardian in archive.org's scans "
+        "what": "a page of The Times, the FT, the Guardian or the Telegraph in archive.org's scans "
                 "(tools/fetch_archive_org_editions.py): "
                 "clues where archive.org's OCR and RapidOCR agree, the grid read off the scan or "
                 "rebuilt from the clues, answers off a later edition's solution grid"},
@@ -317,6 +317,7 @@ ACQUISITION_BY_SOURCE = {
     ("times", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("cryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
+    ("telegraph", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     # Ours: set in this repo and never fetched, so there is no url and no host.
     ("authored", ""): ("tools/build_authored_puzzle.py",),
 }
@@ -357,7 +358,8 @@ for _host, _names in GEORGEHO_HOSTS.items():
 # is a check on geometry that already exists, not a source of it.
 GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 #: Series whose filer says per puzzle whether the grid was read off the page or
-#: rebuilt from the clues, so the file's own gridOrigin is kept.
+#: rebuilt from the clues, so the file's own gridOrigin is kept. A newspaper
+#: scan's filer says so for every series it files into.
 GRID_ORIGIN_PER_PUZZLE = {"canberra", "ftcryptic", "listener"}
 
 # ------------------------------------------------------ book-sourced puzzles
@@ -487,6 +489,13 @@ def solution_origin_from_file(puzzle):
     return None
 
 
+def grid_per_puzzle(series, tool):
+    """Whether a puzzle's own gridOrigin stands: its series' filer, or the
+    newspaper scan filer that `tool` is, says per puzzle whether the grid was
+    read off the page or rebuilt from the clues."""
+    return series in GRID_ORIGIN_PER_PUZZLE or channel_of(tool) == "newspaper"
+
+
 def grid_origin(series, url=None):
     """A book or blog puzzle's geometry was worked out from its clue list;
     everything else arrives with the grid the source published. The source's
@@ -530,7 +539,7 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "retrievedFrom": channel_of(tool),
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
-        "gridOrigin": (old_source["gridOrigin"] if series in GRID_ORIGIN_PER_PUZZLE
+        "gridOrigin": (old_source["gridOrigin"] if grid_per_puzzle(series, tool)
                        and old_source.get("gridOrigin") in GRID_ORIGINS
                        else grid_origin(series, old_source.get("url"))),
         "feedId": old_source.get("feedId"),
@@ -689,7 +698,7 @@ def check(puzzle):
                         f"date or \"unknown\"")
 
     expected_grid = grid_origin(series, source.get("url"))
-    allowed_grid = ({"published", "reconstructed"} if series in GRID_ORIGIN_PER_PUZZLE
+    allowed_grid = ({"published", "reconstructed"} if grid_per_puzzle(series, source.get("acquiredBy"))
                     else {expected_grid})
     if source.get("gridOrigin") not in allowed_grid | {"unknown"}:
         findings.append(f"source.gridOrigin is {source.get('gridOrigin')!r} but "

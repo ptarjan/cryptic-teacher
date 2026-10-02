@@ -718,6 +718,10 @@ def clean(text):
     # A clue's sentence never stops before a lower-case word: a full stop
     # there is a comma the print's low ink lost the tail of.
     text = re.sub(r"(?<=[a-z]{2})\.(?=\s+[a-z])", ",", text)
+    # A one read as l or I before another digit ("l9th-century").
+    text = re.sub(r"\b[lI](?=\d)", "1", text)
+    # The space after a question or exclamation mark lost ("Worried?Pulse").
+    text = re.sub(r"(?<=[a-z])([?!])(?=[A-Z][a-z])", r"\1 ", text)
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
@@ -812,6 +816,15 @@ def join_split(clue, others):
             k = m.start(2)
 
 
+def cut_at_count(text, enum):
+    """A clue's text cut at its own count (`enum`) inside it: what follows
+    is the next clue's specks or start run on."""
+    m = re.search(r"\s*\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)\)\W*\S", text or "")
+    if m and enum and re.sub(r"\D+", ",", m.group(1)) == re.sub(r"\D+", ",", enum):
+        return text[:m.start()].rstrip()
+    return text
+
+
 def reconcile(laid, streams, lengths=None, keep_known=False):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
@@ -842,12 +855,21 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
             # The next clue run on after this one's count: cut it off, and
             # the count with it, which the grid gives.
             text = re.sub(r"\s*\([^)]*$", "", text[:inside.start()]).rstrip()
+            # A count still inside ends the clue, and is its count when it
+            # fills the light (all the linked lights): the one read after
+            # the run-on was the next clue's.
+            cells = sum(lengths.get(k, 0) for k in (group or [lid]))
+            kept = re.search(r"\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)\)", text)
+            if kept and sum(map(int, re.findall(r"\d+", kept.group(1)))) == cells:
+                text = text[:kept.start()].rstrip()
+                enum = re.sub(r"\s+", "", kept.group(1)).replace(".", ",")
             enum = enum or (str(lengths[lid]) if (lengths or {}).get(lid) else None)
             inside = None
         if inside:
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
+        text = cut_at_count(text, enum)
         if text:
             # "1 hear" opens "I hear"; were the opening lost, the vote finds it.
             text = re.sub(r"^1(?=\s+[a-z])", "I", text)
@@ -871,6 +893,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
             text = text[lead.end():]
         text = join_split(text, other)
         got, how = agree(text, other, keep_known)
+        got = cut_at_count(got, enum)
         if got is None:
             blank[lid] = how
             out[lid] = ("", enum, group)
