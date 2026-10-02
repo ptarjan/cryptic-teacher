@@ -266,8 +266,10 @@ fi
 # --- 1c2. The Canberra Times, filed off the Trove scans in ~/.cache/trove ---
 # tools/fetch_trove.py fills the cache; this files the cryptics among the
 # articles it has not read yet (its ledger makes the rest free), unsolved, so
-# step 3a solves them. Bounded: a grid rebuilt from the clues is ~10s.
-TROVE_PER_NIGHT="${TROVE_PER_NIGHT:-300}"
+# step 3a solves them. Bounded by wall clock, since reading an article's page
+# image takes 15-100 s: no read starts after this many seconds, and the
+# unread articles stay pending for the next night.
+TROVE_SECONDS_PER_NIGHT="${TROVE_SECONDS_PER_NIGHT:-1200}"
 # A clue list no grid fits waits on the page scan's clue columns
 # (tools/trove_clue_ocr.py); fetching them is ~30 Trove requests an article,
 # spaced 2s, so a capped few a night, before the filer reads them.
@@ -282,7 +284,7 @@ if [ -d "$HOME/.cache/trove" ]; then
   fi
   rm -f "$clues_out"
   trove_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-trove.XXXXXX")"
-  if python3 tools/file_trove_puzzles.py --limit "$TROVE_PER_NIGHT" >"$trove_out" 2>&1; then
+  if python3 tools/file_trove_puzzles.py --seconds "$TROVE_SECONDS_PER_NIGHT" >"$trove_out" 2>&1; then
     cat "$trove_out"
     git status --porcelain -- puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
   else

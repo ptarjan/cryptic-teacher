@@ -238,4 +238,22 @@ Start from Hint
 Start from Hint
 no clue for 2-down" "$got"
 
+# The nightly is bounded by wall clock: no read starts once the budget is
+# spent, and what is left gets no ledger row, so the next run reads it.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F, io, json, pathlib, shutil, tempfile, time
+d = pathlib.Path(tempfile.mkdtemp())
+shutil.copytree('$FIX', d / 'cache')
+read = []
+def slow(a, taken):
+    read.append(a.name); time.sleep(0.2); return {'skip': 'test'}, None
+F.consider = slow
+t = F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 'out', seconds=0.1)
+rows = [json.loads(l)['article'] for l in (d / 'filed.jsonl').read_text().splitlines()]
+print(len(read), t.get('left for the next run'), rows == read)
+F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 'out', seconds=60)
+print(len(read), len(set(read)))")
+check "the time budget stops new reads and leaves the rest pending" "1 2 True
+3 3" "$got"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
