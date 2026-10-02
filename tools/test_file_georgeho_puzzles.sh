@@ -45,10 +45,36 @@ wanted = [{"series": "sundaytough", "number": 3, "link": "http://bigdave44.com/2
           {"series": "indysunday", "number": 1150,
            "link": "https://www.fifteensquared.net/2012/03/11/independent-on-sunday-1150glow-worm/"}]
 print("OTHER", sorted(G.other_setters(wanted, tmp / "bd", tmp / "fs").items()))
+# georgeho cuts an answer off at its first break (TAM for TAM-O'-SHANTER);
+# our parse of the same post has it whole and wins. A whole answer stays
+# georgeho's, and so does a blog answer that does not start with its letters.
+J = "https://times-xwd-times.livejournal.com/2243874.html"
+cut = [("timesjumbo-1409", J, "Times Cryptic Jumbo 1409", "6d", "Scotch bonnet (3-1-7)", "TAM"),
+       ("timesjumbo-1409", J, "Times Cryptic Jumbo 1409", "7d", "Distance (3-8)", "FAR"),
+       ("timesjumbo-1409", J, "Times Cryptic Jumbo 1409", "8d", "Scot (9)", "DUNDONIAN")]
+blog = {(6, "down"): "TAM-O-SHANTER", (7, "down"): "OFFREACHING", (8, "down"): "DUNDONIANS"}
+rec, _ = G.record("timesjumbo-1409", cut, {J: "2019-11-22"}, blog)
+print("WHOLE", [e["answer"] for e in rec["entries"]])
+# The Times Jumbo prints on Saturdays, and on a bank holiday besides: one
+# Monday and one Thursday among the neighbours leave the Saturdays the slots
+# (timesjumbo-1304 is 13 January 2018, as the blog's title says).
+import datetime, types
+held_dates = {1300: "2017-12-26", 1302: "2018-01-01", 1305: "2018-01-20",
+              1306: "2018-01-27", 1307: "2018-02-03", 1309: "2018-02-17",
+              1297: "2017-12-09", 1299: "2017-12-23", 1310: "2018-02-24"}
+G.puzzle_path = lambda s, n: n
+G.read_puzzle_file = lambda p: {"date": held_dates.get(p)}
+G.puzzle_paths = types.SimpleNamespace(find=lambda pid: int(pid.rsplit("-", 1)[1])
+                                       if int(pid.rsplit("-", 1)[1]) in held_dates else None)
+print("HOLIDAY", G.print_date({"series": "timesjumbo", "number": 1304}, 1302, 1305))
 print("NODATE", G.record("x-1", [("x-1", "https://example.com/1.html", "X 1", "1a", "c", "A")])[1])
 PY
 )
 field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /,""); print}' <<<"$out"; }
+check "a bank holiday's Jumbo does not make its weekday the series'" \
+      "2018-01-13" "$(field HOLIDAY)"
+check "an answer georgeho cut off is taken whole from our parse of the same post" \
+      "['TAMOSHANTER', 'FAR', 'DUNDONIAN']" "$(field WHOLE)"
 check "a linked cell's suffix covers every number; a bare one takes the heading" \
       "[(13, 'across'), (15, 'across')] [(26, 'down'), (10, 'down')] None" "$(field LIGHTS)"
 check "a count is read off the blogger's word breaks" "5,4 3-5 4" "$(field COUNT)"

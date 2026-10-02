@@ -89,9 +89,42 @@ def lights_of(number, heading):
     return out
 
 
-def record(pid, rows, posted=None):
+def blog_answers(parsed=tg.PARSED):
+    """{pid: {(number, direction): printed answer}} from our own parse of the
+    timesforthetimes posts, the blog georgeho scraped the Times's from."""
+    import file_times_puzzles as ftp
+    out = {}
+    if not parsed.exists():
+        return out
+    for line in parsed.open(encoding="utf-8"):
+        r = json.loads(line)
+        if not isinstance(r.get("number"), int):
+            continue
+        try:
+            pid = f"{ftp.target(r)[0]}-{r['number']}"
+        except ValueError:
+            continue
+        out[pid] = {(e["number"], e["direction"]): e.get("answer_spaced") or e["answer"]
+                    for e in r["entries"] if e.get("answer")}
+    return out
+
+
+def whole(answer, count, fuller):
+    """`answer`, or `fuller` where georgeho cut the answer off at a break
+    (TAM for TAM-O'-SHANTER (3-1-7)) and our parse of the same post has it
+    whole: starting with the cut letters and as long as the count."""
+    total = sum(int(n) for n in re.findall(r"\d+", count or ""))
+    if fuller and len(letters(answer)) < total == len(letters(fuller)) \
+            and letters(fuller).startswith(letters(answer)):
+        return fuller
+    return answer
+
+
+def record(pid, rows, posted=None, fuller=None):
     """A parsed record in the blog parsers' shape, or (None, why). The post's
-    date is its url's, else georgeho's `posted` for the url."""
+    date is its url's, else georgeho's `posted` for the url. `fuller` is
+    blog_answers()' for the post: answers georgeho cut off are taken whole
+    from it."""
     by_url = collections.defaultdict(list)
     for row in rows:
         by_url[row[1]].append(row)
@@ -123,6 +156,7 @@ def record(pid, rows, posted=None):
                             "clue": clue})
             continue
         (n, d), = lights
+        answer = whole(answer, count, (fuller or {}).get((n, d)))
         entries.append({"number": n, "direction": d, "answer": letters(answer),
                         "answer_spaced": answer.upper(), "clue": clue,
                         "enumeration": count, "counted": not enum})
@@ -171,11 +205,12 @@ def write_records():
     urls = {row[1] for rows in here.values() for row in rows}
     posted = {u: d for u, d in src.execute("select distinct source_url, puzzle_date from clues "
                                            "where source = 'times_xwd_times'") if u in urls}
+    blog = blog_answers()
     for pid, rows in sorted(here.items()):
         if series_meta.parse_id(pid)[0] not in tg.SIZE:
             left["a series the grid rebuild has no size for"] += 1
             continue
-        rec, why = record(pid, rows, posted)
+        rec, why = record(pid, rows, posted, blog.get(pid))
         if why:
             left[why] += 1
         else:
@@ -246,13 +281,17 @@ def print_date(rec, lo, hi):
         days[n] = d and datetime.date.fromisoformat(d)
     if not (days[lo] and days[hi]):
         return None
-    weekdays = {days[lo].weekday(), days[hi].weekday()}
+    seen = collections.Counter([days[lo].weekday(), days[hi].weekday()])
     if hi - lo <= 7:
         # The series' weekdays, from the neighbours' own neighbours.
+        seen = collections.Counter()
         for n in range(max(1, lo - 7), hi + 8):
             p = puzzle_paths.find(series_meta.puzzle_id(rec["series"], n))
             if p and (d := read_puzzle_file(p).get("date")):
-                weekdays.add(datetime.date.fromisoformat(d).weekday())
+                seen[datetime.date.fromisoformat(d).weekday()] += 1
+    # A weekday seen once is a holiday special (the Times's Boxing Day
+    # Jumbo on a Thursday), not a day the series prints on.
+    weekdays = {w for w, k in seen.items() if k > 1} or set(seen)
     slots, day = [], days[lo] + fbp.DAY
     while day < days[hi]:
         if day.weekday() in weekdays and (day.month, day.day) != (12, 25):
