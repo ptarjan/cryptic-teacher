@@ -64,6 +64,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import build_abbreviations  # noqa: E402 — the glossary table
 import clue_types  # noqa: E402
 import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
@@ -2320,8 +2321,6 @@ def check_blocks_carry_notes(entries, warnings):
                     f"is the teaching, and its absence is how an invented block hides")
 
 
-GLOSSARY = ROOT / "tools" / "data" / "abbreviations.json"
-
 # A note describing what was done TO the letters, rather than what they stand
 # for. "The first letter of Trout" is an operation the clue's indicator asked
 # for; "ch. is the chess notation for check" is knowledge. Only the second kind
@@ -2375,14 +2374,13 @@ def check_conventions_are_in_the_glossary(entries, warnings):
     """Every convention a clue leans on has to be in the solver's glossary.
 
     The blocks rung names a piece as a standing convention only when
-    abbreviations.json holds it, so a missing entry means the hint hands over
+    build_abbreviations.table() holds it, so a missing entry means the hint hands over
     letters without ever saying they were the learnable kind — "look this up
     once, own it forever" reads as "think harder". The table was seeded for the
     clue-writer's assembler and had never been audited against what the corpus
     actually uses, which is how CH = check went missing.
     """
-    table = json.loads(GLOSSARY.read_text())["abbreviations"]
-    known = {k: {w.lower() for w in v} for k, v in table.items()}
+    known = {k: {w.lower() for w in v} for k, v in build_abbreviations.table().items()}
     for e in entries:
         ann = e.get("annotation") or {}
         if not ann:

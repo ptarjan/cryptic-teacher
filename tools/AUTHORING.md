@@ -150,10 +150,11 @@ What each extra is used for:
 
 Licences, and what is committed versus fetched: `tools/data/README.md`.
 
-`tools/data/abbreviations.json` (H = hard, R = river, ...) holds every reading
-ten or more solved clues use, and `tools/build_abbreviations.py --check` fails
-CI on one it lacks; add a sense with `tools/add_abbreviation.py`. Solvers
-read it too: `tools/build_abbreviations.py` publishes it as `abbreviations.js`,
+`build_abbreviations.table()` (H = hard, R = river, ...) is the curated
+`tools/data/abbreviations.json` plus every reading ten or more solved clues
+use, derived from `tools/data/lexicons/blocks.json`; add a sense below that
+floor with `tools/add_abbreviation.py`. Solvers read it too:
+`tools/build_abbreviations.py` publishes it as `abbreviations.js`,
 and the building-blocks rung names the conventions a clue used ("sailor = AB").
 So an entry added here is something the site then teaches.
 

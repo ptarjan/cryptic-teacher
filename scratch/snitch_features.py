@@ -43,6 +43,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import build_abbreviations  # noqa: E402
 import puzzle_paths  # noqa: E402
 import difficulty as D
 from groups import entry_id
@@ -50,7 +51,6 @@ from groups import entry_id
 BLOG = ROOT / "tools" / "data" / "blog_facts"
 COMMENTS = ROOT / "tools" / "data" / "blog_comment_difficulty.json"
 LUFZ = ROOT / "tools" / "data" / "lufz-en-lexicon.js"
-ABBR = ROOT / "tools" / "data" / "abbreviations.json"
 RARE_LETTERS = set("JQXZKVW")
 LETTER_SELECT = {"first letter", "first letters", "last letter", "last letters", "outer letters",
                  "alternate letters", "middle letter", "middle letters"}
@@ -314,7 +314,7 @@ def build():
     ctx = D.context()
     rank = ctx.rank
     lufz, fam = load_lufz(), load_family()
-    abbr = {letters(k) for k in json.loads(ABBR.read_text(encoding="utf-8"))["abbreviations"]}
+    abbr = {letters(k) for k in build_abbreviations.table()}
     blog = load_blog()
     cor = corpus()
     count = collections.Counter(a for _, ents in cor.values() for a in set(ents.values()) if a)

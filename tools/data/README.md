@@ -6,7 +6,7 @@ What is committed here, and what is fetched.
 
 | file | what |
 | --- | --- |
-| `abbreviations.json` | Standard British-cryptic abbreviations (H = hard, R = river…): every reading ten or more clues in `lexicons/blocks.json` use, plus whole sets like Roman numerals — see the `_comment` inside it. |
+| `abbreviations.json` | The hand-curated standard British-cryptic abbreviations (H = hard, R = river…); `tools/build_abbreviations.py`'s `table()` adds every reading ten or more clues in `lexicons/blocks.json` use — see the `_comment` inside it. |
 | `indicator_note_words.json` | Every word at least 500 of the corpus's indicator notes use. `check_indicator_notes_name_no_block` lets a note use one of these though a block's clue words include it: it is how notes talk, not a name for the piece. Written by `tools/build_indicator_note_words.py`. |
 | `unclueable.json` | Words a setter rejected as answers, with the reason. `tools/grid_fill.py` vetoes them. |
 | `sample_fill_11.json` | The worked 11x11 fill (see `tools/AUTHORING.md`). |
