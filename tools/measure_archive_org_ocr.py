@@ -16,6 +16,9 @@ the transcription's words and marks in those clues. A clue filed blank is
 no misread; the share of clues filed is reported beside the rate, and so
 is the count of puzzles with every clue filed: only those go into
 puzzles/times, so that count is the measure of what the filer delivers.
+The blank-inclusive rate counts every transcribed word and mark of a blank
+clue as misread, so filling a blank with a wrong guess and blanking it
+cost the same; it is the rate Paul's 2% bar is judged on.
 """
 import argparse
 import json
@@ -47,10 +50,12 @@ def distance(a, b):
 def score(gold, read):
     """{"tokens", "misreads", "clues", "filed", "bad": [(light, gold, read)]}
     for one edition's transcription against the filer's {light: text}."""
-    out = {"tokens": 0, "misreads": 0, "clues": len(gold), "filed": 0, "bad": []}
+    out = {"tokens": 0, "misreads": 0, "clues": len(gold), "filed": 0, "blank": 0,
+           "bad": []}
     for lid, want in gold.items():
         got = read.get(lid) or ""
         if not got.strip():
+            out["blank"] += len(units(want))
             continue
         out["filed"] += 1
         a, b = units(want), units(got)
@@ -82,7 +87,8 @@ def main(argv=None):
     ap.add_argument("--gold", type=Path, default=GOLD)
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
-    total = {"tokens": 0, "misreads": 0, "clues": 0, "filed": 0}
+    total = {"tokens": 0, "misreads": 0, "clues": 0, "filed": 0, "blank": 0}
+    complete = {"tokens": 0, "misreads": 0}
     puzzles = whole = 0
     for ed in json.loads(args.gold.read_text()):
         if args.split and ed["split"] != args.split:
@@ -93,9 +99,14 @@ def main(argv=None):
             total[k] += s[k]
         rate = s["misreads"] / max(s["tokens"], 1)
         puzzles += 1
-        whole += bool(got) and all((t or "").strip() for t in got.values())
+        full = bool(got) and all((t or "").strip() for t in got.values())
+        whole += full
+        if full:
+            complete["tokens"] += s["tokens"]
+            complete["misreads"] += s["misreads"]
         print(f"times-{ed['number']} {ed['split']:7s} {s['misreads']:3d}/{s['tokens']:4d} "
-              f"{rate:6.1%}  filed {s['filed']}/{s['clues']}"
+              f"{rate:6.1%}  filed {s['filed']}/{s['clues']}  "
+              f"with blanks {(s['misreads'] + s['blank']) / max(s['tokens'] + s['blank'], 1):6.1%}"
               + ("" if got else f"  {verdict.get('refused') or verdict.get('pending')}"))
         if args.verbose:
             for lid, want, have in s["bad"]:
@@ -104,6 +115,10 @@ def main(argv=None):
     print(f"total {total['misreads']}/{total['tokens']} = {rate:.2%} misread; "
           f"filed {total['filed']}/{total['clues']} clues; "
           f"{whole}/{puzzles} puzzles have every clue")
+    wrong, seen = total["misreads"] + total["blank"], total["tokens"] + total["blank"]
+    print(f"with blanks counted as misread: {wrong}/{seen} = {wrong / max(seen, 1):.2%}; "
+          f"complete puzzles alone: {complete['misreads']}/{complete['tokens']} = "
+          f"{complete['misreads'] / max(complete['tokens'], 1):.2%}")
     return 0
 
 

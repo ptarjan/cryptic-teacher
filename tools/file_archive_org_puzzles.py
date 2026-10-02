@@ -54,6 +54,7 @@ import datetime
 import gzip
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -452,6 +453,98 @@ def is_word(word):
     return rank(word) is not None or word.lower() in ("a", "i") or word.lower().replace("'", "") in closed()
 
 
+_LM = None
+
+
+def clue_lm():
+    """(words, pairs, answer words): how often the corpus's clues print each
+    word and each two words in a row, and how often its answers hold each
+    word (tools/data/clue_lm.tsv.gz, built by tools/build_clue_lm.py)."""
+    global _LM
+    if _LM is None:
+        uni, pair, ans = {}, {}, {}
+        with gzip.open(TOOLS / "data" / "clue_lm.tsv.gz", "rt", encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("#"):
+                    continue
+                k, n = line.rstrip("\n").split("\t")
+                (ans if k[0] == "=" else pair if " " in k else uni)[k.lstrip("=")] = int(n)
+        _LM = uni, pair, ans
+    return _LM
+
+
+#: How often the corpus's clues must print a word the lexicon lacks, or its
+#: answers hold it, for the word to count as one ("Hornblower", "Illyrian").
+CLUE_WORD_FLOOR = 3
+
+
+def known(word, stem=True):
+    """Whether the word is the lexicon's or one the corpus's clues or
+    answers use often enough to be real, not a reader's slip."""
+    if is_word(word):
+        return True
+    uni, _, ans = clue_lm()
+    low = word.lower()
+    return (uni.get(low, 0) >= CLUE_WORD_FLOOR or ans.get(low.replace("'", ""), 0) >= CLUE_WORD_FLOOR
+            or (stem and low.endswith("'s") and len(low) > 3 and "'" not in low[:-2]
+                and known(low[:-2], stem=False)))
+
+
+def fit(word, before, after):
+    """How well `word` reads between the words `before` and `after` (None at
+    a clue's end), by the corpus's clues: the log count of each pair it
+    makes, plus a tenth of the log count of the word alone."""
+    uni, pair, _ = clue_lm()
+    w = word.lower()
+    score = 0.1 * math.log1p(uni.get(w, 0))
+    for a, b in ((before, w), (w, after)):
+        if a and b:
+            score += math.log1p(pair.get(f"{a.lower()} {b.lower()}", 0))
+    return score
+
+
+#: How much better one spelling must fit its neighbours than the next to win
+#: a tie between readings.
+FIT_MARGIN = 1.0
+
+
+def edits(word):
+    """The spellings one letter's change, loss or addition from `word`."""
+    w, abc = word.lower(), "abcdefghijklmnopqrstuvwxyz"
+    splits = [(w[:k], w[k:]) for k in range(len(w) + 1)]
+    return ({a + b[1:] for a, b in splits if b} | {a + c + b[1:] for a, b in splits if b for c in abc}
+            | {a + c + b for a, b in splits for c in abc}) - {w}
+
+
+def within_one(a, b):
+    """Whether two spellings are at most one letter's change, loss or addition apart."""
+    if a == b:
+        return True
+    if abs(len(a) - len(b)) > 1:
+        return False
+    k = 0
+    while k < min(len(a), len(b)) and a[k] == b[k]:
+        k += 1
+    return a[k + 1:] == b[k + 1:] or a[k + 1:] == b[k:] or a[k:] == b[k + 1:]
+
+
+def mend(read, before, after):
+    """The word every reading in `read` (lower case) most likely misspells:
+    of the known words one letter from any reading, the one most readings
+    lie that close to, then one as long as most readings, a tie going to
+    the one that fits its neighbours in the corpus's clues FIT_MARGIN
+    better; None when nothing wins."""
+    cands = {c for r in set(read) if len(r) > 2 for c in edits(r) if len(c) > 1 and known(c)}
+    if not cands:
+        return None
+    size = max(set(len(r) for r in read), key=[len(r) for r in read].count)
+    ranked = sorted((((sum(within_one(c, r) for r in read), len(c) == size), fit(c, before, after), c)
+                     for c in cands), reverse=True)
+    if len(ranked) > 1 and ranked[0][0] == ranked[1][0] and ranked[0][1] - ranked[1][1] < FIT_MARGIN:
+        return None
+    return ranked[0][2]
+
+
 #: The letters the print's worn type turns into one another, both ways.
 SLIPS = (("c", "e"), ("c", "t"), ("h", "b"), ("n", "u"), ("l", "i"), ("l", "t"), ("f", "t"),
          ("i", "t"), ("rn", "m"), ("li", "h"), ("cl", "d"))
@@ -556,7 +649,9 @@ def agree(clue, others):
     # or between its last word and its count, were lost from this reading:
     # put in when most readings have the same ones, else no reading wins.
     for side, got_ends in (("start", leads), ("end", trails)):
-        seen_ends = [e for e in (tuple(t for t in e if side == "end" or t not in MARKS)
+        # A lone letter after the clue's last word is its count misread ("(s)").
+        seen_ends = [e for e in (tuple(t for t in e if (side == "end" or t not in MARKS)
+                                       and not (side == "end" and len(t) == 1 and t not in MARKS))
                                  for e in got_ends if e) if e]
         if len(seen_ends) < 2:
             continue
@@ -588,6 +683,17 @@ def agree(clue, others):
             # A lone I most readings see nothing at is a speck.
             drop.add(i)
             continue
+        before = next((low[k] for k in range(i - 1, -1, -1) if low[k] not in MARKS), None)
+        after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS), None)
+        if not got and len(a) > 3 and not known(a) and not (i and w[0].isupper()) and mend([a], before, after):
+            # A word only this reading has, a letter from a known one.
+            fix = mend([a], before, after)
+            fixes[i] = fix.capitalize() if w[:1].isupper() else fix
+            continue
+        if not got and len(a) == 1 and a not in "ai":
+            # A lone letter no other reading has is a speck.
+            drop.add(i)
+            continue
         if not got:
             return None, f"no other reading has {w!r}"
         if (i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper()
@@ -609,17 +715,29 @@ def agree(clue, others):
         # wins.
         read = [a] + [v.lower() for v in got.values()]
         support = {s: sum(similar(s, r) for r in read) for s in votes}
-        words_ = sorted((s for s in votes if is_word(s) and (votes[s] > 1 or (
+        words_ = sorted((s for s in votes if known(s) and (votes[s] > 1 or (
                             similar(a, s) >= 0.5 and abs(len(s) - len(a)) <= max(1, len(a) // 4)))),
                         key=lambda s: (-votes[s], -support[s]))
         if len(words_) > 1:
             top, nxt = words_[0], words_[1]
             if votes[top] == votes[nxt] and support[top] - support[nxt] < 0.3:
-                return None, f"readings differ: {w} / {' / '.join(got.values())}"
+                # A tie the readings cannot break goes to the spelling that
+                # fits its neighbours in the corpus's clues far better.
+                fits = sorted((c for c in words_ if votes[c] == votes[top]),
+                              key=lambda c: -fit(c, before, after))
+                if fit(fits[0], before, after) - fit(fits[1], before, after) < FIT_MARGIN:
+                    return None, f"readings differ: {w} / {' / '.join(got.values())}"
+                words_ = fits
         if words_:
             pick = words_[0]
             if pick != a or votes[a] == 1:
                 how = "settled by the dictionary"
+        elif not known(a) and not (i and w[0].isupper()) and mend(read, before, after):
+            # No reading a known word: the known word they all misspell (a
+            # capital inside the clue is a name the corpus may not know).
+            pick = mend(read, before, after)
+            spelt[pick] = pick.capitalize() if w[:1].isupper() else pick
+            how = "settled by the corpus"
         elif len(a) > 2 and (votes[a] >= 3 or (votes[a] > 1 and i and w[0].isupper() and w[1:].islower())):
             # No reading a dictionary word: what three readers saw stands,
             # and a name two saw inside the clue (the first word's capital
@@ -632,7 +750,14 @@ def agree(clue, others):
                           else f"readings differ: {w} / {' / '.join(got.values())}")
         slip = common_slip(pick)
         if slip:
-            return None, f"{pick!r} is rare and one ink slip from the far commoner {slip!r}"
+            # Every reader can share the slip: the commoner spelling stands
+            # unless the read one fits its neighbours in the corpus's clues
+            # far better.
+            gap = fit(slip, before, after) - fit(pick, before, after)
+            if gap > -FIT_MARGIN:
+                spelt[slip] = slip.capitalize() if spelt[pick][:1].isupper() else slip
+                pick = slip
+                how = "settled by the corpus"
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
@@ -753,11 +878,13 @@ def line_end_hyphen(m):
 HEADING = re.compile(r"^\W*(?:clues\s+)?(?:across|down)\W*$", re.IGNORECASE | re.MULTILINE)
 
 
-def reconcile(laid, streams):
+def reconcile(laid, streams, lengths=None):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
     other reading's text, or {light: that reading's text} where the lights
-    were laid from different readings; one text or dict alone is one reading."""
+    were laid from different readings; one text or dict alone is one reading.
+    `lengths` ({light: cells}, from the grid) gives a clue whose count was
+    lost its light's length as the count."""
     if isinstance(streams, (str, dict)):
         streams = [streams]
     # A list's heading bounds the clues either side like a number: "DOWN"
@@ -770,7 +897,16 @@ def reconcile(laid, streams):
         if ftp.SEE_RE.match(text or ""):
             out[lid] = (text, enum, group)
             continue
-        if re.search(r"\s\d{1,2}\s+[A-Z]", text or ""):
+        inside = re.search(r"\s(\d{1,2})\s+[A-Z]", text or "")
+        own = int(re.match(r"\d+", lid).group())
+        if (inside and int(inside.group(1)) > own and any(
+                k.startswith(inside.group(1) + "-") for k in (lengths or {}))):
+            # The next clue run on after this one's count: cut it off, and
+            # the count with it, which the grid gives.
+            text = re.sub(r"\s*\([^)]*$", "", text[:inside.start()]).rstrip()
+            enum = enum or (str(lengths[lid]) if (lengths or {}).get(lid) else None)
+            inside = None
+        if inside:
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
@@ -779,6 +915,9 @@ def reconcile(laid, streams):
             blank[lid] = "starts mid-clue"
             out[lid] = ("", enum, group)
             continue
+        if enum is None and (lengths or {}).get(lid):
+            # The other readings vote on the words, so a cut-short end shows.
+            enum = str(lengths[lid])
         if enum is None:
             # The count lost with the clue's end: the words may be cut short.
             blank[lid] = "no count read"
@@ -1020,7 +1159,8 @@ def read_puzzle(d, found, hit, solutions):
             return verdict, None
         grid, how = g, "rebuilt"
     verdict["grid"] = how
-    laid, blank = reconcile(laid, stream)
+    laid, blank = reconcile(laid, stream, {f"{n_}-{d_}": len(cells) for (n_, d_), cells
+                                           in rg.light_cells(grid).items()})
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
