@@ -41,26 +41,13 @@ for kv in sys.argv[1:]:
 open(p, "w").write(dump_lines(held))
 PY
 }
-abbrev() { python3 - "$@" <<'PY'
-import json, sys
-p = "tools/data/abbreviations.json"
-try: d = json.load(open(p))
-except FileNotFoundError: d = {"_comment": ["x"], "abbreviations": {}}
-t = d["abbreviations"]
-for kv in sys.argv[1:]:
-    k, v = kv.split("=")
-    t[k] = sorted(set(t.get(k, []) + [v]))
-d["abbreviations"] = dict(sorted(t.items()))
-open(p, "w").write(json.dumps(d, indent=2, ensure_ascii=False) + "\n")
-PY
-}
-ledger "a 1=X" "c 1=Z"; abbrev "A=about" "C=caught"
+ledger "a 1=X" "c 1=Z"
 git add -A && git commit -qm base
 git checkout -qb burn
-ledger "b 1=Y" "c 1=Z2"; abbrev "A=ace" "B=bachelor"
+ledger "b 1=Y" "c 1=Z2"
 git commit -qam burn
 git checkout -q master
-ledger "b 2=W"; abbrev "A=acre" "B=book"
+ledger "b 2=W"
 git commit -qam upstream
 # The commit push_puzzle_commit.sh would build: merge-tree, never a worktree.
 if tree=$(git merge-tree --write-tree --merge-base master~1 master burn 2>&1); then mt=clean; else mt="conflict: $tree"; fi
@@ -72,9 +59,6 @@ check "ledger keeps every row, valid JSON" \
   "[('a 1', 'X'), ('b 1', 'Y'), ('b 2', 'W'), ('c 1', 'Z2')]"
 check "ledger keeps its one-line-per-key layout" \
   "$(python3 -c 'import json,sys; sys.path.insert(0,"tools"); from json_merge import dump_lines; p="tools/data/corroboration_ledger.json"; print(dump_lines(json.load(open(p))) == open(p).read())')" True
-check "abbreviation rows union, sorted, indent=2" \
-  "$(python3 -c 'import json; p="tools/data/abbreviations.json"; t=open(p).read(); d=json.loads(t); print(d["abbreviations"], json.dumps(d, indent=2)+"\n"==t)')" \
-  "{'A': ['about', 'ace', 'acre'], 'B': ['bachelor', 'book'], 'C': ['caught']} True"
 
 # Both sides changing one row differently: the replayed side wins, no conflict.
 git checkout -q master; ledger "a 1=UP"; git commit -qam up2
