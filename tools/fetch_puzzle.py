@@ -2674,13 +2674,51 @@ def fetch_page(num):
     raise last
 
 
+def clue_texts(puzzle):
+    return {c["text"] for e in puzzle["entries"]
+            if isinstance(c := e.get("clue"), dict) and c.get("text")}
+
+
+def check_served(num, data):
+    """Refuse a page that is not the one /crosswords/{cryptic,prize}/<num> was
+    asked for: its own id or number names another puzzle."""
+    if num in NUMBER_URL_FIXES:
+        return
+    m = re.fullmatch(r"crosswords/(cryptic|prize)/(\d+)", data.get("id") or "")
+    if not m or int(m.group(2)) != num or data.get("number") != num:
+        raise ValueError(
+            f"requested cryptic/prize {num} but the page served "
+            f"{data.get('id')!r} number {data.get('number')!r} — refusing it")
+
+
+def check_not_copy(puzzle):
+    """Refuse a page whose clues are another series' puzzle of the same number.
+    /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with Quiptic
+    591's clues; filing it made two files hold one puzzle."""
+    mine = clue_texts(puzzle)
+    for other in puzzle_paths.PUZZLE_DIR.glob(f"*/*/*-{puzzle['number']}.json"):
+        if other.stem == puzzle["id"]:
+            continue
+        try:
+            held = clue_texts(json.loads(other.read_text(encoding="utf-8")))
+        except (OSError, ValueError, KeyError, TypeError):
+            continue
+        if mine and len(mine & held) * 2 > len(mine):
+            raise ValueError(
+                f"requested {puzzle['id']} but the page served the clues of "
+                f"{other.stem} ({len(mine & held)} of {len(mine)} clues are "
+                f"the same) — refusing to file a copy")
+
+
 def fetch_number(num):
     data = extract_crossword_data(fetch_page(num))
+    check_served(num, data)
     if num in NUMBER_URL_FIXES:
         forced_number = NUMBER_URL_FIXES[num][1]
         if forced_number is not None:
             data["number"] = forced_number
     puzzle = convert(data)
+    check_not_copy(puzzle)
     # Through puzzle_path, never spelled here: this line said ".js" from the
     # day the fetcher was written, and the assert in write_puzzle_file is what
     # finally said so.
