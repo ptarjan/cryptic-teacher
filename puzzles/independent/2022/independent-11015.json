@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Initially, trunks are back-to-front, resulting in damage",
     "enumeration": "4"
    },
-   "solution": "TEAR"
+   "solution": "TEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "cycling",
+     "charade"
+    ],
+    "answer": "TEAR",
+    "definitions": [
+     {
+      "text": "damage",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the very start, so only the opening letter of the next word is kept"
+     },
+     {
+      "text": "back-to-front",
+      "for": "cycling",
+      "note": "putting the back at the front means the final letter moves round to lead the word"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trunks",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Luggage trunks packed the wrong way round end up getting damaged.",
+     "walkthrough": "'Back-to-front' is not a full reversal here: ARE reversed would be ERA. Instead its back letter E moves to the front, giving EAR.",
+     "definitionFit": "To tear something is to rip it, which is a common form of harm done to cloth or paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trunks"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,69 @@
     "text": "Doctor beheaded asses and aye-ayes",
     "enumeration": "6"
    },
-   "solution": "YESSES"
+   "solution": "YESSES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "YESSES",
+    "definitions": [
+     {
+      "text": "ayes",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are rearranged"
+     },
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "losing the head means losing the opening letter of each word that follows"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "asses",
+      "gives": "ASSES",
+      "note": "taken as written, then its first letter goes"
+     },
+     {
+      "clueFragment": "aye",
+      "gives": "AYE",
+      "note": "taken as written, then its first letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YESSES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SSESYE",
+       "gives": "YESSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor decapitates some donkeys and some Madagascan lemurs called aye-ayes.",
+     "walkthrough": "The aye-aye is a lemur, so the hyphenated word reads as an animal beside the asses; split at the hyphen, the first 'aye' is fodder and 'ayes' the definition.",
+     "definitionFit": "Ayes are votes or answers in favour, and yesses are exactly such affirmative replies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "aye-ayes"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +184,81 @@
     "text": "Singlet repeatedly discovered tangled round the midriff of Seb Coe?",
     "enumeration": "4"
    },
-   "solution": "GLEN"
+   "solution": "GLEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "GLEN",
+    "definitions": [
+     {
+      "text": "Coe?",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly discovered",
+      "for": "letter_selection",
+      "note": "uncovering strips the outer letters, and doing it again and again leaves only the core"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "something tangled is twisted out of order, so these letters are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to surround it, so one piece encloses another"
+     },
+     {
+      "text": "midriff of",
+      "for": "letter_selection",
+      "note": "the midriff is the middle of the body, so the central letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singlet",
+      "gives": "NGL",
+      "select": "middle",
+      "note": "stripping the outer pair twice leaves the middle three letters"
+     },
+     {
+      "clueFragment": "Seb",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GL",
+      "E",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NGL",
+       "gives": "GLN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Athlete Seb Coe gets his running vest twisted round his waist.",
+     "walkthrough": "Seb Coe is a British Olympic middle-distance runner, which makes the singlet look like sportswear. The question mark flags that Coe is an example: Glen Coe is a valley in the Scottish Highlands.",
+     "definitionFit": "A glen is a narrow Scottish valley, and Glencoe is one of the most famous such valleys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coe"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +272,78 @@
     "text": "Greek, 23, ambitious and posh, meets Queen and starts to utter sallies",
     "enumeration": "8"
    },
-   "solution": "EPICURUS"
+   "solution": "EPICURUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPICURUS",
+    "definitions": [
+     {
+      "text": "Greek, 23",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ambitious",
+      "gives": "EPIC",
+      "note": "an epic undertaking is a hugely ambitious one"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, as in U and non-U speech"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "utter",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "sallies",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIC",
+      "U",
+      "R",
+      "U",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A confident upper-class Greek meets royalty and starts making witty remarks.",
+     "walkthrough": "'23' refers to the answer at 23-across, EMPIRICIST. 'U and non-U' was a 1950s British distinction between upper-class and middle-class usage.",
+     "definitionFit": "Epicurus was an ancient Greek philosopher who held that knowledge comes from the senses, making him an early empiricist thinker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sallies"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +363,54 @@
      }
     ]
    },
-   "solution": "REDSNAPPER"
+   "solution": "REDSNAPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED SNAPPER",
+    "definitions": [
+     {
+      "text": "swimmer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stalks",
+      "for": "charade",
+      "note": "to stalk is to follow close behind, so this piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sunburnt",
+      "gives": "RED",
+      "note": "sunburnt skin turns red"
+     },
+     {
+      "clueFragment": "Paparazzo",
+      "gives": "SNAPPER",
+      "note": "a snapper is a slang word for a photographer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "SNAPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity photographer follows a sunburnt bather down the beach.",
+     "walkthrough": "'Swimmer' looks like the bather being stalked, but it is the definition: a fish.",
+     "definitionFit": "The red snapper is a reddish food fish of warm seas, and fish are swimmers par excellence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +424,58 @@
     "text": "A flower's sad, diminished beauty",
     "enumeration": "8"
    },
-   "solution": "BLUEBELL"
+   "solution": "BLUEBELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BLUEBELL",
+    "definitions": [
+     {
+      "text": "A flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "diminished",
+      "for": "deletion",
+      "note": "something diminished is made smaller, so the last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sad",
+      "gives": "BLUE",
+      "note": "feeling blue means feeling sad"
+     },
+     {
+      "clueFragment": "beauty",
+      "gives": "BELLE",
+      "note": "a belle is a beautiful woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "BELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower is a faded beauty, wilting sadly.",
+     "walkthrough": "The 's stands for 'is', linking the definition to the wordplay rather than marking possession.",
+     "definitionFit": "The bluebell is a woodland plant with drooping blue bell-shaped blooms, common in British spring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +489,70 @@
     "text": "Island races wiped out (by leprosy, primarily) in small arrondissement",
     "enumeration": "5"
    },
-   "solution": "LILLE"
+   "solution": "LILLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "LILLE",
+    "definitions": [
+     {
+      "text": "arrondissement",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wiped out",
+      "for": "substitution",
+      "note": "being wiped out by something means being removed and replaced by it"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "LITTLE",
+      "note": "little means small"
+     },
+     {
+      "clueFragment": "Island races",
+      "gives": "TT",
+      "note": "the TT, or Tourist Trophy, is a motorcycle race series on the Isle of Man"
+     },
+     {
+      "clueFragment": "leprosy",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "L",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disease wipes out the races of a small island district.",
+     "walkthrough": "In LITTLE the TT is replaced by L. The parenthesis sounds like a grim aside about disease but just names the replacement letter.",
+     "definitionFit": "Lille is a city in northern France that gives its name to one of the administrative districts of the Nord department."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leprosy"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +566,67 @@
     "text": "Roll about outside official building",
     "enumeration": "6"
    },
-   "solution": "PREFAB"
+   "solution": "PREFAB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PREFAB",
+    "definitions": [
+     {
+      "text": "building",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters run backwards"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roll",
+      "gives": "BAP",
+      "note": "a bap is a soft bread roll in Britain"
+     },
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "a ref is a referee, a match official"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REF",
+      "AB"
+     ],
+     "reversals": [
+      {
+       "from": "BAP",
+       "to": "PAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bread roll is passed round outside a government office.",
+     "walkthrough": "'Official building' reads as one phrase, but 'official' is the referee and 'building' alone is the definition.",
+     "definitionFit": "A prefab is a prefabricated house or hut, assembled on site from factory-made sections."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "official"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +646,77 @@
      }
     ]
    },
-   "solution": "AGAKHAN"
+   "solution": "AGAKHAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AGA KHAN",
+    "definitions": [
+     {
+      "text": "affluent Arab",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At the back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its final letter is kept"
+     },
+     {
+      "text": "snorting",
+      "for": "container",
+      "note": "snorting a drug means taking it inside, so one piece goes into another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anantara",
+      "gives": "A",
+      "select": "last",
+      "note": "the last letter of the name"
+     },
+     {
+      "clueFragment": "gak",
+      "gives": "GAK",
+      "note": "taken as written; gak is slang for cocaine"
+     },
+     {
+      "clueFragment": "Hotel",
+      "gives": "H",
+      "note": "H is Hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAK",
+      "H",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy guest is caught taking cocaine in the back of a luxury hotel.",
+     "walkthrough": "Anantara is a real luxury hotel chain, which makes the scene feel like gossip; A and H take GAK between them.",
+     "definitionFit": "The Aga Khan is the hereditary imam of the Ismaili Muslims, famously rich, and the title is treated loosely here as an Arab grandee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hotel"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +730,76 @@
     "text": "In mid-April, a locust flies too high to be heard",
     "enumeration": "10"
    },
-   "solution": "ULTRASONIC"
+   "solution": "ULTRASONIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ULTRASONIC",
+    "definitions": [
+     {
+      "text": "too high to be heard",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mid-",
+      "for": "letter_selection",
+      "note": "mid means the middle, so the central letter is taken"
+     },
+     {
+      "text": "flies",
+      "for": "anagram",
+      "note": "something that flies moves about freely, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "April",
+      "gives": "R",
+      "select": "middle",
+      "note": "the middle letter of the month"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "locust",
+      "gives": "LOCUST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULTRASONIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INRALOCUST",
+       "gives": "ULTRASONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spring locust flies about at a pitch beyond human hearing.",
+     "walkthrough": "'In' looks like a preposition setting the time, but its letters join the fodder; 'flies' looks like the insect's verb.",
+     "definitionFit": "Ultrasonic describes sound frequencies above the range of human hearing, roughly over twenty kilohertz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +813,44 @@
     "text": "Lead extract from bituminous tarmac",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extract from",
+      "for": "hidden_word",
+      "note": "an extract is a portion taken out of something larger, so the letters are lifted from inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bituminous tarmac",
+      "gives": "STAR",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A chemist draws lead out of a sample of bituminous road surfacing.",
+     "walkthrough": "'Lead' reads as the metal, which fits tar and road surfaces; it is the leading role.",
+     "definitionFit": "The star of a film or play takes the leading part, so the lead and the star are the same performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +864,55 @@
     "text": "Recycles electronic drilling devices",
     "enumeration": "6"
    },
-   "solution": "REUSES"
+   "solution": "REUSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REUSES",
+    "definitions": [
+     {
+      "text": "Recycles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drilling",
+      "for": "container",
+      "note": "drilling bores a way into something, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the standard abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "devices",
+      "gives": "RUSES",
+      "note": "devices in the sense of tricks or stratagems"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "A recycling plant breaks down old electronic drills for parts.",
+     "walkthrough": "'Devices' looks like gadgets to go with 'electronic', but here it means tricks.",
+     "definitionFit": "To recycle something is to put it to use again rather than throw it away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devices"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +932,75 @@
      }
     ]
    },
-   "solution": "SAILORSUIT"
+   "solution": "SAILORSUIT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "SAILOR SUIT",
+    "definitions": [
+     {
+      "text": "Singular look inspired by look upon quarterdeck?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "to be inspired is to be breathed in, so one piece is taken inside another"
+     },
+     {
+      "text": "upon",
+      "for": "charade",
+      "note": "in a down clue, one thing upon another sits directly above it, so the pieces follow in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular",
+      "gives": "S",
+      "note": "S is the grammar abbreviation for singular"
+     },
+     {
+      "clueFragment": "look inspired",
+      "gives": "AIR",
+      "note": "an air is a look or appearance; it is the second look that does the inspiring"
+     },
+     {
+      "clueFragment": "by look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look!"
+     },
+     {
+      "clueFragment": "quarterdeck",
+      "gives": "SUIT",
+      "note": "a suit of cards is one quarter of a full deck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AI",
+      "LO",
+      "R",
+      "SUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A distinctive outfit worn on a ship's quarterdeck.",
+     "walkthrough": "'Quarterdeck' looks like part of a ship but splits into a quarter of a deck of cards. 'Look' appears twice with two different meanings. Read whole, the clue also describes the answer: a striking look seen on deck.",
+     "definitionFit": "A sailor suit is a naval-style outfit, the kind of costume worn by crew on a warship's deck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quarterdeck"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +1014,52 @@
     "text": "Music from 'Mexico's Madonna' with an elemental energy",
     "enumeration": "8"
    },
-   "solution": "MARIACHI"
+   "solution": "MARIACHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARIACHI",
+    "definitions": [
+     {
+      "text": "Music",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mexico's Madonna",
+      "gives": "MARIA",
+      "note": "the Madonna is the Virgin Mary, Maria in Spanish"
+     },
+     {
+      "clueFragment": "elemental energy",
+      "gives": "CHI",
+      "note": "chi is the vital energy of Chinese philosophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARIA",
+      "CHI"
+     ]
+    },
+    "explanation": {
+     "surface": "A Mexican pop star, billed as the local Madonna, sings with raw elemental power.",
+     "walkthrough": "The quotation marks make Madonna look like the pop singer; it is the Virgin Mary, named in Spanish because of Mexico.",
+     "definitionFit": "Mariachi is a style of Mexican folk band playing violins, trumpets and guitars, so it is a kind of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Madonna"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1073,51 @@
     "text": "Just over half of Alexander's kingdom is defended against attack",
     "enumeration": "5"
    },
-   "solution": "MACED"
+   "solution": "MACED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MACED",
+    "definitions": [
+     {
+      "text": "defended against attack",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Just over half of",
+      "for": "deletion",
+      "note": "keeping a little more than half of a word means the rest of its tail is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alexander's kingdom",
+      "gives": "MACEDONIA",
+      "note": "Alexander the Great was king of Macedonia; five of its nine letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACED"
+     ]
+    },
+    "explanation": {
+     "surface": "Most of Alexander the Great's realm is held against invaders.",
+     "walkthrough": "Five letters out of nine is just over half. The surface suggests ancient warfare, but the answer is about a modern spray.",
+     "definitionFit": "Mace is a disabling spray carried for self-protection, so someone maced has been sprayed in self-protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "kingdom"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1131,48 @@
     "text": "Edible seaweed?! Me neither!",
     "enumeration": "4"
    },
-   "solution": "NORI"
+   "solution": "NORI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NORI",
+    "definitions": [
+     {
+      "text": "Edible seaweed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neither",
+      "gives": "NOR",
+      "note": "the conjunction that partners neither in a paired negative"
+     },
+     {
+      "clueFragment": "Me",
+      "gives": "I",
+      "note": "me and I are both the first person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "One person admits they do not like eating seaweed, and another agrees.",
+     "walkthrough": "'Me neither' and 'nor I' are two ways of saying the same thing, so the reply spells the answer.",
+     "definitionFit": "Nori is the dried red algae pressed into sheets and wrapped around sushi in Japanese cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "neither"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1192,50 @@
      }
     ]
    },
-   "solution": "OWNGOAL"
+   "solution": "OWNGOAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OWN GOAL",
+    "definitions": [
+     {
+      "text": "self-inflicted injury",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to cause"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allow",
+      "gives": "OWN",
+      "note": "to own is to admit or allow that something is true"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "GOAL",
+      "note": "an object is an aim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWN",
+      "GOAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaving an item lying about leads someone to hurt themselves.",
+     "walkthrough": "'Object' reads as a thing that might be tripped over; it is an aim.",
+     "definitionFit": "An own goal, in football or figuratively, is an action that backfires and harms the person who took it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1249,57 @@
     "text": "Very fashionable brand's producing belts",
     "enumeration": "5"
    },
-   "solution": "SOCKS"
+   "solution": "SOCKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOCKS",
+    "definitions": [
+     {
+      "text": "belts",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "fashionable brand",
+      "gives": "CK",
+      "note": "CK is Calvin Klein, the fashion label"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "CK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy label is making stylish belts for its new range.",
+     "walkthrough": "'Belts' looks like a fashion accessory, a noun, but it is a verb meaning hits.",
+     "definitionFit": "To sock someone is to punch them hard, and belting someone is the same hard hitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "belts"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1313,39 @@
     "text": "Nina's fearful quality that's not quite possessed by this grid",
     "enumeration": "8"
    },
-   "solution": "SYMMETRY"
+   "solution": "SYMMETRY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SYMMETRY",
+    "definitions": [
+     {
+      "text": "Nina's fearful quality that's not quite possessed by this grid",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nina's fearful quality",
+      "note": "surface reading: some frightening trait of a woman called Nina"
+     },
+     {
+      "clueFragment": "not quite possessed by this grid",
+      "note": "setter's reading: the hidden message in the grid quotes Blake's tiger, whose 'fearful' quality is famous, and this grid is lopsided"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A Nina is a message hidden in the grid; here it is 'Tyger Tyger burning bright', from Blake's poem asking what could 'frame thy fearful symmetry'. The grid itself is deliberately unbalanced.",
+     "definitionFit": "Symmetry is a balanced mirror-image arrangement, which a crossword grid normally has and this one deliberately lacks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nina's"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1359,65 @@
     "text": "Piano in the middle of Argos making high-pitched sound",
     "enumeration": "4"
    },
-   "solution": "PING"
+   "solution": "PING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PING",
+    "definitions": [
+     {
+      "text": "high-pitched sound",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, meaning softly"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Argos",
+      "gives": "G",
+      "select": "middle",
+      "note": "the middle letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A piano in the middle of an Argos shop is making a shrill noise.",
+     "walkthrough": "Argos is a British catalogue store chain, which makes the piano sound like stock; 'in' is just two letters.",
+     "definitionFit": "A ping is a short sharp ringing noise, like a bell or a struck glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piano"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1431,52 @@
     "text": "Reported the status of my deputy - dead",
     "enumeration": "8"
    },
-   "solution": "INFORMED"
+   "solution": "INFORMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFORMED",
+    "definitions": [
+     {
+      "text": "Reported",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the status of my deputy",
+      "gives": "INFORME",
+      "note": "my deputy is standing in for me"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FOR",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announces that their deputy has died.",
+     "walkthrough": "A deputy's status is that of someone who is in for me, standing in on my behalf.",
+     "definitionFit": "To inform on someone is to report them to the authorities, so informed can stand for reported."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "status"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1490,67 @@
     "text": "An angel of the highest order, he's returning to accept punishment",
     "enumeration": "6"
    },
-   "solution": "SERAPH"
+   "solution": "SERAPH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SERAPH",
+    "definitions": [
+     {
+      "text": "An angel of the highest order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he's",
+      "gives": "HES",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "punishment",
+      "gives": "RAP",
+      "note": "a rap is a rebuke or penalty, as in a rap on the knuckles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RAP",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HES",
+       "to": "SEH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angel of the highest rank comes back to face his punishment.",
+     "walkthrough": "The surface reads as a fallen angel returning to be judged; 'he's' is fodder.",
+     "definitionFit": "Seraphim sit at the top of the traditional Christian hierarchy of angels, above cherubim and thrones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1564,79 @@
     "text": "In the environs of Sancerre, a sculpture, perhaps Rodin's original 'Le Penseur'?",
     "enumeration": "6"
    },
-   "solution": "SARTRE"
+   "solution": "SARTRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SARTRE",
+    "definitions": [
+     {
+      "text": "Le Penseur",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "environs",
+      "for": "letter_selection",
+      "note": "environs are the surroundings, so only the outer letters are kept"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "being in the surroundings of something means being placed inside them"
+     },
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "the original is the first version, so the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sancerre",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of the name"
+     },
+     {
+      "clueFragment": "a sculpture, perhaps",
+      "gives": "ART",
+      "note": "a sculpture is one example of art"
+     },
+     {
+      "clueFragment": "Rodin's",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the sculptor's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ART",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Near a French wine town stands a sculpture, possibly Rodin's original Thinker.",
+     "walkthrough": "Le Penseur is French for The Thinker, Rodin's famous statue, so the clue seems to want the sculpture; the question mark signals a French thinker instead.",
+     "definitionFit": "Jean-Paul Sartre was a celebrated French philosopher, and a philosopher is a thinker, penseur in French."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Penseur"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1650,48 @@
     "text": "The letters in alphabet soup, say, beyond A",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "The letters in alphabet soup, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beyond",
+      "gives": "PAST",
+      "note": "past means beyond, as in past the station"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The letters floating in alphabet soup go beyond the letter A.",
+     "walkthrough": "The definition is the long phrase; 'say' marks it as one example. 'Beyond A' sounds like the rest of the alphabet.",
+     "definitionFit": "The letters in alphabet soup are small shapes of dough made from durum wheat, which is what pasta is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1705,51 @@
     "text": "One's suffering knock-backs",
     "enumeration": "4"
    },
-   "solution": "NOES"
+   "solution": "NOES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOES",
+    "definitions": [
+     {
+      "text": "knock-backs",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad way, so the letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's",
+      "gives": "ONES",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONES",
+       "gives": "NOES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is hurt by repeated rejections.",
+     "walkthrough": "'One's suffering' reads as a person's pain; 'One's' is the fodder and 'suffering' the signal.",
+     "definitionFit": "A knock-back is a refusal or rejection, and noes are negative answers turning someone down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1763,71 @@
     "text": "Tim Rice's plays about Private Investigator, based on direct experience",
     "enumeration": "10"
    },
-   "solution": "EMPIRICIST"
+   "solution": "EMPIRICIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPIRICIST",
+    "definitions": [
+     {
+      "text": "based on direct experience",
+      "at": 45,
+      "note": "used adjectivally, as in an empiricist approach"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plays",
+      "for": "anagram",
+      "note": "to play with something is to fool about with it, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds another"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tim Rice's",
+      "gives": "TIMRICES",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "Private Investigator",
+      "gives": "PI",
+      "note": "PI is the usual abbreviation for a private investigator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PI",
+      "RICIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIMRICES",
+       "gives": "EMRICIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lyricist Tim Rice writes musicals about a private detective, drawn from real life.",
+     "walkthrough": "Tim Rice is a British lyricist of stage musicals, so 'plays' looks like theatre; it is the anagram signal.",
+     "definitionFit": "Empiricism holds that knowledge comes from observation and sensory evidence, so an empiricist view rests on what is observed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1841,58 @@
     "text": "Whiff - from the bottom area of dog? Nope",
     "enumeration": "4"
    },
-   "solution": "PONG"
+   "solution": "PONG",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PONG",
+    "definitions": [
+     {
+      "text": "Whiff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the bottom",
+      "for": "reversal",
+      "note": "in a down clue, reading from the bottom means reading upwards, so the letters run backwards"
+     },
+     {
+      "text": "area of",
+      "for": "hidden_word",
+      "note": "an area of something is a part lying within it, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog? Nope",
+      "gives": "GNOP",
+      "note": "the letters span the end of one word and the start of the next"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "GNOP",
+       "to": "PONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sniffs a bad smell and wonders if it comes from the dog's rear end, then decides not.",
+     "walkthrough": "'Bottom area of dog' paints a rude picture; the bottom is the direction to read and 'dog? Nope' supplies the letters.",
+     "definitionFit": "A pong is British slang for a bad smell, and a whiff is a faint unpleasant odour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1906,58 @@
     "text": "Chief's Z car outside",
     "enumeration": "4"
    },
-   "solution": "CZAR"
+   "solution": "CZAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CZAR",
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it, so one piece wraps round another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Z",
+      "gives": "Z",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "CAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "Z",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A police chief's patrol car is parked outside.",
+     "walkthrough": "Z Cars was a 1960s BBC police drama, which makes 'Chief' sound like a senior officer; the 's means 'is'.",
+     "definitionFit": "A czar is a powerful official put in charge of a policy area, such as a drugs czar, so a boss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1971,70 @@
     "text": "Well-stirred gruel containing iodine is stickier",
     "enumeration": "6"
    },
-   "solution": "GLUIER"
+   "solution": "GLUIER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GLUIER",
+    "definitions": [
+     {
+      "text": "stickier",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Well-stirred",
+      "for": "anagram",
+      "note": "stirring mixes things thoroughly, so the letters are rearranged"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding within, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gruel",
+      "gives": "GRUEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "iodine",
+      "gives": "I",
+      "note": "I is the chemical symbol for iodine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLU",
+      "I",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRUEL",
+       "gives": "GLUER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Porridge that has been stirred well, with iodine added, becomes thicker and stickier.",
+     "walkthrough": "Gruel is thin porridge, which fits the stirring and the stickiness; it is the fodder.",
+     "definitionFit": "Something gluey is sticky like adhesive, and the comparative form means more tacky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Well-stirred"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +2048,74 @@
     "text": "Rock band reversing in van kept by artist",
     "enumeration": "7"
    },
-   "solution": "NIRVANA"
+   "solution": "NIRVANA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "NIRVANA",
+    "definitions": [
+     {
+      "text": "Rock band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the letters run the other way"
+     },
+     {
+      "text": "kept by",
+      "for": "container",
+      "note": "something kept by another is held inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, a member of the Royal Academy of Arts"
+     },
+     {
+      "clueFragment": "van",
+      "gives": "VAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "R",
+      "VAN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock band backs out in a tour van owned by an artist.",
+     "walkthrough": "'Reversing in van' looks like a driver backing up; 'reversing' acts on 'in' alone, and the van sits inside RA.",
+     "definitionFit": "Nirvana was the Seattle grunge group fronted by Kurt Cobain, an example of a rock group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   }
  ]
 }
