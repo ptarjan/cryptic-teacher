@@ -1137,5 +1137,10 @@ tools/data/archive_org_ocr_gold.json         Times clues 1974-95 transcribed by 
                                              archive.org's scans, each edition marked tune or
                                              heldout; Paul's 2% misread bar for filing them is
                                              judged on the heldout ones
+tools/build_clue_compounds.py                count how the corpus's clues print two-word
+                                             compounds: hyphenated or closed
+tools/data/clue_compounds.tsv                how often the corpus's clues print each two-word
+                                             compound hyphenated and closed
+                                             (build_clue_compounds.py)
 ```
 <!-- LAYOUT-END -->

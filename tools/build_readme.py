@@ -415,6 +415,8 @@ LAYOUT = [
     ("fetching", "tools/test_file_archive_org_puzzles.sh", "does tools/file_archive_org_puzzles.py find the Times cryptic's title and not its neighbours', read the clue columns in order, keep only the clues both readings agree on, and match a Canberra reprint only when it is one?"),
     ("fetching", "tools/measure_archive_org_ocr.py", "measure how many clue words and marks file_archive_org_puzzles.py misreads, against the hand transcriptions in tools/data/archive_org_ocr_gold.json"),
     ("fetching", "tools/data/archive_org_ocr_gold.json", "Times clues 1974-95 transcribed by hand off archive.org's scans, each edition marked tune or heldout; Paul's 2% misread bar for filing them is judged on the heldout ones"),
+    ("fetching", "tools/build_clue_compounds.py", "count how the corpus's clues print two-word compounds: hyphenated or closed"),
+    ("fetching", "tools/data/clue_compounds.tsv", "how often the corpus's clues print each two-word compound hyphenated and closed (build_clue_compounds.py)"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
