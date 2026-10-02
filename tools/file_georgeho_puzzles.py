@@ -18,6 +18,10 @@ A puzzle is filed only when:
     MAX_GAP away (a misread title, "Toughie 100001", has no neighbours);
   - its print date is the title's, or the one printing day its neighbours
     leave for it; otherwise it is not filed;
+  - the write-up is not dated more than a day before the print date: a
+    LiveJournal post georgeho dates impossibly early takes the date of the
+    post before it in id order, and one still too early is not filed
+    (write_up_date);
   - no reprinting series holds it, and the Telegraph's own bucket does not
     serve it (the blog filers' checks);
   - file_blog_puzzles.build accepts it: clues, counts, crossings.
@@ -53,6 +57,7 @@ CACHE = corroborate.GEORGEHO.parent / "blog"
 #: The furthest a filed neighbour may sit from the number, either side.
 MAX_GAP = 60
 URL_DATE = re.compile(r"/(\d{4})/(\d{2})/(\d{2})/")
+LJ_ID = re.compile(r"livejournal\.com/(\d+)\.html")
 ENUM = re.compile(r"\s*\(([\d,\-\s]+)\)\s*$")
 VIA = "cryptics.georgeho.org (ODbL)"
 
@@ -120,10 +125,21 @@ def whole(answer, count, fuller):
     return answer
 
 
-def record(pid, rows, posted=None, fuller=None):
+def previous_posts(posted):
+    """{url: the date georgeho gives the post before it} for the LiveJournal
+    posts in `posted`, {url: date}. LiveJournal's post ids rise with time."""
+    ids = sorted((int(m.group(1)), d[:10]) for u, d in posted.items()
+                 if d and (m := LJ_ID.search(u or "")))
+    by_id = {n: d for (n, _), (_, d) in zip(ids[1:], ids)}
+    return {u: by_id[int(m.group(1))] for u in posted
+            if (m := LJ_ID.search(u or "")) and int(m.group(1)) in by_id}
+
+
+def record(pid, rows, posted=None, fuller=None, previous=None):
     """A parsed record in the blog parsers' shape, or (None, why). The post's
-    date is its url's, else georgeho's `posted` for the url. `fuller` is
-    blog_answers()' for the post: answers georgeho cut off are taken whole
+    date is its url's, else georgeho's `posted` for the url, with `previous`'s
+    date for the post before it kept beside it (see write_up_date). `fuller`
+    is blog_answers()' for the post: answers georgeho cut off are taken whole
     from it."""
     by_url = collections.defaultdict(list)
     for row in rows:
@@ -167,6 +183,8 @@ def record(pid, rows, posted=None, fuller=None):
            "entries": entries}
     if unsplit:
         rec["unsplit"] = unsplit
+    if not m and (previous or {}).get(url):
+        rec["previous"] = previous[url]
     return rec, None
 
 
@@ -203,14 +221,16 @@ def write_records():
     recs, here = [], only_here()
     src = sqlite3.connect(f"file:{corroborate.GEORGEHO}?mode=ro", uri=True)
     urls = {row[1] for rows in here.values() for row in rows}
-    posted = {u: d for u, d in src.execute("select distinct source_url, puzzle_date from clues "
-                                           "where source = 'times_xwd_times'") if u in urls}
+    posted = dict(src.execute("select distinct source_url, puzzle_date from clues "
+                              "where source = 'times_xwd_times'"))
+    previous = previous_posts(posted)
+    posted = {u: d for u, d in posted.items() if u in urls}
     blog = blog_answers()
     for pid, rows in sorted(here.items()):
         if series_meta.parse_id(pid)[0] not in tg.SIZE:
             left["a series the grid rebuild has no size for"] += 1
             continue
-        rec, why = record(pid, rows, posted, blog.get(pid))
+        rec, why = record(pid, rows, posted, blog.get(pid), previous)
         if why:
             left[why] += 1
         else:
@@ -303,6 +323,21 @@ def print_date(rec, lo, hi):
     return slots[rec["number"] - lo - 1] if len(slots) == hi - lo - 1 else None
 
 
+def write_up_date(rec, printed):
+    """The write-up's date for a puzzle printed on `printed`, or None. A url's
+    date is the post's own. georgeho's date for a post is believed unless it
+    falls more than a day before the print date (a daily is sometimes blogged
+    the evening before; tools/test_times_dates.sh allows the same), which no
+    write-up can; then the post before it in LiveJournal's id order dates it,
+    if that one does not."""
+    earliest = (printed - fbp.DAY).isoformat()
+    day = rec["date"]
+    if URL_DATE.search(rec["link"]) or day >= earliest:
+        return day
+    before = rec.get("previous")
+    return before if before and before >= earliest else None
+
+
 def file_all(write=True):
     recs = {json.loads(line)["post_id"]: json.loads(line)
             for line in (CACHE / "parsed.jsonl").open(encoding="utf-8")}
@@ -346,6 +381,11 @@ def file_all(write=True):
         if date is None:
             skipped["no print date: neither the title nor its neighbours fix one"] += 1
             continue
+        posted = write_up_date(rec, date)
+        if posted is None:
+            skipped["georgeho dates the write-up before the puzzle"] += 1
+            continue
+        rec = {**rec, "date": posted}
         setter = (rec.get("setter") or named.get((series, number))
                   or series_meta.default_setter(series))
         puzzle, why = fbp.build(rec, row, series, date, setter, typed)

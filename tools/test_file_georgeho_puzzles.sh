@@ -76,7 +76,21 @@ held_dates.update({1325: "2018-05-26", 1326: "2018-05-28", 1327: "2018-06-02",
                    1337: "2018-08-11", 1339: "2018-08-25", 1340: "2018-08-27",
                    1341: "2018-09-01", 1342: "2018-09-08"})
 print("HOLIDAYS", G.print_date({"series": "timesjumbo", "number": 1334}, 1332, 1335))
-print("NODATE", G.record("x-1", [("x-1", "https://example.com/1.html", "X 1", "1a", "c", "A")])[1])
+# georgeho dates times-xwd-times post 2484454 (Jumbo 1479, printed 16 January
+# 2021) 2021-01-02, before the print date; the posts either side of it in
+# LiveJournal's id order are 2021-02-04, so the one before it dates it. A daily
+# blogged the evening before keeps its date, a url's date is the post's own,
+# and a post whose predecessor is too early as well is not filed.
+L = "https://times-xwd-times.livejournal.com/%d.html"
+prev = G.previous_posts({L % 2484165: "2021-02-04", L % 2484454: "2021-01-02",
+                         L % 2484524: "2021-02-04", "https://example.com/x": "2021-01-01"})
+P16 = datetime.date(2021, 1, 16)
+print("WRITEUP", prev.get(L % 2484454),
+      G.write_up_date({"date": "2021-01-02", "link": L % 2484454, "previous": prev[L % 2484454]}, P16),
+      G.write_up_date({"date": "2021-01-15", "link": L % 1}, P16),
+      G.write_up_date({"date": "2021-01-02", "link": L % 1, "previous": "2021-01-03"}, P16),
+      G.write_up_date({"date": "2021-01-02", "link": "https://www.fifteensquared.net/2021/01/02/x/"}, P16))
+print("NODATE",G.record("x-1", [("x-1", "https://example.com/1.html", "X 1", "1a", "c", "A")])[1])
 PY
 )
 field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /,""); print}' <<<"$out"; }
@@ -95,6 +109,8 @@ check "the post date is the url's; numbers that start again are the downs; a mis
 check "a linked answer is left for the grid to split" "[[3, 'down'], [4, 'down']] 2,1,4" "$(field LINKED)"
 check "a setter the title omits comes from bigdave44's posts or fifteensquared's, else none" \
   "[(('indysunday', 1150), 'Glow-worm'), (('sundaytough', 3), 'proXimal'), (('toughie', 1031), 'Beam')]" "$(field OTHER)"
+check "a write-up georgeho dates before the print takes the previous post's date, else is not filed" \
+      "2021-02-04 2021-02-04 2021-01-15 None 2021-01-02" "$(field WRITEUP)"
 check "a post with no date is not a record" "no post date" "$(field NODATE)"
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "file_georgeho_puzzles: all checks passed"
