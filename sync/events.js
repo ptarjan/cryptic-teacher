@@ -34,6 +34,9 @@
   //   entry     the first entry completed correctly this session
   //   half      the grid passed halfway filled
   //   done      the puzzle was completed
+  //   picker, stats, sync, notify, feedback
+  //             that header button was pressed and its panel opened. Whether
+  //             anybody uses a feature is the question before improving it.
   //
   // Written in the order a solve goes, because that is the order the report
   // reads them in: the question these answer is a funnel from "arrived" to
@@ -55,6 +58,7 @@
     "open", "letter",
     "hint-indicators", "hint-definition", "hint-type",
     "hint-blocks", "hint-walkthrough", "hint-answer",
-    "check", "entry", "half", "done"
+    "check", "entry", "half", "done",
+    "picker", "stats", "sync", "notify", "feedback"
   ]);
 });
