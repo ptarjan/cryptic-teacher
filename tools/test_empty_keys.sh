@@ -29,7 +29,7 @@ puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 
 def guardian_entry(eid, num, seps=None):
     return {"id": eid, "number": num, "direction": "across",
-            "position": {"x": 0, "y": num - 1}, "length": 8,
+            "position": {"x": 0, "y": 2 * (num - 1)}, "length": 8,
             "clue": f"A clue with words in it ({'4,4' if seps else '8'})",
             "separatorLocations": seps or {}, "solution": "ANSWERED",
             "group": [eid]}
