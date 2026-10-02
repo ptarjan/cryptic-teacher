@@ -152,7 +152,8 @@ Licences, and what is committed versus fetched: `tools/data/README.md`.
 
 `build_abbreviations.table()` (river = R, street = ST, ...) holds a sense
 when the dictionary lists it — `tools/data/lexicons/abbreviations.json`,
-English Wiktionary's abbreviations, refreshed by
+English Wiktionary's abbreviations and Wikipedia's crossword abbreviation
+list, refreshed by
 `tools/fetch_abbreviations.py` — and a clue in
 `tools/data/lexicons/blocks.json` uses it, plus the members of the SYSTEMATIC
 families (Roman numerals, NATO alphabet, chemical symbols...). Clue counts only

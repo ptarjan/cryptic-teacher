@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # fetch_abbreviations.senses() reads what a wiktextract entry says an
-# abbreviation stands for, and nothing it only mentions.
+# abbreviation stands for, and nothing it only mentions; list_senses() reads
+# the crossword list's readings and skips the synonyms it mentions.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
@@ -36,9 +37,23 @@ cases = [
     ("a sense without an abbreviation tag is skipped", entry("R", gloss("river")), []),
     ("non-ASCII forms are skipped", entry("⠽", gloss("you", ["contraction"])), []),
 ]
+page = "intro <small>XX</small>\n==A==\n"
+cases += [
+    ("a list line's readings, a parenthetical ignored",
+     page + "* Old – <small>O</small>, <small>OL</small> (e.g. \"good ol' boy\")",
+     [("old", "O"), ("old", "OL")]),
+    ("a line naming several clue words gives each the readings",
+     page + "* Sleep, Snooze or Asleep - <small>Z</small>", [("sleep", "Z"), ("snooze", "Z"), ("asleep", "Z")]),
+    ("a linked reading is what the link shows", page + "* Side – <small>[[Leg side|ON]]</small>",
+     [("side", "ON")]),
+    ("a dictionary word of three or more letters is a synonym, not an abbreviation",
+     page + "* Sailor – <small>AB</small>, <small>TAR</small>", [("sailor", "AB")]),
+    ("a short reading that is a word stays", page + "* At home – <small>IN</small>", [("at home", "IN")]),
+    ("nothing above the A-to-Z lines is read", page, []),
+]
 fails = 0
 for name, e, want in cases:
-    got = list(f.senses(e))
+    got = list(f.list_senses(e, {"TAR", "IN"}) if isinstance(e, str) else f.senses(e))
     ok = got == want
     fails += not ok
     print(f"  {'ok' if ok else 'FAIL'}: {name}" + ("" if ok else f"\n    want {want}\n    got  {got}"))

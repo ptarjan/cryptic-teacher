@@ -10,7 +10,8 @@ pieces were conventions.
 
 table() is the one table every reader uses. A sense (clue word -> letters) is
 in it when the dictionary lists it, tools/data/lexicons/abbreviations.json
-(English Wiktionary's abbreviations, written by
+(English Wiktionary's abbreviations and Wikipedia's crossword abbreviation
+list, written by
 tools/fetch_abbreviations.py), and a clue in
 tools/data/lexicons/blocks.json reads it; plus every member of the SYSTEMATIC
 families, which are codes rather than conventions. The corpus only ranks and
@@ -30,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # Clue word -> {letters: clues}, off the solving blogs and our own annotations
 # (tools/letter_facts.py --lexicons). Read by usage(), for table() and the page.
 LEXICON = ROOT / "tools" / "data" / "lexicons" / "blocks.json"
-# Clue word -> [letters]: every abbreviation English Wiktionary lists.
+# Clue word -> [letters]: every abbreviation Wiktionary or the crossword list gives.
 DICTIONARY = ROOT / "tools" / "data" / "lexicons" / "abbreviations.json"
 OUT = ROOT / "abbreviations.js"
 # Where the glossary belongs inside the lesson. The 400 rows themselves live on
