@@ -41,6 +41,7 @@ No account and no API key. Three anonymous mechanisms, all plain HTTP:
 import argparse
 import hashlib
 import html
+import http.client
 import http.cookiejar
 import io
 import json
@@ -59,6 +60,17 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 TILE = 256
 CHALLENGE_RE = re.compile(
     r'<script id="anubis_challenge"[^>]*>\s*(\{.*?\})\s*</script>', re.DOTALL)
+
+
+class Transient(RuntimeError):
+    """A timeout, reset or 5xx that outlasted its retries: skip the article."""
+
+
+class ArticleError(RuntimeError):
+    """This one article cannot be fetched; the next may be fine."""
+
+
+RETRIES, BACKOFF = 4, 5.0   # tries per request; sleep BACKOFF * 3**n between
 
 
 class Trove:
@@ -88,11 +100,27 @@ class Trove:
         self.seconds += self.last - t
         return status, body
 
+    def _open_retry(self, url, headers):
+        """_open, retried with backoff on timeouts, resets and HTTP 5xx."""
+        err = ""
+        for n in range(RETRIES):
+            if n:
+                time.sleep(BACKOFF * 3 ** (n - 1))
+            try:
+                status, body = self._open(url, headers)
+            except (urllib.error.URLError, OSError, http.client.HTTPException) as e:
+                err = f"{type(e).__name__}: {e}"
+                continue
+            if status < 500:
+                return status, body
+            err = f"HTTP {status}: {body[:100]!r}"
+        raise Transient(f"{err} for {url} after {RETRIES} tries")
+
     def get(self, url, headers=None, ok=(200,)):
         if url.startswith("/"):
             url = BASE + url
         for _ in range(3):
-            status, body = self._open(url, headers or {})
+            status, body = self._open_retry(url, headers or {})
             m = CHALLENGE_RE.search(body[:20000].decode("utf-8", "replace"))
             if m:
                 self._solve(json.loads(m.group(1)), url)
@@ -156,7 +184,7 @@ class Trove:
                  re.findall(r'class="zone onPage[^"]*" data-page-id="(\d+)" data-x="(\d+)" '
                             r'data-y="(\d+)" data-w="(\d+)" data-h="(\d+)"', text)]
         if not zones:
-            raise RuntimeError(f"article {aid}: no zones in the article page")
+            raise ArticleError(f"article {aid}: no zones in the article page")
         t = re.search(r"<title>(.*?)</title>", text, re.DOTALL)
         meta = {"id": str(aid), "title": html.unescape(t.group(1).strip()) if t else "",
                 "page_id": zones[0]["page"], "zones": zones}
@@ -243,14 +271,22 @@ def main():
         if a.year:
             with open(os.path.join(a.out, "index", f"{a.year}.jsonl")) as f:
                 ids += [json.loads(line)["id"] for line in f]
+        failed = 0
         for aid in ids[:a.limit]:
             if os.path.exists(os.path.join(a.out, str(aid), "meta.json")):
                 continue
             t = time.time()
-            m = tv.fetch_article(aid)
+            try:
+                m = tv.fetch_article(aid)
+            except (Transient, ArticleError) as e:
+                failed += 1
+                print(f"FAILED article {aid}: {e}", flush=True)
+                continue
             g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
             print(f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s")
     tv.jar.save(ignore_discard=True, ignore_expires=True)
+    if a.cmd == "fetch" and failed:
+        print(f"{failed} article(s) failed; rerun to retry them", file=sys.stderr)
     print(f"{tv.requests} requests, {tv.seconds:.1f}s in HTTP, {time.time() - t0:.1f}s wall",
           file=sys.stderr)
 
