@@ -1133,10 +1133,11 @@ tools/measure_archive_org_ocr.py             measure how many clue words and mar
                                              file_archive_org_puzzles.py misreads, against the
                                              hand transcriptions in
                                              tools/data/archive_org_ocr_gold.json
-tools/data/archive_org_ocr_gold.json         Times clues 1974-95 transcribed by hand off
-                                             archive.org's scans, each edition marked tune or
-                                             heldout; Paul's 2% misread bar for filing them is
-                                             judged on the heldout ones
+tools/data/archive_org_ocr_gold.json         Times clues 1974-95 and Listener clues 1998
+                                             transcribed by hand off archive.org's scans, each
+                                             edition marked tune or heldout (listener or
+                                             listener-heldout); Paul's 2% misread bar for
+                                             filing them is judged on the held-out ones
 tools/build_clue_compounds.py                count how the corpus's clues print two-word
                                              compounds: hyphenated or closed
 tools/data/clue_compounds.tsv                how often the corpus's clues print each two-word
@@ -1152,5 +1153,14 @@ tools/data/archive_org_tess.traineddata      Tesseract's English LSTM fine-tuned
                                              (train_archive_org_tesseract.py)
 tools/train_archive_org_tesseract.py         fine-tune Tesseract's English LSTM on Times clue
                                              lines, for the archive.org filer
+tools/archive_org_listener.py                read the Listener crosswords in archive.org's
+                                             scans of The Times' Saturday editions
+tools/test_archive_org_listener.sh           does tools/archive_org_listener.py find the
+                                             Listener's own heading (not the coupon's), split
+                                             the clue columns at DOWN (not the title's "8
+                                             DOWN"), carry across clues that run into the
+                                             second column, read a list past a line that does
+                                             not parse, and blank a clue no two readings agree
+                                             on or that runs on?
 ```
 <!-- LAYOUT-END -->
