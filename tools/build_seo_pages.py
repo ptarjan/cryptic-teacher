@@ -179,7 +179,7 @@ def position(p):
 
 def named(p):
     """"Guardian Penguin Book 5 Cryptic No 18" — the puzzle in full prose."""
-    return f"{publisher(p)} {kind(p)} No {position(p):,}"
+    return f"{series_meta.paper_kind(p.get('series'), p['number'])} No {position(p):,}"
 
 
 def display_number(p):
@@ -540,7 +540,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # which of the three pages this is: explained clue by clue, marked up from a
     # blog's write-up, or answers only.
     # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
-    full = f"{paper} {what} {pretty}{by}" + (f" ({when})" if when else "")
+    full = f"{series_meta.paper_kind(puz.get('series'), puz['number'])} {pretty}{by}" + (f" ({when})" if when else "")
     blog = puz.get("blog") if has_blog_hints(puz) else None
     desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
             if annotated else
@@ -594,7 +594,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "headline": title, "url": canonical,
         "author": {"@type": "Person", "name": "Paul Tarjan", "url": "https://paultarjan.com/"},
         "isAccessibleForFree": True,
-        "about": {"@type": "Game", "name": f"{paper} {what} Crossword No {pretty}"},
+        "about": {"@type": "Game", "name": f"{series_meta.paper_kind(puz.get('series'), puz['number'])} Crossword No {pretty}"},
     }
     if datestr(puz):
         article_ld["datePublished"] = datestr(puz, "%Y-%m-%d")
@@ -602,7 +602,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     body = [
         masthead(crumbs),
         "<main class=\"static-main\">",
-        f"<h1>{paper} {what} Crossword No {pretty}</h1>",
+        f"<h1>{series_meta.paper_kind(puz.get('series'), puz['number'])} Crossword No {pretty}</h1>",
         f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
         f'<p class="s-cta"><a class="cta" href="{BASE}/?p={puz["id"]}">Solve it yourself, '
         f'with hints one step at a time &rarr;</a></p>',
@@ -779,7 +779,7 @@ def series_blurb(series, ps):
 def series_name(series):
     if series_meta.is_book(series):
         return "Crossword books"      # kind and publisher are each book's own
-    return f"{series_meta.publisher(series)} {series_meta.kind(series)}"
+    return series_meta.paper_kind(series)
 
 
 def listing_key(p):
