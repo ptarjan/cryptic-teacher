@@ -77,33 +77,18 @@ print("KEPT", tmp.read_text().startswith('{"post_id": 111}'))
 T.open_out(True).close()
 print("FRESH", tmp.read_text())
 
-# A relaunch must skip what it already TRIED, not just what it solved: the
-# failures are the expensive ones — a Jumbo spends the whole budget and finds
-# nothing — so resuming off the grids alone re-grinds them every time. Raising
-# the budget is still how a truncated puzzle gets another go, so a smaller
-# recorded budget must not skip it, and neither must an older search's failure.
+# A run skips every post with an attempt on record, whatever search, budget
+# or settle() wrote it: the failures are the expensive ones — a Jumbo spends
+# the whole budget and finds nothing — and a code change that could fix them
+# retries them once, by hand, naming the outcomes it can fix.
 T.ATTEMPTS = tmp.parent / "attempts.jsonl"
-T.ATTEMPTS.write_text(
-    json.dumps({"post_id": 1, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
-    + json.dumps({"post_id": 2, "how": "truncated", "max_nodes": 400000, "search": T.SEARCH}) + "\n"
-    + json.dumps({"post_id": 3, "how": "truncated", "max_nodes": 6000000}) + "\n")
-print("TRIED", sorted(T.attempted(6000000)))
-print("BIGGER", sorted(T.attempted(400000)))
-# A settled answer is an input: a post tried with the answers it has now is
-# skipped, and one whose settled answers changed since is tried again.
-fix = {(1, "across"): "CAT"}
-T.ATTEMPTS.write_text(
-    json.dumps({"post_id": 4, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
-                "settled": T.settled_digest(fix)}) + "\n"
-    + json.dumps({"post_id": 5, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
-                  "settled": T.settled_digest(fix)}) + "\n")
-print("RETRY_SETTLED", sorted(T.attempted(6000000, {4: fix, 5: {(1, "across"): "COT"}})))
-T.ATTEMPTS.write_text("".join(json.dumps(dict(
-    {"post_id": pid, "how": how, "max_nodes": 6000000, "search": T.SEARCH}, **extra)) + "\n"
-    for pid, how, extra in ((6, "refused: 5 down EJTY fits no word", {"settle": T.SETTLE}),
-                            (7, "refused: 5 down EJTY fits no word", {}),
-                            (8, "no grid", {}))))
-print("RETRY_REFUSED", sorted({6, 7, 8} - T.attempted(6000000)))
+T.ATTEMPTS.write_text("".join(json.dumps({"post_id": pid, "how": how, "max_nodes": n}) + "\n"
+    for pid, how, n in ((1, "no grid", 6000000), (2, "truncated", 400000),
+                        (3, "refused: 5 down EJTY fits no word", 6000000),
+                        (4, "truncated", 6000000), (4, "no grid", 6000000))))
+print("TRIED", sorted(T.attempted()))
+print("RETRY_SOME", sorted({1, 2, 3, 4} - T.attempted(retry=("refused", "truncated"))))
+print("RETRY_ALL", sorted(T.attempted(retry=())))
 # A linked answer the post prints whole (the Times and Telegraph parsers keep
 # its letters and count, no word breaks) is split by the grid: the search
 # that left it out fitted no grid for want of its lights. A post holding one
@@ -127,13 +112,6 @@ both = T.with_split({"entries": [{"number": 1, "direction": "across", "answer": 
                                   "answer_printed": "SICK AS A DOG"}]},
                     ([((1, "down"), "SICK"), ((16, "across"), "ASADOG")],))
 print("LINKED_POINTER", [(e["clue"], e.get("answer_spaced")) for e in both["entries"][1:]])
-T.ATTEMPTS.write_text(
-    json.dumps({"post_id": 6, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
-    + json.dumps({"post_id": 7, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
-                  "splits": T.MAX_SPLITS}) + "\n"
-    + json.dumps({"post_id": 8, "how": "rejected: too many ways to split its linked answers",
-                  "max_nodes": 6000000, "search": T.SEARCH, "splits": T.MAX_SPLITS // 4}) + "\n")
-print("RETRY_LINKED", sorted(T.attempted(6000000, doubts={6, 7, 8})))
 # "24d" typed in the Across list: the parser keeps the heading beside the
 # suffix, and the grid decides which was mistyped.
 last = max(k for k in cells if k[1] == "across")
@@ -316,20 +294,20 @@ T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (lone, elsewhere)))
 T.OUT.write_text("")
 T.run(fresh=True)
 print("RUN_REFUSED", T.OUT.read_text() == "", json.loads(T.ATTEMPTS.read_text())["how"][:7])
-# A failure already tried is skipped, unless the run is told to retry the
-# failures (a parser fix), and a grid already written never is.
+# A failure already tried is skipped, unless the run is told to retry it,
+# and a grid already written never is.
 calls = []
 stub = lambda rec, max_nodes: (calls.append(rec["post_id"]), ([], "no grid"))[1]
 T.run(solver=stub)
 skipped = list(calls)
-T.run(solver=stub, retry_failed=True)
+T.run(solver=stub, retry=())
 print("RETRY_FAILED", skipped, calls)
-# An answer settled from the wordplay puts the refused puzzle back in, though
-# it was already tried.
+# An answer settled from the wordplay rebuilds the refused puzzle when it is
+# retried.
 k = T.printed(lone)[6]
 T.ANSWERS.write_text(json.dumps({"_doc": "", "2": {"_puzzle": "", f"{k['number']} {k['direction']}": {
     "answer": T.printed(rec_of(TINY))[6]["answer"], "wordplay": ""}}}))
-T.run()
+T.run(retry=())
 print("SETTLED", [(r["post_id"], [c["blogged"][0] for c in r.get("corrections", [])])
                   for r in map(json.loads, T.OUT.open())])
 T.ANSWERS.unlink()
@@ -377,18 +355,17 @@ check "a light no grid could hold reads as no grid, not as truncated" \
 check "a killed run reads back what it already solved" "[111]" "$(field RESUME)"
 check "and appends to it rather than truncating" True "$(field KEPT)"
 check "only --fresh starts the file over" "" "$(field FRESH)"
-check "a failure is not re-ground on the next run, an older search's is" "[1]" "$(field TRIED)"
+check "a post with any attempt on record is not tried again" "[1, 2, 3, 4]" "$(field TRIED)"
+check "a retry names the outcomes it retries, by the latest attempt" "[2, 3]" "$(field RETRY_SOME)"
+check "an empty retry retries every failure" "[]" "$(field RETRY_ALL)"
 check "a linked answer printed whole is split by the grid that fits" \
       "True unique, linked answer split by the grid" "$(field LINKED)"
 check "the split record carries the clue on its leader and See N on the rest" \
       "False True" "$(field LINKED_SPLIT)"
 check "a pointer names its direction where the number has both; the leader keeps the printed answer" \
   "[('Ill (4,2,1,3)', 'SICK AS A DOG'), ('See 1 down', None)]" "$(field LINKED_POINTER)"
-check "a linked post tried without splitting, or with fewer splits, is tried again" "[7]" "$(field RETRY_LINKED)"
 check "a suffix against its heading: the grid takes the heading's direction" \
       "True unique, directions as headed None" "$(field HEADED)"
-check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
-check "a settled post is retried only when its settled answers change" "[4]" "$(field RETRY_SETTLED)"
 check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
 check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
@@ -435,7 +412,6 @@ check "a short answer two words correct is blanked, not guessed between" \
       "5d:EOTY>" "$(field FIX_LENGTH_EITHER)"
 check "a blank answer is no answer: it fits any grid and is never corrected" \
       "True" "$(field FIX_BLANK)"
-check "a puzzle an older settle() refused is tried again" "[7]" "$(field RETRY_REFUSED)"
 check "a grid its answers do not number is refused, not corrected" \
       "refused: lights differ from the grid at" "$(field FIX_WRONG_GRID)"
 check "a run writes the corrected answer into the grid row" \
@@ -443,7 +419,7 @@ check "a run writes the corrected answer into the grid row" \
 check "and answers() reads the corrected answers back" True "$(field RUN_ANSWERS)"
 check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(field RUN_REFUSED)"
 check "a tried failure is retried only when the run is told to" "[] [2]" "$(field RETRY_FAILED)"
-check "a wordplay-settled answer rebuilds a refused puzzle, as a correction" \
+check "a retried refusal rebuilds with a wordplay-settled answer, as a correction" \
       "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"

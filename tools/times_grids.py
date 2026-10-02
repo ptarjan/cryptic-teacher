@@ -23,7 +23,6 @@ timesforthetimes by default); no network, no solving.
 """
 import argparse
 import collections
-import hashlib
 import itertools
 import json
 import re
@@ -197,14 +196,6 @@ class Budget:
 
 def black_run(rec):
     return MAX_BLACK_RUN.get(rec["series"], TIMES_BLACK_RUN)
-
-#: Which search wrote an attempt. A failure logged by an older search is not
-#: a failure of this one -- 414 Jumbos this search solves in seconds sat in
-#: the log as `truncated` -- so it is tried again. Bump it with the search.
-SEARCH = 4
-#: Which settle() refused a grid. A puzzle an older settle() refused is tried
-#: again, since the grid it found may stand now. Bump it with settle().
-SETTLE = 2
 
 
 def by_enumeration(rec):
@@ -707,12 +698,6 @@ def headed_by(rec, grid):
     return flipped if named(rec) != lights and named(flipped) == lights else rec
 
 
-def doubtful(rec):
-    """Does the parser leave something for the grid to decide: a linked
-    answer printed whole, or a suffix against its heading?"""
-    return bool(rec.get("unsplit")) or any(e.get("heading") for e in rec["entries"])
-
-
 def solve_linked(rec, limit, max_nodes, budget):
     """solve() for a record holding a linked answer the post prints whole:
     every split at a word break is rebuilt, and one split landing on exactly
@@ -876,41 +861,29 @@ def solved_already(out=None):
     return ids
 
 
-def settled_digest(fix):
-    """A short hash of one post's settled answers, "" when it has none."""
-    if not fix:
-        return ""
-    lights = sorted((f"{n} {d}", a) for (n, d), a in fix.items())
-    return hashlib.sha256(json.dumps(lights).encode()).hexdigest()[:12]
+def attempted(attempts=None, retry=None):
+    """post_id of every puzzle with an attempt on record.
 
-
-def attempted(max_nodes, settled=None, attempts=None, doubts=frozenset()):
-    """post_id of every puzzle this search already tried, at this budget or more,
-    with the settled answers it has now. A post in `doubts` is doubtful() and
-    counts as tried only by a search that let the grid decide its doubts,
-    trying at least MAX_SPLITS splits (an attempt's "splits").
-
-    Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
-    `truncated` puzzle gets another go, and that has to still work. Nor is one
-    an older SEARCH tried, one an older SETTLE refused, or one tried before its
-    settled answers last changed.
+    A run tries only posts that have none: a change to the search, settle(),
+    the budget or the settled answers never re-tries old posts by itself; it
+    is retried once, by hand, with `retry`. That is a tuple of `how`
+    prefixes ("refused", "truncated", "no grid", ...), and a post whose latest
+    attempt starts with one of them is left out of the set, so it is tried
+    again; an empty tuple leaves out every one.
     """
-    settled = settled or {}
     attempts = attempts or ATTEMPTS
-    ids = set()
+    last = {}
     if attempts.exists():
         for line in attempts.open(encoding="utf-8"):
             try:
                 a = json.loads(line)
             except ValueError:
                 continue       # the last line of a killed run, half written
-            if (a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes
-                    and not (a.get("how", "").startswith("refused:")
-                             and a.get("settle", 1) < SETTLE)
-                    and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))
-                    and (a["post_id"] not in doubts or a.get("splits", 0) >= MAX_SPLITS)):
-                ids.add(a["post_id"])
-    return ids
+            last[a["post_id"]] = a.get("how", "")
+    if retry is None:
+        return set(last)
+    return {pid for pid, how in last.items()
+            if retry and not how.startswith(tuple(retry))}
 
 
 def open_out(fresh, out=None):
@@ -978,18 +951,15 @@ def resettle():
         with ATTEMPTS.open("a", encoding="utf-8") as log:
             for pid, why in refused.items():
                 log.write(json.dumps({"post_id": pid, "how": why,
-                                      "max_nodes": DEFAULT_MAX_NODES,
-                                      "search": SEARCH, "settle": SETTLE,
-                                      "settled": settled_digest(settled.get(pid))}) + "\n")
+                                      "max_nodes": DEFAULT_MAX_NODES}) + "\n")
     return {"kept": len(kept), "fixed": fixed, "refused": refused}
 
 
 def run(limit_puzzles=None, series=None, write=True, seed=None,
         max_nodes=DEFAULT_MAX_NODES, fresh=False, where=None, solver=None,
-        retry_failed=False):
-    """Rebuild every parsed puzzle not yet tried, newest first; with
-    `retry_failed`, every one without a grid, tried or not (a parser fix is a
-    reason to try its failures again).
+        retry=None):
+    """Rebuild every parsed puzzle not yet tried, newest first, plus, with
+    `retry`, the failures attempted() lets back in.
 
     `where` is another blog's cache directory, holding its own parsed.jsonl,
     grids.jsonl and attempts.jsonl; the answers settled for this blog's posts
@@ -1013,11 +983,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     if seed is not None:
         import random
         random.Random(seed).shuffle(recs)
-    # A changed settled answer is a reason to try its puzzle again; an
-    # unchanged one is not.
     done = set() if (fresh or not write) else (
-        solved_already(out_path) | (set() if retry_failed else attempted(
-            max_nodes, settled, attempts, {r["post_id"] for r in recs if doubtful(r)})))
+        solved_already(out_path) | attempted(attempts, retry))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} puzzle(s) already tried, per {attempts.name}")
@@ -1031,7 +998,6 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
     for i, rec in enumerate(recs, 1):
         rec, made = amend(rec, settled)
-        doubts = doubtful(rec)
         print(f"[{i}/{len(recs)}] post {rec['post_id']} {rec['series']} "
               f"{rec.get('number')}: {len(rec['entries'])} lights",
               file=sys.stderr, flush=True)
@@ -1055,12 +1021,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
             key = prefix if why.startswith(prefix) else key
         how[key] += 1
         if log:
-            attempt = {"post_id": rec["post_id"], "how": why,
-                       "max_nodes": max_nodes, "search": SEARCH, "settle": SETTLE,
-                       "settled": settled_digest(settled.get(rec["post_id"]))}
-            if doubts:
-                attempt["splits"] = MAX_SPLITS
-            log.write(json.dumps(attempt) + "\n")
+            log.write(json.dumps({"post_id": rec["post_id"], "how": why,
+                                  "max_nodes": max_nodes}) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
@@ -1108,9 +1070,12 @@ def main():
                     help="start the output file over; the default adds to it")
     ap.add_argument("--holes", action="store_true",
                     help="name the puzzles whose light list has a hole in it")
-    ap.add_argument("--retry-failed", action="store_true",
-                    help="try again every puzzle with no grid, even one tried at "
-                         "this budget: after a parser fix")
+    ap.add_argument("--retry-failed", nargs="*", metavar="HOW",
+                    help="also try again the puzzles with no grid whose last "
+                         "attempt's outcome starts with a HOW (refused, "
+                         "truncated, 'no grid', ...), or every one if none is "
+                         "given. A run never retries by itself: a change that "
+                         "could fix old failures runs this once")
     ap.add_argument("--resettle", action="store_true",
                     help="correct or refuse the grids already written, "
                          "against the parsed records as they are now")
@@ -1126,7 +1091,7 @@ def main():
               f"{len(r['refused'])} refused; wrote {OUT}")
         return 0
     r = run(a.limit, a.series, write=not a.status, seed=a.seed,
-            max_nodes=a.max_nodes, fresh=a.fresh, where=where, retry_failed=a.retry_failed)
+            max_nodes=a.max_nodes, fresh=a.fresh, where=where, retry=a.retry_failed)
     if r is None:
         return 1
     report(r)
