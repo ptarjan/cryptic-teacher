@@ -3,7 +3,7 @@
 
     python3 tools/trove_clue_ocr.py --fetch ID [ID ...]   # cache the clue zones
     python3 tools/trove_clue_ocr.py --show ID             # the repair, one article
-    python3 tools/trove_clue_ocr.py --fetch-pending N     # nightly: N pending articles
+    python3 tools/trove_clue_ocr.py --fetch-pending N     # N pending articles (tools/ocr_full_pass.sh)
 
 Trove's text OCR of a Canberra Times clue list loses about one clue a puzzle:
 a clue number read as junk ("tfl" for 10) glues that clue onto the one
@@ -51,7 +51,7 @@ ZONES = Path(os.path.expanduser("~/.cache/trove-clues"))
 #: fetch()'s smallest zone width in pixels: Trove's level 6, half the top
 #: resolution, which RapidOCR reads as well as the top one.
 ZONE_WIDTH = 220
-#: Seconds between Trove requests in the nightly --fetch-pending, twice the
+#: Seconds between Trove requests in --fetch-pending, twice the
 #: full fetch's, since it shares the site with it.
 PENDING_DELAY = 2.0
 #: Letters a text anchor must share; fewer match by chance.

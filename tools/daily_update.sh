@@ -29,11 +29,13 @@
 #      reports to the same headless model to fix, and alerts a person only
 #      about the ones it could not close. Before the commit, so a fix reaches
 #      the site the same night the report arrived.
-#   5. Validates, reindexes, rebuilds the static crawlable pages
-#      (tools/build_seo_pages.py — one per puzzle, plus the hub, the tutorial
-#      and the sitemap) so the checks have something to read, and commits (and
-#      pushes, if a remote is set up). The pages themselves are not committed:
-#      .github/workflows/pages.yml rebuilds and deploys them on every push.
+#   5. Validates tonight's annotations, reindexes, commits and pushes. The
+#      site is built, tested and deployed by .github/workflows/ on that push.
+#
+# Only work driven by new inputs runs here: tonight's puzzles, posts, keys,
+# ratings and reports. A pass over the whole corpus that only a code change
+# could alter (a better scan reader, a stricter validator) is run once by
+# whoever changes the code, or by CI on the push that carries the change.
 #
 # Install: a line in the bridge container's tools/crontab (household repo),
 # 04:45 local, so a run of about two hours is done by 07:00, when Paul is up.
@@ -216,16 +218,6 @@ blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
 # puzzles, and blog-rebuilt files of the numbers it serves, refiled as printed.
 TELEGRAPH_BUCKET_PER_NIGHT="${TELEGRAPH_BUCKET_PER_NIGHT:-200}"
 blog_chain Telegraph "fetch_telegraph.py --holes $TELEGRAPH_BUCKET_PER_NIGHT" && blog_filed=1
-# The Guardian's own pages witness every Guardian, Quiptic and Everyman file:
-# a slice more of them cached each night, and the files whose clues, counts or
-# answers the page settles refiled from it (tools/cross_validate.py).
-GUARDIAN_XVAL_PER_NIGHT="${GUARDIAN_XVAL_PER_NIGHT:-1500}"
-blog_chain Guardian "cross_validate.py guardian --fetch --refile --limit $GUARDIAN_XVAL_PER_NIGHT" && blog_filed=1
-# The Independent's own feed witnesses both Independent series the same way: a
-# slice more of its date keys cached each night, the differences reported, and
-# a file rebuilt from fifteensquared for a day the feed serves refiled from it.
-INDY_XVAL_PER_NIGHT="${INDY_XVAL_PER_NIGHT:-1500}"
-blog_chain Independent "cross_validate.py independent --fetch --refile --limit $INDY_XVAL_PER_NIGHT" && blog_filed=1
 # The Globe and Mail prints the Times Quick Cryptic from No 3106: its copy
 # witnesses the blog-rebuilt Quick the Times filer would file for the same
 # number, which is how a defect of the converter behind every earlier Quick
@@ -253,95 +245,15 @@ else
   alert "tools/ft_puzzles.py failed, so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
 fi
 rm -f "$ft_out"
-# The FT's own printable PDFs, 2006-12 (tools/ft_pdf_puzzles.py's cache), are
-# the primary source for their numbers: a PDF the reader can now read is
-# filed, and tools/cross_validate.py ft compares every FT file a PDF covers
-# and refiles from the PDF a blog-rebuilt file, or a PDF-filed one the reader
-# now reads otherwise. The archive is closed, so nothing is fetched.
-if [ -f "$HOME/cryptic-setter-data/ft-pdf/index.json" ]; then
-  blog_chain FT "ft_pdf_puzzles.py file" "cross_validate.py ft --refile" \
-    && python3 tools/fetch_puzzle.py --reindex
-fi
-
-# --- 1c2. The Canberra Times, filed off the Trove scans in ~/.cache/trove ---
-# tools/fetch_trove.py fills the cache; this files the cryptics among the
-# articles it has not read yet (its ledger makes the rest free), unsolved, so
-# step 3a solves them. Bounded by wall clock, since reading an article's page
-# image takes 15-100 s: no read starts after this many seconds, and the
-# unread articles stay pending for the next night, the never-read first.
-TROVE_SECONDS_PER_NIGHT="${TROVE_SECONDS_PER_NIGHT:-1200}"
-# A clue list no grid fits waits on the page scan's clue columns
-# (tools/trove_clue_ocr.py); fetching them is ~30 Trove requests an article,
-# spaced 2s, so a capped few a night, before the filer reads them.
-TROVE_CLUES_PER_NIGHT="${TROVE_CLUES_PER_NIGHT:-15}"
-if [ -d "$HOME/.cache/trove" ]; then
-  clues_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-trove-clues.XXXXXX")"
-  if python3 tools/trove_clue_ocr.py --fetch-pending "$TROVE_CLUES_PER_NIGHT" >"$clues_out" 2>&1; then
-    cat "$clues_out"
-  else
-    cat "$clues_out"
-    alert "tools/trove_clue_ocr.py --fetch-pending failed, so pending Canberra Times clue lists get no clue columns:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$clues_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$clues_out"
-  trove_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-trove.XXXXXX")"
-  if python3 tools/file_trove_puzzles.py --seconds "$TROVE_SECONDS_PER_NIGHT" >"$trove_out" 2>&1; then
-    cat "$trove_out"
-    git status --porcelain -- puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
-  else
-    cat "$trove_out"
-    alert "tools/file_trove_puzzles.py failed, so no new Canberra Times puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$trove_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$trove_out"
-fi
-
-# --- 1c2b. The Times 1974-99 and the FT, Guardian and Telegraph, filed off archive.org's scans ---
-# tools/fetch_archive_org_editions.py fills ~/.cache/archive_org_editions;
-# this files the cryptics in the editions it has not read yet (its ledger
-# makes the rest free; the never-read go first, then the stale oldest-read
-# first), then names the Times puzzle each canberra file reprints. Bounded
-# by wall clock, shared by the papers: each gets an equal share of what is
-# left, so what a paper with nothing to read leaves goes to the next. The
-# Times goes last, as it has the most. Only a puzzle with every clue read
-# goes into its series, whatever its year; one with a blank clue goes to the
-# scratch dir, since a solver cannot work it. Every reading still reaches
-# archiveorg-source for cross_validate.py. A full pass
-# (tools/ocr_full_pass.sh) holding the ledger makes this a no-op.
-ARCHIVE_ORG_SECONDS_PER_NIGHT="${ARCHIVE_ORG_SECONDS_PER_NIGHT:-1800}"
-if [ -d "$HOME/.cache/archive_org_editions" ]; then
-  mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
-  aorg_end=$((SECONDS + ARCHIVE_ORG_SECONDS_PER_NIGHT))
-  aorg_left=4
-  for aorg in "telegraph:telegraph:Telegraph" "guardian:cryptic:Guardian" "ft:ftcryptic:FT" "times:times canberra:Times"; do
-    IFS=: read -r aorg_paper aorg_series aorg_name <<<"$aorg"
-    aorg_secs=$(( (aorg_end - SECONDS) / aorg_left ))
-    aorg_left=$((aorg_left - 1))
-    [ "$aorg_secs" -gt 0 ] || aorg_secs=0
-    aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-$aorg_paper.XXXXXX")"
-    if python3 tools/file_archive_org_puzzles.py --paper "$aorg_paper" --seconds "$aorg_secs" \
-        --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
-      cat "$aorg_out"
-      # shellcheck disable=SC2046,SC2086 # the series are a word list
-      git status --porcelain -- $(printf 'puzzles/%s ' $aorg_series) | grep -q . && python3 tools/fetch_puzzle.py --reindex
-    else
-      cat "$aorg_out"
-      alert "tools/file_archive_org_puzzles.py --paper $aorg_paper failed, so no $aorg_name puzzle is filed off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
-    fi
-    rm -f "$aorg_out"
-  done
-fi
 
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---
 # Each pair above compares ours with one other copy. This puts every copy we
 # hold to a vote: the paper's own feed, app or page, fifteensquared,
 # bigdave44, timesforthetimes, georgeho, the Globe, the FT's PDFs. A majority
 # of three or more fixes our file, its votes in the corroboration ledger; two
-# copies that disagree are a lead in cross-validate/all-leads.jsonl. First
-# tonight's filings, then the next slice of the corpus after last night's.
-# Cached sources only, nothing is fetched.
-# The whole corpus is ~5 minutes on a busy host, so 10000 a night is ~80s.
-XVAL_ALL_PER_NIGHT="${XVAL_ALL_PER_NIGHT:-10000}"
+# copies that disagree are a lead in cross-validate/all-leads.jsonl. Tonight's
+# filings only; cached sources only, nothing is fetched.
 blog_chain Corroboration "cross_validate.py all --new --apply" \
-  "cross_validate.py all --apply --limit $XVAL_ALL_PER_NIGHT" \
   && git status --porcelain -- puzzles | grep -q . && python3 tools/fetch_puzzle.py --reindex
 
 # --- 1d. Blog hints, re-read off the caches the fetches above just topped up ---
@@ -360,9 +272,6 @@ echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
 [ $step_rc -eq 0 ] ||
   alert "tools/blog_facts.py failed (rc=$step_rc), so tonight's new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
 rm -f "$facts_out"
-# The rebuilt lexicons can take a reading past the abbreviation table's floor,
-# and CI fails until the table holds it; add those now, into this commit.
-python3 tools/build_abbreviations.py --fix || alert "tools/build_abbreviations.py --fix refused a reading; CI will stay red until it is added or put in REJECT"
 
 # --- 1e. The SNITCH's ratings of the Times, which the difficulty index is
 # checked against and the Times badges quote a range from. One page, so a
@@ -390,17 +299,10 @@ python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed 
 # The grid filler's per-length floors, re-measured over the day's answers.
 python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
 
-# What we hold of every series, printed every night whether or not anything is
-# wrong, because the two ways a series dies are both silent: a fetcher that can
-# only ever get "today" leaves its series one puzzle deep forever, and a feed
-# that stops answering leaves it frozen at the day it broke. The nightly run
-# cannot tell either case from a quiet night — it fetched, nothing failed —
-# so until 2026-09-17 the only thing that ever noticed was Paul looking at the
-# site and counting. The full table goes to the log; only a series that has gone
-# QUIET raises an alert, because an unfinished backfill would fire the same
-# alert every night until the walk ends, and an alert that always fires is not
-# read.
-python3 tools/coverage_report.py || true
+# A series that has stopped arriving. A feed that stops answering leaves its
+# series frozen at the day it broke, and the run cannot tell that from a quiet
+# night — it fetched, nothing failed. Only a series gone QUIET alerts; the full
+# table is `python3 tools/coverage_report.py`.
 coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
 
 # The puzzles themselves, as opposed to what we have written about them.
@@ -1313,101 +1215,14 @@ EOF
     record_annotate_failure "$num" "the run exited cleanly but wrote no annotation" --judged
   fi
 done
-# The corpus still gets checked every night, because a live page can be made
-# wrong by a change to the validator or the glossary and nobody would look. It
-# shouts and publishes anyway: the clues it names are already in front of
-# readers, so holding tonight's puzzle back fixes nothing and costs a day.
-if ! python3 tools/validate_annotations.py >/tmp/ct-corpus-validate.txt 2>&1; then
-  alert "$(grep -c ERROR /tmp/ct-corpus-validate.txt) validation error(s) in already-published puzzles — tonight's puzzle published anyway: $(grep ERROR /tmp/ct-corpus-validate.txt | head -3 | tr '\n' ' ')"
-fi
-
-# The social cards are NOT drawn here. They are drawn by
-# .github/workflows/pages.yml, on the same clean checkout that builds the pages
-# that link them, because only the built tree is published — see tools/make_og.sh.
-# That also takes headless Chrome off the list of things this machine has to have.
-
-# Rebuild the crawlable pages: one per puzzle, the archive hub, the tutorial and
-# the sitemap. After validation, deliberately — these pages publish the
-# annotations as plain text, so a run that produced a bad annotation should have
-# already bailed out above rather than putting it in front of a search engine.
-#
-# None of it is committed any more (.gitignore, and .github/workflows/pages.yml
-# builds and deploys the same files from a clean checkout on every push). It is
-# built here because the checks below read the pages — the stamp sweep and the
-# glossary test have nothing to look at otherwise — and because a generator that
-# has stopped working is worth finding out about tonight rather than at deploy.
-# The solver's abbreviation glossary, republished from the clue-writer's copy.
-# It leads, because it is gitignored generated output that every generated page
-# names by content hash: a tree that has not built it has the pages before it
-# has the file, and the builder below stops dead rather than stamp a hash of
-# something missing. Before the stamp for the same reason — a rebuild changes
-# the bytes the stamp is of.
-python3 tools/build_abbreviations.py
-
-seo_rc=0
-seo_err=$(python3 tools/build_seo_pages.py 2>&1) || seo_rc=$?
-if [ "$seo_rc" -ne 0 ]; then
-  printf '%s\n' "$seo_err"
-  alert "the nightly could not build the site pages (exit $seo_rc$([ "$seo_rc" -gt 128 ] && echo ", killed by signal $((seo_rc - 128))")): $(printf '%s' "${seo_err:-no output}" | tail -3)"
-fi
-
-# The README's generated regions, so the corpus counts in it are never more than
-# one run behind. This can also fail, on purpose: a tool added without a line
-# describing it, or a knob renamed out from under the paragraph quoting it. Worth
-# shouting about, but not worth withholding tonight's puzzle over — and the
-# refusal names exactly what is undescribed, so it travels in the alert rather
-# than waiting in a log for someone to go and look.
-if ! readme_err=$(python3 tools/build_readme.py 2>&1); then
-  printf '%s\n' "$readme_err"
-  alert "the README could not be regenerated, so its corpus counts are frozen at their last good value:"$'\n'"\`\`\`"$'\n'"$(printf '%s' "$readme_err" | head -12)"$'\n'"\`\`\`"
-fi
-
-# Re-stamp index.html so phones don't serve yesterday's cached assets. After
-# build_seo_pages.py, because that rewrites part of index.html and the stamp has
-# to reflect the file as it finally stands.
-python3 tools/stamp_assets.py
-
-# And prove every page's asset URLs carry their content hash. An unstamped
-# reference isn't a broken page — it looks perfect locally — it's a fix that
-# never reaches anyone whose browser, or whose chat app's link unfurler, still
-# holds the old bytes. That is precisely how a corrected social card went on
-# showing an impossible grid, so it gets shouted about rather than logged.
-python3 tools/stamp_assets.py --check ||
-  alert "unstamped asset URLs are shipping — caches will keep serving the old file. See the UNSTAMPED lines in .update.log."
-
-# Boot the app against tonight's data. Nothing else ever runs this, which is how
-# it came to sit broken for weeks: it had hard-coded one puzzle's answers, so it
-# started failing the day the app stopped booting on that puzzle and nobody was
-# looking. Dead last, after the pages are built and stamped, so it tests the
-# tree as it is about to be committed — run any earlier and it reports the
-# stale ?v= stamps that stamp_assets.py is about to fix. Warn rather than exit:
-# a smoke failure means the app mishandles the new puzzle, which is worth
-# shouting about but isn't a reason to withhold the puzzle itself. Skipped
-# (exit 2) just means tonight's puzzle has no hints yet.
-if command -v node >/dev/null 2>&1; then
-  smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-smoke.XXXXXX")"
-  node tools/smoke_test.js 2>&1 | tee "$smoke_log"
-  smoke_rc=${PIPESTATUS[0]}
-  # A WARNING in a log is not a warning to anyone. This ran for weeks printing
-  # failures nobody read, and on 2026-08-25 it printed three while committing
-  # and pushing the tree that caused them. Exit 2 is "no hints yet", not a fail.
-  if [ "$smoke_rc" -ne 0 ] && [ "$smoke_rc" -ne 2 ]; then
-    alert "the app's smoke test is failing on the tree this job just committed: $(grep -m3 '^FAIL' "$smoke_log" | tr '\n' ' ')"
-  fi
-  rm -f "$smoke_log"
-fi
-
 # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
 # so this is housekeeping rather than safety — but the throwaway scripts these
 # replaced were gitignored too, and they piled up one per puzzle for months.
 rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 
-# Stamping is a build step, so the stamps come back off before anything is
-# staged. A ?v= hash committed into index.html changes on every asset edit and
-# on every reindex (index.html carries puzzles/index.js's hash too), which is
-# churn in a tracked file and the thing this job's rebase collides in night
-# after night.
-# The deploy workflow stamps its own checkout, so what ships is stamped anyway.
+# --reindex stamps index.html with content hashes, and a stamp committed into
+# that tracked file is churn the rebase collides in. The stamps come off before
+# staging; the deploy workflow stamps its own checkout.
 python3 tools/stamp_assets.py --unstamp
 
 if [ -n "$(git status --porcelain)" ]; then
@@ -1469,7 +1284,6 @@ if [ -n "$(git status --porcelain)" ]; then
     # before it has the file.
     python3 tools/build_abbreviations.py >/dev/null &&
       python3 tools/fetch_puzzle.py --reindex >/dev/null &&
-      python3 tools/build_seo_pages.py >/dev/null &&
       python3 tools/build_readme.py >/dev/null &&
       python3 tools/stamp_assets.py >/dev/null || return 1
     # Collect the list before staging any of it. Fed in through a process
@@ -1521,15 +1335,8 @@ REBUILT
     # few times if a sibling worktree's fetch or push wins the lock on the
     # shared refs/remotes/origin/master first; anything else it returns straight
     # through to the alert below.
-    if push_race_retry attempt_push
+    if ! push_race_retry attempt_push
     then
-      # Pushed is not published. GitHub Pages builds afterwards, and a build that
-      # fails leaves the site serving yesterday with a green git log in front of
-      # it — "can you always hold off on telling me to reload until it is
-      # deployed" applies to the machine saying it too.
-      python3 tools/wait_for_deploy.py ||
-        alert "tonight's update pushed, but the site never came back with it — GitHub Pages has not published the new build. Check https://github.com/ptarjan/cryptic-teacher/actions."
-    else
       # Say which files disagreed, and leave the worktree in a state the next
       # run can use: nightly_worktree.sh resets --hard, which does not clear a
       # rebase that is still in progress.
@@ -1542,9 +1349,4 @@ else
   echo "nothing to commit"
 fi
 
-# The bad-hint reports solvers sent. Nothing read this queue until 2026-09-06 —
-# the endpoint stored them correctly and they sat in KV until somebody thought
-# to run the tool, which is a report button that works and a report nobody
-# answers. Last, because it is the only step that asks a person for something.
-#
 echo "=== done ==="

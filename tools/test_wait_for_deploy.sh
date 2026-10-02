@@ -1,9 +1,8 @@
 #!/bin/bash
 # Does the deploy check actually look at the deploy before it calls one failed?
 #
-# tools/wait_for_deploy.py is the last step of the nightly push, and its failure
-# wakes this channel with "GitHub Pages has not published the new build". An
-# alert that fires without having fetched anything is worse than no alert: it
+# tools/wait_for_deploy.py is what a session runs after a push before saying
+# "reload". A verdict reached without fetching anything is worse than none: it
 # reports on the site while describing the working tree.
 #
 #     bash tools/test_wait_for_deploy.sh
@@ -36,8 +35,8 @@ EOF
 check "stamp_assets and wait_for_deploy name the same hash for every asset" "$out" agree
 
 echo "and an unstamped index.html does not hide them"
-# daily_update.sh strips the stamps before committing and runs this script
-# immediately afterwards, so the real working tree it runs against looks like
+# Every committed index.html is unstamped (daily_update.sh strips the stamps
+# before committing), so the real working tree it runs against looks like
 # this. Reading the expected hashes out of index.html made that deliberate
 # state indistinguishable from a site that never deployed, and this script
 # failed on its own precondition without ever looking at the site. Run against
