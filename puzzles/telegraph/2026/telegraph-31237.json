@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,45 @@
     "text": "Sailors might be entering these details?",
     "enumeration": "5"
    },
-   "solution": "DOCKS"
+   "solution": "DOCKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOCKS",
+    "definitions": [
+     {
+      "text": "Sailors might be entering these",
+      "at": 0
+     },
+     {
+      "text": "details",
+      "at": 32,
+      "note": "a verb read as de-tails, while the answer here is also a verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailors might be entering these",
+      "note": "first meaning: harbour berths where ships come in"
+     },
+     {
+      "clueFragment": "details",
+      "note": "second meaning: read as de-tails, cuts the tails off, as a vet does to a puppy"
+     }
+    ],
+    "explanation": {
+     "surface": "Seafarers filling in their particulars on a form.",
+     "walkthrough": "'Details' looks like a noun for particulars; split it as de-tails and it is a verb meaning removes tails, which is what DOCKS means when said of a dog's tail.",
+     "definitionFit": "Harbour berths are where vessels moor, and to dock an animal is to cut its tail short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "details"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +87,61 @@
     "text": "Editor picked up writer's reports",
     "enumeration": "9"
    },
-   "solution": "DESCRIBES"
+   "solution": "DESCRIBES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DESCRIBES",
+    "definitions": [
+     {
+      "text": "reports",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, lifting something up turns its letters to read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "the standard abbreviation for an editor"
+     },
+     {
+      "clueFragment": "writer's",
+      "gives": "SCRIBES",
+      "note": "a scribe is a writer, and the 's makes it scribe is, run together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SCRIBES"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor collecting a journalist's dispatches.",
+     "walkthrough": "The surface makes 'reports' a noun for articles; it is really a verb. ED turned upward gives DE, then SCRIBE'S is read as SCRIBES.",
+     "definitionFit": "To describe something is to give an account of it, which is what one does when one reports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reports"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +155,43 @@
     "text": "American alligators guarding watercourse",
     "enumeration": "5"
    },
-   "solution": "CANAL"
+   "solution": "CANAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANAL",
+    "definitions": [
+     {
+      "text": "watercourse",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "hidden_word",
+      "note": "to guard something is to keep it within, so the letters sit inside the words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American alligators",
+      "gives": "CANAL",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Alligators in the United States protecting a waterway.",
+     "walkthrough": "The answer straddles AmeriCAN ALligators, a scene apt enough for Florida that the solver may hunt for a creature instead.",
+     "definitionFit": "A canal is a man-made channel for boats and water, one kind of watercourse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guarding"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +205,59 @@
     "text": "Changed garment and was first topless",
     "enumeration": "7"
    },
-   "solution": "SHIFTED"
+   "solution": "SHIFTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SHIFTED",
+    "definitions": [
+     {
+      "text": "Changed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "with no top, a word loses its opening letter, which in a down entry sits at the very top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garment",
+      "gives": "SHIFT",
+      "note": "a shift is a loose straight dress"
+     },
+     {
+      "clueFragment": "was first",
+      "gives": "LED",
+      "note": "to lead a race is to be first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHIFT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who changed clothes and was the first to go topless.",
+     "walkthrough": "'Changed garment' reads as swapping clothes, but 'Changed' alone is the definition. LED loses its first letter to give ED.",
+     "definitionFit": "Something that has shifted has moved or altered, so shifted is a synonym of changed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "garment"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +277,56 @@
      }
     ]
    },
-   "solution": "BETTEROFF"
+   "solution": "BETTEROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER OFF",
+    "definitions": [
+     {
+      "text": "wealthier",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gambler",
+      "gives": "BETTER",
+      "note": "one who bets"
+     },
+     {
+      "clueFragment": "from",
+      "gives": "OF",
+      "note": "'of' can mean 'from', as in a man of Kent"
+     },
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international vehicle code for France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "OF",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A French punter growing richer from his wagers.",
+     "walkthrough": "'Gambler' is the bettor, spelt here as BETTER, one who bets.",
+     "definitionFit": "Better off is an idiom for being in a more comfortable financial position, that is, having more money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +340,59 @@
     "text": "Forms associations with Belgium for good",
     "enumeration": "6"
    },
-   "solution": "BUILDS"
+   "solution": "BUILDS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BUILDS",
+    "definitions": [
+     {
+      "text": "Forms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "'X for Y' means one thing stands in place of another, a swap of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "associations",
+      "gives": "GUILDS",
+      "note": "guilds are associations of craftsmen or merchants"
+     },
+     {
+      "clueFragment": "Belgium",
+      "gives": "B",
+      "note": "B is the international vehicle code for Belgium"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UILDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A country permanently joining international alliances.",
+     "walkthrough": "'For good' looks like a phrase meaning permanently; it splits into the swap signal and G. Replace G in GUILDS with B.",
+     "definitionFit": "To form something is to construct or shape it, which is a common sense of builds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +406,56 @@
     "text": "Doctor rates the rooms in hospital",
     "enumeration": "8"
    },
-   "solution": "THEATRES"
+   "solution": "THEATRES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEATRES",
+    "definitions": [
+     {
+      "text": "rooms in hospital",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rates",
+      "gives": "RATES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATESTHE",
+       "gives": "THEATRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician judging the quality of hospital wards.",
+     "walkthrough": "In a hospital setting 'Doctor' reads as a person, but here it is a verb, to alter. Operating theatres are where surgery happens.",
+     "definitionFit": "Theatres, in British usage, are the operating rooms where surgeons perform procedures in a hospital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +469,70 @@
     "text": "Rome surprisingly enthralling for a leader there?",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "leader there",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising outcome is an unexpected one, so these letters come out in an unexpected order"
+     },
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "to enthral is to hold captive, so one set of letters holds another"
+     }
+    ],
+    "linkWords": [
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome",
+      "gives": "ROME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for a",
+      "gives": "PER",
+      "note": "per means for each, for a, as in five pounds per head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PER",
+      "OR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROME",
+       "gives": "EMOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rome unexpectedly captivating a visiting leader.",
+     "walkthrough": "'There' points back to Rome, so the definition is a Roman leader. 'For a' is the Latin-derived PER, fittingly enough.",
+     "definitionFit": "The Roman Empire was ruled by emperors, so an emperor is the classic ruler of ancient Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +546,61 @@
     "text": "Speaking about pens only half working",
     "enumeration": "9"
    },
-   "solution": "OPERATING"
+   "solution": "OPERATING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OPERATING",
+    "definitions": [
+     {
+      "text": "working",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only half",
+      "for": "deletion",
+      "note": "keeping only half of a word means the rest is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speaking",
+      "gives": "ORATING",
+      "note": "orating is speaking in public"
+     },
+     {
+      "clueFragment": "pens",
+      "gives": "PENS",
+      "note": "taken as written; its first half is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PE",
+      "RATING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talking about pens that only partly function.",
+     "walkthrough": "'Pens' looks like the subject of 'only half working', but 'only half' acts on the word itself, keeping its first two letters.",
+     "definitionFit": "A machine that is operating is running or functioning, the same sense as working."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +614,63 @@
     "text": "Does a runner initially like cutting costs?",
     "enumeration": "5"
    },
-   "solution": "FLEES"
+   "solution": "FLEES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLEES",
+    "definitions": [
+     {
+      "text": "Does a runner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "to cut into something is to go inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "costs",
+      "gives": "FEES",
+      "note": "fees are charges or costs"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "L",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "EES"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether an athlete favours budget cuts.",
+     "walkthrough": "'Does a runner' looks like a question about an athlete; it is British slang for running away, often without paying. L goes inside FEES.",
+     "definitionFit": "To do a runner is British slang for escaping or bolting, which is what someone who flees does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +684,64 @@
     "text": "Is sent out before this writer's easily offended",
     "enumeration": "9"
    },
-   "solution": "SENSITIVE"
+   "solution": "SENSITIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SENSITIVE",
+    "definitions": [
+     {
+      "text": "easily offended",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "something out of place is disordered, so these letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is sent",
+      "gives": "ISSENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this writer's",
+      "gives": "IVE",
+      "note": "this writer is the setter, I, and 's here is 'has', giving I'VE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENSIT",
+      "IVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISSENT",
+       "gives": "SENSIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone touchy about a message going out before the author's own.",
+     "walkthrough": "'This writer' is the setter speaking of themself, so I; 'writer's' is read as 'writer has', giving I'VE.",
+     "definitionFit": "A sensitive person is quick to take offence, so the word works as a synonym for touchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +755,44 @@
     "text": "Bit quiet on the podcast",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the podcast",
+      "for": "homophone",
+      "note": "a podcast is listened to, not read, so what counts is the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "peace is quiet, calm; the spelling with IE sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A segment of a podcast spent in silence.",
+     "walkthrough": "'Bit' could be a podcast segment, but it is the definition; 'quiet' gives PEACE, which is said the same as the answer.",
+     "definitionFit": "A piece is a portion or fragment of something, exactly what a bit is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +806,67 @@
     "text": "King rejected story Edward told",
     "enumeration": "7"
    },
-   "solution": "RELATED"
+   "solution": "RELATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RELATED",
+    "definitions": [
+     {
+      "text": "told",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is thrown back, so its letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is the short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELAT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "TALE",
+       "to": "ELAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch dismissing the account Edward gave him.",
+     "walkthrough": "R is the abbreviation for rex, king. Turning TALE round gives ELAT.",
+     "definitionFit": "To relate a story is to narrate or recount it, so related is the past tense synonym of told."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +880,55 @@
     "text": "Nurses accepting hospital dangers",
     "enumeration": "7"
    },
-   "solution": "THREATS"
+   "solution": "THREATS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THREATS",
+    "definitions": [
+     {
+      "text": "dangers",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurses",
+      "gives": "TREATS",
+      "note": "to nurse a patient is to treat them"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "REATS"
+     ]
+    },
+    "explanation": {
+     "surface": "Nurses taking on the hazards of a hospital job.",
+     "walkthrough": "'Nurses' looks like a noun for the staff, but it is a verb, treats.",
+     "definitionFit": "A threat is a source of possible harm, so threats and dangers are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nurses"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +942,47 @@
     "text": "Make unknown drink",
     "enumeration": "6"
    },
-   "solution": "BRANDY"
+   "solution": "BRANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRANDY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make",
+      "gives": "BRAND",
+      "note": "a make of car is its brand"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is one of the algebraic unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to produce a mysterious beverage.",
+     "walkthrough": "'Make' reads as a verb, but it is a noun meaning brand; x, y and z stand for unknowns in algebra.",
+     "definitionFit": "Brandy is a spirit distilled from wine, one particular kind of alcoholic drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +996,63 @@
     "text": "Strap up a wound holding adult's equipment",
     "enumeration": "9"
    },
-   "solution": "APPARATUS"
+   "solution": "APPARATUS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "APPARATUS",
+    "definitions": [
+     {
+      "text": "equipment",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece goes within the rest"
+     },
+     {
+      "text": "wound",
+      "for": "anagram",
+      "note": "wound as in twisted, so these letters are wrapped into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strap up a",
+      "gives": "STRAPUPA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the old film certificate for adults"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRAPUPAA",
+       "gives": "APPARATUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bandaging an injury that has an adult's kit inside it.",
+     "walkthrough": "'Strap up a wound' reads as first aid, but 'wound' rhymes with sound here and means twisted. The added A joins the mix before the shuffle.",
+     "definitionFit": "Apparatus is a collective word for the instruments or gear needed for a task, so it means equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1066,51 @@
     "text": "Student being paid for what she's doing?",
     "enumeration": "8"
    },
-   "solution": "LEARNING"
+   "solution": "LEARNING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEARNING",
+    "definitions": [
+     {
+      "text": "what she's doing",
+      "at": 23,
+      "note": "the answer is a gerund; 'she' is the student"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, as on British learner-driver plates"
+     },
+     {
+      "clueFragment": "being paid",
+      "gives": "EARNING",
+      "note": "earning is being paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EARNING"
+     ]
+    },
+    "explanation": {
+     "surface": "A student getting a wage for studying.",
+     "walkthrough": "'She' points back to the student, so the definition is what a student does. L is the learner, from the plates British learner drivers display.",
+     "definitionFit": "Studying and acquiring knowledge is the activity of any pupil, so learning describes what a student is engaged in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Student"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1124,56 @@
     "text": "Chap's soothing mother with note",
     "enumeration": "9"
    },
-   "solution": "GENTLEMAN"
+   "solution": "GENTLEMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENTLEMAN",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soothing",
+      "gives": "GENTLE",
+      "note": "gentle means mild and calming"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is a familiar word for mother"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "n. is the abbreviation for note, as in footnotes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENTLE",
+      "MA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man calming his mother with a written message.",
+     "walkthrough": "'Chap's' reads as possessive, but the 's is just 'is', joining definition to wordplay. Note is not a musical letter here but the abbreviation N.",
+     "definitionFit": "Chap is an informal British word for a man, and gentleman is a polite word for one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1187,67 @@
     "text": "Assembles beds outside room upside down",
     "enumeration": "8"
    },
-   "solution": "COLLECTS"
+   "solution": "COLLECTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "COLLECTS",
+    "definitions": [
+     {
+      "text": "Assembles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "in a down clue, turning something upside down makes its letters read bottom to top"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside means wrapping around, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beds",
+      "gives": "COTS",
+      "note": "cots are small beds"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "CELL",
+      "note": "a cell is a small room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LLEC",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "CELL",
+       "to": "LLEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone putting together beds outside an upturned room.",
+     "walkthrough": "The reversal happens first: the room is flipped, and only then do the beds go round it.",
+     "definitionFit": "To collect is to gather together, which is what one does when one assembles people or things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Assembles"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1261,55 @@
     "text": "Condescending police officer going round South American city",
     "enumeration": "8"
    },
-   "solution": "SUPERIOR"
+   "solution": "SUPERIOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPERIOR",
+    "definitions": [
+     {
+      "text": "Condescending",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "to go round something is to encircle it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police officer",
+      "gives": "SUPER",
+      "note": "super is short for superintendent, a senior British police rank"
+     },
+     {
+      "clueFragment": "South American city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro in Brazil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPE",
+      "RIO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A patronising policeman touring Rio.",
+     "walkthrough": "'Going round' could suggest turning the city backwards; here the officer simply encloses it. Super is British shorthand for a police superintendent.",
+     "definitionFit": "A superior manner is haughty and looks down on others, so it matches a patronising attitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1323,59 @@
     "text": "Match official Seles oddly dismissed after point",
     "enumeration": "7"
    },
-   "solution": "REFEREE"
+   "solution": "REFEREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REFEREE",
+    "definitions": [
+     {
+      "text": "Match official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly dismissed",
+      "for": "letter_selection",
+      "note": "dismissing the odd-numbered letters leaves only the even ones"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "REFER",
+      "note": "to refer someone somewhere is to point them there"
+     },
+     {
+      "clueFragment": "Seles",
+      "gives": "EE",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFER",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "An umpire sending off the tennis player Monica Seles after a point.",
+     "walkthrough": "The tennis scene makes 'point' a scoring unit, but it is a verb, refer; 'after' puts the Seles letters second.",
+     "definitionFit": "A referee is the official who enforces the rules during a sporting match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1389,44 @@
     "text": "Continue slowly intimidating woman",
     "enumeration": "6"
    },
-   "solution": "DRAGON"
+   "solution": "DRAGON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAGON",
+    "definitions": [
+     {
+      "text": "Continue slowly",
+      "at": 0,
+      "note": "the answer is spaced as DRAG ON for this sense"
+     },
+     {
+      "text": "intimidating woman",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continue slowly",
+      "note": "first meaning: to go on tediously, as a long meeting does"
+     },
+     {
+      "clueFragment": "intimidating woman",
+      "note": "second meaning: a fierce, formidable woman"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone advised to proceed cautiously around a scary woman.",
+     "walkthrough": "Split as two words it is a phrasal verb; joined it is the mythical beast used figuratively.",
+     "definitionFit": "Drag on is an idiom for lasting tediously, and dragon is a figurative term for a fierce, domineering woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slowly"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1440,51 @@
     "text": "Lizard, possibly, salesman found on hat",
     "enumeration": "7"
    },
-   "solution": "REPTILE"
+   "solution": "REPTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPTILE",
+    "definitions": [
+     {
+      "text": "Lizard, possibly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "rep is short for sales representative"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "TILE",
+      "note": "tile is old British slang for a hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lizard, perhaps, discovered sitting on someone's hat.",
+     "walkthrough": "In a down clue 'on' means above, so the salesman comes first. 'Possibly' marks the lizard as just one example; tile is old British slang for a hat.",
+     "definitionFit": "A lizard is one example of a reptile, alongside snakes, crocodiles and tortoises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1498,67 @@
     "text": "Went up and down a river in contest with daughter",
     "enumeration": "6"
    },
-   "solution": "VARIED"
+   "solution": "VARIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VARIED",
+    "definitions": [
+     {
+      "text": "Went up and down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "contest",
+      "gives": "VIE",
+      "note": "to vie is to compete"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AR",
+      "IE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Rowing up and down a river in a race with one's daughter.",
+     "walkthrough": "The river scene makes 'Went up and down' sound like travel along it; it means fluctuated, as prices do.",
+     "definitionFit": "Prices or figures that varied rose and fell, changing over time, much like something going up and down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1572,61 @@
     "text": "Vehicle fuel badly measured",
     "enumeration": "7"
    },
-   "solution": "CAREFUL"
+   "solution": "CAREFUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CAREFUL",
+    "definitions": [
+     {
+      "text": "measured",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so these letters end up in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "FUEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "EFUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUEL",
+       "gives": "EFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car's petrol being poorly gauged.",
+     "walkthrough": "'Measured' seems to go with 'badly' in a story about a fuel gauge, but it is the definition: deliberate, considered.",
+     "definitionFit": "A measured approach is cautious and deliberate, the same sense as careful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "measured"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1640,51 @@
     "text": "Mug friend put on piano",
     "enumeration": "5"
    },
-   "solution": "CHUMP"
+   "solution": "CHUMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHUMP",
+    "definitions": [
+     {
+      "text": "Mug",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "CHUM",
+      "note": "a chum is a friend"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend setting a coffee cup on the piano.",
+     "walkthrough": "'Mug' looks like a cup; it is British slang for a gullible person. In a down clue CHUM placed on P means above it.",
+     "definitionFit": "Mug is British slang for a fool who is easily taken in, and chump means the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mug"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1698,57 @@
     "text": "Retailer apparently keeps back clothing",
     "enumeration": "7"
    },
-   "solution": "APPAREL"
+   "solution": "APPAREL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "APPAREL",
+    "definitions": [
+     {
+      "text": "clothing",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "hidden_word",
+      "note": "to keep something is to hold it inside, so the letters lie within the words"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retailer apparently",
+      "gives": "LERAPPA",
+      "note": "the last letters of the first word and first letters of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LERAPPA",
+       "to": "APPAREL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop seemingly holding clothing in reserve.",
+     "walkthrough": "A clothes shop is just the scene for this answer, which is written backwards across retaiLER APPArently.",
+     "definitionFit": "Apparel is a formal or trade word for garments, so it means clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1762,55 @@
     "text": "Regretting telephone call outside university",
     "enumeration": "5"
    },
-   "solution": "RUING"
+   "solution": "RUING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUING",
+    "definitions": [
+     {
+      "text": "Regretting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "telephone call",
+      "gives": "RING",
+      "note": "a ring is a phone call, as in 'give me a ring'"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "U",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Regretting a phone call made outside the campus.",
+     "walkthrough": "RING wraps round U.",
+     "definitionFit": "To rue something is to wish it had not happened, so ruing is a synonym of regretting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1824,51 @@
     "text": "Small vessel heading off, say",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its head gone, a word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small vessel",
+      "gives": "CUTTER",
+      "note": "a cutter is a small single-masted boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A little boat setting off, for instance.",
+     "walkthrough": "'Heading off' reads as setting sail; it means removing the first letter. 'Say' looks like 'for example' but is the definition.",
+     "definitionFit": "To utter words is to speak or voice them aloud, the same as to say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1882,84 @@
     "text": "Opprobrium about organised crime – is it ignoring cause, ultimately?",
     "enumeration": "9"
    },
-   "solution": "CRITICISM"
+   "solution": "CRITICISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CRITICISM",
+    "definitions": [
+     {
+      "text": "Opprobrium",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is taken"
+     },
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out"
+     },
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "to organise is to arrange, so these letters are put in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C for circa, Latin for about"
+     },
+     {
+      "clueFragment": "crime",
+      "gives": "CRIME",
+      "note": "taken as written, minus the letter dropped"
+     },
+     {
+      "clueFragment": "is it",
+      "gives": "ISIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cause",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter, which is the one left out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RITICISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIMISIT",
+       "gives": "RITICISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Public scorn over organised crime, asking whether it overlooks root causes.",
+     "walkthrough": "'Organised crime' looks like a fixed phrase but 'organised' is the anagram signal. CRIME drops its E, the last letter of cause, then C for circa starts the answer.",
+     "definitionFit": "Opprobrium is harsh public censure, so criticism is a fair synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1973,56 @@
     "text": "Had groups of constables primarily scared every delinquent?",
     "enumeration": "9"
    },
-   "solution": "POSSESSED"
+   "solution": "POSSESSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POSSESSED",
+    "definitions": [
+     {
+      "text": "Had",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groups of constables",
+      "gives": "POSSES",
+      "note": "a posse is a band of people gathered to enforce the law"
+     },
+     {
+      "clueFragment": "scared every delinquent",
+      "gives": "SED",
+      "select": "first",
+      "note": "the opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSSES",
+      "SED"
+     ]
+    },
+    "explanation": {
+     "surface": "Police squads frightening every young offender.",
+     "walkthrough": "The police scene makes 'Had' sound like 'deceived', but it means owned. The question mark nods to 'possessed' also meaning bedevilled.",
+     "definitionFit": "To possess something is to own or hold it, so possessed is the past tense equivalent of had."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Had"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +2042,55 @@
      }
     ]
    },
-   "solution": "EGGON"
+   "solution": "EGGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EGG ON",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for example"
+     },
+     {
+      "clueFragment": "vanished",
+      "gives": "GONE",
+      "note": "gone means vanished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "GON"
+     ]
+    },
+    "explanation": {
+     "surface": "An impulse that has nearly disappeared, for instance.",
+     "walkthrough": "'Urge' reads as a noun, a craving, but it is a verb. GONE loses its last letter.",
+     "definitionFit": "To egg someone on is an idiom for encouraging them to do something, the same as urging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Urge"
+    }
+   }
   }
  ]
 }
