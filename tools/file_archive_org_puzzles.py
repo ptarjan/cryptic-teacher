@@ -88,6 +88,7 @@ import series as series_meta
 import trove_clue_ocr
 import trove_grid
 import trove_solution_ocr
+import vlm_reader as vlm
 from file_penguin_puzzle import separators
 from groups import entry_id
 
@@ -101,7 +102,7 @@ PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
 CODE = [Path(__file__), TOOLS / "file_trove_puzzles.py", TOOLS / "trove_grid.py",
         TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv",
         TOOLS / "data" / "lexicon.tsv", TOOLS / "data" / "clue_lm.tsv.gz",
-        TOOLS / "data" / "archive_org_tess.traineddata"]
+        TOOLS / "data" / "archive_org_tess.traineddata", TOOLS / "vlm_reader.py"]
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
@@ -1421,11 +1422,19 @@ def read_puzzle(d, found, hit, solutions):
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
     m = paper.margin
-    texts = {"djvu": column_text(columns(lines, gbox, third, m))}
+    cols = {"djvu": columns(lines, gbox, third, m)}
     for which in READERS:
-        texts[which] = column_text(columns(
+        cols[which] = columns(
             rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m),
-            gbox, third, m))
+            gbox, third, m)
+    texts = {k: column_text(c) for k, c in cols.items()}
+    wins = windows(gbox, third, m)
+    # The desktop's VLM, when it answers, is one more reading.
+    if vlm.reachable():
+        try:
+            texts["vlm"] = vlm.column_text(img, wins, list(cols.values()))
+        except RuntimeError:
+            pass  # gone mid-run: read as without it; run() files it to be read again
     # archive.org's words and RapidOCR's are the two readings; where
     # archive.org's OCR has no words for the columns, RapidOCR's two
     # recognisers are.
@@ -1506,6 +1515,11 @@ def read_puzzle(d, found, hit, solutions):
     verdict["grid"] = how
     laid, blank = reconcile(laid, stream, {f"{n_}-{d_}": len(cells) for (n_, d_), cells
                                            in rg.light_cells(grid).items()})
+    if blank and "vlm" in texts and vlm.reachable():
+        try:
+            laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
+        except RuntimeError:
+            pass
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
@@ -1522,6 +1536,41 @@ def read_puzzle(d, found, hit, solutions):
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+COUNT_END = re.compile(r"\s*\(([\d\s,.\-]+)\)\W*$")
+
+
+def candidates(texts, lid):
+    """Each reading's text for one light ("N-across"), with its count."""
+    n, direction = lid.split("-")
+    out = []
+    for t in texts.values():
+        parsed, _ = parse(t) if t.strip() else (None, None)
+        for c in (parsed or {}).get(direction, []):
+            if c["tokens"] and int(n) in c["tokens"][0]:
+                enum = min(c["enums"]) if c.get("enums") else None
+                out.append(c["text"].strip() + (f" ({enum})" if enum else ""))
+                break
+    return out
+
+
+def vlm_pick(img, wins, readings, texts, laid, blank):
+    """(laid, blank) with each clue filed blank read by the VLM off the
+    image, shown every reading's text for it (the VLM's own column reading
+    among them)."""
+    laid, blank = dict(laid), dict(blank)
+    for lid in list(blank):
+        cands = candidates(texts, lid)
+        if not cands:
+            continue
+        got = vlm.pick(img, wins, readings, lid, cands)
+        got = clean(COUNT_END.sub("", got or ""))
+        if not tokens(got):
+            continue
+        laid[lid] = (got, laid[lid][1], laid[lid][2])
+        del blank[lid]
+    return laid, blank
 
 
 def third_top(img, grid, width):
@@ -1645,6 +1694,9 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             row = json.loads(line)
             known[row["edition"]] = row
     code = code_hash()
+    # The VLM's readings are an input: an edition read without it is read
+    # again once it answers, and one read with it stands while it is down.
+    seen_by = vlm.version() if vlm.reachable() else None
     paper = paper or TIMES
     dirs = edition_dirs(cache, paper)
     # Every heading first: a puzzle's solution is in a later edition.
@@ -1668,8 +1720,10 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     fresh = 0
     for d in dirs:
         rel = f"{d.parent.name}/{d.name}"
-        h = input_hash(d, code)
+        h = input_hash(d, code + (f"+vlm-{seen_by}" if seen_by else ""))
         row = known[rel]
+        if not seen_by and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
+            h = row["hash"]
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         if row.get("hash") == h and row.get("solutionsSeen") == sol_seen:
             continue
@@ -1707,8 +1761,14 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                         verdict["wrote"] = True
                         held.add(hit["number"])
             verdicts.append(verdict)
+        if seen_by and not vlm.reachable():
+            # The VLM went down during this edition or before it: filed as
+            # read without it, so it is read again when it answers.
+            h = input_hash(d, code)
         known[rel] = {"edition": rel, "hash": h, "scan": scans[rel], "filesHash": input_hash(d, ""),
                       "solutionsSeen": sol_seen, "verdicts": verdicts}
+        if seen_by and vlm.reachable():
+            known[rel]["vlm"] = seen_by
         if write:
             save(ledger, known)
     if write:
