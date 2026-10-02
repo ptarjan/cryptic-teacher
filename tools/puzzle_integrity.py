@@ -161,7 +161,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1008,6 +1008,61 @@ def check_length(puzzle, checkable, flags):
 
 
 
+def apostrophes(enum):
+    """The letter positions an enumeration prints an apostrophe after:
+    "6,1'8" -> [7], "3-1'4-5" -> [4]."""
+    out, pos = [], 0
+    for count, marks in re.findall(r"(\d+)(\D*)", enum or ""):
+        pos += int(count)
+        if "'" in marks:
+            out.append(pos)
+    return out
+
+
+def check_apostrophes(puzzle, flags):
+    """An apostrophe in a clue's enumeration and an "'" mark in its lights'
+    separators, one for one. "6,1'8" over CHARGEDAFFAIRES is the separators
+    [{"at": 6, "mark": ","}, {"at": 7, "mark": "'"}]: a "," at 7 is a word
+    break the paper does not print, and the answer check then demands one.
+    On a linked clue the positions run through the group in order, as
+    fetch_puzzle.separators() places them; a count that is neither the light's
+    nor the group's is check_length's finding, not this one's."""
+    entries = puzzle.get("entries") or []
+    by_id = {entry_id(e): e for e in entries}
+    group_of = groups.group_of(entries)
+    for e in entries:
+        eid, enum = entry_id(e), e["clue"].get("enumeration")
+        total = sum(enumeration.counts(enum))
+        if not total:
+            continue
+        group = [by_id[g] for g in group_of.get(eid) or [eid] if g in by_id]
+        if group[0] is e and total == sum(g["length"] for g in group):
+            lights = group
+        elif total == e["length"]:
+            lights = [e]
+        else:
+            continue
+        want, start = set(), 0
+        for at in apostrophes(enum):
+            start = 0
+            for light in lights:
+                if at <= start + light["length"]:
+                    want.add((entry_id(light), at - start))
+                    break
+                start += light["length"]
+        have = {(entry_id(light), s["at"]) for light in lights
+                for s in light["clue"].get("separators") or [] if s["mark"] == "'"}
+        other = {(entry_id(light), s["at"]) for light in lights
+                 for s in light["clue"].get("separators") or [] if s["mark"] != "'"}
+        if want != have or want & other:
+            def spell(pairs):
+                return ", ".join(f"{lid} at {at}" for lid, at in sorted(pairs)) or "none"
+            flags.append(("APOSTROPHE", puzzle.get("id"), (
+                f"{eid}: enumeration ({enum}) prints an apostrophe at {spell(want)}; "
+                f"separators mark \"'\" at {spell(have)}"
+                + (f" and a break at {spell(want & other)}" if want & other else ""))))
+
+
 def check_group_order(puzzle, flags):
     """A linked answer whose group lists its lights out of word order: see
     fetch_puzzle.group_orders, which write_puzzle_file applies on every write."""
@@ -1275,6 +1330,7 @@ def check_puzzle(puzzle, today, flags):
     check_numbering(puzzle, flags)
     check_length(puzzle, checkable, flags)
     check_group_order(puzzle, flags)
+    check_apostrophes(puzzle, flags)
     check_cross(puzzle, checkable, flags)
     check_extra_cells(puzzle, flags)
     check_alterations(puzzle, flags)

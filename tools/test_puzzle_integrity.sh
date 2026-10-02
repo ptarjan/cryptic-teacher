@@ -66,6 +66,7 @@ fi
 same "LENGTH tally" "$(awk '/^  LENGTH/ {print $2}' <<<"$out")" "0"
 same "GRID tally" "$(awk '/^  GRID/ {print $2}' <<<"$out")" "0"
 same "NUMBER tally" "$(awk '/^  NUMBER/ {print $2}' <<<"$out")" "0"
+same "APOSTROPHE tally" "$(awk '/^  APOSTROPHE/ {print $2}' <<<"$out")" "0"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"
 combo=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
