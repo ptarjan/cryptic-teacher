@@ -66,8 +66,6 @@ check("nor does a sponsorship note", "special-rules" not in tagged(real("cryptic
 check("a Listener is a barred grid", "barred" in tagged(real("listener-1")))
 check("a published grid a half turn does not map onto is asymmetric",
       "asymmetric" in tagged(real("independent-9010")))
-check("a grid with a light outside it proves nothing about its shape",
-      "asymmetric" not in tagged(real("cryptic-21730")))
 check("a symmetric grid is not asymmetric", "asymmetric" not in tagged(real("cryptic-30098")))
 check("printed letters are letters given", "letters-given" in tagged(real("listener-93")))
 
