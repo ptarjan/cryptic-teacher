@@ -93,8 +93,9 @@ ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
 CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py",
         TOOLS / "trove_clue_ocr.py", TOOLS / "ocr_clues.py", TOOLS / "data" / "lexicon.tsv",
         TOOLS / "data" / "clue_lm.tsv.gz", TOOLS / "data" / "clue_compounds.tsv", TOOLS / "vlm_reader.py"]
-#: Articles read at once: the desktop VLM serves one request at a time and
-#: the host has four cores, so two keep both busy.
+#: Articles read at once: the desktop VLM serves one request at a time, so a
+#: second one's OCR fills the first one's wait; more contend for the host's
+#: four cores.
 WORKERS = 2
 #: How hard reconstruct_grid may try before a clue list counts as not pinning
 #: its grid down: its own cap, ~10s on a 15x15.
