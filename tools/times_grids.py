@@ -123,7 +123,11 @@ def answers_fit(grid, rec):
     seen = {}
     for e in rec["entries"]:
         cells = lights.get((e["number"], e["direction"]))
-        if cells is None or len(cells) != len(e["answer"]):
+        if cells is None:
+            return False
+        if not e["answer"]:
+            continue       # a blank answer, left for the answer fill
+        if len(cells) != len(e["answer"]):
             return False
         for cell, letter in zip(cells, e["answer"]):
             if seen.setdefault(cell, letter) != letter:
@@ -198,6 +202,9 @@ def black_run(rec):
 #: a failure of this one -- 414 Jumbos this search solves in seconds sat in
 #: the log as `truncated` -- so it is tried again. Bump it with the search.
 SEARCH = 4
+#: Which settle() refused a grid. A puzzle an older settle() refused is tried
+#: again, since the grid it found may stand now. Bump it with settle().
+SETTLE = 2
 
 
 def by_enumeration(rec):
@@ -517,19 +524,23 @@ def settle(grid, rec, vocab):
     a crossing that wants PHARAOH, STAND-IN in an eight-letter light -- and
     the answer is still the blogger's typo. A correction is only made when it
     is determined: each letter is a correct crossing's or the blogger's own,
-    and the result is a real word of the light's enumeration. When two ways
-    of correcting it both give words, or none does, the puzzle is refused.
-    Each correction is {"number", "direction", "blogged", "answer"}.
+    and the result is a real word of the light's enumeration. An answer the
+    grid's light is a different length from is wrong whatever it should be,
+    so when no single word corrects it, it is corrected to blank ("") for the
+    answer fill, and the puzzle stands. Any other answer that two corrections
+    fit, or none, refuses the puzzle. A blank answer is no answer: it is never
+    corrected. Each correction is {"number", "direction", "blogged", "answer"}.
     """
     lights = rg.light_cells(grid)
     entries = {(e["number"], e["direction"]): e for e in rec["entries"]}
     if set(entries) != set(lights):
         odd = sorted(set(entries) ^ set(lights))
         return None, LIGHTS_DIFFER + ", ".join(map(_key, odd))
-    forced = {k for k, e in entries.items() if len(e["answer"]) != len(lights[k])}
+    forced = {k for k, e in entries.items()
+              if e["answer"] and len(e["answer"]) != len(lights[k])}
     at = collections.defaultdict(list)
     for k, cells in lights.items():
-        if k not in forced:
+        if k not in forced and entries[k]["answer"]:
             for c, letter in zip(cells, entries[k]["answer"]):
                 at[c].append((k, letter))
     edges = {frozenset(k for k, _ in v) for v in at.values()
@@ -547,11 +558,15 @@ def settle(grid, rec, vocab):
         for cover in covers:
             wrong = forced | cover
             known = {c: entries[k]["answer"][i] for k, cells in lights.items()
-                     if k not in wrong for i, c in enumerate(cells)}
+                     if k not in wrong and entries[k]["answer"]
+                     for i, c in enumerate(cells)}
             fix = {}
             for k in sorted(wrong):
                 ws = _fixes(lights[k], known, entries[k]["answer"], entries[k],
                             leaders, vocab)
+                if len(ws) != 1 and k in forced:
+                    fix[k] = ""
+                    continue
                 if len(ws) > 1:
                     maybe.append(f"{_key(k)} {' or '.join(sorted(ws)[:4])}")
                     break
@@ -877,7 +892,8 @@ def attempted(max_nodes, settled=None, attempts=None, doubts=frozenset()):
 
     Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
     `truncated` puzzle gets another go, and that has to still work. Nor is one
-    an older SEARCH tried, or one tried before its settled answers last changed.
+    an older SEARCH tried, one an older SETTLE refused, or one tried before its
+    settled answers last changed.
     """
     settled = settled or {}
     attempts = attempts or ATTEMPTS
@@ -889,6 +905,8 @@ def attempted(max_nodes, settled=None, attempts=None, doubts=frozenset()):
             except ValueError:
                 continue       # the last line of a killed run, half written
             if (a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes
+                    and not (a.get("how", "").startswith("refused:")
+                             and a.get("settle", 1) < SETTLE)
                     and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))
                     and (a["post_id"] not in doubts or a.get("splits", 0) >= MAX_SPLITS)):
                 ids.add(a["post_id"])
@@ -961,7 +979,7 @@ def resettle():
             for pid, why in refused.items():
                 log.write(json.dumps({"post_id": pid, "how": why,
                                       "max_nodes": DEFAULT_MAX_NODES,
-                                      "search": SEARCH,
+                                      "search": SEARCH, "settle": SETTLE,
                                       "settled": settled_digest(settled.get(pid))}) + "\n")
     return {"kept": len(kept), "fixed": fixed, "refused": refused}
 
@@ -1038,7 +1056,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         how[key] += 1
         if log:
             attempt = {"post_id": rec["post_id"], "how": why,
-                       "max_nodes": max_nodes, "search": SEARCH,
+                       "max_nodes": max_nodes, "search": SEARCH, "settle": SETTLE,
                        "settled": settled_digest(settled.get(rec["post_id"]))}
             if doubts:
                 attempt["splits"] = MAX_SPLITS
