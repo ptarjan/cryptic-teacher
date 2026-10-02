@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "A slice of chorizo needed, as far as one can see",
     "enumeration": "7"
    },
-   "solution": "HORIZON"
+   "solution": "HORIZON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HORIZON",
+    "definitions": [
+     {
+      "text": "as far as one can see",
+      "at": 27,
+      "note": "a phrase describing the limit of sight, standing for the noun naming that limit"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A slice of",
+      "for": "hidden_word",
+      "note": "a slice is a thin cut from inside something, so the letters come from within the words that follow"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chorizo needed",
+      "gives": "HORIZON",
+      "note": "the letters run across the end of the sausage name and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook insists on a slice of spicy Spanish sausage, gesturing to show how much of it there is.",
+     "walkthrough": "Chorizo is a spicy Spanish pork sausage; slicing off its first letter and running on into 'needed' gives HORIZON.",
+     "definitionFit": "The horizon is the line where earth meets sky, the farthest limit of your vision in any direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "slice"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,42 @@
     "text": "Neat hospital worker",
     "enumeration": "7"
    },
-   "solution": "ORDERLY"
+   "solution": "ORDERLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORDERLY",
+    "definitions": [
+     {
+      "text": "Neat",
+      "at": 0
+     },
+     {
+      "text": "hospital worker",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neat",
+      "note": "first meaning: tidy, well arranged"
+     },
+     {
+      "clueFragment": "hospital worker",
+      "note": "second meaning: an attendant who does non-medical jobs on a ward"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like praise for a tidy nurse, but it is two separate meanings of one word: an adjective and a noun.",
+     "definitionFit": "Tidy things are kept in good arrangement; separately, the noun names a ward attendant who moves patients and equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Neat"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +139,49 @@
     "text": "Originally introduced the aphorism 'love your country'",
     "enumeration": "5"
    },
-   "solution": "ITALY"
+   "solution": "ITALY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ITALY",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "what comes originally comes at the start, so each following word supplies only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "introduced the aphorism 'love your",
+      "gives": "ITALY",
+      "select": "first",
+      "note": "the opening letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITALY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone credits a famous saying about patriotism to the person who first coined it.",
+     "walkthrough": "'country' looks like part of the quoted saying, but it is the definition sitting outside the five words that do the work.",
+     "definitionFit": "Italy is a nation in southern Europe, a straightforward example of the general category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +195,54 @@
     "text": "Make a comment that's awfully verbose",
     "enumeration": "7"
    },
-   "solution": "OBSERVE"
+   "solution": "OBSERVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSERVE",
+    "definitions": [
+     {
+      "text": "Make a comment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, so the letters come out in a mangled order"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "verbose",
+      "gives": "VERBOSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VERBOSE",
+       "gives": "OBSERVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone speaks up with a remark that rambles on far too long.",
+     "walkthrough": "'awfully' looks like it intensifies 'verbose', but it is the signal to rearrange the very word it modifies.",
+     "definitionFit": "To observe can mean to remark or state something, as in 'he observed that it was raining'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "awfully"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +256,51 @@
     "text": "Baseball player's pet singer?",
     "enumeration": "7"
    },
-   "solution": "CATCHER"
+   "solution": "CATCHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATCHER",
+    "definitions": [
+     {
+      "text": "Baseball player",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pet",
+      "gives": "CAT",
+      "note": "a common household pet"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "CHER",
+      "note": "the American pop singer known by one name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "CHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about which singer a baseball player keeps as a pet.",
+     "walkthrough": "The 's reads as possessive but stands for 'is'. Cher is the long-running American pop star.",
+     "definitionFit": "The catcher is the fielder crouched behind home plate who receives the pitches thrown in baseball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +314,41 @@
     "text": "Real and current",
     "enumeration": "6"
    },
-   "solution": "ACTUAL"
+   "solution": "ACTUAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACTUAL",
+    "definitions": [
+     {
+      "text": "Real",
+      "at": 0
+     },
+     {
+      "text": "current",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Real",
+      "note": "first meaning: genuine, existing in fact"
+     },
+     {
+      "clueFragment": "current",
+      "note": "second meaning: present, existing now"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two adjectives joined by 'and' look like a pair describing one thing; each is a separate meaning of the answer.",
+     "definitionFit": "The word means existing in fact rather than imagined, and in older or legal use also means present or existing at this moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +362,74 @@
     "text": "Elaborate charade about time left for city feature",
     "enumeration": "9"
    },
-   "solution": "CATHEDRAL"
+   "solution": "CATHEDRAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "anagram"
+    ],
+    "answer": "CATHEDRAL",
+    "definitions": [
+     {
+      "text": "city feature",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Elaborate",
+      "for": "anagram",
+      "note": "to elaborate is to work something up into a new form, so the letters are reworked"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charade",
+      "gives": "CHARADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATHEDRAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHARADETL",
+       "gives": "CATHEDRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A game of charades is staged with time left over for a city's main attraction.",
+     "walkthrough": "'Elaborate' could be a verb or adjective in the surface; here it rearranges all the letters. In Britain a city traditionally has a cathedral.",
+     "definitionFit": "A cathedral is a major church and a typical landmark of a city; in Britain, having one historically conferred city status."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "charade"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +443,48 @@
     "text": "Sounds like Hemingway is serious",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "sounding like something means matching it in speech, not in spelling"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hemingway",
+      "gives": "EARNEST",
+      "soundsLike": "ERNEST",
+      "note": "the first name of the American novelist Hemingway"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that the famous novelist Hemingway comes across as a solemn man.",
+     "walkthrough": "Ernest Hemingway's first name is pronounced the same as the adjective, echoing Wilde's play The Importance of Being Earnest.",
+     "definitionFit": "Earnest describes someone sincere and intensely serious in manner, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hemingway"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +498,64 @@
     "text": "Ties rocking horse's tail with pin",
     "enumeration": "13"
    },
-   "solution": "RELATIONSHIPS"
+   "solution": "RELATIONSHIPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELATIONSHIPS",
+    "definitions": [
+     {
+      "text": "Ties",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocking",
+      "for": "anagram",
+      "note": "something rocking is moving to and fro, so the letters are shaken out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse's",
+      "gives": "HORSES",
+      "note": "the possessive taken letter for letter"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "TAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pin",
+      "gives": "PIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORSESTAILPIN",
+       "gives": "RELATIONSHIPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fastens ribbons to a rocking horse's tail with a pin.",
+     "walkthrough": "'rocking horse' looks like a single toy, but 'rocking' is the signal working on the words after it, apostrophe-s included.",
+     "definitionFit": "Ties are bonds or connections between people, which is what relationships are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocking"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +569,52 @@
     "text": "Middleman's oddly abandoned notion",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IDEA",
+    "definitions": [
+     {
+      "text": "notion",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly abandoned",
+      "for": "letter_selection",
+      "note": "dropping the letters in odd positions leaves only those in even places"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middleman",
+      "gives": "IDEA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A go-between has strangely given up on a plan.",
+     "walkthrough": "'oddly' reads as 'strangely' but means the odd-numbered letters, which are the ones thrown away.",
+     "definitionFit": "A notion is a thought or concept in the mind, a plain synonym of the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +628,55 @@
     "text": "Top actress playing for them, say",
     "enumeration": "10"
    },
-   "solution": "SPECTATORS"
+   "solution": "SPECTATORS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECTATORS",
+    "definitions": [
+     {
+      "text": "them, say",
+      "at": 24,
+      "note": "the pronoun stands for the people a performer plays to"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are being toyed with and moved around"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top actress",
+      "gives": "TOPACTRESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPACTRESS",
+       "gives": "SPECTATORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading actress performs for an audience.",
+     "walkthrough": "'playing' reads as acting on stage, but it rearranges the two words before it; 'them, say' is the people being played for, with 'say' marking an example.",
+     "definitionFit": "Those watching a performance are an audience of onlookers, the people a star actress plays for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +690,56 @@
     "text": "The Lord has one for each letting in light",
     "enumeration": "6"
    },
-   "solution": "PRAYER"
+   "solution": "PRAYER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRAYER",
+    "definitions": [
+     {
+      "text": "The Lord has one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letting in",
+      "for": "container",
+      "note": "letting something in means admitting it inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in 'per person'"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAY",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A church window lets light in, and every lord has one.",
+     "walkthrough": "The definition is a cryptic hint: the Lord's Prayer is the best-known Christian prayer.",
+     "definitionFit": "The Lord's Prayer, beginning 'Our Father', is a famous Christian prayer, so the Lord has one of these."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +753,62 @@
     "text": "Came to a vigil in the graveyard at last",
     "enumeration": "8"
    },
-   "solution": "AWAKENED"
+   "solution": "AWAKENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AWAKENED",
+    "definitions": [
+     {
+      "text": "Came to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last means at the very end, so each word gives only its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vigil",
+      "gives": "WAKE",
+      "note": "a wake is a watch kept over the dead before burial"
+     },
+     {
+      "clueFragment": "in the graveyard",
+      "gives": "NED",
+      "select": "last",
+      "note": "the final letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAKE",
+      "NED"
+     ]
+    },
+    "explanation": {
+     "surface": "Mourners arrived for a night watch in a churchyard.",
+     "walkthrough": "'Came to' looks like 'arrived at', but it means regained consciousness. A wake is a vigil over a body, fitting the graveyard scene.",
+     "definitionFit": "To come to is to regain consciousness, and having woken up, you have been roused from sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Came"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +822,59 @@
     "text": "[Extremely stormy night here: movement's not natural]",
     "enumeration": "9"
    },
-   "solution": "SYNTHETIC"
+   "solution": "SYNTHETIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SYNTHETIC",
+    "definitions": [
+     {
+      "text": "not natural",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outer letters of each word count"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stormy night here",
+      "gives": "SYNTHE",
+      "select": "outer",
+      "note": "the first and last letters of each of these three words"
+     },
+     {
+      "clueFragment": "movement",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch of the muscles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYNTHE",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "On a wild, stormy night, someone notices an eerie, unnatural motion.",
+     "walkthrough": "'Extremely' looks like it intensifies 'stormy', but it takes the two ends of each word. The 's stands for 'is'.",
+     "definitionFit": "Synthetic things are man-made or artificial, made by chemical process rather than occurring in nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +888,65 @@
     "text": "West End composer went ahead and took a trip",
     "enumeration": "9"
    },
-   "solution": "TRAVELLED"
+   "solution": "TRAVELLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAVELLED",
+    "definitions": [
+     {
+      "text": "took a trip",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "RAVEL",
+      "note": "Maurice Ravel, the French composer of Bolero"
+     },
+     {
+      "clueFragment": "went ahead",
+      "gives": "LED",
+      "note": "to lead is to go in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVEL",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A London theatre composer pressed on and went on holiday.",
+     "walkthrough": "'West End composer' suggests Andrew Lloyd Webber, but the West End is London's theatre district and here 'West' is split from its 'End'.",
+     "definitionFit": "To travel is to go on a journey, so having taken a trip is the past tense of that verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +960,47 @@
     "text": "Setter values cross",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "cross",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "values",
+      "gives": "RATE",
+      "note": "to rate is to value or esteem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A compiler's principles intersect, or the compiler values crossword clues.",
+     "walkthrough": "'cross' sits at the end like a crossword reference, but it is the adjective meaning angry.",
+     "definitionFit": "Cross, as an adjective, means annoyed or angry, which is exactly what irate describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1014,50 @@
     "text": "Devon and Cornwall listener's vow",
     "enumeration": "5"
    },
-   "solution": "SWEAR"
+   "solution": "SWEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEAR",
+    "definitions": [
+     {
+      "text": "vow",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devon and Cornwall",
+      "gives": "SW",
+      "note": "these two English counties are in the South West, abbreviated SW"
+     },
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is the organ you listen with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A radio listener from the far west of England makes a solemn promise.",
+     "walkthrough": "Devon and Cornwall are neighbouring counties at England's south-western tip. The 's stands for 'is'.",
+     "definitionFit": "To vow is to promise solemnly, and to swear an oath is to make exactly that kind of promise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1071,45 @@
     "text": "If reporting rain or sunny spells, for example",
     "enumeration": "7"
    },
-   "solution": "WHETHER"
+   "solution": "WHETHER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WHETHER",
+    "definitions": [
+     {
+      "text": "If",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reporting",
+      "for": "homophone",
+      "note": "a report is spoken out, so the word is taken as it is heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rain or sunny spells, for example",
+      "gives": "WHETHER",
+      "soundsLike": "WEATHER",
+      "note": "rain and sunshine are examples of conditions in the atmosphere"
+     }
+    ],
+    "explanation": {
+     "surface": "A forecaster asks whether to report rain or sunny periods.",
+     "walkthrough": "'reporting' fits the weather forecast picture, but signals a sound-alike; 'If' is the definition, used as in 'ask if it will rain'.",
+     "definitionFit": "In 'I wonder if it will rain', the conjunction can be swapped for its synonym introducing an indirect question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reporting"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1123,55 @@
     "text": "Emphasise policy must follow European articles",
     "enumeration": "9"
    },
-   "solution": "UNDERLINE"
+   "solution": "UNDERLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERLINE",
+    "definitions": [
+     {
+      "text": "Emphasise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must follow",
+      "for": "charade",
+      "note": "following means coming after, so the first-named piece is placed last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European articles",
+      "gives": "UNDER",
+      "note": "UN is a French article and DER a German one, both meaning 'a' or 'the'"
+     },
+     {
+      "clueFragment": "policy",
+      "gives": "LINE",
+      "note": "a line is an official position, as in 'the party line'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DER",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stresses that a policy has to conform to European rules.",
+     "walkthrough": "'articles' sounds like clauses of EU law, but means grammatical articles: French 'un' and German 'der'.",
+     "definitionFit": "To underline a point is to stress or highlight it, figuratively drawing a line beneath it for emphasis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1185,67 @@
     "text": "Appreciated conclusion about job yet unfinished",
     "enumeration": "7"
    },
-   "solution": "ENJOYED"
+   "solution": "ENJOYED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ENJOYED",
+    "definitions": [
+     {
+      "text": "Appreciated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the others"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its ending, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conclusion",
+      "gives": "END",
+      "note": "an end is a conclusion"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "JOB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "YET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "JO",
+      "YE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker valued finishing a task that is still incomplete.",
+     "walkthrough": "'unfinished' applies to both 'job' and 'yet', clipping each by its last letter before they go inside the conclusion.",
+     "definitionFit": "To have appreciated something is to have taken pleasure in it, so the past tense of the verb fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusion"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1259,61 @@
     "text": "Sonatina played endlessly in many a country",
     "enumeration": "7"
    },
-   "solution": "NATIONS"
+   "solution": "NATIONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NATIONS",
+    "definitions": [
+     {
+      "text": "many a country",
+      "at": 29,
+      "note": "the phrase is singular in form but means several countries, matching the plural"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is dropped"
+     },
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "played suggests letters being performed freely in a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sonatina",
+      "gives": "SONATIN",
+      "note": "the short sonata without its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONATIN",
+       "gives": "NATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short piano piece is performed on and on all around the world.",
+     "walkthrough": "A sonatina is a short, simple sonata. 'endlessly' looks like 'without stopping' but trims the last letter.",
+     "definitionFit": "Nations are sovereign states, and 'many a country' is a roundabout way of saying lots of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1327,57 @@
     "text": "Her Majesty not disguising herself in rubber",
     "enumeration": "6"
    },
-   "solution": "ERASER"
+   "solution": "ERASER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERASER",
+    "definitions": [
+     {
+      "text": "rubber",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Her Majesty",
+      "gives": "ER",
+      "note": "ER is the royal cipher of Queen Elizabeth"
+     },
+     {
+      "clueFragment": "not disguising",
+      "gives": "AS",
+      "note": "someone not in disguise appears as themself"
+     },
+     {
+      "clueFragment": "herself",
+      "gives": "ER",
+      "note": "the Queen again, referring back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "AS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen goes undisguised while wearing rubber clothing.",
+     "walkthrough": "Someone not disguising herself appears as herself, so the Queen as the Queen gives the cipher, the little word, then the cipher again. In Britain a rubber is what Americans call an eraser.",
+     "definitionFit": "In British English a rubber is the small block used to remove pencil marks, known elsewhere by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 23,
@@ -341,7 +1391,45 @@
     "text": "Look again for academic work",
     "enumeration": "8"
    },
-   "solution": "RESEARCH"
+   "solution": "RESEARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESEARCH",
+    "definitions": [
+     {
+      "text": "Look again",
+      "at": 0
+     },
+     {
+      "text": "academic work",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look again",
+      "note": "first meaning, split as RE plus SEARCH: hunt a second time"
+     },
+     {
+      "clueFragment": "academic work",
+      "note": "second meaning: systematic scholarly investigation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first meaning is a split reading: 're-' means again and a search is a look, so a re-search is a second look.",
+     "definitionFit": "Research is the systematic investigation scholars carry out; separately, read as re-search, it means to hunt through once more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -355,7 +1443,47 @@
     "text": "Like shoulders of beef or lamb, they can be smoked",
     "enumeration": "6"
    },
-   "solution": "JOINTS"
+   "solution": "JOINTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOINTS",
+    "definitions": [
+     {
+      "text": "shoulders of beef or lamb",
+      "at": 5
+     },
+     {
+      "text": "they can be smoked",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "Like"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shoulders of beef or lamb",
+      "note": "first meaning: large cuts of meat for roasting"
+     },
+     {
+      "clueFragment": "they can be smoked",
+      "note": "second meaning: cannabis cigarettes"
+     }
+    ],
+    "explanation": {
+     "surface": "A butcher's note that some cuts of meat can be cured over smoke.",
+     "walkthrough": "Smoked meat fits the butcher's counter, but the second meaning is slang for rolled cannabis cigarettes.",
+     "definitionFit": "A joint is a large cut of meat for roasting, and slang also for a hand-rolled cannabis cigarette."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoked"
+    }
+   }
   },
   {
    "number": 25,
@@ -369,7 +1497,49 @@
     "text": "Intimate meal with no starter",
     "enumeration": "5"
    },
-   "solution": "INNER"
+   "solution": "INNER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INNER",
+    "definitions": [
+     {
+      "text": "Intimate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no starter",
+      "for": "deletion",
+      "note": "a starter is the first course, so having none means losing the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "DINNER",
+      "note": "the main evening meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy dinner for two that skips the first course.",
+     "walkthrough": "'starter' plays on the first course of a meal, and on the first letter of a word.",
+     "definitionFit": "Intimate thoughts are private and deeply personal, which is the sense of inner feelings or inner life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 26,
@@ -383,7 +1553,65 @@
     "text": "Pope endlessly fiddling with his holy principles",
     "enumeration": "10"
    },
-   "solution": "PHILOSOPHY"
+   "solution": "PHILOSOPHY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PHILOSOPHY",
+    "definitions": [
+     {
+      "text": "principles",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is dropped"
+     },
+     {
+      "text": "fiddling",
+      "for": "anagram",
+      "note": "fiddling with something means tinkering with it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pope",
+      "gives": "POP",
+      "note": "the papal title without its last letter"
+     },
+     {
+      "clueFragment": "his holy",
+      "gives": "HISHOLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POPHISHOLY",
+       "gives": "PHILOSOPHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Pope keeps tinkering with his sacred doctrines.",
+     "walkthrough": "The Pope and holy principles make a religious picture, but 'endlessly' and 'fiddling' are working on the letters.",
+     "definitionFit": "A philosophy can mean a set of guiding beliefs or principles by which someone lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddling"
+    }
+   }
   },
   {
    "number": 27,
@@ -397,7 +1625,51 @@
     "text": "Almost nobody here at midday",
     "enumeration": "4"
    },
-   "solution": "NOON"
+   "solution": "NOON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NOON",
+    "definitions": [
+     {
+      "text": "midday",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "here at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nobody",
+      "gives": "NOONE",
+      "note": "nobody means no one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOON"
+     ]
+    },
+    "explanation": {
+     "surface": "A place that is nearly deserted at lunchtime.",
+     "walkthrough": "'Almost nobody' reads as 'hardly anyone'; it means the two-word phrase for nobody, minus its last letter.",
+     "definitionFit": "Noon is twelve o'clock in the day, exactly the middle point, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Almost"
+    }
+   }
   },
   {
    "number": 28,
@@ -411,7 +1683,63 @@
     "text": "Wrongfully arrest the first of dodgy dealers",
     "enumeration": "7"
    },
-   "solution": "TRADERS"
+   "solution": "TRADERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TRADERS",
+    "definitions": [
+     {
+      "text": "dealers",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrongfully",
+      "for": "anagram",
+      "note": "something done wrongfully is done amiss, so the letters are put in the wrong order"
+     },
+     {
+      "text": "the first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "ARREST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dodgy",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARRESTD",
+       "gives": "TRADERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police mistakenly detain the ringleader of some shady dealers.",
+     "walkthrough": "'Wrongfully arrest' reads as a miscarriage of justice, but 'Wrongfully' is rearranging the word after it.",
+     "definitionFit": "Dealers are people who buy and sell goods, and traders are exactly that, a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrongfully"
+    }
+   }
   },
   {
    "number": 29,
@@ -425,7 +1753,65 @@
     "text": "Location of a debutante's first gown",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Location",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter only"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "debutante's",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "gown",
+      "gives": "DRESS",
+      "note": "a gown is a long formal dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Where a young society woman's first ball gown can be found.",
+     "walkthrough": "A debutante is a young woman formally presented to society, traditionally in a white gown.",
+     "definitionFit": "An address is the details of where someone lives or a building stands, so it names a location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Location"
+    }
+   }
   }
  ]
 }
