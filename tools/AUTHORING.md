@@ -150,14 +150,16 @@ What each extra is used for:
 
 Licences, and what is committed versus fetched: `tools/data/README.md`.
 
-`build_abbreviations.table()` (sailor = AB, about = C, ...) is the FAMILIES
-in `tools/build_abbreviations.py` plus every reading ten or more solved clues
-use, derived from `tools/data/lexicons/blocks.json`. Nothing else is kept by
-hand: an annotation's blocks are its record, and a reading joins the table
-once ten clues use it. Solvers read it too:
-`tools/build_abbreviations.py` publishes it as `abbreviations.js`,
-and the building-blocks rung names the conventions a clue used ("sailor = AB").
-So an entry added here is something the site then teaches.
+`build_abbreviations.table()` (river = R, street = ST, ...) holds a sense
+when the dictionary lists it — `tools/data/lexicons/abbreviations.json`,
+English Wiktionary's abbreviations, refreshed by
+`tools/fetch_abbreviations.py` — and a clue in
+`tools/data/lexicons/blocks.json` uses it, plus the members of the SYSTEMATIC
+families (Roman numerals, NATO alphabet, chemical symbols...). Clue counts only
+rank: a reading no dictionary lists stays out however often it is clued.
+Solvers read it too: `tools/build_abbreviations.py` publishes it as
+`abbreviations.js`, and the building-blocks rung names the conventions a clue
+used ("river = R"). So a sense the table holds is something the site then teaches.
 
 ## What the clue-writing step gets
 
