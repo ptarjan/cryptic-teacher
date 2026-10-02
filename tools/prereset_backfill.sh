@@ -770,11 +770,14 @@ python3 tools/fetch_puzzle.py --reindex >/dev/null
 # fetching mid-pool would race the reindex the running annotators read through.
 #
 # Never fatal. A paper being down is a smaller problem than not annotating.
+# Through publish_fetched.sh, which commits and pushes what was fetched before
+# any annotator starts: an untracked fetched file blocks the sync's rebase the
+# moment origin commits the same path.
 if [ "$DRY_RUN" = 1 ]; then
   python3 tools/extend_archive.py --dry-run || true
 else
-  python3 tools/extend_archive.py ||
-    echo "archive extend failed — running on what is already on disk"
+  tools/publish_fetched.sh python3 tools/extend_archive.py ||
+    echo "archive extend failed or its puzzles could not be published — running on what is already on disk"
 fi
 
 # --- 1. un-annotated puzzles, quiptics first ---------------------------------

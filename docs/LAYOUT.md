@@ -1130,6 +1130,12 @@ tools/test_push_puzzle_commit.sh             does tools/push_puzzle_commit.sh pu
                                              push fails? The burn (tools/prereset_backfill.sh)
                                              commits and pushes each puzzle while the rest of
                                              its wave is still writing into that tree
+tools/publish_fetched.sh                     run a fetch, then commit and publish every puzzle
+                                             file it wrote at once, so none is left untracked
+                                             to block the burn's rebase
+tools/test_publish_fetched.sh                can a puzzle the burn fetched ever block its
+                                             sync's rebase? Checked against a real origin, with
+                                             origin filing the same path first and without
 tools/test_link_words.sh                     does tools/validate_annotations.py refuse a link
                                              word that app.js would place on top of an
                                              indicator, wholly or in part, and pass one with a
