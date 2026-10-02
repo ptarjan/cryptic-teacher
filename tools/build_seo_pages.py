@@ -14,6 +14,10 @@ So this writes real HTML files alongside the app:
                            definition, its wordplay breakdown and its
                            walkthrough, as text in the document.
   puzzles/index.html       the archive hub: each series, its count, its years.
+  puzzles/series/<series>/index.html
+                           one landing page per series: its newest puzzle,
+                           the twenty before it, and every year. The page a
+                           search for "guardian cryptic crossword" wants.
   puzzles/series/<series>/<year>/index.html
                            one listing per series per year, linking every
                            puzzle; the hub reaches any puzzle in two clicks.
@@ -570,7 +574,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     if meta:
         ls, ly = listing_key(meta)     # the listing page this puzzle is on
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
-              *([(f"{series_name(ls)}, {ly}", listing_path(ls, ly))]
+              *([(series_name(ls), series_path(ls)), (ly, listing_path(ls, ly))]
                 if meta else []),
               (dw or f"No {pretty}", "")]
 
@@ -810,6 +814,10 @@ def listing_path(series, year):
     return f"/puzzles/series/{series}/{year}/"
 
 
+def series_path(series):
+    return f"/puzzles/series/{series}/"
+
+
 def listings(idx):
     """{series: {year: [rows' puzzles, newest first]}}, busiest series first,
     newest year first, undated last."""
@@ -896,8 +904,8 @@ def hub_page(idx):
             for y, ps in years.items())
         sections.append(
             f'<section class="s-series" id="{esc(s)}">'
-            f'<h2>{esc(series_name(s))} <span class="badge series">'
-            f'{esc(series_meta.badge(s))}</span></h2>'
+            f'<h2><a href="{site_url(series_path(s))}">{esc(series_name(s))}</a> '
+            f'<span class="badge series">{esc(series_meta.badge(s))}</span></h2>'
             + (f'<p>{esc(b)}</p>' if (b := series_blurb(s, every)) else "")
             + difficulty_strip(series_name(s), every)
             + '<p class="muted">Pick a year:</p>'
@@ -951,7 +959,7 @@ def listing_page(series, year, ps, prev_year, next_year):
     path = listing_path(series, year)
     canonical = site_url(path)
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
-              (name, f"/puzzles/#{series}"), (year, "")]
+              (name, series_path(series)), (year, "")]
     nav = []
     if prev_year:
         nav.append(f'<a rel="prev" href="{site_url(listing_path(series, prev_year))}">'
@@ -975,6 +983,87 @@ def listing_page(series, year, ps, prev_year, next_year):
     ]
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
+
+
+RECENT = 20
+
+
+def london_today():
+    """Today where the papers print. "Today's" on a series page means the
+    puzzle is dated the day the page was built, in the papers' own timezone."""
+    from zoneinfo import ZoneInfo
+    return datetime.now(ZoneInfo("Europe/London")).date()
+
+
+def series_page(series, years, today):
+    """One series' landing page, /puzzles/series/<series>/: its newest puzzle
+    first, then the ones before it, then every year.
+
+    The searches it answers are "guardian cryptic crossword" and its kin, which
+    want today's puzzle, so the title names it: "Guardian Cryptic crossword
+    answers – today's No 30126 by Brummie". "Today's" only when the newest
+    puzzle is dated today, else "latest"; "explained" only when it is. A book
+    shelf has no newest puzzle, so its page is the blurb and the years.
+    """
+    name = series_name(series)
+    every = [p for ps in years.values() for p in ps]
+    canonical = site_url(series_path(series))
+    crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"), (name, "")]
+    latest = every[0] if not series_meta.is_book(series) and every[0].get("date") else None
+    links = " &middot; ".join(
+        f'<a href="{site_url(listing_path(series, y))}">{esc(y)}</a>' for y in years)
+    blurb = series_blurb(series, every)
+    heading = name if series_meta.is_book(series) else f"{name} crossword answers"
+    body = [masthead(crumbs), '<main class="static-main">', f"<h1>{esc(heading)}</h1>"]
+    if latest:
+        day = series_meta.puzzle_day(latest)
+        which = "today's" if day == today else "latest"
+        lead = "answers explained" if latest.get("annotated") else "answers"
+        setter = latest.get("setter") or ""
+        by = f" by {setter}" if setter and setter != kind(latest) else ""
+        nd = number_day(latest)
+        ident = f", {nd:%A %-d %B %Y}" if nd else f" No {position(latest)}"
+        title = f"{name} crossword {lead} – {which}{ident}{by}"
+        desc = (f"{which.capitalize()} {name} crossword{ident}{by}"
+                + ("" if nd else f", {datestr(latest)}")
+                + (", with every answer and each clue's definition and wordplay explained."
+                   if latest.get("annotated") else ", with every answer.")
+                + " Earlier puzzles are listed below, newest first, and by year.")
+        body += [
+            f"<h2>{'Today' if day == today else 'Latest'}: {esc(named(latest))}</h2>",
+            f'<ul class="s-index">{hub_row(latest)}</ul>',
+            f'<p class="s-cta"><a class="cta" href="{BASE}/?p={latest["id"]}">Solve it yourself, '
+            "with hints one step at a time &rarr;</a></p>",
+            *([f"<p>{esc(blurb)}</p>"] if blurb else []),
+            difficulty_strip(name, every),
+            "<h2>Recent puzzles</h2>",
+            f'<ul class="s-index">{"".join(hub_row(p) for p in every[1:RECENT + 1])}</ul>',
+            f'<p class="muted small-note">{BADGE_KEY}</p>',
+        ]
+    else:
+        title = f"{name}: cryptic crossword answers and explanations, by year"
+        desc = ("Cryptic crosswords reprinted in books" if series_meta.is_book(series)
+                else f"{name} crosswords") + ", by year, with the answer to every clue."
+        body += [*([f"<p>{esc(blurb)}</p>"] if blurb else []), difficulty_strip(name, every)]
+    body += ["<h2>Every year</h2>", f'<p class="s-years">{links}</p>',
+             f'<p><a href="{BASE}/puzzles/">All papers</a>.</p>', "</main>"]
+    list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
+               "name": title, "url": canonical, "description": desc}
+    return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
+def series_pages(idx, today=None):
+    today = today or london_today()
+    for s, years in listings(idx).items():
+        yield ROOT / series_path(s).strip("/") / "index.html", series_page(s, years, today)
+    # /puzzles/series/ itself names nothing; it points at the hub, which lists them.
+    target = f"{BASE}/puzzles/"
+    yield ROOT / "puzzles" / "series" / "index.html", (
+        bare_head("Crossword answers by paper", target,
+                  f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
+        + f'<body>\n<p>Every paper is listed at <a href="{target}">all puzzles</a>.</p>\n'
+        "</body>\n</html>\n")
 
 
 def listing_pages(idx):
@@ -1580,6 +1669,9 @@ def sitemap(idx):
             (f"{BASE}/indicators/", "weekly", "0.8", None),
             (f"{BASE}/difficulty/", "weekly", "0.6", None)]
     for s, years in listings(idx).items():
+        newest = next(iter(years.values()))[0]
+        urls.append((site_url(series_path(s)), "daily", "0.9",
+                     None if series_meta.is_book(s) else datestr(newest, "%Y-%m-%d") or None))
         for y in years:
             urls.append((site_url(listing_path(s, y)), "weekly", "0.6", None))
     for p in idx["puzzles"]:
@@ -1858,6 +1950,7 @@ def outputs(check=False):
         yield from legacy_redirects(stubs)
         yield from legacy_ids(stubs)
         yield puzzle_paths.PUZZLE_DIR / "index.html", hub_page(idx)
+        yield from series_pages(idx)
         yield from listing_pages(idx)
         yield ROOT / "learn" / "index.html", learn_page()
         yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
