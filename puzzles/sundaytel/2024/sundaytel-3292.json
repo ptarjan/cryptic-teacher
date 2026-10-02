@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Note, that has a restorative effect",
     "enumeration": "5"
    },
-   "solution": "TONIC"
+   "solution": "TONIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TONIC",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     },
+     {
+      "text": "that has a restorative effect",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "note": "first meaning: the keynote, first degree of a musical scale"
+     },
+     {
+      "clueFragment": "that has a restorative effect",
+      "note": "second meaning: a medicine or drink that revives you"
+     }
+    ],
+    "explanation": {
+     "surface": "A musical note that somehow makes the listener feel better.",
+     "walkthrough": "The comma splits two separate meanings; the first is the musical term for the home note of a key.",
+     "definitionFit": "In music the tonic is the keynote of a scale, and as a noun it is also any pick-me-up medicine or drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +85,60 @@
     "text": "Rocky road, site for huge rock!",
     "enumeration": "8"
    },
-   "solution": "ASTEROID"
+   "solution": "ASTEROID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASTEROID",
+    "definitions": [
+     {
+      "text": "huge rock",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rocky",
+      "for": "anagram",
+      "note": "something rocky is unstable and shaky, so the letters wobble into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "ROAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "site",
+      "gives": "SITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROADSITE",
+       "gives": "ASTEROID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bumpy road leading to the location of a giant boulder.",
+     "walkthrough": "'Rocky road' reads as a stony track (or the dessert), but 'Rocky' is the shuffle signal, echoing 'huge rock' at the end.",
+     "definitionFit": "An asteroid is a large rocky body orbiting the sun, a space boulder of enormous size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rocky"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +152,67 @@
     "text": "Middle Eastern country holds Territorial Army up",
     "enumeration": "6"
    },
-   "solution": "QATARI"
+   "solution": "QATARI",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "QATARI",
+    "definitions": [
+     {
+      "text": "Middle Eastern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece goes within the other"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "IRAQ",
+      "note": "a country in the Middle East"
+     },
+     {
+      "clueFragment": "Territorial Army",
+      "gives": "TA",
+      "note": "TA is the standard abbreviation for the Territorial Army, Britain's reserve force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QA",
+      "TA",
+      "RI"
+     ],
+     "reversals": [
+      {
+       "from": "IRATAQ",
+       "to": "QATARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Middle Eastern state is propping up a British reserve army.",
+     "walkthrough": "'Middle Eastern country' looks like one definition, but the country is the wordplay and only 'Middle Eastern' defines. The Territorial Army is Britain's volunteer reserve.",
+     "definitionFit": "Qatari is the adjective for things from Qatar, a Gulf state in the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +226,61 @@
     "text": "Jumper a pixie pulled up",
     "enumeration": "4"
    },
-   "solution": "FLEA"
+   "solution": "FLEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FLEA",
+    "definitions": [
+     {
+      "text": "Jumper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down clue, pulling something up lifts it from the bottom, so the order runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pixie",
+      "gives": "ELF",
+      "note": "a pixie is a small mischievous fairy, like an elf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLEA"
+     ],
+     "reversals": [
+      {
+       "from": "AELF",
+       "to": "FLEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweater being hoisted up by a little fairy.",
+     "walkthrough": "'Jumper' suggests a sweater, the British word for a pullover, and 'pulled up' fits that picture; here it is a leaping insect.",
+     "definitionFit": "Fleas are famous for leaping huge distances relative to their size, so the insect is a cryptic jumper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jumper"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +294,55 @@
     "text": "Meal passed round a boat",
     "enumeration": "6"
    },
-   "solution": "LAUNCH"
+   "solution": "LAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUNCH",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passed round",
+      "for": "container",
+      "note": "something passed round goes all the way around, so it encloses what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meal",
+      "gives": "LUNCH",
+      "note": "a midday meal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Food handed around on a boat.",
+     "walkthrough": "'Meal passed round' sounds like serving food; it means the meal wraps around a single letter.",
+     "definitionFit": "A launch is a large motorboat, often used to ferry people to and from a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +356,56 @@
     "text": "Millstone roughing up brass a lot",
     "enumeration": "9"
    },
-   "solution": "ALBATROSS"
+   "solution": "ALBATROSS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALBATROSS",
+    "definitions": [
+     {
+      "text": "Millstone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roughing up",
+      "for": "anagram",
+      "note": "roughing something up knocks it about and messes it around, so the letters get disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brass",
+      "gives": "BRASS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "ALOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRASSALOT",
+       "gives": "ALBATROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy burden that keeps beating up the senior officers.",
+     "walkthrough": "'Brass' suggests top military officers or money, but it is just letters to shuffle.",
+     "definitionFit": "From Coleridge's Ancient Mariner, an albatross around one's neck is a burden, the same idiom as a millstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "brass"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +419,54 @@
     "text": "Officer still tailing criminal",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSTABLE",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailing",
+      "for": "charade",
+      "note": "to tail something is to follow behind it, so the first piece comes after the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict, a criminal"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "STABLE",
+      "note": "still in the sense of steady, unmoving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "STABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is still following a crook.",
+     "walkthrough": "'Still' looks like the adverb 'yet', but it is the adjective meaning steady.",
+     "definitionFit": "A constable is a police officer of the lowest rank in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +480,45 @@
     "text": "Recovery in tennis sequence",
     "enumeration": "5"
    },
-   "solution": "RALLY"
+   "solution": "RALLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RALLY",
+    "definitions": [
+     {
+      "text": "Recovery",
+      "at": 0
+     },
+     {
+      "text": "tennis sequence",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recovery",
+      "note": "first meaning: a revival, as in prices or health"
+     },
+     {
+      "clueFragment": "tennis sequence",
+      "note": "second meaning: a long exchange of shots"
+     }
+    ],
+    "explanation": {
+     "surface": "A player fighting back during a long run of points at tennis.",
+     "walkthrough": "Two meanings joined by 'in', which makes them look like one scene of a comeback on court.",
+     "definitionFit": "A market or patient rallies when they bounce back, and a tennis rally is an unbroken exchange of strokes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +532,56 @@
     "text": "Lid on putrid garbage – yuk!",
     "enumeration": "6"
    },
-   "solution": "PHOOEY"
+   "solution": "PHOOEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PHOOEY",
+    "definitions": [
+     {
+      "text": "yuk!",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lid on",
+      "for": "letter_selection",
+      "note": "a lid sits at the top of something, and in a down clue the top is the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "putrid",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word, its top in a down clue"
+     },
+     {
+      "clueFragment": "garbage",
+      "gives": "HOOEY",
+      "note": "garbage in the sense of nonsense, rubbish talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HOOEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting the lid on a bin of rotten rubbish, with a cry of disgust.",
+     "walkthrough": "'Garbage' reads as refuse in a bin, but it stands for nonsense, and 'Lid on' gives just one letter.",
+     "definitionFit": "Both are exclamations of disgust or disdain, interjections a person might cry out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "garbage"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +595,67 @@
     "text": "Mace sprayed around in flicks",
     "enumeration": "6"
    },
-   "solution": "CINEMA"
+   "solution": "CINEMA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CINEMA",
+    "definitions": [
+     {
+      "text": "flicks",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sprayed",
+      "for": "anagram",
+      "note": "spraying scatters something in every direction, so the letters land in a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around is to surround, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mace",
+      "gives": "MACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "IN",
+      "EMA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MACE",
+       "gives": "CEMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sprays Mace, the irritant spray, at moviegoers.",
+     "walkthrough": "Mace here is the self-defence spray, which makes 'sprayed' fit the surface perfectly.",
+     "definitionFit": "The flicks is informal, chiefly British, slang for the movies, from the flickering of early film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sprayed"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +669,43 @@
     "text": "Extract read in Xhosa, then I analyse Greek",
     "enumeration": "8"
    },
-   "solution": "ATHENIAN"
+   "solution": "ATHENIAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ATHENIAN",
+    "definitions": [
+     {
+      "text": "Greek",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extract read in",
+      "for": "hidden_word",
+      "note": "an extract is a passage lifted out of a longer text, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Xhosa, then I analyse",
+      "gives": "ATHENIAN",
+      "note": "the letters run across the end of the first word to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A passage read in the Xhosa language, after which the reader analyses some Greek text.",
+     "walkthrough": "Xhosa is a South African language, which makes a linguistics scene that hides the letters. 'Greek' is noun or adjective, either fits.",
+     "definitionFit": "An Athenian is a citizen of Athens, the capital of Greece, so a particular kind of Greek."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extract"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +719,54 @@
     "text": "Travel with princess, lady exposed",
     "enumeration": "6"
    },
-   "solution": "GODIVA"
+   "solution": "GODIVA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GODIVA",
+    "definitions": [
+     {
+      "text": "lady exposed",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so one piece is set next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Travel",
+      "gives": "GO",
+      "note": "to travel is to go"
+     },
+     {
+      "clueFragment": "princess",
+      "gives": "DIVA",
+      "note": "a princess in the informal sense of a spoilt, demanding woman, a diva"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "DIVA"
+     ]
+    },
+    "explanation": {
+     "surface": "Going on a trip with a royal, and some lady ends up in the buff.",
+     "walkthrough": "Lady Godiva, legend says, rode naked through Coventry to protest her husband's taxes, hence 'lady exposed'.",
+     "definitionFit": "Godiva is the noblewoman of legend who rode naked through the streets, so the lady famously exposed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "princess"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +780,61 @@
     "text": "A sailor flipped over geographical reference",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "geographical reference",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipped over",
+      "for": "reversal",
+      "note": "flipping something over turns it upside down, so in a down clue the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "SALT",
+      "note": "an old salt is an experienced sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TLAS"
+     ],
+     "reversals": [
+      {
+       "from": "SALT",
+       "to": "TLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman capsizes, falling over a map book.",
+     "walkthrough": "Only the sailor is turned; the A stays in front. SALT for sailor is a standard crossword equivalent.",
+     "definitionFit": "An atlas is a book of maps, a reference work you consult for geography."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipped"
+    }
+   }
   },
   {
    "number": 14,
@@ -214,7 +848,62 @@
     "text": "Energy in short used, rest",
     "enumeration": "6"
    },
-   "solution": "OTHERS"
+   "solution": "OTHERS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "OTHERS",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item within another, so a letter sits inside a word"
+     },
+     {
+      "text": "used",
+      "for": "anagram",
+      "note": "something used is worn and knocked about, no longer in its original shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "SHORT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHOERT",
+       "gives": "OTHERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running low on energy after using it up, so taking a rest.",
+     "walkthrough": "'In short' looks like the phrase meaning briefly, and 'rest' like a nap; rest here means the remainder.",
+     "definitionFit": "The rest and the others both mean the remaining people or things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 15,
@@ -228,7 +917,47 @@
     "text": "Signal, high-pitched sound, insignificant type",
     "enumeration": "9"
    },
-   "solution": "PIPSQUEAK"
+   "solution": "PIPSQUEAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIPSQUEAK",
+    "definitions": [
+     {
+      "text": "insignificant type",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Signal",
+      "gives": "PIP",
+      "note": "a pip is a short beep, as in the radio time signal"
+     },
+     {
+      "clueFragment": "high-pitched sound",
+      "gives": "SQUEAK",
+      "note": "a squeak is a short shrill noise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIP",
+      "SQUEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of noises ending with a dismissive word for a person.",
+     "walkthrough": "The pips are the beeps the BBC broadcasts to mark the hour on radio.",
+     "definitionFit": "A pipsqueak is an informal word for a small, unimportant or contemptible person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 16,
@@ -242,7 +971,43 @@
     "text": "Affectionate type",
     "enumeration": "4"
    },
-   "solution": "KIND"
+   "solution": "KIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KIND",
+    "definitions": [
+     {
+      "text": "Affectionate",
+      "at": 0
+     },
+     {
+      "text": "type",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Affectionate",
+      "note": "first meaning: warm, caring, considerate"
+     },
+     {
+      "clueFragment": "type",
+      "note": "second meaning: a sort or category"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase about a loving person, but the two words are separate meanings: an adjective and a noun.",
+     "definitionFit": "The word works both as an adjective for gentle, caring behaviour and as a noun meaning a sort or variety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 17,
@@ -256,7 +1021,44 @@
     "text": "Idiotic – like a window ledge?",
     "enumeration": "5"
    },
-   "solution": "SILLY"
+   "solution": "SILLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SILLY",
+    "definitions": [
+     {
+      "text": "Idiotic",
+      "at": 0
+     },
+     {
+      "text": "like a window ledge?",
+      "at": 10,
+      "note": "a jokey adjective formed from the noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiotic",
+      "note": "first meaning: foolish, daft"
+     },
+     {
+      "clueFragment": "like a window ledge?",
+      "note": "second meaning, punning: a window ledge is a sill, so something like one is sill-ish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags a made-up word: adding -y to the noun for a window ledge gives an adjective meaning 'like that ledge'.",
+     "definitionFit": "Silly means foolish, and read as a pun it is the noun for a window ledge with an adjective ending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ledge"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1072,56 @@
     "text": "Vulgar shaman's head whacked",
     "enumeration": "6"
    },
-   "solution": "SWEARY"
+   "solution": "SWEARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEARY",
+    "definitions": [
+     {
+      "text": "Vulgar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of something is its top, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaman's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "whacked",
+      "gives": "WEARY",
+      "note": "whacked is informal for exhausted, worn out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude witch doctor gets hit on the head.",
+     "walkthrough": "'Whacked' paints a blow to the head, but it is the British slang for being dead tired.",
+     "definitionFit": "Sweary is informal for full of swear words, so coarse or crude language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whacked"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1135,42 @@
     "text": "Equitable, at a push",
     "enumeration": "4"
    },
-   "solution": "JUST"
+   "solution": "JUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JUST",
+    "definitions": [
+     {
+      "text": "Equitable",
+      "at": 0
+     },
+     {
+      "text": "at a push",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Equitable",
+      "note": "first meaning: fair and right"
+     },
+     {
+      "clueFragment": "at a push",
+      "note": "second meaning: only barely, by a narrow margin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The comma separates two meanings: an adjective for fairness and an adverb for barely managing. 'At a push' is British for if really necessary, only just.",
+     "definitionFit": "A just ruling is a fair one, and something done only narrowly is done just, at a push."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "push"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1190,49 @@
      }
     ]
    },
-   "solution": "JUMPLEAD"
+   "solution": "JUMPLEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUMP LEAD",
+    "definitions": [
+     {
+      "text": "for a starter?",
+      "at": 21,
+      "note": "describes the answer's purpose; the answer itself is a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skip",
+      "gives": "JUMP",
+      "note": "to skip is to jump lightly"
+     },
+     {
+      "clueFragment": "something heavy",
+      "gives": "LEAD",
+      "note": "lead is a famously heavy metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUMP",
+      "LEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Skipping a heavy dish as one's first course.",
+     "walkthrough": "'Starter' suggests the first course of a meal; it is a car's starter motor. A jump lead is the British name for a jumper cable.",
+     "definitionFit": "Jump leads connect a dead car battery to a live one so the starter motor can turn the engine over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1246,54 @@
     "text": "Powder and rock on the beach?",
     "enumeration": "6"
    },
-   "solution": "ASHORE"
+   "solution": "ASHORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHORE",
+    "definitions": [
+     {
+      "text": "on the beach?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and adds one thing to another, so the pieces are placed side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Powder",
+      "gives": "ASH",
+      "note": "ash is the fine powder left after burning"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "ORE",
+      "note": "ore is rock from which metal is extracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sand and pebbles found at the seaside.",
+     "walkthrough": "Powder and rock both suit a beach, so the question mark signals that the scene is the definition, not a list of materials.",
+     "definitionFit": "Ashore means on land rather than at sea, and the beach is where a boat comes to land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Powder"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1307,51 @@
     "text": "Earn a bit on tours",
     "enumeration": "6"
    },
-   "solution": "OBTAIN"
+   "solution": "OBTAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBTAIN",
+    "definitions": [
+     {
+      "text": "Earn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tours",
+      "for": "anagram",
+      "note": "touring means travelling round and about, so the letters move about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit on",
+      "gives": "ABITON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABITON",
+       "gives": "OBTAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making some money on the side from going on tours.",
+     "walkthrough": "'Tours' looks like a noun for trips, but it is a verb telling the letters to go round.",
+     "definitionFit": "To earn something is to gain or acquire it, which is what obtaining means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tours"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1365,53 @@
     "text": "Second drink, well hot!",
     "enumeration": "6"
    },
-   "solution": "STEAMY"
+   "solution": "STEAMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEAMY",
+    "definitions": [
+     {
+      "text": "hot",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "TEA",
+      "note": "a common hot drink"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "MY",
+      "note": "both are exclamations of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEA",
+      "MY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sipping a second drink and exclaiming at how hot it is.",
+     "walkthrough": "'Well' looks like an intensifier for 'hot', but it is an exclamation, like 'My!'.",
+     "definitionFit": "Steamy means hot and humid, and also informally sexy, both senses of hot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1425,58 @@
     "text": "Apple cut by son for religious festival",
     "enumeration": "6"
    },
-   "solution": "EASTER"
+   "solution": "EASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EASTER",
+    "definitions": [
+     {
+      "text": "religious festival",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "a cut splits something open, so one piece is broken up by another inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apple",
+      "gives": "EATER",
+      "note": "an eater is a dessert apple, one eaten raw rather than cooked"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "S",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A child slicing apples for a church holiday.",
+     "walkthrough": "An eater is the British term for an apple grown for eating rather than cooking.",
+     "definitionFit": "Easter is the Christian festival celebrating the resurrection of Jesus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1496,61 @@
      }
     ]
    },
-   "solution": "ONICE"
+   "solution": "ONICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ON ICE",
+    "definitions": [
+     {
+      "text": "suspended",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is taken"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so one piece is placed behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offence",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "Fine",
+      "gives": "NICE",
+      "note": "fine in the sense of pleasant, good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fined after an offence and first given a suspended sentence.",
+     "walkthrough": "'Fine' and 'suspended' both suggest punishment in court, but fine is the adjective for pleasant.",
+     "definitionFit": "Plans put on ice are shelved or postponed, an idiom for being held in suspension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1570,67 @@
      }
     ]
    },
-   "solution": "BUTTERUP"
+   "solution": "BUTTERUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BUTTER UP",
+    "definitions": [
+     {
+      "text": "flatter",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled back",
+      "for": "reversal",
+      "note": "pulling something back takes it in the opposite direction, so the letters run backwards"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar",
+      "gives": "PUB",
+      "note": "a bar is a pub, where drinks are served"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to say is to utter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UTTER",
+      "UP"
+     ],
+     "reversals": [
+      {
+       "from": "PUB",
+       "to": "BUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar retreats around somebody saying flattering things.",
+     "walkthrough": "'Pulled back' fits a pint being pulled in a bar, but it marks the turnaround, and 'say' is a verb, not 'for example'.",
+     "definitionFit": "To butter someone up is an idiom for flattering them to win favour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1644,43 @@
     "text": "Drink left on ship",
     "enumeration": "4"
    },
-   "solution": "PORT"
+   "solution": "PORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORT",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     },
+     {
+      "text": "left on ship",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "note": "first meaning: a sweet fortified wine from Portugal"
+     },
+     {
+      "clueFragment": "left on ship",
+      "note": "second meaning: the left-hand side of a vessel facing forward"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a drink abandoned on board, but the two parts are separate meanings, a wine and a nautical direction.",
+     "definitionFit": "Port is a fortified wine, and in nautical terms it is the left side of a vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1700,43 @@
      }
     ]
    },
-   "solution": "SOLONG"
+   "solution": "SOLONG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SO LONG",
+    "definitions": [
+     {
+      "text": "Vale",
+      "at": 0
+     },
+     {
+      "text": "very extensive",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vale",
+      "note": "first meaning: farewell, from the Latin for goodbye"
+     },
+     {
+      "clueFragment": "very extensive",
+      "note": "second meaning: of such great length"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Vale' looks like a valley, which fits 'very extensive', but here it is the Latin farewell, pronounced in two syllables.",
+     "definitionFit": "So long is an informal goodbye, matching the Latin farewell, and literally means of such great length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vale"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1750,55 @@
     "text": "Bowl, when inside container",
     "enumeration": "5"
    },
-   "solution": "BASIN"
+   "solution": "BASIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BASIN",
+    "definitions": [
+     {
+      "text": "Bowl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "BIN",
+      "note": "a bin is a container for rubbish or storage"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in the sense of while, at the time that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bowl that has been put inside a larger container.",
+     "walkthrough": "'Bowl' could be the cricket verb, but it is the noun for a dish. 'When' and 'as' share the sense of 'at the time that'.",
+     "definitionFit": "A basin is a wide round dish or washbowl, another word for a bowl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1812,55 @@
     "text": "Country importing fish labouring here and there?",
     "enumeration": "9"
    },
-   "solution": "FREELANCE"
+   "solution": "FREELANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREELANCE",
+    "definitions": [
+     {
+      "text": "labouring here and there?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "to import is to bring goods in, so one piece is taken inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "FRANCE",
+      "note": "a European country"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "an eel is a long snake-like fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "EEL",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation that brings in fish and has workers scattered all over.",
+     "walkthrough": "'Importing' suits a trading nation, but it means one word takes another in.",
+     "definitionFit": "A freelance works for different clients job by job rather than for one employer, so labours here and there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "importing"
+    }
+   }
   }
  ]
 }
