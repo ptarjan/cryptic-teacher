@@ -613,6 +613,15 @@ tools/test_puzzle_tags.sh                    is each tag on a real puzzle that h
                                              the look-alike that does not (a feed that lost its
                                              clues is not unclued, an erratum is not special
                                              rules, a model's solve is never a pangram)?
+tools/showcase.py                            the puzzles /showcase/ picks out and why (a
+                                             message hidden in the grid, a jigsaw, a record),
+                                             from facts build_seo_pages reads off each file as
+                                             it renders its page
+tools/test_showcase.sh                       is each showcase detector on a real puzzle that
+                                             has the feature and off the look-alike (hidden in
+                                             the clue is not hidden in the grid, a book's year
+                                             is not a print date), and does a puzzle show only
+                                             once?
 tools/test_puzzle_tag_badges.js              does a tagged puzzle's title badge its tag, and
                                              does the picker's feature menu list exactly the
                                              puzzles with that tag, the double pangrams under

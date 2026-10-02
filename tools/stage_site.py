@@ -41,7 +41,7 @@ PUBLISH = [
     "vendor/*", "sync/*.js",
     "og/*.png", "og/page/*.png",
     "learn/index.html", "abbreviations/index.html", "indicators/index.html",
-    "difficulty/index.html",
+    "difficulty/index.html", "showcase/index.html",
     "puzzles/index.html", "puzzles/index.json", "puzzles/*.js",
     "puzzles/*/index.html", "puzzles/series/**/*",
 ]
