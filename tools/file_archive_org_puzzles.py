@@ -248,6 +248,20 @@ def engine(which):
     return _ENGINES[which]
 
 
+def reader_key(which):
+    """The cache name of a reader's readings: a TESS_MODELS reader's carries
+    its model's hash, so a retrained model never reuses the old one's."""
+    if which not in TESS_MODELS:
+        return which
+    import hashlib
+    if which not in _MODEL_HASHES:
+        _MODEL_HASHES[which] = hashlib.sha1(TESS_MODELS[which].read_bytes()).hexdigest()[:10]
+    return f"{which}-{_MODEL_HASHES[which]}"
+
+
+_MODEL_HASHES = {}
+
+
 def tesseract():
     """The tesseract binary: on PATH, else the user-local conda-forge install
     (no sudo on this host), else an error that says how to install it."""
@@ -549,7 +563,8 @@ def mend(read, before, after):
     cands = {c for r in set(read) if len(r) > 2 for c in edits(r) if len(c) > 1 and known(c)}
     if not cands:
         return None
-    size = max(set(len(r) for r in read), key=[len(r) for r in read].count)
+    lens = [len(r) for r in read]
+    size = max(lens, key=lens.count)
     ranked = sorted((((sum(within_one(c, r) for r in read), len(c) == size), fit(c, before, after), c)
                      for c in cands), reverse=True)
     if len(ranked) > 1 and ranked[0][0] == ranked[1][0] and ranked[0][1] - ranked[1][1] < FIT_MARGIN:
@@ -667,7 +682,7 @@ def agree(clue, others):
                                  for e in got_ends if e) if e]
         if len(seen_ends) < 2:
             continue
-        top = max(set(seen_ends), key=seen_ends.count)
+        top = max(seen_ends, key=seen_ends.count)
         words_at = [t for t in top if t not in MARKS]
         if side == "start" and len(words_at) == 1 and len(words_at[0]) == 1:
             # One letter before the clue is a misread clue number ("2I").
@@ -1099,7 +1114,7 @@ def read_puzzle(d, found, hit, solutions):
     texts = {"djvu": column_text(columns(lines, gbox))}
     for which in READERS:
         texts[which] = column_text(columns(
-            rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{which}.json"), gbox))
+            rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json"), gbox))
     # archive.org's words and RapidOCR's are the two readings; where
     # archive.org's OCR has no words for the columns, RapidOCR's two
     # recognisers are.
