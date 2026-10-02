@@ -60,6 +60,33 @@ def says(text, answer):
     return False
 
 
+# A function word every sentence needs cannot be kept out of a note, and naming
+# it hands over nothing: THE of THE TORTURED POETS DEPARTMENT, AND of SLAP AND
+# TICKLE.
+FUNCTION_WORDS = {"the", "and", "for", "but", "nor", "yet", "not", "from", "with", "its"}
+
+
+def names(answer, lights=()):
+    """What a block note must not name: the clue's answer and, on a linked
+    answer, each light's own solution, since a light is an answer in the grid."""
+    out = [answer] if answer else []
+    for sol in lights:
+        if (sol and letters(sol) not in FUNCTION_WORDS
+                and letters(sol) not in {letters(a) for a in out}):
+            out.append(sol)
+    return out
+
+
+def named(text, answer, lights=()):
+    """The first of names(answer, lights) that `text` says, else None."""
+    return next((n for n in names(answer, lights) if says(text, n)), None)
+
+
+def light_solutions(entry, by_id):
+    """The solutions of `entry`'s linked lights, in group order; () unlinked."""
+    return [(by_id.get(gid) or {}).get("solution") for gid in entry.get("group") or ()]
+
+
 # unname() rewrites a block note that names its answer, when the rewrite needs no
 # judgement, so annotate_check applies it instead of spending a turn on
 # check_block_notes_dont_name_the_answer. Each rule below takes the answer out
@@ -199,12 +226,14 @@ def leaks(only=()):
     paths = [resolve_puzzle(n) for n in only] if only else puzzle_files()
     for path in paths:
         puzzle = read_puzzle_file(path)
+        by_id = {entry_id(e): e for e in puzzle.get("entries", [])}
         for entry in puzzle.get("entries", []):
             ann = entry.get("annotation") or {}
             answer = ann.get("answer")
             if not answer:
                 continue
-            bad = [b for b in (ann.get("blocks") or []) if says(b.get("note"), answer)]
+            lights = light_solutions(entry, by_id)
+            bad = [b for b in (ann.get("blocks") or []) if named(b.get("note"), answer, lights)]
             if bad:
                 yield {
                     "file": path.name,
@@ -212,7 +241,8 @@ def leaks(only=()):
                     "clue": entry["clue"].get("text"),
                     "type": ann.get("type"),
                     "answer": answer,
-                    "notes": [{"clueFragment": b.get("clueFragment"), "note": b.get("note")}
+                    "notes": [{"clueFragment": b.get("clueFragment"), "note": b.get("note"),
+                               "names": named(b.get("note"), answer, lights)}
                               for b in bad],
                 }
 
@@ -239,7 +269,7 @@ def main():
         for f in found:
             print(f"{f['file']} {f['entry']} ({f['answer']}, {clue_types.labels(f['type'])})")
             for n in f["notes"]:
-                print(f"    {n['clueFragment']}: {n['note']}")
+                print(f"    {n['clueFragment']} (names {n['names']}): {n['note']}")
         return 1
 
     by_file = collections.Counter(f["file"] for f in found)

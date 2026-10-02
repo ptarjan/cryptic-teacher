@@ -76,7 +76,7 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     leaders_named,
     read_puzzle_file,
 )
-from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
+from find_answer_leaks import light_solutions, named, says  # noqa: E402 — one matcher, shared with the finder
 from groups import entry_id  # noqa: E402
 from puzzle_paths import (  # noqa: E402 — one glob, one id resolver
     puzzle_files,
@@ -1205,24 +1205,31 @@ def check_no_answer_in_early_rungs(tag, ann, clue, errors, warnings):
                     f"before the building blocks, so it hands over the solve for "
                     f"the price of a hint. Say it in the walkthrough instead.")
 
-def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings):
+def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings, lights=()):
     """The building blocks are a rung early too — the walkthrough is the reveal.
 
     The check above stops at the fields shown BEFORE the blocks, because the
     blocks rung was thought of as the place the answer lands. It is not: the
     walkthrough is, and a learner buying the blocks has deliberately not bought
-    the solve. 167 notes said the word anyway — "to please is to delight" for
-    PLEASE, "hidden inside st-ARGUE-sts" for ARGUE. app.js suppresses a `gives`
-    that equals the answer, so only the prose can still leak.
+    the solve. app.js suppresses a `gives` that equals the answer, so only the
+    prose can still leak.
+
+    `lights` are the solutions of a linked answer's lights, and each is an
+    answer in the grid: "to prime a gun is to make it ready" hands over 1A of
+    PRIME MINISTER as surely as naming the whole phrase would.
     """
     answer = ann.get("answer")
     for block in ann.get("blocks") or []:
-        if says(block.get("note"), answer):
-            errors.append(
-                f"{tag}: block note {block.get('note')!r} names the answer, and "
-                f"the blocks are the rung before the walkthrough. Write the note "
-                f"about the fragment — what it means, where its letters sit, "
-                f"which convention is in play — and let the walkthrough spell it.")
+        name = named(block.get("note"), answer, lights)
+        if name is None:
+            continue
+        what = ("the answer" if name == answer
+                else f"{name!r}, the answer to one of this clue's linked lights")
+        errors.append(
+            f"{tag}: block note {block.get('note')!r} names {what}, and "
+            f"the blocks are the rung before the walkthrough. Write the note "
+            f"about the fragment — what it means, where its letters sit, "
+            f"which convention is in play — and let the walkthrough spell it.")
 
 
 # An indicator rung that names the words and not the reason is the rung solvers
@@ -2846,7 +2853,8 @@ def validate_puzzle(puzzle, corpus=False):
         check_indicators(tag, ann, clue, errors, warnings)
         check_unmarked_hidden_word(tag, ann, clue, errors)
         check_no_answer_in_early_rungs(tag, ann, clue, errors, warnings)
-        check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
+        check_block_notes_dont_name_the_answer(tag, ann, errors, warnings,
+                                               light_solutions(e, by_id))
         check_indicator_notes_name_no_block(tag, ann, errors)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
