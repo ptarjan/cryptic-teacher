@@ -67,12 +67,23 @@ G.read_puzzle_file = lambda p: {"date": held_dates.get(p)}
 G.puzzle_paths = types.SimpleNamespace(find=lambda pid: int(pid.rsplit("-", 1)[1])
                                        if int(pid.rsplit("-", 1)[1]) in held_dates else None)
 print("HOLIDAY", G.print_date({"series": "timesjumbo", "number": 1304}, 1302, 1305))
+# Two bank-holiday Mondays among the neighbours' neighbours are still holidays
+# (timesjumbo-1334, between 1332 on 7 July 2018 and 1335 on 28 July).
+held_dates.clear()
+held_dates.update({1325: "2018-05-26", 1326: "2018-05-28", 1327: "2018-06-02",
+                   1329: "2018-06-16", 1330: "2018-06-23", 1331: "2018-06-30",
+                   1332: "2018-07-07", 1335: "2018-07-28", 1336: "2018-08-04",
+                   1337: "2018-08-11", 1339: "2018-08-25", 1340: "2018-08-27",
+                   1341: "2018-09-01", 1342: "2018-09-08"})
+print("HOLIDAYS", G.print_date({"series": "timesjumbo", "number": 1334}, 1332, 1335))
 print("NODATE", G.record("x-1", [("x-1", "https://example.com/1.html", "X 1", "1a", "c", "A")])[1])
 PY
 )
 field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /,""); print}' <<<"$out"; }
 check "a bank holiday's Jumbo does not make its weekday the series'" \
       "2018-01-13" "$(field HOLIDAY)"
+check "two bank holidays' Jumbos do not make their weekday the series'" \
+      "2018-07-21" "$(field HOLIDAYS)"
 check "an answer georgeho cut off is taken whole from our parse of the same post" \
       "['TAMOSHANTER', 'FAR', 'DUNDONIAN']" "$(field WHOLE)"
 check "a linked cell's suffix covers every number; a bare one takes the heading" \

@@ -289,9 +289,12 @@ def print_date(rec, lo, hi):
             p = puzzle_paths.find(series_meta.puzzle_id(rec["series"], n))
             if p and (d := read_puzzle_file(p).get("date")):
                 seen[datetime.date.fromisoformat(d).weekday()] += 1
-    # A weekday seen once is a holiday special (the Times's Boxing Day
-    # Jumbo on a Thursday), not a day the series prints on.
-    weekdays = {w for w, k in seen.items() if k > 1} or set(seen)
+    # A weekday seen once, or under a quarter as often as the series' commonest,
+    # is a holiday special (the Times's Boxing Day Jumbo on a Thursday, two
+    # bank-holiday Monday Jumbos among sixteen Saturday ones), not a day the
+    # series prints on.
+    top = max(seen.values())
+    weekdays = {w for w, k in seen.items() if k > 1 and 4 * k > top} or set(seen)
     slots, day = [], days[lo] + fbp.DAY
     while day < days[hi]:
         if day.weekday() in weekdays and (day.month, day.day) != (12, 25):
