@@ -32,6 +32,7 @@ the proof.
     python3 tools/blog_facts.py --measure  # and print coverage per blog and series
     python3 tools/blog_facts.py --sample 30 --seed 1   # and print rows to check by hand
     python3 tools/blog_facts.py --if-changed  # the nightly: skip when no input moved
+    python3 tools/blog_facts.py --reparse [BLOG ...]  # after a parser change: re-parse cached posts
     python3 tools/blog_facts.py --jobs 1      # one process instead of the default two
     python3 tools/blog_facts.py --score       # precision and recall against blog_facts_gold.jsonl
 
@@ -74,13 +75,12 @@ LEADS = DATA / "blog_leads.json"
 #: The digest of every input the files in OUT were written from; see inputs_digest.
 STAMP = OUT / "inputs.sha256"
 #: Each post's join, kept by extract so a run parses only what is new: one
-#: file per join, named by the digest of everything that join is a function of.
+#: file per join, named by the digest of its inputs (see cache_key). A change
+#: to the parser leaves the cache alone; whoever makes it runs --reparse once.
 CACHE = DATA / "blog_facts_cache"
-#: What turns a post and its candidate puzzles' entries and clues into
-#: published lines: the parser, and what it places, orders and names with.
-PARSER_FILES = [ROOT / "tools" / f for f in (
-    "blog_facts.py", "clue_types.py", "data/clue_types.json", "definitions.py", "groups.py",
-    "puzzle_schema.py", "data/puzzle.schema.json")]
+#: The first item of every cache key. It is fixed: changing it orphans every
+#: cached join and the next run re-parses them all.
+CACHE_SALT = "fb2b83f44d84fc7ca417b368533590eef62de4eefe5319ebf1c352625027bde1"
 
 #: Blog key -> (cache directory, the name a reader is shown). The key is what
 #: the sidecar stores; the name is what the site prints beside the link.
@@ -1866,27 +1866,25 @@ def keep(best, r, spool):
         best[r["id"]] = r
 
 
-def parser_version():
-    """A digest of the code a join is a function of, besides its inputs."""
-    h = hashlib.sha256(sys.version.encode())
-    for f in PARSER_FILES:
-        h.update(f.name.encode() + b"\0" + f.read_bytes())
-    return h.hexdigest()
+def cache_key(blog, data, cands):
+    """The name a post's join is cached under: the post's bytes and the entries
+    and clues of its candidate puzzles, never the code that parsed it."""
+    return hashlib.sha256(json.dumps([CACHE_SALT, blog, hashlib.sha256(data).hexdigest(),
+                                      [(pid, digest) for pid, _, digest in cands]]).encode()).hexdigest()
 
 
-def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False):
+def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, reparse=()):
     """Every post of `blogs` joined to the puzzle it writes up: {id: record},
     one per puzzle, the post whose clues were found most completely, and
     {id: series}, and the Spool holding each record's published lines.
 
-    A post's join is a function of the parser, the post, and the entries and
-    clues of its candidate puzzles, so it is kept in CACHE under the digest of
-    those, and only a post whose digest is not there is parsed. With
-    `keep_facts` every record carries its raw facts, which the cache does not
-    hold, so every post is parsed."""
+    A post's join is kept in CACHE under the digest of the post and the entries
+    and clues of its candidate puzzles, and only a post whose digest is not
+    there is parsed. The posts of the blogs in `reparse` are parsed anyway and
+    their cache entries rewritten. With `keep_facts` every record carries its
+    raw facts, which the cache does not hold, so every post is parsed."""
     extra = bigdave_records() if with_bigdave_records else ()
     by_number, series = load_puzzles(extra)
-    version = parser_version()
     work = []
     for blog in blogs:
         posts = BLOGS[blog][0] / "posts"
@@ -1898,10 +1896,10 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False):
                 continue
             cands = [c for n in post_numbers(title) for c in by_number.get(n, ())]
             if cands:
-                key = hashlib.sha256(json.dumps([version, blog, hashlib.sha256(data).hexdigest(),
-                                                 [(pid, digest) for pid, _, digest in cands]]).encode()).hexdigest()
+                key = cache_key(blog, data, cands)
                 cached = None if keep_facts else CACHE / key[:2] / f"{key}.json"
-                work.append(((blog, path, cands, keep_facts), cached if cached and cached.exists() else None, cached))
+                hit = cached if cached and blog not in reparse and cached.exists() else None
+                work.append(((blog, path, cands, keep_facts), hit, cached))
     del by_number
     misses = [w for w, hit, _ in work if not hit]
     if jobs == 1 or not misses:
@@ -1928,17 +1926,18 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False):
         for old in CACHE.glob("*/*"):
             if old.name not in used:
                 old.unlink()
-    print(f"parsed {len(misses)} of {len(work)} posts; the rest were unchanged since a run kept their joins")
+    print(f"parsed {len(misses)} of {len(work)} posts; the rest were cached by an earlier run")
     return best, series, spool
 
 
 def inputs_digest():
-    """A digest of everything the output is a function of: this file and
-    tools/letter_facts.py, each blog's cached posts, bigdave44's parsed light
-    lists, and the clues of every puzzle. Posts are cached once and never
-    rewritten, so a post is its name and size; a puzzle is only what the join
-    reads, so a new annotation moves nothing."""
-    h = hashlib.sha256(Path(__file__).read_bytes() + (ROOT / "tools" / "letter_facts.py").read_bytes())
+    """A digest of the inputs the output is read from: each blog's cached
+    posts, bigdave44's parsed light lists, and the clues of every puzzle. Posts
+    are cached once and never rewritten, so a post is its name and size; a
+    puzzle is only what the join reads, so a new annotation moves nothing. The
+    code is not an input: a change to it is applied by running without
+    --if-changed, with --reparse when the parser changed."""
+    h = hashlib.sha256()
     for blog in sorted(BLOGS):
         posts = BLOGS[blog][0] / "posts"
         names = sorted((e.name, e.stat().st_size) for e in os.scandir(posts)
@@ -2302,6 +2301,9 @@ def main():
                     help="worker processes (default %(default)s); 1 parses in this process")
     ap.add_argument("--if-changed", action="store_true",
                     help="exit without parsing when no input has changed since the last write")
+    ap.add_argument("--reparse", nargs="*", choices=sorted(BLOGS), metavar="BLOG",
+                    help="parse the posts of these blogs (all when none is named) even where a join is "
+                         "cached: the one-off run after a change to the parser")
     ap.add_argument("--score", nargs="?", const=str(GOLD), metavar="GOLD",
                     help="score the parser against hand-read truth and exit (default %(const)s)")
     args = ap.parse_args()
@@ -2320,8 +2322,10 @@ def main():
         print("another blog_facts.py is running; waiting for it to finish", file=sys.stderr)
         fcntl.flock(lock, fcntl.LOCK_EX)
     digest = inputs_digest()
-    if args.if_changed and STAMP.exists() and STAMP.read_text().strip() == digest:
-        print(f"blog facts are current: no post, clue or parser change since {STAMP.relative_to(ROOT)} was written")
+    if args.reparse is not None:
+        args.reparse = args.reparse or sorted(BLOGS)
+    if args.if_changed and args.reparse is None and STAMP.exists() and STAMP.read_text().strip() == digest:
+        print(f"blog facts are current: no post or clue change since {STAMP.relative_to(ROOT)} was written")
         return
     if args.from_dump:
         lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
@@ -2332,7 +2336,8 @@ def main():
         series = load_puzzles(bigdave_records())[1]
     else:
         best, series, spool = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs,
-                                      keep_facts=bool(args.dump or args.measure or args.sample))
+                                      keep_facts=bool(args.dump or args.measure or args.sample),
+                                      reparse=args.reparse or ())
     if args.dump:
         with open(args.dump, "w", encoding="utf-8") as f:
             f.writelines(json.dumps({k: v for k, v in r.items() if k not in ("line", "leads")}, ensure_ascii=False)
