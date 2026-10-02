@@ -5,7 +5,8 @@
 # gets a difficulty strip whose median sits where its middle puzzle is.
 # Each series has a landing page at /puzzles/series/<series>/ that leads with
 # its newest puzzle ("today's No 29" only when it is dated today, else
-# "latest"), and the hub and the year listings link to it.
+# "latest"), and the hub and the year listings link to it; and the site
+# stages with /puzzles/series/ in it.
 #
 #     bash tools/test_series_hub.sh
 #
@@ -57,12 +58,21 @@ print("NOCOUNT", "30 puzzle" not in today and "30 crossword" not in today)
 out = dict(B.series_pages(idx, date(2030, 1, 1)))
 print("PATHS", B.ROOT / "puzzles/series/times/index.html" in out
       and "refresh" in out[B.ROOT / "puzzles/series/index.html"])
+import tempfile, pathlib, stage_site
+with tempfile.TemporaryDirectory() as tmp:
+    src = pathlib.Path(tmp, "src")
+    for rel in ("puzzles/series/index.html", "puzzles/series/times/index.html",
+                "puzzles/series/times/2025/index.html"):
+        (src / rel).parent.mkdir(parents=True, exist_ok=True)
+        (src / rel).write_text(rel)
+    # Two PUBLISH globs match puzzles/series/index.html; staging must take it once.
+    print("STAGE", len(stage_site.stage(src, pathlib.Path(tmp, "out"))) == 3)
 print("LINKED", f'{B.BASE}/puzzles/series/times/"' in page
       and f'{B.BASE}/puzzles/series/times/"' in B.listing_page("times", "2025", ps, None, None))
 PY
 )
 echo "$out"
-for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT PATHS LINKED; do
+for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT PATHS STAGE LINKED; do
   echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
