@@ -46,12 +46,8 @@ print("SPLIT", all((f"{B.BASE}/puzzles/{p['id']}/" in recent) == (date.fromisofo
                    for p in ps) and len(archive) > 0)
 print("DAILY", f"{B.BASE}/puzzles/series/cryptic/" in recent and f"{B.BASE}/" in recent)
 
-latest = B.latest_by_series(idx)
-print("LATEST", [p["id"] for p in latest] == ["cryptic-30200", "everyman-4171"])
-html = B.latest_list(idx)
-print("LINKS", f'{B.BASE}/puzzles/cryptic-30200/' in html and "/series/everyman/" in html
-      and "canberra" not in html)
-print("HOME", html in B.homepage_nav(idx) and html in B.hub_page(idx))
+home, hub = B.homepage_nav(idx), B.hub_page(idx)
+print("NOPICKS", not any(f"{B.BASE}/puzzles/{p['id']}/" in home + hub for p in ps))
 
 stubs = ps
 nb = dict(zip([p["id"] for p in stubs], B.series_neighbours(stubs)))
@@ -65,7 +61,7 @@ print("PAGERHTML", 'rel="prev"' in page and 'rel="next"' in page
 PY
 )
 echo "$out"
-for k in INDEX ONCE SPLIT DAILY LATEST LINKS HOME PAGER PAGERHTML; do
+for k in INDEX ONCE SPLIT DAILY NOPICKS PAGER PAGERHTML; do
   echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
