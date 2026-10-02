@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,66 @@
     "text": "Red and blue housing or a research facility",
     "enumeration": "10"
    },
-   "solution": "LABORATORY"
+   "solution": "LABORATORY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LABORATORY",
+    "definitions": [
+     {
+      "text": "a research facility",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "to house something is to give it shelter inside, so the pieces either side enclose another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red",
+      "gives": "LAB",
+      "note": "LAB is short for Labour, the British party whose colour is red"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "TORY",
+      "note": "blue is the colour of the Conservatives, whose members are Tories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAB",
+      "ORA",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A building painted in red and blue, perhaps housing a science lab.",
+     "walkthrough": "In British politics Labour is red and the Conservatives (Tories) blue; the two parties sit either side of OR A, giving LAB-ORA-TORY.",
+     "definitionFit": "A laboratory is a room or building equipped for scientific experiments, which makes it a plain synonym for a research facility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +108,57 @@
     "text": "Vegetable in bottom of boat brought up",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LEEK",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down entry, bringing a word up lifts its end to the top, so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom of boat",
+      "gives": "KEEL",
+      "note": "the keel is the structural spine along the bottom of a boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEEK"
+     ],
+     "reversals": [
+      {
+       "from": "KEEL",
+       "to": "LEEK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something green found lying in the bilge of a boat after it was hauled up.",
+     "walkthrough": "'Brought up' suggests lifting the vegetable from the boat, but it reverses KEEL in this down clue to give LEEK.",
+     "definitionFit": "The leek is an onion-family plant grown and eaten as a vegetable, so this is a simple example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +172,43 @@
     "text": "Work of art in pieces",
     "enumeration": "4"
    },
-   "solution": "BUST"
+   "solution": "BUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUST",
+    "definitions": [
+     {
+      "text": "Work of art",
+      "at": 0
+     },
+     {
+      "text": "in pieces",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work of art",
+      "note": "first meaning: a sculpture of the head and shoulders"
+     },
+     {
+      "clueFragment": "in pieces",
+      "note": "second meaning: broken, as in informal speech"
+     }
+    ],
+    "explanation": {
+     "surface": "A sculpture or painting found smashed to bits.",
+     "walkthrough": "The surface reads as one damaged artwork; the clue is two separate meanings of one short word.",
+     "definitionFit": "A sculpted head and shoulders is a classic artwork, and colloquially anything broken beyond use is described with the same word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +228,64 @@
      }
     ]
    },
-   "solution": "RADIOSILENCE"
+   "solution": "RADIOSILENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RADIO SILENCE",
+    "definitions": [
+     {
+      "text": "lack of communication",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprising",
+      "for": "anagram",
+      "note": "something surprising is unexpected, so the letters turn up in an unexpected order"
+     },
+     {
+      "text": "gathered",
+      "for": "anagram",
+      "note": "things gathered are collected together into a heap, so the letters are bundled up and remixed"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Icelander",
+      "gives": "ICELANDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "so I",
+      "gives": "SOI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICELANDERSOI",
+       "gives": "RADIOSILENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks that an Icelander has gone surprisingly quiet, or so they gathered.",
+     "walkthrough": "'So I gathered' reads as a casual aside, but it supplies letters and a second anagram signal.",
+     "definitionFit": "Radio silence is the deliberate halt of transmissions, and by extension any period without contact or news from someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +299,62 @@
     "text": "Fly goes down into middle of gateau",
     "enumeration": "6"
    },
-   "solution": "TSETSE"
+   "solution": "TSETSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TSETSE",
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word means only its central letters are kept"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gateau",
+      "gives": "TE",
+      "select": "middle",
+      "note": "the two central letters of the six-letter cake"
+     },
+     {
+      "clueFragment": "goes down",
+      "gives": "SETS",
+      "note": "the sun sets when it goes down below the horizon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "SETS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fly lands on the middle of a cake.",
+     "walkthrough": "'Goes down' is not about the fly descending; it is SETS, as the sun does, placed inside the centre of GATEAU.",
+     "definitionFit": "The tsetse is an African biting insect that spreads sleeping sickness, so it is a particular species of fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +368,62 @@
     "text": "Animal coloured in red, always",
     "enumeration": "8"
    },
-   "solution": "REINDEER"
+   "solution": "REINDEER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REINDEER",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coloured",
+      "for": "container",
+      "note": "colouring in a shape means filling its outline, so one word fills the gap inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "IN",
+      "D",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature that is always painted red, like Rudolph's nose.",
+     "walkthrough": "'Coloured in red' sounds like a paint job, but 'coloured' means filled in, as a child colours in an outline; e'er is the poetic form of ever.",
+     "definitionFit": "The reindeer is an Arctic deer, so it is simply one example of an animal, and red-nosed Rudolph is a famous one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coloured"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +437,57 @@
     "text": "Comfortable when weapons returned",
     "enumeration": "4"
    },
-   "solution": "SNUG"
+   "solution": "SNUG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNUG",
+    "definitions": [
+     {
+      "text": "Comfortable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapons",
+      "gives": "GUNS",
+      "note": "guns are firearms, a common kind of weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNUG"
+     ],
+     "reversals": [
+      {
+       "from": "GUNS",
+       "to": "SNUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling at ease once the arms have been handed back after a conflict.",
+     "walkthrough": "'Returned' sounds like a weapons amnesty but it simply flips the word for weapons.",
+     "definitionFit": "Snug describes being warm, cosy and at ease, making it a close synonym of comfortable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +507,56 @@
      }
     ]
    },
-   "solution": "NAILBITING"
+   "solution": "NAILBITING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NAIL-BITING",
+    "definitions": [
+     {
+      "text": "very tight?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to squeeze",
+      "for": "container",
+      "note": "squeezing something is gripping it tightly, so one piece holds another inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Getting",
+      "gives": "NAILING",
+      "note": "nailing is catching or getting hold of someone"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit is a part or piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAIL",
+      "BIT",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to squeeze into a part of a garment that is too tight.",
+     "walkthrough": "'Very tight' looks like a description of clothing; it means a contest so evenly matched that it is tense.",
+     "definitionFit": "A close finish makes spectators anxious enough to chew their fingertips, so nail-biting describes a contest decided by a tight margin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +570,40 @@
     "text": "Sour thing sandwiched by cupcake and sweetie?",
     "enumeration": "10"
    },
-   "solution": "GOOSEBERRY"
+   "solution": "GOOSEBERRY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GOOSEBERRY",
+    "definitions": [
+     {
+      "text": "Sour thing sandwiched by cupcake and sweetie?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sour thing sandwiched by cupcake and sweetie?",
+      "note": "surface reading: a tart filling between two sweet treats in a dessert"
+     },
+     {
+      "clueFragment": "cupcake and sweetie",
+      "note": "setter's reading: two lovers calling each other pet names, with an unwanted third person stuck between them"
+     }
+    ],
+    "explanation": {
+     "surface": "A tart fruit layered between a cupcake and a sweet, like an odd dessert.",
+     "walkthrough": "Cupcake and sweetie are terms of endearment, so they stand for a couple; to play the sour fruit is British slang for being the awkward third wheel.",
+     "definitionFit": "The tart green fruit gives its name to the British idiom for an unwanted companion who spoils a couple's privacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cupcake"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +627,51 @@
      }
     ]
    },
-   "solution": "EASYDOESIT"
+   "solution": "EASYDOESIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EASY DOES IT",
+    "definitions": [
+     {
+      "text": "be careful!",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tampered with",
+      "for": "anagram",
+      "note": "something tampered with has been interfered with and altered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaside toy",
+      "gives": "SEASIDETOY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEASIDETOY",
+       "gives": "EASYDOESIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning shouted after someone has interfered with a child's beach toy.",
+     "walkthrough": "The dash makes the warning sound like a response to the tampering, but the toy's letters themselves are what is rearranged.",
+     "definitionFit": "The phrase is a spoken caution urging someone to slow down and proceed gently, the same idea as telling them to take care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toy"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +685,43 @@
     "text": "Wine quaffed by Romanov in Omsk",
     "enumeration": "4"
    },
-   "solution": "VINO"
+   "solution": "VINO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VINO",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quaffed by",
+      "for": "hidden_word",
+      "note": "what is quaffed is swallowed, so the word sits swallowed within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romanov in Omsk",
+      "gives": "VINO",
+      "note": "the letters run across the end of the surname and the next two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Russian aristocrat downing wine in the Siberian city of Omsk.",
+     "walkthrough": "The Romanovs were Russia's royal dynasty and Omsk is a Siberian city, which sets a scene where vodka might be expected.",
+     "definitionFit": "Vino is the Italian and Spanish word for wine, used informally in English for an everyday bottle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quaffed"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +735,59 @@
     "text": "Test for the drinker, a table with sherry all over the place",
     "enumeration": "12"
    },
-   "solution": "BREATHALYSER"
+   "solution": "BREATHALYSER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BREATHALYSER",
+    "definitions": [
+     {
+      "text": "Test for the drinker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "something all over the place is in disarray, so the letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a table",
+      "gives": "ATABLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sherry",
+      "gives": "SHERRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATABLESHERRY",
+       "gives": "BREATHALYSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker's table is covered in spilled sherry, a sure sign of trouble.",
+     "walkthrough": "The spilled sherry fits the drinking theme, which hides that the table and drink are the letters to rearrange.",
+     "definitionFit": "A breathalyser is the roadside device police use to measure alcohol on a motorist's breath, so it tests anyone suspected of drinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +801,68 @@
     "text": "Substantial rope's held on bank, right?",
     "enumeration": "12"
    },
-   "solution": "CONSIDERABLE"
+   "solution": "CONSIDERABLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CONSIDERABLE",
+    "definitions": [
+     {
+      "text": "Substantial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is gripped from both sides, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rope",
+      "gives": "CABLE",
+      "note": "a cable is a thick rope"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "SIDE",
+      "note": "a bank is the side of a river"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "SIDE",
+      "R",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a hefty rope has been secured on the riverbank.",
+     "walkthrough": "Read the apostrophe-s as 'has', not a possessive: the rope has held the other pieces, with a riverbank serving as a side.",
+     "definitionFit": "Considerable means large in size or amount, the same sense as substantial, as in a considerable sum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +876,55 @@
     "text": "Old mathematician God claims rang a bell",
     "enumeration": "10"
    },
-   "solution": "ARCHIMEDES"
+   "solution": "ARCHIMEDES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCHIMEDES",
+    "definitions": [
+     {
+      "text": "Old mathematician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claims",
+      "for": "container",
+      "note": "to claim something is to take hold of it, so one piece keeps another within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "ARES",
+      "note": "Ares is the Greek god of war"
+     },
+     {
+      "clueFragment": "rang a bell",
+      "gives": "CHIMED",
+      "note": "a bell that rang chimed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CHIMED",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient scholar says that God claims the idea rang a bell.",
+     "walkthrough": "'Claims' reads as a verb of speaking but acts as holding; 'rang a bell' suggests recognition, not a literal chime.",
+     "definitionFit": "Archimedes of Syracuse was an ancient Greek scientist celebrated for his geometry and his principle of buoyancy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claims"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +944,44 @@
      }
     ]
    },
-   "solution": "SECONDHAND"
+   "solution": "SECONDHAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SECOND-HAND",
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     },
+     {
+      "text": "timer?",
+      "at": 4,
+      "note": "a part of a timer rather than a whole timer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "note": "first meaning: previously owned, not new"
+     },
+     {
+      "clueFragment": "timer?",
+      "note": "second meaning: the thin pointer on a clock face counting seconds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Old timer' looks like a veteran person; split, the words are two meanings of one hyphenated phrase, the question mark flagging the stretch from timer to its part.",
+     "definitionFit": "Goods already used by a previous owner are described this way, and the same phrase names the fast pointer on a clock or watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "timer"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1001,47 @@
      }
     ]
    },
-   "solution": "REEDIT"
+   "solution": "REEDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RE-EDIT",
+    "definitions": [
+     {
+      "text": "correct again",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant",
+      "gives": "REED",
+      "note": "a reed is a tall grass-like waterside plant"
+     },
+     {
+      "clueFragment": "computers",
+      "gives": "IT",
+      "note": "IT is information technology, the field of computers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REED",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to install computers and then fix them once more.",
+     "walkthrough": "'Plant' looks like a verb meaning install, but it is a noun naming a waterside grass.",
+     "definitionFit": "To edit is to revise and fix errors in a text, so doing it a second time is to correct again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1055,55 @@
     "text": "Repeater's funny funny conversation",
     "enumeration": "8"
    },
-   "solution": "REPARTEE"
+   "solution": "REPARTEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPARTEE",
+    "definitions": [
+     {
+      "text": "funny conversation",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny can mean odd or peculiar, so the letters come out in a strange order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeater",
+      "gives": "REPEATER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPEATER",
+       "gives": "REPARTEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who repeats themselves keeps saying 'funny, funny' in conversation.",
+     "walkthrough": "The doubled word looks like a typo or stammer; the first means strange, the second belongs to the definition.",
+     "definitionFit": "Repartee is quick, witty exchange of remarks, so it is talk that is clever and amusing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1117,45 @@
     "text": "Where runner observed, tall thin person",
     "enumeration": "8"
    },
-   "solution": "BEANPOLE"
+   "solution": "BEANPOLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEANPOLE",
+    "definitions": [
+     {
+      "text": "Where runner observed",
+      "at": 0,
+      "note": "a place, defined as a location rather than a thing"
+     },
+     {
+      "text": "tall thin person",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where runner observed",
+      "note": "first meaning: the cane a runner bean climbs, where it can be seen growing"
+     },
+     {
+      "clueFragment": "tall thin person",
+      "note": "second meaning: a lanky, skinny individual"
+     }
+    ],
+    "explanation": {
+     "surface": "A spectator spots a lanky athlete on the track.",
+     "walkthrough": "'Runner' suggests an athlete, but a runner is also a climbing bean, which grows up a garden cane.",
+     "definitionFit": "Runner beans are trained up tall garden poles, and by comparison a very tall skinny person is given the same nickname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1169,53 @@
     "text": "House done, Edward cleaned up",
     "enumeration": "8"
    },
-   "solution": "HOOVERED"
+   "solution": "HOOVERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOOVERED",
+    "definitions": [
+     {
+      "text": "cleaned up",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "done",
+      "gives": "OVER",
+      "note": "something done is finished, over"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is a short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "OVER",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Edward has finished the housework and tidied up.",
+     "walkthrough": "In Britain Hoover, a vacuum cleaner brand, is the everyday verb for vacuuming, which fits Edward's housework.",
+     "definitionFit": "To hoover a room is to vacuum it, so having hoovered means having removed the dust and dirt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1229,43 @@
     "text": "Dark bruise, light?",
     "enumeration": "6"
    },
-   "solution": "SHINER"
+   "solution": "SHINER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHINER",
+    "definitions": [
+     {
+      "text": "Dark bruise",
+      "at": 0
+     },
+     {
+      "text": "light?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark bruise",
+      "note": "first meaning: slang for a black eye"
+     },
+     {
+      "clueFragment": "light?",
+      "note": "second meaning: something that gives off light"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dark and light look like opposites describing one bruise; the question mark marks the playful second sense of a thing that gleams.",
+     "definitionFit": "Informally a black eye is called a shiner, and the word also literally means anything that glows or gleams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1279,42 @@
     "text": "Mind item",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBJECT",
+    "definitions": [
+     {
+      "text": "Mind",
+      "at": 0
+     },
+     {
+      "text": "item",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mind",
+      "note": "first meaning: to be bothered by, to raise opposition"
+     },
+     {
+      "clueFragment": "item",
+      "note": "second meaning: a thing or article"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mind' looks like a noun for the intellect, but it is the verb used in 'do you mind?'.",
+     "definitionFit": "If you mind something you protest against it, and separately the word is a noun for any physical thing or article."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mind"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1334,39 @@
      }
     ]
    },
-   "solution": "MEDICINEBALL"
+   "solution": "MEDICINEBALL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MEDICINE BALL",
+    "definitions": [
+     {
+      "text": "A prescription for fitness fanatics?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A prescription for fitness fanatics?",
+      "note": "surface reading: a doctor's order written for gym enthusiasts"
+     },
+     {
+      "clueFragment": "prescription",
+      "note": "setter's reading: a prescribed remedy combined with sporting equipment, naming a heavy weighted exercise sphere"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A prescription is a doctor's medicine; the item meant is the heavy weighted ball thrown and caught in gym training.",
+     "definitionFit": "This is weighted exercise equipment used for strength training, and its first word is what a doctor prescribes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prescription"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1380,71 @@
     "text": "Sage generally unwanted, rosemary usually for starters",
     "enumeration": "4"
    },
-   "solution": "GURU"
+   "solution": "GURU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GURU",
+    "definitions": [
+     {
+      "text": "Sage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters come at the beginning of a meal, so only the opening letter of each word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "generally",
+      "gives": "G",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "unwanted",
+      "gives": "U",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "rosemary",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "usually",
+      "gives": "U",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "U",
+      "R",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook notes that sage is generally unwanted while rosemary is usually used in starters.",
+     "walkthrough": "'Sage' and 'rosemary' set a herb garden scene, but sage here means a wise person.",
+     "definitionFit": "A guru is a respected spiritual teacher or expert, so it matches sage in its sense of a wise person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sage"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1458,55 @@
     "text": "Church overcome by film score",
     "enumeration": "4"
    },
-   "solution": "ETCH"
+   "solution": "ETCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ETCH",
+    "definitions": [
+     {
+      "text": "score",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overcome by",
+      "for": "charade",
+      "note": "in a down entry, something overcome by another lies beneath it, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is Spielberg's film about an extra-terrestrial"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A church choir is overwhelmed by the music of a film soundtrack.",
+     "walkthrough": "'Score' seems to be a film's music, but it is a verb meaning to scratch a line into a surface.",
+     "definitionFit": "To etch is to cut lines into metal or glass, and to score is likewise to mark a surface with a scratch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1520,44 @@
     "text": "Honey at a high price",
     "enumeration": "4"
    },
-   "solution": "DEAR"
+   "solution": "DEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAR",
+    "definitions": [
+     {
+      "text": "Honey",
+      "at": 0
+     },
+     {
+      "text": "at a high price",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honey",
+      "note": "first meaning: a term of affection for a loved one"
+     },
+     {
+      "clueFragment": "at a high price",
+      "note": "second meaning: expensive, costly"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that honey is sold expensively.",
+     "walkthrough": "The surface reads as costly honey from the shop; honey is in fact the pet name.",
+     "definitionFit": "Both words are affectionate forms of address, and in British usage something expensive is described as dear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Honey"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1571,62 @@
     "text": "A few drunken ultras flip!",
     "enumeration": "10"
    },
-   "solution": "SOMERSAULT"
+   "solution": "SOMERSAULT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SOMERSAULT",
+    "definitions": [
+     {
+      "text": "flip!",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "someone drunken staggers about unsteadily, so the letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A few",
+      "gives": "SOME",
+      "note": "a few is some"
+     },
+     {
+      "clueFragment": "ultras",
+      "gives": "ULTRAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOME",
+      "RSAULT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ULTRAS",
+       "gives": "RSAULT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handful of drunken hardline football fans lose their temper.",
+     "walkthrough": "'Flip!' looks like losing one's temper, but it is the acrobatic noun; ultras are fanatical football supporters.",
+     "definitionFit": "A somersault is an acrobatic roll or leap turning heels over head, exactly the gymnastic move called a flip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flip"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1640,57 @@
     "text": "Carbonated drink sent back in Colorado Springs",
     "enumeration": "4"
    },
-   "solution": "SODA"
+   "solution": "SODA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SODA",
+    "definitions": [
+     {
+      "text": "Carbonated drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the words that follow, unchanged"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back is returned the way it came, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colorado Springs",
+      "gives": "ADOS",
+      "note": "the letters straddle the end of the state name and the start of the next word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ADOS",
+       "to": "SODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fizzy drink is returned as unsatisfactory in a Colorado city.",
+     "walkthrough": "Colorado Springs is a real US city, and 'Springs' even suggests water, which hides that the clue's letters are the answer.",
+     "definitionFit": "Soda is fizzy water or a sweet fizzy soft drink, so it is a straightforward synonym for a carbonated beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Springs"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1710,61 @@
      }
     ]
    },
-   "solution": "SEETHROUGH"
+   "solution": "SEETHROUGH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEE-THROUGH",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully means in a terrible manner, so the letters are badly mangled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheet",
+      "gives": "SHEET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "coarse",
+      "gives": "ROUGH",
+      "note": "coarse means rough in texture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEETH",
+      "ROUGH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHEET",
+       "gives": "SEETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes a bedsheet feels terribly rough.",
+     "walkthrough": "'Awfully coarse' reads as one phrase meaning very rough, but 'awfully' acts only on the word before it.",
+     "definitionFit": "See-through describes something transparent, which is what clear means when applied to glass or fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awfully"
+    }
+   }
   }
  ]
 }
