@@ -332,12 +332,13 @@ def separators(fmt, lengths):
     separator. For a linked clue the offsets are split across the entries and
     re-based on each one, which is what the Guardian's own data does: "4,3,5,5"
     over TURNTHE + OTHERCHEEK puts marks at 4 and 7 on the first and at 5 on
-    the second.
+    the second. An apostrophe is a mark of its own, not a word break: "6,1'8"
+    gives "," at 6 and "'" at 7 (puzzle_integrity.check_apostrophes).
     """
     out = [[] for _ in lengths]
     pos = 0
-    for piece in re.split(r"([,\-])", fmt or ""):
-        if piece in (",", "-"):
+    for piece in re.split(r"([,\-'])", (fmt or "").replace("’", "'")):
+        if piece in (",", "-", "'"):
             # Which entry does this boundary fall in? The last one that ends at
             # or after it, so a separator sitting exactly on an entry boundary
             # is recorded on the entry that ends there.
@@ -374,15 +375,14 @@ def enumeration_separators(entries):
     The enumeration must add up to the entry's own length, or to its linked
     group's in group order, and is then split across the group as
     separators() does. Anything else (no enumeration, a total that fits
-    neither) leaves the entry as it was. An apostrophe starts no new word, so
-    only commas and hyphens are breaks."""
+    neither) leaves the entry as it was. An apostrophe is filed as an "'"
+    mark, which starts no new word."""
     by_id = {entry_id(e): e for e in entries}
     for e in entries:
         fmt = e["clue"].get("enumeration", "")
         if not CLUE_ENUMERATION.fullmatch(fmt):
             continue
         total = sum(enumeration.counts(fmt))
-        fmt = re.sub(r"(\d+)'(\d+)", lambda g: str(int(g[1]) + int(g[2])), fmt)
         group = [by_id[g] for g in e.get("group") or [] if g in by_id]
         if total == e["length"]:
             targets = [e]
@@ -498,7 +498,6 @@ def order_groups(puzzle, orders=None):
         fmt = by_id[lead]["clue"].get("enumeration", "")
         if not CLUE_ENUMERATION.fullmatch(fmt):
             continue
-        fmt = re.sub(r"(\d+)'(\d+)", lambda g: str(int(g[1]) + int(g[2])), fmt)
         members = [by_id[m] for m in order]
         for m, seps in zip(members, separators(fmt, [m["length"] for m in members])):
             clue = {k: v for k, v in m["clue"].items() if k != "separators"}
