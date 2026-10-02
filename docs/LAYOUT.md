@@ -1205,7 +1205,9 @@ tools/test_no_doubled_paper.sh               does any series' page say the same 
                                              it. Renders a crawlable page for every series in
                                              tools/series.py and refuses a repeated adjacent
                                              word in the title, heading, description or series
-                                             name
+                                             name; and each title leads with the paper and the
+                                             number as searched ("Guardian Cryptic 30111
+                                             answers"), no thousands comma
 tools/test_vlm_reader.sh                     does tools/vlm_reader.py stay out of the way when
                                              the desktop's VLM does not answer, cache what it
                                              asks, crop each clue column alone, and does
