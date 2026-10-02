@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Bit of zinc is easily cut into",
     "enumeration": "6"
    },
-   "solution": "INCISE"
+   "solution": "INCISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INCISE",
+    "definitions": [
+     {
+      "text": "cut into",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "hidden_word",
+      "note": "a bit is only a portion, so the answer is a stretch lifted out of the running letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zinc is easily",
+      "gives": "INCISE",
+      "note": "the letters run across the three words once the spaces are ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "A metalworker remarks that soft zinc is easy to cut into.",
+     "walkthrough": "The answer sits inside zINC IS Easily, skipping the first Z and stopping before the rest of 'easily'.",
+     "definitionFit": "To incise is to make a cut or engrave a mark into a surface, a precise synonym of carving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bit"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,58 @@
     "text": "Info short on employment for soak",
     "enumeration": "6"
    },
-   "solution": "INFUSE"
+   "solution": "INFUSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INFUSE",
+    "definitions": [
+     {
+      "text": "soak",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is missing its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Info",
+      "gives": "INF",
+      "note": "the word loses its final O"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "use is employment of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is lacking information about a job, phrased like a note to a heavy drinker.",
+     "walkthrough": "'On' just places the second piece after the first in this down clue.",
+     "definitionFit": "To infuse tea or herbs is to steep them in liquid, letting them sit and soak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soak"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,51 @@
     "text": "Clash: accord not in it unfortunately",
     "enumeration": "13"
    },
-   "solution": "CONTRADICTION"
+   "solution": "CONTRADICTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTRADICTION",
+    "definitions": [
+     {
+      "text": "Clash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters end up in a wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accord not in it",
+      "gives": "ACCORDNOTINIT",
+      "note": "thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACCORDNOTINIT",
+       "gives": "CONTRADICTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute where, sadly, no agreement has been reached.",
+     "walkthrough": "The surface is neatly apt: a clash is just what you have when accord is not in it.",
+     "definitionFit": "A contradiction is a conflict between statements or facts that cannot both hold, so it is a clash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +209,47 @@
     "text": "Small glove taken",
     "enumeration": "7"
    },
-   "solution": "SMITTEN"
+   "solution": "SMITTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMITTEN",
+    "definitions": [
+     {
+      "text": "taken",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "glove",
+      "gives": "MITTEN",
+      "note": "a mitten is a kind of glove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MITTEN"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Taken' reads like a lost glove being stolen, but it means charmed, as in 'quite taken with her'.",
+     "definitionFit": "Being taken with someone means being attracted to them, the same as being infatuated or lovestruck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +263,67 @@
     "text": "Drunk was collared by elderly assassin",
     "enumeration": "6"
    },
-   "solution": "OSWALD"
+   "solution": "OSWALD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OSWALD",
+    "definitions": [
+     {
+      "text": "assassin",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so these letters lurch into another order"
+     },
+     {
+      "text": "collared by",
+      "for": "container",
+      "note": "a collar goes round a neck, so one piece is ringed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "elderly",
+      "gives": "OLD",
+      "note": "elderly people are old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SWA",
+      "LD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WAS",
+       "gives": "SWA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old killer gets arrested while drunk.",
+     "walkthrough": "Lee Harvey Oswald was the man who shot US President John F. Kennedy in 1963.",
+     "definitionFit": "Lee Harvey Oswald is the famous example of an assassin, the gunman who killed President Kennedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collared"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +337,56 @@
     "text": "Shepherd initially caring for flock",
     "enumeration": "5"
    },
-   "solution": "SWARM"
+   "solution": "SWARM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWARM",
+    "definitions": [
+     {
+      "text": "flock",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shepherd",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "caring",
+      "gives": "WARM",
+      "note": "a warm person is kind and caring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WARM"
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd begins by tending the sheep.",
+     "walkthrough": "'Flock' looks like a noun for the sheep, but it is a verb meaning to crowd together.",
+     "definitionFit": "People or insects swarm when they move together in a large crowd, just as they flock somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flock"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +406,61 @@
      }
     ]
    },
-   "solution": "ALPHACENTAURI"
+   "solution": "ALPHACENTAURI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALPHA CENTAURI",
+    "definitions": [
+     {
+      "text": "Three stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cavorting",
+      "for": "anagram",
+      "note": "cavorting is leaping about wildly, so the letters jump into a new order"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catharine",
+      "gives": "CATHARINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Paul",
+      "gives": "PAUL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CATHARINEPAUL",
+       "gives": "ALPHACENTAURI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trio of celebrities emerge from a woman's romp with her partner.",
+     "walkthrough": "'Stars' suggests film celebrities, but these are real stars in the sky.",
+     "definitionFit": "The nearest star system to our Sun is a triple: Alpha Centauri A and B plus Proxima Centauri."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +474,55 @@
     "text": "See wrapping on gift",
     "enumeration": "6"
    },
-   "solution": "DONATE"
+   "solution": "DONATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DONATE",
+    "definitions": [
+     {
+      "text": "gift",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "wrapping goes round a present, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "DATE",
+      "note": "to see someone is to date them romantically"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ON",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to look at the wrapping paper on a present.",
+     "walkthrough": "'Wrapping' and 'gift' both suggest a parcel; 'gift' is actually a verb meaning to give.",
+     "definitionFit": "To gift something is to hand it over freely, which is what donating means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +536,55 @@
     "text": "European swimmer outside hotel",
     "enumeration": "7"
    },
-   "solution": "FINNISH"
+   "solution": "FINNISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINNISH",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "to be outside is to surround, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swimmer",
+      "gives": "FISH",
+      "note": "a fish is a swimmer"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "INN",
+      "note": "an inn is a small hotel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "INN",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer from Europe stands outside a hotel.",
+     "walkthrough": "'Swimmer' looks like a person, but it is crossword shorthand for a fish.",
+     "definitionFit": "Someone or something from Finland is Finnish, and Finland is a country in northern Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +604,51 @@
      }
     ]
    },
-   "solution": "HARDTIMES"
+   "solution": "HARDTIMES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARD TIMES",
+    "definitions": [
+     {
+      "text": "Satirical work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is broken apart, so the letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this dream",
+      "gives": "THISDREAM",
+      "note": "nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THISDREAM",
+       "gives": "HARDTIMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cutting piece of writing has spoilt someone's dream.",
+     "walkthrough": "The surface is apt: a ruined dream is a hard time.",
+     "definitionFit": "Hard Times is the Charles Dickens novel satirising the grim industrial towns and utilitarian schooling of Victorian England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +662,55 @@
     "text": "Ski resort area almost finished",
     "enumeration": "5"
    },
-   "solution": "ASPEN"
+   "solution": "ASPEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASPEN",
+    "definitions": [
+     {
+      "text": "Ski resort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word stops one letter short"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "SPEN",
+      "note": "finished means spent, missing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A ski resort's slopes are nearly done for the season.",
+     "walkthrough": "'Area' looks like part of the definition but is the opening letter.",
+     "definitionFit": "Aspen is a famous upmarket ski resort town in the Rocky Mountains of Colorado."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "area"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +724,58 @@
     "text": "Fish and rook in quarrel",
     "enumeration": "5"
    },
-   "solution": "SPRAT"
+   "solution": "SPRAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRAT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quarrel",
+      "gives": "SPAT",
+      "note": "a spat is a petty quarrel"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess abbreviation for rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish and a bird are squabbling.",
+     "walkthrough": "'Rook' suggests the black bird, but here it is the chess piece, written R.",
+     "definitionFit": "The sprat is a small silvery fish of the herring family, often eaten whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +789,59 @@
     "text": "Unrestrained tirade involving a politician",
     "enumeration": "7"
    },
-   "solution": "RAMPANT"
+   "solution": "RAMPANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAMPANT",
+    "definitions": [
+     {
+      "text": "Unrestrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to include within, so one piece takes in the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is a tirade"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "MP",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician launches into a wild, uncontrolled outburst.",
+     "walkthrough": "MP, Member of Parliament, is the standard crossword politician.",
+     "definitionFit": "Rampant describes something spreading or behaving without any check or control, wildly unchecked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +855,50 @@
     "text": "Duke wobbly in market town",
     "enumeration": "9"
    },
-   "solution": "DUNSTABLE"
+   "solution": "DUNSTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNSTABLE",
+    "definitions": [
+     {
+      "text": "market town",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "wobbly",
+      "gives": "UNSTABLE",
+      "note": "something wobbly is unstable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UNSTABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat is unsteady on his feet in a country town.",
+     "walkthrough": "'Wobbly' looks like an anagram signal but is a plain synonym. Dunstable is a market town in Bedfordshire, north of London.",
+     "definitionFit": "Dunstable is an English town that grew up around its historic market at a Roman crossroads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wobbly"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +912,43 @@
     "text": "Fruit bats",
     "enumeration": "7"
    },
-   "solution": "BANANAS"
+   "solution": "BANANAS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BANANAS",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     },
+     {
+      "text": "bats",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "note": "first meaning: long yellow tropical fruit"
+     },
+     {
+      "clueFragment": "bats",
+      "note": "second meaning: crazy, as in 'gone bats'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like the name of the animal, fruit bats; 'bats' is actually slang for mad.",
+     "definitionFit": "The word is both the plural of a common curved fruit and an informal adjective meaning mad or crazy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +962,43 @@
     "text": "Chicken like a canary",
     "enumeration": "6"
    },
-   "solution": "YELLOW"
+   "solution": "YELLOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YELLOW",
+    "definitions": [
+     {
+      "text": "Chicken",
+      "at": 0
+     },
+     {
+      "text": "like a canary",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chicken",
+      "note": "first meaning: cowardly"
+     },
+     {
+      "clueFragment": "like a canary",
+      "note": "second meaning: the bright colour of a canary"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as comparing two birds; 'Chicken' is slang for cowardly.",
+     "definitionFit": "The word is informal for cowardly and is also the colour name for the plumage of the familiar pet songbird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chicken"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1012,52 @@
     "text": "Seneca spoiled attempt to raise spirits",
     "enumeration": "6"
    },
-   "solution": "SEANCE"
+   "solution": "SEANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEANCE",
+    "definitions": [
+     {
+      "text": "attempt to raise spirits",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled has been damaged, so the letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seneca",
+      "gives": "SENECA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENECA",
+       "gives": "SEANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Roman philosopher Seneca ruined an effort to cheer people up.",
+     "walkthrough": "'Raise spirits' suggests cheering up, but here spirits are ghosts.",
+     "definitionFit": "A séance is a meeting where people try to contact and summon the dead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1071,47 @@
     "text": "Demand for alimony? Speak boldly",
     "enumeration": "7"
    },
-   "solution": "EXCLAIM"
+   "solution": "EXCLAIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCLAIM",
+    "definitions": [
+     {
+      "text": "Speak boldly",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for alimony",
+      "gives": "EX",
+      "note": "alimony is paid to a former spouse, an ex"
+     },
+     {
+      "clueFragment": "Demand",
+      "gives": "CLAIM",
+      "note": "a claim is a demand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CLAIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A divorcing spouse is told to state firmly what they want in support payments.",
+     "walkthrough": "An alimony demand is an ex's claim, so the pieces go in that order.",
+     "definitionFit": "To exclaim is to cry out suddenly and forcefully, voicing words loudly and with feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alimony"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1125,54 @@
     "text": "Confuse daughter twice introduced to beer",
     "enumeration": "5"
    },
-   "solution": "ADDLE"
+   "solution": "ADDLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADDLE",
+    "definitions": [
+     {
+      "text": "Confuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "something introduced to a thing is put into it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a beer"
+     },
+     {
+      "clueFragment": "daughter twice",
+      "gives": "DD",
+      "note": "D for daughter, written twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A father befuddles his daughter by giving her beer twice.",
+     "walkthrough": "D for daughter is a common abbreviation in family trees.",
+     "definitionFit": "To addle someone's brain is to muddle it, leaving them confused and unable to think clearly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1186,50 @@
     "text": "Explosive component strangely inert",
     "enumeration": "5"
    },
-   "solution": "NITRE"
+   "solution": "NITRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NITRE",
+    "definitions": [
+     {
+      "text": "Explosive component",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters come out in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inert",
+      "gives": "INERT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INERT",
+       "gives": "NITRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a bomb is oddly not reacting.",
+     "walkthrough": "The surface sets an inert part against an explosive one, a neat contrast.",
+     "definitionFit": "Nitre, potassium nitrate, is the oxidising ingredient of gunpowder, so it is part of an explosive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1243,55 @@
     "text": "Fat covering one landowner",
     "enumeration": "5"
    },
-   "solution": "LAIRD"
+   "solution": "LAIRD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAIRD",
+    "definitions": [
+     {
+      "text": "landowner",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a covering wraps around, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "I",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy landholder is plump all over.",
+     "walkthrough": "A laird is a Scottish word for the owner of a landed estate.",
+     "definitionFit": "In Scotland a laird is the proprietor of a large estate, so a landowner of rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fat"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1305,39 @@
     "text": "Effect of solar battery?",
     "enumeration": "7"
    },
-   "solution": "SUNBURN"
+   "solution": "SUNBURN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUNBURN",
+    "definitions": [
+     {
+      "text": "Effect of solar battery?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Effect of solar battery?",
+      "note": "surface reading: what a solar-powered cell does"
+     },
+     {
+      "clueFragment": "solar battery",
+      "note": "setter's reading: a battering, an assault, from the sun on bare skin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A battery is also a physical attack, so a solar battery is a beating from the sun, and its effect is painful reddened skin.",
+     "definitionFit": "Overexposure to the sun's ultraviolet rays leaves skin red, sore and damaged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "battery"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1351,47 @@
     "text": "Season with Milan football team",
     "enumeration": "6"
    },
-   "solution": "WINTER"
+   "solution": "WINTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINTER",
+    "definitions": [
+     {
+      "text": "Season",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     },
+     {
+      "clueFragment": "Milan football team",
+      "gives": "INTER",
+      "note": "Inter Milan is an Italian football club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "INTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports fan spends the season following an Italian football club.",
+     "walkthrough": "'With' looks like a link word but gives its abbreviation W, as in 'w/'.",
+     "definitionFit": "Winter is one of the four seasons of the year, the coldest one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1405,54 @@
     "text": "High praise for Hope",
     "enumeration": "6"
    },
-   "solution": "ASPIRE"
+   "solution": "ASPIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASPIRE",
+    "definitions": [
+     {
+      "text": "Hope",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "High",
+      "for": "anagram",
+      "note": "someone high is intoxicated and out of order, so the letters get muddled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "praise",
+      "gives": "PRAISE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRAISE",
+       "gives": "ASPIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lavish compliments offered in support of Hope.",
+     "walkthrough": "'High praise' reads as a single phrase; 'High' is separate, meaning drunk or stoned.",
+     "definitionFit": "To aspire is to long or aim for something, the verb sense of wishing and hoping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "High"
+    }
+   }
   }
  ]
 }
