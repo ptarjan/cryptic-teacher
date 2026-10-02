@@ -49,7 +49,7 @@ import parse_timesforthetimes as tftt
 import puzzle_integrity
 import reconstruct_grid as rg
 import times_grids as tg
-from fetch_puzzle import puzzle_path, write_puzzle_file
+from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
 
 SERIES = "ftcryptic"
 CACHE = Path.home() / "cryptic-setter-data" / "ft-pdf"
@@ -815,6 +815,7 @@ def file(write=True, limit=None, numbers=None, log=print):
                 puzzle, why = None, f"reprint of {on_disk[key]}"
         if puzzle is not None and write:
             try:
+                correct_source_answers(puzzle["id"], puzzle["entries"])
                 write_puzzle_file(puzzle_path(SERIES, n), puzzle,
                                   generator=GENERATOR if how == "live" else GENERATOR_WAYBACK)
             except ValueError as e:

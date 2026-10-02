@@ -1698,6 +1698,11 @@ SOURCE_ANSWER_WRONG = {
         '"Unusual work of art used among volunteers after weedkiller, if below '
         'par" is AQUATINTA, an etched print, ending in TA (volunteers); '
         "AQUATINIA is not a word; the eighth cell is unchecked"),
+    ("ftcryptic-16613", "2-down"): (
+        "SQUEALED", "SQUEAKED",
+        '"Ask queen shortly to mingle - Duke\'s informed" is an anagram of ASK '
+        "QUEE(n) + D, which spells SQUEAKED (informed, as a grass); the FT and "
+        "fifteensquared both print SQUEALED, a letter the wordplay cannot give"),
     ("cryptic-23022", "1-across"): (
         "ANTISPUMANTE", "ASTISPUMANTE",
         '"Since it\'s 10 off, take it for champagne" is printed (4,8), and the '
