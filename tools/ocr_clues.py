@@ -20,6 +20,7 @@ tools/file_trove_puzzles.py for the Canberra Times) reads them the same way:
     corpus's clues know, a name one OCR slip from a dictionary word). A
     puzzle with a suspect clue is not filed.
 """
+import functools
 import gzip
 import itertools
 import math
@@ -117,9 +118,12 @@ def tesseract_words(crop, model=None):
         lang = ["--tessdata-dir", str(model.parent), "-l", model.stem] if model else ["-l", "eng"]
         # TSV by parameter, not the "tsv" config file: a model's own
         # tessdata directory has no configs/.
+        # One thread: OpenMP's spinning threads take minutes over one crop
+        # on a busy host, where a single thread takes seconds.
         res = subprocess.run([tesseract(), str(path), "-", "--psm", "4", *lang,
                               "-c", "tessedit_create_tsv=1"],
-                             capture_output=True, text=True, timeout=300, check=False)
+                             capture_output=True, text=True, timeout=300, check=False,
+                             env={**os.environ, "OMP_THREAD_LIMIT": "1"})
     if res.returncode:
         raise RuntimeError(f"tesseract failed ({res.returncode}): {res.stderr.strip()[-300:]}")
     words = []
@@ -172,6 +176,7 @@ def tokens(text):
     return re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", text)
 
 
+@functools.lru_cache(maxsize=1 << 18)
 def similar(a, b):
     return SequenceMatcher(None, a, b, autojunk=False).ratio()
 
