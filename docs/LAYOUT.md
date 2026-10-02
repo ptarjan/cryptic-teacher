@@ -721,6 +721,9 @@ tools/daily_update.sh                        daily script: fetch latest, annotat
                                              validate, commit
 tools/nightly_worktree.sh                    sourced first: re-execs a scheduled job in its own
                                              worktree, never the editor’s
+tools/json_merge.py                          git merge driver: the keyed JSON data files
+                                             several writers append to merge per key, so a
+                                             rebase never stops on a ledger row
 tools/claude_path.sh                         sourced: finds the `claude` CLI wherever this
                                              machine keeps it, SDK-bundled copy included
 tools/alert.sh                               posts a run’s failures to Discord instead of
@@ -1046,6 +1049,8 @@ tools/test_prereset_lock.sh                  does the pre-reset backfill still t
                                              nobody is holding?
 tools/test_nightly_worktree.sh               which tree does a scheduled job end up running in?
                                              checked by running one
+tools/test_json_merge.sh                     do the keyed JSON data files merge per key in a
+                                             real rebase?
 tools/test_refresh_window.sh                 does refresh_unsolved ever stop asking for an
                                              answer that is never coming?
 tools/test_privateeye_dates.sh               does tools/fetch_privateeye.py read the issue off

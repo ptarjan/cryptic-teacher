@@ -544,18 +544,23 @@ sync_attempt() {
     if [ -n "$(git rev-list origin/master..HEAD)" ]; then git push -q origin HEAD:master; fi
 }
 
-# The glossary rows the runs added (tools/add_abbreviation.py writes them whole,
-# under a lock), committed and pushed the way a puzzle is, so safe with runs in
-# flight. Published at every checkpoint rather than at the republish, so the
-# puzzles already pushed validate on master, and a burn that is killed does not
-# lose them to nightly_worktree.sh's reset --hard.
-publish_abbreviations() {
+# Every shared data file the runs wrote, committed and pushed the way a puzzle
+# is, so safe with runs in flight: the glossary rows (tools/add_abbreviation.py,
+# whole, under a lock) and the corroboration ledger extend_archive.py's fetches
+# write. The directory, not a list, so the next such file is covered too. None
+# may ride the sync's --autostash: other writers append to these files all day,
+# and a stash pop that conflicts leaves an unmerged index that stops the burn.
+# Committed, the keyed ones merge per key in the rebase (.gitattributes,
+# tools/json_merge.py). Published at every checkpoint rather than at the
+# republish, so the puzzles already pushed validate on master, and a burn that
+# is killed does not lose them to nightly_worktree.sh's reset --hard.
+publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
-  [ -n "$(git status --porcelain -- tools/data/abbreviations.json)" ] || return 0
-  git add -- tools/data/abbreviations.json
-  git commit -q -m "$(printf 'Abbreviations from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
+  [ -n "$(git status --porcelain -- tools/data/)" ] || return 0
+  git add -A -- tools/data/
+  git commit -q -m "$(printf 'Shared data from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
   tools/push_puzzle_commit.sh ||
-    alert "pre-reset backfill committed new abbreviations but could not push them — the next sync retries. See .prereset.log."
+    alert "pre-reset backfill committed shared data ($(git show --name-only --format= HEAD | tr '\n' ' ')) but could not push it — the next sync retries. See .prereset.log."
 }
 
 # Bring this tree up to origin/master, and publish anything the per-puzzle
@@ -566,7 +571,7 @@ publish_abbreviations() {
 # push_puzzle_commit.sh already published drop out as patch-identical.
 sync_wave() {
   [ "$DRY_RUN" = 1 ] && return 0
-  publish_abbreviations
+  publish_shared_data
   # Nothing generated survives the rebase, because nothing generated is worth
   # carrying: the republish step rewrites every one of these files wholesale
   # from the puzzle sources, so the copy sitting in the tree right now is
@@ -577,7 +582,8 @@ sync_wave() {
   # Exclusions, not a list of what to drop, for the reason the republish `add
   # -A` gives: a named list of generated paths is incomplete the day someone
   # adds a generated path. What is excluded is what a run actually authors —
-  # a puzzle kept after a cut-off run, and glossary edits under tools/.
+  # a puzzle kept after a cut-off run, and shared data under tools/, which
+  # publish_shared_data has just committed.
   git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)tools/'
   # checkout only restores files git is tracking HERE. A generated page for a
   # puzzle this worktree's HEAD predates is untracked, so it survives, and the
@@ -607,7 +613,7 @@ sync_wave() {
 after_wave() {
   local before="$1" hours="$2" avg="$3" failed="$4" before_s="$5" pool="$6" now now_s s_read=1
   NAPPED=0
-  publish_abbreviations
+  publish_shared_data
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
   now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) || { now_s="$before_s"; s_read=0; }
   echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${avg} (pool of ${pool})"

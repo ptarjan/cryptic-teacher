@@ -1,0 +1,6 @@
+# Keyed JSON data that several writers append to at once: merged per key by
+# tools/json_merge.py, which tools/nightly_worktree.sh registers as the
+# json-keys driver. Where the driver is not registered git ignores the
+# attribute and merges line by line.
+tools/data/corroboration_ledger.json merge=json-keys
+tools/data/abbreviations.json merge=json-keys
