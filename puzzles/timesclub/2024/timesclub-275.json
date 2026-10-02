@@ -23,6 +23,9 @@
   "date": "2024-07-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,69 @@
     "text": "Recalled emotional problem but not an antique that reeks",
     "enumeration": "4"
    },
-   "solution": "PUGH"
+   "solution": "PUGH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "PUGH",
+    "definitions": [
+     {
+      "text": "antique that reeks",
+      "at": 38,
+      "note": "an old interjection voicing disgust at a smell, defined by what it is used for"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' tells you the following letters are to be left out of the word"
+     },
+     {
+      "text": "Recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emotional problem",
+      "gives": "HANGUP",
+      "note": "a hang-up is a neurotic emotional difficulty"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written, and removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUGH"
+     ],
+     "reversals": [
+      {
+       "from": "HGUP",
+       "to": "PUGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone digs up an old emotional hang-up while rejecting a smelly antique.",
+     "walkthrough": "HANGUP loses AN to leave HGUP, which read backwards is PUGH. The definition is a description, not a synonym: an archaic exclamation used of something that stinks.",
+     "definitionFit": "Chambers lists the word as an obsolete interjection expressing disgust, a forerunner of pooh, the noise made at a bad smell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "antique"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +115,69 @@
     "text": "Dice bananas to feed punctilious person who’ll see to plates",
     "enumeration": "10"
    },
-   "solution": "PEDICURIST"
+   "solution": "PEDICURIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PEDICURIST",
+    "definitions": [
+     {
+      "text": "who’ll see to plates",
+      "at": 40,
+      "note": "a relative clause standing for the person, completed by 'person' in the wordplay"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "to go bananas is to go crazy, so these letters are scrambled"
+     },
+     {
+      "text": "to feed",
+      "for": "container",
+      "note": "food goes into a mouth, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dice",
+      "gives": "DICE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "punctilious person",
+      "gives": "PURIST",
+      "note": "a purist insists on strict correctness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EDIC",
+      "URIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DICE",
+       "gives": "EDIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy cook chops bananas into dice before serving the plates.",
+     "walkthrough": "Plates are feet, from the Cockney rhyming slang 'plates of meat'; the kitchen picture of dicing and plating is the misdirection.",
+     "definitionFit": "A chiropodist-like specialist who trims toenails and treats corns cares for feet, which rhyming slang calls plates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plates"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +191,64 @@
     "text": "Husband drops in suddenly to stop contact with red meat",
     "enumeration": "5"
    },
-   "solution": "GOSHT"
+   "solution": "GOSHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GOSHT",
+    "definitions": [
+     {
+      "text": "red meat",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "in a down entry, something that drops leaves its place and falls lower"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' says the letter is set back inside the remaining word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "suddenly to stop contact",
+      "gives": "GHOST",
+      "note": "to ghost someone is to end all contact abruptly and without explanation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOS",
+      "H",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband pops in without warning, ending a lover's tryst over a steak.",
+     "walkthrough": "In GHOST the H falls two places down the column to sit before the T. Gosht is the Urdu and Hindi word for meat, usually mutton or goat, familiar from curry-house menus.",
+     "definitionFit": "On South Asian menus the word names mutton, lamb or goat, which counts as red meat, as in rogan gosht."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +262,80 @@
     "text": "Something to chew bearing downy coat: almost 50 per cent is primarily cudweed",
     "enumeration": "10"
    },
-   "solution": "GNAPHALIUM"
+   "solution": "GNAPHALIUM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GNAPHALIUM",
+    "definitions": [
+     {
+      "text": "cudweed",
+      "at": 70
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its last letter"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is wanted"
+     },
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "to bear is to carry, so the outer word carries the rest within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something to chew",
+      "gives": "GUM",
+      "note": "chewing gum"
+     },
+     {
+      "clueFragment": "downy coat",
+      "gives": "NAP",
+      "note": "nap is the soft raised pile on cloth"
+     },
+     {
+      "clueFragment": "50 per cent",
+      "gives": "HALF",
+      "note": "fifty per cent is a half; it loses its last letter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "NAP",
+      "HAL",
+      "I",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on a chewable plant with a fluffy coat, half of which turns out to be cudweed.",
+     "walkthrough": "GUM holds NAP, HAL and I in turn. 'Something to chew' and 'cudweed' (cud being chewed) make a ruminant picture that hides the botany.",
+     "definitionFit": "Gnaphalium is the botanical genus of the woolly-leaved composite plants commonly called cudweeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +349,62 @@
     "text": "Maybe Reitman upset Hollywood actor that can be directed",
     "enumeration": "9"
    },
-   "solution": "NAVIGABLE"
+   "solution": "NAVIGABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAVIGABLE",
+    "definitions": [
+     {
+      "text": "that can be directed",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so the letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Reitman",
+      "gives": "IVAN",
+      "note": "Ivan Reitman directed Ghostbusters; 'maybe' because other Reitmans exist"
+     },
+     {
+      "clueFragment": "Hollywood actor",
+      "gives": "GABLE",
+      "note": "Clark Gable, star of Gone with the Wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAVI",
+      "GABLE"
+     ],
+     "reversals": [
+      {
+       "from": "IVAN",
+       "to": "NAVI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director annoys a Hollywood star who is easy to direct.",
+     "walkthrough": "The film-set picture suggests 'directed' means by a film director; here it is steering. Reitman is defined by example, with 'Maybe' flagging his first name.",
+     "definitionFit": "A navigable river or craft is one that can be steered or sailed along, so it can be guided."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "directed"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +418,61 @@
     "text": "Mark to enter round ahead of seeing that standing",
     "enumeration": "5"
    },
-   "solution": "PRESA"
+   "solution": "PRESA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PRESA",
+    "definitions": [
+     {
+      "text": "Mark to enter round",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing",
+      "for": "reversal",
+      "note": "standing means upright, so in a down entry the letters read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ahead of",
+      "gives": "PRE",
+      "note": "pre- means before"
+     },
+     {
+      "clueFragment": "seeing that",
+      "gives": "AS",
+      "note": "as in 'as you're here', meaning since"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note about the mark that tells a standing singer when to come in.",
+     "walkthrough": "'Round' is not a boxing round or a circle but a musical round, a canon. The surface makes 'standing' sound literal; it turns the short word over.",
+     "definitionFit": "In a musical canon or round, this symbol shows each successive voice the point at which it should come in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +492,56 @@
      }
     ]
    },
-   "solution": "ACKEMMA"
+   "solution": "ACKEMMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ACK EMMA",
+    "definitions": [
+     {
+      "text": "Military in early hours",
+      "at": 0,
+      "note": "a phrase meaning the armed forces' word for the morning"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without limits means without its boundaries, so the outer letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supported",
+      "gives": "BACKED",
+      "note": "backed means supported; it loses both ends"
+     },
+     {
+      "clueFragment": "form of hybrid combat",
+      "gives": "MMA",
+      "note": "mixed martial arts, which blends several fighting styles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACKE",
+      "MMA"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers in the small hours backing an all-out kind of mixed fighting.",
+     "walkthrough": "The phrase comes from the old British signallers' alphabet, where A was Ack and M was Emma, so a.m. was spoken this way.",
+     "definitionFit": "Forces signalese spelled out a.m. using the phonetic letters for A and M, so it means in the morning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Military"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +555,59 @@
     "text": "Prevent electronic chip in Trident failing",
     "enumeration": "9"
    },
-   "solution": "INTERDICT"
+   "solution": "INTERDICT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERDICT",
+    "definitions": [
+     {
+      "text": "Prevent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "something failing is going wrong, so these letters fall into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic chip",
+      "gives": "IC",
+      "note": "an IC, an integrated circuit, is an electronic chip"
+     },
+     {
+      "clueFragment": "Trident",
+      "gives": "TRIDENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICTRIDENT",
+       "gives": "INTERDICT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stop a dodgy chip inside a Trident missile from failing.",
+     "walkthrough": "Trident is Britain's submarine-launched nuclear missile system, which makes the electronic chip sound like hardware. 'Electronic' qualifies chip, not a separate E.",
+     "definitionFit": "To interdict is to prohibit or forbid, or to block an enemy's movement, both ways of stopping something happening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +621,50 @@
     "text": "A gazelle, a second, then 3600 of them",
     "enumeration": "4"
    },
-   "solution": "MOHR"
+   "solution": "MOHR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOHR",
+    "definitions": [
+     {
+      "text": "A gazelle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "3600 of them",
+      "gives": "HR",
+      "note": "3600 seconds make an hour, abbreviated HR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "HR"
+     ]
+    },
+    "explanation": {
+     "surface": "A gazelle timed over a second, then over an hour.",
+     "walkthrough": "'Of them' refers back to seconds, so 3600 seconds is one hour.",
+     "definitionFit": "The mohr is a large West African gazelle, the dama gazelle, named in Chambers under this spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "3600"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +678,76 @@
     "text": "Homer’s contemporary leads for initial Simpsons episode, with his annoyed grunt wrapping up",
     "enumeration": "6"
    },
-   "solution": "HESIOD"
+   "solution": "HESIOD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "HESIOD",
+    "definitions": [
+     {
+      "text": "Homer’s contemporary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads for",
+      "for": "letter_selection",
+      "note": "leads are the front runners, so the first letters of the next words are taken"
+     },
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "to wrap is to enclose, so one piece goes around the other"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his annoyed grunt",
+      "gives": "DOH",
+      "note": "Homer Simpson's catchphrase D'oh!"
+     },
+     {
+      "clueFragment": "initial Simpsons episode",
+      "gives": "ISE",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HESIOD"
+     ],
+     "reversals": [
+      {
+       "from": "DOISEH",
+       "to": "HESIOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Homer Simpson grunts his way through the first episode of the show.",
+     "walkthrough": "The Simpsons cartoon is the false trail: 'Homer' is the Greek poet, though 'his annoyed grunt' borrows Homer Simpson's catchphrase. The initials go between its last two letters before everything reads upwards.",
+     "definitionFit": "Hesiod, author of Works and Days and the Theogony, was a Greek poet active around the same era as the epic poet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Homer’s"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +761,68 @@
     "text": "From sister in France, taking against English jobless?",
     "enumeration": "9"
    },
-   "solution": "DESOEUVRE"
+   "solution": "DESOEUVRE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DESOEUVRE",
+    "definitions": [
+     {
+      "text": "jobless",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take in is to receive, so one word holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "From",
+      "gives": "DE",
+      "note": "de is French for from, carried by 'in France'"
+     },
+     {
+      "clueFragment": "sister in France",
+      "gives": "SOEUR",
+      "note": "soeur is French for sister"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v for versus"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SOEU",
+      "V",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a French nun turned against England has lost her job.",
+     "walkthrough": "SOEUR takes V inside before its R. The answer is a French borrowing meaning idle or with nothing to do.",
+     "definitionFit": "The borrowed French adjective describes someone unoccupied and at a loose end, with no work to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +836,74 @@
     "text": "Tough leaves rear of High Court and Britain in turn",
     "enumeration": "5"
    },
-   "solution": "KUTCH"
+   "solution": "KUTCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KUTCH",
+    "definitions": [
+     {
+      "text": "Tough leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear of",
+      "for": "charade",
+      "note": "the rear of a word is its back end, so only its final letter counts"
+     },
+     {
+      "text": "in turn",
+      "for": "reversal",
+      "note": "to turn is to face the other way, so the whole string runs backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High",
+      "gives": "H",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "Court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "Britain",
+      "gives": "UK",
+      "note": "the United Kingdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KUTCH"
+     ],
+     "reversals": [
+      {
+       "from": "HCTUK",
+       "to": "KUTCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough character walks out on the High Court and Britain in turn.",
+     "walkthrough": "'Tough' looks like a person, the thug who leaves; with 'leaves' it is the definition. The word means a packet of strong vellum sheets used by gold-beaters.",
+     "definitionFit": "Gold-beaters hammer gold between sheets of hard-wearing vellum, and the bundle of these durable sheets is given this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +917,44 @@
     "text": "Perhaps a tiny old Burmese knife to remove limbs",
     "enumeration": "7"
    },
-   "solution": "CATLING"
+   "solution": "CATLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CATLING",
+    "definitions": [
+     {
+      "text": "Perhaps a tiny old Burmese",
+      "at": 0
+     },
+     {
+      "text": "knife to remove limbs",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps a tiny old Burmese",
+      "note": "first meaning: an old word for a kitten, a Burmese being one breed"
+     },
+     {
+      "clueFragment": "knife to remove limbs",
+      "note": "second meaning: a long double-edged surgical knife for amputations"
+     }
+    ],
+    "explanation": {
+     "surface": "A small antique Burmese dagger used to hack off limbs.",
+     "walkthrough": "Burmese looks like a person or object from Myanmar, so a 'Burmese knife' reads as one thing; Burmese is a cat breed and the knife is separate.",
+     "definitionFit": "The word is an archaic diminutive meaning little cat, and also names the slender amputating blade once used by surgeons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Burmese"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +968,64 @@
     "text": "Oz writer’s heading to last lines to be safe",
     "enumeration": "6"
    },
-   "solution": "AUMBRY"
+   "solution": "AUMBRY",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "AUMBRY",
+    "definitions": [
+     {
+      "text": "safe",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading to last",
+      "for": "cycling",
+      "note": "the heading is the front letter, sent to the last place in the word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oz writer’s",
+      "gives": "BAUM",
+      "note": "L. Frank Baum wrote The Wonderful Wizard of Oz"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUMB",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAUM",
+       "gives": "AUMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian author's guidance about the final lines, written to play it safe.",
+     "walkthrough": "Oz looks like Australia; it is the land of Oz. 'Safe' is a noun, a place for keeping things, not an adjective.",
+     "definitionFit": "An aumbry is a recess or locked cupboard, often in a church wall for sacred vessels, a secure store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oz"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +1039,74 @@
     "text": "Burn out, just retaining kinetic energy without interruption",
     "enumeration": "10"
    },
-   "solution": "UNBROKENLY"
+   "solution": "UNBROKENLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "UNBROKENLY",
+    "definitions": [
+     {
+      "text": "without interruption",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so these letters are scrambled"
+     },
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "to retain is to keep hold of, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burn",
+      "gives": "BURN",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "ONLY",
+      "note": "just as in merely"
+     },
+     {
+      "clueFragment": "kinetic energy",
+      "gives": "KE",
+      "note": "KE is the physics abbreviation for kinetic energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNBR",
+      "O",
+      "KE",
+      "NLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BURN",
+       "gives": "UNBR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physics note: a fire burns out, keeping up its energy without pause.",
+     "walkthrough": "'Burn out' suggests exhaustion, but 'out' is the signal to rearrange. The energy sits just after the first letter of the four-letter word for 'just'.",
+     "definitionFit": "Doing something in an unbroken way means continuously, with no pause or break in the sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +1120,63 @@
     "text": "A train outbound circuitously skirts old hedging",
     "enumeration": "15"
    },
-   "solution": "ROUNDABOUTATION"
+   "solution": "ROUNDABOUTATION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROUNDABOUTATION",
+    "definitions": [
+     {
+      "text": "hedging",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circuitously",
+      "for": "anagram",
+      "note": "a circuitous route wanders about, so these letters go round in a new order"
+     },
+     {
+      "text": "skirts",
+      "for": "container",
+      "note": "to skirt is to go around the edge, so the scrambled letters surround another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A train outbound",
+      "gives": "ATRAINOUTBOUND",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATRAINOUTBOUNDO",
+       "gives": "ROUNDABOUTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A departing train takes a winding route around an ancient hedge.",
+     "walkthrough": "'Outbound' looks like describing the train but is part of the letters; 'hedging' is not a garden hedge but evasive talk.",
+     "definitionFit": "A jocular word for talking around a subject, being evasive and indirect rather than coming to the point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hedging"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1196,55 @@
      }
     ]
    },
-   "solution": "UMBERBIRD"
+   "solution": "UMBERBIRD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UMBER-BIRD",
+    "definitions": [
+     {
+      "text": "Wader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "without its first means the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "northern estuary",
+      "gives": "HUMBER",
+      "note": "the Humber is the large estuary in north-east England"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "BIRD",
+      "note": "bird is British slang for a prison sentence, from rhyming slang bird-lime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMBER",
+      "BIRD"
+     ]
+    },
+    "explanation": {
+     "surface": "A wading bird sighted on a northern estuary, though not for the first time.",
+     "walkthrough": "'Not the first time' reads as one phrase, but it splits: 'not the first' acts on the estuary and 'time' is a prison stretch.",
+     "definitionFit": "This is another name for the hammerkop or umbrette, an African bird of the stork family that feeds in shallow water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1258,64 @@
     "text": "Taking place, though for the first time, delivers elevators",
     "enumeration": "9"
    },
-   "solution": "UPLIFTERS"
+   "solution": "UPLIFTERS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "UPLIFTERS",
+    "definitions": [
+     {
+      "text": "elevators",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the first time",
+      "for": "substitution",
+      "note": "'for' means instead of, so new letters swap in where the earliest T stood"
+     }
+    ],
+    "linkWords": [
+     "Taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the abbreviation for place"
+     },
+     {
+      "clueFragment": "though",
+      "gives": "IF",
+      "note": "as in 'clever, if lazy'"
+     },
+     {
+      "clueFragment": "delivers",
+      "gives": "UTTERS",
+      "note": "to utter a speech is to deliver it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PL",
+      "IF",
+      "TERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Something happening for the very first time brings in the lifts.",
+     "walkthrough": "'Taking place' looks like one phrase meaning happening, but the words split. 'Time' is T, and only the first of the two Ts in the word for 'delivers' is swapped out.",
+     "definitionFit": "Both words are agent nouns for things or people that raise something up, so they mean the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1329,83 @@
     "text": "On vessel home, order one private to reverse incompletely understood implication",
     "enumeration": "15"
    },
-   "solution": "SUBINTELLIGITUR"
+   "solution": "SUBINTELLIGITUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUBINTELLIGITUR",
+    "definitions": [
+     {
+      "text": "understood implication",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incompletely",
+      "for": "deletion",
+      "note": "incomplete means missing a part, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "On",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "SUB",
+      "note": "a submarine"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "TELL",
+      "note": "to tell someone to do something is to order them"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "private",
+      "gives": "GI",
+      "note": "a GI is an American private soldier"
+     },
+     {
+      "clueFragment": "reverse",
+      "gives": "TURN",
+      "note": "to reverse is to turn back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "IN",
+      "TELL",
+      "I",
+      "GI",
+      "TUR"
+     ]
+    },
+    "explanation": {
+     "surface": "On a ship heading home, a private is ordered to turn back and half understands why.",
+     "walkthrough": "The Latin word means 'it is understood beneath', used for something implied but not stated. The naval and army words supply the pieces.",
+     "definitionFit": "The Latin term names something left unsaid but taken as read, an implied meaning beneath the stated words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1419,60 @@
     "text": "It’s no good on top of extinct volcano, mostly, for NZ lizard",
     "enumeration": "7"
    },
-   "solution": "NGARARA"
+   "solution": "NGARARA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NGARARA",
+    "definitions": [
+     {
+      "text": "NZ lizard",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "It’s",
+     "on top of",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     },
+     {
+      "clueFragment": "extinct volcano",
+      "gives": "ARARAT",
+      "note": "Mount Ararat in Turkey is a dormant or extinct volcano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NG",
+      "ARARA"
+     ]
+    },
+    "explanation": {
+     "surface": "Being on top of an old volcano is mostly useless for a New Zealand lizard.",
+     "walkthrough": "Mount Ararat in Turkey is the volcano, best known as where Noah's Ark came to rest. 'On top of' places the first piece above the second in this down entry.",
+     "definitionFit": "In New Zealand the Maori name is used for a small reptile, a gecko or skink, so it is a native lizard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1486,51 @@
     "text": "Cycled, requiring muscular part of leg",
     "enumeration": "6"
    },
-   "solution": "GASKIN"
+   "solution": "GASKIN",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "GASKIN",
+    "definitions": [
+     {
+      "text": "muscular part of leg",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cycled",
+      "for": "cycling",
+      "note": "letters that have cycled have gone round, the last coming to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requiring",
+      "gives": "ASKING",
+      "note": "asking for something means requiring it"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASKING",
+       "gives": "GASKIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cycling demands strong muscles in the leg.",
+     "walkthrough": "The cyclist picture hides the move: the final G of ASKING comes round to the front.",
+     "definitionFit": "On a horse, this is the muscular upper hind leg between stifle and hock, the equivalent of a calf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cycled"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1544,51 @@
     "text": "Adjutant’s augmented reality celebration",
     "enumeration": "6"
    },
-   "solution": "ARGALA"
+   "solution": "ARGALA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARGALA",
+    "definitions": [
+     {
+      "text": "Adjutant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "augmented reality",
+      "gives": "AR",
+      "note": "AR is the standard abbreviation for augmented reality"
+     },
+     {
+      "clueFragment": "celebration",
+      "gives": "GALA",
+      "note": "a gala is a festive occasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "GALA"
+     ]
+    },
+    "explanation": {
+     "surface": "An army adjutant throws a party in virtual reality.",
+     "walkthrough": "Adjutant looks like the military officer; it is the adjutant stork, and the 's stands for 'is'.",
+     "definitionFit": "This is the Indian name for the adjutant stork, a large carrion-eating bird of South Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Adjutant’s"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1602,55 @@
     "text": "Tart filled with large seabird",
     "enumeration": "5"
    },
-   "solution": "ALCID"
+   "solution": "ALCID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALCID",
+    "definitions": [
+     {
+      "text": "seabird",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a thing filled with something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tart",
+      "gives": "ACID",
+      "note": "tart and acid both mean sour"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "A pastry case stuffed with a big seabird.",
+     "walkthrough": "'Tart' looks like a pastry; it is the adjective meaning sour.",
+     "definitionFit": "Members of the auk family, such as puffins, guillemots and razorbills, are ocean-going birds known by this family name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tart"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1664,47 @@
     "text": "Field officer’s excellent prospect in New Zealand",
     "enumeration": "7"
    },
-   "solution": "FOSSICK"
+   "solution": "FOSSICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOSSICK",
+    "definitions": [
+     {
+      "text": "prospect in New Zealand",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Field officer’s",
+      "gives": "FOS",
+      "note": "FO for field officer, plus the 's"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "SICK",
+      "note": "sick is slang for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOS",
+      "SICK"
+     ]
+    },
+    "explanation": {
+     "surface": "An army field officer's promising career prospects in New Zealand.",
+     "walkthrough": "'Prospect' looks like a noun, a chance of success; it is the verb, to search for gold.",
+     "definitionFit": "In Australian and New Zealand usage the verb means to search for gold by picking over old workings or rummage about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prospect"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1718,58 @@
     "text": "Discharge angelic order when one has ascended",
     "enumeration": "5"
    },
-   "solution": "ICHOR"
+   "solution": "ICHOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ICHOR",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has ascended",
+      "for": "deletion",
+      "note": "in a down entry, ascending means leaving a lower place to rise higher"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "angelic order",
+      "gives": "CHOIR",
+      "note": "the choirs are the ranks or orders of angels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CHOR"
+     ]
+    },
+    "explanation": {
+     "surface": "An angel is discharged from its order once it has gone up to heaven.",
+     "walkthrough": "The I of CHOIR moves from the bottom to the top of the column. 'Discharge' is a noun here, a fluid oozing from a wound.",
+     "definitionFit": "Besides the blood of the Greek gods, the word means a thin watery fluid seeping from a wound or ulcer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharge"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1783,61 @@
     "text": "Sanction former pupil over snitch",
     "enumeration": "4"
    },
-   "solution": "BOKO"
+   "solution": "BOKO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BOKO",
+    "definitions": [
+     {
+      "text": "snitch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means upside down, so the letters read upwards in this down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sanction",
+      "gives": "OK",
+      "note": "to OK something is to sanction it"
+     },
+     {
+      "clueFragment": "former pupil",
+      "gives": "OB",
+      "note": "an OB is an old boy of a school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOKO"
+     ],
+     "reversals": [
+      {
+       "from": "OKOB",
+       "to": "BOKO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Punishing an old boy for telling tales.",
+     "walkthrough": "'Snitch' looks like an informer; it is old slang for the nose, and so is the answer.",
+     "definitionFit": "Both are dated British slang words for the nose, so one stands for the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snitch"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1851,43 @@
     "text": "Language used in Bhubaneswar formerly, and also Riyadh",
     "enumeration": "5"
    },
-   "solution": "ORIYA"
+   "solution": "ORIYA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORIYA",
+    "definitions": [
+     {
+      "text": "Language used in Bhubaneswar formerly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "and",
+      "for": "hidden_word",
+      "note": "read as 'and it is in' the following words, it tells you the answer is sitting among their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also Riyadh",
+      "gives": "ORIYA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A note that one language was spoken in an Indian city and in Saudi Arabia too.",
+     "walkthrough": "Bhubaneswar is the capital of Odisha in eastern India; its language was formerly spelt this way, now Odia. Riyadh is a red herring for Arabic.",
+     "definitionFit": "This was the older official spelling of Odia, the Indo-Aryan tongue of Odisha state, whose capital is Bhubaneswar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Riyadh"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1901,61 @@
     "text": "And what have you brought back to divert ancient city?",
     "enumeration": "9"
    },
-   "solution": "CTESIPHON"
+   "solution": "CTESIPHON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CTESIPHON",
+    "definitions": [
+     {
+      "text": "ancient city",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "something brought back returns the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "And what have you",
+      "gives": "ETC",
+      "note": "etc, et cetera, means and so on"
+     },
+     {
+      "clueFragment": "divert",
+      "gives": "SIPHON",
+      "note": "to siphon off funds is to divert them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CTE",
+      "SIPHON"
+     ],
+     "reversals": [
+      {
+       "from": "ETC",
+       "to": "CTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what souvenirs a traveller has brought back to amuse an ancient city.",
+     "walkthrough": "'And what have you' sounds like a question; it is the phrase meaning et cetera. 'Divert' means redirect, not amuse.",
+     "definitionFit": "Ctesiphon was the Parthian and Sasanian capital on the Tigris, near modern Baghdad, now ruins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "divert"
+    }
+   }
   },
   {
    "number": 28,
@@ -446,7 +1975,63 @@
      }
     ]
    },
-   "solution": "OLDMAIDISM"
+   "solution": "OLDMAIDISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OLD-MAIDISM",
+    "definitions": [
+     {
+      "text": "primness",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-lost",
+      "for": "letter_selection",
+      "note": "with half lost, only one half of the hyphenated word survives"
+     },
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "affected means altered or acted upon, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mild-mannered",
+      "gives": "MILDMA",
+      "select": "first",
+      "note": "the first six of its twelve letters"
+     },
+     {
+      "clueFragment": "so I’d",
+      "gives": "SOID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MILDMASOID",
+       "gives": "OLDMAIDISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentle person, half gone, admits a prim pose was put on.",
+     "walkthrough": "Mild-mannered has twelve letters, so half is MILDMA. 'Affected' looks like describing primness, but it is the signal to rearrange.",
+     "definitionFit": "The word describes the fussy, prudish, over-fastidious manner stereotypically attributed to a spinster, so it means prudishness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 29,
@@ -460,7 +2045,55 @@
     "text": "Without emotion, protecting European rodent’s nest",
     "enumeration": "4"
    },
-   "solution": "DREY"
+   "solution": "DREY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREY",
+    "definitions": [
+     {
+      "text": "rodent’s nest",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "to protect is to shield all round, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Without emotion",
+      "gives": "DRY",
+      "note": "a dry manner is unemotional"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "E",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Coolly guarding a European rodent's home.",
+     "walkthrough": "'European rodent' reads as one phrase, but European is the E and rodent belongs to the definition.",
+     "definitionFit": "A drey is the twiggy nest that a squirrel builds high in a tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   }
  ]
 }
