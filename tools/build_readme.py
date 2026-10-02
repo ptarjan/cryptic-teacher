@@ -457,6 +457,8 @@ LAYOUT = [
     ("fetching", "tools/scan_queue.py", "the read queue the scan filers share (tools/file_archive_org_puzzles.py,"),
     ("fetching", "tools/test_scan_queue.sh", "does tools/scan_queue.py read the never-read first, never send the queue back to the start, keep N sources in flight, stop at its deadline, and let only one run hold a ledger?"),
     ("fetching", "tools/test_ann_normalize.sh", "what apply_annotations.normalize computes, so the run need not write it"),
+    ("fetching", "tools/derive_assembly.py", "an annotation's `assembly`, worked out from its blocks"),
+    ("fetching", "tools/test_derive_assembly.sh", "is `assembly` worked out from the blocks, and only with the clue's own operations?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

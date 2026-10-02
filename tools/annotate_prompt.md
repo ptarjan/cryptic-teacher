@@ -73,13 +73,11 @@ Two worked annotations close this file. A puzzle's file is
 Blocks are listed in the order the answer reads, not the clue; with a container,
 reversal or rotation, in the order the pieces are assembled before that step.
 
-`assembly` rebuilds the answer so the check can verify every letter; it may cut the
-answer differently from the blocks. `pieces` are the final chunks in answer order, for a
-charade, container or deletion. `anagrams` holds every anagram step as the fodder (every
-letter shuffled, added ones included) and what it becomes; when the whole answer is an
-anagram, that item's `gives` is the answer. `reversals` holds every reversal step. Leave
-out any key with nothing in it, and `assembly` itself for a hidden word, homophone, or
-double or cryptic definition.
+`assembly` is worked out from the blocks when joining them, with the reversals,
+insertions and anagrams `type` names, rebuilds the answer; leave it out then. Write it
+only for a step the blocks cannot show, such as a deletion: `pieces` the final chunks in
+answer order, `anagrams` each shuffle's fodder (every letter, added ones included) and
+what it becomes, `reversals` each reversal. Leave out any key with nothing in it.
 
 An entry with an `alteration` goes into the grid changed, as its puzzle's preamble says.
 Write `alteration` (`{"from": "...", "steps": [{"op": "reversal"}]}`) in its object here and
@@ -222,7 +220,6 @@ quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), so
   "indicators": [{"text": "Fake", "for": "anagram", "note": "something fake is invented or concocted, so these letters are reworked into a new arrangement"}],
   "linkWords": ["by", "is"],
   "blocks": [{"clueFragment": "folio", "gives": "F", "note": "F is the abbreviation for folio"}, {"clueFragment": "made", "gives": "MADE", "note": "taken as written"}, {"clueFragment": "a", "gives": "A", "note": "taken as written"}, {"clueFragment": "conservative", "gives": "TORY", "note": "a Tory is a member of the UK Conservative Party"}],
-  "assembly": {"pieces": ["DEFAM", "A", "TORY"], "anagrams": [{"fodder": "FMADE", "gives": "DEFAM"}]},
   "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Tory is the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
   "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
 }}
