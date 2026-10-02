@@ -69,10 +69,13 @@ under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
 (No 25,846 in Feb 2009), so a puzzle files as telegraph-N.
 
 Resumable: ~/.cache/archive_org_editions/filed.jsonl records each edition's
-headings and verdicts against its files and this code's hash, after each
-edition. Editions never read go first, then the stale by when they were read
+headings and verdicts against its inputs (its files, the solutions seen,
+whether the VLM read it), after each edition. Editions never read go first, then the stale by when they were read
 (tools/scan_queue.py), so a capped run (--limit, --seconds) never starts over.
 --workers N reads N editions at once (one's VLM wait overlaps another's OCR).
+A change to this code or the VLM model makes nothing due: whoever makes it
+runs the re-read once, `--reread [BEFORE]` (every edition last read before
+BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
 """
 import argparse
 import datetime
@@ -125,10 +128,6 @@ SOURCE = Path.home() / "cryptic-setter-data" / "archiveorg-source"
 TOOL = "tools/file_archive_org_puzzles.py"
 ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
-CODE = [Path(__file__), TOOLS / "file_trove_puzzles.py", TOOLS / "trove_grid.py",
-        TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv",
-        TOOLS / "data" / "lexicon.tsv", TOOLS / "data" / "clue_lm.tsv.gz",
-        TOOLS / "data" / "archive_org_tess.traineddata", TOOLS / "vlm_reader.py", TOOLS / "ocr_clues.py"]
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
@@ -1135,15 +1134,9 @@ def read_solution(sol, grid, above=False):
 WORKERS = 2
 
 
-def code_hash():
+def input_hash(d):
+    """The edition's files by name and size."""
     h = hashlib.sha256()
-    for p in CODE:
-        h.update(p.read_bytes())
-    return h.hexdigest()[:12]
-
-
-def input_hash(d, code):
-    h = hashlib.sha256(code.encode())
     for p in sorted(d.iterdir()):
         st = p.stat()
         h.update(f"{p.name}:{st.st_size}".encode())
@@ -1172,10 +1165,11 @@ def complete(puzzle):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, paper=None, seconds=None, workers=1, wait=False):
+        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None):
     """File what is new under `cache`: complete puzzles into the corpus, ones
     with a blank clue into `puzzles` when given. At most `limit` editions are
     read, none started after `seconds`, `workers` at once (scan_queue).
+    `reread` (a datetime) reads again every edition last read before it.
     Returns the ledger rows; [] when another run holds the ledger and `wait`
     is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
@@ -1184,29 +1178,47 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
             return []
-        return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers)
+        return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers, reread)
 
 
-def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers):
+def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
+    """Why an edition's ledger `row` is read again, or None: never read, its
+    files (input_hash) or the solutions it can see moved, read without the
+    VLM that now answers, or last read before `reread` (a datetime: the
+    explicit --reread)."""
+    if "inputs" not in row:
+        return "never read"
+    if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
+        return "inputs changed"
+    if vlm_up and not row.get("vlm"):
+        return "read without the VLM"
+    if reread and scan_queue.read_before(row, reread):
+        return "--reread"
+    return None
+
+
+def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread):
     from fetch_puzzle import puzzle_path, write_puzzle_file
     known = {}
     if ledger.exists():
         for line in ledger.read_text().splitlines():
             row = json.loads(line)
+            if "hash" in row and "inputs" not in row:
+                # A row keyed by code and files together: its read stands
+                # for the files it was read with.
+                row.pop("hash")
+                row["inputs"] = row.get("filesHash")
             known[row["edition"]] = row
-    code = code_hash()
     # The VLM's readings are an input: an edition read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
     dirs = edition_dirs(cache, paper)
     rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
-    # Every heading first: a puzzle's solution is in a later edition. The
-    # headings depend on the files alone: a change of code does not make
-    # every edition's djvu.xml worth parsing again.
+    # Every heading first: a puzzle's solution is in a later edition.
     scans, unscanned = {}, {}
     for d in dirs:
         row = known.get(rels[d])
-        fh = input_hash(d, "")
+        fh = input_hash(d)
         if row and row.get("filesHash") == fh and "scan" in row:
             scans[rels[d]] = row["scan"]
         else:
@@ -1224,14 +1236,11 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     due = {}
     for d in dirs:
         rel = rels[d]
-        h = input_hash(d, code + (f"+vlm-{seen_by}" if seen_by else ""))
-        row = known[rel]
-        if not seen_by and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
-            h = row["hash"]
+        h = known[rel]["filesHash"]
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        if row.get("hash") != h or row.get("solutionsSeen") != sol_seen:
+        if due_reason(known[rel], h, sol_seen, seen_by, reread):
             due[d] = (h, sol_seen)
-    queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "hash" not in row)
+    queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
         queue = queue[:limit]
     fresh = 0
@@ -1268,11 +1277,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                         verdict["wrote"] = True
                         held.add(hit_number)
             verdicts.append(verdict)
-        if seen_by and not vlm_ok:
-            # The VLM went down during this edition or before it: filed as
-            # read without it, so it is read again when it answers.
-            h = input_hash(d, code)
-        known[rel] = {"edition": rel, "hash": h, "scan": found, "filesHash": input_hash(d, ""),
+        known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": h,
                       "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             known[rel]["vlm"] = seen_by
@@ -1444,6 +1449,9 @@ def main(argv=None):
                     help=f"editions read at once (default {WORKERS}): one's VLM wait overlaps another's OCR")
     ap.add_argument("--wait", action="store_true",
                     help="wait for another run's hold on the ledger instead of reading nothing")
+    ap.add_argument("--reread", nargs="?", const="now", metavar="BEFORE",
+                    help="read again every edition last read before BEFORE (an ISO time; default now): "
+                         "the one-off after a change to this code or the VLM model, which alone makes nothing due")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
@@ -1472,7 +1480,7 @@ def main(argv=None):
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
         limit=args.limit, source=args.source, paper=PAPERS[args.paper], seconds=args.seconds,
-        workers=args.workers, wait=args.wait)
+        workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread))
     if args.paper == "times":
         match_canberra(args.source, write=not args.dry_run)
     return 0

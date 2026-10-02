@@ -50,12 +50,17 @@ cryptic 715C", a setter's byline) goes in the name and the setter. A Guardian
 reprint whose clues match a held cryptic-* puzzle is not filed again.
 
 Resumable and idempotent: ~/.cache/trove/filed.jsonl records each article's
-verdict against its files' sizes and times and a hash of this code, so a
-rerun reads only articles that are new or changed, the never-read first and
+verdict against its inputs (its files' sizes and times, its clue zones, and
+whether the VLM read it), so a rerun reads only articles that are new or
+changed, the never-read first and
 then the stale by when they were read (tools/scan_queue.py), the ledger saved
 after each. --seconds N stops starting new reads once N seconds have passed
 (a page-image read is 15-100 s); what is left keeps its old ledger row, so it
 stays pending for the next run. --workers N reads N articles at once. A puzzle file on disk is never rewritten.
+
+A change to this code or the VLM model makes nothing due: whoever makes it
+runs the re-read once, `--reread [BEFORE]` (every article last read before
+BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
 """
 import argparse
 import datetime
@@ -89,10 +94,6 @@ SERIES = "canberra"
 CACHE = Path(os.path.expanduser("~/.cache/trove"))
 TOOL = "tools/file_trove_puzzles.py"
 ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
-#: The code whose change makes every article worth reading again.
-CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py",
-        TOOLS / "trove_clue_ocr.py", TOOLS / "ocr_clues.py", TOOLS / "data" / "lexicon.tsv",
-        TOOLS / "data" / "clue_lm.tsv.gz", TOOLS / "data" / "clue_compounds.tsv", TOOLS / "vlm_reader.py"]
 #: Articles read at once: the desktop VLM serves one request at a time, so a
 #: second one's OCR fills the first one's wait; more contend for the host's
 #: four cores.
@@ -677,30 +678,39 @@ def already_held(laid):
 
 # ------------------------------------------------------------ the run
 
-def code_hash():
-    h = hashlib.sha256()
-    for p in CODE:
-        h.update(p.read_bytes())
-    return h.hexdigest()[:12]
-
-
 def clue_zones(d):
     """Where tools/trove_clue_ocr.py caches the clue columns of the articles
     in d's cache: ~/.cache/trove-clues beside ~/.cache/trove."""
     return d.parent.parent / f"{d.parent.name}-clues"
 
 
-def input_hash(d, code):
-    """The article's files by size and modification time, and the code: a
-    rerun stats every article but reads only those whose hash moved."""
-    h = hashlib.sha256(code.encode())
+def input_hash(d):
+    """The article's files by size and modification time and its clue zone
+    images by name: a rerun stats every article but reads only those whose
+    hash moved. Inputs only: our own readings cached beside the zones are
+    the read's output."""
+    h = hashlib.sha256()
     for name in ("meta.json", "ocr.txt", "grid.jpg"):
         p = d / name
         st = p.stat() if p.exists() else None
         h.update((f"{name}:{st.st_size}:{st.st_mtime_ns}" if st else f"{name}:-").encode())
     h.update(" ".join(p.name for p in trove_clue_ocr.zone_images(d.name, clue_zones(d))).encode())
-    h.update(" ".join(sorted(p.name for p in (clue_zones(d) / d.name).glob("read.*.txt"))).encode())
     return h.hexdigest()[:16]
+
+
+def due_reason(row, inputs, vlm_up, reread=None):
+    """Why an article's ledger `row` is read again, or None: never read, its
+    `inputs` (input_hash) moved, read without the VLM that now answers, or
+    last read before `reread` (a datetime: the explicit --reread)."""
+    if not row or "inputs" not in row:
+        return "never read"
+    if row["inputs"] != inputs:
+        return "inputs changed"
+    if vlm_up and not row.get("vlm"):
+        return "read without the VLM"
+    if reread and scan_queue.read_before(row, reread):
+        return "--reread"
+    return None
 
 
 def consider(d, taken):
@@ -774,42 +784,46 @@ def consider(d, taken):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None, workers=1,
-        wait=False):
+        wait=False, reread=None):
     """File what is new under `cache`; `puzzles` is a directory to write to
     instead of the corpus (tests). No article is started once `seconds` have
     passed; `workers` are read at once (scan_queue). Returns the tally it
-    prints; None when another run holds the ledger and `wait` is not set."""
+    prints; None when another run holds the ledger and `wait` is not set.
+    `reread` (a datetime) reads again every article last read before it."""
     deadline = None if seconds is None else time.monotonic() + seconds
     ledger = Path(ledger or cache / "filed.jsonl")
     with scan_queue.lock(ledger, wait) as mine:
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
             return None
-        return _run(cache, write, ledger, out, puzzles, deadline, workers)
+        return _run(cache, write, ledger, out, puzzles, deadline, workers, reread)
 
 
-def _run(cache, write, ledger, out, puzzles, deadline, workers):
+def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
     known = {}
     if ledger.exists():
         for line in ledger.read_text().splitlines():
             row = json.loads(line)
             known[row["article"]] = row
     taken = {row["id"]: a for a, row in known.items() if row.get("id")}
-    code = code_hash()
     # The VLM's readings are an input: an article read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
     dirs = sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
     due = {}
     for d in dirs:
-        h = input_hash(d, code + (f"+vlm-{seen_by}" if seen_by else ""))
+        h = input_hash(d)
         row = known.get(d.name)
-        if not seen_by and row and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
-            h = row["hash"]
-        if not (row and row.get("hash") == h):
+        if row and "inputs" not in row and "hash" in row:
+            # A row keyed by code and inputs together: its read stands for
+            # the inputs there now, unless it waited on clue zones now there.
+            waited = row.get("pending", "").startswith("no reading of the page's clues")
+            row["inputs"] = "" if waited and trove_clue_ocr.zone_images(d.name, clue_zones(d)) else h
+            row.pop("hash")
+        if due_reason(row, h, seen_by, reread):
             due[d] = h
     queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
-                             lambda row: row is None)
+                             lambda row: row is None or "inputs" not in row)
     for (d,), (verdict, puzzle, vlm_ok) in scan_queue.parallel(
             [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,)):
         aid, h = d.name, due[d]
@@ -823,9 +837,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers):
             if not path.exists():
                 write_puzzle_file(path, puzzle, generator=TOOL)
                 verdict["wrote"] = True
-        if seen_by and not vlm_ok:
-            h = input_hash(d, code)  # the VLM went down: read again when it answers
-        row = {"article": aid, "hash": h, **verdict, "readAt": scan_queue.now()}
+        row = {"article": aid, "inputs": h, **verdict, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             row["vlm"] = seen_by
         if puzzle is not None:
@@ -895,6 +907,9 @@ def main(argv=None):
                     help=f"articles read at once (default {WORKERS}): one's VLM wait overlaps another's OCR")
     ap.add_argument("--wait", action="store_true",
                     help="wait for another run's hold on the ledger instead of reading nothing")
+    ap.add_argument("--reread", nargs="?", const="now", metavar="BEFORE",
+                    help="read again every article last read before BEFORE (an ISO time; default now): "
+                         "the one-off after a change to this code or the VLM model, which alone makes nothing due")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ID", help="print one article's verdict and grid")
     args = ap.parse_args(argv)
@@ -905,7 +920,7 @@ def main(argv=None):
             print(json.dumps(puzzle, indent=1)[:4000])
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        seconds=args.seconds, workers=args.workers, wait=args.wait)
+        seconds=args.seconds, workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread))
     if not args.out:
         trove_solution_ocr.fill_corpus(args.cache, write=not args.dry_run)
     return 0
