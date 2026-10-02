@@ -11,7 +11,8 @@ measured CPU.
 
 The queue order is the round-robin tools/prereset_backfill.sh builds, with the
 puzzles a lockout cut off first, then Cracking the Cryptic's puzzles, then the
-indicator cover (tools/indicator_cover.py).
+puzzles with a notable tag (tools/puzzle_tags.py), then the indicator cover
+(tools/indicator_cover.py).
 
     tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
@@ -429,9 +430,9 @@ def self_test():
         # puzzles a lockout cut off still resume first
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
-    bad = cover_self_test(covers) + width_self_test()
+    bad = cover_self_test(covers) + width_self_test() + tag_self_test()
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + 21)
+         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -610,6 +611,45 @@ def spend_self_test():
     return bad
 
 
+# (queue, pinned, {id: notable tags}) -> pinned after promote()
+TAG_CASES = [
+    (["a", "b", "c"], [], {"c": ["special-rules"]}, ["c"]),
+    # queue order among the tagged, behind what was already pinned
+    (["a", "b", "c", "d"], ["r"], {"d": ["unclued"], "b": ["triple-pangram"]}, ["r", "b", "d"]),
+    # pinned once, not twice
+    (["a", "b"], ["b"], {"b": ["alphabetical"]}, ["b"]),
+    # a tagged puzzle not in the queue (already annotated) is not queued
+    (["a"], [], {"z": ["asymmetric"]}, []),
+]
+
+
+def tag_self_test():
+    """promote()'s cases, and tagged_puzzles() reading tags off an index:
+    common tags dropped, unlisted rows read, a missing index read as none."""
+    import tempfile
+    bad = 0
+    for queue, pinned, tagged, want in TAG_CASES:
+        got = promote(queue, list(pinned), tagged)
+        if got != want:
+            print(f"FAIL promote({queue}, {pinned}, {tagged}) = {got} (want {want})", file=sys.stderr)
+            bad += 1
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp, "index.json")
+        path.write_text(json.dumps({"puzzles": [
+            {"id": "p", "tags": ["pangram"]}, {"id": "b", "tags": ["barred"]},
+            {"id": "d", "tags": ["double-pangram", "barred"]}, {"id": "n"}],
+            "unlisted": [{"id": "u", "tags": ["unclued"]}]}))
+        got = tagged_puzzles(path)
+        want = {"d": ["double-pangram"], "u": ["unclued"]}
+        if got != want:
+            print(f"FAIL tagged_puzzles = {got} (want {want})", file=sys.stderr)
+            bad += 1
+        if tagged_puzzles(Path(tmp, "missing.json")) != {}:
+            print("FAIL tagged_puzzles of a missing index is not empty", file=sys.stderr)
+            bad += 1
+    return bad
+
+
 def tree_self_test():
     """The burn's CPU is every process under the topmost prereset_backfill.sh,
     and only those; busy ticks leave out idle and iowait."""
@@ -659,14 +699,49 @@ def ctc_puzzles():
     return {v["puzzle"] for v in json.loads(path.read_text())["videos"] if v["puzzle"]}
 
 
+# Tags too common to jump the queue on. A plain pangram is about one puzzle in
+# thirty and "barred" is every Mephisto: promoting either would have the burn do
+# little else, which is what queue-jumping the SNITCH-rated Times did (be5b581,
+# reverted 4d49a1b). Every other tag is rare, and its puzzles are the ones a
+# solver goes looking for.
+COMMON_TAGS = {"pangram", "barred"}
+INDEX = REPO / "puzzles" / "index.json"
+
+
+def tagged_puzzles(index_path=INDEX):
+    """{id: its tags outside COMMON_TAGS} from the index, which the burn
+    rebuilds as it starts, so a puzzle tagged since is promoted on the next run.
+    Empty when there is no index to read."""
+    try:
+        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    out = {}
+    for row in index.get("puzzles", []) + index.get("unlisted", []):
+        notable = [t for t in row.get("tags", ()) if t not in COMMON_TAGS]
+        if notable:
+            out[row["id"]] = notable
+    return out
+
+
+def promote(queue, pinned, tagged):
+    """pinned, then the queue's tagged puzzles in queue order: the new pinned."""
+    return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
+
+
 def cover_first(pinned):
     """The ids on stdin, reordered: pinned first, then Cracking the Cryptic's
-    puzzles, then the indicator cover, then the rest as they came. The summary
-    goes to stderr, which is the burn's log."""
+    puzzles, then the puzzles with a notable tag, then the indicator cover, then
+    the rest as they came. The summary goes to stderr, which is the burn's log."""
     import indicator_cover
     queue = sys.stdin.read().split()
     ctc = ctc_puzzles()
     pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]
+    tagged = tagged_puzzles()
+    before = len(pinned)
+    pinned = promote(queue, pinned, tagged)
+    print(f"tagged: {len(pinned) - before} queued puzzles with a notable tag go first",
+          file=sys.stderr)
     ordered, picks, weight = indicator_cover.plan(queue, pinned)
     reached = set().union(*(m for _, m in picks))
     head = ", ".join(f"{pid} ({len(m)})" for pid, m in picks[:4])

@@ -416,6 +416,10 @@ button:disabled:hover { border-color: var(--line); }
 }
 /* Neutral: a setter's name has no colour the rows could teach it by. */
 .badge.term { background: none; border: 1px solid var(--line); color: inherit; }
+/* What is unusual about a puzzle (tagBadges in app.js): its own axis, so its
+   own look. Dashed and uncoloured, because it is a fact about the grid and no
+   colour another axis uses may stand for it. */
+.badge.feature { background: none; border: 1px dashed var(--muted); color: inherit; }
 /* The ? that opens #picker-note. */
 .badge.help { background: none; border: 1px solid var(--line); color: var(--muted);
               border-radius: 999px; padding: 1px 7px; }

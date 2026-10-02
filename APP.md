@@ -318,8 +318,8 @@ Terms used below:
     row, so typing a number and opening it needs no mouse.
   - Do not "simplify" this by filtering only the rendered rows. That would make
     un-annotated puzzles unreachable. The smoke test asserts the search path.
-- **Papers and bands are menus, not words in the box.** Two native selects sit
-  under the search. The paper menu groups series by their `group` in
+- **Papers, bands and features are menus, not words in the box.** Three native
+  selects sit under the search. The paper menu groups series by their `group` in
   `tools/series.py` (the publisher unless set; the Sunday Times says "Times",
   Everyman "Guardian"), read from `groups` in `puzzles/index.json`. A group
   with two or more series gets an "All" option, and the single-series papers
@@ -335,12 +335,17 @@ Terms used below:
   badge both states, correctly, because it lists every puzzle. In general: a
   label that every item carries is decoration, not information.
 - **Each badge colour names exactly one axis, and no two axes share a colour.**
-  A puzzle row has three axes:
+  A puzzle row has four axes:
   - which crossword it is (`series`): purple;
   - what the site has for it (`full hints` / `hints via <blog>` /
     `answers only`): blue for ours, neutral for not;
   - how hard we judged it (`gentle`…`brutal`): outlined rather than filled,
-    because it is the only one of the three we made up.
+    because it is the only one we made up;
+  - what is unusual about it (`pangram`, `barred grid`, `special rules`…):
+    dashed and uncoloured. `tools/puzzle_tags.py` reads each tag off the file
+    and owns the labels and blurbs; the index carries both (`tags` on a row
+    that has any, the table as `tags` at the top), so the badges and the
+    picker's feature menu need nothing in `app.js` when a tag is added.
 
   Badges use their own `--badge-*` variables. They never borrow the hint-rung
   palette, where green means *definition* and pink means *indicator*. A new

@@ -59,6 +59,7 @@ import groups  # noqa: E402 — linked answers; see tools/groups.py
 from groups import entry_id  # noqa: E402
 import definitions  # where each definition sits in its clue; see tools/definitions.py
 import enumeration  # a clue's printed letter counts; see tools/enumeration.py
+import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle, shim_path)
 
@@ -2289,6 +2290,11 @@ def index_row(path):
         # (timesforthetimes, fifteensquared) is a published solve that
         # anyone can look up, so it is not ours and is not badged.
         "solutionsUnofficial": "model" in provenance.solution_detail(p),
+        # What is unusual about the puzzle (tools/puzzle_tags.py), written only
+        # where something is, like `clues`. reindex() adds "big-grid", which
+        # needs the whole series, from `area`, and drops `area`.
+        **({"tags": tags} if (tags := puzzle_tags.tags(p)) else {}),
+        "area": puzzle_tags.grid_area(p),
     }
 
 
@@ -2316,6 +2322,10 @@ def reindex():
 
     import parallel
     puzzles = parallel.pmap(index_row, puzzle_files())
+    big = puzzle_tags.big_grids([(row["id"], row["series"], row.pop("area")) for row in puzzles])
+    for row in puzzles:
+        if row["id"] in big:
+            row["tags"] = [k for k in puzzle_tags.TAGS if k in row.get("tags", []) or k == "big-grid"]
     for row in puzzles:
         rating = ratings.get(row["id"])
         # Absent for puzzles with too little to go on — an unrated puzzle
@@ -2364,7 +2374,7 @@ def reindex():
     # type from this and has no table of its own.
     index = {"latest": puzzles[0]["id"] if puzzles else None,
              "papers": papers, "groups": groups, "books": books,
-             "clueTypes": clue_types.DATA,
+             "clueTypes": clue_types.DATA, "tags": puzzle_tags.TAGS,
              "snitchRanges": snitch, "puzzles": puzzles, "unlisted": unlisted}
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)
     (puzzle_paths.PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")
