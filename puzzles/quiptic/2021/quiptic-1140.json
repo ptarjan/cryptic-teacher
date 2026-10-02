@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Bleak pictures inside arch",
     "enumeration": "7"
    },
-   "solution": "SPARTAN"
+   "solution": "SPARTAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPARTAN",
+    "definitions": [
+     {
+      "text": "Bleak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something placed inside sits within the walls of the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arch",
+      "gives": "SPAN",
+      "note": "a span is the arch of a bridge between supports"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "pictures are works of art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ART",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim set of paintings hung inside an archway.",
+     "walkthrough": "'Bleak' sits first as an adjective, which is the definition; the rest is one word slotted into another.",
+     "definitionFit": "Spartan rooms or conditions are austere and lacking comfort, which is the bleak sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pictures"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,62 @@
     "text": "Rice dish containing a little bit of turkey bone",
     "enumeration": "7"
    },
-   "solution": "PATELLA"
+   "solution": "PATELLA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PATELLA",
+    "definitions": [
+     {
+      "text": "bone",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little bit of",
+      "for": "letter_selection",
+      "note": "the smallest bit of a word is just its opening letter"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rice dish",
+      "gives": "PAELLA",
+      "note": "paella is the Spanish rice dish"
+     },
+     {
+      "clueFragment": "turkey",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of turkey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "T",
+      "ELLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A paella with a scrap of turkey mixed in.",
+     "walkthrough": "The surface suggests a turkey bone in the rice, but 'bone' is the definition on its own.",
+     "definitionFit": "The patella is the kneecap, a small flat bone at the front of the knee joint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turkey"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +167,62 @@
     "text": "Rook flying out of unusually narrow tree",
     "enumeration": "5"
    },
-   "solution": "ROWAN"
+   "solution": "ROWAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ROWAN",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying out of",
+      "for": "deletion",
+      "note": "a bird flying out of somewhere leaves it, so that letter departs from the word"
+     },
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusual means out of the normal order, so the remaining letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rook",
+      "gives": "R",
+      "note": "R is the chess abbreviation for rook"
+     },
+     {
+      "clueFragment": "narrow",
+      "gives": "NARROW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAROW",
+       "gives": "ROWAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rook takes off from a strangely thin tree.",
+     "walkthrough": "The rook looks like a real bird leaving the tree, but it is the chess piece's letter R removed from NARROW before the rest is rearranged.",
+     "definitionFit": "The rowan, or mountain ash, is a small tree known for its red berries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rook"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +236,67 @@
     "text": "Local criminal drinking house wine?",
     "enumeration": "7"
    },
-   "solution": "ALCOHOL"
+   "solution": "ALCOHOL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALCOHOL",
+    "definitions": [
+     {
+      "text": "wine?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is bent or crooked, so these letters are twisted out of order"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "a drinker takes something in, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local",
+      "gives": "LOCAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the standard abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALCO",
+      "HO",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOCAL",
+       "gives": "ALCOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neighbourhood crook downing the house red.",
+     "walkthrough": "'Local' feels like the pub or a neighbour, but it is just letters to rearrange. The question mark admits wine is only one example of the definition.",
+     "definitionFit": "Wine is one kind of alcoholic drink, so it serves as an example of the broader category, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +310,61 @@
     "text": "Treat old carbon in newspapers",
     "enumeration": "7"
    },
-   "solution": "PROCESS"
+   "solution": "PROCESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROCESS",
+    "definitions": [
+     {
+      "text": "Treat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting within it, so the pair goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "newspapers",
+      "gives": "PRESS",
+      "note": "the press is the newspapers collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "OC",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for handling old carbon copies found in newspapers.",
+     "walkthrough": "'Treat' could be a noun, but here it is the verb as in treating a material.",
+     "definitionFit": "To process raw material is to treat it through a series of operations, such as in food or chemical manufacture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carbon"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +378,72 @@
     "text": "Academic soldiers are upset over low mark",
     "enumeration": "6"
    },
-   "solution": "READER"
+   "solution": "READER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "READER",
+    "definitions": [
+     {
+      "text": "Academic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it into disorder, so these letters are scrambled"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "something lying over another covers it on all sides, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "low mark",
+      "gives": "D",
+      "note": "D is a poor grade in exams"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REA",
+      "D",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REARE",
+       "gives": "REAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "University troops are annoyed about a poor grade.",
+     "walkthrough": "'Upset' looks like it means annoyed, and 'over' like 'about', but the soldiers' letters join 'are' in the mix, which then goes around D.",
+     "definitionFit": "In British universities a reader is a senior academic rank, just below a professor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +457,69 @@
     "text": "China tea stirred with cool confectionery",
     "enumeration": "9"
    },
-   "solution": "CHOCOLATE"
+   "solution": "CHOCOLATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHOCOLATE",
+    "definitions": [
+     {
+      "text": "confectionery",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred",
+      "for": "anagram",
+      "note": "stirring mixes the contents of a cup, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "CH",
+      "note": "CH is the abbreviation for China"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "COOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "OCOLATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEACOOL",
+       "gives": "OCOLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chinese tea stirred and served chilled with sweets.",
+     "walkthrough": "'China tea' reads as one drink, but China is split off as its abbreviation while tea and cool are mixed together.",
+     "definitionFit": "Chocolate is a common sweet treat, made from cocoa and sold as bars and sweets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +533,55 @@
     "text": "What's been shot put in regular frying pan",
     "enumeration": "7"
    },
-   "solution": "SKILLET"
+   "solution": "SKILLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKILLET",
+    "definitions": [
+     {
+      "text": "frying pan",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "putting something in places it inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regular",
+      "gives": "SET",
+      "note": "set means fixed or regular, as in a set routine"
+     },
+     {
+      "clueFragment": "What's been shot",
+      "gives": "KILL",
+      "note": "a hunter's kill is the game that has been shot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KILL",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Game that has been shot goes into an ordinary frying pan.",
+     "walkthrough": "The surface has the game going into the pan to cook, which is nicely what the wordplay does too.",
+     "definitionFit": "A skillet is a heavy, usually cast-iron, pan used for frying, especially in American usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +595,77 @@
     "text": "Butterfly buff's catalogue record set by exotic peridot",
     "enumeration": "13"
    },
-   "solution": "LEPIDOPTERIST"
+   "solution": "LEPIDOPTERIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "LEPIDOPTERIST",
+    "definitions": [
+     {
+      "text": "Butterfly buff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "something exotic is strange and foreign, so these letters appear in an unfamiliar order"
+     },
+     {
+      "text": "set by",
+      "for": "container",
+      "note": "set by means placed by, so the pieces are placed within the outer word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catalogue",
+      "gives": "LIST",
+      "note": "a catalogue is a list"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "peridot",
+      "gives": "PERIDOT",
+      "note": "taken as written; a peridot is a green gemstone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EP",
+      "IDOPTER",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PERIDOT",
+       "gives": "IDOPTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butterfly enthusiast's catalogue lists a record found alongside an exotic gemstone.",
+     "walkthrough": "The record and the rearranged gemstone sit side by side, and the pair goes inside the catalogue word.",
+     "definitionFit": "Lepidoptera is the insect order of butterflies and moths, and a lepidopterist studies or collects them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +679,62 @@
     "text": "Pack animal carrying Tibetan leader",
     "enumeration": "4"
    },
-   "solution": "STOW"
+   "solution": "STOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STOW",
+    "definitions": [
+     {
+      "text": "Pack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it, so one word bears another inside"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "SOW",
+      "note": "a sow is a female pig"
+     },
+     {
+      "clueFragment": "Tibetan",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tibetan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A pack animal like a yak bearing a Tibetan chief.",
+     "walkthrough": "'Pack animal' looks like one phrase, but 'Pack' is the verb definition and the animal is separate.",
+     "definitionFit": "To stow luggage is to pack it away neatly into a space such as a hold or a cupboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pack"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +748,82 @@
     "text": "Mortuaries where America is forced to keep rubbish back",
     "enumeration": "10"
    },
-   "solution": "CREMATORIA"
+   "solution": "CREMATORIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "CREMATORIA",
+    "definitions": [
+     {
+      "text": "Mortuaries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "forcing something bends it out of its natural shape, so the letters are reshaped"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running in the opposite direction, right to left"
+     },
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "keeping something means holding on to it, so one word sits inside another"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "AMERICA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot is nonsense or rubbish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREMA",
+      "TOR",
+      "IA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMERICA",
+       "gives": "CREMAIA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ROT",
+       "to": "TOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Funeral homes where Americans are compelled to store their garbage.",
+     "walkthrough": "'Forced' reads as compelled in the surface, but it signals the rearrangement; 'back' turns the rubbish word around before it goes in.",
+     "definitionFit": "Crematoria are places where the dead are burnt; the clue loosely groups them with mortuaries as places for bodies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +837,62 @@
     "text": "Start of line crossed by bird",
     "enumeration": "6"
    },
-   "solution": "FLINCH"
+   "solution": "FLINCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLINCH",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossed by",
+      "for": "container",
+      "note": "to be crossed by something is to have it lying across you, so one piece straddles the other"
+     },
+     {
+      "text": "of",
+      "for": "letter_selection",
+      "note": "the definition word is also the selector here, but the opening of the next word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "FINCH",
+      "note": "a finch is a small songbird"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "INCH"
+     ]
+    },
+    "explanation": {
+     "surface": "The beginning of a line is crossed by a bird.",
+     "walkthrough": "'Start' seems to be the selector for line, and it does double duty: it is also the verb definition, while 'Start of line' gives L.",
+     "definitionFit": "To start is to jump or recoil suddenly from surprise, which is exactly what flinching is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +912,59 @@
      }
     ]
    },
-   "solution": "ICELOLLY"
+   "solution": "ICELOLLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ICE LOLLY",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topped",
+      "for": "deletion",
+      "note": "topping something cuts off its head, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grain",
+      "gives": "RICE",
+      "note": "rice is a cereal grain"
+     },
+     {
+      "clueFragment": "dough",
+      "gives": "LOLLY",
+      "note": "dough and lolly are both British slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "LOLLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet bake of grain finished with a layer of dough.",
+     "walkthrough": "'Topped with dough' suggests baking, but topped means beheaded and dough is money. An ice lolly is a frozen flavoured ice on a stick, a popsicle.",
+     "definitionFit": "An ice lolly is a frozen treat on a stick, and a sweet in British usage is any sugary confection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dough"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +978,71 @@
     "text": "Group of soldiers in club initially train a brave individual",
     "enumeration": "9"
    },
-   "solution": "BATTALION"
+   "solution": "BATTALION",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BATTALION",
+    "definitions": [
+     {
+      "text": "Group of soldiers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "BAT",
+      "note": "a bat is a club used in sport"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of train"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "brave individual",
+      "gives": "LION",
+      "note": "a lion is a byword for courage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "T",
+      "A",
+      "LION"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers at a club start training a courageous recruit.",
+     "walkthrough": "'In' is a link here, not a container signal.",
+     "definitionFit": "A battalion is an army unit of several companies, a sizeable formation of troops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +1056,96 @@
     "text": "Trump initially seen dithering about start of narcissistic visit to state",
     "enumeration": "9"
    },
-   "solution": "TENNESSEE"
+   "solution": "TENNESSEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TENNESSEE",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so only the first letter counts"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is where it begins, so its opening letter is taken"
+     },
+     {
+      "text": "dithering",
+      "for": "anagram",
+      "note": "dithering is wavering back and forth, so these letters are unsettled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Trump"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "narcissistic",
+      "gives": "N",
+      "select": "first",
+      "note": "start of narcissistic is its first letter"
+     },
+     {
+      "clueFragment": "visit",
+      "gives": "SEE",
+      "note": "to see someone is to visit them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EN",
+      "N",
+      "ES",
+      "SEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEN",
+       "gives": "ENES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trump hesitates over a vain trip to a US state.",
+     "walkthrough": "'Start of' also signals a first letter, for narcissistic. Tennessee is a southern US state.",
+     "definitionFit": "Tennessee is one of the fifty United States, home to Nashville and Memphis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1159,65 @@
     "text": "Soprano and tenor chat about roles",
     "enumeration": "5"
    },
-   "solution": "PARTS"
+   "solution": "PARTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PARTS",
+    "definitions": [
+     {
+      "text": "roles",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soprano",
+      "gives": "S",
+      "note": "S is the abbreviation for soprano"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the abbreviation for tenor"
+     },
+     {
+      "clueFragment": "chat",
+      "gives": "RAP",
+      "note": "a rap is an informal chat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARTS"
+     ],
+     "reversals": [
+      {
+       "from": "STRAP",
+       "to": "PARTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two opera singers gossip about the roles they have been given.",
+     "walkthrough": "The singers are just their score abbreviations, and the whole string is read backwards.",
+     "definitionFit": "Parts and roles are synonyms for the characters actors or singers play in a production."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chat"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1231,50 @@
     "text": "Thorn from small tree",
     "enumeration": "5"
    },
-   "solution": "SPINE"
+   "solution": "SPINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPINE",
+    "definitions": [
+     {
+      "text": "Thorn",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "PINE",
+      "note": "a pine is a coniferous tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prickle taken from a little tree.",
+     "walkthrough": "'From' joins the definition to the wordplay; it is not a deletion signal.",
+     "definitionFit": "A spine on a plant, such as a cactus, is a sharp pointed thorn or prickle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1288,69 @@
     "text": "Plain dish containing last but one portion of savoury spread",
     "enumeration": "7"
    },
-   "solution": "PRAIRIE"
+   "solution": "PRAIRIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PRAIRIE",
+    "definitions": [
+     {
+      "text": "Plain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last but one portion of",
+      "for": "letter_selection",
+      "note": "the last but one piece is the penultimate letter of the word"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold within, so one piece wraps around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish",
+      "gives": "PIE",
+      "note": "a pie is a baked dish"
+     },
+     {
+      "clueFragment": "savoury",
+      "gives": "R",
+      "select": 6,
+      "note": "the sixth and penultimate letter of savoury"
+     },
+     {
+      "clueFragment": "spread",
+      "gives": "AIR",
+      "note": "to air a view is to spread it about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "AIR",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A simple dish filled with a bit of savoury spread.",
+     "walkthrough": "'Plain dish' and 'savoury spread' read as food phrases; 'Plain' is the noun definition and 'spread' is a verb meaning broadcast.",
+     "definitionFit": "A prairie is a wide, flat grassland of North America, a type of open plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1364,51 @@
     "text": "Bad grades get evenly distributed",
     "enumeration": "9"
    },
-   "solution": "STAGGERED"
+   "solution": "STAGGERED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAGGERED",
+    "definitions": [
+     {
+      "text": "evenly distributed",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bad",
+      "for": "anagram",
+      "note": "something bad is wrong or spoilt, so these letters are out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grades get",
+      "gives": "GRADESGET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRADESGET",
+       "gives": "STAGGERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor marks are spread evenly across the class.",
+     "walkthrough": "'Get' looks like a link verb, but its letters are part of the mix.",
+     "definitionFit": "Staggered start times or payments are spaced out at regular intervals rather than all at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1422,56 @@
     "text": "Dispute reaches many regulars",
     "enumeration": "7"
    },
-   "solution": "GAINSAY"
+   "solution": "GAINSAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GAINSAY",
+    "definitions": [
+     {
+      "text": "Dispute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regulars",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reaches",
+      "gives": "GAINS",
+      "note": "to gain a place is to reach it"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "AY",
+      "select": "alternate",
+      "note": "the second and fourth letters of many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAINS",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument reaches a crowd of pub regulars.",
+     "walkthrough": "'Regulars' sounds like pub customers but selects alternate letters.",
+     "definitionFit": "To gainsay a claim is to deny or contradict it, which is to dispute it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regulars"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1485,54 @@
     "text": "Porn from ace trio reprinted",
     "enumeration": "7"
    },
-   "solution": "EROTICA"
+   "solution": "EROTICA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EROTICA",
+    "definitions": [
+     {
+      "text": "Porn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reprinted",
+      "for": "anagram",
+      "note": "a reprint sets the type again, so the letters are reset in a new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ace trio",
+      "gives": "ACETRIO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACETRIO",
+       "gives": "EROTICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Smut from three top publishers gets another print run.",
+     "walkthrough": "Reprinting fits the porn surface neatly while signalling the rearrangement.",
+     "definitionFit": "Erotica is sexually explicit literature or art, a softer term for pornographic material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ace"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1546,60 @@
     "text": "Source of bubonic and different plague?",
     "enumeration": "6"
    },
-   "solution": "BOTHER"
+   "solution": "BOTHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOTHER",
+    "definitions": [
+     {
+      "text": "plague?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Source of",
+      "for": "letter_selection",
+      "note": "a source is where something begins, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bubonic",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of bubonic"
+     },
+     {
+      "clueFragment": "different",
+      "gives": "OTHER",
+      "note": "other means different"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks where bubonic and another kind of plague came from.",
+     "walkthrough": "'Plague' looks like the disease noun, but it is the verb meaning to pester; the question mark flags the shift.",
+     "definitionFit": "To plague someone is to pester or harass them persistently, which is what bothering means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plague"
+    }
+   }
   },
   {
    "number": 23,
@@ -347,7 +1613,67 @@
     "text": "Roger excited about brilliant visitor to Newmarket?",
     "enumeration": "8"
    },
-   "solution": "RACEGOER"
+   "solution": "RACEGOER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RACEGOER",
+    "definitions": [
+     {
+      "text": "visitor to Newmarket?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "an excited person is stirred up, so these letters are agitated into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roger",
+      "gives": "ROGER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "brilliant",
+      "gives": "ACE",
+      "note": "ace means excellent or brilliant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ACE",
+      "GOER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROGER",
+       "gives": "RGOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Roger is thrilled by a dazzling guest at the races.",
+     "walkthrough": "Newmarket is an English town famous as the home of horse racing; the question mark admits the definition is by example.",
+     "definitionFit": "Newmarket is a famous English horse-racing town, so a typical visitor there is someone attending the races."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Roger"
+    }
+   }
   },
   {
    "number": 24,
@@ -361,7 +1687,62 @@
     "text": "Crustacean is beginning to outgrow shell",
     "enumeration": "6"
    },
-   "solution": "ISOPOD"
+   "solution": "ISOPOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ISOPOD",
+    "definitions": [
+     {
+      "text": "Crustacean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so just that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "outgrow",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of outgrow"
+     },
+     {
+      "clueFragment": "shell",
+      "gives": "POD",
+      "note": "a pod is the shell of peas or beans"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "O",
+      "POD"
+     ]
+    },
+    "explanation": {
+     "surface": "A crab or lobster starting to grow too big for its shell.",
+     "walkthrough": "The moulting picture fits crustaceans perfectly, but 'beginning to' just takes one letter.",
+     "definitionFit": "Isopods, such as woodlice and sea slaters, form an order of small crustaceans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 25,
@@ -375,7 +1756,65 @@
     "text": "Poem by second in command at National Theatre",
     "enumeration": "5"
    },
-   "solution": "ODEON"
+   "solution": "ODEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ODEON",
+    "definitions": [
+     {
+      "text": "Theatre",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second in",
+      "for": "letter_selection",
+      "note": "second in means the letter in second position of the word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poem",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     },
+     {
+      "clueFragment": "command",
+      "gives": "O",
+      "select": 2,
+      "note": "the second letter of command"
+     },
+     {
+      "clueFragment": "National",
+      "gives": "N",
+      "note": "N is the abbreviation for National"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODE",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A poem by the deputy director at the National Theatre in London.",
+     "walkthrough": "'Second in command' looks like a deputy, but it means the second letter of command. 'National Theatre' splits, with Theatre the definition.",
+     "definitionFit": "An odeon was a roofed building in ancient Greece for musical performances, and the word now names cinema halls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "command"
+    }
+   }
   },
   {
    "number": 26,
@@ -389,7 +1828,63 @@
     "text": "False part of folio omitted from professor's academic writing",
     "enumeration": "10"
    },
-   "solution": "PROSTHESIS"
+   "solution": "PROSTHESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PROSTHESIS",
+    "definitions": [
+     {
+      "text": "False part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitted from",
+      "for": "deletion",
+      "note": "omitted means left out, so a letter is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "professor's",
+      "gives": "PROFS",
+      "note": "prof is short for professor, with the possessive S"
+     },
+     {
+      "clueFragment": "folio",
+      "gives": "F",
+      "note": "F is the abbreviation for folio"
+     },
+     {
+      "clueFragment": "academic writing",
+      "gives": "THESIS",
+      "note": "a thesis is a long academic dissertation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROS",
+      "THESIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A spurious section of a page left out of a professor's dissertation.",
+     "walkthrough": "'False part of folio' reads as a section of a page; the definition is only 'False part' and 'of' is a link.",
+     "definitionFit": "A prosthesis is an artificial body part, such as a false leg or false teeth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "False"
+    }
+   }
   },
   {
    "number": 27,
@@ -403,7 +1898,43 @@
     "text": "Ruler seen in reversible mirror",
     "enumeration": "4"
    },
-   "solution": "EMIR"
+   "solution": "EMIR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMIR",
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a phrase is visible within it, running across the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reversible mirror",
+      "gives": "EMIR",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A ruler's face shows up in a two-sided looking glass.",
+     "walkthrough": "'Reversible' and 'mirror' tempt a reversal, but the answer reads forwards across the two words.",
+     "definitionFit": "An emir is a Muslim ruler or commander, as in the emirs of Gulf states."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversible"
+    }
+   }
   },
   {
    "number": 28,
@@ -417,7 +1948,71 @@
     "text": "Festivities in bar turn extremely rowdy",
     "enumeration": "7"
    },
-   "solution": "REVELRY"
+   "solution": "REVELRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REVELRY",
+    "definitions": [
+     {
+      "text": "Festivities",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turn",
+      "for": "reversal",
+      "note": "a turn sends it the other way, so the letters run backwards"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely refers to the extremities, so only the outer letters are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "LEVER",
+      "note": "a lever is a metal bar for prising"
+     },
+     {
+      "clueFragment": "rowdy",
+      "gives": "RY",
+      "select": "outer",
+      "note": "the first and last letters of rowdy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVEL",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "LEVER",
+       "to": "REVEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Parties in a pub get very noisy.",
+     "walkthrough": "'Bar' suggests a pub, but it is a crowbar-type tool; 'turn' looks like a verb meaning become.",
+     "definitionFit": "Revelry is lively, noisy merrymaking, the sort of celebration that makes up festivities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 29,
@@ -431,7 +2026,72 @@
     "text": "Fellow hiding close to boundary to damage country",
     "enumeration": "7"
    },
-   "solution": "MYANMAR"
+   "solution": "MYANMAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "MYANMAR",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so the last letter is used"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to keep it inside, so one piece conceals another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "MAN",
+      "note": "a man is a fellow"
+     },
+     {
+      "clueFragment": "boundary",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of boundary"
+     },
+     {
+      "clueFragment": "damage",
+      "gives": "MAR",
+      "note": "to mar is to spoil or damage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "Y",
+      "AN",
+      "MAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man lurks near the border to sabotage a nation.",
+     "walkthrough": "Myanmar is the country formerly called Burma.",
+     "definitionFit": "Myanmar is the Southeast Asian nation formerly known as Burma, bordering Thailand, India and China."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   }
  ]
 }
