@@ -637,9 +637,10 @@ tools/test_solve_clock.js                    walks away from a puzzle and comes 
 tools/test_paper_mode.js                     paper mode hides every right/wrong signal until
                                              "I'm done", then hands it all back
 tools/test_share_url.js                      picking a puzzle points the address bar at it,
-                                             from whatever the bar said before; and the
-                                             picker's menus are still set when you come back to
-                                             it
+                                             from whatever the bar said before; the picker's
+                                             menus are still set when you come back to it; and
+                                             ?p=<bare number> navigates to its puzzle's own
+                                             address
 tools/test_unclued_squares.js                a square only an unclued light covers can be
                                              revealed, and the picker asks for it
 tools/ci_shards.js                           splits the test scripts across the workflow’s

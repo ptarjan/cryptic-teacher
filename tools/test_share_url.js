@@ -17,7 +17,11 @@
       replaceState does move the bar, so the throw really was in the path.
    3. menusKept: a paper and difficulty chosen in the picker are still chosen
       after opening a puzzle and coming back, and after a reload; the search
-      box is the one thing that starts empty. */
+      box is the one thing that starts empty.
+   4. bareNumberNavigates: ?p=<bare number> of a puzzle no other paper numbers
+      the same is a real navigation to that puzzle's own address, keeping &c=,
+      with the tab flag that sends the write-up back into the app; a shared
+      number goes to the newest. Mirror: ?p=<full id> opens with no navigation. */
 "use strict";
 const { boot } = require("./fake_dom.js");
 
@@ -122,6 +126,33 @@ const where = (bar) => {
     again["picker-paper"].listeners.change.forEach((f) => f());
     again["btn-picker"].onclick(); again["btn-picker"].onclick();
     check(again["picker-paper"].value === "", "choosing All papers is remembered as all");
+  }
+}
+
+// 4. A bare number navigates to its puzzle's own address.
+{
+  const all = global.window.CRYPTIC_INDEX.puzzles;
+  const count = {};
+  all.forEach((p) => { count[p.number] = (count[p.number] || 0) + 1; });
+  const unique = all.find((p) => p.hasSolutions && count[p.number] === 1);
+  const shared = all.find((p) => count[p.number] > 1);
+  const bootOn = (query) => {
+    const d = boot({ query });
+    return { replaced: global.location.replaced, session: global.sessionStorage, d };
+  };
+  if (check(unique && shared, "the index holds a unique and a shared number")) {
+    const u = bootOn(`?p=${unique.number}&c=3D`);
+    check(u.replaced && new URL(u.replaced).pathname === `/puzzles/${unique.id}/`
+      && new URL(u.replaced).searchParams.get("c") === "3D",
+      `?p=${unique.number}&c=3D navigates to /puzzles/${unique.id}/?c=3D (got ${u.replaced})`);
+    check(u.session.getItem(`ct:app:${unique.id}`) === "1",
+      "with the flag that sends the write-up back into the app");
+    const newest = all.find((p) => p.number === shared.number);
+    const s = bootOn(`?p=${shared.number}`);
+    check(s.replaced && s.replaced.includes(encodeURIComponent(newest.id)),
+      `?p=${shared.number}, shared, navigates to the newest, ${newest.id} (got ${s.replaced})`);
+    const f = bootOn(`?p=${unique.id}`);
+    check(!f.replaced, `mirror: ?p=${unique.id} opens in place (navigated to ${f.replaced})`);
   }
 }
 

@@ -7489,6 +7489,19 @@
     migrateSavedIds();
     const askedRaw = new URLSearchParams(location.search).get("p");
     const asked = askedRaw ? canonicalId(askedRaw) : null;
+    // ?p=4098, a bare number or an old book id, names a puzzle by a spelling
+    // that is not its id, and rewriting only the bar leaves the old URL a page
+    // of its own: Search Console indexed ~450 of them apart from their puzzles.
+    // So it is a real navigation, to the address picking that puzzle gives
+    // (shareUrl), with the tab flag the write-up's <head> sends back into the
+    // app (app_return in tools/build_seo_pages.py). A crawler carries no flag
+    // and stays on the write-up.
+    if (asked && asked !== askedRaw && BY_ID[asked] && location.replace) {
+      const c = new URLSearchParams(location.search).get("c");
+      try { sessionStorage.setItem(`ct:app:${asked}`, "1"); } catch (e) { /* no storage: the write-up shows */ }
+      location.replace(shareUrl(asked, c ? encodeURIComponent(c) : null));
+      return;
+    }
     const last = store.get("ct:last", null);
     const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
     // Decided off the INDEX, which is already here, rather than off the loaded
