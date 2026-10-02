@@ -41,7 +41,7 @@ Plus a fairness floor that is not a hook at all: the word has to be one a solver
 plausibly knows. An unclueable obscurity is worse than a boring common word.
 
 The pieces a hook may use are themselves restricted to reasonably well known
-words plus tools/data/abbreviations.json. A charade whose second half is
+words plus build_abbreviations.table(). A charade whose second half is
 AASVOGEL is not a hook.
 
 Usage:
@@ -57,10 +57,11 @@ import sys
 import time
 from pathlib import Path
 
+import build_abbreviations
+
 TOOLS = Path(__file__).resolve().parent
 DATA = TOOLS / "data"
 LEXICON = DATA / "lexicon.tsv"
-ABBREV_FILE = DATA / "abbreviations.json"
 CACHE = DATA / "clueability.tsv"
 
 # Bump when the scoring changes, so a stale cache is rebuilt rather than trusted.
@@ -122,9 +123,8 @@ def load_lexicon(path=LEXICON, british_only=True):
     return fam, phones, family
 
 
-def load_abbreviations(path=ABBREV_FILE):
-    doc = json.loads(path.read_text(encoding="utf-8"))
-    return doc["abbreviations"]
+def load_abbreviations():
+    return build_abbreviations.table()
 
 
 class Clueability:
@@ -342,7 +342,7 @@ def build_cache(min_len=3, max_len=15, min_familiarity=PIECE_FLOOR, verbose=True
 def cache_header():
     """The cache's first line: the scorer version and the table it scored with,
     so an edit to either rebuilds it."""
-    digest = hashlib.sha1(ABBREV_FILE.read_bytes()).hexdigest()[:12]
+    digest = hashlib.sha1(json.dumps(load_abbreviations()).encode()).hexdigest()[:12]
     return f"#clueability v{CACHE_VERSION} abbreviations={digest}"
 
 

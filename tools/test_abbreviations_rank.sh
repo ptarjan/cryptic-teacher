@@ -16,7 +16,7 @@ d = Path(tempfile.mkdtemp())
 (d / "blocks.json").write_text(json.dumps({
     "ABOUT": {"RE": 50, "C": 90, "A": 5}, "SAILOR": {"AB": 40}, "ABBESS": {"ABB": 1},
     "CAUGHT": {"C": 70}, "KING": {"K": 3, "R": 30}, "QUEEN": {"Q": 2}}))
-b.SRC, b.LEXICON, b._USAGE = d / "abbreviations.json", d / "blocks.json", None
+b.SRC, b.LEXICON, b._USAGE, b._TABLE = d / "abbreviations.json", d / "blocks.json", None, None
 b.FAMILIES = [("Cards", "ace A, queen Q, king K"), ("Royals", "king R")]
 fails = 0
 def check(name, want, got):

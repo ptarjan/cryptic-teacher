@@ -58,6 +58,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+from build_abbreviations import table as abbreviations_table
 from clue_types import NAMES
 from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
@@ -592,9 +593,7 @@ PART_ORDER = ["charade", "anagram", "container", "deletion", "reversal", "letter
 assert set(PART.values()) <= set(PART_ORDER) <= set(NAMES)
 #: The standard abbreviations: R(un) is the convention R = run, where B[ail]
 #: is a word cut short.
-ABBREVIATIONS = ROOT / "tools" / "data" / "abbreviations.json"
-ABBR = {k.lower(): {w.lower() for w in v}
-        for k, v in json.loads(ABBREVIATIONS.read_text(encoding="utf-8"))["abbreviations"].items()}
+ABBR = {k.lower(): {w.lower() for w in v} for k, v in abbreviations_table().items()}
 
 
 def atom_flags(s):

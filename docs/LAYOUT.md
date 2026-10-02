@@ -949,9 +949,9 @@ tools/data/clue_joints.json                  link words and reversal-axis words 
 tools/data/fill_floors.json                  grid_fill.py's clueability and familiarity floors
                                              per entry length, the 25th percentile of published
                                              answers, measured by build_fill_floors.py
-tools/data/abbreviations.json                standard abbreviations: every reading ten or more
-                                             clues use, checked by build_abbreviations.py
-                                             --check
+tools/data/abbreviations.json                the hand-curated standard abbreviations;
+                                             build_abbreviations.table() adds every reading ten
+                                             or more clues use
 tools/data/indicator_note_words.json         the words of the language indicator notes are
                                              written in, from build_indicator_note_words.py
 tools/data/lexicons/blocks.json              clue word -> letters -> clues, off the blogs and
