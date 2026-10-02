@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,70 @@
      }
     ]
    },
-   "solution": "WASHINGUP"
+   "solution": "WASHINGUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "WASHING UP",
+    "definitions": [
+     {
+      "text": "Using paw, dish finally in a lather — doing this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "something coming finally comes at the end, so only the closing letter of the word is kept"
+     },
+     {
+      "text": "in a lather",
+      "for": "anagram",
+      "note": "to be in a lather is to be agitated and flustered, so the letters are churned into a new order"
+     },
+     {
+      "text": "Using paw, dish finally in a lather — doing this?",
+      "for": "and_lit",
+      "note": "the whole sentence both supplies the letters and describes the chore of scrubbing a dish in soapy water"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Using paw",
+      "gives": "USINGPAW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dish",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of dish"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USINGPAWH",
+       "gives": "WASHINGUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat or dog pawing at a soapy plate, and someone asking whether this counts as doing the dishes.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: mixing USING PAW with the H at the end of dish gives WASHING UP, which is exactly what a paw in a lather of a dish would be doing.",
+     "definitionFit": "Cleaning plates and cutlery in soapy water after a meal is the everyday British phrase for doing the dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "lather"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +119,48 @@
     "text": "Clean nick, ceiling scrubbed",
     "enumeration": "4"
    },
-   "solution": "WIPE"
+   "solution": "WIPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WIPE",
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ceiling scrubbed",
+      "for": "deletion",
+      "note": "in a down entry the ceiling is the topmost letter, and scrubbing it removes it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nick",
+      "gives": "SWIPE",
+      "note": "to nick and to swipe both mean to steal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy instruction to steal something while the ceiling gets a scrub.",
+     "walkthrough": "'Nick' looks like a cut but is British slang for steal; in a down answer the ceiling is the first letter, so SWIPE loses its S.",
+     "definitionFit": "To wipe a surface is to clean it by rubbing with a cloth, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ceiling"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +174,54 @@
     "text": "Marines all at sea in conference",
     "enumeration": "7"
    },
-   "solution": "SEMINAR"
+   "solution": "SEMINAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMINAR",
+    "definitions": [
+     {
+      "text": "conference",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all at sea",
+      "for": "anagram",
+      "note": "being all at sea means confused and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marines",
+      "gives": "MARINES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARINES",
+       "gives": "SEMINAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors meeting in a conference held aboard ship.",
+     "walkthrough": "'All at sea' fits marines so naturally that it reads as their location rather than an instruction to rearrange them.",
+     "definitionFit": "A seminar is a meeting for discussion or training, a kind of small academic or professional gathering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +235,56 @@
     "text": "Type I like every so often",
     "enumeration": "3"
    },
-   "solution": "ILK"
+   "solution": "ILK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ILK",
+    "definitions": [
+     {
+      "text": "Type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every so often",
+      "for": "letter_selection",
+      "note": "doing something every so often means at regular gaps, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "LK",
+      "select": "alternate",
+      "note": "the second and fourth letters of like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "LK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing their sort of person as one they fancy now and then.",
+     "walkthrough": "Only the word like is thinned out; the I stands whole in front of it.",
+     "definitionFit": "Ilk means a sort or kind, as in people of that ilk, so it matches type as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +298,43 @@
     "text": "Indian leader partial to meditating, and high-born",
     "enumeration": "6"
    },
-   "solution": "GANDHI"
+   "solution": "GANDHI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GANDHI",
+    "definitions": [
+     {
+      "text": "Indian leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partial to",
+      "for": "hidden_word",
+      "note": "partial means only part of something, so just a portion of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meditating, and high-born",
+      "gives": "GANDHI",
+      "note": "runs across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A national leader who was fond of meditation and of noble birth.",
+     "walkthrough": "'Partial to' reads as 'fond of', which suits a meditating leader, but it is literal: a part of the following words.",
+     "definitionFit": "Mahatma Gandhi led India's independence movement, so he is the obvious famous Indian leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partial"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +348,42 @@
     "text": "Cold fading away",
     "enumeration": "9"
    },
-   "solution": "PERISHING"
+   "solution": "PERISHING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERISHING",
+    "definitions": [
+     {
+      "text": "Cold",
+      "at": 0
+     },
+     {
+      "text": "fading away",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "note": "first meaning: bitterly chilly, as in a freezing winter day"
+     },
+     {
+      "clueFragment": "fading away",
+      "note": "second meaning: dying or decaying"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two parts sound like one phrase about a fading chill; they are two separate senses of one word.",
+     "definitionFit": "British speakers call extreme chill perishing, and the same word as a participle means dying out or decaying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +397,45 @@
     "text": "Tree the solver picked up?",
     "enumeration": "3"
    },
-   "solution": "YEW"
+   "solution": "YEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "YEW",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picking something up can mean catching it by ear, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the solver",
+      "gives": "YEW",
+      "soundsLike": "YOU",
+      "note": "the solver is the person reading the clue, addressed as you"
+     }
+    ],
+    "explanation": {
+     "surface": "A tree that the person doing the puzzle has picked up somewhere.",
+     "walkthrough": "Crosswords often call the reader 'the solver' or 'you', and the evergreen sounds the same as that pronoun.",
+     "definitionFit": "The yew is an evergreen conifer often found in churchyards, a specific example of a tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "solver"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +449,65 @@
     "text": "Old bishop lad knocked over, thug!",
     "enumeration": "5"
    },
-   "solution": "YOBBO"
+   "solution": "YOBBO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YOBBO",
+    "definitions": [
+     {
+      "text": "thug",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over is upended, so in a down entry its letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for a bishop"
+     },
+     {
+      "clueFragment": "lad",
+      "gives": "BOY",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YOBBO"
+     ],
+     "reversals": [
+      {
+       "from": "OBBOY",
+       "to": "YOBBO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly bishop has been flattened by a young lout.",
+     "walkthrough": "The whole string of old, bishop and lad is turned over, not just the lad. A yobbo is British slang for a loutish young hooligan.",
+     "definitionFit": "Yobbo is informal British slang for a rowdy, aggressive young man, close enough to a violent ruffian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +521,57 @@
     "text": "Footballer’s victory over Germany",
     "enumeration": "6"
    },
-   "solution": "WINGER"
+   "solution": "WINGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINGER",
+    "definitions": [
+     {
+      "text": "Footballer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, one part placed over another sits above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a victory is a win"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "GER",
+      "note": "GER is the standard abbreviation for Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A football player celebrating a win against the German national team.",
+     "walkthrough": "'Over' reads as 'against' in the match report, but in a down clue it just places one part above the other.",
+     "definitionFit": "A winger is a player who attacks down the side of the pitch, a particular position in soccer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +585,51 @@
     "text": "Halloween item to get one’s own blood circulating?",
     "enumeration": "7"
    },
-   "solution": "PUMPKIN"
+   "solution": "PUMPKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUMPKIN",
+    "definitions": [
+     {
+      "text": "Halloween item",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circulating",
+      "gives": "PUMP",
+      "note": "the heart keeps blood circulating by pumping it"
+     },
+     {
+      "clueFragment": "one’s own blood",
+      "gives": "KIN",
+      "note": "your own blood means your relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUMP",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something spooky at Halloween designed to make the heart race.",
+     "walkthrough": "'Blood' looks like a horror image for Halloween, but 'one's own blood' is family, and getting blood moving is the job of a pump.",
+     "definitionFit": "Carved hollow pumpkins with candles inside are the classic jack-o'-lantern decoration of the October holiday."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blood"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +643,44 @@
     "text": "Superhero’s sidekick dressin’",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROBIN",
+    "definitions": [
+     {
+      "text": "Superhero’s sidekick",
+      "at": 0
+     },
+     {
+      "text": "dressin’",
+      "at": 21,
+      "note": "a dropped-g spelling of robing, so the answer stands for robin' as printed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superhero’s sidekick",
+      "note": "first meaning: Batman's young partner"
+     },
+     {
+      "clueFragment": "dressin’",
+      "note": "second meaning: putting on robes, with the final g dropped as the apostrophe shows"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The apostrophe in 'dressin'' is the hint: the second meaning is robing said casually, losing its last letter.",
+     "definitionFit": "Batman's partner in comics is the Boy Wonder, and robing means putting on ceremonial garments, here clipped colloquially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressin’"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +704,45 @@
      }
     ]
    },
-   "solution": "KNOWTHESCORE"
+   "solution": "KNOWTHESCORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNOW THE SCORE",
+    "definitions": [
+     {
+      "text": "Understand what to do",
+      "at": 0
+     },
+     {
+      "text": "as 11 probably would",
+      "at": 24,
+      "note": "a description of what the answer to 11 does, not a direct synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understand what to do",
+      "note": "first meaning: be aware of the real situation"
+     },
+     {
+      "clueFragment": "as 11 probably would",
+      "note": "second meaning: a devotee of a composer would be familiar with his written music"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone grasping their task, as a certain music lover would.",
+     "walkthrough": "The answer to 11 is a lover of an opera composer, who would be familiar with the printed music of his works: the score.",
+     "definitionFit": "The idiom means being fully informed about how things stand, while a score is also a musical manuscript."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Understand"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +756,51 @@
     "text": "Waning era upset fan of composer",
     "enumeration": "9"
    },
-   "solution": "WAGNERIAN"
+   "solution": "WAGNERIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WAGNERIAN",
+    "definitions": [
+     {
+      "text": "fan of composer",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is overturned and thrown into disorder, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waning era",
+      "gives": "WANINGERA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WANINGERA",
+       "gives": "WAGNERIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music lover upset that their favourite period is fading.",
+     "walkthrough": "'Upset' seems to describe the fan's mood, but it is telling you to rearrange the two words before it.",
+     "definitionFit": "An admirer of Richard Wagner's operas is called a Wagnerian, the noun for devotees of that German composer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +814,55 @@
     "text": "Puritan swine claims right",
     "enumeration": "4"
    },
-   "solution": "PRIG"
+   "solution": "PRIG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRIG",
+    "definitions": [
+     {
+      "text": "Puritan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claims",
+      "for": "container",
+      "note": "to claim is to take hold of, so one part grips another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swine",
+      "gives": "PIG",
+      "note": "a swine is a pig"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "IG"
+     ]
+    },
+    "explanation": {
+     "surface": "A strait-laced moralist, branded a swine, insists they are in the right.",
+     "walkthrough": "'Swine' looks like an insult aimed at the puritan, but it is the farm animal holding a single letter.",
+     "definitionFit": "A prig is a self-righteous, smugly moral person, which is the loose, lowercase sense of puritan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claims"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +876,50 @@
     "text": "Yen in Tokyo, currency here primarily",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Yen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Tokyo, currency here",
+      "gives": "ITCH",
+      "select": "first",
+      "note": "the opening letters of those four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on Japanese money: the yen is the currency used in Tokyo.",
+     "walkthrough": "'Yen' is the false trail: it looks like the Japanese money that fits Tokyo, but it is the definition in its sense of a longing.",
+     "definitionFit": "A yen is a strong desire, and an itch is likewise a restless craving to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Yen"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +933,56 @@
     "text": "Tailoring unfashionable, make better clothes",
     "enumeration": "7"
    },
-   "solution": "COUTURE"
+   "solution": "COUTURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUTURE",
+    "definitions": [
+     {
+      "text": "Tailoring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "to clothe something is to wrap it up, so one part dresses around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfashionable",
+      "gives": "OUT",
+      "note": "something unfashionable is out"
+     },
+     {
+      "clueFragment": "make better",
+      "gives": "CURE",
+      "note": "to cure is to make well again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OUT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Out-of-date tailoring that needs to be made into better garments.",
+     "walkthrough": "'Clothes' looks like a noun for garments, which suits tailoring, but it is the verb meaning to wrap around.",
+     "definitionFit": "Couture is the craft of designing and making fine custom-made garments, so it matches dressmaking or tailoring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +996,43 @@
     "text": "Bonzer bloke from Oz?",
     "enumeration": "6"
    },
-   "solution": "WIZARD"
+   "solution": "WIZARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WIZARD",
+    "definitions": [
+     {
+      "text": "Bonzer",
+      "at": 0
+     },
+     {
+      "text": "bloke from Oz",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bonzer",
+      "note": "first meaning: excellent, as old slang"
+     },
+     {
+      "clueFragment": "bloke from Oz",
+      "note": "second meaning: the title character of the famous film and book set in a magical land"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bonzer is Australian slang for excellent, so 'Oz' seems to mean Australia, but the bloke is the humbug ruler of L. Frank Baum's land of Oz.",
+     "definitionFit": "Old British slang uses this word as an adjective for marvellous, and it also names the fake magician who rules Emerald City."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oz"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1052,51 @@
      }
     ]
    },
-   "solution": "BOWWOW"
+   "solution": "BOWWOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOW WOW",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curtsey",
+      "gives": "BOW",
+      "note": "a curtsey is a kind of bow"
+     },
+     {
+      "clueFragment": "I’m amazed!",
+      "gives": "WOW",
+      "note": "an exclamation of astonishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOW",
+      "WOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Astonishment at a dog performing a curtsey.",
+     "walkthrough": "'In' looks like it puts one part inside another, but it just joins the definition to the wordplay.",
+     "definitionFit": "Bow-wow is a childish or nursery word for a dog, imitating its bark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1124,51 @@
      }
     ]
    },
-   "solution": "INTHELONGRUN"
+   "solution": "INTHELONGRUN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE LONG RUN",
+    "definitions": [
+     {
+      "text": "ultimately",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Eccentric",
+      "for": "anagram",
+      "note": "something eccentric is off-centre and odd, so the letters are knocked out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunting loner",
+      "gives": "HUNTINGLONER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HUNTINGLONER",
+       "gives": "INTHELONGRUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddball hermit out hunting, who in the end turns up.",
+     "walkthrough": "'Eccentric' reads as an adjective describing the lone hunter, but it tells you to rearrange the two words after it.",
+     "definitionFit": "The idiom means eventually or over a long period, the same as in the end or finally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eccentric"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1182,54 @@
     "text": "Freaky night for Addams Family character",
     "enumeration": "5"
    },
-   "solution": "THING"
+   "solution": "THING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THING",
+    "definitions": [
+     {
+      "text": "Addams Family character",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Freaky",
+      "for": "anagram",
+      "note": "something freaky is weird and abnormal, so the letters are bent into an odd order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "night",
+      "gives": "NIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NIGHT",
+       "gives": "THING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spooky evening suited to a member of the macabre Addams household.",
+     "walkthrough": "'Freaky' fits the ghoulish Addams theme so well that it reads as scene-setting rather than an instruction.",
+     "definitionFit": "In the cartoons, TV show and films, Thing is the disembodied hand that serves the Addams household."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Freaky"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1243,51 @@
     "text": "Test failed, mark written in margin",
     "enumeration": "4"
    },
-   "solution": "STET"
+   "solution": "STET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STET",
+    "definitions": [
+     {
+      "text": "mark written in margin",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failed",
+      "for": "anagram",
+      "note": "something that has failed has broken down, so the letters fall apart and regroup"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test",
+      "gives": "TEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEST",
+       "gives": "STET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A failed exam paper, with the teacher's mark written in the margin.",
+     "walkthrough": "The marking scene suggests a grade or a cross, but the margin note is a proofreader's instruction.",
+     "definitionFit": "Stet, Latin for let it stand, is an editor's margin instruction cancelling a correction and keeping the original text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1301,58 @@
     "text": "Defence from boxer with big cut",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALIBI",
+    "definitions": [
+     {
+      "text": "Defence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting something shortens it, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxer",
+      "gives": "ALI",
+      "note": "Muhammad Ali, the heavyweight champion"
+     },
+     {
+      "clueFragment": "big",
+      "gives": "BIG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "BI"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer covering up after a big gash, or claiming a defence after a big wound.",
+     "walkthrough": "'Defence' suggests a boxer's guard, but it is a legal defence; 'with' simply joins the two parts.",
+     "definitionFit": "An alibi is a claim of having been elsewhere when a crime happened, used to prove innocence in court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Defence"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1372,51 @@
      }
     ]
    },
-   "solution": "WETSUIT"
+   "solution": "WETSUIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WET SUIT",
+    "definitions": [
+     {
+      "text": "frogman’s outfit",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeble",
+      "gives": "WET",
+      "note": "wet is British slang for feeble or wimpish"
+     },
+     {
+      "clueFragment": "executive",
+      "gives": "SUIT",
+      "note": "a suit is slang for a business executive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WET",
+      "SUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A weak-willed businessman looking silly dressed up as a diver.",
+     "walkthrough": "In British slang a wet person is a weakling, and executives are called suits after their office clothes.",
+     "definitionFit": "Divers, once called frogmen, wear a close-fitting rubber garment that keeps them warm underwater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Feeble"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1430,45 @@
     "text": "Drink character mentioned?",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mentioned",
+      "for": "homophone",
+      "note": "something mentioned is spoken of, so the word is judged by how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character",
+      "gives": "TEA",
+      "soundsLike": "T",
+      "note": "a character here is a letter of the alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "A beverage that some person in a story brings up in conversation.",
+     "walkthrough": "'Character' suggests a person in a story, but it means a letter, and the twentieth letter's name sounds like the drink.",
+     "definitionFit": "Tea is a hot beverage brewed from dried leaves, a common example of something to drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1482,42 @@
     "text": "Appreciate archaeological site",
     "enumeration": "3"
    },
-   "solution": "DIG"
+   "solution": "DIG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIG",
+    "definitions": [
+     {
+      "text": "Appreciate",
+      "at": 0
+     },
+     {
+      "text": "archaeological site",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appreciate",
+      "note": "first meaning: like or enjoy, in slang"
+     },
+     {
+      "clueFragment": "archaeological site",
+      "note": "second meaning: a place where excavation is under way"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like valuing a historic location, but the two parts are separate meanings of one short word.",
+     "definitionFit": "Slang uses this verb for liking something, and archaeologists call their excavation the same as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appreciate"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1531,66 @@
     "text": "Fresh herb and hollow nut in shop",
     "enumeration": "9"
    },
-   "solution": "NEWSAGENT"
+   "solution": "NEWSAGENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NEWSAGENT",
+    "definitions": [
+     {
+      "text": "shop",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow thing has its inside scooped out, so only the outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fresh",
+      "gives": "NEW",
+      "note": "fresh means new"
+     },
+     {
+      "clueFragment": "herb",
+      "gives": "SAGE",
+      "note": "sage is a kitchen herb"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the first and last letters of nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "SAGE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A greengrocer's display of fresh herbs alongside an empty nut.",
+     "walkthrough": "'In' seems to place something inside, but it only joins the wordplay to the definition. A newsagent is a British corner shop selling papers, sweets and tobacco.",
+     "definitionFit": "A newsagent is a British retail outlet selling newspapers and magazines, so it is a type of store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
