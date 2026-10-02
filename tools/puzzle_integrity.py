@@ -144,7 +144,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups  # noqa: E402 — linked answers
 from groups import entry_id  # noqa: E402
-from apply_solution import (check_fill, check_geometry,  # noqa: E402
+from apply_solution import (check_fill, check_geometry, off_board,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
 import boilerplate  # noqa: E402
@@ -209,266 +209,12 @@ PUBLISHED_WRONG = {
     ("cryptic-22813", "15-down: clue says (2,6) = 8, answer holds 10"):
         "SUSTAINING is one word of ten letters and fills the ten cells the grid "
         "gives it, under a clue the paper printed (2,6)",
-    ("cryptic-21730",
-     "11-across: 7 cells across from (0,83) runs off a 15x15 grid"):
-        "the Guardian's own markup puts 11-across at \"position\":{\"x\":0,"
-        "\"y\":83} on a grid it declares 15 rows tall; which row it meant is "
-        "not something this data says",
-    ("cryptic-21730",
-     "numbering does not match the grid: 16 light(s) disagree, starting with "
-     "the file's 12-across (7 cells) where the grid gives 12-across (5 cells)"):
-        "11-across being off the board (see the finding above) is what the "
-        "grid-derived numbering diverges on — with it missing from the grid, "
-        "every number from 12 on is one light short of the file's; fixing the "
-        "numbering would mean guessing where 11-across actually sits, which "
-        "this data does not say",
     ("cryptic-21640",
      "1-across + 17-down + 5-across + 9-across + 14-down: clue says "
      "(6,1,3-4,6,4,2) = 26, answer holds 7 alone or 45 linked"):
         "the Guardian grouped all five lights itself and filled them with "
         "THERE'S A ONE-EYED YELLOW IDOL TO THE NORTH OF KHATMANDU, 45 cells, "
         "under an enumeration it printed only as far as the first 26",
-# cryptic-22482 is the Guardian's 2002-04-01 Rufus puzzle, and its digitisation
-# is rotated by one: from 14-down on, each clue sits beside the answer belonging
-# to the light before it, and the lower half's coordinates are shifted with it.
-# The across clues and the downs above 14 are all correct, so the grid pattern
-# itself is a real, near-symmetric crossword — it is the paper's placement of
-# the lower lights that is wrong, the same defect as cryptic-21730 below, at the
-# scale of half a grid. Re-seating those lights would mean inventing coordinates
-# the paper never printed, so they stay exactly as published.
-    ("cryptic-22482", "26-down: clue says (6) = 6, answer holds 9"):
-        "OVERSLEPT fills the nine cells the Guardian's own length gives "
-        "26-down, under a count printed (6) — the clue beside it, \"Taking "
-        "flight, running fast\", is 25-down FLYING's, one place up the rotated "
-        "answer list",
-    ("cryptic-22482",
-     "cell (0, 7): crossing letters disagree — 14-down=R, 19-across=V"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (0, 9): crossing letters disagree — 14-down=C, 23-across=R"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (0, 11): crossing letters disagree — 14-down=I, 28-across=L"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (0, 13): crossing letters disagree — 14-down=A, 30-across=P"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (2, 7): crossing letters disagree — 15-down=U, 19-across=R"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (2, 9): crossing letters disagree — 15-down=F, 23-across=C"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (2, 13): crossing letters disagree — 15-down=K, 30-across=A"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (4, 7): crossing letters disagree — 16-down=L, 19-across=U"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (6, 6): crossing letters disagree — 17-across=A, 17-down=S"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (6, 7): crossing letters disagree — 17-down=P, 19-across=L"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (6, 8): crossing letters disagree — 17-down=Y, 21-across=L"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (7, 10): crossing letters disagree — 22-down=F, 27-across=A"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (7, 12): crossing letters disagree — 22-down=C, 29-across=A"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (8, 6): crossing letters disagree — 17-across=S, 18-down=A"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (8, 7): crossing letters disagree — 18-down=L, 20-across=P"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (8, 8): crossing letters disagree — 18-down=A, 21-across=Y"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (8, 10): crossing letters disagree — 18-down=A, 27-across=F"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (8, 12): crossing letters disagree — 18-down=A, 29-across=R"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (9, 10): crossing letters disagree — 24-down=D, 27-across=F"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (9, 12): crossing letters disagree — 24-down=T, 29-across=E"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (9, 14): crossing letters disagree — 24-down=R, 31-across=T"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (11, 10): crossing letters disagree — 25-down=L, 27-across=D"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (11, 12): crossing letters disagree — 25-down=I, 29-across=T"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (11, 14): crossing letters disagree — 25-down=G, 31-across=R"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (13, 10): crossing letters disagree — 26-down=V, 27-across=L"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (13, 12): crossing letters disagree — 26-down=R, 29-across=I"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "cell (13, 14): crossing letters disagree — 26-down=L, 31-across=G"):
-        "the Guardian's answer list for this 2002-04-01 puzzle is rotated by "
-        "one from 14-down on — 15-down's \"Realistic sort of joke for today\" "
-        "clues 14-down's PRACTICAL, and 17-down's \"A couple of pounds for the "
-        "lot\" clues 16-down's ALL — and the lower-half coordinates are "
-        "rotated with it, so every crossing below row 6 disagrees; which "
-        "cells the paper meant is not something this data says",
-    ("cryptic-22482",
-     "numbering does not match the grid: 10 light(s) disagree, starting with "
-     "the file's 16-down (3 cells) where the grid gives 16-down (4 cells)"):
-        "the same 2002-04-01 rotation that misplaces this puzzle's lower half "
-        "(see the crossing and off-board findings above) leaves the grid's "
-        "own numbering diverging from the file's from 16-down on; re-deriving "
-        "it would mean guessing the coordinates the paper never printed",
-    ("cryptic-22482",
-     "26-down: 9 cells down from (13,9) runs off a 15x15 grid"):
-        "the Guardian's own markup puts 26-down at \"position\":{\"x\":13,\"y\":9} "
-        "with \"length\":9 on a grid it declares 15 rows tall; the same "
-        "rotation that misplaces this puzzle's lower half put it there",
     ("cryptic-22061", "23-across: clue says (10,4) = 14, answer holds 10"):
         "the APPRENTICE BOYS who march by the Foyle need 24-across's BOYS, and "
         "24-across's pointer reads \"See 22\" — but 20-across PERSONAL + "
@@ -1081,8 +827,11 @@ def check_grid(puzzle, flags):
     entry list, answered or not, because a light is in the grid whether or not
     anyone has filled it in yet."""
     pid = puzzle["id"]
+    dims = puzzle.get("dimensions") or {}
+    unforgivable = {off_board(e, dims.get("cols"), dims.get("rows"))
+                    for e in puzzle.get("entries") or []} - {None}
     for problem in check_geometry(puzzle):
-        if (pid, problem) in PUBLISHED_WRONG:
+        if (pid, problem) in PUBLISHED_WRONG and problem not in unforgivable:
             continue
         flags.append(("GRID", pid, problem))
 

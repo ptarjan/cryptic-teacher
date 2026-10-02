@@ -44,11 +44,27 @@ ASSETS = ["style.css", "app.js", "analytics.js", "abbreviations.js", "qr.js", "s
           "og.png", "favicon.svg", "favicon.ico", "apple-touch-icon.png"]
 
 
+def _build_abbreviations():
+    import build_abbreviations
+    build_abbreviations.write(build_abbreviations.OUT, build_abbreviations.render())
+
+
+# The gitignored assets a pure function of tracked files builds, so stamping a
+# checkout that has never built one builds it instead of stopping:
+# puzzle_integrity.py reindexes, reindex stamps, and a fresh worktree has no
+# abbreviations.js. puzzles/index.js is not here: reindex writes it before it
+# stamps.
+BUILDERS = {"abbreviations.js": _build_abbreviations}
+
+
 def digest(rel):
     # Several of these are generated and gitignored, so a clone has the page
-    # that references them before it has them. Say which one is missing and
-    # that it is built rather than let pathlib raise about a bare path.
+    # that references them before it has them. Build the ones BUILDERS can;
+    # for the rest say which one is missing and that it is built rather than
+    # let pathlib raise about a bare path.
     path = ROOT / rel
+    if not path.exists() and rel in BUILDERS:
+        BUILDERS[rel]()
     if not path.exists():
         raise SystemExit(f"cannot stamp {rel}: it is not on disk. It is generated "
                          f"output — build it before anything stamps a page that "

@@ -65,6 +65,23 @@ def normalise(answer):
     return re.sub(r"[^A-Z]", "", str(answer).upper())
 
 
+def off_board(entry, cols, rows):
+    """The finding for a placed light that does not lie whole on a cols x rows
+    board, or None. Its own function so tools/puzzle_integrity.py can tell
+    this finding from the rest: no exception table forgives it, because a cell
+    off the board is a cell no reader of the file can draw."""
+    pos = entry.get("position") or {}
+    x, y = pos.get("x"), pos.get("y")
+    length, direction = entry.get("length"), entry.get("direction")
+    if not all(isinstance(v, int) for v in (x, y, length)):
+        return None             # not placed at all, which check_geometry reports
+    far_x, far_y = (x + length - 1, y) if direction == "across" else (x, y + length - 1)
+    if x < 0 or y < 0 or (cols and far_x >= cols) or (rows and far_y >= rows):
+        return (f"{entry_id(entry)}: {length} cells {direction} from ({x},{y}) "
+                f"runs off a {cols}x{rows} grid")
+    return None
+
+
 def check_geometry(puzzle):
     """Do the entries describe a COHERENT GRID? Returns a list of problems.
 
@@ -110,10 +127,8 @@ def check_geometry(puzzle):
                             f"direction {direction!r} does not place a light")
             continue
         across = direction == "across"
-        far_x, far_y = (x + length - 1, y) if across else (x, y + length - 1)
-        if x < 0 or y < 0 or (cols and far_x >= cols) or (rows and far_y >= rows):
-            problems.append(f"{eid}: {length} cells {direction} from ({x},{y}) "
-                            f"runs off a {cols}x{rows} grid")
+        if off := off_board(entry, cols, rows):
+            problems.append(off)
             continue
         placed.append(entry)
         starts[(x, y)].append(entry)
