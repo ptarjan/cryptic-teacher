@@ -22,6 +22,11 @@ The flags, in the order they matter:
             annotation, because the question is whether the PUZZLE is the same and
             a resend arrives under a fresh number and date. Copies are grouped, so
             three files of one puzzle print as one group of three, not three pairs.
+  NEARDUP   two files, of any series or number, sharing at least 80% of their
+            clues (clue_index.THRESHOLD): a page that served another puzzle's
+            clues under a new id, which DUPLICATE misses when one clue differs.
+            Found through an index of clue text -> ids, not pairwise.
+            clue_index.REPRINTS lists the pairs known to be a setter's rerun.
   LENGTH    an answer that contradicts the length the data itself states. Two
             statements exist per entry and both are checked: the grid's `length`
             field, and the (5,4)-style enumeration at the end of the clue. On a
@@ -147,6 +152,8 @@ from groups import entry_id  # noqa: E402
 from apply_solution import (check_fill, check_geometry, off_board,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
+from clue_index import ClueIndex  # noqa: E402
+from clue_index import ClueIndex  # noqa: E402
 import boilerplate  # noqa: E402
 import errata  # noqa: E402
 from fetch_puzzle import (PER_LIGHT_ENUMERATION, group_orders,  # noqa: E402
@@ -163,7 +170,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED", "NEARDUP")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1213,16 +1220,21 @@ def audit(paths, today):
     the puzzle files `paths` and whatever else sits under puzzles/."""
     flags, held = [], []
     by_content = defaultdict(list)
+    index = ClueIndex()
     paths = list(paths)
     for path in paths:
         puzzle = read_puzzle_file(path)
         check_filed(path, puzzle, flags)
         by_content[content_hash(puzzle)].append(puzzle["id"])
+        index.add(puzzle["id"], puzzle)
         held.append((puzzle.get("series", "cryptic"), puzzle["number"],
                      date_of(puzzle), puzzle["id"]))
         check_puzzle(puzzle, today, flags)
     check_dates(held, flags)
     check_strays(set(paths), flags)
+    for a, b, k, na, nb in index.pairs():
+        flags.append(("NEARDUP", a, f"{k} of {na} clues are the same as {b}'s ({nb}) "
+                                    "— one is another's copy filed under a wrong id"))
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
     return flags, copies
 

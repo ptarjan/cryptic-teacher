@@ -1287,5 +1287,7 @@ tools/derive_assembly.py                     an annotation's `assembly`, worked 
                                              blocks
 tools/test_derive_assembly.sh                is `assembly` worked out from the blocks, and only
                                              with the clue's own operations?
+tools/clue_index.py                          which puzzle files share clues: normalised clue
+                                             text -> puzzle ids
 ```
 <!-- LAYOUT-END -->
