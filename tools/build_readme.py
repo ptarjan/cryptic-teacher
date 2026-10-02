@@ -426,6 +426,7 @@ LAYOUT = [
     ("fetching", "tools/archive_org_jumbo.py", "file the Times Jumbo cryptics in archive.org's scans of The Times' Saturday editions"),
     ("fetching", "tools/test_archive_org_jumbo.sh", "does tools/archive_org_jumbo.py take the Jumbo's number from the prize text (the banner's is cut short), read \"SOLUTION TO JUMBO 17 8\" as 178, look for an unheaded solution in the edition two weeks on, blank a light whose count is short of it, keep the clue columns left of the Times Two's, and match a solution grid by its blocks when its middle prints grey?"),
     ("fetching", "tools/test_difficulty_barred.sh", "is a barred grid's checking rated against barred grids, not blocked ones?"),
+    ("fetching", "tools/test_no_doubled_paper.sh", "does any series' page say the same word twice running (\"Listener Listener\")? The Listener is its own publisher and kind, so joining the two doubled it. Renders a crawlable page for every series in tools/series.py and refuses a repeated adjacent word in the title, heading, description or series name"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
