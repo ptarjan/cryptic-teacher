@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,56 @@
      }
     ]
    },
-   "solution": "LADIDA"
+   "solution": "LADIDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LA-DI-DA",
+    "definitions": [
+     {
+      "text": "Hoity-toity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored now and again",
+      "for": "letter_selection",
+      "note": "skipping something every so often means every second letter is dropped and the rest kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "Indian",
+      "gives": "IDA",
+      "select": "alternate",
+      "note": "first, third and fifth letters of the word, the others left out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAD",
+      "IDA"
+     ]
+    },
+    "explanation": {
+     "surface": "A snooty remark about an Indian boy being overlooked from time to time.",
+     "walkthrough": "'Indian' looks like part of the picture of a snubbed boy, but only its odd letters are used.",
+     "definitionFit": "Both describe pretentious, affectedly refined manners; the hyphenated phrase is an informal synonym for snobbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +109,46 @@
     "text": "Some public exposure for bloodsuckers",
     "enumeration": "4"
    },
-   "solution": "LICE"
+   "solution": "LICE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LICE",
+    "definitions": [
+     {
+      "text": "bloodsuckers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only a portion of the following words is wanted, a run of letters inside them"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public exposure",
+      "gives": "LICE",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Insects that feed on blood get some unwelcome publicity.",
+     "walkthrough": "The letters sit across the gap between the end of the first word and the start of the second.",
+     "definitionFit": "These small parasitic insects live on hosts and feed by drinking their blood, so they are literal bloodsuckers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +162,62 @@
     "text": "Old Athenian’s money starts to cause havoc in play",
     "enumeration": "7"
    },
-   "solution": "DRACHMA"
+   "solution": "DRACHMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRACHMA",
+    "definitions": [
+     {
+      "text": "Old Athenian’s money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the beginnings of the next words are all that is taken from them"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting inside another means its letters go within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play",
+      "gives": "DRAMA",
+      "note": "a drama is a play"
+     },
+     {
+      "clueFragment": "cause havoc",
+      "gives": "CH",
+      "select": "first",
+      "note": "opening letters of both words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRA",
+      "CH",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Greek's cash causes chaos in a stage production.",
+     "walkthrough": "The two initials go into the middle of the word for a play, between its third and fourth letters.",
+     "definitionFit": "This silver coin was the standard currency unit of ancient Athens, later reused as the name of modern Greek money before the euro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +231,51 @@
     "text": "Rejected terrible downside",
     "enumeration": "8"
    },
-   "solution": "DISOWNED"
+   "solution": "DISOWNED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISOWNED",
+    "definitions": [
+     {
+      "text": "Rejected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a bad state, so the letters that follow are in a mess"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "downside",
+      "gives": "DOWNSIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOWNSIDE",
+       "gives": "DISOWNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turned down a proposal because of its awful drawback.",
+     "walkthrough": "'Terrible downside' reads as an ordinary phrase, but the adjective is the signal to rearrange the noun.",
+     "definitionFit": "To be cast off and no longer acknowledged by family or friends is to be refused and renounced, a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terrible"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +295,54 @@
      }
     ]
    },
-   "solution": "AGEGROUP"
+   "solution": "AGEGROUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGE GROUP",
+    "definitions": [
+     {
+      "text": "E.g. Gen Z or Millennials",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when travelling",
+      "for": "anagram",
+      "note": "things on the move get jostled about, so these letters shift into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peru, agog",
+      "gives": "PERUAGOG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERUAGOG",
+       "gives": "AGEGROUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Young people on holiday in Peru are wide-eyed with excitement.",
+     "walkthrough": "Peru looks like a destination in the scene; it is simply four of the letters to rearrange.",
+     "definitionFit": "Generation labels such as these name cohorts of people born within the same span of years, i.e. examples of a demographic bracket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Peru"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +356,51 @@
     "text": "Spice Girl given money and sweet food",
     "enumeration": "11"
    },
-   "solution": "GINGERBREAD"
+   "solution": "GINGERBREAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GINGERBREAD",
+    "definitions": [
+     {
+      "text": "sweet food",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "given",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spice Girl",
+      "gives": "GINGER",
+      "note": "Ginger Spice was Geri Halliwell's name in the Spice Girls pop group"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "BREAD",
+      "note": "slang for cash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GINGER",
+      "BREAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop star is handed cash and a dessert.",
+     "walkthrough": "The Spice Girls were a 1990s British girl group whose members had nicknames: Ginger, Posh, Scary, Sporty and Baby. Bread is old slang for money.",
+     "definitionFit": "A cake or biscuit flavoured with spice and treacle or syrup is a classic sugary treat, so this is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spice"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +414,45 @@
     "text": "John Travolta was in this part of Europe, it’s said",
     "enumeration": "6"
    },
-   "solution": "GREASE"
+   "solution": "GREASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREASE",
+    "definitions": [
+     {
+      "text": "John Travolta was in this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it’s said",
+      "for": "homophone",
+      "note": "what is said is heard rather than read, so the spelling of the spoken word changes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Europe",
+      "gives": "GREASE",
+      "soundsLike": "GREECE",
+      "note": "a Mediterranean country, pronounced the same as the film title"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that the actor once spent time in some European country.",
+     "walkthrough": "It reads like travel trivia; the 'this' points to a film, and the country's name sounds the same.",
+     "definitionFit": "Travolta starred as Danny Zuko in the 1978 high-school musical film of that name, so he appeared in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +466,47 @@
     "text": "Way of bowling six balls, ready for combat",
     "enumeration": "7"
    },
-   "solution": "OVERARM"
+   "solution": "OVERARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERARM",
+    "definitions": [
+     {
+      "text": "Way of bowling",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six balls",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six deliveries"
+     },
+     {
+      "clueFragment": "ready for combat",
+      "gives": "ARM",
+      "note": "to arm is to equip and prepare for a fight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "ARM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket bowler sends down six deliveries, spoiling for a fight.",
+     "walkthrough": "In cricket an over is six balls bowled by one bowler from one end. 'Ready for combat' is a verb sense, to equip for war.",
+     "definitionFit": "Cricket bowling must be delivered with the arm swung above the shoulder, so this describes the bowling action or style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +520,78 @@
     "text": "After vegetable, I refuse to put up with starter of Italian sausage",
     "enumeration": "9"
    },
-   "solution": "PEPPERONI"
+   "solution": "PEPPERONI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "PEPPERONI",
+    "definitions": [
+     {
+      "text": "sausage",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up flips it so it reads from bottom to top"
+     },
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter comes first, so only the opening letter of the next word is taken"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vegetable",
+      "gives": "PEPPER",
+      "note": "a pepper is a vegetable"
+     },
+     {
+      "clueFragment": "I refuse",
+      "gives": "NO",
+      "note": "saying I refuse is saying no"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEPPER",
+      "ON",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has eaten their vegetables will not tolerate a spicy Italian meat as the first course.",
+     "walkthrough": "'I refuse' looks like the speaker's voice but means just a two-letter refusal, which is then turned upwards.",
+     "definitionFit": "This spicy dried salami made from pork and beef is a well-known type of cured sausage, popular on pizza."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +605,65 @@
     "text": "Stylish girl wearing coat for ceremony",
     "enumeration": "6"
    },
-   "solution": "CLASSY"
+   "solution": "CLASSY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CLASSY",
+    "definitions": [
+     {
+      "text": "Stylish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coat",
+      "for": "letter_selection",
+      "note": "a coat is the outside layer, so only the outermost letters of the next word are taken"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whoever wears a garment is inside it, so one piece is wrapped by another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ceremony",
+      "gives": "CY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LASS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart young woman dresses up in a coat for a formal occasion.",
+     "walkthrough": "'Coat for ceremony' looks like an outfit chosen for the event, but it means the outside letters of that word.",
+     "definitionFit": "Both words describe someone or something elegant and fashionable, showing good taste; a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +683,55 @@
      }
     ]
    },
-   "solution": "KNEEDEEP"
+   "solution": "KNEEDEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KNEE-DEEP",
+    "definitions": [
+     {
+      "text": "submerged to a certain extent",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "entering means going inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Requirement",
+      "gives": "NEED",
+      "note": "a need is a requirement"
+     },
+     {
+      "clueFragment": "castle tower",
+      "gives": "KEEP",
+      "note": "the keep is the main tower of a castle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NEED",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "A rule for getting into a castle tower that is partly flooded.",
+     "walkthrough": "A keep is the strongest central tower of a medieval castle. The four-letter need goes in after its first letter.",
+     "definitionFit": "Standing in water up to the knees means being partly immersed, and figuratively being deeply involved in something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Requirement"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +755,51 @@
      }
     ]
    },
-   "solution": "THEWINTERSTALE"
+   "solution": "THEWINTERSTALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE WINTER'S TALE",
+    "definitions": [
+     {
+      "text": "Shakespeare play",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adapted",
+      "for": "anagram",
+      "note": "an adaptation reworks material into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint Stewart Lee",
+      "gives": "HINTSTEWARTLEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HINTSTEWARTLEE",
+       "gives": "THEWINTERSTALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tip-off that the comedian Stewart Lee has reworked one of Shakespeare's dramas.",
+     "walkthrough": "Stewart Lee is a British stand-up comedian; his name, with 'Hint', supplies exactly the fourteen letters to rearrange.",
+     "definitionFit": "This late romance about Leontes, Hermione and Perdita is one of the works written by the Bard, so the answer is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hint"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +819,61 @@
      }
     ]
    },
-   "solution": "NORTHKOREAN"
+   "solution": "NORTHKOREAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NORTH KOREAN",
+    "definitions": [
+     {
+      "text": "Maybe Kim",
+      "at": 0,
+      "note": "an example of a person from that country"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when dancing",
+      "for": "anagram",
+      "note": "dancers move about and change positions, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Karen",
+      "gives": "KAREN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ron, hot",
+      "gives": "RONHOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KARENRONHOT",
+       "gives": "NORTHKOREAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three friends named Kim, Karen and Ron get warm on the dance floor.",
+     "walkthrough": "Kim looks like one of a list of friends, but it stands apart as the definition: Kim Jong-un, leader of the country.",
+     "definitionFit": "Kim Jong-un and his family rulers are citizens of the Pyongyang state, so the name is an example of the nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kim"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +893,64 @@
      }
     ]
    },
-   "solution": "SPACEPROBE"
+   "solution": "SPACEPROBE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPACE PROBE",
+    "definitions": [
+     {
+      "text": "Voyager, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sporting",
+      "for": "container",
+      "note": "to sport clothes is to wear them, so one piece ends up inside the outfit"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "a standard abbreviation of special"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "ROBE",
+      "note": "a robe is a dress or gown"
+     },
+     {
+      "clueFragment": "stride",
+      "gives": "PACE",
+      "note": "a pace is a stride"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PACE",
+      "PROBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, perhaps a traveller, walks out in a special outfit.",
+     "walkthrough": "The stride goes in after the first letter of the joined abbreviation and dress, splitting the S from the P.",
+     "definitionFit": "Voyager 1 and 2 are NASA unmanned craft sent to explore the outer planets, so they are examples of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Voyager"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +964,59 @@
     "text": "English pop singer admits longing for some needlework",
     "enumeration": "9"
    },
-   "solution": "STITCHING"
+   "solution": "STITCHING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STITCHING",
+    "definitions": [
+     {
+      "text": "some needlework",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English pop singer",
+      "gives": "STING",
+      "note": "Sting is the stage name of the English singer of the Police"
+     },
+     {
+      "clueFragment": "longing",
+      "gives": "ITCH",
+      "note": "an itch is a craving or longing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ITCH",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A British pop star confesses a desire to take up sewing.",
+     "walkthrough": "'Admits' reads as confessing, but it means letting the longing into the singer's name, after its second letter.",
+     "definitionFit": "Sewing with a needle and thread, making rows of loops in fabric, is a kind of needlecraft, so the answer is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +1030,51 @@
     "text": "American doctor’s rounds",
     "enumeration": "4"
    },
-   "solution": "AMMO"
+   "solution": "AMMO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMMO",
+    "definitions": [
+     {
+      "text": "rounds",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "a standard abbreviation"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "medical officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "MO"
+     ]
+    },
+    "explanation": {
+     "surface": "A US physician doing ward rounds in hospital.",
+     "walkthrough": "A doctor's rounds suggests hospital visits; here rounds means bullets. MO is Medical Officer, an army doctor.",
+     "definitionFit": "Rounds of a gun are individual cartridges, and the short informal word for ammunition covers them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rounds"
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1094,62 @@
      }
     ]
    },
-   "solution": "TREEFERN"
+   "solution": "TREEFERN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TREE FERN",
+    "definitions": [
+     {
+      "text": "plant from a wood",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Empty",
+      "for": "letter_selection",
+      "note": "emptying removes the contents, leaving only the outside letters of the next word"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a filled vessel holds something, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "TN",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "cigarette containing cannabis",
+      "gives": "REEFER",
+      "note": "slang for a joint, a cannabis cigarette"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REEFER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A discarded can stuffed with a joint is found among the trees.",
+     "walkthrough": "'Containing' here belongs to the description of the cigarette, not to the assembly; the whole phrase defines a reefer.",
+     "definitionFit": "These large ferns with trunk-like stems grow in forests and look like small trees, so it is a woodland plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "containing"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1163,48 @@
     "text": "Caesar’s fateful day that is in Latin, mostly",
     "enumeration": "4"
    },
-   "solution": "IDES"
+   "solution": "IDES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDES",
+    "definitions": [
+     {
+      "text": "Caesar’s fateful day",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most of something is all but the end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is in Latin",
+      "gives": "IDEST",
+      "note": "id est, Latin for that is, abbreviated i.e."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on the Roman date when Julius Caesar met his end, expressed in Latin.",
+     "walkthrough": "'In Latin' looks like scene-setting for Caesar, but it tells you to translate the phrase before dropping its last letter.",
+     "definitionFit": "Caesar was assassinated on the fifteenth of March, a date the Romans called by this name; the soothsayer warned him of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Latin"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1218,65 @@
     "text": "Cry out with energy before wild climax",
     "enumeration": "7"
    },
-   "solution": "EXCLAIM"
+   "solution": "EXCLAIM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXCLAIM",
+    "definitions": [
+     {
+      "text": "Cry out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "something wild is out of control, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "the physics symbol for energy"
+     },
+     {
+      "clueFragment": "climax",
+      "gives": "CLIMAX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XCLAIM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLIMAX",
+       "gives": "XCLAIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shouting vigorously at the height of a frenzied ending.",
+     "walkthrough": "The energy letter comes first, then the rearranged six letters.",
+     "definitionFit": "To shout or speak suddenly, from surprise or strong feeling, is the same as calling loudly; a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climax"
+    }
+   }
   },
   {
    "number": 18,
@@ -361,7 +1302,49 @@
      }
     ]
    },
-   "solution": "CHIEFRABBI"
+   "solution": "CHIEFRABBI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHIEF RABBI",
+    "definitions": [
+     {
+      "text": "religious Bigwig",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no time",
+      "for": "deletion",
+      "note": "having none of something means it is taken away, here the abbreviation for time"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps Hazel in Watership Down",
+      "gives": "CHIEFRABBIT",
+      "note": "Hazel leads the warren in Richard Adams's novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIEFRABBI"
+     ]
+    },
+    "explanation": {
+     "surface": "Hazel, the head rabbit in Watership Down, can't spare a moment for Bigwig.",
+     "walkthrough": "Watership Down is Richard Adams's novel about rabbits, in which Bigwig is another rabbit, so 'Bigwig' seems part of the story. Remove T from the end.",
+     "definitionFit": "The title names the senior religious leader of a Jewish community, such as Britain's, so it is a high-ranking cleric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bigwig"
+    }
+   }
   },
   {
    "number": 19,
@@ -375,7 +1358,47 @@
     "text": "What anti-monarchist might do, making reservation",
     "enumeration": "7"
    },
-   "solution": "BOOKING"
+   "solution": "BOOKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOOKING",
+    "definitions": [
+     {
+      "text": "What anti-monarchist might do",
+      "at": 0
+     },
+     {
+      "text": "reservation",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What anti-monarchist might do",
+      "note": "first meaning, split in two: jeer at the sovereign"
+     },
+     {
+      "clueFragment": "reservation",
+      "note": "second meaning: an arrangement to hold a seat or room"
+     }
+    ],
+    "explanation": {
+     "surface": "A republican protester heckling the crown while also securing a table.",
+     "walkthrough": "Split the answer as BOO KING to get the jeering; read whole, it is the ordinary noun.",
+     "definitionFit": "Someone opposed to royalty might jeer the monarch; as one word it means arranging a seat, table or room in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 20,
@@ -389,7 +1412,50 @@
     "text": "Cruel person is miserable first",
     "enumeration": "6"
    },
-   "solution": "SADIST"
+   "solution": "SADIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SADIST",
+    "definitions": [
+     {
+      "text": "Cruel person",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miserable",
+      "gives": "SAD",
+      "note": "sad means miserable"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, with the numeral 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAD",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel person is the first one to be unhappy.",
+     "walkthrough": "'First' looks like an ordering word, but it is the ordinal 1st with the digit standing in for I.",
+     "definitionFit": "Someone who takes pleasure in inflicting pain on others is a classic example of a heartless, brutal individual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 21,
@@ -417,7 +1483,72 @@
      }
     ]
    },
-   "solution": "COCKADOODLEDOO"
+   "solution": "COCKADOODLEDOO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "COCK-A-DOODLE-DOO",
+    "definitions": [
+     {
+      "text": "Crow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "what drops falls away, so that letter is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in another word, the piece goes inside it"
+     },
+     {
+      "text": "after",
+      "for": "deletion",
+      "note": "sets the order: the insertion happens once the removal is done"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casually drew",
+      "gives": "DOODLED",
+      "note": "to doodle is to draw idly"
+     },
+     {
+      "clueFragment": "parrot",
+      "gives": "COCKATOO",
+      "note": "a cockatoo is a kind of parrot"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation, the letter taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCKA",
+      "DOODLED",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A crow idly sketched a parrot once the weather turned cold.",
+     "walkthrough": "'Crow' looks like the bird, but it is the verb or noun for a rooster's call. 'Temperature drops' suggests weather; it means T leaves the parrot.",
+     "definitionFit": "A rooster's crow is conventionally written as this imitative phrase in English, so the sound and the word match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crow"
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1562,61 @@
     "text": "Silly bit of publicity around newspaper",
     "enumeration": "4"
    },
-   "solution": "DAFT"
+   "solution": "DAFT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DAFT",
+    "definitions": [
+     {
+      "text": "Silly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around faces the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement, a piece of publicity"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the Financial Times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "FT"
+     ],
+     "reversals": [
+      {
+       "from": "AD",
+       "to": "DA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish promotional stunt that appears in a newspaper.",
+     "walkthrough": "'Around' looks like it wants one piece placed round the other, but here it turns the advert back to front. The FT is the Financial Times, a London daily.",
+     "definitionFit": "Both words are informal British terms for foolish or lacking sense; a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1630,71 @@
     "text": "Supposed Dynamo crazy, ingesting alcohol and drug",
     "enumeration": "8"
    },
-   "solution": "IMAGINED"
+   "solution": "IMAGINED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMAGINED",
+    "definitions": [
+     {
+      "text": "Supposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingesting",
+      "for": "container",
+      "note": "to ingest is to swallow, taking something inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dynamo",
+      "gives": "I",
+      "note": "the setter, referring to himself in the first person"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "MAD",
+      "note": "mad means crazy"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "GIN",
+      "note": "gin is an alcoholic drink"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MA",
+      "GINE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter claims to have been driven mad by drink and drugs.",
+     "walkthrough": "Dynamo is this puzzle's setter, and a setter's pseudonym in a clue stands for the first-person pronoun. The drink and drug go inside the craziness, before its last letter.",
+     "definitionFit": "Supposing something and picturing it in the mind without proof are close in meaning; both are past-tense verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dynamo"
+    }
+   }
   },
   {
    "number": 24,
@@ -459,7 +1708,44 @@
     "text": "A bit of a looker dressed in beret in Arles",
     "enumeration": "6"
    },
-   "solution": "RETINA"
+   "solution": "RETINA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RETINA",
+    "definitions": [
+     {
+      "text": "A bit of a looker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed in",
+      "for": "hidden_word",
+      "note": "clothes enclose the wearer, so the answer lies within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beret in Arles",
+      "gives": "RETINA",
+      "note": "letters running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A pretty woman wearing a beret in a town in southern France.",
+     "walkthrough": "'Looker' suggests an attractive person, but here it means an eye, of which this is one part.",
+     "definitionFit": "An eye is something that looks, and the light-sensitive layer at its back is one component of that organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looker"
+    }
+   }
   },
   {
    "number": 25,
@@ -473,7 +1759,60 @@
     "text": "Ruby perhaps gets on with me badly",
     "enumeration": "8"
    },
-   "solution": "GEMSTONE"
+   "solution": "GEMSTONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GEMSTONE",
+    "definitions": [
+     {
+      "text": "Ruby perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "things done badly come out wrong, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gets on",
+      "gives": "GETSON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSONME",
+       "gives": "GEMSTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Ruby does not get along with the speaker.",
+     "walkthrough": "Ruby looks like a person's name in a quarrel; it is the precious stone, an example of the answer.",
+     "definitionFit": "A ruby is a red precious stone cut and polished for jewellery, so it is one example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ruby"
+    }
+   }
   },
   {
    "number": 26,
@@ -487,7 +1826,48 @@
     "text": "Dark time, we hear, for man on board",
     "enumeration": "6"
    },
-   "solution": "KNIGHT"
+   "solution": "KNIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNIGHT",
+    "definitions": [
+     {
+      "text": "man on board",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what is heard is a sound, not a spelling, so the written form differs"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark time",
+      "gives": "KNIGHT",
+      "soundsLike": "NIGHT",
+      "note": "the hours of darkness, pronounced identically"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor hears tell of a gloomy period at sea.",
+     "walkthrough": "'Man on board' suggests a sailor on a ship; the board is a chessboard.",
+     "definitionFit": "In chess the pieces are called men, and the horse-shaped one is a piece standing on the board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   }
  ]
 }
