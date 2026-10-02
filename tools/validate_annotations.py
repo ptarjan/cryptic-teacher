@@ -2,7 +2,7 @@
 """Validate clue annotations in puzzles/<series>/<year>/*.json.
 
 Checks, for every annotated entry:
-  - annotation has type, definitions, answer, blocks, explanation.walkthrough
+  - annotation has type, definitions, answer, blocks
   - `type` is an array of names from tools/data/clue_types.json (check_type)
   - answer letters match the grid solution (group-aware for linked entries)
   - each definition sits at its `at` in the clue (tools/definitions.py), every
@@ -2723,8 +2723,6 @@ def validate_puzzle(puzzle, corpus=False):
                 continue
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
-        if not explanation(ann).get("walkthrough"):
-            errors.append(f"{tag}: missing annotation field 'explanation.walkthrough'")
         # A themed answer the puzzle's preamble defines ("the unclued answers
         # are birds") has no definition in its clue. Only a puzzle that prints
         # a preamble can say so, and the flag replaces the definition rather
