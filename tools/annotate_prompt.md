@@ -81,8 +81,9 @@ anagram, that item's `gives` is the answer. `reversals` holds every reversal ste
 out any key with nothing in it, and `assembly` itself for a hidden word, homophone, or
 double or cryptic definition.
 
-An entry with an `alteration` goes into the grid changed, as its puzzle's preamble says:
-the clue's definition and wordplay give `alteration.from`, and its `steps` turn that word
+An entry with an `alteration` goes into the grid changed, as its puzzle's preamble says.
+Write `alteration` (`{"from": "...", "steps": [{"op": "reversal"}]}`) in its object here and
+apply moves it onto the puzzle's entry; never edit the puzzle file by hand. The clue's definition and wordplay give `alteration.from`, and its `steps` turn that word
 into the solution. `answer` is still the solution; `blocks` and `assembly` build `from`.
 
 A block for letters the puzzle's preamble supplies has no clue words: leave out its `clueFragment`.
