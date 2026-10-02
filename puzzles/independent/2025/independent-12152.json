@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Hamburgers? Hunger management only partially succeeded",
     "enumeration": "7"
    },
-   "solution": "GERMANS"
+   "solution": "GERMANS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GERMANS",
+    "definitions": [
+     {
+      "text": "Hamburgers?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only partially",
+      "for": "deletion",
+      "note": "only part of the phrase is used, so the letters around the kept run are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunger management",
+      "gives": "HUNGERMANAGEMENT",
+      "note": "taken as written; the run that is kept straddles the two words"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "s. is the abbreviation for succeeded in family trees and lists of rulers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERMAN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A burger chain admits that its attempt to control customers' hunger only half worked.",
+     "walkthrough": "'Hamburgers' looks like fast food, but the question mark flags people from Hamburg.",
+     "definitionFit": "Residents of the city of Hamburg are natives of Germany, so they are examples of that nationality, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hamburgers"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,73 @@
     "text": "Stuffing for sturgeon prepared with drop of masala? I'll try it!",
     "enumeration": "7"
    },
-   "solution": "GOURMET"
+   "solution": "GOURMET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GOURMET",
+    "definitions": [
+     {
+      "text": "I'll try it!",
+      "at": 52,
+      "note": "an exclamation standing for the person who would say it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stuffing for",
+      "for": "letter_selection",
+      "note": "stuffing is what fills the inside, so only the inner letters are kept"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared has been worked into a new form, so the letters are rearranged"
+     },
+     {
+      "text": "drop of",
+      "for": "letter_selection",
+      "note": "a drop is a tiny amount, so just one opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sturgeon",
+      "gives": "TURGEO",
+      "select": "middle",
+      "note": "the fish without its first and last letters"
+     },
+     {
+      "clueFragment": "masala",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of the spice blend"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURGEOM",
+       "gives": "GOURMET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe for sturgeon stuffed with a dash of masala, and an eager diner volunteering to taste it.",
+     "walkthrough": "The whole culinary picture is the wordplay; the closing exclamation is what an adventurous eater says, standing for the eater.",
+     "definitionFit": "A connoisseur of fine food is the sort of person keen to sample an unusual dish, so the exclamation characterises them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stuffing"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +185,66 @@
      }
     ]
    },
-   "solution": "RINSEDOUT"
+   "solution": "RINSEDOUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RINSED OUT",
+    "definitions": [
+     {
+      "text": "Poured water over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "angry",
+      "for": "anagram",
+      "note": "angry people are worked up and disordered, so the letters are thrown about"
+     },
+     {
+      "text": "earlier",
+      "for": "charade",
+      "note": "says the piece just before it should come first in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diners",
+      "gives": "RINSED",
+      "note": "rearranged letters of the word"
+     },
+     {
+      "clueFragment": "blooming",
+      "gives": "OUT",
+      "note": "flowers that are blooming are out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RINSED",
+      "OUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DINERS",
+       "gives": "RINSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dousing a table of furious restaurant customers with water.",
+     "walkthrough": "'Blooming angry' reads as the British mild intensifier, but blooming is a separate piece meaning out, as flowers are.",
+     "definitionFit": "To flush something clean with water is to pour water over it, so the phrasal verb matches in sense and tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +258,77 @@
     "text": "Acting heads in renewable energy and science departments",
     "enumeration": "5"
    },
-   "solution": "AREAS"
+   "solution": "AREAS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AREAS",
+    "definitions": [
+     {
+      "text": "departments",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads in",
+      "for": "letter_selection",
+      "note": "the heads of a set of words are their front letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acting",
+      "gives": "A",
+      "select": "first",
+      "note": "front letter"
+     },
+     {
+      "clueFragment": "renewable",
+      "gives": "R",
+      "select": "first",
+      "note": "front letter"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "select": "first",
+      "note": "front letter"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "A",
+      "select": "first",
+      "note": "front letter"
+     },
+     {
+      "clueFragment": "science",
+      "gives": "S",
+      "select": "first",
+      "note": "front letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "E",
+      "A",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Temporary bosses running university departments of renewable energy and science.",
+     "walkthrough": "'Acting heads' sounds like interim managers, but the first word is also one of the words whose front letter is taken.",
+     "definitionFit": "Departments of activity or study are fields or spheres, a common synonym sense of the plural noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +348,54 @@
      }
     ]
    },
-   "solution": "SIDEDISH"
+   "solution": "SIDEDISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDE DISH",
+    "definitions": [
+     {
+      "text": "something else at dinner",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Camp",
+      "gives": "SIDE",
+      "note": "a camp is a faction or side in a dispute"
+     },
+     {
+      "clueFragment": "policeman's",
+      "gives": "DIS",
+      "note": "DI is a Detective Inspector, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "DIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A flamboyant police officer's husband turns out to be quite something at a dinner party.",
+     "walkthrough": "'Camp' looks like an adjective for the policeman, but it is a noun meaning a faction.",
+     "definitionFit": "An accompaniment served alongside the main course is an additional item on the dinner table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Camp"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +409,58 @@
     "text": "Must pay charges weekly for bathroom supplies",
     "enumeration": "6"
    },
-   "solution": "TOWELS"
+   "solution": "TOWELS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOWELS",
+    "definitions": [
+     {
+      "text": "bathroom supplies",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charges",
+      "for": "container",
+      "note": "to charge something is to load or fill it, so one piece is loaded inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Must pay",
+      "gives": "OWE",
+      "note": "if you owe, you must pay"
+     },
+     {
+      "clueFragment": "weekly",
+      "gives": "TLS",
+      "note": "the Times Literary Supplement, a British weekly paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OWE",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant complaining about weekly fees levied for toiletries and other bathroom necessities.",
+     "walkthrough": "'Weekly' reads as an adverb about payments but is a noun, a periodical; the TLS is a well-known London literary weekly.",
+     "definitionFit": "Absorbent cloths for drying yourself are standard items provided in or stocked for a washroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weekly"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +480,78 @@
      }
     ]
    },
-   "solution": "OLEICACID"
+   "solution": "OLEICACID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "OLEIC ACID",
+    "definitions": [
+     {
+      "text": "Part of fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crawling",
+      "for": "anagram",
+      "note": "creatures crawling around move in every direction, so the letters scatter"
+     },
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "one piece holds the other within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lice",
+      "gives": "LEIC",
+      "note": "the insects' letters rearranged"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "A",
+      "note": "a. is an abbreviation for about, approximately"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "detective's outfit",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department, the British police detective branch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LEICA",
+      "CID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LICE",
+       "gives": "LEIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A portly old-school sleuth whose suit turns out to be infested with lice.",
+     "walkthrough": "'Fat' seems to describe the detective, but 'Part of fat' is the definition.",
+     "definitionFit": "This compound is a fatty acid found in olive oil and animal fats, a major chemical constituent of lipids."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +565,67 @@
     "text": "Throw out old strip clearing bottom of wardrobe",
     "enumeration": "5"
    },
-   "solution": "EXPEL"
+   "solution": "EXPEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "EXPEL",
+    "definitions": [
+     {
+      "text": "Throw out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clearing",
+      "for": "deletion",
+      "note": "clearing something away removes it, so a letter is taken out"
+     },
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "in a down entry the bottom is the end, so the final letter is meant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "strip",
+      "gives": "PEEL",
+      "note": "to strip the skin off is to peel"
+     },
+     {
+      "clueFragment": "wardrobe",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing out a wardrobe and throwing away an old strip of fabric found at the bottom.",
+     "walkthrough": "Only one E is removed from the four-letter word for strip.",
+     "definitionFit": "To expel is to eject or force out, so throwing someone out is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +639,66 @@
     "text": "American uncle's gobbling doughnut and special American pastries",
     "enumeration": "7"
    },
-   "solution": "SAMOSAS"
+   "solution": "SAMOSAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SAMOSAS",
+    "definitions": [
+     {
+      "text": "pastries",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gobbling",
+      "for": "container",
+      "note": "to gobble is to eat greedily, so one piece swallows the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American uncle's",
+      "gives": "SAMS",
+      "note": "Uncle Sam personifies the USA, plus the possessive S"
+     },
+     {
+      "clueFragment": "doughnut",
+      "gives": "O",
+      "note": "a ring doughnut is shaped like the letter O"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAM",
+      "OSA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An American uncle greedily eating a doughnut along with some special American pastries.",
+     "walkthrough": "The ring-shaped doughnut is the letter O, and the possessive S of 'uncle's' ends the answer.",
+     "definitionFit": "These fried triangular parcels of spiced filling in a thin dough case are a South Asian savoury snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doughnut"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +712,55 @@
     "text": "Causing a stink, increase volume at start of celebration?",
     "enumeration": "5"
    },
-   "solution": "FARTY"
+   "solution": "FARTY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "FARTY",
+    "definitions": [
+     {
+      "text": "Causing a stink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "increase volume",
+      "for": "substitution",
+      "note": "louder music means swapping the soft musical marking for the loud one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebration",
+      "gives": "PARTY",
+      "note": "a celebration is a party; its first letter is P, piano, meaning soft"
+     },
+     {
+      "clueFragment": "at start of",
+      "gives": "F",
+      "note": "F is forte, loud, replacing the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turning up the music as the celebration begins, accused of causing trouble.",
+     "walkthrough": "P (piano, soft) and F (forte, loud) are musical dynamics, so increasing the volume turns the P into an F. A Fawlty Towers joke: the hotel sign was once rearranged as FARTY TOWELS.",
+     "definitionFit": "Slang for producing wind, so causing a bad smell; the adjective fits the jocular phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +774,62 @@
     "text": "Manuel taking a beating, saving male body parts",
     "enumeration": "5"
    },
-   "solution": "ULNAE"
+   "solution": "ULNAE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ULNAE",
+    "definitions": [
+     {
+      "text": "body parts",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking a beating",
+      "for": "anagram",
+      "note": "something beaten is battered out of shape, so the letters are rearranged"
+     },
+     {
+      "text": "saving",
+      "for": "deletion",
+      "note": "saving here means except, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manuel",
+      "gives": "MANUEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANUEL",
+       "gives": "ULNAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Manuel, the hapless Spanish waiter in Fawlty Towers, getting a beating again.",
+     "walkthrough": "In the sitcom Fawlty Towers, Basil constantly hits his waiter Manuel. 'Saving' means except, removing the M.",
+     "definitionFit": "These are the inner bones of the forearms, the Latin plural, so anatomical parts of a skeleton."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "saving"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +843,61 @@
     "text": "Duck hawk sex observed periodically by postdoc?",
     "enumeration": "5"
    },
-   "solution": "DRAKE"
+   "solution": "DRAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRAKE",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed periodically",
+      "for": "letter_selection",
+      "note": "seen at regular intervals, so only every other letter shows"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "means next to, so the pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "postdoc?",
+      "gives": "DR",
+      "note": "someone past their doctorate is a doctor"
+     },
+     {
+      "clueFragment": "hawk sex",
+      "gives": "AKE",
+      "select": "alternate",
+      "note": "the even letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A postdoctoral researcher periodically watching birds mating.",
+     "walkthrough": "'Duck' could be a verb, but it is the bird. A postdoc is a researcher who has finished a doctorate.",
+     "definitionFit": "The male of the waterfowl is called by this name, so it is a specific kind of the bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hawk"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +911,64 @@
     "text": "According to Kylie, Brit is flipping idle, mostly",
     "enumeration": "3"
    },
-   "solution": "POM"
+   "solution": "POM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "POM",
+    "definitions": [
+     {
+      "text": "According to Kylie, Brit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most but not all, so the final letter goes"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "something flipped is turned over end to end"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idle",
+      "gives": "MOPE",
+      "note": "to mope is to idle about listlessly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POM"
+     ],
+     "reversals": [
+      {
+       "from": "MOP",
+       "to": "POM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian like Kylie Minogue complaining that the British are flipping lazy.",
+     "walkthrough": "Kylie stands for any Australian; 'flipping' reads as a mild British swear word but turns the letters round.",
+     "definitionFit": "Australian slang for an English person is pom or pommy, so it is what an Aussie calls a Brit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +982,67 @@
     "text": "Appear withdrawn digesting tense encounters",
     "enumeration": "5"
    },
-   "solution": "MEETS"
+   "solution": "MEETS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MEETS",
+    "definitions": [
+     {
+      "text": "encounters",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawn",
+      "for": "reversal",
+      "note": "drawn back, so the letters travel backwards"
+     },
+     {
+      "text": "digesting",
+      "for": "container",
+      "note": "something digested has been swallowed and is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appear",
+      "gives": "SEEM",
+      "note": "to appear is to seem"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "the grammatical abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEE",
+      "T",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SEEM",
+       "to": "MEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who seems quiet and withdrawn while thinking over a run of tense meetings.",
+     "walkthrough": "'Withdrawn' looks like a description of shy behaviour but turns the first piece round.",
+     "definitionFit": "As a verb, comes across or bumps into someone; the third-person form matches the plural noun too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "withdrawn"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1062,73 @@
      }
     ]
    },
-   "solution": "DUTYCALLS"
+   "solution": "DUTYCALLS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "DUTY CALLS",
+    "definitions": [
+     {
+      "text": "formal visits",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, so the letters run back to front"
+     },
+     {
+      "text": "to be introduced by",
+      "for": "container",
+      "note": "introduced means put inside, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss",
+      "gives": "STUD",
+      "note": "a boss is a raised knob or stud"
+     },
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     },
+     {
+      "clueFragment": "demand",
+      "gives": "CALL",
+      "note": "a call for something is a demand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUT",
+      "YCALL",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "STUD",
+       "to": "DUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious demand from the boss about formal visits to clients.",
+     "walkthrough": "'Boss' reads as a manager but is the decorative knob. The answer is also the phrase meaning obligation summons.",
+     "definitionFit": "Visits paid out of obligation rather than pleasure are courtesy or ceremonial calls, the plural noun phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1148,65 @@
      }
     ]
    },
-   "solution": "TWOPHASE"
+   "solution": "TWOPHASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TWO-PHASE",
+    "definitions": [
+     {
+      "text": "Plug type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so a letter is taken away"
+     },
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad means astray or all over the place, so the letters wander"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wheat soap",
+      "gives": "WHEATSOAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "a. stands for accepted, as on a bill of exchange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHETSOAP",
+       "gives": "TWOPHASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of wheat-based soap that is less popular in other countries.",
+     "walkthrough": "'Plug' sounds like advertising the soap, but it is an electrical plug.",
+     "definitionFit": "An electric supply using two alternating currents out of step is described this way, and plugs and sockets are made for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plug"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1220,48 @@
     "text": "Thick skin of one published for the first time?",
     "enumeration": "9"
    },
-   "solution": "HARDCOVER"
+   "solution": "HARDCOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARDCOVER",
+    "definitions": [
+     {
+      "text": "one published for the first time?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thick",
+      "gives": "HARD",
+      "note": "a thick, tough skin is hard"
+     },
+     {
+      "clueFragment": "skin",
+      "gives": "COVER",
+      "note": "a skin is an outer covering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "COVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A first-time author needing a thick skin to cope with reviews.",
+     "walkthrough": "'Thick skin' sounds like resilience to criticism; the definition is a new book, since first editions usually come out in hardback.",
+     "definitionFit": "A book's first edition is typically issued with stiff boards before the paperback, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1275,56 @@
     "text": "What could be major disruption to English class",
     "enumeration": "6"
    },
-   "solution": "SCALES"
+   "solution": "SCALES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCALES",
+    "definitions": [
+     {
+      "text": "What could be major",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disruption to",
+      "for": "anagram",
+      "note": "a disruption throws things out of order, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "CLASS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ECLASS",
+       "gives": "SCALES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that could be a major disruption to an English lesson at school.",
+     "walkthrough": "'Major' looks like an adjective for the disruption, but it describes a musical mode.",
+     "definitionFit": "Musical scales come in major and minor forms, so a major one is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "major"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1344,85 @@
      }
     ]
    },
-   "solution": "LONDONBUS"
+   "solution": "LONDONBUS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "LONDON BUS",
+    "definitions": [
+     {
+      "text": "It's slow, essentially, and bound to travel in opposite directions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence is the core, so the middle letters are taken"
+     },
+     {
+      "text": "to travel",
+      "for": "anagram",
+      "note": "letters that travel move about, so they are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the others"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slow",
+      "gives": "LO",
+      "select": "middle",
+      "note": "the two central letters"
+     },
+     {
+      "clueFragment": "opposite directions",
+      "gives": "NS",
+      "note": "north and south are opposite compass points"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "DONBU",
+      "note": "the word's letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "N",
+      "DONBU",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOUND",
+       "gives": "DONBU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow vehicle bound to go back and forth along its route.",
+     "walkthrough": "The whole clue describes the answer as well as building it: a red double-decker crawls through traffic, heading one way and then back.",
+     "definitionFit": "A bus in the capital is notoriously sluggish in traffic and runs its route out and back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1436,68 @@
     "text": "William called revolting southern red a sort of tea",
     "enumeration": "8"
    },
-   "solution": "BUILDERS"
+   "solution": "BUILDERS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BUILDERS",
+    "definitions": [
+     {
+      "text": "a sort of tea",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "called",
+      "for": "homophone",
+      "note": "what someone is called is how the name is spoken"
+     },
+     {
+      "text": "revolting",
+      "for": "reversal",
+      "note": "to revolt is to turn over, so these letters turn back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "William",
+      "gives": "BUIL",
+      "soundsLike": "BILL",
+      "note": "Bill is the short form of William"
+     },
+     {
+      "clueFragment": "southern red",
+      "gives": "SRED",
+      "note": "S for southern plus the colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUIL",
+      "DERS"
+     ],
+     "reversals": [
+      {
+       "from": "SRED",
+       "to": "DERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called William rebelling and choosing a southern red wine instead of tea.",
+     "walkthrough": "The first syllable of the answer is said like Bill. Builder's tea is British slang for strong, sweet tea with milk, as brewed on building sites.",
+     "definitionFit": "Strong brew drunk by tradesmen gives its name to a style of tea, used as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1511,60 @@
     "text": "Wet and cold, perhaps, one covers up at home",
     "enumeration": "6"
    },
-   "solution": "WATERY"
+   "solution": "WATERY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WATERY",
+    "definitions": [
+     {
+      "text": "Wet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers up",
+      "for": "substitution",
+      "note": "covering something up hides it, so one piece takes another's place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold, perhaps",
+      "gives": "WINTERY",
+      "note": "winter weather is cold, so cold is an example of it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "TERY"
+     ]
+    },
+    "explanation": {
+     "surface": "On a wet and cold day, someone wraps up warm at home.",
+     "walkthrough": "IN is removed from the seasonal word and A put in its place. A Fawlty Towers joke: the sign once read WATERY FOWLS.",
+     "definitionFit": "Saturated with or full of water describes something soaked, so the adjective matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1578,84 @@
     "text": "Act up by either side of duff hotel",
     "enumeration": "7"
    },
-   "solution": "WALDORF"
+   "solution": "WALDORF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WALDORF",
+    "definitions": [
+     {
+      "text": "hotel",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up runs the letters backwards"
+     },
+     {
+      "text": "side of",
+      "for": "letter_selection",
+      "note": "the sides of a word are its outer letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act",
+      "gives": "LAW",
+      "note": "an act of parliament is a law"
+     },
+     {
+      "clueFragment": "duff",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter, one end of the word"
+     },
+     {
+      "clueFragment": "either",
+      "gives": "OR",
+      "note": "either ... or"
+     },
+     {
+      "clueFragment": "duff",
+      "gives": "F",
+      "select": "last",
+      "note": "the last letter, the other end of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAL",
+      "D",
+      "OR",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "LAW",
+       "to": "WAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guest misbehaving at a duff hotel.",
+     "walkthrough": "'Either side' gives one letter OR the other. Duff is British slang for useless; Fawlty Towers is the archetypal one, and a Waldorf salad features there.",
+     "definitionFit": "The Waldorf Astoria is a famous luxury New York hotel, and London has a Waldorf too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "either"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1669,64 @@
     "text": "Clock chimes with party retiring for sweets",
     "enumeration": "8"
    },
-   "solution": "PUDDINGS"
+   "solution": "PUDDINGS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PUDDINGS",
+    "definitions": [
+     {
+      "text": "sweets",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DUP",
+      "note": "the Democratic Unionist Party of Northern Ireland"
+     },
+     {
+      "clueFragment": "Clock chimes",
+      "gives": "DINGS",
+      "note": "the ringing sounds a clock makes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUD",
+      "DINGS"
+     ],
+     "reversals": [
+      {
+       "from": "DUP",
+       "to": "PUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The clock chimes as the party guests go to bed.",
+     "walkthrough": "In Britain sweets and puddings both mean the dessert course of a meal.",
+     "definitionFit": "Desserts at the end of a meal are called sweets in British usage, so the plural nouns match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1740,65 @@
     "text": "Arduous journey in shelled Syrian city after school",
     "enumeration": "7"
    },
-   "solution": "SCHLEPP"
+   "solution": "SCHLEPP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCHLEPP",
+    "definitions": [
+     {
+      "text": "Arduous journey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shelled",
+      "for": "letter_selection",
+      "note": "without its shell, so only the inner letters remain"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "places one piece following the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "Syrian city",
+      "gives": "LEPP",
+      "select": "middle",
+      "note": "Aleppo with its outer letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "LEPP"
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous trek through a bombarded Syrian city after leaving school.",
+     "walkthrough": "'Shelled' suggests bombardment, fitting the war-torn city, but it strips off the outer letters.",
+     "definitionFit": "From Yiddish, a tedious, tiring trip or trudge; the noun form names exactly such a slog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shelled"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1812,47 @@
     "text": "Strong birds? Turkeys and geese, to name two",
     "enumeration": "5"
    },
-   "solution": "FOWLS"
+   "solution": "FOWLS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOWLS",
+    "definitions": [
+     {
+      "text": "Turkeys and geese, to name two",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong",
+      "gives": "F",
+      "note": "forte, strong or loud in music"
+     },
+     {
+      "clueFragment": "birds?",
+      "gives": "OWLS",
+      "note": "some birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OWLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking which birds are strongest, and nominating turkeys and geese.",
+     "walkthrough": "The definition gives two examples. Fawlty Towers fans will spot the sign anagram WATERY FOWLS.",
+     "definitionFit": "Domestic poultry such as turkeys and geese are classed as farmyard birds raised for eating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strong"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1872,45 @@
      }
     ]
    },
-   "solution": "LAWSCHOOL"
+   "solution": "LAWSCHOOL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LAW SCHOOL",
+    "definitions": [
+     {
+      "text": "lecturer here?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to",
+      "for": "homophone",
+      "note": "as the speaker puts it, so this is how the words come out in speech"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learning's trendy",
+      "gives": "LAW SCHOOL",
+      "soundsLike": "LORE'S COOL",
+      "note": "learning is lore, trendy is cool"
+     }
+    ],
+    "explanation": {
+     "surface": "A lecturer declaring that education is fashionable.",
+     "walkthrough": "In a non-rhotic British accent the phrase for 'learning is trendy' is said the same as the answer. The definition is a place where one would lecture.",
+     "definitionFit": "A faculty training future solicitors and barristers employs academics, so a lecturer could work there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lecturer"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1924,55 @@
     "text": "Bond takes control of international exercise",
     "enumeration": "5"
    },
-   "solution": "WIELD"
+   "solution": "WIELD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WIELD",
+    "definitions": [
+     {
+      "text": "exercise",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes control of",
+      "for": "container",
+      "note": "taking control of something means capturing and holding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond",
+      "gives": "WELD",
+      "note": "to bond metal is to weld it"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "I",
+      "ELD"
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond seizing command of an international military exercise.",
+     "walkthrough": "'Bond' suggests the spy, but it is a verb for joining metal.",
+     "definitionFit": "To exercise power or influence is to wield it, a verb sense of using authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1986,58 @@
     "text": "Express disgust with most of the stand",
     "enumeration": "5"
    },
-   "solution": "BOOTH"
+   "solution": "BOOTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BOOTH",
+    "definitions": [
+     {
+      "text": "stand",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "not all of it, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express disgust",
+      "gives": "BOO",
+      "note": "to boo is to jeer in disapproval"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator showing disgust along with most of the crowd in the stand.",
+     "walkthrough": "'Stand' sounds like a stadium grandstand, but the definition is a market stall.",
+     "definitionFit": "A stall at a fair or exhibition is a small booth, so these nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +2051,63 @@
     "text": "Security protecting Harris finally leaves",
     "enumeration": "5"
    },
-   "solution": "BASIL"
+   "solution": "BASIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BASIL",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "points to the very end of the word"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "something protected is wrapped round and held safe"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Security",
+      "gives": "BAIL",
+      "note": "bail is money given as security for release"
+     },
+     {
+      "clueFragment": "Harris",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "S",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A security guard protecting someone named Harris until they finally leave.",
+     "walkthrough": "Basil Fawlty is the hotelier of Fawlty Towers, the puzzle's theme. 'Leaves' seems a verb but is the noun.",
+     "definitionFit": "The herb is used as fresh green foliage in cooking, so the plant's leaves are what is eaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 27,
@@ -481,7 +2121,60 @@
     "text": "Opener is short of exercise and runs single",
     "enumeration": "3"
    },
-   "solution": "ONE"
+   "solution": "ONE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ONE",
+    "definitions": [
+     {
+      "text": "single",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is short of",
+      "for": "deletion",
+      "note": "lacking something means letters are missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opener",
+      "gives": "OPENER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "physical education"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "the cricket scoring abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket opening batter who is unfit and only manages a single run.",
+     "walkthrough": "The cricket picture misleads: 'single' is the definition, not a run scored, and 'Opener' is just letters.",
+     "definitionFit": "A single thing is just the one, a number with the same meaning as a lone item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 28,
@@ -495,7 +2188,64 @@
     "text": "Control for Hearts against Arsenal, vulnerable on the wings",
     "enumeration": "5"
    },
-   "solution": "VALVE"
+   "solution": "VALVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "VALVE",
+    "definitions": [
+     {
+      "text": "Control for Hearts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the wings",
+      "for": "letter_selection",
+      "note": "wings are the edges, so only the outer letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "versus"
+     },
+     {
+      "clueFragment": "Arsenal",
+      "gives": "AL",
+      "select": "outer",
+      "note": "the outer letters"
+     },
+     {
+      "clueFragment": "vulnerable",
+      "gives": "VE",
+      "select": "outer",
+      "note": "the outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AL",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Hearts, the Edinburgh football club, keeping control against an Arsenal side exposed out wide.",
+     "walkthrough": "Hearts is Heart of Midlothian, an Edinburgh football club, but here it means the organ.",
+     "definitionFit": "Heart valves regulate blood flow between chambers, controlling it in the cardiac organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hearts"
+    }
+   }
   },
   {
    "number": 29,
@@ -509,7 +2259,63 @@
     "text": "What might front tooth cut, say - 50% of breads?",
     "enumeration": "5"
    },
-   "solution": "SABRE"
+   "solution": "SABRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SABRE",
+    "definitions": [
+     {
+      "text": "What might front tooth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "a cut word is trimmed, losing its end"
+     },
+     {
+      "text": "50% of",
+      "for": "letter_selection",
+      "note": "half of a word, the first three of six letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "SAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "breads",
+      "gives": "BRE",
+      "select": "first",
+      "note": "the first half of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "BRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist asking whether a front tooth could cut through half a loaf.",
+     "walkthrough": "The definition is the first part of sabre-tooth, the extinct big cat with long fangs. 'Cut' also hints at the sword.",
+     "definitionFit": "Placed in front of tooth it names the prehistoric tiger, and as a cavalry sword it also cuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 30,
@@ -523,7 +2329,54 @@
     "text": "Fashion accessory agent put on singer Rita",
     "enumeration": "6"
    },
-   "solution": "FEDORA"
+   "solution": "FEDORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FEDORA",
+    "definitions": [
+     {
+      "text": "Fashion accessory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "placed in front of, setting the order of the pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "FED",
+      "note": "a fed is a US federal agent"
+     },
+     {
+      "clueFragment": "singer Rita",
+      "gives": "ORA",
+      "note": "Rita Ora is a British pop singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FED",
+      "ORA"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop singer's agent styling her with a fashion accessory.",
+     "walkthrough": "'Put on' suggests wearing something, but here it sets one piece before the other.",
+     "definitionFit": "A soft felt hat with a creased crown is a stylish item worn to complete an outfit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agent"
+    }
+   }
   },
   {
    "number": 31,
@@ -543,7 +2396,58 @@
      }
     ]
    },
-   "solution": "SILTSUP"
+   "solution": "SILTSUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SILTS UP",
+    "definitions": [
+     {
+      "text": "blocks",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring goes all around something, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adjusts position to pay attention",
+      "gives": "SITSUP",
+      "note": "sitting up straight shows you are paying attention"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "L",
+      "TSUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A student straightening up in their seat to pay attention on a guided tour.",
+     "walkthrough": "'Blocks' looks like a noun, buildings on the tour, but it is the verb defining the answer.",
+     "definitionFit": "A river or channel that silts up gets clogged with sediment, so it becomes blocked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blocks"
+    }
+   }
   }
  ]
 }
