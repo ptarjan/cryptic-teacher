@@ -343,7 +343,7 @@ def build(rec, row, series, date, setter, typed=None):
     # heading takes the direction the grid gives it. One no split fits is lights
     # the grid was rebuilt without: telegraph-26396's "1a/25a" HANDLEBAR
     # MOUSTACHE gave a grid with no 1-across at all.
-    rec = tg.headed_by(tg.split_by(rec, row["grid"]), row["grid"])
+    rec = tg.numbered_by(tg.headed_by(tg.split_by(rec, row["grid"]), row["grid"]), row["grid"])
     if rec.get("unsplit"):
         return None, "a linked clue the blog does not split"
     entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
