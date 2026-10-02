@@ -262,6 +262,12 @@ stats_blocks = 0.9
 got, info = f.read_solution(sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
 
+check("editions from --file-from's year go to the corpus, earlier ones to --out",
+      ["out", None, None, "out", None],
+      [f.destination("out", 1983, "1982-12-31"), f.destination("out", 1983, "1983-01-03"),
+       f.destination(None, 1983, "1975-01-01"), f.destination("out", None, "1999-01-01"),
+       f.destination(None, None, "1999-01-01")])
+
 import cross_validate
 a = cross_validate.ArchiveOrg()
 check("archiveorg does not compare a file it filed with itself", [False, True],
