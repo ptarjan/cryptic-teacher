@@ -50,7 +50,9 @@ from turn_cost import (
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 VALIDATOR = REPO / "tools" / "validate_annotations.py"
-STATE_DIR = REPO / ".annotate_audit"
+# The scheduled run executes in a worktree (tools/annotate_audit.sh); what it
+# last told the room lives in the main checkout so it survives the worktree.
+STATE_DIR = pathlib.Path(os.environ.get("CT_MAIN_CHECKOUT", REPO)) / ".annotate_audit"
 WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
 ROOM = os.environ.get("HOUSEHOLD_ROOM", "cryptic-crosswords")
 
