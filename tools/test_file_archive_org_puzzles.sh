@@ -604,6 +604,24 @@ got, _ = ocr_clues.reconcile({"15-down": ("Entice Fortune, but provoke Nemesis? 
                          ["15 & 24 Entice Fortune, but provoke Nemesis? (5,4)"], {"15-down": 5, "24-down": 4, "25-down": 5})
 check("a run-on cut at the next clue; the count left inside ends the clue and is its count",
       ("Entice Fortune, but provoke Nemesis?", "5,4"), got["15-down"][:2])
+# Two clues run together win the vote when every reading runs them together
+# the same way: the Times of 3 April 1985's 2 down and 1 May 1975's 28
+# across filed as one clue each. Such a text is blanked, never filed.
+merged_2d = "Where everybody goes in to sweep around the floor? 2 Seek fresh increases"
+merged_28a = "Confused by a divine the Spanish backed (15) 2 Master of the Rolls surrounds aesthetic victim"
+check("a voted clue with a clue number and another clue inside it is blanked",
+      ({"2-down": ("", "8", None)}, {"2-down": "two clues run together"}),
+      ocr_clues.reconcile({"2-down": (merged_2d, "8", None)}, [f"2 {merged_2d} (8)"] * 2, {"2-down": 8}))
+check("a voted clue with a count and another clue after it is blanked",
+      ({"28-across": ("", "6", None)}, {"28-across": "two clues run together"}),
+      ocr_clues.reconcile({"28-across": (merged_28a, "6", None)}, [f"28 {merged_28a} (6)"] * 2, {"28-across": 6}))
+check("numbers a setter writes are no merged clue", [None] * 7,
+      [ocr_clues.merged(t) for t in ("Catch 22 Hero", "Over 18? Join", "Of the Vale, turn to Map 10 E",
+                                     "Bird (4)", "Dad up to no good, scoffing (26) wild snappers?",
+                                     "Massive commercial transaction? 3 Down!",
+                                     "Halt opening exchange in No. 1 Court feature")])
+check("two counts in one clue are two clues", "two clues run together",
+      ocr_clues.merged("Harsh one (9) avoiding repetition (5) of"))
 check("a clue cut at its own count when text follows it", ["Entice Fortune?", "Entice Fortune? (5,4)"],
       [ocr_clues.cut_at_count("Entice Fortune? (5,4) - 18 &", "5,4"), ocr_clues.cut_at_count("Entice Fortune? (5,4)", "5,4")])
 
