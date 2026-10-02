@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "University official, American, in study",
     "enumeration": "4"
    },
-   "solution": "DEAN"
+   "solution": "DEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEAN",
+    "definitions": [
+     {
+      "text": "University official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside that other's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study or workroom at home"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An American academic administrator working away in a college study.",
+     "walkthrough": "The commas make 'American' look like a description of the official, but it is just the single letter that goes inside.",
+     "definitionFit": "A dean heads a faculty or college and is a senior administrator in a university."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +103,50 @@
      }
     ]
    },
-   "solution": "STANDOUT"
+   "solution": "STANDOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAND OUT",
+    "definitions": [
+     {
+      "text": "Be conspicuous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "booth",
+      "gives": "STAND",
+      "note": "a stand is a stall or booth at a fair or exhibition"
+     },
+     {
+      "clueFragment": "in the open",
+      "gives": "OUT",
+      "note": "out of doors, outside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An exhibitor with an outdoor booth getting noticed by passers-by.",
+     "walkthrough": "'In' looks like it puts one piece inside another, but here it only links the definition to the wordplay.",
+     "definitionFit": "To stand out is a phrasal verb meaning to be easily noticed or prominent among others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +160,58 @@
     "text": "Occupation of attendant conserving energy",
     "enumeration": "6"
    },
-   "solution": "CAREER"
+   "solution": "CAREER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAREER",
+    "definitions": [
+     {
+      "text": "Occupation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conserving",
+      "for": "container",
+      "note": "to conserve is to keep safe inside, so one piece holds the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attendant",
+      "gives": "CARER",
+      "note": "a carer looks after someone ill or elderly"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "E",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse's line of work, with a hint that the job is draining.",
+     "walkthrough": "CARER is the British word for someone paid or volunteering to look after a person who needs care.",
+     "definitionFit": "A career is a person's chosen profession or lifelong line of work, the same idea as an occupation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conserving"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +225,76 @@
     "text": "Puppet, one captured by surrealist painter, with end of leg missing",
     "enumeration": "10"
    },
-   "solution": "MARIONETTE"
+   "solution": "MARIONETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "MARIONETTE",
+    "definitions": [
+     {
+      "text": "Puppet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "something captured is held inside its captor, so one piece goes within another"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "what is missing has been taken out, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surrealist painter",
+      "gives": "MAGRITTE",
+      "note": "Rene Magritte, the Belgian surrealist"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of 'leg', which is removed from the painter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARI",
+      "ONE",
+      "TTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A puppet in the grip of a surrealist artist, damaged so it has lost a foot.",
+     "walkthrough": "'Leg' fits the puppet picture, but only its last letter matters, and it is taken out of the painter's name. 'One' is used whole here, not shortened to I.",
+     "definitionFit": "A marionette is a puppet worked from above by strings attached to its limbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +308,66 @@
     "text": "We must leave raunchy actress, right old genius",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MAESTRO",
+    "definitions": [
+     {
+      "text": "genius",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must leave",
+      "for": "deletion",
+      "note": "those who leave are no longer present, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "the letters to be removed"
+     },
+     {
+      "clueFragment": "raunchy actress",
+      "gives": "MAEWEST",
+      "note": "Mae West, the famously suggestive Hollywood star of the 1930s"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAEST",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A group walking out on a risque actress, leaving behind an old genius.",
+     "walkthrough": "Take WE out of MAE WEST to leave MAEST, then add R and O.",
+     "definitionFit": "A maestro is a master of an art, especially a great conductor or composer, so an outstanding talent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "We"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +381,69 @@
     "text": "End up on motorway leaving a resort on Biscayne Bay",
     "enumeration": "5"
    },
-   "solution": "MIAMI"
+   "solution": "MIAMI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MIAMI",
+    "definitions": [
+     {
+      "text": "a resort on Biscayne Bay",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters read from bottom to top"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one thing on another sits above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "leaving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End",
+      "gives": "AIM",
+      "note": "an end is a goal or aim"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1, Britain's London-to-Leeds motorway, written MI in crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIA",
+      "MI"
+     ],
+     "reversals": [
+      {
+       "from": "AIM",
+       "to": "MIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming off the motorway and finishing the journey at a Florida beach resort.",
+     "walkthrough": "'End' here means purpose, not finish. The M1 is England's main north-south motorway, and the digit 1 is read as the letter I.",
+     "definitionFit": "Miami is the Florida city lying on Biscayne Bay, known for its beaches and holiday hotels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +467,52 @@
      }
     ]
    },
-   "solution": "ONASHOESTRING"
+   "solution": "ONASHOESTRING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON A SHOESTRING",
+    "definitions": [
+     {
+      "text": "With a limited amount of money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight is slang for drunk, and drunken letters stagger out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "things are soon",
+      "gives": "THINGSARESOON",
+      "note": "the thirteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THINGSARESOON",
+       "gives": "ONASHOESTRING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on a small budget finding that money quickly runs short.",
+     "walkthrough": "'Tight' reads as short of money, fitting the budget picture, but it is the signal that the letters are drunk and jumbled.",
+     "definitionFit": "Doing something on a shoestring is an idiom for managing it cheaply, with very little cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +526,54 @@
     "text": "Saw a daughter mature",
     "enumeration": "5"
    },
-   "solution": "ADAGE"
+   "solution": "ADAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAGE",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter in family trees"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to age is to grow older or mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent watching their daughter grow up.",
+     "walkthrough": "'Saw' reads as the past tense of see, but it is the noun meaning a well-worn saying.",
+     "definitionFit": "A saw is an old proverb or traditional maxim, exactly what an adage is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +587,61 @@
     "text": "Leave country without head of great Arab territory",
     "enumeration": "7"
    },
-   "solution": "EMIRATE"
+   "solution": "EMIRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "EMIRATE",
+    "definitions": [
+     {
+      "text": "Arab territory",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, its first letter, so only that is kept"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave country",
+      "gives": "EMIGRATE",
+      "note": "to emigrate is to leave one's country to settle abroad"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of 'great', the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMI",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Emigrating from a country, abandoning a great leader, for an Arab land.",
+     "walkthrough": "'Head of great' looks like a ruler but gives only the letter G, taken out of EMIGRATE.",
+     "definitionFit": "An emirate is a state or region ruled by an emir, such as those forming the UAE in Arabia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +655,45 @@
     "text": "What sounds like standard piece of artillery?",
     "enumeration": "6"
    },
-   "solution": "CANNON"
+   "solution": "CANNON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CANNON",
+    "definitions": [
+     {
+      "text": "piece of artillery",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What sounds like",
+      "for": "homophone",
+      "note": "the clue is asking which word is pronounced the same as the following one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "CANNON",
+      "soundsLike": "CANON",
+      "note": "a canon is a standard or rule by which things are judged"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle asking which word sounds like a standard field gun.",
+     "walkthrough": "'Standard' looks like an adjective for the artillery piece (a standard-issue gun), but it is the noun meaning a rule.",
+     "definitionFit": "A cannon is a large heavy gun fired from a carriage or mount, a classic artillery weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +707,61 @@
     "text": "Drink provided by pirate at sea",
     "enumeration": "8"
    },
-   "solution": "APERITIF"
+   "solution": "APERITIF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "APERITIF",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and all over the place, so these letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pirate",
+      "gives": "PIRATE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "if means provided that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APERIT",
+      "IF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIRATE",
+       "gives": "APERIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pirate supplying the drink while out on the ocean.",
+     "walkthrough": "The anagrammed part comes first even though 'provided' comes earlier in the clue. 'At sea' fits the pirate picture perfectly.",
+     "definitionFit": "An aperitif is an alcoholic drink taken before a meal to stimulate the appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +781,46 @@
      }
     ]
    },
-   "solution": "BIGBROTHER"
+   "solution": "BIGBROTHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIG BROTHER",
+    "definitions": [
+     {
+      "text": "one exercising oppressive control",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Important",
+      "gives": "BIG",
+      "note": "big means important or significant"
+     },
+     {
+      "clueFragment": "monk",
+      "gives": "BROTHER",
+      "note": "a monk is addressed as Brother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "BROTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior monk who rules his monastery with an iron hand.",
+     "walkthrough": "The name comes from Orwell's novel Nineteen Eighty-Four, where the all-seeing ruler watches every citizen.",
+     "definitionFit": "Big Brother has become a byword for an authoritarian figure or state that watches and controls people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +840,60 @@
      }
     ]
    },
-   "solution": "BRIGHTEYES"
+   "solution": "BRIGHTEYES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIGHT EYES",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "what follows comes after, so this piece is placed at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheerful",
+      "gives": "BRIGHT",
+      "note": "bright means lively and cheerful"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "OK",
+      "gives": "YES",
+      "note": "OK as an answer of agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIGHT",
+      "E",
+      "YES"
+     ]
+    },
+    "explanation": {
+     "surface": "Approving of a happy European song, perhaps at Eurovision.",
+     "walkthrough": "The word read first in the clue goes last. 'Bright Eyes' is the 1979 Art Garfunkel hit from the film Watership Down.",
+     "definitionFit": "Bright Eyes is a well-known pop ballad, a UK number one sung by Art Garfunkel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "OK"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +907,51 @@
     "text": "New organ in local",
     "enumeration": "4"
    },
-   "solution": "NEAR"
+   "solution": "NEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEAR",
+    "definitions": [
+     {
+      "text": "local",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "organ",
+      "gives": "EAR",
+      "note": "the ear is an organ of hearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A new church organ installed in the neighbourhood pub, a local being British slang for one's regular pub.",
+     "walkthrough": "'Organ' suggests a musical instrument but is the body part, and 'local' is not the pub but an adjective meaning close by.",
+     "definitionFit": "Something local is close at hand, in the immediate neighbourhood, so nearby rather than distant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +975,66 @@
      }
     ]
    },
-   "solution": "SPINTHEBOTTLE"
+   "solution": "SPINTHEBOTTLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPIN-THE-BOTTLE",
+    "definitions": [
+     {
+      "text": "party game",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "downing",
+      "for": "container",
+      "note": "someone downing a drink takes it inside, so one piece swallows another"
+     }
+    ],
+    "linkWords": [
+     "shown by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     },
+     {
+      "clueFragment": "pint",
+      "gives": "PINT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Nerve",
+      "gives": "BOTTLE",
+      "note": "bottle is British slang for courage or nerve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PINT",
+      "HE",
+      "BOTTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman finding the courage to sink a pint during a party game.",
+     "walkthrough": "The nerve piece is named first but goes last. Bottle meaning courage is everyday British slang, as in 'lose your bottle'.",
+     "definitionFit": "Spin the bottle is a party game where players spin a bottle and must kiss whoever it points at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nerve"
+    }
+   }
   },
   {
    "number": 14,
@@ -280,7 +1048,58 @@
     "text": "Wienie, perhaps from America, devoured by expert",
     "enumeration": "7"
    },
-   "solution": "SAUSAGE"
+   "solution": "SAUSAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAUSAGE",
+    "definitions": [
+     {
+      "text": "Wienie, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoured by",
+      "for": "container",
+      "note": "what is devoured ends up inside the eater, so one piece is swallowed by another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "SAGE",
+      "note": "a sage is a wise person, an expert"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "USA",
+      "note": "the usual abbreviation for the United States of America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "USA",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert wolfing down an American hot dog.",
+     "walkthrough": "'From America' looks attached to the definition, since wienie is American slang, but America supplies the letters swallowed by the expert.",
+     "definitionFit": "A wienie is an American word for a frankfurter, one example of a sausage, hence the 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "America"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1113,76 @@
     "text": "Joint endlessly screening musical up in bar",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "reversal"
+    ],
+    "answer": "OBSTACLE",
+    "definitions": [
+     {
+      "text": "bar",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "with no end, the final letter is cut off"
+     },
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "a screen surrounds and hides what is behind it, so one piece encloses the other"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the whole lot reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joint",
+      "gives": "ELBOW",
+      "note": "the elbow is the joint in the middle of the arm; its last letter goes"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "CATS",
+      "note": "Cats, the Andrew Lloyd Webber musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "STAC",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "ELCATSBO",
+       "to": "OBSTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy pub showing a musical on a screen above the bar.",
+     "walkthrough": "'Joint' suggests a dive or a cannabis cigarette, but it is a body part. 'Up' turns over the whole assembled string, not just the musical.",
+     "definitionFit": "A bar is a barrier or hindrance, so an obstacle that stands in the way of progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1196,52 @@
     "text": "Girl, in fact, needing no introduction",
     "enumeration": "4"
    },
-   "solution": "RUTH"
+   "solution": "RUTH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUTH",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing no introduction",
+      "for": "deletion",
+      "note": "without an introduction there is no opening, so the first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fact",
+      "gives": "TRUTH",
+      "note": "a fact is a truth; its opening letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl so famous that, in fact, nobody needs to introduce her.",
+     "walkthrough": "'Needing no introduction' is a phrase for someone famous, but here it means the word loses its first letter, turning TRUTH into the name.",
+     "definitionFit": "Ruth is a girl's name, used here as a generic female first name in the crossword way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1255,77 @@
     "text": "Amazing stories about eating one in restaurant",
     "enumeration": "10"
    },
-   "solution": "ROTISSERIE"
+   "solution": "ROTISSERIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ROTISSERIE",
+    "definitions": [
+     {
+      "text": "restaurant",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Amazing",
+      "for": "anagram",
+      "note": "something amazing has been turned upside down and astonished, so these letters are jumbled"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "what is eaten goes inside the eater, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stories",
+      "gives": "STORIES",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTISSE",
+      "R",
+      "I",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STORIES",
+       "gives": "ROTISSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wonderful tales about having a meal at a restaurant.",
+     "walkthrough": "'Amazing stories' sounds like praise, but 'amazing' tells you to rearrange the letters; RE then swallows I.",
+     "definitionFit": "A rotisserie is a restaurant specialising in meat roasted on a turning spit, named after the spit itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Amazing"
+    }
+   }
   },
   {
    "number": 17,
@@ -336,7 +1339,54 @@
     "text": "Live with uncontrollable desire",
     "enumeration": "6"
    },
-   "solution": "RESIDE"
+   "solution": "RESIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIDE",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncontrollable",
+      "for": "anagram",
+      "note": "something uncontrollable runs wild, so these letters are set loose in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desire",
+      "gives": "DESIRE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DESIRE",
+       "gives": "RESIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living with a craving they cannot master.",
+     "walkthrough": "'Live' reads as the adjective or as 'exist', but it is the verb meaning to dwell somewhere.",
+     "definitionFit": "To reside somewhere is to have one's home or dwelling there, a formal word for to live."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncontrollable"
+    }
+   }
   },
   {
    "number": 18,
@@ -350,7 +1400,53 @@
     "text": "Suggest just ignoring son",
     "enumeration": "5"
    },
-   "solution": "IMPLY"
+   "solution": "IMPLY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IMPLY",
+    "definitions": [
+     {
+      "text": "Suggest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just",
+      "gives": "SIMPLY",
+      "note": "just in the sense of merely or simply"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Hinting at something while overlooking a son.",
+     "walkthrough": "'Just' reads as fair or as an adverb of time, but it means 'merely', which leads to the word that loses S.",
+     "definitionFit": "To imply is to hint or indicate something indirectly without stating it outright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1466,55 @@
      }
     ]
    },
-   "solution": "WATERSKI"
+   "solution": "WATERSKI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATER-SKI",
+    "definitions": [
+     {
+      "text": "Take part in a seaside activity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undoing",
+      "for": "anagram",
+      "note": "undoing something takes it apart, so these letters are pulled to pieces and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "risk a wet",
+      "gives": "RISKAWET",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISKAWET",
+       "gives": "WATERSKI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trying a sport at the beach and running the danger of a soaking fall.",
+     "walkthrough": "'Undoing' reads as a downfall, a tumble into the water, which is what makes the surface so neat.",
+     "definitionFit": "To water-ski is to be towed across the sea on skis behind a motorboat, a typical beach pastime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "undoing"
+    }
+   }
   },
   {
    "number": 20,
@@ -384,7 +1528,69 @@
     "text": "Short article, very dry, about opening of parliament",
     "enumeration": "6"
    },
-   "solution": "ABRUPT"
+   "solution": "ABRUPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ABRUPT",
+    "definitions": [
+     {
+      "text": "Short",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is where it starts, so only the first letter is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "very dry",
+      "gives": "BRUT",
+      "note": "brut describes very dry champagne"
+     },
+     {
+      "clueFragment": "parliament",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of 'parliament'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRU",
+      "P",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief, dry news piece about the State Opening of Parliament.",
+     "walkthrough": "'Short article' looks like one phrase, but 'Short' alone is the definition. Brut is the label on the driest champagnes.",
+     "definitionFit": "Abrupt means curt or brusque in manner, so short with someone, as in a short reply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 21,
@@ -398,7 +1604,44 @@
     "text": "Scottish dance? Authentic, we hear",
     "enumeration": "4"
    },
-   "solution": "REEL"
+   "solution": "REEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REEL",
+    "definitions": [
+     {
+      "text": "Scottish dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the word is matched by its pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authentic",
+      "gives": "REEL",
+      "soundsLike": "REAL",
+      "note": "real means authentic or genuine"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asking whether a dance is truly Scottish and being told it is genuine.",
+     "walkthrough": "The question mark makes it look like a query about authenticity rather than a definition followed by wordplay.",
+     "definitionFit": "A reel is a lively Scottish country dance performed in sets to fast music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Authentic"
+    }
+   }
   },
   {
    "number": 22,
@@ -412,7 +1655,43 @@
     "text": "Rewrite part of poem, ‘Endymion’",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMEND",
+    "definitions": [
+     {
+      "text": "Rewrite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "only a part of the following words is wanted, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem, ‘Endymion’",
+      "gives": "EMEND",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "An editor revising a section of Keats's long poem Endymion.",
+     "walkthrough": "The answer straddles poEM ENDymion. 'Part of poem' reads as a section to rewrite, which is the disguise.",
+     "definitionFit": "To emend a text is to correct or revise it, especially when editing a manuscript."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 23,
@@ -426,7 +1705,51 @@
     "text": "Balcony largely in need of repair",
     "enumeration": "7"
    },
-   "solution": "GALLERY"
+   "solution": "GALLERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GALLERY",
+    "definitions": [
+     {
+      "text": "Balcony",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in need of repair",
+      "for": "anagram",
+      "note": "something needing repair is broken, so these letters are smashed and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "largely",
+      "gives": "LARGELY",
+      "note": "the letters to be rearranged, used in full"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LARGELY",
+       "gives": "GALLERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A balcony that is mostly crumbling and needs fixing.",
+     "walkthrough": "'Largely' looks like it tells you to shorten a word, but every one of its letters is used.",
+     "definitionFit": "A gallery is a raised balcony in a theatre or church, an upper level projecting over the main floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "largely"
+    }
+   }
   }
  ]
 }
