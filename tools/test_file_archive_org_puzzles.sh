@@ -353,6 +353,22 @@ a = cross_validate.ArchiveOrg()
 check("archiveorg does not compare a file it filed with itself", [False, True],
       [a.covers({"source": {"acquiredBy": "tools/file_archive_org_puzzles.py"}}),
        a.covers({"source": {"acquiredBy": "tools/acquire_book.py"}})])
+# A retrained Tesseract model gets its own cache name; RapidOCR's keep theirs.
+model = Path(os.environ["TMP"]) / "m.traineddata"
+saved = dict(f.TESS_MODELS), dict(f._MODEL_HASHES)
+f.TESS_MODELS["times"] = model
+for body in (b"old", b"new"):
+    model.write_bytes(body)
+    f._MODEL_HASHES.clear()
+    check(f"reader_key hashes the model ({body.decode()})", True,
+          f.reader_key("times").startswith("times-"))
+    if body == b"old":
+        old_key = f.reader_key("times")
+check("a changed model changes the cache name", True, f.reader_key("times") != old_key)
+check("RapidOCR readers keep their name", "en5", f.reader_key("en5"))
+f.TESS_MODELS.clear(); f.TESS_MODELS.update(saved[0])
+f._MODEL_HASHES.clear(); f._MODEL_HASHES.update(saved[1])
+
 print(f"FAILS {fails}")
 EOF
 )
