@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Enable ruler short of gold to suppress pained expression",
     "enumeration": "7"
    },
-   "solution": "EMPOWER"
+   "solution": "EMPOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EMPOWER",
+    "definitions": [
+     {
+      "text": "Enable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "being short of something means lacking it, so those letters are taken away"
+     },
+     {
+      "text": "to suppress",
+      "for": "container",
+      "note": "to suppress is to hold down and keep in, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruler",
+      "gives": "EMPEROR",
+      "note": "an emperor is a supreme ruler"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "OR is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "pained expression",
+      "gives": "OW",
+      "note": "the cry someone gives when hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMP",
+      "OW",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch, lacking gold, is told to stifle a grimace while granting powers.",
+     "walkthrough": "OR is heraldry's word for gold, a crossword staple; 'short of' trims it from the end of the ruler before the cry of pain goes in.",
+     "definitionFit": "To empower someone is to give them authority or ability, which is what enabling them means; a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,48 @@
     "text": "Sounds like size zero is too much",
     "enumeration": "6"
    },
-   "solution": "EXCESS"
+   "solution": "EXCESS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EXCESS",
+    "definitions": [
+     {
+      "text": "too much",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "says outright that we want something spoken that merely resembles another word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "size zero",
+      "gives": "EXCESS",
+      "soundsLike": "XS",
+      "note": "size zero is the tiniest clothing size, labelled XS for extra small"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment that the fashion for ultra-thin size-zero models goes too far.",
+     "walkthrough": "XS is the clothing label for extra small; said as two letters, 'ex-ess', it matches the answer.",
+     "definitionFit": "Excess is an amount beyond what is needed or proper, the noun form of being too much."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "zero"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +164,43 @@
     "text": "Kidnap a person holding documents",
     "enumeration": "6"
    },
-   "solution": "PAPERS"
+   "solution": "PAPERS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PAPERS",
+    "definitions": [
+     {
+      "text": "documents",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "the run of words holds the target letters inside, spanning the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kidnap a person",
+      "gives": "PAPERS",
+      "note": "the final letter of the first word, the middle word, and the start of the last run together"
+     }
+    ],
+    "explanation": {
+     "surface": "A kidnapper seizing someone along with their identity documents.",
+     "walkthrough": "kidnaP A PERSon: the letters run across three words.",
+     "definitionFit": "Papers is the everyday plural for official documents such as passports or identity cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +214,45 @@
     "text": "Lycanthropes are now dogs, presumably",
     "enumeration": "10"
    },
-   "solution": "WEREWOLVES"
+   "solution": "WEREWOLVES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEREWOLVES",
+    "definitions": [
+     {
+      "text": "Lycanthropes",
+      "at": 0
+     },
+     {
+      "text": "are now dogs, presumably",
+      "at": 13,
+      "note": "a whole clause describing dogs, split into two words, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lycanthropes",
+      "note": "first meaning: people of folklore who turn into beasts at the full moon"
+     },
+     {
+      "clueFragment": "are now dogs, presumably",
+      "note": "second meaning: domestic dogs descend from a wild ancestor, so this states what dogs used to be, in the past tense"
+     }
+    ],
+    "explanation": {
+     "surface": "A tongue-in-cheek idea that shape-shifting monsters have been domesticated into pets.",
+     "walkthrough": "Domestic dogs descend from wolves, so dogs 'were wolves'; read as one word, that is the lycanthropes.",
+     "definitionFit": "Lycanthrope is the formal, Greek-derived term for a human who transforms into a wolf, the creature of folklore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dogs"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +266,43 @@
     "text": "Sack shooter",
     "enumeration": "5"
    },
-   "solution": "RIFLE"
+   "solution": "RIFLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIFLE",
+    "definitions": [
+     {
+      "text": "Sack",
+      "at": 0
+     },
+     {
+      "text": "shooter",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sack",
+      "note": "first meaning: to ransack or plunder, a verb"
+     },
+     {
+      "clueFragment": "shooter",
+      "note": "second meaning: a long-barrelled gun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Sack shooter' reads like firing a gunman, but the two words are separate meanings.",
+     "definitionFit": "To rifle a place is to search and plunder it, and a rifle is also a firearm with a grooved barrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sack"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +316,48 @@
     "text": "Bush having gone, returned",
     "enumeration": "7"
    },
-   "solution": "OUTBACK"
+   "solution": "OUTBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTBACK",
+    "definitions": [
+     {
+      "text": "Bush",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having gone",
+      "gives": "OUT",
+      "note": "someone who has gone is out"
+     },
+     {
+      "clueFragment": "returned",
+      "gives": "BACK",
+      "note": "someone returned is back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A political quip: with President Bush gone, something has come back.",
+     "walkthrough": "'Bush' looks like the American president; it is the Australian wilderness. Two opposites, gone and returned, combine.",
+     "definitionFit": "Australians call the remote, sparsely settled interior both the bush and the outback."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +371,59 @@
     "text": "Fancy red velour is not allowed",
     "enumeration": "9"
    },
-   "solution": "OVERRULED"
+   "solution": "OVERRULED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERRULED",
+    "definitions": [
+     {
+      "text": "not allowed",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy as a verb means to dress up or embellish, so these letters are rearranged into an elaborate new form"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "velour",
+      "gives": "VELOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDVELOUR",
+       "gives": "OVERRULED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dress code banning a flashy red velvety fabric.",
+     "walkthrough": "'Fancy' looks like an adjective for the fabric but signals the rearrangement.",
+     "definitionFit": "An objection or decision that is overruled has been rejected by a higher authority, so it is disallowed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +437,43 @@
     "text": "Cultivate cash here",
     "enumeration": "4"
    },
-   "solution": "TILL"
+   "solution": "TILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TILL",
+    "definitions": [
+     {
+      "text": "Cultivate",
+      "at": 0
+     },
+     {
+      "text": "cash here",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cultivate",
+      "note": "first meaning: to plough and work the soil"
+     },
+     {
+      "clueFragment": "cash here",
+      "note": "second meaning: the drawer in a shop where money is kept"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like advice to grow money; the second meaning describes a place where cash goes.",
+     "definitionFit": "Farmers till land to prepare it for crops, and a shop's till is its cash register drawer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cultivate"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +487,64 @@
     "text": "This possibly is a man with empty chronicle",
     "enumeration": "8"
    },
-   "solution": "AMNESIAC"
+   "solution": "AMNESIAC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "AMNESIAC",
+    "definitions": [
+     {
+      "text": "This possibly is a man with empty chronicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one arrangement among several, so the letters may be put in another order"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides and leaves only the shell of outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is a man",
+      "gives": "ISAMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chronicle",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISAMANCE",
+       "gives": "AMNESIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle: who is a man whose personal history is blank?",
+     "walkthrough": "The whole clue is both wordplay and definition: someone who has lost their memory has an empty record of their own life.",
+     "definitionFit": "An amnesiac suffers memory loss, so the story of their own past is blank to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +558,49 @@
     "text": "Hold on to wine as a memento",
     "enumeration": "8"
    },
-   "solution": "KEEPSAKE"
+   "solution": "KEEPSAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEEPSAKE",
+    "definitions": [
+     {
+      "text": "memento",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold on to",
+      "gives": "KEEP",
+      "note": "to retain something is to keep it"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "SAKE",
+      "note": "sake is Japanese rice wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "SAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Saving a bottle of wine as a souvenir rather than drinking it.",
+     "walkthrough": "Sake, the Japanese rice wine, is a crossword favourite for 'wine'.",
+     "definitionFit": "A keepsake is a small object kept in memory of a person or event, just like a memento."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +614,43 @@
     "text": "Prank from Rebecca, perhaps",
     "enumeration": "5"
    },
-   "solution": "CAPER"
+   "solution": "CAPER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CAPER",
+    "definitions": [
+     {
+      "text": "Prank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the letters come out of the following words, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rebecca, perhaps",
+      "gives": "CAPER",
+      "note": "the tail of the name runs into the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone guessing which mischievous friend pulled a practical joke.",
+     "walkthrough": "rebecCA PERhaps: 'perhaps' looks like a hedge on the name but supplies the last three letters.",
+     "definitionFit": "A caper is a playful escapade or piece of mischief, so a prank or lark is a fair synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +664,49 @@
     "text": "Self-employed slippery character across the channel?",
     "enumeration": "9"
    },
-   "solution": "FREELANCE"
+   "solution": "FREELANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREELANCE",
+    "definitions": [
+     {
+      "text": "Self-employed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slippery character",
+      "gives": "EEL",
+      "note": "an eel is notoriously slippery"
+     },
+     {
+      "clueFragment": "across the channel",
+      "gives": "FRANCE",
+      "note": "seen from Britain, the country across the English Channel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "EEL",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shifty self-employed operator who works abroad.",
+     "walkthrough": "The eel sits across the channel, inside France: FR-EEL-ANCE. 'Slippery character' looks like a crook, not a fish.",
+     "definitionFit": "A freelance works independently for various clients rather than as an employee, so is self-employed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "slippery"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +720,77 @@
     "text": "Fruit with blemishes sent back alongside hiding blunder",
     "enumeration": "10"
    },
-   "solution": "STRAWBERRY"
+   "solution": "STRAWBERRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "STRAWBERRY",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back travels the opposite way, so its letters read right to left"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to keep it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blemishes",
+      "gives": "WARTS",
+      "note": "warts are small growths that blemish the skin"
+     },
+     {
+      "clueFragment": "alongside",
+      "gives": "BY",
+      "note": "by means beside or alongside"
+     },
+     {
+      "clueFragment": "blunder",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAW",
+      "B",
+      "ERR",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "WARTS",
+       "to": "STRAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greengrocer's complaint: spotty fruit returned, with a mistake covered up.",
+     "walkthrough": "'Alongside' looks like a link word but supplies BY, which then wraps round the mistake.",
+     "definitionFit": "The strawberry is a soft red summer berry, a familiar example of the general category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alongside"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +804,54 @@
     "text": "Pass out seeing snakes",
     "enumeration": "4"
    },
-   "solution": "ASPS"
+   "solution": "ASPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASPS",
+    "definitions": [
+     {
+      "text": "snakes",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or wrong, so the letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "PASS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PASS",
+       "gives": "ASPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone faints at the sight of serpents.",
+     "walkthrough": "'Pass out' reads as one phrase meaning faint, but it splits into a four-letter word and its anagram signal.",
+     "definitionFit": "Asps are small venomous Egyptian vipers, Cleopatra's reputed killer, so they are particular kinds of serpent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +865,64 @@
     "text": "Surprisingly sober vice president is complying",
     "enumeration": "10"
    },
-   "solution": "OBSERVANCE"
+   "solution": "OBSERVANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OBSERVANCE",
+    "definitions": [
+     {
+      "text": "complying",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "something surprising turns out differently from expected, so the letters come out in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sober",
+      "gives": "SOBER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vice president",
+      "gives": "VANCE",
+      "note": "JD Vance, Vice President of the United States from 2025"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBSER",
+      "VANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOBER",
+       "gives": "OBSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snarky political observation about a sober vice president toeing the line.",
+     "walkthrough": "The vice president is named by surname; only the adjective before him is rearranged.",
+     "definitionFit": "Observance of a rule is the act of following it, so the noun matches complying used as a gerund."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Surprisingly"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +950,39 @@
    "group": [
     "14-across",
     "19-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LITTLE BLACK NUMBER",
+    "definitions": [
+     {
+      "text": "Dress",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dress",
+      "note": "surface reading: a garment, the classic short dark cocktail frock"
+     },
+     {
+      "clueFragment": "1 or 2?",
+      "note": "setter's reading: small digits, printed in dark ink, are what the frock's nickname literally describes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A 'number' is slang for a dress, and 1 and 2 are small numerals printed in black, so both readings fit the phrase.",
+     "definitionFit": "Fashion slang calls a stylish outfit a number, and the little black dress is the famous wardrobe classic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "1"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +996,59 @@
     "text": "Figures from 50% of tribes of which one came to Britain after the Romans",
     "enumeration": "9"
    },
-   "solution": "TRIANGLES"
+   "solution": "TRIANGLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRIANGLES",
+    "definitions": [
+     {
+      "text": "Figures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50% of",
+      "for": "letter_selection",
+      "note": "half of a word means keeping exactly half of its letters, here the front half"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribes",
+      "gives": "TRI",
+      "select": "first",
+      "note": "the first half of the word: three of its six letters"
+     },
+     {
+      "clueFragment": "of which one came to Britain after the Romans",
+      "gives": "ANGLES",
+      "note": "the Angles were a Germanic tribe who settled in Britain after Roman rule ended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "ANGLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A history-class fact about the peoples who arrived in Britain once Rome withdrew.",
+     "walkthrough": "The Angles, who gave England its name, are one of the tribes the clue points to; the half-word comes from the same 'tribes'.",
+     "definitionFit": "Triangles are three-sided geometric shapes, and figures is the general geometry term for shapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figures"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1062,55 @@
     "text": "Against providing coverage for TV and radio joker",
     "enumeration": "8"
    },
-   "solution": "COMEDIAN"
+   "solution": "COMEDIAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMEDIAN",
+    "definitions": [
+     {
+      "text": "joker",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "providing coverage for",
+      "for": "container",
+      "note": "to cover something is to wrap round it, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Against",
+      "gives": "CON",
+      "note": "con is short for contra, against, as in pros and cons"
+     },
+     {
+      "clueFragment": "TV and radio",
+      "gives": "MEDIA",
+      "note": "broadcast outlets are collectively the media"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MEDIA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objecting to broadcasters giving airtime to a prankster.",
+     "walkthrough": "'Coverage' suggests news reporting, fitting the surface, but here it means one piece physically wrapping round the other.",
+     "definitionFit": "A comedian tells jokes for a living, and a joker is someone who makes people laugh; close synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coverage"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1124,66 @@
     "text": "Knife fight’s ending in broken toilets",
     "enumeration": "8"
    },
-   "solution": "STILETTO"
+   "solution": "STILETTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STILETTO",
+    "definitions": [
+     {
+      "text": "Knife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "an ending is the final part, so only the last letter is kept"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so its letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight’s",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word before the apostrophe"
+     },
+     {
+      "clueFragment": "toilets",
+      "gives": "TOILETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TTOILETS",
+       "gives": "STILETTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crime report: a brawl that finished with a blade among smashed lavatories.",
+     "walkthrough": "The last letter joins the rearranged toilets; 'in' places it among them before everything is shuffled together.",
+     "definitionFit": "A stiletto is a short dagger with a slender tapering blade, a specific kind of blade weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1207,43 @@
      }
     ]
    },
-   "solution": "ONTHEFIDDLE"
+   "solution": "ONTHEFIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE FIDDLE",
+    "definitions": [
+     {
+      "text": "Cheating",
+      "at": 0
+     },
+     {
+      "text": "like Benedetti?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheating",
+      "note": "first meaning: British slang for engaging in petty fraud"
+     },
+     {
+      "clueFragment": "like Benedetti?",
+      "note": "second meaning: Nicola Benedetti is a celebrated Scottish violinist, so she performs on the violin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nicola Benedetti is a Scottish concert violinist; in Britain, someone working a petty fraud is said to be on the fiddle.",
+     "definitionFit": "The British idiom means swindling on the side, while literally it describes a violinist playing her instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Benedetti"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1270,67 @@
     "text": "See a mate not as poor value",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "value",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not as",
+      "for": "deletion",
+      "note": "read as 'not A's', it means every copy of that letter is left out"
+     },
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the letters are knocked into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "MATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEMTE",
+       "gives": "ESTEEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice not to regard a friend as cheap company.",
+     "walkthrough": "'As' looks like a comparison word but is the plural of the letter A: both A's go before the rest is rearranged.",
+     "definitionFit": "To esteem someone is to regard them highly, so it works as a verb meaning to value or prize."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1344,49 @@
     "text": "In Paris she could go either way",
     "enumeration": "4"
    },
-   "solution": "ELLE"
+   "solution": "ELLE",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "ELLE",
+    "definitions": [
+     {
+      "text": "she",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could go either way",
+      "for": "palindrome",
+      "note": "reading in either direction gives the same result, so the word is symmetrical"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Paris she",
+      "gives": "ELLE",
+      "note": "the French pronoun for a woman, translated because the setting is France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian woman who cannot make up her mind.",
+     "walkthrough": "'In Paris' tells you to translate into French; the rest is a note that the French pronoun reads the same backwards.",
+     "definitionFit": "The French third-person feminine pronoun is the direct equivalent of the English word for a woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "either"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1400,67 @@
     "text": "Tries to finish and leave course contents",
     "enumeration": "10"
    },
-   "solution": "ENDEAVOURS"
+   "solution": "ENDEAVOURS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENDEAVOURS",
+    "definitions": [
+     {
+      "text": "Tries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents",
+      "for": "letter_selection",
+      "note": "a word's contents are what lies inside it, so its first and last letters are discarded"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "the finish is the end"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "EAV",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "OURS",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EAV",
+      "OURS"
+     ]
+    },
+    "explanation": {
+     "surface": "A student attempting to complete a course and quit with what they learnt.",
+     "walkthrough": "'Contents' governs both words before it, so both lose their first and last letters.",
+     "definitionFit": "Endeavours, as a verb, means makes an effort or attempts, so it substitutes directly for tries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contents"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1474,48 @@
     "text": "Spot on leader quitting physical intimacy",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "Spot on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader quitting",
+      "for": "deletion",
+      "note": "when the leader quits, the front letter departs from what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "physical intimacy",
+      "gives": "SEXACT",
+      "note": "the sex act, a coy phrase for lovemaking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a party leader resigning over an affair.",
+     "walkthrough": "'Leader quitting' reads like a politician resigning; it removes the first letter of the phrase for lovemaking.",
+     "definitionFit": "Spot on is an informal British phrase for precisely right, so it matches the adjective meaning precise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1529,43 @@
     "text": "In for a laboratory test",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "test",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the letters sit inside the following words, straddling the gaps between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a laboratory",
+      "gives": "ORAL",
+      "note": "the tail of the first word, the middle word, and the head of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A student heading into the lab for an assessment.",
+     "walkthrough": "fOR A Laboratory. 'In for' reads like being in line for something; 'In' alone is the signal.",
+     "definitionFit": "An oral is a spoken examination, so as a noun it is a type of test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "laboratory"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1585,61 @@
      }
     ]
    },
-   "solution": "INTERALIA"
+   "solution": "INTERALIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTER ALIA",
+    "definitions": [
+     {
+      "text": "amongst others",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "development",
+      "for": "anagram",
+      "note": "a development is a change into a new form, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "retail",
+      "gives": "RETAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INRETAILA",
+       "gives": "INTERALIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business report noting one change in shops among several.",
+     "walkthrough": "'In' looks like a preposition placing the scene, but it is part of the fodder.",
+     "definitionFit": "The Latin phrase literally means among other things and is used in English with exactly that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1653,62 @@
     "text": "Lebanon expelling an awful aristocrat",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "aristocrat",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelling",
+      "for": "deletion",
+      "note": "to expel is to throw out, so those letters are removed"
+     },
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is a mess, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lebanon",
+      "gives": "LEBANON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEBON",
+       "gives": "NOBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news item about Lebanon deporting a disgraceful aristocrat.",
+     "walkthrough": "'An awful aristocrat' looks like one noun phrase; 'an' goes with 'expelling' and 'awful' scrambles what is left.",
+     "definitionFit": "A noble is a member of the titled class, so as a noun it is a direct synonym for an aristocrat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1722,64 @@
     "text": "Lots chasing the ultimate in African and Asian food",
     "enumeration": "7"
    },
-   "solution": "NOODLES"
+   "solution": "NOODLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOODLES",
+    "definitions": [
+     {
+      "text": "Asian food",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate is the very last, so only the final letter is taken"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "one thing chasing another comes behind it, so this piece is placed second"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "Lots",
+      "gives": "OODLES",
+      "note": "oodles is informal for lots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OODLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A menu offering heaps of dishes from two continents.",
+     "walkthrough": "'African and Asian food' reads as one definition; only 'Asian food' defines, and 'African' gives a single letter.",
+     "definitionFit": "Noodles, such as ramen or udon, are a staple of Chinese, Japanese and other East Asian cuisines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "African"
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1793,55 @@
     "text": "Mineral included in those people’s proposition",
     "enumeration": "7"
    },
-   "solution": "THEOREM"
+   "solution": "THEOREM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEOREM",
+    "definitions": [
+     {
+      "text": "proposition",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "to be included in something is to sit inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those people’s",
+      "gives": "THEM",
+      "note": "the plural pronoun for those people; the possessive just smooths the surface"
+     },
+     {
+      "clueFragment": "Mineral",
+      "gives": "ORE",
+      "note": "ore is rock from which a mineral or metal is extracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ORE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A mining offer: some ore is part of a group's business proposal.",
+     "walkthrough": "'Proposition' suggests a business offer; it is the mathematical sense, a statement to be proved.",
+     "definitionFit": "In mathematics a proposition is a statement to be proved, and a theorem is one that has been."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "proposition"
+    }
+   }
   }
  ]
 }
