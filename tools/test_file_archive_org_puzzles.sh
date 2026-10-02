@@ -125,8 +125,15 @@ check("lost opening words the readings differ on blank the clue", None,
 check("lost closing words most readings have put in", "Girls were well sustained by it",
       f.agree("Girls were well sustained by", [f.marked("19 Girls were well sustained by it (7)", breaks=True)] * 2)[0])
 check("a dictionary tie between readings blanks the word", None,
+      f.agree("A bny is backward", [f.marked("19 A boy is backward (4)", breaks=True),
+                                    f.marked("19 A bay is backward (4)", breaks=True)])[0])
+check("one reading's far shorter dictionary word is no rival", "Chucked one in",
       f.agree("Chucked one in", [f.marked("24 Chuckeu one in (5)", breaks=True),
                                  f.marked("24 Che one in (5)", breaks=True)])[0])
+check("a rare word one ink slip from a far commoner one blanks the clue", None,
+      f.agree("Bob hangs ou to this", [f.marked("3 Bob hangs ou to this (5)", breaks=True)] * 3)[0])
+check("a mark dropped between two words leaves their space", "Lack of spirit after a storm",
+      f.agree("Lack of spirit:after a storm", [f.marked("1 Lack of spirit after a storm (4)", breaks=True)] * 2)[0])
 check("a misread clue number before the capital dropped", "Not small horse-pistols",
       f.agree("I Not small horse-pistols", [f.marked(t, breaks=True) for t in
                                             ("21 Not small horse-pistols (5)", "21 Not smal horse-pistols (5)")])[0])
