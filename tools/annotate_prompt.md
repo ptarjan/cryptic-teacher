@@ -16,6 +16,9 @@ group ("See 21") is `null`.
 {"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}
 ```
 
+If the puzzle file lists `annotateOnly`, key only those entries: every other entry's
+annotation is fixed, there to read, and the check refuses a change to it.
+
 Write annotations only; do not write a script to produce them. Each entry's
 `"solution"` is ground truth: your parse must produce exactly those letters, and if it
 does not, the parse is wrong, so rethink it rather than stretch it.

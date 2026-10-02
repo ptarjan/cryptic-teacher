@@ -564,7 +564,10 @@ todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzl
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
-older = [i for _, i in todo if i not in fresh]
+# A partly annotated puzzle costs only its missing clues, so it leads the rest.
+partial = {p["id"]: p["unannotated"] for p in idx["puzzles"] if p.get("unannotated")}
+older = sorted((i for _, i in todo if i not in fresh),
+               key=lambda i: (i not in partial, partial.get(i, 0)))
 print(" ".join(fresh))
 print(" ".join(older[:int(sys.argv[1])]))
 EOF
