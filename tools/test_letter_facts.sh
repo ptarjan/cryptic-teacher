@@ -24,7 +24,7 @@ check "an answer spelt both ways in one run is read forward, taking no reversal"
 check "a block inside another is a container" container \
   'American novelist gets stuck penning English (5)' JAMES --block 'JAMS=gets stuck' --block E=English
 check "one block taken out of another is a deletion" deletion \
-  'How far across (ignoring depth)? A lungful (6)' BREATH --block 'BREADTH=How far across' --block D=depth
+  'How far across with daughter leaving? A lungful (6)' BREATH --block 'BREADTH=How far across' --block D=daughter
 check "fodder beside a block is charade + anagram" "charade + anagram" \
   "Girl's to eat after brewing lager (9)" GERALDINE --block DINE=eat
 check "a literal clue word inside a block is a container, not an anagram" container \
