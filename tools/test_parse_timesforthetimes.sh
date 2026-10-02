@@ -441,6 +441,13 @@ print("|".join([m.filed_series(t("TLS Crossword 1124 by Talos"), "Other Crosswor
                 m.filed_series(t("Times Cryptic Jumbo No 1309 (Saturday)"), "Weekend Cryptic", 1309),
                 m.filed_series(t("Sunday Times Jumbo Cryptic No. 5038"), "Weekend Cryptic", 5038)]))')"
 
+check "a Jumbo has no ceiling: 1423, the 90-clue Superjumbo, is kept" "True" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+print(m.plausible({"series": "Jumbo Cryptic", "entries": [{}] * 90}))')"
+
 check "a Weekend post may have a Jumbo-sized entry count; a daily may not" "True True False" \
   "$(REPO="$REPO" python3 -c '
 import os, importlib.util
