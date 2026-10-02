@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Ambassador has lie-ins regularly with a woman",
     "enumeration": "6"
    },
-   "solution": "HELENA"
+   "solution": "HELENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HELENA",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ambassador",
+      "gives": "HE",
+      "note": "HE, His Excellency, is the title of an ambassador"
+     },
+     {
+      "clueFragment": "lie-ins",
+      "gives": "LEN",
+      "select": "alternate",
+      "note": "first, third and fifth letters of the hyphenated word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "LEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat enjoys lazy mornings in bed in the company of a lady.",
+     "walkthrough": "HE stands for His Excellency, the formal address for an ambassador; the hyphen in 'lie-ins' is ignored when picking letters.",
+     "definitionFit": "Helena is a female given name, so any bearer of it is an example of a woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +109,71 @@
     "text": "Way to pay homage to all political leaders after they retire",
     "enumeration": "8"
    },
-   "solution": "FOOTPATH"
+   "solution": "FOOTPATH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "FOOTPATH",
+    "definitions": [
+     {
+      "text": "Way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders go in front, so only the opening letter of each word counts"
+     },
+     {
+      "text": "after they retire",
+      "for": "reversal",
+      "note": "to retire is to draw back, so the selected letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pay",
+      "gives": "FOOT",
+      "note": "to foot a bill is to pay it"
+     },
+     {
+      "clueFragment": "homage to all political",
+      "gives": "HTAP",
+      "select": "first",
+      "note": "initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOT",
+      "PATH"
+     ],
+     "reversals": [
+      {
+       "from": "HTAP",
+       "to": "PATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion for honouring every party chief once they step down from office.",
+     "walkthrough": "'Pay homage' reads as one phrase, but 'pay' works alone as a verb meaning foot (the bill), and 'homage' starts the run of initial letters.",
+     "definitionFit": "A footpath is a track for walkers, a kind of way or route from place to place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pay"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +187,70 @@
     "text": "Group of women that is collecting clothes from Nelson Mandela",
     "enumeration": "6"
    },
-   "solution": "WINNIE"
+   "solution": "WINNIE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "WINNIE",
+    "definitions": [
+     {
+      "text": "Mandela",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "to collect is to gather in, so one piece takes another inside it"
+     },
+     {
+      "text": "clothes",
+      "for": "letter_selection",
+      "note": "clothes are what covers the outside, so only the outer letters are wanted"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group of women",
+      "gives": "WI",
+      "note": "WI is the Women's Institute, a British organisation of women's clubs"
+     },
+     {
+      "clueFragment": "Nelson",
+      "gives": "NN",
+      "select": "outer",
+      "note": "first and last letters of the name"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "NN",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A women's group gathers donated garments from the late South African president.",
+     "walkthrough": "'Nelson Mandela' looks like one name, but the clue splits it: 'Nelson' supplies two letters and 'Mandela' alone is the definition. The Women's Institute surrounds 'that is', and the NN goes inside.",
+     "definitionFit": "Winnie Madikizela-Mandela, Nelson's second wife, was herself a famous anti-apartheid figure known by the surname Mandela."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +278,51 @@
      }
     ]
    },
-   "solution": "CARDSONTHETABLE"
+   "solution": "CARDSONTHETABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARDS ON THE TABLE",
+    "definitions": [
+     {
+      "text": "crime novel",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "extraordinary means out of the ordinary, so the letters leave their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlotte Baden's",
+      "gives": "CHARLOTTEBADENS",
+      "note": "all fifteen letters, including the possessive S"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHARLOTTEBADENS",
+       "gives": "CARDSONTHETABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a remarkable mystery story written by someone called Charlotte Baden.",
+     "walkthrough": "The possessive S counts as fodder: all fifteen letters are used.",
+     "definitionFit": "Cards on the Table is a 1936 Agatha Christie mystery featuring Hercule Poirot, so it is a crime novel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extraordinary"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +336,54 @@
     "text": "Sack a very rich person disregarding society",
     "enumeration": "8"
    },
-   "solution": "MONEYBAG"
+   "solution": "MONEYBAG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MONEYBAG",
+    "definitions": [
+     {
+      "text": "Sack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disregarding",
+      "for": "deletion",
+      "note": "to disregard is to leave out of account, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a very rich person",
+      "gives": "MONEYBAGS",
+      "note": "an informal term for a wealthy person"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the standard abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONEYBAG"
+     ]
+    },
+    "explanation": {
+     "surface": "Fire some wealthy figure who has no time for polite society.",
+     "walkthrough": "'Sack' reads as a verb meaning dismiss, but it is a noun naming the answer.",
+     "definitionFit": "A moneybag is literally a pouch or bag for holding money, so it is a type of sack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sack"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +397,60 @@
     "text": "Perhaps lackey's son to become ordinary kind of farmer",
     "enumeration": "6"
    },
-   "solution": "YEOMAN"
+   "solution": "YEOMAN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "YEOMAN",
+    "definitions": [
+     {
+      "text": "kind of farmer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to become",
+      "for": "substitution",
+      "note": "to become is to turn into something else, so one letter is swapped for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps lackey",
+      "gives": "YESMAN",
+      "note": "a yes-man is a sycophantic follower, and a lackey is perhaps one"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "O",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Could a servant's boy grow up to be a plain, everyday farmer?",
+     "walkthrough": "'Perhaps' signals that a lackey is an example of a yes-man. Its S, for son, is replaced by O, for ordinary.",
+     "definitionFit": "Historically a yeoman was a man who owned and worked his own small estate, so a farmer of a particular class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +464,63 @@
     "text": "End timeless piano piece by Chopin in silence",
     "enumeration": "8"
    },
-   "solution": "QUIETUDE"
+   "solution": "QUIETUDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "QUIETUDE",
+    "definitions": [
+     {
+      "text": "silence",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "the suffix -less means without, so the word both names a letter and asks for it to be dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End",
+      "gives": "QUIT",
+      "note": "to quit is to end or stop"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "piano piece by Chopin",
+      "gives": "ETUDE",
+      "note": "Chopin wrote famous études, short study pieces for piano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUI",
+      "ETUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Finish a Chopin piano piece on an endless note, and then let the room fall quiet.",
+     "walkthrough": "'Timeless' supplies both the letter and the instruction: time abbreviates to T, and the suffix removes it from QUIT.",
+     "definitionFit": "Quietude is a literary noun for a state of calm stillness, so it is a synonym of silence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "timeless"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +534,54 @@
     "text": "Woman in charge in Italian city",
     "enumeration": "8"
    },
-   "solution": "VERONICA"
+   "solution": "VERONICA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VERONICA",
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something put in a place sits inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian city",
+      "gives": "VERONA",
+      "note": "Verona is a city in northern Italy"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the standard abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERON",
+      "IC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman holds the top job in some Italian town.",
+     "walkthrough": "The first 'in' belongs to the abbreviation IC; the second 'in' is the container signal.",
+     "definitionFit": "Veronica is a female given name, so any bearer of it is an example of a woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +601,50 @@
      }
     ]
    },
-   "solution": "OPENUP"
+   "solution": "OPENUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN UP",
+    "definitions": [
+     {
+      "text": "start firing a gun",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank's",
+      "gives": "OPEN",
+      "note": "frank and open both mean candid"
+     },
+     {
+      "clueFragment": "happy",
+      "gives": "UP",
+      "note": "to be up is to be in high spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPEN",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Frank is eager to start shooting.",
+     "walkthrough": "'Frank' looks like a man's name but is the adjective meaning candid; the 's just joins the pieces.",
+     "definitionFit": "Troops or guns are said to open up when they begin shooting, so the phrasal verb means start firing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank's"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +658,50 @@
     "text": "Don't dine outdoors after appearance of unknown growth hormone",
     "enumeration": "6"
    },
-   "solution": "ZEATIN"
+   "solution": "ZEATIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZEATIN",
+    "definitions": [
+     {
+      "text": "growth hormone",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "after appearance of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "in algebra x, y and z stand for unknown quantities"
+     },
+     {
+      "clueFragment": "Don't dine outdoors",
+      "gives": "EATIN",
+      "note": "to eat in is to have a meal at home rather than out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "EATIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to skip eating outside once some mysterious growth hormone shows up.",
+     "walkthrough": "The unknown letter is placed first because the eating phrase comes after it. Zeatin is obscure, so the friendly wordplay carries the solver.",
+     "definitionFit": "Zeatin is a cytokinin, a plant hormone first isolated from maize, which promotes cell division and so plant growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outdoors"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +715,63 @@
     "text": "Foolish admirer filled with energy to become more romantic",
     "enumeration": "8"
    },
-   "solution": "DREAMIER"
+   "solution": "DREAMIER",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "DREAMIER",
+    "definitions": [
+     {
+      "text": "to become more romantic",
+      "at": 35,
+      "note": "the definition is 'more romantic'; 'to become' only joins"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled has another thing put inside it"
+     },
+     {
+      "text": "Foolish",
+      "for": "anagram",
+      "note": "foolish means silly or senseless, so the letters lose their sensible order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admirer",
+      "gives": "ADMIRER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADMIRERE",
+       "gives": "DREAMIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lovesick fan, full of zest, hoping to seem more amorous.",
+     "walkthrough": "The added E only needs to join the other letters before they are rearranged, so where it sits does not matter.",
+     "definitionFit": "Dreamy describes something idealised or wistful, so the comparative form fits as an equivalent of more romantic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Foolish"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +785,71 @@
     "text": "Judge changing a plea's not a hot thing",
     "enumeration": "8"
    },
-   "solution": "JALAPENO"
+   "solution": "JALAPENO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "JALAPENO",
+    "definitions": [
+     {
+      "text": "hot thing",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing something alters it, so the letters take on a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "a plea",
+      "gives": "APLEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not a",
+      "gives": "NO",
+      "note": "no means not any, not a single one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "ALAPE",
+      "NO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APLEA",
+       "gives": "ALAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge says that changing one's plea is not a sensational matter.",
+     "walkthrough": "'Hot thing' sounds like a fashionable item or a court sensation, but it means something spicy; the English spelling drops the tilde of jalapeño.",
+     "definitionFit": "A jalapeño is a Mexican chilli pepper, valued for its fiery heat, so it is literally a hot thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +863,47 @@
     "text": "Rubbish place to sleep? I'm not sure",
     "enumeration": "6"
    },
-   "solution": "BUNKUM"
+   "solution": "BUNKUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUNKUM",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place to sleep",
+      "gives": "BUNK",
+      "note": "a bunk is a narrow bed, often one of a stacked pair"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "UM",
+      "note": "um is the sound of hesitation or doubt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNK",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sizing up a bed and dismissing it as terrible, then wavering.",
+     "walkthrough": "The question mark splits the clue into a hesitant question, and 'I'm not sure' is a spoken filler sound rather than real doubt.",
+     "definitionFit": "Bunkum is informal for nonsense or empty talk, in the same sense that rubbish means foolish talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +927,51 @@
      }
     ]
    },
-   "solution": "INTHEALTOGETHER"
+   "solution": "INTHEALTOGETHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE ALTOGETHER",
+    "definitions": [
+     {
+      "text": "fully undressed",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Going crazy",
+      "for": "anagram",
+      "note": "going crazy means losing one's sense of order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here, late tonight",
+      "gives": "HERELATETONIGHT",
+      "note": "all fifteen letters, ignoring the comma"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERELATETONIGHT",
+       "gives": "INTHEALTOGETHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild party in full swing late at night, with everyone stripped off.",
+     "walkthrough": "The commas break the fodder into what looks like a scene-setting phrase, but every letter of 'here late tonight' is used.",
+     "definitionFit": "In the altogether is an informal British idiom for being naked, wearing nothing at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Going"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +985,47 @@
     "text": "Groups of 9 or 11 out of 12 houses may be labelled thus?",
     "enumeration": "8"
    },
-   "solution": "NONARIES"
+   "solution": "NONARIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NONARIES",
+    "definitions": [
+     {
+      "text": "Groups of 9",
+      "at": 0
+     },
+     {
+      "text": "11 out of 12 houses may be labelled thus?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groups of 9",
+      "note": "first meaning: a nonary is a set of nine"
+     },
+     {
+      "clueFragment": "11 out of 12 houses may be labelled thus?",
+      "note": "second meaning, split as two words: the twelve houses of the zodiac, of which all but one are not Aries"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle about numbered groups and houses on a street, as if sorting addresses.",
+     "walkthrough": "'Houses' suggests buildings on a street, but these are the twelve signs or houses of the zodiac; only one is Aries, so the rest could be called non-Aries.",
+     "definitionFit": "Nonary comes from Latin for ninefold, and as a noun names a set of nine items; the other reading is a playful compound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1039,65 @@
     "text": "Shock when nonsense's written about Northern Ireland",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASTONISH",
+    "definitions": [
+     {
+      "text": "Shock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "writing that goes about something wraps around it, so it holds another piece inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as and when both mean at the time that"
+     },
+     {
+      "clueFragment": "nonsense",
+      "gives": "TOSH",
+      "note": "tosh is British slang for nonsense"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the standard abbreviation for Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TO",
+      "NI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Dismay when rubbish gets printed about the politics of Northern Ireland.",
+     "walkthrough": "The 's stands for 'is', joining the nonsense to its instruction.",
+     "definitionFit": "To shock and to astonish both mean to surprise someone greatly, so the verbs are synonyms here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1111,70 @@
     "text": "Herb Alpert ultimately right to visit part of Spain",
     "enumeration": "8"
    },
-   "solution": "TARRAGON"
+   "solution": "TARRAGON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TARRAGON",
+    "definitions": [
+     {
+      "text": "Herb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the last letter is used"
+     },
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside a place, so one piece enters another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alpert",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of the surname"
+     },
+     {
+      "clueFragment": "part of Spain",
+      "gives": "ARAGON",
+      "note": "Aragon is a region of north-east Spain"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AR",
+      "R",
+      "AGON"
+     ]
+    },
+    "explanation": {
+     "surface": "The trumpeter Herb Alpert finally gets permission to tour a Spanish region.",
+     "walkthrough": "'Herb Alpert' reads as the American trumpeter's name, but 'Herb' alone is the definition and 'Alpert' supplies a letter.",
+     "definitionFit": "Tarragon is an aromatic plant whose leaves are used in cooking, especially in French cuisine, so a culinary herb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Herb"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1188,68 @@
     "text": "Think about giving welcome to good man",
     "enumeration": "6"
    },
-   "solution": "KNIGHT"
+   "solution": "KNIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "KNIGHT",
+    "definitions": [
+     {
+      "text": "man",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the word runs backwards"
+     },
+     {
+      "text": "giving welcome to",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Think",
+      "gives": "THINK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNI",
+      "G",
+      "HT"
+     ],
+     "reversals": [
+      {
+       "from": "THINK",
+       "to": "KNIHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consider extending a warm reception to a virtuous fellow.",
+     "walkthrough": "'Good man' looks like the definition, but 'good' gives its letter and 'man' alone is defined, in the chess sense.",
+     "definitionFit": "Chess pieces are often called men, and a knight is one of those pieces on the board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1263,61 @@
     "text": "Stars laid-back in carefree surroundings",
     "enumeration": "6"
    },
-   "solution": "GALAXY"
+   "solution": "GALAXY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALAXY",
+    "definitions": [
+     {
+      "text": "Stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means lying inside it, so one piece sits within another"
+     },
+     {
+      "text": "surroundings",
+      "for": "container",
+      "note": "surroundings enclose whatever is placed among them, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carefree",
+      "gives": "GAY",
+      "note": "gay in its older sense means lighthearted and carefree"
+     },
+     {
+      "clueFragment": "laid-back",
+      "gives": "LAX",
+      "note": "lax and laid-back both mean relaxed or casual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "LAX",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Celebrities relaxing in a happy, easygoing setting.",
+     "walkthrough": "'Stars' looks like famous people, but it means celestial bodies; 'laid-back' is not a reversal signal but a synonym for relaxed.",
+     "definitionFit": "A galaxy is a vast system of billions of stars bound by gravity, so the plural noun is a fair definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stars"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1331,50 @@
     "text": "Attention diminishes with medication",
     "enumeration": "8"
    },
-   "solution": "EARDROPS"
+   "solution": "EARDROPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARDROPS",
+    "definitions": [
+     {
+      "text": "medication",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to pay attention to them"
+     },
+     {
+      "clueFragment": "diminishes",
+      "gives": "DROPS",
+      "note": "drops and diminishes both mean falls or decreases"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "DROPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's focus fades once they take their medicine.",
+     "walkthrough": "The surface suggests drowsiness from pills, but the pieces are a body part and a verb.",
+     "definitionFit": "Ear drops are a liquid treatment put into the ear to treat infection or wax, a form of medication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Attention"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1388,59 @@
     "text": "Back of computer connected to external device",
     "enumeration": "6"
    },
-   "solution": "ROUTER"
+   "solution": "ROUTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROUTER",
+    "definitions": [
+     {
+      "text": "device",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "connected to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computer",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "external",
+      "gives": "OUTER",
+      "note": "outer and external both mean on the outside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OUTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A port on the rear of a PC is plugged into some peripheral gadget.",
+     "walkthrough": "The whole surface sounds like tech-support instructions, and the answer belongs in that picture, though only 'device' defines it.",
+     "definitionFit": "A router is a piece of networking hardware that forwards data between computers, so it is a device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "connected"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1454,39 @@
     "text": "Matter of indifference?",
     "enumeration": "6"
    },
-   "solution": "PHLEGM"
+   "solution": "PHLEGM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PHLEGM",
+    "definitions": [
+     {
+      "text": "Matter of indifference?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matter of indifference?",
+      "note": "surface reading: something unimportant, a thing nobody cares about"
+     },
+     {
+      "clueFragment": "Matter of indifference?",
+      "note": "setter's reading: a bodily substance that is also a word for calm, unemotional coolness"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'A matter of indifference' is an idiom for something trivial, but here 'matter' is a substance, and the answer also names an unruffled temperament.",
+     "definitionFit": "Phlegm is mucus, a bodily matter, and in old medicine the humour causing a calm, apathetic temperament, hence phlegmatic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Matter"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1506,83 @@
      }
     ]
    },
-   "solution": "SRILANKA"
+   "solution": "SRILANKA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SRI LANKA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremists in",
+      "for": "letter_selection",
+      "note": "extremists are those at the far ends, so the first and last letters are taken"
+     },
+     {
+      "text": "transfixed by",
+      "for": "container",
+      "note": "something transfixed is pierced right through, so another piece runs into its middle"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around another"
+     },
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "borders are the edges, so only the outer letters are used"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Syria",
+      "gives": "SA",
+      "select": "outer",
+      "note": "first and last letters of the country"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "RANK",
+      "note": "a rank is a row or line, as of soldiers or taxis"
+     },
+     {
+      "clueFragment": "Israel",
+      "gives": "IL",
+      "select": "outer",
+      "note": "first and last letters of the country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "R",
+      "IL",
+      "ANK",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Militants in Syria are caught up in a dispute along Israel's frontiers.",
+     "walkthrough": "'Row' suggests a quarrel, fitting the Middle East surface, but it means a line. Israel's two outer letters go into it, and the result goes between Syria's.",
+     "definitionFit": "Sri Lanka is an island nation in the Indian Ocean, an independent country and therefore a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1596,51 @@
     "text": "Diffuse nebula lacking in strength",
     "enumeration": "6"
    },
-   "solution": "UNABLE"
+   "solution": "UNABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNABLE",
+    "definitions": [
+     {
+      "text": "lacking in strength",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Diffuse",
+      "for": "anagram",
+      "note": "diffuse means spread out and scattered, so the letters are dispersed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nebula",
+      "gives": "NEBULA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEBULA",
+       "gives": "UNABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer notes that a hazy cloud of gas in space is faint.",
+     "walkthrough": "A diffuse nebula is a real astronomical term, so 'Diffuse' passes as a plain adjective.",
+     "definitionFit": "Unable means lacking the power or capacity to do something, which matches lacking in strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Diffuse"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1654,65 @@
     "text": "Son of Darius succeeded old king from the East",
     "enumeration": "6"
    },
-   "solution": "XERXES"
+   "solution": "XERXES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "XERXES",
+    "definitions": [
+     {
+      "text": "Son of Darius",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the East",
+      "for": "reversal",
+      "note": "in an across entry, coming from the east means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, used in family trees"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "REX",
+      "note": "rex is Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "XERXES"
+     ],
+     "reversals": [
+      {
+       "from": "SEXREX",
+       "to": "XERXES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A history lesson: a Persian prince took over from an ancient Eastern monarch.",
+     "walkthrough": "The surface fits Persian history, since Xerxes did succeed Darius; but 'succeeded' is just a letter and 'from the East' turns the string around.",
+     "definitionFit": "Xerxes I, king of Persia who invaded Greece in 480 BC, was the son and successor of Darius the Great."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "succeeded"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1732,51 @@
      }
     ]
    },
-   "solution": "LIEDOGGO"
+   "solution": "LIEDOGGO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIE DOGGO",
+    "definitions": [
+     {
+      "text": "keep a low profile",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In confusion",
+      "for": "anagram",
+      "note": "confusion is disorder, so the letters are muddled into another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I googled",
+      "gives": "IGOOGLED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGOOGLED",
+       "gives": "LIEDOGGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Baffled, someone searched online for how to stay out of sight.",
+     "walkthrough": "The quotation marks make it look like a search query, but the quoted words are the definition and 'I googled' is the fodder.",
+     "definitionFit": "Lie doggo is informal British slang meaning to stay hidden and quiet, avoiding attention, much as an idiom for keep a low profile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "googled"
+    }
+   }
   }
  ]
 }
