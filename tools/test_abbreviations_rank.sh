@@ -13,10 +13,15 @@ d = Path(tempfile.mkdtemp())
 (d / "blocks.json").write_text(json.dumps({
     "ABOUT": {"RE": 50, "C": 90, "A": 5}, "SAILOR": {"AB": 40}, "ABBESS": {"ABB": 1},
     "CAUGHT": {"C": 70}, "KING": {"K": 3, "R": 30}, "QUEEN": {"Q": 2}, "MONK": {"BR": 9}}))
-b.LEXICON, b._USAGE, b._TABLE = d / "blocks.json", None, None
-# about C, about RE, sailor AB and king R reach table() through the corpus.
-b.FAMILIES = [("Cards", "ace A, queen Q, king K"), ("Royals", "king R"),
+# sailor AB and monk BR: clues use them, no dictionary lists them. unused U: the
+# dictionary lists it, no clue uses it.
+(d / "dictionary.json").write_text(json.dumps({
+    "about": ["A", "C", "RE"], "abbess": ["ABB"], "caught": ["C"], "king": ["K", "R"],
+    "unused": ["U"]}))
+b.LEXICON, b.DICTIONARY, b._USAGE, b._TABLE = d / "blocks.json", d / "dictionary.json", None, None
+b.FAMILIES = [("Cards", "ace A, queen Q, king K"), ("Royals", "king R, rex R"),
               ("Others", "about A, caught C, abbess ABB")]
+b.SYSTEMATIC = frozenset({"Cards"})
 fails = 0
 def check(name, want, got):
     global fails
@@ -26,8 +31,8 @@ def check(name, want, got):
 plain = lambda h: re.sub(r"<[^>]+>|&nbsp;|&middot;|,", " ", h).split()
 senses = b.by_word()
 
-check("table(): FAMILIES plus readings SEEN_MIN or more clues use, and nothing else",
-      {"A": ["about", "ace"], "AB": ["sailor"], "ABB": ["abbess"], "C": ["about", "caught"],
+check("table(): dictionary senses clues use, plus SYSTEMATIC members, and nothing else",
+      {"A": ["about", "ace"], "ABB": ["abbess"], "C": ["about", "caught"],
        "K": ["king"], "Q": ["queen"], "R": ["king"], "RE": ["about"]}, b.table())
 
 check("most common: top n, most used first, each with its count",
@@ -36,6 +41,8 @@ check("most common: top n, most used first, each with its count",
 fam = b.families_html()
 check("families: the most used family first, with its total",
       [("Others", "76"), ("Royals", "30"), ("Cards", "5")], re.findall(r"<dt>(\w+)&nbsp;<span[^>]*>(\d+)", fam))
+check("a family that is not SYSTEMATIC shows only the members table() holds",
+      ["king", "R", "30"], plain(re.search(r"<dt>Royals.*?<dd>(.*?)</dd>", fam).group(1)))
 check("a family's members most used first; unused ones last, no count",
       ["king", "K", "3", "queen", "Q", "2", "ace", "A"],
       plain(re.search(r"<dt>Cards.*?<dd>(.*?)</dd>", fam).group(1)))

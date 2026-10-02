@@ -1110,8 +1110,8 @@ def learn_page():
     inner = re.sub(
         re.escape(build_abbreviations.MARK_START) + ".*?" + re.escape(build_abbreviations.MARK_END),
         '<h2 id="abbreviations">Common abbreviations</h2>\n'
-        "<p>Setters use short, fixed stand-ins for common words. <em>Sailor</em> gives "
-        "<code>AB</code>. <em>Check</em> gives <code>CH</code>. You cannot work these out from "
+        "<p>Setters use short, fixed stand-ins for common words. <em>Street</em> gives "
+        "<code>ST</code>. <em>Company</em> gives <code>CO</code>. You cannot work these out from "
         "the word. You just learn them, and they appear in charades all the time: "
         f'<a href="{BASE}/abbreviations/">see all '
         f'{len(build_abbreviations.by_word())} abbreviations used in these puzzles &rarr;</a></p>',
@@ -1485,13 +1485,9 @@ def abbreviations_page(blocks):
     senses = build_abbreviations.by_word()
     n = len(senses)
     links = clue_links(senses, blocks)
-    seen = build_abbreviations.readings()
-    rare = {}
-    for w, letters, count, why in seen:
-        rare.setdefault(w, []).append((letters, count, why))
     title = f"Cryptic crossword abbreviations — {n:,} of them, A to Z"
     desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
-            "by word: check is CH, sailor is AB, right is R. Every one comes from a real "
+            "by word: street is ST, company is CO, right is R. Every one comes from a real "
             f"published puzzle, and {len(links)} of them link to a clue that uses it, "
             "explained.")
     canonical = f"{BASE}/abbreviations/"
@@ -1509,22 +1505,19 @@ def abbreviations_page(blocks):
         masthead(crumbs),
         '<main class="static-main tutorial-static">',
         "<h1>Cryptic crossword abbreviations</h1>",
-        "<p>Setters often swap a word for a short, fixed set of letters. <em>Sailor</em> "
-        "becomes <code>AB</code>. <em>Check</em> becomes <code>CH</code>. Most have a "
-        "reason (AB is short for \"able-bodied seaman\"), but you cannot work them out "
-        "from the word alone. You have to know them, so they are the quickest thing a new "
+        "<p>Setters often swap a word for a short, fixed set of letters. <em>Street</em> "
+        "becomes <code>ST</code>. <em>Company</em> becomes <code>CO</code>. Each is the "
+        "dictionary's abbreviation of its word, but which letters a setter picks you "
+        "cannot work out from the word alone. You have to know them, so they are the quickest thing a new "
         "solver can learn.</p>",
         "<p>You will meet them most in charades, where the answer is built from small "
-        "pieces: <em>check</em> + <em>weapon</em> gives CH + ARM, which is CHARM. Some words "
+        "pieces: <em>company</em> + <em>street</em> gives CO + ST, which is COST. Some words "
         "stand for more than one set of letters. Try each one until the pieces build a word "
         "that matches the definition.</p>",
-        f"<p>Find the word from your clue; the letters it stands for are next to it, "
+        "<p>Find the word from your clue; the letters it stands for are next to it, "
         "most used first, each with the number of clues in these puzzles that use it. "
-        f"The {n} in plain type are the standard ones: every reading "
-        f"{build_abbreviations.SEEN_MIN} or more solved "
-        f"clues use, and the sets below. The {len(seen)} in grey are standard ones put "
-        "together (<em>lines</em> is L twice, <em>a king</em> is A + R); hover one to "
-        "see how.</p>",
+        "Every one is an abbreviation the dictionary (Wiktionary) lists and a clue "
+        "here uses, plus the codes in the sets below.</p>",
         f"<p>{len(links)} of the words are links to a real clue that uses that "
         "abbreviation, explained step by step.</p>",
         '<h2 id="most-common">Most common</h2>',
@@ -1536,7 +1529,7 @@ def abbreviations_page(blocks):
         "member. The sets, and the members of each, run most used first.</p>",
         build_abbreviations.families_html(),
         '<h2 id="a-to-z">A to Z</h2>',
-        build_abbreviations.table_html(senses, links, rare),
+        build_abbreviations.table_html(senses, links),
         f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
         f'Learn how the clues work &rarr;</a></p>',
         "</main>",
