@@ -24,6 +24,9 @@
   "date": "2020-11-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Catalogue providing stylish clothes",
     "enumeration": "8"
    },
-   "solution": "CLASSIFY"
+   "solution": "CLASSIFY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLASSIFY",
+    "definitions": [
+     {
+      "text": "Catalogue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "to clothe is to dress or wrap, so one piece is worn around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stylish",
+      "gives": "CLASSY",
+      "note": "classy means stylish or elegant"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing, as in 'providing that', means if"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASS",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A mail-order catalogue offering fashionable outfits.",
+     "walkthrough": "'Clothes' reads as a noun for garments in the surface, but it is a verb here meaning wraps around.",
+     "definitionFit": "To catalogue things is to sort them into categories, which is exactly what classifying means; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,56 @@
     "text": "Laid back wounded with neckwear removed",
     "enumeration": "6"
    },
-   "solution": "CASUAL"
+   "solution": "CASUAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CASUAL",
+    "definitions": [
+     {
+      "text": "Laid back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "something removed is taken away, so letters are dropped from the longer word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wounded",
+      "gives": "CASUALTIES",
+      "note": "the wounded in a battle or accident are its casualties"
+     },
+     {
+      "clueFragment": "neckwear",
+      "gives": "TIES",
+      "note": "ties are worn around the neck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASUAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lounging after an injury, collar loosened and tie off.",
+     "walkthrough": "'Wounded' is a collective noun here, the people hurt; take the neckwear off the end and what remains is the answer.",
+     "definitionFit": "Laid back describes a relaxed, easygoing, informal manner, which is a standard synonym of casual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wounded"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +165,50 @@
     "text": "Put out net as safety feature",
     "enumeration": "6"
    },
-   "solution": "AIRBAG"
+   "solution": "AIRBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRBAG",
+    "definitions": [
+     {
+      "text": "safety feature",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put out",
+      "gives": "AIR",
+      "note": "to air a programme is to put it out, broadcast it"
+     },
+     {
+      "clueFragment": "net",
+      "gives": "BAG",
+      "note": "to net and to bag both mean to catch or capture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "Stringing a net out to catch someone falling, like a circus safety net.",
+     "walkthrough": "Both 'Put out' and 'net' are verbs here, not a safety net being laid out.",
+     "definitionFit": "A car's inflating cushion that protects occupants in a crash is a standard example of a vehicle safety device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +222,48 @@
     "text": "Bone-picker, namely one seeking retribution",
     "enumeration": "9"
    },
-   "solution": "SCAVENGER"
+   "solution": "SCAVENGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAVENGER",
+    "definitions": [
+     {
+      "text": "Bone-picker",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "namely",
+      "gives": "SC",
+      "note": "sc. is the abbreviation of Latin scilicet, meaning namely"
+     },
+     {
+      "clueFragment": "one seeking retribution",
+      "gives": "AVENGER",
+      "note": "an avenger seeks revenge for a wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "AVENGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A grudge-holder who picks a bone with someone, seeking payback.",
+     "walkthrough": "SC for 'namely' is a dictionary abbreviation (scilicet) that crosswords use often; 'Bone-picker' suggests having a bone to pick, but is literal.",
+     "definitionFit": "Vultures, hyenas and other animals that strip carcasses left by others are scavengers, feeding on remains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bone-picker"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +283,43 @@
      }
     ]
    },
-   "solution": "FRENCHTOAST"
+   "solution": "FRENCHTOAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRENCH TOAST",
+    "definitions": [
+     {
+      "text": "Good health from a continental",
+      "at": 0
+     },
+     {
+      "text": "breakfast",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good health from a continental",
+      "note": "first meaning: a toast such as 'Santé!' raised by someone from France"
+     },
+     {
+      "clueFragment": "breakfast",
+      "note": "second meaning: bread soaked in egg and fried, eaten in the morning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a hearty continental breakfast; 'Good health!' is the toast drinkers say, and one said by a Frenchman is the first sense.",
+     "definitionFit": "Eggy fried bread is a common morning dish, and a raised-glass salute is a toast, so both senses meet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "continental"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +333,47 @@
     "text": "Convictions held by some litter producers?",
     "enumeration": "6"
    },
-   "solution": "DOGMAS"
+   "solution": "DOGMAS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOGMAS",
+    "definitions": [
+     {
+      "text": "Convictions",
+      "at": 0
+     },
+     {
+      "text": "some litter producers",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "held by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Convictions",
+      "note": "first meaning: firmly held beliefs or doctrines"
+     },
+     {
+      "clueFragment": "some litter producers",
+      "note": "second meaning, split in two: mothers of puppies, since a mother dog produces a litter"
+     }
+    ],
+    "explanation": {
+     "surface": "Beliefs held by people who drop rubbish in the street.",
+     "walkthrough": "'Litter producers' suggests people dropping rubbish; read the answer as DOG MAS, mothers of puppies, and 'some' because only canine ones fit.",
+     "definitionFit": "Dogmas are firmly held principles or tenets, so they are convictions in the sense of beliefs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "litter"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +387,51 @@
     "text": "Top secret to make public",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "public",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top",
+      "for": "deletion",
+      "note": "to top something is to cut off its head, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "COVERT",
+      "note": "covert means secret or hidden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaking classified information to the press.",
+     "walkthrough": "'Top secret' looks like a classification level, but 'Top' is a verb: behead the word for secret.",
+     "definitionFit": "Overt means open and done in plain view, which is what public means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +445,56 @@
     "text": "One aboard swallows mixed beverages",
     "enumeration": "8"
    },
-   "solution": "MARTINIS"
+   "solution": "MARTINIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARTINIS",
+    "definitions": [
+     {
+      "text": "mixed beverages",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "to be aboard is to be inside a vessel, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swallows",
+      "gives": "MARTINS",
+      "note": "martins are birds of the swallow family"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARTIN",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger on a ship downing a few cocktails.",
+     "walkthrough": "'Swallows' looks like a verb for drinking, but it is the noun, the birds.",
+     "definitionFit": "A martini is a cocktail of gin or vodka with vermouth, so these are drinks made by mixing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swallows"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +508,58 @@
     "text": "Worried and more than a trifle upset",
     "enumeration": "8"
    },
-   "solution": "STRESSED"
+   "solution": "STRESSED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRESSED",
+    "definitions": [
+     {
+      "text": "Worried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "to upset is to tip over, and in a down clue that turns the letters upside down"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more than a trifle",
+      "gives": "DESSERTS",
+      "note": "trifle is one pudding; more than one pudding gives the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRESSED"
+     ],
+     "reversals": [
+      {
+       "from": "DESSERTS",
+       "to": "STRESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone anxious and more than slightly bothered.",
+     "walkthrough": "'More than a trifle' reads as 'quite a lot', but trifle is the layered custard pudding, a British dessert.",
+     "definitionFit": "Being under strain and anxious is being worried; both are past-participle adjectives describing a troubled state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trifle"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +573,63 @@
     "text": "Groovy holy man admired around India",
     "enumeration": "8"
    },
-   "solution": "STRIATED"
+   "solution": "STRIATED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STRIATED",
+    "definitions": [
+     {
+      "text": "Groovy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holy man",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "admired",
+      "gives": "RATED",
+      "note": "rated means highly thought of"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "I",
+      "ATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cool guru who is popular in India.",
+     "walkthrough": "'Groovy' looks like sixties slang for cool, but here it means literally full of grooves.",
+     "definitionFit": "Striated surfaces are marked with parallel ridges or furrows, so they are grooved in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Groovy"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +643,62 @@
     "text": "Ale bottles are mostly porter",
     "enumeration": "6"
    },
-   "solution": "BEARER"
+   "solution": "BEARER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BEARER",
+    "definitions": [
+     {
+      "text": "porter",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to hold it inside, so one piece contains another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ale",
+      "gives": "BEER",
+      "note": "ale is a kind of beer"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "AR",
+      "note": "the word as printed, last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "AR",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Bottled ales are mostly the dark beer called porter.",
+     "walkthrough": "Porter looks like the dark beer that fits the ale surface; here it is a person who carries loads.",
+     "definitionFit": "A porter carries luggage or goods, and a bearer is literally one who carries something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "porter"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +712,53 @@
     "text": "Hard top car’s taken off at speed",
     "enumeration": "5"
    },
-   "solution": "APACE"
+   "solution": "APACE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APACE",
+    "definitions": [
+     {
+      "text": "at speed",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken off",
+      "for": "deletion",
+      "note": "something taken off is removed, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard top",
+      "gives": "CARAPACE",
+      "note": "a carapace is the hard shell on the back of a turtle or crab"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "CAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hardtop car whose roof has been removed so it can race at speed.",
+     "walkthrough": "'Hard top car' reads as one motoring phrase; split it after 'top', which is a shell, and take the car off the front of that shell.",
+     "definitionFit": "Apace is an adverb meaning quickly or swiftly, so it replaces the adverbial phrase about going fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +772,47 @@
     "text": "Raise dress code for formal evening drinks",
     "enumeration": "9"
    },
-   "solution": "COCKTAILS"
+   "solution": "COCKTAILS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKTAILS",
+    "definitions": [
+     {
+      "text": "drinks",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raise",
+      "gives": "COCK",
+      "note": "to cock is to raise or tilt up, as with an eyebrow or a hat"
+     },
+     {
+      "clueFragment": "dress code for formal evening",
+      "gives": "TAILS",
+      "note": "a tailcoat is worn with white tie at the most formal evening events"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "TAILS"
+     ]
+    },
+    "explanation": {
+     "surface": "Tightening the dress code for a smart evening drinks party.",
+     "walkthrough": "'Formal evening drinks' reads as one event, but the definition is the last word alone.",
+     "definitionFit": "Cocktails are mixed alcoholic beverages, so they are an example of drinks, both plural nouns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raise"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +836,63 @@
      }
     ]
    },
-   "solution": "CHEMINDEFER"
+   "solution": "CHEMINDEFER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEMIN DE FER",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "on",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in card notation"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "HEM",
+      "note": "a hem is the edge of a piece of cloth"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "in means during, as in 'in the night'"
+     },
+     {
+      "clueFragment": "delay",
+      "gives": "DEFER",
+      "note": "to defer is to delay or postpone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEM",
+      "IN",
+      "DEFER"
+     ]
+    },
+    "explanation": {
+     "surface": "Golf clubs left nervous while play is held up.",
+     "walkthrough": "In a down clue 'on' places the first piece above the next. 'Clubs' suggests golf, but it is the card suit, which fits the card game.",
+     "definitionFit": "Chemin de fer is a card game, a version of baccarat played in casinos, so it is a specific game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +906,56 @@
     "text": "Waif starts to go out and pinch ecstasy",
     "enumeration": "11"
    },
-   "solution": "GUTTERSNIPE"
+   "solution": "GUTTERSNIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUTTERSNIPE",
+    "definitions": [
+     {
+      "text": "Waif",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starts to go out",
+      "gives": "GUTTERS",
+      "note": "a candle flame flickers and sputters as it starts to die"
+     },
+     {
+      "clueFragment": "pinch",
+      "gives": "NIP",
+      "note": "to nip is to pinch, squeezing sharply between finger and thumb"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUTTERS",
+      "NIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A street child begins drifting out and stealing drugs.",
+     "walkthrough": "'Starts to' looks like an initial-letter signal, but the whole phrase describes a candle flame about to die. 'Pinch' looks like stealing; here it is a squeeze.",
+     "definitionFit": "A guttersnipe is a scruffy, neglected child who lives on the streets, much like a homeless waif."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +969,64 @@
     "text": "Guards dispatched to different lines",
     "enumeration": "9"
    },
-   "solution": "SENTINELS"
+   "solution": "SENTINELS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SENTINELS",
+    "definitions": [
+     {
+      "text": "Guards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "different means changed, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatched",
+      "gives": "SENT",
+      "note": "dispatched means sent off"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LINES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENT",
+      "INELS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LINES",
+       "gives": "INELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers posted to another stretch of the front.",
+     "walkthrough": "'Lines' looks like military front lines; it is just five letters to rearrange.",
+     "definitionFit": "Sentinels stand watch over a place, so they are guards; both plural nouns for lookouts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1040,55 @@
     "text": "Animals retaining some means of defence",
     "enumeration": "8"
    },
-   "solution": "RAMPARTS"
+   "solution": "RAMPARTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAMPARTS",
+    "definitions": [
+     {
+      "text": "means of defence",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "to retain is to keep hold of, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animals",
+      "gives": "RAMS",
+      "note": "rams are male sheep"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "PART",
+      "note": "some of something is part of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAM",
+      "PART",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Animals that keep some way of protecting themselves, like horns.",
+     "walkthrough": "'Means of defence' is plural in sense here, matching the plural answer.",
+     "definitionFit": "Ramparts are broad defensive walls of earth or stone around a fort, built to protect against attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Animals"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1102,43 @@
     "text": "Light parts shine there already",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETHEREAL",
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "hidden_word",
+      "note": "a part is only a portion, so the letters sit inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shine there already",
+      "gives": "ETHEREAL",
+      "note": "spans the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Sunlight breaking through, with patches already bright.",
+     "walkthrough": "'Light' sounds like brightness, matching the shine; here it means delicate and airy.",
+     "definitionFit": "Ethereal describes something extremely delicate and airy, almost weightless, which is light in the sense of insubstantial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Light"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1152,66 @@
     "text": "Row of coins originally accepted in change",
     "enumeration": "11"
    },
-   "solution": "ALTERCATION"
+   "solution": "ALTERCATION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ALTERCATION",
+    "definitions": [
+     {
+      "text": "Row",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so only the opening letter is used"
+     },
+     {
+      "text": "accepted in",
+      "for": "container",
+      "note": "something accepted in is taken inside, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change",
+      "gives": "ALTERATION",
+      "note": "an alteration is a change"
+     },
+     {
+      "clueFragment": "coins",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTER",
+      "C",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A line of coins with the first ones handed over as change.",
+     "walkthrough": "'Row' looks like a line of coins; it is the other pronunciation, a quarrel.",
+     "definitionFit": "An altercation is a noisy argument or quarrel, which is the British sense of a row, rhyming with now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1225,62 @@
     "text": "Plant last to bloom over summer",
     "enumeration": "6"
    },
-   "solution": "MADDER"
+   "solution": "MADDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MADDER",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over means placed above the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloom",
+      "gives": "M",
+      "select": "last",
+      "note": "final letter only"
+     },
+     {
+      "clueFragment": "summer",
+      "gives": "ADDER",
+      "note": "a summer is one who sums, and someone who adds up is an adder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden plant that is the latest to flower through the summer.",
+     "walkthrough": "'Summer' looks like the season but is one who does sums.",
+     "definitionFit": "Madder is a climbing plant whose roots give a red dye, so it is an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "summer"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1294,62 @@
     "text": "Jewels sparkle centrally in rings",
     "enumeration": "6"
    },
-   "solution": "PEARLS"
+   "solution": "PEARLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PEARLS",
+    "definitions": [
+     {
+      "text": "Jewels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centrally",
+      "for": "letter_selection",
+      "note": "centrally means at the centre, so only the middle letter counts"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rings",
+      "gives": "PEALS",
+      "note": "a peal is a ringing of bells"
+     },
+     {
+      "clueFragment": "sparkle",
+      "gives": "R",
+      "select": "middle",
+      "note": "the fourth of seven letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEA",
+      "R",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gems glinting at the heart of a set of rings.",
+     "walkthrough": "'Rings' looks like jewellery to match the gems; here it is the sound of bells.",
+     "definitionFit": "Pearls are lustrous gems formed in oysters and worn in necklaces, so they are a kind of jewel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1369,47 @@
      }
     ]
    },
-   "solution": "PRESSSTUD"
+   "solution": "PRESSSTUD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS STUD",
+    "definitions": [
+     {
+      "text": "means to secure",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squeeze",
+      "gives": "PRESS",
+      "note": "to squeeze is to press"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "STUD",
+      "note": "a Romeo is a lady-killer, as is a stud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover planning how to win a girlfriend over for good.",
+     "walkthrough": "Romeo is not the NATO alphabet's R here but the archetypal lover. A press stud is the British name for a snap fastener on clothing.",
+     "definitionFit": "A snap fastener of two interlocking discs closes a garment, so it is a device for fastening clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1423,61 @@
     "text": "My heartless son inspires contempt",
     "enumeration": "5"
    },
-   "solution": "SCORN"
+   "solution": "SCORN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SCORN",
+    "definitions": [
+     {
+      "text": "contempt",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter is removed"
+     },
+     {
+      "text": "inspires",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "SN",
+      "note": "the word as printed, middle letter gone"
+     },
+     {
+      "clueFragment": "My",
+      "gives": "COR",
+      "note": "cor! is a British exclamation of surprise, like my!"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent lamenting that their cold-hearted son is despised.",
+     "walkthrough": "'My' looks possessive, but it is the exclamation, and 'heartless' attaches to 'son', not to 'My'.",
+     "definitionFit": "Scorn is open disdain for someone thought worthless, a straightforward synonym of contempt as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1491,49 @@
     "text": "Marauder after his head’s hacked off",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "hacked off",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after his head’s",
+      "for": "deletion",
+      "note": "what follows the head is everything but it, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marauder",
+      "gives": "PIRATE",
+      "note": "a pirate is a marauder at sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A raider beheaded, his head chopped off.",
+     "walkthrough": "'Hacked off' reads as the beheading, but it is British slang for annoyed and is the definition; the wordplay is what comes after a pirate's head.",
+     "definitionFit": "Hacked off is informal British for fed up and angry, so it matches irate, both adjectives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hacked"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1547,55 @@
     "text": "Animal smell masks hygiene issue",
     "enumeration": "6"
    },
-   "solution": "REEBOK"
+   "solution": "REEBOK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REEBOK",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masks",
+      "for": "container",
+      "note": "a mask covers over, so one piece is hidden inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smell",
+      "gives": "REEK",
+      "note": "a reek is a strong unpleasant smell"
+     },
+     {
+      "clueFragment": "hygiene issue",
+      "gives": "BO",
+      "note": "BO is body odour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REE",
+      "BO",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal's stench covering up a lack of washing.",
+     "walkthrough": "'Animal smell' reads as one phrase, but the definition is the first word alone.",
+     "definitionFit": "A reebok, or rhebok, is a small grey South African antelope, so it is an example of an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smell"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1609,55 @@
     "text": "Criminal purpose concealed by volunteer",
     "enumeration": "8"
    },
-   "solution": "OFFENDER"
+   "solution": "OFFENDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OFFENDER",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed by",
+      "for": "container",
+      "note": "something concealed by another is hidden within it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volunteer",
+      "gives": "OFFER",
+      "note": "to volunteer is to offer"
+     },
+     {
+      "clueFragment": "purpose",
+      "gives": "END",
+      "note": "an end is an aim or purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "END",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook's real aim hidden behind a do-gooder's charity work.",
+     "walkthrough": "'Criminal' looks like an adjective describing the purpose, but it is the noun and the definition.",
+     "definitionFit": "An offender is someone who breaks the law, a lawbreaker, so it serves as a noun for a criminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1671,55 @@
     "text": "Listen out for mum",
     "enumeration": "6"
    },
-   "solution": "SILENT"
+   "solution": "SILENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SILENT",
+    "definitions": [
+     {
+      "text": "mum",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or askew, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listen",
+      "gives": "LISTEN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LISTEN",
+       "gives": "SILENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child told to keep an ear out for their mother.",
+     "walkthrough": "'Mum' looks like mother, but it is the adjective meaning saying nothing, as in 'keep mum'.",
+     "definitionFit": "To stay mum is to keep quiet and say nothing, so mum means not speaking, which is silent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1733,55 @@
     "text": "Times admits certain evidence of censorship",
     "enumeration": "8"
    },
-   "solution": "ERASURES"
+   "solution": "ERASURES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERASURES",
+    "definitions": [
+     {
+      "text": "evidence of censorship",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "ERAS",
+      "note": "eras are periods of time"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "SURE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The Times newspaper confessing to proof that it has been censored.",
+     "walkthrough": "'Times' looks like the newspaper, especially in the Sunday Times; it is just periods of history.",
+     "definitionFit": "Censors strike out or delete words, and the deleted passages left behind are erasures, which show their work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   }
  ]
 }
