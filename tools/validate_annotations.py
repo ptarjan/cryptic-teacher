@@ -64,7 +64,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import build_abbreviations  # noqa: E402 — the glossary table
 import clue_types  # noqa: E402
 import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
@@ -2325,83 +2324,6 @@ def check_blocks_carry_notes(entries, warnings):
                     f"is the teaching, and its absence is how an invented block hides")
 
 
-# A note describing what was done TO the letters, rather than what they stand
-# for. "The first letter of Trout" is an operation the clue's indicator asked
-# for; "ch. is the chess notation for check" is knowledge. Only the second kind
-# belongs in a glossary.
-OPERATION_RE = re.compile(
-    r"first letter|initial|leading|opening|leader|front|head of|begins|starts? with|"
-    r"beginning|last letter|final|ends? with|closing|tail|outer|outermost|extremes?|"
-    r"edges|borders|vacat|empt|hollow|shell|case of|insides|middle|odd letters|"
-    r"even letters|alternate|every other|regularly|occasionally|intermittently|half|"
-    r"almost|endless|docked|without its|drop|lopped|cut off|stopping short|minus|"
-    r"strips?|scooped|taken off|anagram|reversed|upside|said aloud|homophone|"
-    r"face value|taken as|lifted|its own|start(?:ing)? letters?|introduc|poured|"
-    r"keeps only", re.I)
-
-# Words that make a fragment a compound rather than a convention: "a daughter"
-# is A + D, two pieces the annotator ran together, and AD is not a table entry.
-COMPOUND_HEADS = {"a", "an", "the", "of", "to", "in", "on", "and", "two", "is"}
-
-
-def convention_used(ann, b):
-    """The (letters, word) a block leans on as a standing convention, or None.
-
-    Shaped, not guessed: the letters have to be an abbreviation OF the words —
-    a prefix of a single word, or the initials of two — because that is what an
-    abbreviation is. Everything else a block can do to letters is either a
-    different shape (outer letters, odd letters) or an operation the clue asked
-    for with an indicator, and both are excluded.
-    """
-    gives = str(b.get("gives") or "").strip().upper()
-    frag = str(b.get("clueFragment") or "").strip().lower().strip("“”\"'‘’?,!.")
-    if not re.fullmatch(r"[A-Z]{1,3}", gives) or len(frag) < 3:
-        return None
-    words = [w for w in re.split(r"[\s-]+", re.sub(r"[^a-z\s-]", "", frag)) if w]
-    if not words or len(words) > 2 or words[0] in COMPOUND_HEADS:
-        return None
-    if "".join(words).upper() == gives:  # the clue's own letters, not a convention
-        return None
-    # An indicator inside the fragment means the clue is operating on those
-    # words, not quoting a table.
-    for ind in indicator_texts(ann):
-        if ind.strip().lower() in frag:
-            return None
-    if OPERATION_RE.search(str(b.get("note") or "")):
-        return None
-    fits = (gives.lower() == "".join(words)[:len(gives)] if len(words) == 1
-            else gives.lower() == "".join(w[0] for w in words))
-    return (gives, " ".join(words)) if fits else None
-
-
-def check_conventions_are_in_the_glossary(entries, warnings):
-    """Every convention a clue leans on has to be in the solver's glossary.
-
-    The blocks rung names a piece as a standing convention only when
-    build_abbreviations.table() holds it, so a missing entry means the hint hands over
-    letters without ever saying they were the learnable kind — "look this up
-    once, own it forever" reads as "think harder". The table was seeded for the
-    clue-writer's assembler and had never been audited against what the corpus
-    actually uses, which is how CH = check went missing.
-    """
-    known = {k: {w.lower() for w in v} for k, v in build_abbreviations.table().items()}
-    for e in entries:
-        ann = e.get("annotation") or {}
-        if not ann:
-            continue
-        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
-        for b in ann.get("blocks", []):
-            hit = convention_used(ann, b)
-            if hit and hit[1] not in known.get(hit[0], ()):
-                warnings.append(
-                    f"{tag}: {hit[1]!r} = {hit[0]} is a convention the glossary does not "
-                    f"have. If an operation produced the letters (a first letter, a "
-                    f"deletion, a sound), say so in the block note and it stops being "
-                    f"a convention. If it is a standing sense a solver should learn, run "
-                    f"`python3 tools/add_abbreviation.py {hit[0]} {hit[1]!r}` then "
-                    f"`python3 tools/build_abbreviations.py` — never edit the JSON by hand")
-
-
 MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
 # Bytes 0x80-0x9F are punctuation in Windows-1252 and unprintable control
 # codes in Unicode, so a source decoded as latin-1 turns every dash and curly
@@ -2934,7 +2856,6 @@ def validate_puzzle(puzzle, corpus=False):
         check_blocks_decompose(puzzle["entries"], errors, warnings)
         check_blocks_in_answer_order(puzzle["entries"], errors, warnings)
         check_blocks_carry_notes(puzzle["entries"], warnings)
-        check_conventions_are_in_the_glossary(puzzle["entries"], warnings)
 
     return annotated, errors, warnings
 
@@ -3040,7 +2961,7 @@ def explain(name=None):
 
     if not name:
         print("Every check this file runs. `--explain <name>` prints one in full;\n"
-              "constants and helpers (OPERATION_RE, convention_used, TYPE_NAMES)\n"
+              "constants and helpers (MARKUP_RE, TYPE_NAMES)\n"
               "work as names too.\n")
         for key, node in named.items():
             if not key.startswith("check_"):

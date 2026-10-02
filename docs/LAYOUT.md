@@ -1053,12 +1053,8 @@ tools/rank_book_candidates.py                rank archive.org crossword books by
                                              acquiring one in full is worth it
 tools/acquire_books.sh                       read the next archive.org crossword book nobody
                                              has read yet — one book, one loan, one run
-tools/add_abbreviation.py                    add one sense to one row of
-                                             tools/data/abbreviations.json without racing
 tools/book_queue.py                          which registered archive.org books have not been
                                              read yet, best first
-tools/test_add_abbreviation.sh               does tools/add_abbreviation.py survive the thing
-                                             that actually happened?
 tools/test_book_queue.sh                     does tools/book_queue.py still offer the right
                                              book to tools/acquire_books.sh?
 tools/test_build_readme.sh                   does tools/build_readme.py still read the header

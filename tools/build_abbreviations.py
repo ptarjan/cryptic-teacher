@@ -50,11 +50,18 @@ REJECT = {
     ("entirely", "AL"): "ALL cut short, an operation",
     ("everything", "AL"): "ALL cut short, an operation",
     ("not one", "I"): "'not' belongs to another part of the wordplay",
+    ("ones", "I"): "one's is IM (I'm) together; I alone is half the piece",
+    ("boatman", "I"): "no sense of boatman is I; the pieces were mis-split",
+    ("kings", "R"): "king is R; kings is two of them, not one",
+    ("axes", "Y"): "'axes' is XY together; Y alone is half the piece",
+    ("completely", "AL"): "ALL cut short, an operation",
+    ("republican", "AR"): "A + R; the A was a separate clue word",
 }
-# Two-letter readings that are everyday words. POPULAR -> IN and WHEN -> AS are
-# synonyms, however often setters use them, not conventions to learn.
-EVERYDAY = frozenset("AM AN AS AT BE BY DO GO HE HI IF IN IS IT ME MY NO OF OH OK "
-                     "ON OR OX SO TO UP US WE".split())
+# Two-letter readings that are everyday words. POPULAR -> IN, WHEN -> AS and
+# WHAT -> EH are synonyms, however often setters use them, not conventions to
+# learn.
+EVERYDAY = frozenset("AH AM AN AS AT BE BY DO EH GO HA HE HI IF IN IS IT ME MY NO "
+                     "OF OH OK ON OR OX SO TO UP US WE".split())
 OUT = ROOT / "abbreviations.js"
 # Where the glossary belongs inside the lesson. The 400 rows themselves live on
 # one URL — /abbreviations/ — so what tools/build_seo_pages.py writes between
@@ -158,8 +165,7 @@ def families():
 
 
 def curated():
-    """SRC's letters -> senses: what the corpus cannot show, written by hand or
-    by tools/add_abbreviation.py."""
+    """SRC's letters -> senses: what the corpus cannot show, written by hand."""
     return json.loads(SRC.read_text(encoding="utf-8"))["abbreviations"]
 
 
