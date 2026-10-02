@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,65 @@
     "text": "Small boy or girl failed exam at beginning of term",
     "enumeration": "6"
    },
-   "solution": "AVOCET"
+   "solution": "AVOCET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVOCET",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "failed",
+      "for": "deletion",
+      "note": "whoever failed has dropped out of the running, so that part is struck from the longer word"
+     },
+     {
+      "text": "beginning of",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter alone"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exam",
+      "gives": "VIVAVOCE",
+      "note": "a viva voce is an oral examination"
+     },
+     {
+      "clueFragment": "Small boy or girl",
+      "gives": "VIV",
+      "note": "Viv is a short form of both Vivian and Vivien, so it fits a boy or a girl"
+     },
+     {
+      "clueFragment": "term",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of term"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVOCE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A young pupil flunks an exam right at the start of the school term.",
+     "walkthrough": "Take VIV out of VIVA VOCE to leave AVOCE, then add T. As with every alphabet entry, the bird itself is defined only by the preamble: this is the A of the bird alphabet.",
+     "definitionFit": "The avocet is a black-and-white wading bird with an upturned bill, supplying the letter A in the puzzle's alphabet of birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "failed"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +109,58 @@
     "text": "Meat covered with iron and served with fire",
     "enumeration": "6"
    },
-   "solution": "FLAMBE"
+   "solution": "FLAMBE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAMBE",
+    "definitions": [
+     {
+      "text": "served with fire",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered with",
+      "for": "container",
+      "note": "a covering goes all round what it covers, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "Meat",
+      "gives": "LAMB",
+      "note": "a kind of meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAMB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking instruction: meat cooked on an iron grill and brought to the table in flames.",
+     "walkthrough": "The iron symbol FE is split around LAMB.",
+     "definitionFit": "A dish described as flambé has had spirits poured over it and set alight just before it is brought to the table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +174,56 @@
     "text": "Untwisted hair",
     "enumeration": "8"
    },
-   "solution": "NUTHATCH"
+   "solution": "NUTHATCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NUTHATCH",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Untwisted",
+      "for": "anagram",
+      "note": "the word declares itself twisted, so its first couple of letters are turned about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Untwisted",
+      "gives": "UN",
+      "note": "the opening letters of the word itself, which it tells you to twist"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "THATCH",
+      "note": "thatch is jokey slang for a thick head of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "THATCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UN",
+       "gives": "NU"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A partial clue with no definition: the preamble supplies 'bird', the N of the alphabet. 'Untwisted' is read as UN twisted, giving NU, then THATCH.",
+     "definitionFit": "The nuthatch is a small woodland bird that climbs head-first down tree trunks, providing the N entry in this bird alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Untwisted"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +237,72 @@
     "text": "Partner to ruff holding two of trumps - I have to recover",
     "enumeration": "8"
    },
-   "solution": "RETRIEVE"
+   "solution": "RETRIEVE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "RETRIEVE",
+    "definitions": [
+     {
+      "text": "recover",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so the outer word grips the rest"
+     },
+     {
+      "text": "two of",
+      "for": "letter_selection",
+      "note": "two of a word means just a couple of its letters, taken from the front"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner to ruff",
+      "gives": "REEVE",
+      "note": "a reeve is the female of the ruff, a wading bird"
+     },
+     {
+      "clueFragment": "trumps",
+      "gives": "TR",
+      "select": "first",
+      "note": "the first two letters of the word"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TR",
+      "I",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge player holding a couple of trumps hopes to get back into the game.",
+     "walkthrough": "'Ruff' looks like trumping at cards, but it is the bird whose female is the reeve. 'two of trumps' means its first two letters.",
+     "definitionFit": "To retrieve something is to get it back again, which is what recovering a lost item means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ruff"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +316,62 @@
     "text": "Not sure could be better — to hit nail on head?",
     "enumeration": "8"
    },
-   "solution": "UMBRETTE"
+   "solution": "UMBRETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UMBRETTE",
+    "definitions": [
+     {
+      "text": "to hit nail on head?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "what a word could be is another possible version of it, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not sure",
+      "gives": "UM",
+      "note": "the hesitating noise of someone unsure"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "BETTER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "BRETTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BETTER",
+       "gives": "BRETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unsure whether things could be better, wondering if they have hit the nail on the head.",
+     "walkthrough": "The umbrette is also called the hammerkop or hammerhead, for its hammer-shaped head; the question mark flags that cryptic definition. It is the U of the bird alphabet.",
+     "definitionFit": "Its other name, hammerhead, describes a crest and bill shaped like a hammer, the tool you would hit a nail with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nail"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +385,41 @@
     "text": "Mad spirit",
     "enumeration": "10"
    },
-   "solution": "WOODPECKER"
+   "solution": "WOODPECKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WOODPECKER",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Mad",
+      "gives": "WOOD",
+      "note": "wood (or wode) is an old word for mad or furious"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "PECKER",
+      "note": "pecker means spirit or courage, as in 'keep your pecker up'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOOD",
+      "PECKER"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A partial clue: the preamble supplies the bird, the W of the alphabet. 'Keep your pecker up' is a British phrase meaning keep cheerful; wood for mad survives in Shakespeare.",
+     "definitionFit": "The woodpecker is the tree-drilling bird that fills the W slot in this alphabet of birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +433,46 @@
     "text": "Service in the shade",
     "enumeration": "4"
    },
-   "solution": "NAVY"
+   "solution": "NAVY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NAVY",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     },
+     {
+      "text": "shade",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service",
+      "note": "first meaning: one of the armed services, the one at sea"
+     },
+     {
+      "clueFragment": "shade",
+      "note": "second meaning: a dark blue colour"
+     }
+    ],
+    "explanation": {
+     "surface": "A church service or a waiter's service taken under the shade of a tree.",
+     "walkthrough": "'shade' suggests shadow, but it is a shade of colour.",
+     "definitionFit": "The word names both the seagoing armed service and the dark blue colour of its uniforms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +486,52 @@
     "text": "Marshal Saxe’s inverted inclusion",
     "enumeration": "4"
    },
-   "solution": "XEMA"
+   "solution": "XEMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "XEMA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "inverted",
+      "for": "charade",
+      "note": "turning the phrase over swaps the order of its two words before you read across the join"
+     }
+    ],
+    "linkWords": [
+     "inclusion"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saxe",
+      "gives": "XE",
+      "note": "the tail of the name, which comes first once the words swap"
+     },
+     {
+      "clueFragment": "Marshal",
+      "gives": "MA",
+      "note": "the head of the rank, which follows straight on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "XE",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical note on something included by the famous French general.",
+     "walkthrough": "Marshal Saxe was an 18th-century French general. Swap his rank and name to 'Saxe Marshal' and the letters spanning the join, saXE MArshal, are the included word. The X of the bird alphabet.",
+     "definitionFit": "Xema is the genus name of Sabine's gull, one of very few bird names beginning with X, hence its place here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inverted"
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +545,50 @@
     "text": "Introduction to concession with time for consideration",
     "enumeration": "7"
    },
-   "solution": "THOUGHT"
+   "solution": "THOUGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOUGHT",
+    "definitions": [
+     {
+      "text": "consideration",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Introduction to concession",
+      "gives": "THOUGH",
+      "note": "though is the word that introduces a concession, as in 'though it rained'"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOUGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Opening a concession while allowing time for consideration, like a negotiator stalling.",
+     "walkthrough": "'Introduction to' usually means a first letter, but here it is the whole word that introduces a concessive clause.",
+     "definitionFit": "Giving something thought means giving it careful consideration; the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Introduction"
+    }
+   }
   },
   {
    "number": 10,
@@ -160,7 +602,55 @@
     "text": "Look up the second apocalyptic horse",
     "enumeration": "6"
    },
-   "solution": "GANDER"
+   "solution": "GANDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GANDER",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the second apocalyptic horse",
+      "gives": "REDNAG",
+      "note": "in Revelation the second horseman rides a red horse; a nag is a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANDER"
+     ],
+     "reversals": [
+      {
+       "from": "REDNAG",
+       "to": "GANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking up in Revelation which of the four horses comes second.",
+     "walkthrough": "The four horsemen of the Apocalypse ride white, red, black and pale horses. The G of the bird alphabet is the male goose.",
+     "definitionFit": "A gander is British slang for a quick look, as in 'have a gander'; it is also a male goose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 11,
@@ -174,7 +664,44 @@
     "text": "Enchanting F",
     "enumeration": "6"
    },
-   "solution": "MERLIN"
+   "solution": "MERLIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MERLIN",
+    "definitions": [
+     {
+      "text": "Enchanting",
+      "at": 0
+     },
+     {
+      "text": "F",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enchanting",
+      "note": "first meaning: the enchanter of Arthurian legend"
+     },
+     {
+      "clueFragment": "F",
+      "note": "second meaning: a small falcon, F being the alphabet's falcon entry"
+     }
+    ],
+    "explanation": {
+     "surface": "An enchanting letter F.",
+     "walkthrough": "A two-word partial clue: 'F' points to the F of the bird alphabet, the falcon, of which this is a small species. It is the M of the alphabet.",
+     "definitionFit": "The name belongs to King Arthur's wizard, the great enchanter, and to a small fast falcon of moors and coasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "F"
+    }
+   }
   },
   {
    "number": 12,
@@ -188,7 +715,55 @@
     "text": "Flower after fifth of July",
     "enumeration": "7"
    },
-   "solution": "VULTURE"
+   "solution": "VULTURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VULTURE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means being placed behind it in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifth",
+      "gives": "V",
+      "note": "V is the Roman numeral five"
+     },
+     {
+      "clueFragment": "of July",
+      "gives": "ULT",
+      "note": "ult. (ultimo) means of last month, so a letter written in August calls July's dates 'ult.'"
+     },
+     {
+      "clueFragment": "Flower",
+      "gives": "URE",
+      "note": "a flower is something that flows, a river; the Ure is a Yorkshire river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ULT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower that blooms after the fifth of July.",
+     "walkthrough": "'Flower' wants to be a bloom; it is a river. 'the fifth of July' is read as '5th ult.', old business-letter style. The V of the bird alphabet.",
+     "definitionFit": "The vulture is a large carrion-eating bird of prey, filling the V position in this alphabet of birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 13,
@@ -202,7 +777,51 @@
     "text": "How bulls express anger at charge for barge?",
     "enumeration": "7"
    },
-   "solution": "MOORAGE"
+   "solution": "MOORAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOORAGE",
+    "definitions": [
+     {
+      "text": "charge for barge",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How bulls express",
+      "gives": "MOO",
+      "note": "cattle low, making the sound moo"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "RAGE",
+      "note": "rage is fury or anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Angry bulls protesting at what they are being charged to tie up a barge.",
+     "walkthrough": "'charge' sounds like a bull charging but means a fee.",
+     "definitionFit": "Moorage is the fee paid for the right to tie a boat up at a mooring, so it is what a barge is charged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 14,
@@ -216,7 +835,48 @@
     "text": "Pullman's greeting",
     "enumeration": "5"
    },
-   "solution": "HEAVE"
+   "solution": "HEAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEAVE",
+    "definitions": [
+     {
+      "text": "Pull",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man's",
+      "gives": "HE",
+      "note": "the pronoun for a man, with the possessive linking it to what follows"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "AVE",
+      "note": "ave is the Latin word of greeting, hail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "The way a Pullman attendant welcomes passengers aboard the luxury train.",
+     "walkthrough": "'Pullman's' must be split into Pull + man's; a Pullman is a luxury railway carriage.",
+     "definitionFit": "To heave is to haul or drag with great effort, which is a strong kind of pulling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pullman's"
+    }
+   }
   },
   {
    "number": 15,
@@ -230,7 +890,55 @@
     "text": "Mothball vehicle in which speedo doesn't register?",
     "enumeration": "7"
    },
-   "solution": "CAMPHOR"
+   "solution": "CAMPHOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAMPHOR",
+    "definitions": [
+     {
+      "text": "Mothball",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "something in which other things sit is their container, so it wraps them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "speedo doesn't register",
+      "gives": "MPHO",
+      "note": "a speedometer showing nothing reads miles per hour zero, MPH 0"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "MPHO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A car laid up in storage, so its speedometer never moves.",
+     "walkthrough": "'Mothball' looks like a verb about laying up the car, but it is the noun defined; the zero reading is the letter O.",
+     "definitionFit": "Camphor is the strong-smelling substance traditionally used to make mothballs that keep moths off stored clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mothball"
+    }
+   }
   },
   {
    "number": 16,
@@ -244,7 +952,44 @@
     "text": "Intensifier of red",
     "enumeration": "5"
    },
-   "solution": "RUDDY"
+   "solution": "RUDDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUDDY",
+    "definitions": [
+     {
+      "text": "Intensifier",
+      "at": 0
+     },
+     {
+      "text": "of red",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intensifier",
+      "note": "first meaning: a mild British swear word adding emphasis"
+     },
+     {
+      "clueFragment": "of red",
+      "note": "second meaning: reddish in colour, as a healthy complexion"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that deepens the colour red.",
+     "walkthrough": "It reads as one phrase, but 'Intensifier' and 'of red' are separate meanings; ruddy as a softened 'bloody' is British.",
+     "definitionFit": "The adjective serves as a polite British emphatic replacing a stronger oath, and also describes a reddish, rosy colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Intensifier"
+    }
+   }
   },
   {
    "number": 17,
@@ -258,7 +1003,70 @@
     "text": "A series was first backed by a Sussex town",
     "enumeration": "7"
    },
-   "solution": "ARUNDEL"
+   "solution": "ARUNDEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARUNDEL",
+    "definitions": [
+     {
+      "text": "Sussex town",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "something backed goes into reverse, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "by a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "RUN",
+      "note": "a run is a series, as a run of wins"
+     },
+     {
+      "clueFragment": "was first",
+      "gives": "LED",
+      "note": "whoever was first led"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RUN",
+      "DEL"
+     ],
+     "reversals": [
+      {
+       "from": "LED",
+       "to": "DEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting run led from the front, with support from a town in Sussex.",
+     "walkthrough": "'backed by' sounds like sponsorship, but 'backed' reverses and 'by a' joins wordplay to definition.",
+     "definitionFit": "Arundel is a small historic town in West Sussex, England, famous for its castle, seat of the Dukes of Norfolk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 18,
@@ -272,7 +1080,63 @@
     "text": "Physio etc directed towards setter in river",
     "enumeration": "9"
    },
-   "solution": "TREATMENT"
+   "solution": "TREATMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TREATMENT",
+    "definitions": [
+     {
+      "text": "Physio etc",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "directed towards",
+      "gives": "AT",
+      "note": "aimed at"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "the Trent is a major English river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "AT",
+      "ME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A physiotherapy session pointed at the setter while they stand in a river.",
+     "walkthrough": "'setter' is the crossword compiler, ME.",
+     "definitionFit": "Physiotherapy and similar therapies are kinds of medical treatment, so 'etc' widens the example to the general noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 19,
@@ -286,7 +1150,46 @@
     "text": "Apologise for losing head",
     "enumeration": "5"
    },
-   "solution": "EGRET"
+   "solution": "EGRET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EGRET",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "to lose the head is to drop the top, here the opening letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apologise",
+      "gives": "REGRET",
+      "note": "to regret is to express sorrow, as in 'we regret any inconvenience'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGRET"
+     ]
+    },
+    "explanation": {
+     "surface": "Saying sorry for having lost one's head in anger.",
+     "walkthrough": "'losing head' suggests losing one's temper, but it removes the first letter. The E of the bird alphabet.",
+     "definitionFit": "The egret is a white heron with fine breeding plumes, filling the E place in this alphabet of birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 20,
@@ -306,7 +1209,50 @@
      }
     ]
    },
-   "solution": "RIOTACT"
+   "solution": "RIOTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIOT ACT",
+    "definitions": [
+     {
+      "text": "Read me to promote peace",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the South American city"
+     },
+     {
+      "clueFragment": "diplomacy",
+      "gives": "TACT",
+      "note": "tact is diplomatic sensitivity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Reading out a peace proposal as part of South American diplomacy.",
+     "walkthrough": "The definition speaks as the answer itself: the Riot Act was a British law read aloud to order crowds to disperse.",
+     "definitionFit": "Under the 1714 statute, magistrates read a proclamation to a mob, ordering it to break up and restore order and quiet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Read"
+    }
+   }
   },
   {
    "number": 21,
@@ -320,7 +1266,51 @@
     "text": "Bark at entrance to oven",
     "enumeration": "7"
    },
-   "solution": "TANDOOR"
+   "solution": "TANDOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANDOOR",
+    "definitions": [
+     {
+      "text": "oven",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "at",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bark",
+      "gives": "TAN",
+      "note": "tan is crushed tree bark used in tanning leather"
+     },
+     {
+      "clueFragment": "entrance",
+      "gives": "DOOR",
+      "note": "a door is an entrance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "DOOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog barking at the oven door.",
+     "walkthrough": "'Bark' looks like a dog's noise; it is tree bark.",
+     "definitionFit": "A tandoor is a cylindrical clay oven used in Indian and Central Asian cooking, heated by charcoal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bark"
+    }
+   }
   },
   {
    "number": 22,
@@ -334,7 +1324,48 @@
     "text": "Horse losing by 100",
     "enumeration": "5"
    },
-   "solution": "HERON"
+   "solution": "HERON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HERON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "what is lost is no longer there, so a letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "HEROIN",
+      "note": "horse is slang for heroin"
+     },
+     {
+      "clueFragment": "by 100",
+      "note": "the letter lost is I, one; the printed 'by 100' does not obviously yield it and may be a garbled 'one'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A racehorse beaten by a hundred lengths.",
+     "walkthrough": "'Horse' looks like a racehorse but is drug slang. Removing I, the Roman one, leaves the bird; how 'by 100' signals that letter is unclear from the clue as printed. The H of the bird alphabet.",
+     "definitionFit": "The heron is a tall grey wading bird that stalks fish in shallow water, filling the H slot of the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Horse"
+    }
+   }
   },
   {
    "number": 23,
@@ -354,7 +1385,39 @@
      }
     ]
    },
-   "solution": "QUOTHHE"
+   "solution": "QUOTHHE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "QUOTH HE",
+    "definitions": [
+     {
+      "text": "He said what another said about the Pope",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He said what another said",
+      "note": "surface reading: someone repeating another person's words about the Pope"
+     },
+     {
+      "clueFragment": "about the Pope",
+      "note": "setter's reading: the archaic 'said he' form that a reporter of speech uses, fitting the papal theme of the puzzle"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone passing on gossip they heard about the Pope.",
+     "walkthrough": "The archaic phrase is how an old narrator reports another's speech; the clue describes the phrase rather than giving wordplay.",
+     "definitionFit": "The old-fashioned formula, with the verb before the pronoun, simply means 'he said', reporting someone else's words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pope"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1431,40 @@
     "text": "It circulates in Central America",
     "enumeration": "7"
    },
-   "solution": "QUETZAL"
+   "solution": "QUETZAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "QUETZAL",
+    "definitions": [
+     {
+      "text": "It circulates in Central America",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It circulates",
+      "note": "surface reading: something moving around the region, like the bird flying about"
+     },
+     {
+      "clueFragment": "in Central America",
+      "note": "setter's reading: money circulates, and this is Guatemala's currency"
+     }
+    ],
+    "explanation": {
+     "surface": "Something going around Central America.",
+     "walkthrough": "The bird gives its name to Guatemala's currency unit, which is what 'circulates'. The Q of the bird alphabet.",
+     "definitionFit": "Guatemala's monetary unit is named after its national bird, a brilliant green trogon, and coins and notes are what circulate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "circulates"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1478,56 @@
     "text": "Future commander has right time",
     "enumeration": "7"
    },
-   "solution": "OCTOBER"
+   "solution": "OCTOBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCTOBER",
+    "definitions": [
+     {
+      "text": "time",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commander",
+      "gives": "OC",
+      "note": "OC is Officer Commanding"
+     },
+     {
+      "clueFragment": "Future",
+      "gives": "TOBE",
+      "note": "the future is what is to be"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "TOBE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A commander-in-waiting who has timed things perfectly.",
+     "walkthrough": "'Future commander' reads as a cadet, but splits as commander OC followed by 'to be'.",
+     "definitionFit": "October is a month, and a month is a period of time in the calendar, so a specific example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Future"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1547,59 @@
      }
     ]
    },
-   "solution": "ELKHOUND"
+   "solution": "ELKHOUND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELK HOUND",
+    "definitions": [
+     {
+      "text": "Spitz",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "done over",
+      "for": "anagram",
+      "note": "something done over has been beaten up and knocked about out of shape"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hulk",
+      "gives": "HULK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "done",
+      "gives": "DONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HULKDONE",
+       "gives": "ELKHOUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spitz dog has had a great lump of a man beaten up.",
+     "walkthrough": "'done' does double duty: it is fodder, and 'done over' is the signal.",
+     "definitionFit": "The Norwegian elkhound is a breed within the spitz group of dogs, with a curled tail and pointed ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spitz"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1613,41 @@
     "text": "First repeated",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IBIS",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "gives": "I",
+      "note": "I is the Roman numeral one, first"
+     },
+     {
+      "clueFragment": "repeated",
+      "gives": "BIS",
+      "note": "bis is Latin for twice, used to call for a repeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIS"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A partial clue: the preamble supplies the bird, the I of the alphabet. Bis is used in music and street numbering to mark something repeated.",
+     "definitionFit": "The ibis is a wading bird with a long down-curved bill, sacred in ancient Egypt, and fills the I slot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1661,61 @@
     "text": "County town with duke left for dead on Great North Road",
     "enumeration": "7"
    },
-   "solution": "BELFORD"
+   "solution": "BELFORD",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BELFORD",
+    "definitions": [
+     {
+      "text": "on Great North Road",
+      "at": 36,
+      "note": "the definition names a place by where it is, rather than as a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means it stands in that other's place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "County town with duke",
+      "gives": "BEDFORD",
+      "note": "Bedford is the county town of Bedfordshire, and there is a Duke of Bedford"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "L",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A county town whose duke has been left for dead beside the old main road north.",
+     "walkthrough": "The Great North Road, now the A1, runs from London to Edinburgh; Belford is a small Northumberland town on it.",
+     "definitionFit": "Belford lies on the A1 in Northumberland, the historic Great North Road linking London and Edinburgh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1729,45 @@
     "text": "Cornwall to let?",
     "enumeration": "7"
    },
-   "solution": "SWALLOW"
+   "solution": "SWALLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWALLOW",
+    "definedByPreamble": true,
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornwall",
+      "gives": "SW",
+      "note": "Cornwall is in the far south-west of England, SW"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "ALLOW",
+      "note": "to let is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "ALLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A property advert: Cornwall available to rent.",
+     "walkthrough": "'to let' suggests a rental notice; 'let' means allow. The S of the bird alphabet.",
+     "definitionFit": "The swallow is a fork-tailed summer migrant bird, supplying the S entry in the puzzle's bird alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 29,
@@ -458,7 +1781,48 @@
     "text": "Country saint that's been punched",
     "enumeration": "4"
    },
-   "solution": "CHAD"
+   "solution": "CHAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHAD",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "that's been punched",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: a landlocked republic in north-central Africa"
+     },
+     {
+      "clueFragment": "saint",
+      "note": "a further meaning: a 7th-century Anglo-Saxon bishop of Lichfield"
+     },
+     {
+      "clueFragment": "that's been punched",
+      "note": "last meaning: the bit of paper punched out of a card or ballot"
+     }
+    ],
+    "explanation": {
+     "surface": "A national saint who has taken a beating.",
+     "walkthrough": "Three meanings: the African country, the Anglo-Saxon saint, and the punched-out paper made famous by the 2000 Florida recount.",
+     "definitionFit": "The word names a landlocked state in north-central Africa and the scrap of paper removed when a voting card is punched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "punched"
+    }
+   }
   },
   {
    "number": 30,
@@ -472,7 +1836,46 @@
     "text": "Developments for three (not counting the press)",
     "enumeration": "7"
    },
-   "solution": "ESTATES"
+   "solution": "ESTATES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ESTATES",
+    "definitions": [
+     {
+      "text": "Developments",
+      "at": 0
+     },
+     {
+      "text": "three (not counting the press)",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Developments",
+      "note": "first meaning: housing developments"
+     },
+     {
+      "clueFragment": "three (not counting the press)",
+      "note": "second meaning: the three traditional orders of the realm, the press being the fourth"
+     }
+    ],
+    "explanation": {
+     "surface": "Building projects meant for three people, leaving out the newspapers.",
+     "walkthrough": "The three estates of the realm are clergy, nobility and commons; the press is called the Fourth Estate.",
+     "definitionFit": "Housing estates are planned developments, and the old social orders are called the three estates of the realm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 31,
@@ -486,7 +1889,43 @@
     "text": "Not so much as a dinner plate",
     "enumeration": "4"
    },
-   "solution": "TEAL"
+   "solution": "TEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEAL",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Not so much as a dinner",
+      "gives": "TEA",
+      "note": "tea is a lighter meal than dinner"
+     },
+     {
+      "clueFragment": "plate",
+      "gives": "L",
+      "note": "an L-plate is the sign a British learner driver displays"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Something smaller than a dinner plate, like a side plate.",
+     "walkthrough": "'dinner plate' reads as one item, but splits after 'dinner'. An L-plate is the red L sign on a British learner's car. The T of the bird alphabet.",
+     "definitionFit": "The teal is a small dabbling duck with a green wing patch, providing the T in the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 32,
@@ -506,7 +1945,65 @@
      }
     ]
    },
-   "solution": "SEABASS"
+   "solution": "SEABASS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEA BASS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "formed",
+      "for": "anagram",
+      "note": "something formed has been shaped into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "BASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAB",
+      "ASS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BASE",
+       "gives": "SEAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish forming the foundation of a fool, the creamy fruit dessert.",
+     "walkthrough": "A fool is also a British fruit-and-cream pudding, which makes the surface a recipe.",
+     "definitionFit": "The sea bass is a marine food fish, so it is a specific kind of the general term in the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 33,
@@ -520,7 +2017,65 @@
     "text": "Cause of disease (mosquito, largely) to bones would come naturally to the Pope",
     "enumeration": "13"
    },
-   "solution": "GERMANOPHILIA"
+   "solution": "GERMANOPHILIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GERMANOPHILIA",
+    "definitions": [
+     {
+      "text": "would come naturally to the Pope",
+      "at": 46,
+      "note": "a phrase describing a trait, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means only in large part, so the word is cut short"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cause of disease",
+      "gives": "GERM",
+      "note": "a germ causes disease"
+     },
+     {
+      "clueFragment": "mosquito",
+      "gives": "ANOPHELES",
+      "note": "Anopheles is the malaria-carrying mosquito"
+     },
+     {
+      "clueFragment": "bones",
+      "gives": "ILIA",
+      "note": "the ilia are the hip bones, plural of ilium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERM",
+      "ANOPH",
+      "ILIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Medical notes on malaria and bones, oddly followed by a remark about the Pope.",
+     "walkthrough": "Only the start of the mosquito's name is kept. The Pope at the time, Benedict XVI, was German.",
+     "definitionFit": "Love of Germany and things German would be natural for a German-born pontiff such as Benedict XVI."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pope"
+    }
+   }
   },
   {
    "number": 33,
@@ -534,7 +2089,51 @@
     "text": "Relative vagrant in range",
     "enumeration": "7"
    },
-   "solution": "GRANNIE"
+   "solution": "GRANNIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRANNIE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vagrant",
+      "for": "anagram",
+      "note": "a vagrant wanders about with no fixed place, so the letters roam"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in range",
+      "gives": "INRANGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INRANGE",
+       "gives": "GRANNIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering relative somewhere within reach.",
+     "walkthrough": "'vagrant' looks like a noun for a tramp but works as the signal.",
+     "definitionFit": "A grandmother is a family member, so this informal word is an example of a relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 34,
@@ -548,7 +2147,57 @@
     "text": "Horse — a very thin one — favourite becomes outsider",
     "enumeration": "5,8"
    },
-   "solution": "ZEBRAPARAKEET"
+   "solution": "ZEBRAPARAKEET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ZEBRA PARAKEET",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "becomes outsider",
+      "for": "container",
+      "note": "to become the outsider is to move to the outside and wrap round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "ZEBRA",
+      "note": "the zebra is a striped wild horse"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite"
+     },
+     {
+      "clueFragment": "a very thin one",
+      "gives": "ARAKE",
+      "note": "a rake is a very thin person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZEBRA",
+      "P",
+      "ARAKE",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Racing talk: a scrawny horse, once the favourite, now an outsider.",
+     "walkthrough": "'favourite' and 'outsider' sound like betting terms. The zebra parakeet is another name for the budgerigar. The Z of the bird alphabet.",
+     "definitionFit": "The zebra parakeet, the budgerigar, is named for its barred plumage and fills the hard Z slot of the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outsider"
+    }
+   }
   },
   {
    "number": 35,
@@ -562,7 +2211,55 @@
     "text": "Visit in Rhodesia, part 2: a saxifrage",
     "enumeration": "10"
    },
-   "solution": "ESCALLONIA"
+   "solution": "ESCALLONIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ESCALLONIA",
+    "definitions": [
+     {
+      "text": "a saxifrage",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Visit",
+      "gives": "CALLON",
+      "note": "to call on someone is to visit"
+     },
+     {
+      "clueFragment": "Rhodesia, part 2",
+      "gives": "ESIA",
+      "note": "split the word as Rhod and esia, taking the second part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CALLON",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A travel log: the second part of a visit to Rhodesia, with a note on a saxifrage.",
+     "walkthrough": "'part 2' reads like an episode heading, but means the latter part of the word.",
+     "definitionFit": "Escallonia is a flowering shrub once classified in the saxifrage family, so the setter treats it as one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 36,
@@ -576,7 +2273,43 @@
     "text": "Electoral success for the left?",
     "enumeration": "7"
    },
-   "solution": "REDPOLL"
+   "solution": "REDPOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDPOLL",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "the left",
+      "gives": "RED",
+      "note": "red is the colour of the political left"
+     },
+     {
+      "clueFragment": "Electoral success",
+      "gives": "POLL",
+      "note": "a poll is a vote, here one won"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "POLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing party winning an election.",
+     "walkthrough": "A left-wing win would be a red poll. The R of the bird alphabet.",
+     "definitionFit": "The redpoll is a small finch with a red patch on its forehead, giving the R entry in this bird alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Electoral"
+    }
+   }
   },
   {
    "number": 37,
@@ -590,7 +2323,43 @@
     "text": "Sporting caper",
     "enumeration": "4"
    },
-   "solution": "LARK"
+   "solution": "LARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LARK",
+    "definitions": [
+     {
+      "text": "Sporting",
+      "at": 0
+     },
+     {
+      "text": "caper",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sporting",
+      "note": "first meaning: as a verb"
+     },
+     {
+      "clueFragment": "caper",
+      "note": "second meaning: a prank or spree"
+     }
+    ],
+    "explanation": {
+     "surface": "A prank pulled at a sports event.",
+     "walkthrough": "'Sporting' is read as frolicking, matching the verb sense. The L of the bird alphabet.",
+     "definitionFit": "To lark about means to play or frolic, and a lark is also a bit of mischievous fun, a caper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sporting"
+    }
+   }
   },
   {
    "number": 38,
@@ -604,7 +2373,39 @@
     "text": "Sticker to bottom",
     "enumeration": "8"
    },
-   "solution": "BARNACLE"
+   "solution": "BARNACLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BARNACLE",
+    "definitions": [
+     {
+      "text": "Sticker to bottom",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sticker",
+      "note": "surface reading: an adhesive label"
+     },
+     {
+      "clueFragment": "to bottom",
+      "note": "setter's reading: a shellfish that clings to a ship's hull"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The bottom is a ship's underside, where the crustacean clings. The barnacle goose gives the B of the bird alphabet.",
+     "definitionFit": "This crustacean fixes itself permanently to rocks and ships' hulls, and the barnacle goose shares its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 39,
@@ -618,7 +2419,66 @@
     "text": "Branch arrangement simpler without a friend coming in",
     "enumeration": "8"
    },
-   "solution": "ESPALIER"
+   "solution": "ESPALIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ESPALIER",
+    "definitions": [
+     {
+      "text": "Branch arrangement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter goes"
+     },
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "something coming in enters the middle of another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simpler",
+      "gives": "EASIER",
+      "note": "simpler means easier"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, the letter removed"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "PAL",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging branches is simpler without a friend butting in.",
+     "walkthrough": "'a' does real work: it is the letter dropped from the synonym.",
+     "definitionFit": "An espalier is a fruit tree trained flat against a wall, its limbs tied in a regular framework."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "simpler"
+    }
+   }
   },
   {
    "number": 40,
@@ -632,7 +2492,64 @@
     "text": "Fish sandwich returned by collector",
     "enumeration": "7"
    },
-   "solution": "JACKDAW"
+   "solution": "JACKDAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "JACKDAW",
+    "definitions": [
+     {
+      "text": "collector",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "JACK",
+      "note": "a jack is a young pike, a fish"
+     },
+     {
+      "clueFragment": "sandwich",
+      "gives": "WAD",
+      "note": "a wad is old British army slang for a sandwich or bun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "DAW"
+     ],
+     "reversals": [
+      {
+       "from": "WAD",
+       "to": "DAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish sandwich sent back by the person collecting the orders.",
+     "walkthrough": "Wad is old NAAFI slang for a bun or sandwich. The J of the bird alphabet.",
+     "definitionFit": "Jackdaws are famous for picking up and hoarding bright objects, which makes the bird a thieving collector."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "collector"
+    }
+   }
   },
   {
    "number": 40,
@@ -646,7 +2563,48 @@
     "text": "Scottish island's just like that at an early age",
     "enumeration": "8"
    },
-   "solution": "JURASSIC"
+   "solution": "JURASSIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JURASSIC",
+    "definitions": [
+     {
+      "text": "at an early age",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish island's",
+      "gives": "JURAS",
+      "note": "Jura is an island in the Inner Hebrides, plus the possessive S"
+     },
+     {
+      "clueFragment": "just like that",
+      "gives": "SIC",
+      "note": "sic means thus, written just like that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JURAS",
+      "SIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who lived on a Scottish island as a child.",
+     "walkthrough": "'at an early age' reads as childhood, but means from a geological age long ago.",
+     "definitionFit": "The Jurassic is a geological period around 200 to 145 million years ago, an early age of the Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "early"
+    }
+   }
   },
   {
    "number": 41,
@@ -660,7 +2618,43 @@
     "text": "Number with hat",
     "enumeration": "8"
    },
-   "solution": "CARDINAL"
+   "solution": "CARDINAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARDINAL",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     },
+     {
+      "text": "with hat",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "note": "first meaning: a counting number such as one, two, three"
+     },
+     {
+      "clueFragment": "with hat",
+      "note": "second meaning: a senior churchman, who wears a red hat"
+     }
+    ],
+    "explanation": {
+     "surface": "A number wearing a hat.",
+     "walkthrough": "Also the red songbird of North America, the C of the bird alphabet.",
+     "definitionFit": "Counting numbers are cardinal numbers, and a prince of the Church is marked by the red hat he receives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 42,
@@ -674,7 +2668,53 @@
     "text": "Hill dweller - call it Ecstasy",
     "enumeration": "7"
    },
-   "solution": "TERMITE"
+   "solution": "TERMITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TERMITE",
+    "definitions": [
+     {
+      "text": "Hill dweller",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "TERM",
+      "note": "to term something is to call it that"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug Ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A hillside resident describes their life up there as pure ecstasy.",
+     "walkthrough": "'Hill dweller' suggests a person; the hill is a termite mound.",
+     "definitionFit": "Termites build large earth mounds, and they live inside them, so the insect lives in a hill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hill"
+    }
+   }
   },
   {
    "number": 43,
@@ -688,7 +2728,45 @@
     "text": "Characteristic of the alphabet reported from Brideshead",
     "enumeration": "5"
    },
-   "solution": "FLYTE"
+   "solution": "FLYTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLYTE",
+    "definitions": [
+     {
+      "text": "from Brideshead",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is something said, so we go by sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Characteristic of the alphabet",
+      "gives": "FLYTE",
+      "soundsLike": "FLIGHT",
+      "note": "the puzzle's alphabet is made of birds, and birds are known for this"
+     }
+    ],
+    "explanation": {
+     "surface": "A feature of the alphabet described in Brideshead Revisited.",
+     "walkthrough": "Flyte is the aristocratic family name in Evelyn Waugh's novel Brideshead Revisited, including Sebastian Flyte.",
+     "definitionFit": "Sebastian and Julia Flyte belong to the family whose house is Brideshead in Waugh's novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alphabet"
+    }
+   }
   },
   {
    "number": 43,
@@ -702,7 +2780,50 @@
     "text": "Student in French style",
     "enumeration": "6"
    },
-   "solution": "FALCON"
+   "solution": "FALCON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FALCON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, a student"
+     },
+     {
+      "clueFragment": "French style",
+      "gives": "FACON",
+      "note": "façon is French for manner or style"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "L",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A student dressed in the French fashion.",
+     "walkthrough": "The cedilla is dropped in crossword grids. The F of the bird alphabet.",
+     "definitionFit": "The falcon is a fast bird of prey with long pointed wings, providing the F slot of this alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Student"
+    }
+   }
   },
   {
    "number": 44,
@@ -716,7 +2837,56 @@
     "text": "W’s return of spirits",
     "enumeration": "6"
    },
-   "solution": "YAFFLE"
+   "solution": "YAFFLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YAFFLE",
+    "definitions": [
+     {
+      "text": "W’s",
+      "at": 0,
+      "note": "W is the alphabet's woodpecker, so the answer is one of those"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return trip goes back the way it came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirits",
+      "gives": "ELFFAY",
+      "note": "an elf and a fay are both fairy spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAFFLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELFFAY",
+       "to": "YAFFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The letter W bringing back the spirits.",
+     "walkthrough": "W is 6-down in the alphabet, the woodpecker; the yaffle is the green woodpecker, named for its laughing call. It is the Y of the alphabet.",
+     "definitionFit": "Yaffle is a country name for the green woodpecker, so it is a kind of the bird filling the W entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 45,
@@ -730,7 +2900,46 @@
     "text": "Short time may be binding",
     "enumeration": "5"
    },
-   "solution": "SPELL"
+   "solution": "SPELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPELL",
+    "definitions": [
+     {
+      "text": "Short time",
+      "at": 0
+     },
+     {
+      "text": "binding",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short time",
+      "note": "first meaning: a brief period"
+     },
+     {
+      "clueFragment": "binding",
+      "note": "second meaning: a magic charm that holds someone bound"
+     }
+    ],
+    "explanation": {
+     "surface": "A short-term contract may still be legally binding.",
+     "walkthrough": "'binding' reads as obligatory; it describes a charm that binds.",
+     "definitionFit": "The word covers both a brief stretch of time and an enchantment that holds its victim captive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "binding"
+    }
+   }
   },
   {
    "number": 46,
@@ -744,7 +2953,45 @@
     "text": "Leave the high ground",
     "enumeration": "9"
    },
-   "solution": "PARTRIDGE"
+   "solution": "PARTRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTRIDGE",
+    "definedByPreamble": true,
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "PART",
+      "note": "to part is to leave"
+     },
+     {
+      "clueFragment": "high ground",
+      "gives": "RIDGE",
+      "note": "a ridge is a long stretch of high ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "RIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to come down from the hills.",
+     "walkthrough": "A partial clue made purely of wordplay; the preamble supplies the bird, the P of the alphabet.",
+     "definitionFit": "The partridge is a plump brown game bird of farmland, supplying the P entry in the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 47,
@@ -758,7 +3005,45 @@
     "text": "Baptist’s big bear",
     "enumeration": "6"
    },
-   "solution": "DIPPER"
+   "solution": "DIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIPPER",
+    "definitions": [
+     {
+      "text": "Baptist",
+      "at": 0
+     },
+     {
+      "text": "big bear",
+      "at": 10,
+      "note": "only the Big form of the name is the Great Bear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baptist",
+      "note": "first meaning: one who baptises by plunging people under water"
+     },
+     {
+      "clueFragment": "big bear",
+      "note": "second meaning: the American name for the Plough, the bright stars of the Great Bear"
+     }
+    ],
+    "explanation": {
+     "surface": "John the Baptist's large bear.",
+     "walkthrough": "The Big Dipper is the American name for the Plough, part of Ursa Major. The D of the bird alphabet.",
+     "definitionFit": "An Anabaptist was nicknamed a dipper for full immersion, and the Big Dipper is the star pattern within Ursa Major."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Baptist"
+    }
+   }
   },
   {
    "number": 48,
@@ -772,7 +3057,71 @@
     "text": "Bored with tennis centre, turn into spectator",
     "enumeration": "6"
    },
-   "solution": "ENNUYE"
+   "solution": "ENNUYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENNUYE",
+    "definitions": [
+     {
+      "text": "Bored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "to go into something is to be placed inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis",
+      "gives": "NN",
+      "select": "middle",
+      "note": "the two middle letters of the six"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "a U-turn, U"
+     },
+     {
+      "clueFragment": "spectator",
+      "gives": "EYE",
+      "note": "an eye is something that watches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NN",
+      "U",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis spectator bored with the centre court, ready to turn away.",
+     "walkthrough": "'tennis centre' suggests a venue; it means the middle letters of 'tennis'.",
+     "definitionFit": "Ennuyé is French borrowed into English for someone weary and listless, suffering from ennui."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 49,
@@ -786,7 +3135,66 @@
     "text": "I can give new floor to newspaper in capital (new)",
     "enumeration": "7"
    },
-   "solution": "LIFTMAN"
+   "solution": "LIFTMAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LIFTMAN",
+    "definitions": [
+     {
+      "text": "I can give new floor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "LIMA",
+      "note": "Lima is the capital of Peru"
+     },
+     {
+      "clueFragment": "(new)",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "FT",
+      "MA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A flooring firm advertising new floors to a newspaper in the capital.",
+     "walkthrough": "'new floor' suggests flooring, but the definition speaks as the answer: he takes you to a different floor.",
+     "definitionFit": "A lift attendant operates the elevator, taking passengers up or down to another storey of the building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 50,
@@ -800,7 +3208,43 @@
     "text": "Unauthorised recess?",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "Unauthorised",
+      "at": 0
+     },
+     {
+      "text": "recess",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unauthorised",
+      "note": "first meaning, read as two words: not given the OK"
+     },
+     {
+      "clueFragment": "recess",
+      "note": "second meaning: a small alcove or corner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer splits as NO OK, which is what unauthorised means; 'recess' looks like a parliamentary break but is an alcove.",
+     "definitionFit": "A nook is a small sheltered corner or alcove, which is the same thing as a recess in a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "recess"
+    }
+   }
   },
   {
    "number": 51,
@@ -814,7 +3258,51 @@
     "text": "Bit of a hill for Charles and Cromwell?",
     "enumeration": "5"
    },
-   "solution": "KNOLL"
+   "solution": "KNOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNOLL",
+    "definitions": [
+     {
+      "text": "Bit of a hill",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charles",
+      "gives": "K",
+      "note": "Charles was a king, K"
+     },
+     {
+      "clueFragment": "Cromwell",
+      "gives": "NOLL",
+      "note": "Old Noll was a nickname for Oliver Cromwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NOLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A hill fought over in the English Civil War between Charles I and Cromwell.",
+     "walkthrough": "Charles I and Cromwell were the opposing leaders of the English Civil War.",
+     "definitionFit": "A knoll is a small rounded hillock, so it is a modest piece of a hill or a little hill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charles"
+    }
+   }
   },
   {
    "number": 51,
@@ -828,7 +3316,46 @@
     "text": "Crate may be box",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "Crate",
+      "at": 0
+     },
+     {
+      "text": "box",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crate",
+      "note": "first meaning: old RAF slang for an aeroplane, like crate"
+     },
+     {
+      "clueFragment": "box",
+      "note": "second meaning: a box-shaped flying toy on a string, so a box may be one"
+     }
+    ],
+    "explanation": {
+     "surface": "A crate may serve as a box.",
+     "walkthrough": "'Crate' looks like a packing case, but is slang for an old aircraft. The K of the bird alphabet.",
+     "definitionFit": "Both kite and crate were airmen's slang for an aircraft, and a box kite is a common kind of flying kite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Crate"
+    }
+   }
   },
   {
    "number": 52,
@@ -842,7 +3369,59 @@
     "text": "Partners keeping large beast in cattle shed?",
     "enumeration": "7"
    },
-   "solution": "SHIPPON"
+   "solution": "SHIPPON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHIPPON",
+    "definitions": [
+     {
+      "text": "cattle shed",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partners",
+      "gives": "SN",
+      "note": "South and North are partners at bridge"
+     },
+     {
+      "clueFragment": "large beast",
+      "gives": "HIPPO",
+      "note": "a hippopotamus is a large beast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIPPO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Farmers keeping an enormous animal in the cow shed.",
+     "walkthrough": "Bridge partners sit North-South and East-West.",
+     "definitionFit": "Shippon is a dialect word, mainly northern English, for a cowshed or byre where cattle are housed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Partners"
+    }
+   }
   },
   {
    "number": 53,
@@ -856,7 +3435,62 @@
     "text": "2 disclosed without the translation",
     "enumeration": "5"
    },
-   "solution": "OWLET"
+   "solution": "OWLET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OWLET",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "disclosed",
+      "for": "anagram",
+      "note": "something disclosed has been laid open and its parts rearranged"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without means outside, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "gives": "TWO",
+      "note": "the number written as a word"
+     },
+     {
+      "clueFragment": "the translation",
+      "gives": "LE",
+      "note": "the in French is le"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OW",
+      "LE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TWO",
+       "gives": "OWT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second item revealed but missing its translation.",
+     "walkthrough": "'2' looks like a cross-reference to 2-down but is just the number; 'without' means outside, not lacking. The O of the bird alphabet.",
+     "definitionFit": "An owlet is a young owl, which fills the O entry in this alphabet of birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 54,
@@ -870,7 +3504,50 @@
     "text": "Sketch for departing train",
     "enumeration": "7"
    },
-   "solution": "OUTLINE"
+   "solution": "OUTLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTLINE",
+    "definitions": [
+     {
+      "text": "Sketch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departing",
+      "gives": "OUT",
+      "note": "going out"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "LINE",
+      "note": "a train is a line, as a train of thought or a line of vehicles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drawing of a train pulling out of the station.",
+     "walkthrough": "'train' suggests a railway; it means a line or sequence.",
+     "definitionFit": "An outline is a rough draft or summary drawing, the same as a sketch of the main features."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 55,
@@ -884,7 +3561,77 @@
     "text": "Figures of speech, for example, held back by single girl",
     "enumeration": "7"
    },
-   "solution": "IMAGERY"
+   "solution": "IMAGERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "IMAGERY",
+    "definitions": [
+     {
+      "text": "Figures of speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is gripped inside"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running the other way"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one, single"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MARY",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. means for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MA",
+      "GE",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar lesson: examples of figurative language kept back by an unmarried young woman.",
+     "walkthrough": "'single girl' reads as unmarried, but splits into two pieces.",
+     "definitionFit": "Imagery is the collective term for metaphors, similes and other figurative language in writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "single"
+    }
+   }
   }
  ]
 }
