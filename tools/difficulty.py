@@ -105,7 +105,10 @@ The nine components, higher = harder:
              The oldest and least arguable measure there is: an unchecked
              letter is one you must get from the wordplay alone. A 15x15 daily
              with heavy bars can run over 50% unchecked and it is felt
-             immediately.
+             immediately. A barred grid (Listener, Mephisto) has none: it is
+             checked almost everywhere by convention, 9-19 sd off the blocked
+             grids' spread, and its difficulty lives in the clues and the
+             theme. Its checking is left out, not scored as Gentle.
 
   rarity     How far down a frequency-ordered British cryptic word list the
              puzzle's three rarest answers sit, each looked up whole (a phrase
@@ -830,7 +833,7 @@ def clue_count(puz):
 def raw(puz, ctx):
     """The measurements, in their natural units, before any scaling."""
     fam = ctx.history.get(puz["id"]) or {}
-    return {"checking": checking(puz), "rarity": rarity(puz, ctx.rank),
+    return {"checking": None if puz.get("bars") else checking(puz), "rarity": rarity(puz, ctx.rank),
             "device": device(puz), "machinery": machinery(puz),
             "answer_novelty": fam.get("answer_novelty"),
             "pairing_novelty": fam.get("pairing_novelty"),
