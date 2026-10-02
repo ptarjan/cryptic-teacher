@@ -419,6 +419,8 @@ LAYOUT = [
     ("fetching", "tools/data/clue_compounds.tsv", "how often the corpus's clues print each two-word compound hyphenated and closed (build_clue_compounds.py)"),
     ("fetching", "tools/build_clue_lm.py", "count the words and word pairs of every clue in the corpus, and its answers"),
     ("fetching", "tools/data/clue_lm.tsv.gz", "how often the corpus's clues print each word and word pair, and its answers each word; settles OCR readings that differ (build_clue_lm.py)"),
+    ("fetching", "tools/data/archive_org_tess.traineddata", "Tesseract's English LSTM fine-tuned on Times clue lines; the archive.org filer's Tesseract reader (train_archive_org_tesseract.py)"),
+    ("fetching", "tools/train_archive_org_tesseract.py", "fine-tune Tesseract's English LSTM on Times clue lines, for the archive.org filer"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

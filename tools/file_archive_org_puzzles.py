@@ -85,7 +85,8 @@ ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
 CODE = [Path(__file__), TOOLS / "file_trove_puzzles.py", TOOLS / "trove_grid.py",
         TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv",
-        TOOLS / "data" / "lexicon.tsv", TOOLS / "data" / "clue_lm.tsv.gz"]
+        TOOLS / "data" / "lexicon.tsv", TOOLS / "data" / "clue_lm.tsv.gz",
+        TOOLS / "data" / "archive_org_tess.traineddata"]
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
@@ -212,12 +213,16 @@ UPSCALE = 2
 #: recogniser ("ch") and English PP-OCRv5 mobile ("en5"), the two that
 #: misread fewest clue words on hand-checked 1974, 1990 and 1995 crops (22%
 #: and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's 56%; the
-#: server recognisers cost over 20 times as long), and Tesseract ("tess"),
-#: a different engine whose misreads are not theirs. The vote's misread rate
-#: on tools/data/archive_org_ocr_gold.json: tools/measure_archive_org_ocr.py.
+#: server recognisers cost over 20 times as long), and Tesseract ("times"),
+#: a different engine whose misreads are not theirs, its English LSTM
+#: fine-tuned on Times clue lines (tools/train_archive_org_tesseract.py).
+#: The vote's misread rate on tools/data/archive_org_ocr_gold.json:
+#: tools/measure_archive_org_ocr.py.
 READERS = {"ch": None,
            "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx")),
-           "tess": "tesseract"}
+           "times": "tesseract"}
+#: The Tesseract readers' models: None is the installed eng.
+TESS_MODELS = {"times": TOOLS / "data" / "archive_org_tess.traineddata"}
 TESSERACT = Path(os.path.expanduser("~/.local/tess/bin/tesseract"))
 MODEL_URL = ("https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.4.0/onnx/PP-OCRv5/rec/"
              "en_PP-OCRv5_rec_mobile_infer.onnx")
@@ -254,14 +259,19 @@ def tesseract():
     return found
 
 
-def tesseract_words(crop):
-    """[(x0, y0, x1, y1, word)] Tesseract reads in a PIL image."""
+def tesseract_words(crop, model=None):
+    """[(x0, y0, x1, y1, word)] Tesseract reads in a PIL image, with the
+    installed eng model or the .traineddata at `model`."""
     import subprocess
     import tempfile
     with tempfile.TemporaryDirectory() as tmp:
         path = Path(tmp) / "crop.png"
         crop.save(path)
-        res = subprocess.run([tesseract(), str(path), "-", "--psm", "4", "-l", "eng", "tsv"],
+        lang = ["--tessdata-dir", str(model.parent), "-l", model.stem] if model else ["-l", "eng"]
+        # TSV by parameter, not the "tsv" config file: a model's own
+        # tessdata directory has no configs/.
+        res = subprocess.run([tesseract(), str(path), "-", "--psm", "4", *lang,
+                              "-c", "tessedit_create_tsv=1"],
                              capture_output=True, text=True, timeout=300)
     if res.returncode:
         raise RuntimeError(f"tesseract failed ({res.returncode}): {res.stderr.strip()[-300:]}")
@@ -276,7 +286,7 @@ def tesseract_words(crop):
 
 def rapid_lines(img, grid, which, cache_path):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
-    Tesseract's for "tess"), as djvu-style lines of one word each, in page
+    Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON."""
     if cache_path.exists():
         return [[tuple(w)] for w in json.loads(cache_path.read_text())]
@@ -286,8 +296,9 @@ def rapid_lines(img, grid, which, cache_path):
     box = (max(0, gx0 - 40), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
     crop = img.crop(box).convert("RGB")
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
-    if which == "tess":
-        res = [(((x0, y0), (x1, y1)), t, None) for x0, y0, x1, y1, t in tesseract_words(crop)]
+    if which in TESS_MODELS:
+        res = [(((x0, y0), (x1, y1)), t, None)
+               for x0, y0, x1, y1, t in tesseract_words(crop, TESS_MODELS[which])]
     else:
         res, _ = engine(which)(np.asarray(crop), use_cls=False)
     words = []
