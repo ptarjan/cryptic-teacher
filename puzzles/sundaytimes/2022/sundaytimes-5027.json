@@ -24,6 +24,9 @@
   "date": "2022-10-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,45 @@
     "text": "A row of homes",
     "enumeration": "8"
    },
-   "solution": "DOMESTIC"
+   "solution": "DOMESTIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOMESTIC",
+    "definitions": [
+     {
+      "text": "A row",
+      "at": 0,
+      "note": "the article goes with the noun: a domestic is a row"
+     },
+     {
+      "text": "of homes",
+      "at": 6,
+      "note": "an adjectival phrase, matching the adjective sense"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A row",
+      "note": "first meaning: British slang for a household quarrel, the kind neighbours call the police about"
+     },
+     {
+      "clueFragment": "of homes",
+      "note": "second meaning: the adjective for things belonging to the household"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one phrase, a terrace of houses, but splits after 'row': a row that rhymes with 'cow' is a quarrel, and 'of homes' is the adjective.",
+     "definitionFit": "As a noun the word is British slang for a family quarrel; as an adjective it describes anything relating to the household."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +92,48 @@
     "text": "Might one really like an old Aussie soldier?",
     "enumeration": "6"
    },
-   "solution": "DIGGER"
+   "solution": "DIGGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIGGER",
+    "definitions": [
+     {
+      "text": "one really like",
+      "at": 6,
+      "note": "a person who digs, i.e. really likes, something"
+     },
+     {
+      "text": "old Aussie soldier",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "Might"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one really like",
+      "note": "first meaning: to dig is slang for to like a lot, so one who does so"
+     },
+     {
+      "clueFragment": "old Aussie soldier",
+      "note": "second meaning: the nickname for Australian and New Zealand troops of the First World War"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether a person could be fond of an elderly Australian veteran.",
+     "walkthrough": "The question frame asks whether 'one who digs' could also be the old soldier; it can, as both senses share one word.",
+     "definitionFit": "Slang verb 'dig' means enjoy, giving an agent noun; separately, Australian infantry of the Great War were nicknamed after trench work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +147,57 @@
     "text": "Bit of music expected with boat race coverage",
     "enumeration": "6"
    },
-   "solution": "MASKED"
+   "solution": "MASKED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASKED",
+    "definitions": [
+     {
+      "text": "with boat race coverage",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "letter_selection",
+      "note": "a bit is only a small piece, so just the opening letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of music"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "ASKED",
+      "note": "what is asked of you is what is expected of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASKED"
+     ]
+    },
+    "explanation": {
+     "surface": "A snippet of music is anticipated during the television coverage of the Oxford and Cambridge rowing race.",
+     "walkthrough": "'Boat race' is not rowing: it is Cockney rhyming slang for face, so 'boat race coverage' means having the face covered.",
+     "definitionFit": "Someone wearing a mask has a covering over the face, which rhyming slang calls the boat race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boat"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +211,64 @@
     "text": "Constant or variable dates before Lent?",
     "enumeration": "9"
    },
-   "solution": "STEADFAST"
+   "solution": "STEADFAST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STEADFAST",
+    "definitions": [
+     {
+      "text": "Constant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "variable",
+      "for": "anagram",
+      "note": "something variable changes its form, so these letters take a different order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dates",
+      "gives": "STEAD",
+      "note": "the five letters rearranged"
+     },
+     {
+      "clueFragment": "Lent",
+      "gives": "FAST",
+      "note": "Lent is the Christian season of fasting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEAD",
+      "FAST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATES",
+       "gives": "STEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the dates leading up to Lent are fixed or movable, since Easter moves.",
+     "walkthrough": "'Before' places one piece ahead of the other in this down answer. 'Constant' and 'variable' look like a mathematical pair, but only 'Constant' defines.",
+     "definitionFit": "A steadfast person is constant: firm, loyal and unwavering, the adjectival synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "variable"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +282,54 @@
     "text": "So in pain, laid up in a foreign capital",
     "enumeration": "12"
    },
-   "solution": "INDIANAPOLIS"
+   "solution": "INDIANAPOLIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDIANAPOLIS",
+    "definitions": [
+     {
+      "text": "a foreign capital",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "things that are up are in disarray or out of order, as in 'what's up', so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So in pain, laid",
+      "gives": "SOINPAINLAID",
+      "note": "all twelve letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOINPAINLAID",
+       "gives": "INDIANAPOLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller, suffering badly, is laid up in bed in some capital city abroad.",
+     "walkthrough": "'Laid up' reads as bedridden, but 'laid' is part of the fodder and 'up' alone signals the jumble. The capital is of a US state, not a country.",
+     "definitionFit": "Indianapolis is the state capital of Indiana, which for a British setter is a capital city abroad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +343,39 @@
     "text": "One completely lacking in IT experience",
     "enumeration": "6"
    },
-   "solution": "VIRGIN"
+   "solution": "VIRGIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VIRGIN",
+    "definitions": [
+     {
+      "text": "One completely lacking in IT experience",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One completely lacking in IT experience",
+      "note": "surface reading: someone who has never used computers"
+     },
+     {
+      "clueFragment": "IT",
+      "note": "setter's reading: 'it' is a coy euphemism for sex, so someone with no sexual experience at all"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "IT in capitals looks like information technology; read as the pronoun 'it', it is the old euphemism for sex.",
+     "definitionFit": "Someone who has never had sexual intercourse is called by this word, which also loosely means a novice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "IT"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +395,46 @@
      }
     ]
    },
-   "solution": "INALL"
+   "solution": "INALL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IN ALL",
+    "definitions": [
+     {
+      "text": "altogether",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to an extent",
+      "for": "hidden_word",
+      "note": "only to an extent means partly, so just part of the run of letters is wanted"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal, larcenous",
+      "gives": "INALL",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A crook is called somewhat thieving, or perhaps thoroughly so.",
+     "walkthrough": "The letters bridge the comma, ending one word and starting the next.",
+     "definitionFit": "The phrase means in total, as in 'twenty people came in all', a straightforward synonym for altogether."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +448,47 @@
     "text": "Moral excellence can be found in GOSH",
     "enumeration": "8"
    },
-   "solution": "GOODNESS"
+   "solution": "GOODNESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOODNESS",
+    "definitions": [
+     {
+      "text": "Moral excellence",
+      "at": 0
+     },
+     {
+      "text": "GOSH",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "can be found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moral excellence",
+      "note": "first meaning: the quality of being virtuous"
+     },
+     {
+      "clueFragment": "GOSH",
+      "note": "second meaning: a mild exclamation of surprise"
+     }
+    ],
+    "explanation": {
+     "surface": "Virtue is to be found at Great Ormond Street Hospital, the London children's hospital known as GOSH.",
+     "walkthrough": "GOSH in capitals suggests the acronym for Great Ormond Street Hospital; it is simply the exclamation.",
+     "definitionFit": "The word names virtue as a noun and also serves as a mild oath of surprise, interchangeable with 'gosh'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "GOSH"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +502,63 @@
     "text": "No reason to consume starter of niffy rhubarb",
     "enumeration": "8"
    },
-   "solution": "NONSENSE"
+   "solution": "NONSENSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NONSENSE",
+    "definitions": [
+     {
+      "text": "rhubarb",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to consume",
+      "for": "container",
+      "note": "what consumes something takes it inside, so one piece goes within the other"
+     },
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter is the first course, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No reason",
+      "gives": "NOSENSE",
+      "note": "having no sense is having no reason"
+     },
+     {
+      "clueFragment": "niffy",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of niffy, British slang for smelly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "N",
+      "SENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "There is no cause to eat the opening portion of some smelly rhubarb.",
+     "walkthrough": "Rhubarb is the defining word, not the food: in Britain it also means foolish talk.",
+     "definitionFit": "Rhubarb is British slang for nonsense, from actors murmuring the word to mimic background chatter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rhubarb"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +578,43 @@
      }
     ]
    },
-   "solution": "GOSTEADY"
+   "solution": "GOSTEADY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO STEADY",
+    "definitions": [
+     {
+      "text": "See just one man regularly",
+      "at": 0
+     },
+     {
+      "text": "take it easy",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See just one man regularly",
+      "note": "first meaning: to date one partner exclusively"
+     },
+     {
+      "clueFragment": "take it easy",
+      "note": "second meaning: to proceed carefully, without rushing"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to someone: commit to one boyfriend and relax a little.",
+     "walkthrough": "'Regularly' tempts a solver to take alternate letters, but here it is part of the plain dating sense.",
+     "definitionFit": "The phrase means to be in a settled exclusive relationship, and as a command it means be careful and calm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +628,58 @@
     "text": "Primate and bishop getting a blessing",
     "enumeration": "6"
    },
-   "solution": "BABOON"
+   "solution": "BABOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BABOON",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blessing",
+      "gives": "BOON",
+      "note": "a boon is a blessing or benefit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "BOON"
+     ]
+    },
+    "explanation": {
+     "surface": "An archbishop and a bishop together receive a benediction.",
+     "walkthrough": "'Primate' with 'bishop' points to an archbishop; it is the animal sense, an ape or monkey.",
+     "definitionFit": "The baboon is a large African monkey, and monkeys belong to the order of mammals called primates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Primate"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +703,82 @@
      }
     ]
    },
-   "solution": "THEHUMANRACE"
+   "solution": "THEHUMANRACE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "container"
+    ],
+    "answer": "THE HUMAN RACE",
+    "definitions": [
+     {
+      "text": "US",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "a piece played can be performed in new ways, so these letters are rearranged"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around something is to enclose it, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anthem",
+      "gives": "ANTHEM",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "CARE",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "Hue",
+      "gives": "HU",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "HU",
+      "MANRACE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANTHEMCARE",
+       "gives": "THEMANRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "America's national anthem is performed carefully around the Vietnamese city of Hue.",
+     "walkthrough": "'US' looks like the United States attached to 'anthem'; it is the pronoun us, the definition, and the anagram covers only the next two words.",
+     "definitionFit": "We, all people collectively, make up humankind, so the pronoun 'us' stands for humanity as a whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "US"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +792,66 @@
     "text": "Polish and English blokes heading for Deal",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMEND",
+    "definitions": [
+     {
+      "text": "Polish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading sits at the top, so only the opening letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes is British slang for men"
+     },
+     {
+      "clueFragment": "Deal",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of Deal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Polish and English men make their way to Deal, a seaside town in Kent.",
+     "walkthrough": "'Polish' at the start of the clue is capitalised to look like the nationality; it is the verb, to refine.",
+     "definitionFit": "To emend a text is to correct and improve it, just as polishing writing refines it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +871,39 @@
      }
     ]
    },
-   "solution": "ASHBLONDE"
+   "solution": "ASHBLONDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ASH BLONDE",
+    "definitions": [
+     {
+      "text": "An extremely fair woman in Barnet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An extremely fair woman in Barnet",
+      "note": "surface reading: a very beautiful woman living in Barnet, a north London borough"
+     },
+     {
+      "clueFragment": "Barnet",
+      "note": "setter's reading: barnet is rhyming slang for hair (Barnet Fair), so a woman whose hair is very pale"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fair' suggests beauty and Barnet a place; in rhyming slang a barnet is your hair, and fair hair of the palest greyish shade has a name.",
+     "definitionFit": "This is the palest, greyish shade of blonde hair, so a woman with it is extremely fair-haired."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barnet"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +917,55 @@
     "text": "Ridiculous past haircuts and jumpers",
     "enumeration": "12"
    },
-   "solution": "PARACHUTISTS"
+   "solution": "PARACHUTISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARACHUTISTS",
+    "definitions": [
+     {
+      "text": "jumpers",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ridiculous",
+      "for": "anagram",
+      "note": "something ridiculous is absurd and disordered, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past haircuts",
+      "gives": "PASTHAIRCUTS",
+      "note": "all twelve letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PASTHAIRCUTS",
+       "gives": "PARACHUTISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mocks the absurd hairstyles and knitted sweaters of earlier decades.",
+     "walkthrough": "'Jumpers' sits beside haircuts as fashion, since in Britain a jumper is a sweater; here it means people who jump.",
+     "definitionFit": "Parachutists leap from aircraft, so they are jumpers in the literal sense of people who jump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumpers"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +979,45 @@
     "text": "Damn American version of “Limeys”?",
     "enumeration": "9"
    },
-   "solution": "TARNATION"
+   "solution": "TARNATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TARNATION",
+    "definitions": [
+     {
+      "text": "Damn American",
+      "at": 0,
+      "note": "an American exclamation used in place of 'damn'"
+     },
+     {
+      "text": "version of “Limeys”",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damn American",
+      "note": "first meaning: a folksy American oath, a softened 'damnation'"
+     },
+     {
+      "clueFragment": "version of “Limeys”",
+      "note": "second meaning, read in two parts: Limeys were British sailors"
+     }
+    ],
+    "explanation": {
+     "surface": "An American's damning way of referring to the British.",
+     "walkthrough": "Limey, American slang for a Briton, began as a name for Royal Navy sailors, who drank lime juice against scurvy; a tar is a sailor.",
+     "definitionFit": "Tarnation is a mild American euphemism for damnation, used as an exclamation where 'damn' would be ruder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1031,67 @@
     "text": "Players’ union to ring City about level playing field?",
     "enumeration": "8"
    },
-   "solution": "EQUALITY"
+   "solution": "EQUALITY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EQUALITY",
+    "definitions": [
+     {
+      "text": "level playing field?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the letters run backwards"
+     },
+     {
+      "text": "to ring",
+      "for": "container",
+      "note": "a ring encircles, so one piece is placed around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Players’ union",
+      "gives": "EQUITY",
+      "note": "Equity is the British trade union for actors, who are players"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "LA",
+      "note": "LA is Los Angeles, a common crossword city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQU",
+      "AL",
+      "ITY"
+     ],
+     "reversals": [
+      {
+       "from": "LA",
+       "to": "AL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports union phones the club about making a pitch fair to both sides.",
+     "walkthrough": "'Players' and 'City' suggest football; the players are actors and the City is Los Angeles.",
+     "definitionFit": "A level playing field is a figurative state where all have the same chances, which is fairness of treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Players’"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1105,52 @@
     "text": "Turn quickly by bar as Cherry is naked",
     "enumeration": "8"
    },
-   "solution": "LEAFLESS"
+   "solution": "LEAFLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAFLESS",
+    "definitions": [
+     {
+      "text": "naked",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "by",
+     "as Cherry is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn quickly",
+      "gives": "LEAF",
+      "note": "to leaf through a book is to turn its pages quickly"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "LESS",
+      "note": "bar and less both mean except, without"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAF",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spins round at the pub counter because a woman called Cherry has no clothes on.",
+     "walkthrough": "Cherry is capitalised to look like a name, but it is the tree, which stands naked of foliage in winter.",
+     "definitionFit": "A bare tree in winter has lost its foliage, so naked here describes branches without any covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Cherry"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1170,52 @@
      }
     ]
    },
-   "solution": "QUESTIONMARK"
+   "solution": "QUESTIONMARK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "QUESTION MARK",
+    "definitions": [
+     {
+      "text": "Square knot I’m to unravel?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to unravel",
+      "for": "anagram",
+      "note": "unravelling undoes a tangle and lays its strands out differently, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Square knot I’m",
+      "gives": "SQUAREKNOTIM",
+      "note": "all twelve letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SQUAREKNOTIM",
+       "gives": "QUESTIONMARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor faces the job of untying a reef knot.",
+     "walkthrough": "A square knot is a reef knot, but here the words are fodder; read whole, the clue describes the puzzle a solver must work out, and it ends in the symbol itself.",
+     "definitionFit": "A question mark stands for something puzzling still to be resolved, the knotty problem the clue describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "knot"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1229,47 @@
     "text": "For each exercise, study closely with care",
     "enumeration": "6"
    },
-   "solution": "PERUSE"
+   "solution": "PERUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERUSE",
+    "definitions": [
+     {
+      "text": "study closely with care",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "USE",
+      "note": "to exercise a right is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "For every workout, examine your technique carefully.",
+     "walkthrough": "'Exercise' suggests PE or training, but it is the verb meaning to employ.",
+     "definitionFit": "To peruse is to read or examine something thoroughly, though in loose use it has come to mean skim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1283,61 @@
     "text": "Run if snake is found under loo’s lid",
     "enumeration": "6"
    },
-   "solution": "LADDER"
+   "solution": "LADDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LADDER",
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lid",
+      "for": "letter_selection",
+      "note": "a lid is the top of something, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "if",
+     "is found under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loo’s",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of loo, British slang for toilet"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ADDER",
+      "note": "the adder is Britain's venomous snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to flee should you find a snake lurking beneath the toilet seat.",
+     "walkthrough": "'Run' looks like an order to flee; it is a run in tights, which the British call a ladder. 'Under' puts the snake below in this down answer, a nod to snakes and ladders.",
+     "definitionFit": "A ladder is the British word for a run, a vertical line of unravelled stitches in stockings or tights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1351,57 @@
     "text": "Show no thanks or fondness of feeling",
     "enumeration": "9"
    },
-   "solution": "AFFECTION"
+   "solution": "AFFECTION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AFFECTION",
+    "definitions": [
+     {
+      "text": "fondness of feeling",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no' means without, so these letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show",
+      "gives": "AFFECTATION",
+      "note": "affectation is a show, a pretence put on for effect"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFFEC",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows neither gratitude nor warmth.",
+     "walkthrough": "'Show no thanks' reads as ingratitude; 'Show' is a noun, and the British 'ta' comes out of its middle.",
+     "definitionFit": "Affection is warmth and tenderness felt towards someone, matching fondness of feeling as a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1415,59 @@
     "text": "Bed with short brown cloth cover?",
     "enumeration": "5"
    },
-   "solution": "COTTA"
+   "solution": "COTTA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COTTA",
+    "definitions": [
+     {
+      "text": "cloth cover?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cutting something short removes its end, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "TA",
+      "note": "tan, a light brown, without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COT",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A bed comes with a short brown fabric bedspread.",
+     "walkthrough": "'The cloth' means the clergy, so a cloth cover is a garment worn by clergy or choristers.",
+     "definitionFit": "A cotta is a short white surplice worn over a cassock, a covering garment for those of the cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cloth"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1481,60 @@
     "text": "Part of old theatre article Times rejected",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "Part of old theatre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "ERA",
+      "note": "an era is a period, one of the times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARENA"
+     ],
+     "reversals": [
+      {
+       "from": "ANERA",
+       "to": "ARENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a historic playhouse, featured in a piece the Times newspaper turned down.",
+     "walkthrough": "Times is capitalised to suggest the newspaper; it just means periods.",
+     "definitionFit": "The arena was the central sanded floor of a Roman amphitheatre, where the gladiatorial shows were staged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1548,42 @@
     "text": "Some deride a teacher … imagine",
     "enumeration": "6"
    },
-   "solution": "IDEATE"
+   "solution": "IDEATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IDEATE",
+    "definitions": [
+     {
+      "text": "imagine",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion only, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deride a teacher",
+      "gives": "IDEATE",
+      "note": "runs across all three words"
+     }
+    ],
+    "explanation": {
+     "surface": "People mock a teacher, just picture it.",
+     "walkthrough": "The ellipsis separates the wordplay from the one-word definition.",
+     "definitionFit": "To ideate is to form ideas or conceive something in the mind, so it serves as a formal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1597,60 @@
     "text": "Worn out army uniform needs alteration ultimately",
     "enumeration": "8"
    },
-   "solution": "FATIGUED"
+   "solution": "FATIGUED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FATIGUED",
+    "definitions": [
+     {
+      "text": "Worn out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army uniform",
+      "gives": "FATIGUE",
+      "note": "fatigues are soldiers' work clothes"
+     },
+     {
+      "clueFragment": "alteration",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of alteration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FATIGUE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A threadbare military uniform has to be altered.",
+     "walkthrough": "'Worn out' seems to describe the uniform as threadbare; it is the definition, meaning exhausted.",
+     "definitionFit": "Fatigued means exhausted or very tired, the usual sense of worn out when applied to a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Worn"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1670,62 @@
      }
     ]
    },
-   "solution": "YESMAN"
+   "solution": "YESMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YES-MAN",
+    "definitions": [
+     {
+      "text": "I agree",
+      "at": 0,
+      "note": "a phrase standing for the person who always says it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smothers",
+      "for": "container",
+      "note": "to smother is to cover completely, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is the archaic form of the"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "S",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone concedes that an elderly father suffocates his own boy.",
+     "walkthrough": "'The old chap' reads as a father, but splits into the archaic article and a man, which together enclose the son.",
+     "definitionFit": "A yes-man is a sycophant who always agrees with superiors, so the words 'I agree' epitomise him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1739,54 @@
     "text": "One ruminates about India always being poetic",
     "enumeration": "8"
    },
-   "solution": "REINDEER"
+   "solution": "REINDEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINDEER",
+    "definitions": [
+     {
+      "text": "One ruminates",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "IND",
+      "note": "IND is a standard abbreviation for India"
+     },
+     {
+      "clueFragment": "always being poetic",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever, meaning always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "IND",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker reflects on India's timeless poetry.",
+     "walkthrough": "'Ruminates' suggests deep thinking, but it is the literal sense of chewing the cud. 'Poetic' tells you to use the verse spelling of ever.",
+     "definitionFit": "Reindeer are ruminants, cud-chewing animals with multi-chambered stomachs, like cattle and deer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ruminates"
+    }
+   }
   }
  ]
 }
