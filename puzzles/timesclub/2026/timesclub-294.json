@@ -23,6 +23,9 @@
   "date": "2026-02-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,74 @@
     "text": "Glaswegian drinking heavily with gold chain can start to gibber",
     "enumeration": "9"
    },
-   "solution": "WAUCHTING"
+   "solution": "WAUCHTING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WAUCHTING",
+    "definitions": [
+     {
+      "text": "Glaswegian drinking heavily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "chain",
+      "gives": "CH",
+      "note": "ch is the abbreviation for chain, the old surveying measure"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a can is a tin"
+     },
+     {
+      "clueFragment": "gibber",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of gibber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AU",
+      "CH",
+      "TIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk Glaswegian in gold jewellery is on the verge of talking nonsense.",
+     "walkthrough": "'Chain' and 'can' look like a necklace and a verb, but each is a standalone abbreviation or synonym. WAUCHT is Scots for a big swig, so WAUCHTING is drinking deeply.",
+     "definitionFit": "The Scots verb waucht means to quaff in large draughts, so the participle describes a Scotsman swilling his drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +120,50 @@
     "text": "Change wickets and declare",
     "enumeration": "5"
    },
-   "solution": "WAVER"
+   "solution": "WAVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAVER",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wickets",
+      "gives": "W",
+      "note": "W is the cricket scorecard abbreviation for wickets"
+     },
+     {
+      "clueFragment": "declare",
+      "gives": "AVER",
+      "note": "to aver is to declare or assert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket captain switches the batting order and declares the innings closed.",
+     "walkthrough": "'Change wickets' and 'declare' sound like cricket tactics; in cricket a captain declares to end his side's innings early.",
+     "definitionFit": "To waver is to fluctuate or shift back and forth, an unsteady kind of altering one's position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "declare"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +177,65 @@
     "text": "Poet’s blank mind sure hasn’t succeeded in composition",
     "enumeration": "7"
    },
-   "solution": "UNRIMED"
+   "solution": "UNRIMED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UNRIMED",
+    "definitions": [
+     {
+      "text": "Poet’s blank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn’t",
+      "for": "deletion",
+      "note": "what something hasn't got is missing from it, so a letter is dropped"
+     },
+     {
+      "text": "in composition",
+      "for": "anagram",
+      "note": "composing means putting together afresh, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mind sure",
+      "gives": "MINDSURE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "s is the abbreviation for succeeded, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNRIMED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MINDURE",
+       "gives": "UNRIMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet with writer's block finds his confident mind has failed him mid-composition.",
+     "walkthrough": "'Poet's' flags a literary spelling: UNRIMED is the old form of unrhymed, and blank verse is verse that does not rhyme.",
+     "definitionFit": "Blank verse lacks rhyme, so a poet would call such lines unrhymed, spelt in the archaic way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "blank"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +249,55 @@
     "text": "Never finished, sharpen opening form of address",
     "enumeration": "9"
    },
-   "solution": "HONORIFIC"
+   "solution": "HONORIFIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HONORIFIC",
+    "definitions": [
+     {
+      "text": "form of address",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Never finished",
+      "for": "deletion",
+      "note": "something never finished lacks its ending, so each word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sharpen",
+      "gives": "HONE",
+      "note": "to hone is to sharpen a blade"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "ORIFICE",
+      "note": "an orifice is an opening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HON",
+      "ORIFIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps polishing the opening line of a speech without ever completing it.",
+     "walkthrough": "'Never finished' covers both words: each of the two synonyms loses its final E.",
+     "definitionFit": "An honorific is a title of respect such as Sir or Dr used when addressing someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +317,40 @@
      }
     ]
    },
-   "solution": "IRONHEARTED"
+   "solution": "IRONHEARTED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IRON-HEARTED",
+    "definitions": [
+     {
+      "text": "Being this callous",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Being this callous",
+      "note": "surface reading: the clue asks for a word meaning hard and unfeeling"
+     },
+     {
+      "clueFragment": "would make “wily” descriptive of the missus?",
+      "note": "setter's reading: put the chemical symbol for iron into the heart of wily and you get wifely, an adjective for a wife"
+     }
+    ],
+    "explanation": {
+     "surface": "A man wonders whether calling his wife cunning makes him heartless.",
+     "walkthrough": "Taken literally, the answer means 'with iron in its heart': FE inside WI-LY makes WIFELY, which describes the missus.",
+     "definitionFit": "Someone with a heart of metal is pitiless and unfeeling, which is exactly what callous means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wily"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +364,62 @@
     "text": "Gossip, the extremes of which absorb you in DMs",
     "enumeration": "3"
    },
-   "solution": "GUP"
+   "solution": "GUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GUP",
+    "definitions": [
+     {
+      "text": "Gossip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the extremes of which",
+      "for": "letter_selection",
+      "note": "extremes are the two ends, so just the first and last letters are kept"
+     },
+     {
+      "text": "absorb",
+      "for": "container",
+      "note": "to absorb is to take something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gossip",
+      "gives": "GP",
+      "select": "outer",
+      "note": "the first and last letters of the clue's opening word"
+     },
+     {
+      "clueFragment": "you in DMs",
+      "gives": "U",
+      "note": "in text messages you is written as the single letter U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "U",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip that spreads to you through direct messages on social media.",
+     "walkthrough": "The first word does double duty: it is the definition and also supplies its own outer letters. DMs are direct messages, where text-speak rules.",
+     "definitionFit": "Gup is an Anglo-Indian slang word for idle chatter or scandal, a dialect synonym for rumour-mongering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "DMs"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +433,55 @@
     "text": "Norwegian group among Kuala Lumpur’s Jewish community",
     "enumeration": "5"
    },
-   "solution": "KAHAL"
+   "solution": "KAHAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KAHAL",
+    "definitions": [
+     {
+      "text": "Jewish community",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "to be among things is to sit in their midst, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kuala Lumpur’s",
+      "gives": "KL",
+      "note": "the initial letters of the two words of the Malaysian capital's name"
+     },
+     {
+      "clueFragment": "Norwegian group",
+      "gives": "AHA",
+      "note": "a-ha were the Norwegian pop band behind Take On Me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "AHA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A band from Norway turns up in the Jewish quarter of Kuala Lumpur.",
+     "walkthrough": "'Norwegian group' suggests a folk society or political body, but it is the 1980s pop trio.",
+     "definitionFit": "Kahal is the Hebrew term for a congregation or self-governing community of Jews."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +495,67 @@
     "text": "Lifted up by machine primarily, fine seaweed",
     "enumeration": "5"
    },
-   "solution": "KOMBU"
+   "solution": "KOMBU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "KOMBU",
+    "definitions": [
+     {
+      "text": "seaweed",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so each word gives only its initial letter"
+     },
+     {
+      "text": "Lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifting means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up by machine",
+      "gives": "UBM",
+      "select": "first",
+      "note": "the initial letters of these three words"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine or all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KOMBU"
+     ],
+     "reversals": [
+      {
+       "from": "UBMOK",
+       "to": "KOMBU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Good-quality seaweed is hauled out of the sea by a mechanical harvester.",
+     "walkthrough": "'Lifted up' reads as one phrase, but only 'Lifted' signals the reversal; 'up' is fodder for its first letter.",
+     "definitionFit": "Kombu is the edible kelp used in Japanese cooking, notably to make dashi stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +569,55 @@
     "text": "Aircraft designer drawing stuff into back section",
     "enumeration": "7"
    },
-   "solution": "HEINKEL"
+   "solution": "HEINKEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEINKEL",
+    "definitions": [
+     {
+      "text": "Aircraft designer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "putting one thing into another places it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back section",
+      "gives": "HEEL",
+      "note": "the heel is the back part of a foot or shoe"
+     },
+     {
+      "clueFragment": "drawing stuff",
+      "gives": "INK",
+      "note": "ink is the stuff used for drawing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "INK",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft designer sketching plans for the tail section of a plane.",
+     "walkthrough": "'Back section' sounds like part of an aeroplane but means the rear of a foot. Ernst Heinkel built German aircraft including wartime bombers.",
+     "definitionFit": "Ernst Heinkel founded the German manufacturer that produced the He 111 bomber and the first jet aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drawing"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +631,62 @@
     "text": "Large app for images preserves vintage wallpaper",
     "enumeration": "9"
    },
-   "solution": "LINCRUSTA"
+   "solution": "LINCRUSTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LINCRUSTA",
+    "definitions": [
+     {
+      "text": "wallpaper",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "preserves",
+      "for": "container",
+      "note": "to preserve something is to keep it safe inside, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "app for images",
+      "gives": "INSTA",
+      "note": "Insta is the casual name for Instagram, the photo-sharing app"
+     },
+     {
+      "clueFragment": "vintage",
+      "gives": "CRU",
+      "note": "a cru is a vineyard or wine of a given growth, that is a vintage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IN",
+      "CRU",
+      "STA"
+     ]
+    },
+    "explanation": {
+     "surface": "A big photo app keeps old-fashioned wallpaper designs in its archive.",
+     "walkthrough": "'Vintage' looks like an adjective for the wallpaper, but it is a noun for a wine.",
+     "definitionFit": "Lincrusta is a Victorian embossed wall covering made from linseed paste, still sold as a heavy relief wallpaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vintage"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +700,50 @@
     "text": "After six, odd stranger in DC covered area around building once",
     "enumeration": "7"
    },
-   "solution": "VIRANDO"
+   "solution": "VIRANDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIRANDO",
+    "definitions": [
+     {
+      "text": "covered area around building once",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     },
+     {
+      "clueFragment": "odd stranger in DC",
+      "gives": "RANDO",
+      "note": "rando is American slang for a random, odd stranger; DC places it in the US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "RANDO"
+     ]
+    },
+    "explanation": {
+     "surface": "After six o'clock a weird stranger in Washington lurks on the porch of an old building.",
+     "walkthrough": "'After' just orders the pieces: the numeral comes first. 'Once' marks the answer as an obsolete spelling of veranda.",
+     "definitionFit": "A veranda is a roofed gallery along the outside of a house, and virando is a historic variant of that word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "six"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +757,55 @@
     "text": "Do weights but not run, old fruit",
     "enumeration": "7"
    },
-   "solution": "PUMPION"
+   "solution": "PUMPION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PUMPION",
+    "definitions": [
+     {
+      "text": "old fruit",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding something, so one letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do weights",
+      "gives": "PUMPIRON",
+      "note": "to pump iron is to lift weights"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUMPI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to lift weights but skip running, addressed to an old chum.",
+     "walkthrough": "'Old fruit' is a dated British form of address for a friend, but here it is a fruit that is old. Pumpion is the archaic word for pumpkin.",
+     "definitionFit": "Pumpion was the Elizabethan name for a pumpkin, so it is a fruit name from long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +819,54 @@
     "text": "Someone rambling without a map-reading tool",
     "enumeration": "5"
    },
-   "solution": "ROMER"
+   "solution": "ROMER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROMER",
+    "definitions": [
+     {
+      "text": "map-reading tool",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so one letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone rambling",
+      "gives": "ROAMER",
+      "note": "a roamer is someone who rambles or wanders"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "MER"
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker setting off without a map-reading tool.",
+     "walkthrough": "The surface makes 'without a map-reading tool' one phrase, but 'without a' is the instruction and the tool is the definition.",
+     "definitionFit": "A romer is a small transparent scale used with a compass to read off grid references on a map."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +880,67 @@
     "text": "Pick-up line not needed for success in northeastern estuary",
     "enumeration": "9"
    },
-   "solution": "HUMBUCKER"
+   "solution": "HUMBUCKER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HUMBUCKER",
+    "definitions": [
+     {
+      "text": "Pick-up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not needed",
+      "for": "deletion",
+      "note": "something not needed is left out, so one letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing one thing in another puts it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "success",
+      "gives": "LUCK",
+      "note": "luck is good fortune or success"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "northeastern estuary",
+      "gives": "HUMBER",
+      "note": "the Humber is the estuary on England's northeast coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUMB",
+      "UCK",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims you can pull in an estuary town without a chat-up line.",
+     "walkthrough": "'Pick-up line' looks like a chat-up line, but the hyphenated 'Pick-up' alone is the definition, a guitar component.",
+     "definitionFit": "A humbucker is a twin-coil electric-guitar pickup designed to cancel out the hum single coils produce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pick-up"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +954,54 @@
     "text": "Fundamental operating system code in core Kremlin hacked",
     "enumeration": "11"
    },
-   "solution": "MICROKERNEL"
+   "solution": "MICROKERNEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MICROKERNEL",
+    "definitions": [
+     {
+      "text": "Fundamental operating system code",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hacked",
+      "for": "anagram",
+      "note": "hacked code has been broken into and mangled, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "core Kremlin",
+      "gives": "COREKREMLIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COREKREMLIN",
+       "gives": "MICROKERNEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Essential operating system software at the heart of the Kremlin has been breached.",
+     "walkthrough": "The surface reads like a cyberattack news story; 'core' feels like part of the definition but belongs to the fodder.",
+     "definitionFit": "A microkernel is a minimal kernel providing only the basic services of an operating system, the bare foundation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "core"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1015,57 @@
     "text": "Looking back, when one emerged as a person",
     "enumeration": "3"
    },
-   "solution": "BOD"
+   "solution": "BOD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BOD",
+    "definitions": [
+     {
+      "text": "a person",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Looking back",
+      "for": "reversal",
+      "note": "looking back means facing the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when one emerged",
+      "gives": "DOB",
+      "note": "DOB, date of birth, records when a person emerged into the world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOD"
+     ],
+     "reversals": [
+      {
+       "from": "DOB",
+       "to": "BOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reflects on the moment they first came into their own.",
+     "walkthrough": "'When one emerged' sounds like a coming-of-age moment, but it means birth, abbreviated as on forms.",
+     "definitionFit": "Bod is informal British slang for a person or individual, short for body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "emerged"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +1079,62 @@
     "text": "Sweet American variety in Idahoan city",
     "enumeration": "9"
    },
-   "solution": "BAVAROISE"
+   "solution": "BAVAROISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BAVAROISE",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "variety",
+      "gives": "VAR",
+      "note": "var is the botanical abbreviation for variety"
+     },
+     {
+      "clueFragment": "Idahoan city",
+      "gives": "BOISE",
+      "note": "Boise is the state capital of Idaho"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "VAR",
+      "OISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert of American origin served in a city in Idaho.",
+     "walkthrough": "'Sweet American variety' reads as one phrase, as if the dessert were American; only 'Sweet' defines.",
+     "definitionFit": "Bavaroise is the French name for Bavarian cream, a set custard dessert, so it is a pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1148,65 @@
     "text": "Betrothal of French daughters, keeping eg Fleming around",
     "enumeration": "11"
    },
-   "solution": "FIANCAILLES"
+   "solution": "FIANCAILLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FIANCAILLES",
+    "definitions": [
+     {
+      "text": "Betrothal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it within, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eg Fleming",
+      "gives": "IAN",
+      "note": "Ian Fleming wrote the James Bond novels"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "CA",
+      "note": "ca, for circa, means around"
+     },
+     {
+      "clueFragment": "French daughters",
+      "gives": "FILLES",
+      "note": "filles is French for daughters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IAN",
+      "CA",
+      "ILLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A French family's daughters get engaged while a Fleming hangs around.",
+     "walkthrough": "'Around' looks like the container signal, but it supplies the abbreviation for circa; 'keeping' does the enclosing.",
+     "definitionFit": "Fiançailles is the French word for an engagement to marry, used in English for a formal betrothal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1220,55 @@
     "text": "Superfan invading sepulchre right away",
     "enumeration": "9"
    },
-   "solution": "INSTANTER"
+   "solution": "INSTANTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSTANTER",
+    "definitions": [
+     {
+      "text": "right away",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invading",
+      "for": "container",
+      "note": "an invader forces its way inside, so one piece enters another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sepulchre",
+      "gives": "INTER",
+      "note": "to sepulchre, as a verb, is to bury or inter"
+     },
+     {
+      "clueFragment": "Superfan",
+      "gives": "STAN",
+      "note": "a stan is slang for an obsessive fan, from the Eminem song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STAN",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "An obsessive fan breaks into a tomb straight away.",
+     "walkthrough": "'Sepulchre' is normally a noun, a tomb, but here it is the verb meaning to entomb.",
+     "definitionFit": "Instanter is a legal Latin adverb meaning immediately or at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sepulchre"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1282,51 @@
     "text": "Cases of blistering cavities son developed",
     "enumeration": "11"
    },
-   "solution": "VESICATIONS"
+   "solution": "VESICATIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VESICATIONS",
+    "definitions": [
+     {
+      "text": "Cases of blistering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cavities son",
+      "gives": "CAVITIESSON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAVITIESSON",
+       "gives": "VESICATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy's tooth cavities flared into painful blisters.",
+     "walkthrough": "'Cavities' looks medical enough to be part of the definition, but it is fodder.",
+     "definitionFit": "Vesication is the medical term for blister formation, so its plural means instances of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cavities"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1340,66 @@
     "text": "Drink noisily, using uncapped soda for liberal American cough medicine cocktail",
     "enumeration": "7"
    },
-   "solution": "SIZZURP"
+   "solution": "SIZZURP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "substitution"
+    ],
+    "answer": "SIZZURP",
+    "definitions": [
+     {
+      "text": "American cough medicine cocktail",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncapped",
+      "for": "deletion",
+      "note": "removing a cap takes off the top, so the first letter goes"
+     },
+     {
+      "text": "using",
+      "for": "substitution",
+      "note": "using one thing for another puts it in the other's place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink noisily",
+      "gives": "SLURP",
+      "note": "to slurp is to drink noisily"
+     },
+     {
+      "clueFragment": "soda",
+      "gives": "IZZ",
+      "note": "soda is fizz, and without its first letter that leaves these three"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IZZ",
+      "URP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noisily gulps a cough-syrup cocktail mixed with soda.",
+     "walkthrough": "The 'for' is the swap signal's partner: the soda letters stand in for the liberal letter.",
+     "definitionFit": "Sizzurp is US slang for a recreational drink of codeine cough syrup mixed with soda and sweets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1413,63 @@
     "text": "Accessory with feathers from duck displacing undergarment’s contents",
     "enumeration": "3"
    },
-   "solution": "BOA"
+   "solution": "BOA",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BOA",
+    "definitions": [
+     {
+      "text": "Accessory with feathers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displacing",
+      "for": "substitution",
+      "note": "to displace is to push something out and take its place"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nothing, O"
+     },
+     {
+      "clueFragment": "undergarment’s",
+      "gives": "BRA",
+      "note": "a bra is an undergarment"
+     },
+     {
+      "clueFragment": "contents",
+      "gives": "R",
+      "note": "the contents of a three-letter word are its middle letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A feathery fashion item made from a duck that has replaced the lining of underwear.",
+     "walkthrough": "'Duck' and 'feathers' together make a bird picture, but the duck is cricket's zero score.",
+     "definitionFit": "A boa is a long fluffy scarf of feathers worn round the neck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1483,57 @@
     "text": "Australian with a small pouch is to stake 100, 1000 dollars",
     "enumeration": "7"
    },
-   "solution": "BETTONG"
+   "solution": "BETTONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTONG",
+    "definitions": [
+     {
+      "text": "Australian with a small pouch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to stake",
+      "gives": "BET",
+      "note": "to bet is to stake money"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "TON",
+      "note": "a ton is slang for a hundred"
+     },
+     {
+      "clueFragment": "1000 dollars",
+      "gives": "G",
+      "note": "G, a grand, is a thousand dollars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "TON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian with a small purse puts a hundred, or a thousand dollars, on a bet.",
+     "walkthrough": "'Small pouch' suggests a wallet, but the Australian is an animal and the pouch is marsupial.",
+     "definitionFit": "A bettong is a small rat-kangaroo native to Australia, a marsupial that carries its young in a pouch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pouch"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1553,78 @@
      }
     ]
    },
-   "solution": "RAZOREDGE"
+   "solution": "RAZOREDGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "RAZOR EDGE",
+    "definitions": [
+     {
+      "text": "precarious situation?",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the outer word goes round the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Storm",
+      "gives": "RAGE",
+      "note": "to rage is to storm"
+     },
+     {
+      "clueFragment": "variable",
+      "gives": "Z",
+      "note": "z is a standard algebraic variable"
+     },
+     {
+      "clueFragment": "mineral aggregate",
+      "gives": "ORE",
+      "note": "ore is rock containing an aggregate of minerals"
+     },
+     {
+      "clueFragment": "mined",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of mined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "Z",
+      "ORE",
+      "D",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A storm hits a mining operation, leaving everyone in a perilous spot.",
+     "walkthrough": "The question mark flags that the definition is figurative: a razor's edge is a fine line, not literal steel.",
+     "definitionFit": "To be on a razor edge is an idiom for being in a critically delicate or dangerous position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Storm"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1638,48 @@
     "text": "Scottish bar was supposedly the Archbishop of Canterbury",
     "enumeration": "5"
    },
-   "solution": "RANCE"
+   "solution": "RANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANCE",
+    "definitions": [
+     {
+      "text": "Scottish bar",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was supposedly",
+      "gives": "RAN",
+      "note": "the head of an organisation supposedly runs it, past tense here"
+     },
+     {
+      "clueFragment": "the Archbishop of Canterbury",
+      "gives": "CE",
+      "note": "the Archbishop leads the Church of England, CE, so this is what he ran"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub in Scotland was reputedly once the Archbishop of Canterbury.",
+     "walkthrough": "Read the wordplay as a sentence about the Archbishop: he ran the Church of England, the 'supposedly' allowing that he only nominally does.",
+     "definitionFit": "In Scots, a rance is a prop or wooden bar used to brace or shore something up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1693,75 @@
     "text": "Would-be cultured return of Lysistrata with lead and every other couple withdrawing",
     "enumeration": "5"
    },
-   "solution": "ARTSY"
+   "solution": "ARTSY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ARTSY",
+    "definitions": [
+     {
+      "text": "Would-be cultured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawing",
+      "for": "deletion",
+      "note": "withdrawing means pulling out, so the named letters leave the word"
+     },
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the letters read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lysistrata",
+      "gives": "LYSISTRATA",
+      "note": "taken as written: the Aristophanes comedy"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "L",
+      "note": "the lead of a word is its first letter, which goes"
+     },
+     {
+      "clueFragment": "every other couple",
+      "gives": "ISAT",
+      "note": "the second and fourth pairs of letters once the first is gone, which also go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTSY"
+     ],
+     "reversals": [
+      {
+       "from": "YSTRA",
+       "to": "ARTSY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pretentious revival of the Greek comedy Lysistrata, with a lead actor and half the cast pulling out.",
+     "walkthrough": "Drop the leading L, then from the pairs YS IS TR AT A take out every other couple (IS and AT), leaving YSTRA to be read backwards.",
+     "definitionFit": "Artsy is informal for pretentiously artistic, aspiring to culture without quite achieving it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1775,56 @@
     "text": "Indigenous Siberian’s shaggy ox just shorn of odd parts",
     "enumeration": "5"
    },
-   "solution": "YAKUT"
+   "solution": "YAKUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "YAKUT",
+    "definitions": [
+     {
+      "text": "Indigenous Siberian’s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shorn of odd parts",
+      "for": "letter_selection",
+      "note": "cutting away the odd-numbered positions keeps only the even letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaggy ox",
+      "gives": "YAK",
+      "note": "the yak is a long-haired ox of Central Asia"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "UT",
+      "select": "alternate",
+      "note": "second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAK",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Siberian's long-haired ox has just been sheared of its odd bits.",
+     "walkthrough": "The 's after Siberian reads as 'Siberian is', the link to the wordplay.",
+     "definitionFit": "The Yakuts, or Sakha, are a Turkic people native to northeastern Siberia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1838,68 @@
     "text": "Uproar in Québec, at the US’s private backing for reptile",
     "enumeration": "7"
    },
-   "solution": "IGUANID"
+   "solution": "IGUANID",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "IGUANID",
+    "definitions": [
+     {
+      "text": "reptile",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving in reverse, so the whole string reads the other way"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uproar",
+      "gives": "DIN",
+      "note": "a din is an uproar"
+     },
+     {
+      "clueFragment": "in Québec, at the",
+      "gives": "AU",
+      "note": "au is French for 'at the', the language of Québec"
+     },
+     {
+      "clueFragment": "US’s private",
+      "gives": "GI",
+      "note": "a GI is an American private soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGUANID"
+     ],
+     "reversals": [
+      {
+       "from": "DINAUGI",
+       "to": "IGUANID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commotion in Québec as an American soldier backs away from a reptile.",
+     "walkthrough": "'In Québec' looks like a location in the story, but it tells you to translate 'at the' into French.",
+     "definitionFit": "An iguanid is any lizard of the iguana family, so it is one kind of reptile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Québec"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1913,42 @@
     "text": "Mean and disgruntled, by the look of it",
     "enumeration": "3"
    },
-   "solution": "DEF"
+   "solution": "DEF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEF",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     },
+     {
+      "text": "disgruntled, by the look of it",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean",
+      "note": "first meaning: excellent, as in hip-hop slang where a mean guitarist is a great one"
+     },
+     {
+      "clueFragment": "disgruntled, by the look of it",
+      "note": "second meaning: the word looks like a cut-down 'deaf' or 'defiant', a scowling sort of word, which the setter treats playfully"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mean' tempts as nasty or average; in slang it is high praise, matching the hip-hop adjective. The second half is a loose, visual joke rather than a strict meaning.",
+     "definitionFit": "Def is street slang for excellent or cool, the same approving sense that mean carries in phrases like a mean cook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1968,67 @@
      }
     ]
    },
-   "solution": "NUTHOOK"
+   "solution": "NUTHOOK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NUT-HOOK",
+    "definitions": [
+     {
+      "text": "Bailiff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolished",
+      "for": "anagram",
+      "note": "something demolished is knocked apart, so its letters are rebuilt in a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "this preposition places one thing within another, so one string goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hut",
+      "gives": "HUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sheltered place",
+      "gives": "NOOK",
+      "note": "a nook is a sheltered corner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "UTH",
+      "OOK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HUT",
+       "gives": "UTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bailiff knocks down a shack in a sheltered spot.",
+     "walkthrough": "Nuthook is a Shakespearean insult for a constable or bailiff, one who hooks people as a hooked pole pulls down nuts.",
+     "definitionFit": "Shakespeare uses nuthook as contemptuous slang for a beadle or officer who arrests people, much like a bailiff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "demolished"
+    }
+   }
   },
   {
    "number": 27,
@@ -474,7 +2042,64 @@
     "text": "Quiet comeback of this album will supply docile followers",
     "enumeration": "5"
    },
-   "solution": "ELPEE"
+   "solution": "ELPEE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELPEE",
+    "definitions": [
+     {
+      "text": "album",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "ELPEE",
+      "note": "'this' points at the answer itself, which is the album"
+     },
+     {
+      "clueFragment": "Quiet",
+      "note": "sh, the call for silence, goes in front of the turned-round word to form the second word; it adds nothing to the grid entry"
+     },
+     {
+      "clueFragment": "will supply docile followers",
+      "note": "the result of the reverse-clue operation: a slang word for people who follow the herd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELPEE"
+     ],
+     "reversals": [
+      {
+       "from": "EEPLE",
+       "to": "ELPEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet comeback album is expected to appeal to loyal unquestioning fans.",
+     "walkthrough": "A reverse clue: the answer is fodder, not result. Reverse it to EEPLE, put SH in front, and you get SHEEPLE, the docile followers the clue promises.",
+     "definitionFit": "Elpee is the spelt-out form of LP, a long-playing record, which is an album."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "this"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +2119,56 @@
      }
     ]
    },
-   "solution": "FOLKRIGHT"
+   "solution": "FOLKRIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "FOLK-RIGHT",
+    "definitions": [
+     {
+      "text": "Common law",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after switching sides",
+      "for": "substitution",
+      "note": "the two sides are left and right, so each word swaps one for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to divide",
+      "gives": "FORK",
+      "note": "to fork is to divide into branches"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "LIGHT",
+      "note": "to light is to land or settle, as a bird lights on a branch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOLK",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Customary law about splitting up property once the parties have changed allegiance.",
+     "walkthrough": "'Switching sides' sounds like defecting; here L for left and R for right trade places, R becoming L in one word and L becoming R in the other.",
+     "definitionFit": "Folkright is the Old English term for customary law belonging to the people, the root of common law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sides"
+    }
+   }
   }
  ]
 }
