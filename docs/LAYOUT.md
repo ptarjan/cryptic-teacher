@@ -676,6 +676,14 @@ tools/test_series_hub.sh                     does /puzzles/ describe each series
                                              series' puzzle total, and each series with enough
                                              rated puzzles gets a difficulty strip whose median
                                              sits where its middle puzzle is
+tools/test_date_numbers.sh                   is a date-keyed puzzle number (Metro, the Canberra
+                                             Times) named by its day? Their papers print no
+                                             number, so the stored number is the print date,
+                                             and formatting it as a number gave "Cryptic
+                                             20,260,922 answers explained". Renders every
+                                             numberIsDate series' page and refuses a separated
+                                             number in the title, heading, description or
+                                             archive row
 
 syncing between devices and telling them about new puzzles, with no login and no accounts
 sync/worker.js                               the Cloudflare Worker: merges saves and events in
