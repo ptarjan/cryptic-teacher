@@ -1435,7 +1435,7 @@ def abbreviations_page(blocks):
     A lookup table is a destination, not a chapter: somebody who wants to know
     what CH means in a crossword is not reading a beginner's guide, and a query
     that specific deserves a URL that answers it in the first screen. Rendered
-    from tools/data/abbreviations.json through the same function that writes the
+    from build_abbreviations.table() through the same function that writes the
     in-app table, so the page a search lands on and the row a hint jumps to
     cannot disagree.
     """
