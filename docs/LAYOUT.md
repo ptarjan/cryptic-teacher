@@ -1173,5 +1173,7 @@ tools/test_archive_org_jumbo.sh              does tools/archive_org_jumbo.py tak
                                              the clue columns left of the Times Two's, and
                                              match a solution grid by its blocks when its
                                              middle prints grey?
+tools/test_difficulty_barred.sh              does a barred grid keep `checking` out of its
+                                             difficulty rating?
 ```
 <!-- LAYOUT-END -->
