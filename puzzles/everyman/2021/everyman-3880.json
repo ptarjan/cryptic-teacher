@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Fine food, a weakness",
     "enumeration": "8"
    },
-   "solution": "DELICACY"
+   "solution": "DELICACY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DELICACY",
+    "definitions": [
+     {
+      "text": "Fine food",
+      "at": 0
+     },
+     {
+      "text": "a weakness",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine food",
+      "note": "first meaning: a choice, rare dish prized by gourmets"
+     },
+     {
+      "clueFragment": "a weakness",
+      "note": "second meaning: frailty or fragility of health or build"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The comma makes it read as if a gourmet admits a soft spot for fine food; in fact the two phrases are separate meanings of one word.",
+     "definitionFit": "The word names a choice dish, and also frailty, as in the delicacy of a sickly child's constitution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "weakness"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,46 @@
     "text": "A little shade's ignored in sketch",
     "enumeration": "6"
    },
-   "solution": "DESIGN"
+   "solution": "DESIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DESIGN",
+    "definitions": [
+     {
+      "text": "sketch",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "a little of something is only a small portion, so just a short run of letters is wanted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shade's ignored",
+      "gives": "DESIGN",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist leaves out the shading in a quick drawing.",
+     "walkthrough": "The letters sit across the gap: shaDE'S IGNored, with the apostrophe ignored.",
+     "definitionFit": "A sketch is a preliminary drawing or plan, which is one sense of the noun used by artists and architects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +139,63 @@
     "text": "Change course: slippery fish turns around with room to manoeuvre",
     "enumeration": "6"
    },
-   "solution": "LEEWAY"
+   "solution": "LEEWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LEEWAY",
+    "definitions": [
+     {
+      "text": "room to manoeuvre",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns around",
+      "for": "reversal",
+      "note": "turning around faces the other way, so the letters built so far are read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change course",
+      "gives": "YAW",
+      "note": "to yaw is for a ship or plane to swing off its heading"
+     },
+     {
+      "clueFragment": "slippery fish",
+      "gives": "EEL",
+      "note": "the eel is the proverbially slippery fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEEWAY"
+     ],
+     "reversals": [
+      {
+       "from": "YAWEEL",
+       "to": "LEEWAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor steers around a slippery fish in the water, making space to move.",
+     "walkthrough": "The reversal covers both pieces together, not just the fish: YAW plus EEL, read backwards, gives LEE + WAY.",
+     "definitionFit": "Leeway is slack or margin for freedom of action, originally the drift a ship makes downwind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +215,68 @@
      }
     ]
    },
-   "solution": "COSTARICA"
+   "solution": "COSTARICA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "COSTA RICA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece placed on another sits above it, so it comes first"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "saying a word is not there means its letter must be taken away"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "value",
+      "gives": "COST",
+      "note": "the cost of something is its value or price"
+     },
+     {
+      "clueFragment": "continent",
+      "gives": "AFRICA",
+      "note": "a continent"
+     },
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international vehicle code for France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COST",
+      "ARICA"
+     ]
+    },
+    "explanation": {
+     "surface": "A country is judged by its value to a continent, France excepted.",
+     "walkthrough": "F is the international vehicle code for France, so taking it out of the continent's name leaves the second half of the country.",
+     "definitionFit": "Costa Rica is a Central American republic between Nicaragua and Panama, so it is a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +300,54 @@
      }
     ]
    },
-   "solution": "CORNEDBEEFHASH"
+   "solution": "CORNEDBEEFHASH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORNED BEEF HASH",
+    "definitions": [
+     {
+      "text": "meaty supper",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fried",
+      "for": "anagram",
+      "note": "frying cooks and breaks food down, so these letters are scrambled into new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He’s fed her bacon",
+      "gives": "HESFEDHERBACON",
+      "note": "all fourteen letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESFEDHERBACON",
+       "gives": "CORNEDBEEFHASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man cooks his partner a fry-up of bacon for dinner.",
+     "walkthrough": "'Fried' sits comfortably with bacon, which hides that it is the signal to rearrange.",
+     "definitionFit": "Corned beef hash is a dish of chopped salt beef fried with potato, a hearty evening meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fried"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +361,55 @@
     "text": "Primarily unrealistic? Thomas once pictured it acerbically!",
     "enumeration": "6"
    },
-   "solution": "UTOPIA"
+   "solution": "UTOPIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "UTOPIA",
+    "definitions": [
+     {
+      "text": "Primarily unrealistic? Thomas once pictured it acerbically!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so the opening letter of each following word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unrealistic? Thomas once pictured it acerbically",
+      "gives": "UTOPIA",
+      "select": "first",
+      "note": "the initial letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "T",
+      "O",
+      "P",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly remark that Thomas More's imagined world was a sardonic, unrealistic dream.",
+     "walkthrough": "The whole clue is also the definition: Sir Thomas More wrote Utopia in 1516, a satirical picture of an ideal but impossible commonwealth.",
+     "definitionFit": "More's book named an imaginary perfect society, and the word now means any impractical ideal state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Primarily"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +423,66 @@
     "text": "Shin up, Everyman? In a bit",
     "enumeration": "5"
    },
-   "solution": "TIBIA"
+   "solution": "TIBIA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TIBIA",
+    "definitions": [
+     {
+      "text": "Shin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so a letter goes inside the phrase"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry going up means reading from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit",
+      "gives": "ABIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter, Everyman, refers to himself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIBIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIBIT",
+       "to": "TIBIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the setter will shin up something in a moment.",
+     "walkthrough": "'Shin up' reads as climbing, but the shin is the definition and 'up' the reversal. I goes into A BIT to make AIBIT.",
+     "definitionFit": "The tibia is the inner, larger bone of the lower leg, commonly called the shinbone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shin"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +496,55 @@
     "text": "GNP's fine! Rolling in cash ... once",
     "enumeration": "8"
    },
-   "solution": "PFENNIGS"
+   "solution": "PFENNIGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PFENNIGS",
+    "definitions": [
+     {
+      "text": "cash ... once",
+      "at": 23,
+      "note": "plural coins rather than mass noun cash"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rolling",
+      "for": "anagram",
+      "note": "rolling things tumble over and over, so the letters are tossed into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "GNP's fine",
+      "gives": "GNPSFINE",
+      "note": "the letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GNPSFINE",
+       "gives": "PFENNIGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An economist cheers the national output: the country was once rolling in money.",
+     "walkthrough": "'Rolling in cash' is a ready-made idiom for wealth, which disguises 'Rolling' as the signal and 'cash ... once' as the definition.",
+     "definitionFit": "Pfennigs were the small German coins, a hundredth of a mark, withdrawn when the euro arrived."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rolling"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +558,68 @@
     "text": "A holy book ... solemn vow ... what else? Finally, something to combat evil",
     "enumeration": "8"
    },
-   "solution": "ANTIDOTE"
+   "solution": "ANTIDOTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANTIDOTE",
+    "definitions": [
+     {
+      "text": "something to combat evil",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so the closing letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "holy book",
+      "gives": "NT",
+      "note": "NT is the New Testament"
+     },
+     {
+      "clueFragment": "solemn vow",
+      "gives": "IDO",
+      "note": "the marriage vow 'I do'"
+     },
+     {
+      "clueFragment": "what else",
+      "gives": "TE",
+      "select": "last",
+      "note": "the final letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NT",
+      "IDO",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of religious defences against evil: scripture, a sacred vow, and anything else.",
+     "walkthrough": "'Finally' seems to introduce the definition, but it acts on the two words before it.",
+     "definitionFit": "An antidote is a remedy that counteracts poison, and loosely anything that cures or counters an ill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Finally"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +643,88 @@
      }
     ]
    },
-   "solution": "BANGERSANDMASH"
+   "solution": "BANGERSANDMASH",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BANGERS AND MASH",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so a letter is absorbed into the group"
+     },
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "something done terribly is done badly and out of order, so the letters are jumbled"
+     },
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "a drained vessel has its contents emptied, leaving only the outside letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad manners",
+      "gives": "BADMANNERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gallons",
+      "gives": "G",
+      "note": "G is the abbreviation for gallons"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sirah",
+      "gives": "SH",
+      "select": "outer",
+      "note": "the first and last letters; Sirah is a red wine grape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANGERSANDM",
+      "A",
+      "SH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BADMANNERSG",
+       "gives": "BANGERSANDM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boorish diner guzzles gallons of red wine and drains the glass over dinner.",
+     "walkthrough": "G goes into BAD MANNERS, those letters are rearranged, then A and SH follow. Bangers are sausages, and mash is mashed potato.",
+     "definitionFit": "Bangers and mash, sausages with mashed potato, is a classic British pub dish, so it is a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drained"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +738,60 @@
     "text": "Poet writes; 'special' Queen Elizabeth described!",
     "enumeration": "7"
    },
-   "solution": "SPENSER"
+   "solution": "SPENSER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPENSER",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "described",
+      "for": "container",
+      "note": "to describe a figure in geometry is to draw a line around it, so outer letters enclose the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'special'",
+      "gives": "S",
+      "note": "S is a dictionary abbreviation for special"
+     },
+     {
+      "clueFragment": "writes",
+      "gives": "PENS",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "Queen Elizabeth",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the royal cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PENS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet writes about a special subject, Queen Elizabeth.",
+     "walkthrough": "The surface is apt: Edmund Spenser's The Faerie Queene celebrated Elizabeth I as Gloriana.",
+     "definitionFit": "Edmund Spenser was the Elizabethan author of The Faerie Queene, a major English verse writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "described"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +805,65 @@
     "text": "Marmite regularly seen around in France: well, that's relaxing",
     "enumeration": "7"
    },
-   "solution": "AMBIENT"
+   "solution": "AMBIENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AMBIENT",
+    "definitions": [
+     {
+      "text": "relaxing",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other letter is taken"
+     },
+     {
+      "text": "seen around",
+      "for": "container",
+      "note": "being seen around something means surrounding it, so those letters wrap the next piece"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marmite",
+      "gives": "AMT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "in France: well",
+      "gives": "BIEN",
+      "note": "bien is French for well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "BIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Marmite turns up all over France, which is apparently soothing news. Marmite is a yeast-extract spread.",
+     "walkthrough": "Take the even letters, not the odd ones, of Marmite; 'in France' tells you to put the next word into French.",
+     "definitionFit": "Ambient describes calm, atmospheric music or surroundings meant to soothe, so it can mean restful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marmite"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +877,47 @@
     "text": "Reported harvest in country",
     "enumeration": "5"
    },
-   "solution": "GHANA"
+   "solution": "GHANA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GHANA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harvest",
+      "gives": "GHANA",
+      "soundsLike": "GARNER",
+      "note": "to garner is to gather in a crop; with a non-rhotic British accent the two words sound alike"
+     }
+    ],
+    "explanation": {
+     "surface": "News of a harvest in some country.",
+     "walkthrough": "The match relies on British pronunciation, where the R of garner is silent.",
+     "definitionFit": "Ghana is a West African nation, formerly the Gold Coast, so it fits a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "harvest"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +931,66 @@
     "text": "Instilled deeply in English: bad weather and, regularly, feuds",
     "enumeration": "9"
    },
-   "solution": "ENGRAINED"
+   "solution": "ENGRAINED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ENGRAINED",
+    "definitions": [
+     {
+      "text": "Instilled deeply",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means alternate letters are taken"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "ENG",
+      "note": "Eng is the standard abbreviation"
+     },
+     {
+      "clueFragment": "bad weather",
+      "gives": "RAIN",
+      "note": "rain is bad weather"
+     },
+     {
+      "clueFragment": "feuds",
+      "gives": "ED",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENG",
+      "RAIN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Rain and quarrels are deeply rooted in English life.",
+     "walkthrough": "'In English' looks like part of the definition, but 'in' only links and English supplies ENG.",
+     "definitionFit": "Something engrained is fixed firmly, like dirt worked into the fibres, so a habit firmly implanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1010,87 @@
      }
     ]
    },
-   "solution": "WILBURWRIGHT"
+   "solution": "WILBURWRIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "WILBUR WRIGHT",
+    "definitions": [
+     {
+      "text": "pilot",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "sent around means turned about and mixed, so these letters are reordered"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so the word is read from its end"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone takes them in, so one group of letters receives another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whirl",
+      "gives": "WHIRL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "twig",
+      "gives": "TWIG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rub",
+      "gives": "RUB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIL",
+      "BUR",
+      "WRIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHIRLTWIG",
+       "gives": "WILWRIGHT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RUB",
+       "to": "BUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spins a stick about, then gives the pilot a back rub.",
+     "walkthrough": "'Back rub' is a familiar phrase, but 'back' acts on rub alone. WHIRL and TWIG together are the letters rearranged.",
+     "definitionFit": "Wilbur Wright and his brother Orville made the first powered aeroplane flights in 1903, so he was an aviator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1110,58 @@
      }
     ]
    },
-   "solution": "RYEBREADS"
+   "solution": "RYEBREADS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RYE BREADS",
+    "definitions": [
+     {
+      "text": "baked goods",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Skipping starter",
+      "for": "deletion",
+      "note": "skipping the starter means passing over the first course, so the opening letter is dropped"
+     },
+     {
+      "text": "chewed",
+      "for": "anagram",
+      "note": "chewing mashes things up, so the letters are mixed into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greybeard's",
+      "gives": "GREYBEARDS",
+      "note": "the word with its S, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REYBEARDS",
+       "gives": "RYEBREADS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old man passes on the first course and munches bread instead.",
+     "walkthrough": "'Starter' sounds like a dinner course, but it means the first letter, G.",
+     "definitionFit": "Rye breads are loaves made with rye flour, products of a baker's oven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1175,54 @@
     "text": "In ancient culture, centaurs made merry",
     "enumeration": "8"
    },
-   "solution": "ETRUSCAN"
+   "solution": "ETRUSCAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETRUSCAN",
+    "definitions": [
+     {
+      "text": "ancient culture",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made merry",
+      "for": "anagram",
+      "note": "making merry is wild revelry, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centaurs",
+      "gives": "CENTAURS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CENTAURS",
+       "gives": "ETRUSCAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In some old civilisation, the half-horse centaurs held a party.",
+     "walkthrough": "Centaurs suit a classical scene, which hides that they are only letters.",
+     "definitionFit": "The Etruscan civilisation flourished in central Italy before Rome, so the word names that early people and way of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centaurs"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1242,66 @@
      }
     ]
    },
-   "solution": "JEWSHARP"
+   "solution": "JEWSHARP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JEWS HARP",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "charade",
+      "note": "around can mean near or close by, so the pieces simply sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese",
+      "gives": "J",
+      "note": "J is the abbreviation for Japanese"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E for Eastern"
+     },
+     {
+      "clueFragment": "West",
+      "gives": "W",
+      "note": "W for West"
+     },
+     {
+      "clueFragment": "sounding out of tune",
+      "gives": "SHARP",
+      "note": "a note sounding sharp is slightly too high"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "E",
+      "W",
+      "SHARP"
+     ]
+    },
+    "explanation": {
+     "surface": "A Japanese instrument from the East sounds out of tune compared with Western ones.",
+     "walkthrough": "'Around' looks like a container signal, but W cannot go inside SHARP; it just stands beside it.",
+     "definitionFit": "A Jew's harp is a small metal frame held in the mouth and twanged, a simple musical device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1321,62 @@
      }
     ]
    },
-   "solution": "THECARETAKER"
+   "solution": "THECARETAKER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THE CARETAKER",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means it is taken out"
+     },
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned means wild and unrestrained, so the letters run loose into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theatre backer",
+      "gives": "THEATREBACKER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bold",
+      "gives": "B",
+      "note": "B is the printer's abbreviation for bold"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEATREACKER",
+       "gives": "THECARETAKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timid investor in a theatre walked away from a production.",
+     "walkthrough": "The theatre setting makes 'backer' look like the definition; it is just letters, and the play is the definition.",
+     "definitionFit": "The Caretaker is Harold Pinter's 1960 drama about a tramp and two brothers, a famous stage work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backer"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1390,64 @@
     "text": "Enemies in European and Irish rising",
     "enumeration": "6"
    },
-   "solution": "RIVALS"
+   "solution": "RIVALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RIVALS",
+    "definitions": [
+     {
+      "text": "Enemies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry rising goes from bottom to top, so the letters read backwards"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "SLAV",
+      "note": "a Slav is a European from the east"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "Ir is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIVALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLAVIR",
+       "to": "RIVALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foes among Europeans and the Irish stage an uprising.",
+     "walkthrough": "'Rising' suggests a revolt, as in the Easter Rising, but it turns the letters upward.",
+     "definitionFit": "Rivals are opponents competing for the same goal, so they are foes in a looser sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1467,70 @@
      }
     ]
    },
-   "solution": "BEATIT"
+   "solution": "BEATIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BEAT IT",
+    "definitions": [
+     {
+      "text": "fly",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     },
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "going after means following, so those pieces are placed later"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bee",
+      "gives": "BE",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "the tit is a small songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "A",
+      "TIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird chases a bee, and a fly too.",
+     "walkthrough": "'Fly' looks like another insect in the chase, but it is the verb meaning to flee.",
+     "definitionFit": "Beat it is slang for go away quickly, and to fly can mean to run off in haste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1550,43 @@
      }
     ]
    },
-   "solution": "UNSCATHED"
+   "solution": "UNSCATHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNSCATHED",
+    "definitions": [
+     {
+      "text": "free from injury",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only a portion, so a run of letters is lifted from the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shuns cat (hedgehog",
+      "gives": "UNSCATHED",
+      "note": "the run starting after the first two letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A hedgehog avoids the cat and so escapes unhurt.",
+     "walkthrough": "The letters run across three words: shUNS CAT HEDgehog, and the surface even acts out the meaning.",
+     "definitionFit": "Unscathed means emerging without harm or a scratch, which is to be uninjured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shuns"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1600,57 @@
     "text": "Conscious of feature missing in tea set",
     "enumeration": "5"
    },
-   "solution": "AWARE"
+   "solution": "AWARE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AWARE",
+    "definitions": [
+     {
+      "text": "Conscious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing in",
+      "for": "deletion",
+      "note": "whatever is missing in a group is absent from it, so letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea set",
+      "gives": "TEAWARE",
+      "note": "teaware is the crockery for serving tea"
+     },
+     {
+      "clueFragment": "feature",
+      "gives": "ET",
+      "note": "E.T. is the 1982 Spielberg feature film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices that a piece is missing from the tea service.",
+     "walkthrough": "'Feature' suggests a characteristic, but it means a feature film, here E.T., whose two letters are scattered through TEAWARE.",
+     "definitionFit": "To be aware is to have knowledge or perception of something, a synonym for being awake to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "feature"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1664,64 @@
     "text": "Horned beast losing oxygen and energy in river",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RHINE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horned beast",
+      "gives": "RHINO",
+      "note": "the rhino has a horn on its snout"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rhinoceros struggles for breath and strength while wading in a river.",
+     "walkthrough": "The O of RHINO comes off and E takes its place at the end.",
+     "definitionFit": "The Rhine is a major European waterway flowing from the Swiss Alps to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1735,61 @@
     "text": "Tax part of ... most of ... unsophisticated neckwear",
     "enumeration": "7"
    },
-   "solution": "CRAVATS"
+   "solution": "CRAVATS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CRAVATS",
+    "definitions": [
+     {
+      "text": "neckwear",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word is all but its last letter"
+     },
+     {
+      "text": "part of",
+      "for": "container",
+      "note": "becoming part of something means being taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsophisticated",
+      "gives": "CRAS",
+      "note": "crass, missing its final letter"
+     },
+     {
+      "clueFragment": "Tax",
+      "gives": "VAT",
+      "note": "VAT, value added tax, is the British sales tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRA",
+      "VAT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Taxing showy ties as part of a tirade against vulgar fashion.",
+     "walkthrough": "The surface reads 'part of' as a fraction of the tax; it means the tax goes inside the shortened adjective.",
+     "definitionFit": "Cravats are broad scarves or ties worn knotted around the throat, so they are items worn at the collar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tax"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1803,46 @@
     "text": "Pop act of the '80s, The Firm?",
     "enumeration": "7"
    },
-   "solution": "ADAMANT"
+   "solution": "ADAMANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADAMANT",
+    "definitions": [
+     {
+      "text": "Pop act of the '80s",
+      "at": 0
+     },
+     {
+      "text": "Firm",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pop act of the '80s",
+      "note": "first meaning: a 1980s new-wave singer with Antmusic hits, his stage name run together as one word"
+     },
+     {
+      "clueFragment": "Firm",
+      "note": "second meaning: unshakeable in resolve"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The Firm' sounds like the name of a band or record label; it is simply the adjective, and the singer's name is run together.",
+     "definitionFit": "Someone adamant refuses to be swayed, so they are resolute and unyielding in a position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1856,52 @@
     "text": "Where you see Italians get some shut-eye ... and the French",
     "enumeration": "6"
    },
-   "solution": "NAPLES"
+   "solution": "NAPLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAPLES",
+    "definitions": [
+     {
+      "text": "Where you see Italians",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "get",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some shut-eye",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is French for the, plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "Italians, and the French too, enjoy an afternoon siesta.",
+     "walkthrough": "The definition plays on the saying 'See Naples and die'.",
+     "definitionFit": "Naples is a large southern Italian city, a place full of local people, so somewhere visitors meet them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1921,68 @@
      }
     ]
    },
-   "solution": "CHESSSET"
+   "solution": "CHESSSET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHESS SET",
+    "definitions": [
+     {
+      "text": "kings, queens, etc",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Given",
+      "for": "charade",
+      "note": "given here means added on, so pieces are joined together"
+     },
+     {
+      "text": "oddly missing",
+      "for": "letter_selection",
+      "note": "with the odd letters missing only the even-numbered ones remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary"
+     },
+     {
+      "clueFragment": "three seconds",
+      "gives": "SSS",
+      "note": "S is the abbreviation for second, three times"
+     },
+     {
+      "clueFragment": "lefty",
+      "gives": "ET",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "SSS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing radical, given a few seconds, ends up without royalty.",
+     "walkthrough": "'Kings, queens' points to royalty, but these are the pieces on a board.",
+     "definitionFit": "A chess set contains the pieces of the board game: two kings and queens, plus bishops, knights, rooks and pawns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kings"
+    }
+   }
   }
  ]
 }
