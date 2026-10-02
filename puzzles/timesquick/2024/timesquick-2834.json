@@ -24,6 +24,9 @@
   "date": "2024-11-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "Republican did a test, screening people running for office",
     "enumeration": "10"
    },
-   "solution": "CANDIDATES"
+   "solution": "CANDIDATES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANDIDATES",
+    "definitions": [
+     {
+      "text": "people running for office",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screening",
+      "for": "hidden_word",
+      "note": "to screen is to shield from view, so the wanted word sits concealed inside the run of text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican did a test",
+      "gives": "CANDIDATES",
+      "note": "the letters run across the end of the first word, the next three words, and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A Republican politician vets the field of hopefuls with some kind of examination.",
+     "walkthrough": "The political surface makes 'Republican' look like an R or a GOP reference; here it simply supplies its last three letters to the concealed word.",
+     "definitionFit": "Candidates are those standing for election, so the phrase describes them exactly as a plain paraphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +90,61 @@
     "text": "Embarrassing Conservative — awful Tory whinger",
     "enumeration": "12"
    },
-   "solution": "CRINGEWORTHY"
+   "solution": "CRINGEWORTHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CRINGEWORTHY",
+    "definitions": [
+     {
+      "text": "Embarrassing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a terrible state, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "Tory whinger",
+      "gives": "TORYWHINGER",
+      "note": "the eleven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RINGEWORTHY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TORYWHINGER",
+       "gives": "RINGEWORTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about an embarrassing Conservative politician who never stops moaning.",
+     "walkthrough": "'Awful' reads as a judgment on the Tory, but it is the signal to rearrange the two words that follow; a whinger is a British word for a habitual complainer.",
+     "definitionFit": "Something cringeworthy makes people wince with secondhand shame, which is a direct synonym for embarrassing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +158,64 @@
     "text": "European shortly will spin around a piece of rope",
     "enumeration": "5"
    },
-   "solution": "NOOSE"
+   "solution": "NOOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NOOSE",
+    "definitions": [
+     {
+      "text": "a piece of rope",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spin around",
+      "for": "reversal",
+      "note": "spinning around turns something to face the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "will"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "shortly",
+      "gives": "SOON",
+      "note": "shortly means before long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOS",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ESOON",
+       "to": "NOOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from the continent is about to start twirling a length of rope.",
+     "walkthrough": "'Shortly' looks like an instruction to shorten a word, but it is just a synonym; the whole string is then read backwards.",
+     "definitionFit": "A noose is a loop tied in a length of cord with a running knot, so it is a specific piece of rope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +229,59 @@
     "text": "Yours truly, extremely catty and hostile",
     "enumeration": "3"
    },
-   "solution": "ICY"
+   "solution": "ICY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ICY",
+    "definitions": [
+     {
+      "text": "hostile",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yours truly",
+      "gives": "I",
+      "note": "'yours truly' is the writer referring to themselves, which is I"
+     },
+     {
+      "clueFragment": "catty",
+      "gives": "CY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CY"
+     ]
+    },
+    "explanation": {
+     "surface": "The writer admits to being very spiteful and unfriendly.",
+     "walkthrough": "'Extremely' looks like an intensifier for 'catty', but it picks out that word's two end letters.",
+     "definitionFit": "An icy manner is cold and unfriendly, so the word is a figurative synonym for hostile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +295,53 @@
     "text": "A queen forbidding great passion",
     "enumeration": "6"
    },
-   "solution": "ARDOUR"
+   "solution": "ARDOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARDOUR",
+    "definitions": [
+     {
+      "text": "great passion",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R stands for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "forbidding",
+      "gives": "DOUR",
+      "note": "forbidding in the sense of stern and grim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "DOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch banning intense romantic feeling.",
+     "walkthrough": "'Forbidding' reads as a verb, banning something, but it is the adjective meaning stern; R for queen comes from Regina.",
+     "definitionFit": "Ardour is intense enthusiasm or fervent love, a close synonym for strong passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forbidding"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +355,57 @@
     "text": "In novella, rot celebrity turned up about voting",
     "enumeration": "9"
    },
-   "solution": "ELECTORAL"
+   "solution": "ELECTORAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ELECTORAL",
+    "definitions": [
+     {
+      "text": "about voting",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the wanted letters lie inside the following stretch of text"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something upward makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novella, rot celebrity",
+      "gives": "LAROTCELE",
+      "note": "the run of letters from the end of the first word to the start of the last"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LAROTCELE",
+       "to": "ELECTORAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A literary complaint that a famous person's short novel is rubbish.",
+     "walkthrough": "'Rot' looks like a jumble signal, but here it is part of the text holding the answer, which runs backwards through it.",
+     "definitionFit": "Electoral describes anything relating to elections, so it means concerning the casting of ballots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rot"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +419,55 @@
     "text": "Endless shock, working for e-tailing giant",
     "enumeration": "6"
    },
-   "solution": "AMAZON"
+   "solution": "AMAZON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AMAZON",
+    "definitions": [
+     {
+      "text": "e-tailing giant",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shock",
+      "gives": "AMAZ",
+      "note": "to amaze is to shock; its last letter goes"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMAZ",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Constant upheaval for staff employed by a giant online retailer.",
+     "walkthrough": "'Shock' looks like a noun here, but its verb sense supplies the letters before the tail is cut.",
+     "definitionFit": "Amazon is the world's best-known online retailer, so e-tailing giant is a description of the company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +481,55 @@
     "text": "Ridiculous trousers Pope gets tailored",
     "enumeration": "12"
    },
-   "solution": "PREPOSTEROUS"
+   "solution": "PREPOSTEROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PREPOSTEROUS",
+    "definitions": [
+     {
+      "text": "Ridiculous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailored",
+      "for": "anagram",
+      "note": "tailored clothing is cut and refashioned, so the letters are remade into a new form"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers Pope",
+      "gives": "TROUSERSPOPE",
+      "note": "the twelve letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TROUSERSPOPE",
+       "gives": "PREPOSTEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The pontiff having his absurd trousers altered by a tailor.",
+     "walkthrough": "'Tailored' fits the trousers so well in the surface that it hides its job as the signal to rearrange.",
+     "definitionFit": "Preposterous means utterly absurd or contrary to reason, a direct synonym for ridiculous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tailored"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +543,59 @@
     "text": "Off-white climbing plant with gold in the middle",
     "enumeration": "5"
    },
-   "solution": "IVORY"
+   "solution": "IVORY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IVORY",
+    "definitions": [
+     {
+      "text": "Off-white",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "paired with the following phrase, having something with a centre means one piece holds another inside"
+     },
+     {
+      "text": "in the middle",
+      "for": "container",
+      "note": "placing something at the centre puts it inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climbing plant",
+      "gives": "IVY",
+      "note": "ivy is a common climbing plant"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "OR is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IV",
+      "OR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a pale climbing flower with a golden centre.",
+     "walkthrough": "OR is the heraldic word for gold, a standard crossword stand-in.",
+     "definitionFit": "Ivory is the creamy colour of elephant tusk, an off-white shade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +609,58 @@
     "text": "Idealist’s article in German covering many sheets of paper",
     "enumeration": "7"
    },
-   "solution": "DREAMER"
+   "solution": "DREAMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAMER",
+    "definitions": [
+     {
+      "text": "Idealist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something here is to wrap around it, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article in German",
+      "gives": "DER",
+      "note": "der is a German definite article"
+     },
+     {
+      "clueFragment": "many sheets of paper",
+      "gives": "REAM",
+      "note": "a ream is a large quantity of paper, traditionally 500 sheets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "REAM",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosopher's essay in German running to hundreds of pages.",
+     "walkthrough": "The apostrophe-s reads as a possessive but stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A dreamer is someone with impractical, utopian hopes, which is a common sense of idealist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Idealist’s"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +680,65 @@
      }
     ]
    },
-   "solution": "GREATAUNT"
+   "solution": "GREATAUNT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GREAT-AUNT",
+    "definitions": [
+     {
+      "text": "Female relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred up",
+      "for": "anagram",
+      "note": "stirring mixes the contents, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rage",
+      "gives": "RAGE",
+      "note": "the four letters to be rearranged"
+     },
+     {
+      "clueFragment": "jibe",
+      "gives": "TAUNT",
+      "note": "a jibe is a mocking remark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREA",
+      "TAUNT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAGE",
+       "gives": "GREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aunt who flies into a fury after a mocking remark.",
+     "walkthrough": "'Stirred up' sounds like part of the anger story, but it acts on the letters of 'rage'.",
+     "definitionFit": "A great-aunt is a parent's aunt, so she is a woman in the family tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stirred"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +758,59 @@
      }
     ]
    },
-   "solution": "THEMEPARK"
+   "solution": "THEMEPARK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEME PARK",
+    "definitions": [
+     {
+      "text": "Where to get fun rides",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vessel carrying a passenger has it on board, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noah’s boat",
+      "gives": "THEARK",
+      "note": "the vessel of the Flood story is known as the Ark"
+     },
+     {
+      "clueFragment": "politician from Brussels",
+      "gives": "MEP",
+      "note": "a Member of the European Parliament, which sits in Brussels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "MEP",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Fairground rides offered on board Noah's vessel, with a Eurocrat along for the trip.",
+     "walkthrough": "The definite article is part of the boat's name here, and the politician slots in between it and the vessel.",
+     "definitionFit": "A theme park is an amusement venue with rollercoasters and other attractions, the place you go for thrill rides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "carrying"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +824,43 @@
     "text": "Move fast — fly, for example",
     "enumeration": "3"
    },
-   "solution": "ZIP"
+   "solution": "ZIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ZIP",
+    "definitions": [
+     {
+      "text": "Move fast",
+      "at": 0
+     },
+     {
+      "text": "fly, for example",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move fast",
+      "note": "first meaning: to whizz along at speed"
+     },
+     {
+      "clueFragment": "fly, for example",
+      "note": "second meaning: a fastener, of which a trouser fly is one kind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fly' tempts the solver toward insects or flight; it is the fastening on trousers.",
+     "definitionFit": "The word means both to dash quickly and a toothed fastener, such as the one closing trousers at the front."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +874,55 @@
     "text": "Complain in hotel in Bordeaux, perhaps",
     "enumeration": "5"
    },
-   "solution": "WHINE"
+   "solution": "WHINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHINE",
+    "definitions": [
+     {
+      "text": "Complain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is Hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Bordeaux, perhaps",
+      "gives": "WINE",
+      "note": "Bordeaux is a French wine, signalled as an example by 'perhaps'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "H",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist grumbling about their hotel in the French city.",
+     "walkthrough": "Bordeaux looks like the city, but here it is the wine named after the region.",
+     "definitionFit": "To whine is to grumble in a petulant, nagging tone, a near synonym for complaining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bordeaux"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +936,55 @@
     "text": "I am inclined to welcome new aim",
     "enumeration": "6"
    },
-   "solution": "INTEND"
+   "solution": "INTEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTEND",
+    "definitions": [
+     {
+      "text": "aim",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to welcome",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am inclined",
+      "gives": "ITEND",
+      "note": "'I tend' means I am inclined"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospitable person admitting they tend to greet fresh ambitions warmly.",
+     "walkthrough": "'New aim' reads as a single noun phrase, but 'new' is a letter and 'aim' is the definition, a verb.",
+     "definitionFit": "To intend something is to plan or mean to do it, which matches aim used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aim"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +998,48 @@
     "text": "Mystical old characters smuggle illegal drugs",
     "enumeration": "5"
    },
-   "solution": "RUNES"
+   "solution": "RUNES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUNES",
+    "definitions": [
+     {
+      "text": "Mystical old characters",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smuggle",
+      "gives": "RUN",
+      "note": "to run contraband is to smuggle it"
+     },
+     {
+      "clueFragment": "illegal drugs",
+      "gives": "ES",
+      "note": "E is ecstasy, so more than one is Es"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Shady elderly figures trafficking narcotics.",
+     "walkthrough": "'Characters' suggests people in the surface but means letters of an alphabet; E for ecstasy is a common crossword abbreviation.",
+     "definitionFit": "Runes are letters of the ancient Germanic alphabets, often credited with magical powers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1053,65 @@
     "text": "Criminal goes around a US city in deep depression",
     "enumeration": "6"
    },
-   "solution": "CANYON"
+   "solution": "CANYON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANYON",
+    "definitions": [
+     {
+      "text": "deep depression",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes around",
+      "for": "container",
+      "note": "going around something encircles it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "NY",
+      "note": "NY is New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "NY",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An offender touring an American city while deeply miserable.",
+     "walkthrough": "'Depression' leans toward low mood, but it is a hollow in the land.",
+     "definitionFit": "A canyon is a deep gorge cut into the ground, a sunken landform, so it is a geographical depression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1125,60 @@
     "text": "Deceitful person cheers king retreating",
     "enumeration": "3"
    },
-   "solution": "RAT"
+   "solution": "RAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RAT",
+    "definitions": [
+     {
+      "text": "Deceitful person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "to retreat is to go backwards, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for Rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT"
+     ],
+     "reversals": [
+      {
+       "from": "TAR",
+       "to": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traitor toasts the monarch as he withdraws from battle.",
+     "walkthrough": "'Cheers' is British thanks here, not a toast; ta is the informal British word for thank you.",
+     "definitionFit": "A rat is slang for a betrayer or informer, someone untrustworthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1192,64 @@
     "text": "Military adornment from Nepal duly better with all ends cut off",
     "enumeration": "9"
    },
-   "solution": "EPAULETTE"
+   "solution": "EPAULETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EPAULETTE",
+    "definitions": [
+     {
+      "text": "Military adornment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with all ends cut off",
+      "for": "deletion",
+      "note": "cutting off every end trims the first and last letter from each word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nepal",
+      "gives": "EPA",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "duly",
+      "gives": "UL",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "ETTE",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPA",
+      "UL",
+      "ETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Gurkha-style decoration from Nepal, duly improved by trimming.",
+     "walkthrough": "Each of the three words loses both its end letters, and the remains join up.",
+     "definitionFit": "An epaulette is the ornamental shoulder piece on a uniform, a decoration worn by officers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1263,66 @@
     "text": "Trio in plane possibly circling capital of Haiti",
     "enumeration": "5"
    },
-   "solution": "THREE"
+   "solution": "THREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THREE",
+    "definitions": [
+     {
+      "text": "Trio",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "to circle something is to surround it, so one piece goes around the other"
+     },
+     {
+      "text": "capital of",
+      "for": "letter_selection",
+      "note": "a capital letter heads a word, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plane possibly",
+      "gives": "TREE",
+      "note": "the plane is a kind of tree, signalled as an example by 'possibly'"
+     },
+     {
+      "clueFragment": "Haiti",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "REE"
+     ]
+    },
+    "explanation": {
+     "surface": "Three passengers on an aircraft circling over Port-au-Prince.",
+     "walkthrough": "'Plane' looks like an aircraft, but it is the tree common in London streets.",
+     "definitionFit": "A trio is a set of three, so the number names how many members it has."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1336,69 @@
     "text": "Raygun dancing behind husband in European country",
     "enumeration": "7"
    },
-   "solution": "HUNGARY"
+   "solution": "HUNGARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HUNGARY",
+    "definitions": [
+     {
+      "text": "European country",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and change places"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "coming behind means following after, setting the order of the two pieces"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "Raygun",
+      "gives": "RAYGUN",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "UNGARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAYGUN",
+       "gives": "UNGARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raygun, the Australian breakdancer famous from the 2024 Olympics, performing behind her husband somewhere in Europe.",
+     "walkthrough": "'Raygun' looks like a name or a sci-fi weapon, but it supplies letters to be rearranged.",
+     "definitionFit": "Hungary is a landlocked nation in central Europe, so it is an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raygun"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1412,51 @@
     "text": "Sailor’s left nothing in Iberian city",
     "enumeration": "5"
    },
-   "solution": "PORTO"
+   "solution": "PORTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTO",
+    "definitions": [
+     {
+      "text": "Iberian city",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor’s left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship, a sailor's word for left"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor departed and left nothing behind in a Spanish or Portuguese city.",
+     "walkthrough": "'Left' reads as the past of leave, but it is the direction, which sailors call port.",
+     "definitionFit": "Porto is Portugal's second city, and Portugal shares the Iberian peninsula with Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1470,51 @@
     "text": "Page with greeting in letter from abroad",
     "enumeration": "3"
    },
-   "solution": "PHI"
+   "solution": "PHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PHI",
+    "definitions": [
+     {
+      "text": "letter from abroad",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is an informal greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HI"
+     ]
+    },
+    "explanation": {
+     "surface": "A page of a letter from overseas that opens with a salutation.",
+     "walkthrough": "'Letter from abroad' sounds like correspondence, but it is a character of a foreign alphabet.",
+     "definitionFit": "Phi is the twenty-first character of the Greek alphabet, an alphabet symbol from another country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1534,76 @@
      }
     ]
    },
-   "solution": "SKINDIVERS"
+   "solution": "SKINDIVERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SKIN DIVERS",
+    "definitions": [
+     {
+      "text": "Swimmers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "something crazy is out of its senses, so these letters lose their order"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means unruly, so these letters are scrambled too"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kiss",
+      "gives": "KISS",
+      "note": "four letters to be rearranged to form the outside"
+     },
+     {
+      "clueFragment": "driven",
+      "gives": "DRIVEN",
+      "note": "six letters to be rearranged to form the inside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "NDIVER",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KISS",
+       "gives": "SKIS"
+      },
+      {
+       "fodder": "DRIVEN",
+       "gives": "NDIVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bathers made frantic by a passionate embrace.",
+     "walkthrough": "'Driven crazy' reads as one phrase about the swimmers, but 'driven' is the fodder and 'crazy' its signal.",
+     "definitionFit": "Skin divers swim underwater without diving suits or heavy gear, so they are a type of swimmer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "driven"
+    }
+   }
   }
  ]
 }
