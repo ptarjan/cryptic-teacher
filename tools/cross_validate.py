@@ -1285,13 +1285,16 @@ def refile_guardian(adapter, pid, path, url, found):
     old = read_puzzle_file(path)
     data = json.loads(adapter.raw_file(url).read_text(encoding="utf-8"))
     from_page = (old.get("source") or {}).get("acquiredBy") == "tools/fetch_puzzle.py"
-    # Files fetched before puzzles kept a preamble lack the page's note.
-    lacks_note = not old.get("preamble") and fp.preamble(data.get("instructions"))
+    # Files fetched before puzzles kept a preamble lack the page's note. A
+    # note that is only errata converts to none (tools/errata.py): nothing lacks.
+    number = int(pid.rsplit("-", 1)[1])
+    lacks_note = (not old.get("preamble") and fp.preamble(data.get("instructions"))
+                  and "preamble" in fp.convert({**data, "number": number}))
     if classes - REFILED or (from_page and not classes and not lacks_note):
         return None
     if (old.get("solutions") or {}).get("origin") != "published":
         return None
-    data["number"] = int(pid.rsplit("-", 1)[1])
+    data["number"] = number
     new = fp.convert(data)
     if new["id"] != pid or not all(e.get("solution") for e in new["entries"]):
         return None
