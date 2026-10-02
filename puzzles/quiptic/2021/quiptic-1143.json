@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Tourist needs face mask going round city centre",
     "enumeration": "7"
    },
-   "solution": "VISITOR"
+   "solution": "VISITOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VISITOR",
+    "definitions": [
+     {
+      "text": "Tourist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "to go round something is to encircle it, so one piece wraps the other"
+     },
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the letters at its heart are kept"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "face mask",
+      "gives": "VISOR",
+      "note": "a visor shields the face"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "IT",
+      "select": "middle",
+      "note": "the two middle letters of 'city'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIS",
+      "IT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sightseer has to wear a face covering while walking around the middle of town.",
+     "walkthrough": "'City centre' looks like a place on the tourist's route, but it only asks for the middle of the word 'city', which then sits inside the mask.",
+     "definitionFit": "A tourist is a kind of visitor: someone who comes to a place from elsewhere for pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,59 @@
     "text": "Several problems with our visa",
     "enumeration": "7"
    },
-   "solution": "VARIOUS"
+   "solution": "VARIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VARIOUS",
+    "definitions": [
+     {
+      "text": "Several",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "problems",
+      "for": "anagram",
+      "note": "letters with problems are in trouble and out of order, so they need rearranging"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "visa",
+      "gives": "VISA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURVISA",
+       "gives": "VARIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller complains about a string of difficulties with their travel documents.",
+     "walkthrough": "'Problems' reads as a noun in the complaint, but it is the signal to rearrange the seven letters that follow.",
+     "definitionFit": "Both words describe a number of different things, more than two but not many, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "problems"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +180,79 @@
      }
     ]
    },
-   "solution": "STPETER"
+   "solution": "STPETER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ST PETER",
+    "definitions": [
+     {
+      "text": "church founder",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost everything inside, keeping only its outermost letters"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter is kept"
+     },
+     {
+      "text": "sat in by",
+      "for": "container",
+      "note": "something sat in by an occupant has that occupant inside it"
+     }
+    ],
+    "linkWords": [
+     "next to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the outside letters of 'seat'"
+     },
+     {
+      "clueFragment": "nobleman",
+      "gives": "PEER",
+      "note": "a peer is a member of the nobility"
+     },
+     {
+      "clueFragment": "sat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of 'sat'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "PE",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lord's empty chair is finally taken by the man who started a church.",
+     "walkthrough": "'Finally sat' is a selection, not a past tense: only its last letter goes inside the nobleman. ST is also the usual abbreviation for saint.",
+     "definitionFit": "Christian tradition holds that Jesus named the apostle Peter the rock on which he would build his church, making him its founder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sat"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +266,50 @@
     "text": "Rubbish drug experience with ecstasy",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug experience",
+      "gives": "TRIP",
+      "note": "a trip is a hallucinogenic episode"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a night of hallucinogens and pills as a waste of time.",
+     "walkthrough": "The drug theme runs through the whole clue, but 'Rubbish' at the front is the definition.",
+     "definitionFit": "Tripe is cow's stomach lining, and in informal British speech it means nonsense or worthless talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +333,59 @@
      }
     ]
    },
-   "solution": "READINBED"
+   "solution": "READINBED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "READ IN BED",
+    "definitions": [
+     {
+      "text": "do post-retirement activity",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "trimming cuts a little off the end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "READING",
+      "note": "Reading is a large town in Berkshire, west of London"
+     },
+     {
+      "clueFragment": "part of garden",
+      "gives": "BED",
+      "note": "a flower bed is a section of a garden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READIN",
+      "BED"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener tidies part of the plot as a hobby after giving up work.",
+     "walkthrough": "'Post-retirement' suggests leaving a job, but here retiring means going to bed for the night.",
+     "definitionFit": "Retiring also means going to bed, so a pastime done after turning in for the night is browsing a book under the covers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "post-retirement"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +399,47 @@
     "text": "Lend SMS a hidden meaning",
     "enumeration": "7"
    },
-   "solution": "SUBTEXT"
+   "solution": "SUBTEXT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBTEXT",
+    "definitions": [
+     {
+      "text": "a hidden meaning",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lend",
+      "gives": "SUB",
+      "note": "to sub someone is British slang for lending them money"
+     },
+     {
+      "clueFragment": "SMS",
+      "gives": "TEXT",
+      "note": "an SMS is a mobile phone text message"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "TEXT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to give a short phone message some secret significance.",
+     "walkthrough": "'Lend' looks like a verb acting on the message, but it supplies its own piece: in Britain to sub a friend is to lend them a little cash.",
+     "definitionFit": "Subtext is the underlying message beneath the words actually said or written, the implied sense a reader must infer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lend"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +453,50 @@
     "text": "Set up support for Special Branch",
     "enumeration": "5"
    },
-   "solution": "SPRIG"
+   "solution": "SPRIG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPRIG",
+    "definitions": [
+     {
+      "text": "Branch",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "SP",
+      "note": "sp is a standard abbreviation for special"
+     },
+     {
+      "clueFragment": "Set up support",
+      "gives": "RIG",
+      "note": "a rig is a supporting framework that is set up, as for lights or drilling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "RIG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone organises backing for Special Branch, the British police unit that handles security and intelligence.",
+     "walkthrough": "'Special Branch' reads as one name, but it splits: 'Special' feeds the wordplay and 'Branch' alone is the definition.",
+     "definitionFit": "A sprig is a small shoot or twig, so it is a little branch of a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Branch"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +510,82 @@
     "text": "Shock in underworld after rising Mafia boss cleared out",
     "enumeration": "9"
    },
-   "solution": "BOMBSHELL"
+   "solution": "BOMBSHELL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOMBSHELL",
+    "definitions": [
+     {
+      "text": "Shock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading upwards, so the letters run backwards"
+     },
+     {
+      "text": "cleared out",
+      "for": "letter_selection",
+      "note": "a word cleared out has its insides removed, leaving just its outer letters"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says this piece follows the others in the finished word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mafia",
+      "gives": "MOB",
+      "note": "the Mafia is organised crime, the mob"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "BS",
+      "select": "outer",
+      "note": "the first and last letters of 'boss'"
+     },
+     {
+      "clueFragment": "underworld",
+      "gives": "HELL",
+      "note": "hell is the underworld of the dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOM",
+      "BS",
+      "HELL"
+     ],
+     "reversals": [
+      {
+       "from": "MOB",
+       "to": "BOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Criminal circles are stunned when an up-and-coming crime boss is wiped out.",
+     "walkthrough": "'Underworld' and 'Mafia boss' both seem to mean gangland, but the underworld here is the place of the dead, and 'Mafia' and 'boss' work separately.",
+     "definitionFit": "A bombshell is a sudden, astonishing piece of news, so it is a figurative word for a shock or surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "underworld"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +599,80 @@
     "text": "Honour East German city backing end of coal energy",
     "enumeration": "7"
    },
-   "solution": "ENNOBLE"
+   "solution": "ENNOBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENNOBLE",
+    "definitions": [
+     {
+      "text": "Honour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means reading from the far end, so the letters run in reverse"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     },
+     {
+      "clueFragment": "German city",
+      "gives": "BONN",
+      "note": "Bonn was the capital of West Germany"
+     },
+     {
+      "clueFragment": "coal",
+      "gives": "L",
+      "select": "last",
+      "note": "the last letter of 'coal'"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NNOB",
+      "L",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "BONN",
+       "to": "NNOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former East German city is praised for supporting the last of its coal-fired power.",
+     "walkthrough": "'East German' looks like one adjective, but East is its own letter, and the German city is Bonn, which was in the West.",
+     "definitionFit": "To ennoble is to raise someone to the nobility or to dignify them, which is a way of conferring honour on them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +692,78 @@
      }
     ]
    },
-   "solution": "TEALEAF"
+   "solution": "TEALEAF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEA LEAF",
+    "definitions": [
+     {
+      "text": "Used to make drink",
+      "at": 0,
+      "note": "a descriptive phrase standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters set working are put to use in a new arrangement"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means the opening letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "LATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "ea is the standard abbreviation for each"
+     },
+     {
+      "clueFragment": "Friday",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of 'Friday'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAL",
+      "EA",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATE",
+       "gives": "TEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes their habit of pouring a stiff drink after working late at the end of each week.",
+     "walkthrough": "'Working late' sounds like overtime, but 'working' rearranges the four letters after it, and the drink is not alcohol.",
+     "definitionFit": "Tea leaves are steeped in hot water to brew a cup of tea, so a leaf is what you use to make that beverage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +777,74 @@
     "text": "Saleswoman recalled trouble over carbon copy",
     "enumeration": "7"
    },
-   "solution": "REPLICA"
+   "solution": "REPLICA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "REPLICA",
+    "definitions": [
+     {
+      "text": "copy",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters are brought back the other way"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "something put over another covers it on both sides, so it wraps around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saleswoman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "LI",
+      "C",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AIL",
+       "to": "LIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sales rep remembers difficulties caused by a carbon copy of a document.",
+     "walkthrough": "'Carbon copy' looks like one phrase, but carbon is just its chemical symbol and 'copy' alone is the definition.",
+     "definitionFit": "A replica is an exact reproduction of an object, so it is a synonym for a copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carbon"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +858,72 @@
     "text": "State-backed broadcast interrupted by Love Island",
     "enumeration": "7"
    },
-   "solution": "ROMANIA"
+   "solution": "ROMANIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ROMANIA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "something backed has been sent backwards, so it reads from right to left"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "an interruption breaks into the middle, so other letters are put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "Island",
+      "gives": "MAN",
+      "note": "the Isle of Man in the Irish Sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OMAN",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government-funded channel has its schedule disrupted by the reality dating show Love Island.",
+     "walkthrough": "'State-backed' reads as one adjective, but the hyphen hides a split: 'State' is the definition and 'backed' reverses the broadcast.",
+     "definitionFit": "Romania is a sovereign country in south-eastern Europe, and state is a common word for a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State-backed"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +947,43 @@
      }
     ]
    },
-   "solution": "ONTHEWING"
+   "solution": "ONTHEWING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE WING",
+    "definitions": [
+     {
+      "text": "Flying",
+      "at": 0
+     },
+     {
+      "text": "down the touchline",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flying",
+      "note": "first meaning: airborne, like a bird in flight"
+     },
+     {
+      "clueFragment": "down the touchline",
+      "note": "second meaning: playing out wide on the flank of a football or rugby pitch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a winger sprinting along the edge of the pitch; the two halves are separate senses of one phrase.",
+     "definitionFit": "Birds in the air are said to be in this state, and a winger plays along the flank of the pitch near the sideline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flying"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +997,57 @@
     "text": "Model basically embracing rejection of fur",
     "enumeration": "5"
    },
-   "solution": "SABLE"
+   "solution": "SABLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SABLE",
+    "definitions": [
+     {
+      "text": "fur",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "hidden_word",
+      "note": "an embrace holds something within, so the letters lie inside the words"
+     },
+     {
+      "text": "rejection of",
+      "for": "reversal",
+      "note": "rejecting something sends it back, so the letters are read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Model basically",
+      "gives": "ELBAS",
+      "note": "found across the end of 'Model' and the start of 'basically'"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ELBAS",
+       "to": "SABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model is essentially taking a stand against wearing fur.",
+     "walkthrough": "The surface sounds like an animal-rights statement; the letters run backwards across two words.",
+     "definitionFit": "Sable is the dark, valuable pelt of a marten-like animal, one of the most prized furs in fashion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +1061,57 @@
     "text": "Cut up joint that's not top grade",
     "enumeration": "5"
    },
-   "solution": "SHRED"
+   "solution": "SHRED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHRED",
+    "definitions": [
+     {
+      "text": "Cut up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not says the following thing is absent, so those letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "SHARED",
+      "note": "a joint account is a shared one"
+     },
+     {
+      "clueFragment": "top grade",
+      "gives": "A",
+      "note": "A is the highest grade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHRED"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher chops up a piece of meat that is below premium quality.",
+     "walkthrough": "'Joint' tempts as a cut of meat, but it is the adjective meaning held in common.",
+     "definitionFit": "To shred something is to tear or slice it into thin strips, which is cutting it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1131,57 @@
      }
     ]
    },
-   "solution": "DIETDRINK"
+   "solution": "DIETDRINK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIET DRINK",
+    "definitions": [
+     {
+      "text": "low-calorie soda",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nutrition",
+      "gives": "DIET",
+      "note": "your diet is what you eat"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "writing stuff",
+      "gives": "INK",
+      "note": "ink is what you write with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIET",
+      "DR",
+      "INK"
+     ]
+    },
+    "explanation": {
+     "surface": "A nutritionist writes up notes about sugar-free fizzy drinks.",
+     "walkthrough": "'Writing stuff' sounds like the doctor composing notes, but it means the material used for writing.",
+     "definitionFit": "A diet drink is a soft drink sweetened artificially so it has almost no calories, exactly a low-calorie soda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writing"
+    }
+   }
   },
   {
    "number": 15,
@@ -301,7 +1201,56 @@
      }
     ]
    },
-   "solution": "BYONESELF"
+   "solution": "BYONESELF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BY ONESELF",
+    "definitions": [
+     {
+      "text": "alone",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "letters at play are moving about freely and can form a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "SON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "feebly",
+      "gives": "FEEBLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONFEEBLY",
+       "gives": "BYONESELF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy plays half-heartedly with nobody else around.",
+     "walkthrough": "The picture is a lonely child at play; 'playing' is the signal to rearrange the two words before it.",
+     "definitionFit": "Doing something with nobody else present is doing it solo, unaccompanied, which is what alone means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1270,62 @@
      }
     ]
    },
-   "solution": "ODDJOBBER"
+   "solution": "ODDJOBBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODD-JOBBER",
+    "definitions": [
+     {
+      "text": "handyman",
+      "at": 52
+     }
+    ],
+    "linkWords": [
+     "to be a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not even",
+      "gives": "ODD",
+      "note": "a number that is not even is odd"
+     },
+     {
+      "clueFragment": "a famously patient person",
+      "gives": "JOB",
+      "note": "Job, of the Old Testament, is proverbial for his patience"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "BE",
+      "note": "'is' is a form of the verb to be"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "JOB",
+      "BE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Even the most patient person has a right to call themselves a handyman.",
+     "walkthrough": "'Not even' looks like an intensifier, but it means odd. 'Is' supplies the base form of the same verb.",
+     "definitionFit": "An odd-jobber does assorted small repairs and casual tasks for hire, which is the work of a handyman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1339,58 @@
     "text": "Leader described by prominent journalist as 'conceited'",
     "enumeration": "9"
    },
-   "solution": "BIGHEADED"
+   "solution": "BIGHEADED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BIGHEADED",
+    "definitions": [
+     {
+      "text": "conceited",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "described by",
+      "for": "container",
+      "note": "to describe can mean to trace a line around, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leader",
+      "gives": "HEAD",
+      "note": "a head is the person in charge"
+     },
+     {
+      "clueFragment": "prominent journalist",
+      "gives": "BIGED",
+      "note": "a big editor, ED being the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "HEAD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known reporter calls a political leader vain.",
+     "walkthrough": "'Described by' sounds like reporting, but it means surrounded. ED for editor is a standard crossword journalist.",
+     "definitionFit": "A bigheaded person has an inflated opinion of themselves, the same idea as being vain or conceited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "described"
+    }
+   }
   },
   {
    "number": 17,
@@ -349,7 +1404,75 @@
     "text": "Catch up on rest, missing island feast",
     "enumeration": "7"
    },
-   "solution": "BANQUET"
+   "solution": "BANQUET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "BANQUET",
+    "definitions": [
+     {
+      "text": "feast",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means reading upwards, so the letters run backwards"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "NAB",
+      "note": "to nab is to catch"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "QUIET",
+      "note": "rest and quiet both mean peaceful calm"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "QUET"
+     ],
+     "reversals": [
+      {
+       "from": "NAB",
+       "to": "BAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skips the trip to an island so they can catch up on sleep instead of a big dinner.",
+     "walkthrough": "'Catch up on rest' looks like the phrase for sleeping in, but it splits: 'Catch up' is reversed and 'rest' is a separate piece.",
+     "definitionFit": "A banquet is a large, formal meal with many courses, which is a synonym for a feast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 18,
@@ -373,7 +1496,74 @@
      }
     ]
    },
-   "solution": "GOTOSEA"
+   "solution": "GOTOSEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "GO TO SEA",
+    "definitions": [
+     {
+      "text": "Set sail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "craft",
+      "for": "anagram",
+      "note": "to craft is to fashion or shape, so the letters are worked into a new form"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "your turn in a game is your go"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "EAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Okinawa",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of 'Okinawa'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "TOSEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EASTO",
+       "gives": "TOSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A captain casts off and swings the boat towards the east, bound for a Japanese island.",
+     "walkthrough": "'Craft' looks like a boat in this nautical scene, but it is a verb meaning to shape, signalling a rearrangement.",
+     "definitionFit": "To set sail is to begin a voyage, and heading out onto the ocean in a ship is the same thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 19,
@@ -387,7 +1577,63 @@
     "text": "Look, I'm not sure about coming in as substitute",
     "enumeration": "5"
    },
-   "solution": "LOCUM"
+   "solution": "LOCUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOCUM",
+    "definitions": [
+     {
+      "text": "substitute",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "something coming in enters the middle, so it is placed inside"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word for look"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c (circa) means about"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "UM",
+      "note": "um is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "C",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant worker hesitates about being brought in to cover for someone.",
+     "walkthrough": "'Coming in as substitute' reads like the job itself, but 'about' gives a letter that comes in between the other two pieces.",
+     "definitionFit": "A locum is a doctor or clergyman who stands in temporarily for another, so they are a stand-in or replacement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -401,7 +1647,63 @@
     "text": "Vital for credit union agents to be online",
     "enumeration": "7"
    },
-   "solution": "CRUCIAL"
+   "solution": "CRUCIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUCIAL",
+    "definitions": [
+     {
+      "text": "Vital",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "note": "U is the abbreviation for union"
+     },
+     {
+      "clueFragment": "agents",
+      "gives": "CIA",
+      "note": "CIA agents work for the US Central Intelligence Agency"
+     },
+     {
+      "clueFragment": "online",
+      "gives": "L",
+      "note": "read as 'on line': L, the abbreviation for line, with the agents sitting on it in this down entry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "U",
+      "CIA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Being connected to the internet is essential for staff at a credit union.",
+     "walkthrough": "'Online' looks like one word about the internet, but it splits: 'on' places the agents above the 'line' in this down entry.",
+     "definitionFit": "Something crucial is of decisive importance, so it is essential or indispensable, like something vital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "online"
+    }
+   }
   },
   {
    "number": 21,
@@ -415,7 +1717,65 @@
     "text": "Do my best trick banishing boy's shyness",
     "enumeration": "7"
    },
-   "solution": "MODESTY"
+   "solution": "MODESTY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MODESTY",
+    "definitions": [
+     {
+      "text": "shyness",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banishing",
+      "for": "deletion",
+      "note": "to banish is to send away, so those letters are removed"
+     },
+     {
+      "text": "trick",
+      "for": "anagram",
+      "note": "a trick deceives by shuffling appearances, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do my best",
+      "gives": "DOMYBEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "B",
+      "note": "B is an abbreviation for boy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOMYEST",
+       "gives": "MODESTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer tries their hardest at a trick to cure a lad of being timid.",
+     "walkthrough": "'Trick' reads as a magic act, but it signals rearranging the letters of 'Do my best' once one letter is removed.",
+     "definitionFit": "Modesty is a reserved, unassuming manner, which overlaps with bashfulness and shyness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trick"
+    }
+   }
   },
   {
    "number": 22,
@@ -429,7 +1789,68 @@
     "text": "Number 10 cut directive originally taken on board",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOTED",
+    "definitions": [
+     {
+      "text": "taken on board",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "a cut shortens a word, so its last letter is dropped"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the start, so the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "ten as a word"
+     },
+     {
+      "clueFragment": "directive",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of 'directive'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Downing Street reduces an instruction that was once accepted, Number 10 being the Prime Minister's official residence.",
+     "walkthrough": "'Number 10' looks like Downing Street, but it splits into two pieces: the abbreviation for number and the number written as a word.",
+     "definitionFit": "Taking something on board means registering or acknowledging it, so a point that was heeded has been noted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 23,
@@ -449,7 +1870,58 @@
      }
     ]
    },
-   "solution": "LOOKROUND"
+   "solution": "LOOKROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOK ROUND",
+    "definitions": [
+     {
+      "text": "Turn to see",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "joining",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladies",
+      "gives": "LOO",
+      "note": "the ladies is a women's toilet; loo is British slang for toilet"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "ROUND",
+      "note": "a round is a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "K",
+      "ROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Women are invited into the monarch's inner circle and everyone turns to look.",
+     "walkthrough": "'Ladies' means the women's toilets, giving the British slang word for a lavatory.",
+     "definitionFit": "To look round is to twist your head or body so you can view what is behind you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ladies"
+    }
+   }
   },
   {
    "number": 23,
@@ -463,7 +1935,47 @@
     "text": "Validated on social media almost the same day",
     "enumeration": "5"
    },
-   "solution": "LIKED"
+   "solution": "LIKED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIKED",
+    "definitions": [
+     {
+      "text": "Validated on social media",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "almost the same",
+      "gives": "LIKE",
+      "note": "like means similar, which is almost the same"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIKE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A post gets approval online almost straight away.",
+     "walkthrough": "'Almost' looks like it trims a word, but 'almost the same' is a phrase for similar.",
+     "definitionFit": "On social media, pressing the thumbs-up button on a post is a public endorsement of it, a modern way of approving it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 24,
@@ -477,7 +1989,68 @@
     "text": "Luxury line includes zit treatment",
     "enumeration": "5"
    },
-   "solution": "RITZY"
+   "solution": "RITZY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RITZY",
+    "definitions": [
+     {
+      "text": "Luxury",
+      "at": 0,
+      "note": "the noun used as an adjective, as in 'luxury hotel'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "treatment works on something and changes it, so the letters are rearranged"
+     },
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "Ry is the abbreviation for railway, a rail line"
+     },
+     {
+      "clueFragment": "zit",
+      "gives": "ZIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ITZ",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ZIT",
+       "gives": "ITZ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A high-end skincare range includes a spot treatment.",
+     "walkthrough": "The line is not a product range but a railway line.",
+     "definitionFit": "Ritzy, from the Ritz hotels, means expensively fashionable and opulent, the sense of luxury in 'a luxury hotel'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 25,
@@ -491,7 +2064,48 @@
     "text": "Release international organisation's credit",
     "enumeration": "7"
    },
-   "solution": "UNSTICK"
+   "solution": "UNSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNSTICK",
+    "definitions": [
+     {
+      "text": "Release",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international organisation's",
+      "gives": "UNS",
+      "note": "the UN, the United Nations, plus the possessive S"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "TICK",
+      "note": "on tick is British slang for on credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "S",
+      "TICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks a global body to free up its line of credit.",
+     "walkthrough": "To buy on tick, in British slang, is to buy on credit.",
+     "definitionFit": "To unstick something is to free it from what holds it fast, which is to let it go or release it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Release"
+    }
+   }
   },
   {
    "number": 26,
@@ -505,7 +2119,56 @@
     "text": "Although small, couple accepted sandwiches  …",
     "enumeration": "7"
    },
-   "solution": "BUTTIES"
+   "solution": "BUTTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTIES",
+    "definitions": [
+     {
+      "text": "sandwiches",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "accepted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Although",
+      "gives": "BUT",
+      "note": "but and although both introduce a contrast"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "TIE",
+      "note": "to couple is to tie together"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "TIE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair happily take some little sandwiches despite their size.",
+     "walkthrough": "A butty is northern English slang for a sandwich, often a bacon or chip butty.",
+     "definitionFit": "Butty is informal British slang, chiefly northern, for a sandwich, so the plural matches sandwiches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 27,
@@ -519,7 +2182,59 @@
     "text": "…  and little Edward eating roll expressed gratitude",
     "enumeration": "7"
    },
-   "solution": "THANKED"
+   "solution": "THANKED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THANKED",
+    "definitions": [
+     {
+      "text": "expressed gratitude",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever is eaten ends up inside the eater, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little Edward",
+      "gives": "TED",
+      "note": "Ted is a pet form of Edward"
+     },
+     {
+      "clueFragment": "roll",
+      "gives": "HANK",
+      "note": "a hank is a coil or roll of yarn or rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HANK",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Carrying on from the sandwiches, a small boy eats a bread roll and says thank you.",
+     "walkthrough": "The ellipsis links it to the previous clue, so the roll seems to be bread; it is a coil of yarn.",
+     "definitionFit": "To thank someone is to tell them you appreciate what they did, so the past tense means showed appreciation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 28,
@@ -533,7 +2248,62 @@
     "text": "Unconventional Tory ally — one long excluded from privileged family",
     "enumeration": "7"
    },
-   "solution": "ROYALTY"
+   "solution": "ROYALTY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ROYALTY",
+    "definitions": [
+     {
+      "text": "privileged family",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unconventional",
+      "for": "anagram",
+      "note": "unconventional means not in the usual form, so the letters take a new order"
+     },
+     {
+      "text": "excluded from",
+      "for": "deletion",
+      "note": "to be excluded is to be shut out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory ally",
+      "gives": "TORYALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one long",
+      "gives": "L",
+      "note": "L is the abbreviation for long, and only one is removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TORYALY",
+       "gives": "ROYALTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A maverick Conservative partner has long been shut out of an elite clan.",
+     "walkthrough": "The fodder has two of one letter; 'one long' removes just one of them. Tory means a British Conservative.",
+     "definitionFit": "Royalty means the king or queen and their relatives, a family born to rank and privilege."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "long"
+    }
+   }
   }
  ]
 }
