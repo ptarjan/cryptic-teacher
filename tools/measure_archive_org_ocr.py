@@ -39,12 +39,13 @@ sys.path.insert(0, str(TOOLS))
 import archive_org_jumbo as jumbo
 import archive_org_listener as listener
 import file_archive_org_puzzles as fa
+import ocr_clues
 
 GOLD = TOOLS / "data" / "archive_org_ocr_gold.json"
 
 
 def units(text):
-    return [w.lower() for w in fa.marked(fa.clean(text))]
+    return [w.lower() for w in ocr_clues.marked(ocr_clues.clean(text))]
 
 
 def distance(a, b):

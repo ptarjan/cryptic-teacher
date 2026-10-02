@@ -129,9 +129,15 @@ tools/trove_clue_ocr.py                      repairs the clues Trove's OCR loses
                                              ~/.cache/trove-clues; file_trove_puzzles.py
                                              applies it, anchored on text both readings share
 tools/fixtures/trove-repair/                 the 14 July 1967 cryptic, whose OCR glued 6-down
-                                             onto 5-down, and RapidOCR's reading of its clue
-                                             columns: the repair test_file_trove_puzzles.sh
-                                             checks
+                                             onto 5-down, with RapidOCR's reading of its clue
+                                             columns and our three readers' text of them: the
+                                             repair and vote test_file_trove_puzzles.sh checks
+tools/fixtures/trove-clues/                  our three OCR readers' text of the 1 June 1972
+                                             article's clue zones, the other voters
+                                             test_file_trove_puzzles.sh puts Trove's text to
+tools/fixtures/trove-solution/               the 2 June 1972 cryptic as first filed, whose grid
+                                             test_file_trove_puzzles.sh reads that day's
+                                             printed solution against
 tools/fixtures/trove/                        three Canberra Times articles as fetch_trove.py
                                              caches them (meta.json, ocr.txt, grid.jpg), the
                                              fixtures test_file_trove_puzzles.sh reads
@@ -1247,5 +1253,7 @@ tools/boilerplate.py                         a preamble's publishing boilerplate
 tools/test_boilerplate.sh                    a paper's publishing boilerplate in the preamble
                                              goes; a puzzle's instructions, tributes and kept
                                              errata stay; the write gate refuses it
+tools/ocr_clues.py                           the clue-text OCR every scan filer shares: the
+                                             readers, the vote, the check
 ```
 <!-- LAYOUT-END -->

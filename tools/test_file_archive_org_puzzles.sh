@@ -16,6 +16,7 @@ out=$(cd "$REPO/tools" && TMP="$tmp" python3 - <<'EOF'
 import json, os
 from pathlib import Path
 import file_archive_org_puzzles as f
+import ocr_clues
 
 fails = 0
 def check(what, want, got):
@@ -70,116 +71,116 @@ check("a wrapped line is not marked", "10 Nurse holding\nNote (7)", f.tidy("10 N
 check("a count with a broken close read as one", "19 Stole pig (3)", f.tidy("19 Stole pig off3j".replace(" off", "")))
 
 # agree(): only what both readings say, or what the dictionary settles.
-stream = f.tokens("8 Hope created this exalted 9 Bottom of a ship (3) 10 Nurse hoiding note (7) 11 Prinz Ahdk (5)")
-check("both readings agree", ("Bottom of a ship", "agree"), f.agree("Bottom of a ship", stream))
+stream = ocr_clues.tokens("8 Hope created this exalted 9 Bottom of a ship (3) 10 Nurse hoiding note (7) 11 Prinz Ahdk (5)")
+check("both readings agree", ("Bottom of a ship", "agree"), ocr_clues.agree("Bottom of a ship", stream))
 check("a misread settled by the other reading's dictionary word",
-      ("Nurse holding note", "settled by the dictionary"), f.agree("Nurse holding note", stream))
+      ("Nurse holding note", "settled by the dictionary"), ocr_clues.agree("Nurse holding note", stream))
 check("the clue's misread replaced by the other reading's word",
-      ("Hope created this exalted", "settled by the dictionary"), f.agree("Hope crealed this exalted", stream))
-check("two non-words are a disagreement", None, f.agree("Prinz Ahdq", stream)[0])
-check("a word the other reading lacks is a disagreement", None, f.agree("Bottom of a big ship", stream)[0])
+      ("Hope created this exalted", "settled by the dictionary"), ocr_clues.agree("Hope crealed this exalted", stream))
+check("two non-words are a disagreement", None, ocr_clues.agree("Prinz Ahdq", stream)[0])
+check("a word the other reading lacks is a disagreement", None, ocr_clues.agree("Bottom of a big ship", stream)[0])
 check("both readers' one non-word mended to the known word a letter off", "Nurse holding note",
-      f.agree("Nurse hoiding note", stream)[0])
+      ocr_clues.agree("Nurse hoiding note", stream)[0])
 
 check("a capital only one reader saw inside the clue dropped", ("What is stated", "settled by the dictionary"),
-      f.agree("What Is stated", f.tokens("27 What is stated (9)")))
-got, _ = f.reconcile({"25-across": ("As worn by agitator in back- street", "8", None)},
+      ocr_clues.agree("What Is stated", ocr_clues.tokens("27 What is stated (9)")))
+got, _ = ocr_clues.reconcile({"25-across": ("As worn by agitator in back- street", "8", None)},
                      "25 As worn by agitator in back-\nstreet (8)")
 check("a word hyphenated over a line end is joined as the corpus prints it", "As worn by agitator in backstreet",
       got["25-across"][0])
 check("the clue's first word keeps its capital", ("Bottom of a ship", "agree"),
-      f.agree("Bottom of a ship", f.tokens("bottom of a ship")))
+      ocr_clues.agree("Bottom of a ship", ocr_clues.tokens("bottom of a ship")))
 
 # Three readings: a word the other two share outvotes mine; a mark no other
 # reading has is dropped; a non-word all three read is kept.
-two = [f.marked("8 Wisdom shown by school-head when dress is questionable (10)"),
-       f.marked("8 Wisdom shown by school-head when dress is questionabie (10)")]
+two = [ocr_clues.marked("8 Wisdom shown by school-head when dress is questionable (10)"),
+       ocr_clues.marked("8 Wisdom shown by school-head when dress is questionabie (10)")]
 check("a lone comma no other reading has dropped",
       "Wisdom shown by school-head when dress is questionable",
-      f.agree("Wisdom shown by, school-head when dress is questionable", two)[0])
+      ocr_clues.agree("Wisdom shown by, school-head when dress is questionable", two)[0])
 check("a comma two readings have kept", "Talk, about a fellow",
-      f.agree("Talk, about a fellow", [f.marked("Talk, about a fellow"), f.marked("Talk about a fellow")])[0])
+      ocr_clues.agree("Talk, about a fellow", [ocr_clues.marked("Talk, about a fellow"), ocr_clues.marked("Talk about a fellow")])[0])
 check("the spelling the other two readings share outvotes mine (dictionary words both)",
-      "Cashing in on Nigel's air", f.agree("Cashing in on Nigel's ail",
-                                           [f.marked("Cashing in on Nigel's air")] * 2)[0])
+      "Cashing in on Nigel's air", ocr_clues.agree("Cashing in on Nigel's ail",
+                                           [ocr_clues.marked("Cashing in on Nigel's air")] * 2)[0])
 check("a word one of two other readings has stands", "Sun god's not out",
-      f.agree("Sun god's not out", [f.marked("Son god's not out"), f.marked("Sun gods not out")])[0])
+      ocr_clues.agree("Sun god's not out", [ocr_clues.marked("Son god's not out"), ocr_clues.marked("Sun gods not out")])[0])
 check("a non-word all three readings have, no letter from a word, kept", "Get production up qzxvbn",
-      f.agree("Get production up qzxvbn", [f.marked("Get production up qzxvbn")] * 2)[0])
+      ocr_clues.agree("Get production up qzxvbn", [ocr_clues.marked("Get production up qzxvbn")] * 2)[0])
 check("a name the corpus's clues know is a word", "Captain Hornblower at sea",
-      f.agree("Captain Hornblower at sea", [f.marked("3 Captain Hornblower at sea (7)", breaks=True)] * 2)[0])
+      ocr_clues.agree("Captain Hornblower at sea", [ocr_clues.marked("3 Captain Hornblower at sea (7)", breaks=True)] * 2)[0])
 check("a lone letter no other reading has is a speck", "Annual production",
-      f.agree("Annual l production", [f.marked("4 Annual production (5)", breaks=True)] * 2)[0])
-got, blank = f.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)},
+      ocr_clues.agree("Annual l production", [ocr_clues.marked("4 Annual production (5)", breaks=True)] * 2)[0])
+got, blank = ocr_clues.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)},
                          ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
 check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
 
 # Words and marks this reading lost, and the print's commonest mark slips.
-three = [f.marked(t, breaks=True) for t in ("9 Hurtful stuff, nicer as a cocktail? (7)",
+three = [ocr_clues.marked(t, breaks=True) for t in ("9 Hurtful stuff, nicer as a cocktail? (7)",
                                             "9 Hurtful stuff, nicer as a cocktail? (7)",
                                             "9 Hurtfui stuff nicer as a cocktail (7)")]
 check("a comma most other readings have put in", "Hurtful stuff, nicer as a cocktail?",
-      f.agree("Hurtful stuff nicer as a cocktail?", three)[0])
-lost = [f.marked(t, breaks=True) for t in ("18 It's no go when caught (8)", "18 It's no go when caught (8)",
+      ocr_clues.agree("Hurtful stuff nicer as a cocktail?", three)[0])
+lost = [ocr_clues.marked(t, breaks=True) for t in ("18 It's no go when caught (8)", "18 It's no go when caught (8)",
                                            "18 Its no go when caught (8)")]
 check("lost opening words most readings have put in, with the capital", "It's no go when caught",
-      f.agree("Go when caught", lost)[0])
+      ocr_clues.agree("Go when caught", lost)[0])
 check("lost opening words the readings differ on blank the clue", None,
-      f.agree("Go when caught", [f.marked(t, breaks=True) for t in
+      ocr_clues.agree("Go when caught", [ocr_clues.marked(t, breaks=True) for t in
                                  ("18 It's no go when caught (8)", "18 Is so go when caught (8)")])[0])
 check("lost closing words most readings have put in", "Girls were well sustained by it",
-      f.agree("Girls were well sustained by", [f.marked("19 Girls were well sustained by it (7)", breaks=True)] * 2)[0])
+      ocr_clues.agree("Girls were well sustained by", [ocr_clues.marked("19 Girls were well sustained by it (7)", breaks=True)] * 2)[0])
 check("a dictionary tie goes to the word the corpus's clues put there", "A boy is backward",
-      f.agree("A bny is backward", [f.marked("19 A boy is backward (4)", breaks=True),
-                                    f.marked("19 A bay is backward (4)", breaks=True)])[0])
+      ocr_clues.agree("A bny is backward", [ocr_clues.marked("19 A boy is backward (4)", breaks=True),
+                                    ocr_clues.marked("19 A bay is backward (4)", breaks=True)])[0])
 check("a dictionary tie no neighbour settles blanks the word", None,
-      f.agree("Qxv bny qxv", [f.marked("1 Qxv boy qxv (3)", breaks=True),
-                              f.marked("1 Qxv bay qxv (3)", breaks=True)])[0])
+      ocr_clues.agree("Qxv bny qxv", [ocr_clues.marked("1 Qxv boy qxv (3)", breaks=True),
+                              ocr_clues.marked("1 Qxv bay qxv (3)", breaks=True)])[0])
 check("one reading's far shorter dictionary word is no rival", "Chucked one in",
-      f.agree("Chucked one in", [f.marked("24 Chuckeu one in (5)", breaks=True),
-                                 f.marked("24 Che one in (5)", breaks=True)])[0])
+      ocr_clues.agree("Chucked one in", [ocr_clues.marked("24 Chuckeu one in (5)", breaks=True),
+                                 ocr_clues.marked("24 Che one in (5)", breaks=True)])[0])
 check("a rare word one ink slip from a far commoner one takes the commoner", "Bob hangs on to this",
-      f.agree("Bob hangs ou to this", [f.marked("3 Bob hangs ou to this (5)", breaks=True)] * 3)[0])
+      ocr_clues.agree("Bob hangs ou to this", [ocr_clues.marked("3 Bob hangs ou to this (5)", breaks=True)] * 3)[0])
 check("the next clue run on is cut off, the count from the grid",
       ({"5-down": ("Twists ends of osier into knot", "7", None)}, {}),
-      f.reconcile({"5-down": ("Twists ends of osier into knot (7k 6 Protection for working", None, None)},
+      ocr_clues.reconcile({"5-down": ("Twists ends of osier into knot (7k 6 Protection for working", None, None)},
                   ["5 Twists ends of osier into knot (7) 6 Protection for working"], {"5-down": 7, "6-down": 3}))
 check("a lone letter after the clue is its misread count, the count from the grid",
       ({"2-down": ("A bit of nice dark wood", "5", None)}, {}),
-      f.reconcile({"2-down": ("A bit of nice dark wood", None, None)},
+      ocr_clues.reconcile({"2-down": ("A bit of nice dark wood", None, None)},
                   ["2 A bit of nice dark wood s 3 Next", "2 A bit of nice dark wood a 3 Next"], {"2-down": 5}))
 check("a mark dropped between two words leaves their space", "Lack of spirit after a storm",
-      f.agree("Lack of spirit:after a storm", [f.marked("1 Lack of spirit after a storm (4)", breaks=True)] * 2)[0])
+      ocr_clues.agree("Lack of spirit:after a storm", [ocr_clues.marked("1 Lack of spirit after a storm (4)", breaks=True)] * 2)[0])
 check("a misread clue number before the capital dropped", "Not small horse-pistols",
-      f.agree("I Not small horse-pistols", [f.marked(t, breaks=True) for t in
+      ocr_clues.agree("I Not small horse-pistols", [ocr_clues.marked(t, breaks=True) for t in
                                             ("21 Not small horse-pistols (5)", "21 Not smal horse-pistols (5)")])[0])
 check("a full stop before a lower-case word is a comma", "Let nine go loose, being merciful",
-      f.clean("Let nine go loose. being merciful"))
+      ocr_clues.clean("Let nine go loose. being merciful"))
 check("an ellipsis and an abbreviation keep their stops", "Oval . . . the C.I.D. man",
-      f.clean("Oval . . . the C.I.D. man"))
+      ocr_clues.clean("Oval . . . the C.I.D. man"))
 check("an I last before the count is an exclamation mark", "Flirted outrageously! (7)",
-      f.clean("Flirted outrageously I (7)"))
+      ocr_clues.clean("Flirted outrageously I (7)"))
 check("a word broken over a line end is joined", "Almost admire a lieutenant unknown",
-      f.clean("Almost admire a lieutenant un-\nknown"))
+      ocr_clues.clean("Almost admire a lieutenant un-\nknown"))
 check("a line-end hyphen the corpus's clues print closed is the line break's", "agitator in backstreet",
-      f.clean("agitator in back-\nstreet"))
+      ocr_clues.clean("agitator in back-\nstreet"))
 check("a line-end hyphen the corpus's clues print hyphenated is the compound's", "start is short-lived",
-      f.clean("start is short-\nlived"))
+      ocr_clues.clean("start is short-\nlived"))
 check("a name hyphenated over a line end is joined", "resembling Palgrave's Treasury",
-      f.clean("resembling Pal-\ngrave's Treasury"))
+      ocr_clues.clean("resembling Pal-\ngrave's Treasury"))
 check("a compound the corpus never prints keeps its hyphen", "Wisdom shown by school-head",
-      f.clean("Wisdom shown by school-\nhead"))
-check("a 1 standing as a word inside a clue is an I", "in letter I posted (4)", f.clean("in letter 1 posted (4)"))
+      ocr_clues.clean("Wisdom shown by school-\nhead"))
+check("a 1 standing as a word inside a clue is an I", "in letter I posted (4)", ocr_clues.clean("in letter 1 posted (4)"))
 check("a 1 naming a light stays", ["see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film"],
-      [f.clean(t) for t in ("see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film")])
+      [ocr_clues.clean(t) for t in ("see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film")])
 check("a lone I some reading lacks is a speck", ["Turn on at length an item", "Turn on at length an item"],
-      [f.agree("Turn on at length an item", [f.marked(t, breaks=True) for t in (
+      [ocr_clues.agree("Turn on at length an item", [ocr_clues.marked(t, breaks=True) for t in (
            "8 Turn on at length 1 an item (6)", "8 Turn on at length 1 an item (6)", "8 Turn on at length an item (6)")])[0],
-       f.agree("Turn on at length I an item", [f.marked(t, breaks=True) for t in (
+       ocr_clues.agree("Turn on at length I an item", [ocr_clues.marked(t, breaks=True) for t in (
            "8 Turn on at length an item (6)", "8 Turn on at length an item (6)", "8 Turn on at length I an item (6)")])[0]])
 check("a lone I every reading has stands", "in letter I posted",
-      f.agree("in letter I posted", [f.marked(f.clean("8 in letter 1 posted (6)"), breaks=True)] * 3)[0])
-got, blank = f.reconcile({"1-down": ("Unusual way over the mountains", "7", None)},
+      ocr_clues.agree("in letter I posted", [ocr_clues.marked(ocr_clues.clean("8 in letter 1 posted (6)"), breaks=True)] * 3)[0])
+got, blank = ocr_clues.reconcile({"1-down": ("Unusual way over the mountains", "7", None)},
                          ["25 Vanquished (8)\nDOWN\nI Unusual way over the mountains (7)"] * 2)
 check("the DOWN heading over 1 down is no lost word of it", "Unusual way over the mountains", got["1-down"][0])
 check("a heading read badly is still the heading; a stray capital word is not",
@@ -187,7 +188,7 @@ check("a heading read badly is still the heading; a stray capital word is not",
       [f.heading_of(t) for t in ("DOW'N", "DOIN", "AROSS", "Down in", "SOLUTION")])
 check("a line starting a lower-case down carries on the line before", "9 Engineer tbe break down (8).\n10 Next (4)",
       f.tidy("9 Engineer tbe break\ndown (8).\n10 Next (4)"))
-check("a possessive of a dictionary word is a word", True, f.is_word("Lear's") and f.is_word("bookie's"))
+check("a possessive of a dictionary word is a word", True, ocr_clues.is_word("Lear's") and ocr_clues.is_word("bookie's"))
 
 # The solution grid's blocks: a heavy print's block flecked with paper is a
 # block; a light whose letter is fat is not.
@@ -263,18 +264,18 @@ check("a short line under an overhanging box kept, a copy dropped, a number besi
       ["5 3 The friends got sea sick in", "turn (6)"], [r[4] for r in rows])
 
 # A comma one reading lacks costs less than a word: the words after it pair.
-others = [f.marked(f.clean(t), breaks=True) for t in ("27 Only. 28 A leisurely drink, doubtless, inside (8) 29 The",
+others = [ocr_clues.marked(ocr_clues.clean(t), breaks=True) for t in ("27 Only. 28 A leisurely drink, doubtless, inside (8) 29 The",
                                                       "28 A leisurely drink, doubtless, inslde (8) 29 The")]
 check("a lost comma put back, not the clue's end lost", "A leisurely drink, doubtless, inside",
-      f.agree("A leisurely drink, doubtless inside", others)[0])
+      ocr_clues.agree("A leisurely drink, doubtless inside", others)[0])
 check("a word split at a line end joined again; two words are not", (["people", "tastefully", "dressed"], ["lots", "of", "fish"]),
-      (f.rejoin(["people", "taste", ",", "fully", "dressed"], ["tastefully"]),
-       f.rejoin(["lots", "of", "fish"], ["offish"])))
+      (ocr_clues.rejoin(["people", "taste", ",", "fully", "dressed"], ["tastefully"]),
+       ocr_clues.rejoin(["lots", "of", "fish"], ["offish"])))
 
 laid = {"1-across": ("Bottom of a ship", "3", None), "2-across": ("Bottom of a ship", None, None),
         "3-across": ("Smoothed it 18 Warning of one", "7", None), "4-down": ("See 1", None, None),
         "5-down": ("s about a ship", "3", None)}
-got, blank = f.reconcile(laid, "Bottom of a ship (3)")
+got, blank = ocr_clues.reconcile(laid, "Bottom of a ship (3)")
 check("a clue without a count, holding another clue's number, or starting mid-clue filed blank; See kept",
       ({"1-across": "Bottom of a ship", "2-across": "", "3-across": "", "4-down": "See 1", "5-down": ""},
        ["2-across", "3-across", "5-down"]),
@@ -349,7 +350,7 @@ check("a linked clue's numbers read, commas and 'dn' not taken for clue numbers"
        ["across"] + f.parse("Across\n1 A (3)\nDown\n4 See 26 ac\n6 Bound (6)")[0]["down"][:1]])
 check("a clue's opening A run into its next word split; a word, or a commoner word misspelt, kept",
       "15 A danger out east (5)\n3 Abed (4)\n4 Arived (7)", f.tidy("15 Adanger out east (5)\n3 Abed (4)\n4 Arived (7)"))
-check("rn read as m mended", True, "carnivore" in f.edits("camivore"))
+check("rn read as m mended", True, "carnivore" in ocr_clues.edits("camivore"))
 g = ["...#...", "...#...", "......."]
 pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
              {"1-across": ("Ancient patriarch", "3,3", ["1-across", "4-across"])}, "TheGuardian1996UKEnglish", 15,
@@ -404,9 +405,10 @@ check("a complete puzzle goes to the corpus, with or without --out",
       [None, None], [f.destination("out", True), f.destination(None, True)])
 check("a puzzle with a blank clue goes to --out or nowhere, never the corpus",
       ["out", False], [f.destination("out", False), f.destination(None, False)])
-check("complete() is every clue having text", [True, False],
+check("complete() is every clue having text, none with a made-up word", [True, False, False],
       [f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": "B"}}]}),
-       f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": " "}}]})])
+       f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": " "}}]}),
+       f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": "Start trom Hint"}}]})])
 
 import fetch_puzzle
 ed_dir = Path(os.environ["TMP"]) / "runcache" / "NewsUK1990UKEnglish" / "1990-01-01_1"
@@ -445,19 +447,19 @@ check("archiveorg does not compare a file it filed with itself", [False, True],
        a.covers({"source": {"acquiredBy": "tools/acquire_book.py"}})])
 # A retrained Tesseract model gets its own cache name; RapidOCR's keep theirs.
 model = Path(os.environ["TMP"]) / "m.traineddata"
-saved = dict(f.TESS_MODELS), dict(f._MODEL_HASHES)
-f.TESS_MODELS["times"] = model
+saved = dict(ocr_clues.TESS_MODELS), dict(ocr_clues._MODEL_HASHES)
+ocr_clues.TESS_MODELS["times"] = model
 for body in (b"old", b"new"):
     model.write_bytes(body)
-    f._MODEL_HASHES.clear()
+    ocr_clues._MODEL_HASHES.clear()
     check(f"reader_key hashes the model ({body.decode()})", True,
-          f.reader_key("times").startswith("times-"))
+          ocr_clues.reader_key("times").startswith("times-"))
     if body == b"old":
-        old_key = f.reader_key("times")
-check("a changed model changes the cache name", True, f.reader_key("times") != old_key)
-check("RapidOCR readers keep their name", "en5", f.reader_key("en5"))
-f.TESS_MODELS.clear(); f.TESS_MODELS.update(saved[0])
-f._MODEL_HASHES.clear(); f._MODEL_HASHES.update(saved[1])
+        old_key = ocr_clues.reader_key("times")
+check("a changed model changes the cache name", True, ocr_clues.reader_key("times") != old_key)
+check("RapidOCR readers keep their name", "en5", ocr_clues.reader_key("en5"))
+ocr_clues.TESS_MODELS.clear(); ocr_clues.TESS_MODELS.update(saved[0])
+ocr_clues._MODEL_HASHES.clear(); ocr_clues._MODEL_HASHES.update(saved[1])
 
 print(f"FAILS {fails}")
 EOF

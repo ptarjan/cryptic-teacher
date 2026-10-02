@@ -24,6 +24,16 @@ Only the clues are mandatory:
     the reading. A disagreement means the picture is not used, never that it
     is forced to fit: the grid is then rebuilt from the clue list by
     tools/reconstruct_grid.py, and filed only when that rebuild is unique.
+  - Every clue's words are then put to our own readings of the page's clue
+    zones (tools/ocr_clues.py's READERS, cached as read.<reader>.txt beside
+    the zones), Trove's text one voter among them: each word takes the
+    spelling the readings share, else the one lexicon spelling, as the
+    archive.org scans' filer does; the desktop's VLM (tools/vlm_reader.py),
+    when it answers, is one more reading and reads each clue the vote
+    leaves blank. (Trove's text is its current one, with
+    any correction its users made.) A puzzle files only when every light
+    has a clue, every clue's vote is won and ocr_clues.suspect() finds no
+    word OCR made up ("trom", "know7", "bacK"); else it waits.
   - The answers are read off the paper's printed solution grid by
     tools/trove_solution_ocr.py, a light only when every letter is read
     surely and no crossing disagrees; the rest stay None for the nightly
@@ -58,14 +68,17 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import enumeration
+import ocr_clues
 import reconstruct_grid as rg
 import series as series_meta
 import trove_clue_ocr
 import trove_grid
 import trove_solution_ocr
+import vlm_reader as vlm
 from fetch_puzzle import puzzle_path, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
+from ocr_clues import SEE_RE
 
 SERIES = "canberra"
 CACHE = Path(os.path.expanduser("~/.cache/trove"))
@@ -73,7 +86,8 @@ TOOL = "tools/file_trove_puzzles.py"
 ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
 #: The code whose change makes every article worth reading again.
 CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py",
-        TOOLS / "trove_clue_ocr.py"]
+        TOOLS / "trove_clue_ocr.py", TOOLS / "ocr_clues.py", TOOLS / "data" / "lexicon.tsv",
+        TOOLS / "data" / "clue_lm.tsv.gz", TOOLS / "data" / "clue_compounds.tsv", TOOLS / "vlm_reader.py"]
 #: How hard reconstruct_grid may try before a clue list counts as not pinning
 #: its grid down: its own cap, ~10s on a 15x15.
 REBUILD_NODES = rg.DEFAULT_MAX_NODES
@@ -89,7 +103,6 @@ NUM = rf"[{DIGITISH}]{{1,2}}"
 JUNK_NUM = r"(?:[a-zA-Z]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
 BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)\.?(?=\s|$)"
                      r"|(?<=\s)[jJft\[{]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?")
-SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
 
 
 # ------------------------------------------------------------ the article
@@ -413,6 +426,105 @@ def rebuild(parsed, image=None):
                           pick=closest(image))
 
 
+# ------------------------------------------------------------ the vote
+
+def page_readings(d, zones=None):
+    """{reader: its text of the article's clue zones} for every
+    ocr_clues.READERS reader, each cached beside the zones as
+    read.<reader>.txt (the cache alone serves, without the zones); {} when
+    neither is there."""
+    where = (zones or clue_zones(d)) / d.name
+    cached = {which: where / f"read.{ocr_clues.reader_key(which)}.txt" for which in ocr_clues.READERS}
+    images = trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))
+    if not images and not all(p.exists() for p in cached.values()):
+        return {}
+    from PIL import Image
+    out = {}
+    for which, cache in cached.items():
+        if not cache.exists():
+            text = "\n".join(ocr_clues.lines_of(ocr_clues.read_words(Image.open(p), which))
+                             for p in images)
+            cache.write_text(text, encoding="utf-8")
+        out[which] = cache.read_text(encoding="utf-8")
+    return out
+
+
+def stacked(images):
+    """The zone images one under another, as the article prints them."""
+    from PIL import Image
+    out = Image.new("RGB", (max(im.width for im in images), sum(im.height for im in images)), "white")
+    y = 0
+    for im in images:
+        out.paste(im.convert("RGB"), (0, y))
+        y += im.height
+    return out
+
+
+def parse_reading(text):
+    """({"across": clues, "down": clues}, None) for one reading of the
+    zones, or (None, why)."""
+    secs = sections(text)
+    if secs is None:
+        return None, "no ACROSS and DOWN lists"
+    parsed = {}
+    for direction, t in secs.items():
+        parsed[direction], why = clues(t)
+        if why:
+            return None, why
+    return parsed, None
+
+
+def vote(d, laid, grid, zones=None):
+    """(laid, None) with every clue's words put to our own readings of the
+    page (ocr_clues.reconcile, Trove's text one voter among them), or (None,
+    why) when a light has no clue, a clue no spelling wins, or a word
+    ocr_clues.suspect() refuses: only a puzzle whose every clue reads true
+    is filed."""
+    from PIL import Image
+    texts = page_readings(d, zones)
+    if not texts:
+        return None, "no reading of the page's clues to vote with (trove_clue_ocr.py --fetch)"
+    lengths = {f"{n}-{dr}": len(c) for (n, dr), c in rg.light_cells(grid).items()}
+    lost = sorted(set(lengths) - set(laid), key=lambda k: (k.split("-")[1], int(k.split("-")[0])))
+    if lost:
+        return None, f"no clue for {', '.join(lost)}"
+    images = [Image.open(p) for p in trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))]
+    # The desktop's VLM, when it answers, is one more reading, and reads
+    # each clue the vote leaves blank shown every reading's text for it.
+    if images and vlm.reachable():
+        try:
+            texts["vlm"] = "\n".join(vlm.read(vlm.crop(im, (0, 0, im.width, im.height))) for im in images)
+        except RuntimeError:
+            pass  # gone mid-run: read as without it
+    before = dict(laid)
+    laid, blank = ocr_clues.reconcile(laid, list(texts.values()), lengths, keep_known=True)
+    if blank and "vlm" in texts and vlm.reachable():
+        page = stacked(images)
+        try:
+            laid, blank = ocr_clues.vlm_pick(
+                texts, laid, blank, parse_reading,
+                lambda lid, cands: vlm.pick_in(vlm.crop(page, (0, 0, page.width, page.height)), lid, cands))
+        except RuntimeError:
+            pass
+    # The vote settles words only: a count reconcile() took from the light
+    # stands in for one Trove read in parts it could not print ("(6,4)").
+    laid = {k: (t, before[k][1] if k in before else e, g) for k, (t, e, g) in laid.items()}
+    if blank:
+        return None, "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items()))
+    shared = None
+    for t in texts.values():
+        got = {w.lower() for w in ocr_clues.marked(ocr_clues.clean(t))}
+        shared = got if shared is None else shared & got
+    bad = {k: ocr_clues.suspect(t, shared) + [
+        d for d in ocr_clues.doubled(t) if d not in ocr_clues.doubled(before[k][0])]
+        for k, (t, _, _) in laid.items()}
+    bad = {k: v for k, v in bad.items() if v}
+    if bad:
+        return None, "suspect words: " + "; ".join(
+            f"{k} " + ", ".join(f"{w!r} ({why})" for w, why in v) for k, v in sorted(bad.items()))
+    return laid, None
+
+
 # ------------------------------------------------------------ the puzzle
 
 def build(aid, meta, ocr, grid, how, laid, day):
@@ -521,6 +633,7 @@ def input_hash(d, code):
         st = p.stat() if p.exists() else None
         h.update((f"{name}:{st.st_size}:{st.st_mtime_ns}" if st else f"{name}:-").encode())
     h.update(" ".join(p.name for p in trove_clue_ocr.zone_images(d.name, clue_zones(d))).encode())
+    h.update(" ".join(sorted(p.name for p in (clue_zones(d) / d.name).glob("read.*.txt"))).encode())
     return h.hexdigest()[:16]
 
 
@@ -575,6 +688,10 @@ def consider(d, taken):
     verdict["grid"] = how
     verdict["laid"] = len(laid)
     verdict["lights"] = len(rg.light_cells(grid))
+    laid, why = vote(d, laid, grid)
+    if laid is None:
+        verdict["pending"] = why
+        return verdict, None
     held = already_held(laid)
     if held:
         verdict["skip"] = f"already held as {held}"
@@ -601,12 +718,17 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             known[row["article"]] = row
     taken = {row["id"]: a for a, row in known.items() if row.get("id")}
     code = code_hash()
+    # The VLM's readings are an input: an article read without it is read
+    # again once it answers, and one read with it stands while it is down.
+    seen_by = vlm.version() if vlm.reachable() else None
     tally, fresh = {}, 0
     dirs = sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
     for d in dirs:
         aid = d.name
-        h = input_hash(d, code)
+        h = input_hash(d, code + (f"+vlm-{seen_by}" if seen_by else ""))
         row = known.get(aid)
+        if not seen_by and row and row.get("vlm") and row.get("hash") == input_hash(d, f"{code}+vlm-{row['vlm']}"):
+            h = row["hash"]
         if not (row and row.get("hash") == h):
             if limit is not None and fresh >= limit:
                 tally["left for the next run"] = tally.get("left for the next run", 0) + 1
@@ -622,7 +744,11 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 if not path.exists():
                     write_puzzle_file(path, puzzle, generator=TOOL)
                     verdict["wrote"] = True
+            if seen_by and not vlm.reachable():
+                h = input_hash(d, code)  # the VLM went down: read again when it answers
             row = {"article": aid, "hash": h, **verdict}
+            if seen_by and vlm.reachable():
+                row["vlm"] = seen_by
             if puzzle is not None:
                 taken[puzzle["id"]] = aid
             if write or not puzzle:

@@ -170,11 +170,12 @@ def synthetic(n, out, seed=1):
 def tess_lines(crop):
     """[(box, text)] for each line Tesseract finds in a PIL image."""
     import tempfile
-    import file_archive_org_puzzles as fa
+
+    import ocr_clues
     with tempfile.TemporaryDirectory() as tmp:
         p = Path(tmp) / "c.png"
         crop.save(p)
-        res = subprocess.run([fa.tesseract(), str(p), "-", "--psm", "4", "-l", "eng", "tsv"],
+        res = subprocess.run([ocr_clues.tesseract(), str(p), "-", "--psm", "4", "-l", "eng", "tsv"],
                              capture_output=True, text=True, timeout=300, check=True)
     lines = {}
     for row in res.stdout.splitlines()[1:]:
@@ -194,6 +195,7 @@ def norm(t):
 def real(out, split="tune"):
     """Line crops from the gold editions of `split`, texts from the transcription."""
     import file_archive_org_puzzles as fa
+    import ocr_clues
     assert split == "tune", "held-out editions are never trained on"
     made = []
     for ed in json.loads(GOLD.read_text()):
@@ -208,7 +210,7 @@ def real(out, split="tune"):
         gw = gx1 - gx0
         box = (max(0, gx0 - 40), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
         crop = img.crop(box).convert("RGB")
-        crop = crop.resize((crop.width * fa.UPSCALE, crop.height * fa.UPSCALE)).convert("L")
+        crop = crop.resize((crop.width * ocr_clues.UPSCALE, crop.height * ocr_clues.UPSCALE)).convert("L")
         # The gold stream: clue number then clue words, across then down.
         gold = []
         for lid, text in ed["clues"].items():
@@ -271,8 +273,8 @@ def best_model(work=WORK):
         path.write_bytes(urllib.request.urlopen(req, timeout=300).read())
     configs = path.parent / "configs"
     configs.mkdir(exist_ok=True)
-    import file_archive_org_puzzles as fa
-    shipped = Path(fa.tesseract()).resolve().parent.parent / "share" / "tessdata" / "configs" / "lstm.train"
+    import ocr_clues
+    shipped = Path(ocr_clues.tesseract()).resolve().parent.parent / "share" / "tessdata" / "configs" / "lstm.train"
     (configs / "lstm.train").write_text(shipped.read_text())
     return path
 
@@ -288,10 +290,10 @@ def lines_cmd(args):
 
 
 def lstmf_one(base, tessdata):
-    import file_archive_org_puzzles as fa
+    import ocr_clues
     if not Path(f"{base}.lstmf").exists():
         box_file(base)
-        subprocess.run([fa.tesseract(), f"{base}.png", str(base), "--tessdata-dir", str(tessdata),
+        subprocess.run([ocr_clues.tesseract(), f"{base}.png", str(base), "--tessdata-dir", str(tessdata),
                         "-l", "eng", "--psm", "13", "lstm.train"], capture_output=True, timeout=120)
     return Path(f"{base}.lstmf").exists()
 

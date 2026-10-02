@@ -115,26 +115,33 @@ def crop(img, box):
 def column_text(img, wins, readings):
     """The model's transcription of every clue column, top to bottom and
     left to right, one printed line a line."""
-    prompt = PROMPT.read_text()
-    parts = []
-    for box in boxes(img, wins, readings):
-        if box:
-            parts.append(ask(crop(img, box), prompt).strip())
+    parts = [read(crop(img, box)) for box in boxes(img, wins, readings) if box]
     return "\n".join(p for p in parts if p)
+
+
+def read(image):
+    """The model's transcription of one clue column already cropped (and
+    enlarged) on its own: a page's column, or a Trove article's text zone."""
+    return ask(image, PROMPT.read_text()).strip()
 
 
 def pick(img, wins, readings, lid, candidates):
     """The model's text for one clue (light "N-across"), shown the clue
     columns and the readers' differing readings; None when it finds none."""
-    number, direction = lid.split("-")
     cols = [b for b in boxes(img, wins, readings) if b]
     if not cols:
         return None
     box = (min(b[0] for b in cols), min(b[1] for b in cols), max(b[2] for b in cols), max(b[3] for b in cols))
+    return pick_in(crop(img, box), lid, candidates)
+
+
+def pick_in(image, lid, candidates):
+    """pick() shown an image of the clue columns already cropped."""
+    number, direction = lid.split("-")
     listed = "\n".join(f"{i}. {c}" for i, c in enumerate(dict.fromkeys(candidates), 1)) or "(none)"
     prompt = PICK_PROMPT.read_text().format(number=number, direction=direction,
                                             heading=direction.upper(), candidates=listed)
-    text = ask(crop(img, box), prompt, max_tokens=200).strip().strip('"').strip()
+    text = ask(image, prompt, max_tokens=200).strip().strip('"').strip()
     if not text or text.upper().startswith("NONE"):
         return None
     return text.splitlines()[0].strip()
