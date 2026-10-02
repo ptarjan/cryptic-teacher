@@ -55,6 +55,8 @@
     // one of these two is the answer to "did the worked example get anybody as
     // far as the hint buttons, or did they wave it away".
     "nux-start", "nux-skip",
+    // Then one per tour line, named for its id in NUX_LINES (app.js), in tour order.
+    "nux-ladder", "nux-free", "nux-score", "nux-done",
     "open", "letter",
     "hint-indicators", "hint-definition", "hint-type",
     "hint-blocks", "hint-walkthrough", "hint-answer",

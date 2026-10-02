@@ -467,6 +467,8 @@
     // a redraw that changes nothing, and spotlightDraw is what puts them on
     // screen either way.
     nuxSaid = live ? text : "";
+    // The funnel: one name per tour line, the first time it is actually on screen.
+    if (live) beacon("nux-" + line.id);
     if (nuxDrawn !== want) {
       nuxDrawn = want;
       el.classList.toggle("hidden", !live);
