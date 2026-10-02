@@ -242,6 +242,35 @@ check("clues laid on their own lights, a number read two ways on the one light i
       ({"1-across": "Top", "1-down": "Left", "2-down": "Right"}, ["3-across"]),
       ({k: v[0] for k, v in loose.items()}, bad))
 
+# A clue whose number was lost takes the one light its neighbours leave free.
+g = ["...#...", ".......", "...#..."]
+lost = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                   {"tokens": [set()], "text": "Lost", "enums": {"3"}, "see": None},
+                   {"tokens": [{7}], "text": "Middle", "enums": {"7"}, "see": None},
+                   {"tokens": [{8}], "text": "Low", "enums": {"3"}, "see": None},
+                   {"tokens": [{9}], "text": "End", "enums": {"3"}, "see": None}],
+        "down": []}
+base = {"1-across": "Top", "7-across": "Middle", "8-across": "Low", "9-across": "End"}
+check("a lost number laid between its neighbours only with every reading's numbered lights known",
+      (base, {**base, "4-across": "Lost"}, base),
+      tuple({k: v[0] for k, v in f.lay_loose(lost, g, *t)[0].items()} for t in ((), (set(),), ({"4-across"},))))
+
+# Short last line: "turn (6)" under a line whose box overhangs it is kept;
+# a second copy of the line is not.
+rows = f.merge_rows([(4264, 4302, 2279, 2590, "3 The friends got sea sick in"), (4286, 4315, 2303, 2382, "turn (6)"),
+                     (4266, 4300, 2280, 2588, "3 The friends got sea sick in"), (4270, 4290, 2250, 2270, "5")])
+check("a short line under an overhanging box kept, a copy dropped, a number beside joined",
+      ["5 3 The friends got sea sick in", "turn (6)"], [r[4] for r in rows])
+
+# A comma one reading lacks costs less than a word: the words after it pair.
+others = [f.marked(f.clean(t), breaks=True) for t in ("27 Only. 28 A leisurely drink, doubtless, inside (8) 29 The",
+                                                      "28 A leisurely drink, doubtless, inslde (8) 29 The")]
+check("a lost comma put back, not the clue's end lost", "A leisurely drink, doubtless, inside",
+      f.agree("A leisurely drink, doubtless inside", others)[0])
+check("a word split at a line end joined again; two words are not", (["people", "tastefully", "dressed"], ["lots", "of", "fish"]),
+      (f.rejoin(["people", "taste", ",", "fully", "dressed"], ["tastefully"]),
+       f.rejoin(["lots", "of", "fish"], ["offish"])))
+
 laid = {"1-across": ("Bottom of a ship", "3", None), "2-across": ("Bottom of a ship", None, None),
         "3-across": ("Smoothed it 18 Warning of one", "7", None), "4-down": ("See 1", None, None),
         "5-down": ("s about a ship", "3", None)}
@@ -260,6 +289,27 @@ for item, eds in (("NewsUK1974UKEnglish", ["1974-05-01_1", "1974-05-02_2"]),
         (cache / item / e / "pages.json").write_text("{}")
 check("editions taken a year at a time, the FT left out", ["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"],
       [d.name for d in f.edition_dirs(cache)])
+check("the FT's editions are the FT phase's, and their paper is the FT",
+      (["1975-01-01_4"], "ftcryptic", "times"),
+      ([d.name for d in f.edition_dirs(cache, f.FT)], f.paper_of(cache / "FinancialTimes1975UKEnglish" / "x").series,
+       f.paper_of(cache / "NewsUK1990UKEnglish" / "x").series))
+
+# The FT: "CROSSWORD" over "No. 8,650 Set by DANTE" (1990s), one line in the
+# 1970s; "Solution 8,650", or "SOLUTION TO PUZZLE" over "No. 2,765".
+titles, sols = f.ft_headings([line("CROSSWORD", 2429, 2957), line("No. 8,650 Set by DANTE", 2417, 3017),
+                              line("Solution 8,649", 2691, 3958),
+                              line("Solution to Saturday's prize puzzle on Saturday January 14.", 2253, 4293),
+                              line("No. 1,234 reasons to buy", 900, 100)])
+check("1990s FT title over its number line, setter read, box the grid's width; prize-date line no heading",
+      ([(8650, "Dante", f.FT_GRID_SPAN)], [8649]),
+      ([(n, s, b[2] - b[0]) for n, b, s in titles], [n for n, _ in sols]))
+titles, sols = f.ft_headings([line("F.T. CROSSWORD PUZZLE No. 2,766", 200, 2841),
+                              line("SOLUTION TO PUZZLE", 573, 4049), line("No. 2,765", 656, 4073)])
+check("1970s FT title on one line, solution number on the line under", ([2766], [2765]),
+      ([n for n, _, _ in titles], [n for n, _ in sols]))
+check("FT numbers the dates imply, and our first ftcryptic's", [True, True, True, False],
+      [abs(n - f.ft_expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
+       for d, n in [("1975-05-01", 2766), ("1992-06-11", 7870), ("2009-11-12", 13232), ("1995-01-03", 19742)]])
 
 # match_canberra(): the reading sharing the clue list, printed first, same grid.
 def puzzle(pid, date, clues, cols=3):
@@ -324,7 +374,7 @@ ed_dir.mkdir(parents=True)
 wrote = []
 saved = (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
          fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file)
-f.edition_dirs = lambda cache: [ed_dir]
+f.edition_dirs = lambda cache, paper=None: [ed_dir]
 f.scan = lambda d: {"date": "1990-01-01", "item": "NewsUK1990UKEnglish", "solutions": [],
                     "puzzles": [{"number": 18179, "leaf": 1, "box": None},
                                 {"number": 18180, "leaf": 2, "box": None}]}
@@ -334,7 +384,7 @@ def fake_read(d, found, hit, solutions):
             "entries": [{"clue": {"text": "Top"}}, {"clue": {"text": "" if blank else "Left"}}]}
 f.read_puzzle = fake_read
 f.input_hash = lambda d, code: "h"
-f.held_numbers = set
+f.held_numbers = lambda series="times": set()
 fetch_puzzle.puzzle_path = lambda series, n: Path(os.environ["TMP"]) / "corpus" / f"times-{n}.json"
 fetch_puzzle.write_puzzle_file = lambda path, puzzle, generator: wrote.append(path.parent.name + "/" + path.name)
 rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled", file_from=1983,
