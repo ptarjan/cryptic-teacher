@@ -2572,54 +2572,39 @@ def check_clue_unchanged(puzzle, path, errors):
 
 
 # The indicators rung is a tier below the building blocks, and a note written as
-# the operation happens hands the blocks over: telegraph-31356 11A's "to grip"
-# read "STARTING grips, holds, the L" ("It gives away the blocks in the
-# indicator", 2026-09-29), and 17D's "at first" read "the lips' letters come
-# first, before TEND" ("Tend is given away", 2026-09-30). Naming a piece by its
-# clue words gives it away as surely as by its letters. So a note says what the
-# indicator's words mean and do, and names no piece. Every note in the corpus
-# is held to it, so the app renders a note as written. A word hundreds of notes
-# use about other clues is how indicator notes talk ("something new", "another
-# piece"), and names nothing on the clue where a block happens to use it too:
-# tools/build_indicator_note_words.py writes those, and NOTE_FUNCTION_WORDS are
-# the function words too rare in notes to make that list.
-NOTE_WORDS = frozenset(json.loads((ROOT / "tools/data/indicator_note_words.json").read_text(encoding="utf-8")))
-NOTE_FUNCTION_WORDS = {"such", "his", "her"}
-
-
-def blocks_named_in(note, ann, ind):
-    """The words of `note` that name a block: its letters, where those are not
-    just its own clue words, or a clue word of a block that is not one of this
-    indicator's own words."""
+# the operation happens hands the blocks over: "returning means RATS becomes
+# STAR" solves the clue before the solver has found a piece. A note may point at
+# a block's clue words ("returning means the word rats is read backwards"),
+# since the solver can read those in the clue, but never at its letters: a
+# block's `gives` where that is not just its clue words, or the answer. Every
+# note in the corpus is held to it, so the app renders a note as written.
+def letters_given_in(note, ann):
+    """The capitalised words of `note` that spell a block's letters, where those
+    are not just its own clue words, or the answer or one of its words."""
     bare = lambda s: re.sub(r"[^A-Za-z]", "", str(s or "")).upper()
-    words = lambda s: re.findall(r"[a-z]+", re.sub(r"['\u2019]s\b", "", str(s or "").lower()))
     blocks = ann.get("blocks") or []
-    hidden = {bare(b.get("gives")) for b in blocks
-              if bare(b.get("gives")) and bare(b.get("gives")) != bare(b.get("clueFragment"))}
-    own = set(words(ind.get("text")))
-    named = {w for b in blocks for w in words(b.get("clueFragment"))
-             if len(w) >= 3 and w not in NOTE_WORDS and w not in NOTE_FUNCTION_WORDS
-             and w not in own}
-    return ([w for w in re.findall(r"\b[A-Z]+\b", str(note or ""))
-             if w in hidden and w not in ("A", "I")]
-            + [w for w in words(note) if w in named])
+    letters = {bare(b.get("gives")) for b in blocks
+               if bare(b.get("gives")) and bare(b.get("gives")) != bare(b.get("clueFragment"))}
+    answer = str(ann.get("answer") or "")
+    letters |= {bare(w) for w in [answer, *re.split(r"[\s-]+", answer)] if bare(w)}
+    return [w for w in re.findall(r"\b[A-Z]+\b", str(note or ""))
+            if w in letters and w not in ("A", "I")]
 
 
 def check_indicator_notes_name_no_block(tag, ann, errors):
-    """An indicator note names no block, by its letters or its clue words."""
+    """An indicator note spells no block's letters and not the answer."""
     for ind in ann.get("indicators") or []:
         if not isinstance(ind, dict):
             continue
-        named = blocks_named_in(ind.get("note"), ann, ind)
+        named = letters_given_in(ind.get("note"), ann)
         if named:
             errors.append(
-                f"{tag}: note on indicator {ind.get('text')!r} names the "
-                f"blocks by {', '.join(dict.fromkeys(named))} — {ind.get('note')!r}. "
+                f"{tag}: note on indicator {ind.get('text')!r} gives away the "
+                f"letters {', '.join(dict.fromkeys(named))} — {ind.get('note')!r}. "
                 f"The indicators rung comes before the blocks, so say what these "
-                f"words mean and what they do, naming no piece by its letters or "
-                f"its clue words: \"to grip is to hold, so one piece holds "
-                f"another\", not \"STARTING grips the L\" or \"'beginning' "
-                f"holds 'learner'\"")
+                f"words mean and what they do; a block's clue words may be named, "
+                f"never its letters or the answer: \"returning means the word rats "
+                f"is read backwards\", not \"returning means RATS becomes STAR\"")
 
 
 # A selector is an indicator: "capital of Bahrain" giving B is the indicator
