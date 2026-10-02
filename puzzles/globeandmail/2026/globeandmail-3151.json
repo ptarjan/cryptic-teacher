@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Bump in salary follows employer’s third commendation",
     "enumeration": "6"
    },
-   "solution": "PRAISE"
+   "solution": "PRAISE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRAISE",
+    "definitions": [
+     {
+      "text": "commendation",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third",
+      "for": "letter_selection",
+      "note": "a third item is the one in position three, so only that single letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "follows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "employer’s",
+      "gives": "P",
+      "select": 3,
+      "note": "the third letter of the word for the boss"
+     },
+     {
+      "clueFragment": "Bump in salary",
+      "gives": "RAISE",
+      "note": "a raise is an increase in pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker's pay rise comes after the boss offers a word of commendation.",
+     "walkthrough": "'Follows' puts the pay bump after the single letter: P then RAISE. 'Employer's third' reads as a possessive noun phrase but just points at one letter.",
+     "definitionFit": "Praise is approval expressed in words, a direct synonym for commendation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,50 @@
     "text": "Little dog with favourite doll",
     "enumeration": "6"
    },
-   "solution": "PUPPET"
+   "solution": "PUPPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUPPET",
+    "definitions": [
+     {
+      "text": "doll",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little dog",
+      "gives": "PUP",
+      "note": "a pup is a young dog"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a teacher's pet is the favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUP",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A small dog trots about carrying its favourite toy doll.",
+     "walkthrough": "'Favourite' looks like an adjective for the doll, but it is a noun in its own right, giving PET.",
+     "definitionFit": "A puppet is a figure moved by strings or a hand inside, so loosely a kind of doll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "favourite"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,62 @@
     "text": "Also, for starters, pal, you are no expert",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "no expert",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters come at the beginning of a meal, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Also",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     },
+     {
+      "clueFragment": "you are",
+      "gives": "UR",
+      "note": "text-message shorthand for 'you are'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MATE",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a friend, as an opening remark, that they are no expert either.",
+     "walkthrough": "'Also' seems to mean 'too' but only lends its first letter. UR is texting slang, spelt as it sounds.",
+     "definitionFit": "An amateur is a non-professional, someone lacking specialist skill, which is what 'no expert' describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Also"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +228,48 @@
     "text": "Mention on the radio for www.thetimes.com?",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SITE",
+    "definitions": [
+     {
+      "text": "www.thetimes.com?",
+      "at": 25,
+      "note": "a definition by example, flagged by the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "radio is heard, not seen, so the word is taken by its spoken form"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mention",
+      "gives": "SITE",
+      "soundsLike": "CITE",
+      "note": "to cite is to mention or quote; it is pronounced the same as the web word"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper's web address gets a plug on a radio programme.",
+     "walkthrough": "CITE (mention) and SITE share a sound. The question mark warns that the address is only one example of the answer.",
+     "definitionFit": "The Times newspaper's web address is one instance of a website, an online location holding pages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +283,49 @@
     "text": "Visionary comic lacking an opening bit",
     "enumeration": "6"
    },
-   "solution": "OCULAR"
+   "solution": "OCULAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OCULAR",
+    "definitions": [
+     {
+      "text": "Visionary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking an opening bit",
+      "for": "deletion",
+      "note": "lacking means going without, and the opening bit is the very first letter, so that one goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comic",
+      "gives": "JOCULAR",
+      "note": "jocular means joking or funny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCULAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian with big ideas is missing the start of a routine.",
+     "walkthrough": "Drop the J from JOCULAR. 'Visionary' suggests a dreamer, but here it simply means 'to do with vision'.",
+     "definitionFit": "Ocular is an adjective meaning relating to the eyes or eyesight, a literal reading of visionary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Visionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +339,62 @@
     "text": "Have a discussion about old and new poetry",
     "enumeration": "8"
    },
-   "solution": "CONVERSE"
+   "solution": "CONVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONVERSE",
+    "definitions": [
+     {
+      "text": "Have a discussion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C stands for circa, Latin for about"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "a standard abbreviation for new"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "N",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Critics sit down to debate classic versus modern poetry.",
+     "walkthrough": "'About' looks like it links the discussion to its topic, but it supplies C (circa). Then O, N and VERSE follow in order.",
+     "definitionFit": "To converse is to talk with someone, an exchange of views, which is a verb synonym of having a discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +408,61 @@
     "text": "Urgent mail periodically turned up at a future date",
     "enumeration": "5"
    },
-   "solution": "LATER"
+   "solution": "LATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "LATER",
+    "definitions": [
+     {
+      "text": "at a future date",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something up makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urgent mail",
+      "gives": "RETAL",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATER"
+     ],
+     "reversals": [
+      {
+       "from": "RETAL",
+       "to": "LATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Urgent letters keep arriving, but only get dealt with some other day.",
+     "walkthrough": "'Turned up' reads as 'arrived', but in a down entry it means written upwards.",
+     "definitionFit": "Later is an adverb for a time after now, which is exactly what at a future date describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +476,47 @@
     "text": "Terminate a contract — or extend it?",
     "enumeration": "6"
    },
-   "solution": "RESIGN"
+   "solution": "RESIGN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESIGN",
+    "definitions": [
+     {
+      "text": "Terminate a contract",
+      "at": 0
+     },
+     {
+      "text": "extend it?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terminate a contract",
+      "note": "first meaning: to quit a job"
+     },
+     {
+      "clueFragment": "extend it?",
+      "note": "second meaning: to sign the contract again and so prolong it"
+     }
+    ],
+    "explanation": {
+     "surface": "An employee weighs up whether to quit their contract or renew it.",
+     "walkthrough": "The same letters mean opposite things: quitting, or signing again. The question mark flags the hyphen-free pun on re-sign.",
+     "definitionFit": "Resigning ends employment, while re-signing renews an agreement; the spelling serves both opposite senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "extend"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +530,62 @@
     "text": "Artificial Los Angeles street in picture",
     "enumeration": "7"
    },
-   "solution": "PLASTIC"
+   "solution": "PLASTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PLASTIC",
+    "definitions": [
+     {
+      "text": "Artificial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one part goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "the usual abbreviation for the city"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "the abbreviation for street"
+     },
+     {
+      "clueFragment": "picture",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LA",
+      "ST",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hollywood street scene in a film looks fake.",
+     "walkthrough": "The city and the street join up first, then go inside the picture. A fake Hollywood set suits the answer nicely.",
+     "definitionFit": "Plastic, used figuratively, means fake or insincere, a common synonym for artificial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +599,57 @@
     "text": "Frolicking in cattery? It’s guaranteed!",
     "enumeration": "9"
    },
-   "solution": "CERTAINTY"
+   "solution": "CERTAINTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CERTAINTY",
+    "definitions": [
+     {
+      "text": "It’s guaranteed!",
+      "at": 23,
+      "note": "a whole phrase standing for the noun: a certainty is something that is guaranteed"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Frolicking",
+      "for": "anagram",
+      "note": "frolicking is playful leaping about, so the letters skip around into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cattery",
+      "gives": "CATTERY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCATTERY",
+       "gives": "CERTAINTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cats playing about in a boarding cattery: that is guaranteed.",
+     "walkthrough": "'In' looks like a preposition placing the frolicking, but it is part of the fodder.",
+     "definitionFit": "A certainty is a sure thing, an outcome beyond doubt, which the exclamation 'it is guaranteed' expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +663,60 @@
     "text": "Firm working to return some money",
     "enumeration": "5"
    },
-   "solution": "NOTES"
+   "solution": "NOTES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NOTES",
+    "definitions": [
+     {
+      "text": "some money",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way one came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "SET",
+      "note": "set means firm, as a jelly sets"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTES"
+     ],
+     "reversals": [
+      {
+       "from": "SETON",
+       "to": "NOTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company sets about paying back part of a sum it owes.",
+     "walkthrough": "'Firm' is not a company but the adjective, giving SET.",
+     "definitionFit": "Notes are paper banknotes, a form of currency, so they make up some money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +730,47 @@
     "text": "Former City business bigwig",
     "enumeration": "4"
    },
-   "solution": "EXEC"
+   "solution": "EXEC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXEC",
+    "definitions": [
+     {
+      "text": "business bigwig",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode district for the City of London, its financial centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "EC"
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time financier from the City of London, a corporate big shot.",
+     "walkthrough": "The City is the square mile of London's financial district, postcode EC. 'City business' looks like one phrase, but the definition starts at 'business'.",
+     "definitionFit": "Exec is short for executive, a senior manager, an informal match for a bigwig in commerce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +790,79 @@
      }
     ]
    },
-   "solution": "TREEFROG"
+   "solution": "TREEFROG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "TREE FROG",
+    "definitions": [
+     {
+      "text": "Amphibian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "retreating is moving backwards, so the letters are read in reverse"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "being next to means sitting alongside, so one part simply follows the other"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "to be over something here is to cover it on both sides, wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "GOT",
+      "note": "got means caught, as in got the thief"
+     },
+     {
+      "clueFragment": "rocky ridge",
+      "gives": "REEF",
+      "note": "a reef is a ridge of rock near the sea surface"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REEF",
+      "R",
+      "OG"
+     ],
+     "reversals": [
+      {
+       "from": "GOT",
+       "to": "TOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frog caught sneaking back over a rocky ridge by a river.",
+     "walkthrough": "Only the word for caught is turned round; it then wraps around the ridge and river. 'Rocky' is not an anagram signal here; the whole phrase is the ridge.",
+     "definitionFit": "A tree frog is a climbing species of frog, and frogs are amphibians, so this is a defined-by-category relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocky"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +876,54 @@
     "text": "Offering assistance to support wife giving birth",
     "enumeration": "8"
    },
-   "solution": "WHELPING"
+   "solution": "WHELPING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHELPING",
+    "definitions": [
+     {
+      "text": "giving birth",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down entry a support sits below, so this part is placed underneath the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "the abbreviation for wife"
+     },
+     {
+      "clueFragment": "Offering assistance",
+      "gives": "HELPING",
+      "note": "helping means giving aid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HELPING"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband helps his wife through labour.",
+     "walkthrough": "The human birth picture misleads: the answer is normally used of dogs. In a down entry 'support' means below, so W comes on top.",
+     "definitionFit": "Whelping is the term for a dog or similar animal delivering young, a specific sense of giving birth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +937,56 @@
     "text": "Drill tries breaking concrete",
     "enumeration": "9"
    },
-   "solution": "REHEARSAL"
+   "solution": "REHEARSAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REHEARSAL",
+    "definitions": [
+     {
+      "text": "Drill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking into another bursts through to its middle, so one piece lies inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries",
+      "gives": "HEARS",
+      "note": "a judge hears, or tries, a case"
+     },
+     {
+      "clueFragment": "concrete",
+      "gives": "REAL",
+      "note": "concrete in the sense of real, solid, tangible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEARS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A building-site scene: someone attempts to bore through concrete with a power tool.",
+     "walkthrough": "'Drill' and 'concrete' paint a building site, but the drill is a practice and concrete is the adjective. 'Tries' is the courtroom sense.",
+     "definitionFit": "A rehearsal is a practice run, and a drill is likewise repeated practice, as in a fire drill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drill"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1000,56 @@
     "text": "Tibetan priest hosting lousy dance",
     "enumeration": "7"
    },
-   "solution": "LAMBADA"
+   "solution": "LAMBADA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMBADA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host has guests within their home, so one piece takes the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tibetan priest",
+      "gives": "LAMA",
+      "note": "a lama is a Tibetan Buddhist monk"
+     },
+     {
+      "clueFragment": "lousy",
+      "gives": "BAD",
+      "note": "lousy means bad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAM",
+      "BAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tibetan monk puts on a terrible dance party.",
+     "walkthrough": "The insertion lands after the priest's third letter; a lama is a Buddhist teacher, not the woolly llama.",
+     "definitionFit": "The lambada is a Brazilian partner dance that was a worldwide craze around 1990, so it is an example of a dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hosting"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1063,56 @@
     "text": "Hollywood deal-makers are primarily males",
     "enumeration": "6"
    },
-   "solution": "AGENTS"
+   "solution": "AGENTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGENTS",
+    "definitions": [
+     {
+      "text": "Hollywood deal-makers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first and foremost, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "males",
+      "gives": "GENTS",
+      "note": "gents are gentlemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that film-industry dealmakers are mostly men.",
+     "walkthrough": "'Are primarily' reads as 'are mainly', but it just yields A.",
+     "definitionFit": "Agents negotiate contracts for actors and writers in the film industry, making them its deal-makers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1126,50 @@
     "text": "Possible cause of fracture in small lock",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Possible cause of fracture",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A small lock might break under force.",
+     "walkthrough": "'In' looks like a container signal but just joins definition and wordplay. 'Lock' is hair, not a door fitting.",
+     "definitionFit": "Stress is force on a bone or material, and a stress fracture is a crack caused by repeated strain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1183,61 @@
     "text": "Men and girls cast for horror comedy film",
     "enumeration": "8"
    },
-   "solution": "GREMLINS"
+   "solution": "GREMLINS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREMLINS",
+    "definitions": [
+     {
+      "text": "horror comedy film",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "to cast is to throw, so the letters are tossed into a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girls",
+      "gives": "GIRLS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENGIRLS",
+       "gives": "GREMLINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors of both sexes are chosen for roles in a comic horror movie.",
+     "walkthrough": "'Cast' fits the film surface perfectly as actors being chosen, but it signals a rearrangement.",
+     "definitionFit": "Gremlins is the 1984 Joe Dante movie about mischievous creatures, a blend of horror and comedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1251,54 @@
     "text": "Undermine dedicated work led by emergency room",
     "enumeration": "5"
    },
-   "solution": "ERODE"
+   "solution": "ERODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERODE",
+    "definitions": [
+     {
+      "text": "Undermine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "led by",
+      "for": "charade",
+      "note": "whatever leads goes in front, so the other part comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emergency room",
+      "gives": "ER",
+      "note": "the standard abbreviation for a hospital emergency room"
+     },
+     {
+      "clueFragment": "dedicated work",
+      "gives": "ODE",
+      "note": "an ode is a poem often addressed to a person or thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "Committed hospital work is weakened under the direction of the emergency department.",
+     "walkthrough": "'Dedicated work' sounds like diligent labour, but it is a poem addressed to someone.",
+     "definitionFit": "To erode is to wear away gradually, and to undermine is likewise to weaken from beneath over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dedicated"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1312,49 @@
     "text": "Obscene material ultimately has charm, you assert",
     "enumeration": "4"
    },
-   "solution": "SMUT"
+   "solution": "SMUT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SMUT",
+    "definitions": [
+     {
+      "text": "Obscene material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so each word gives only its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has charm, you assert",
+      "gives": "SMUT",
+      "select": "last",
+      "note": "the closing letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone defends lewd content by insisting it has a certain appeal.",
+     "walkthrough": "'Ultimately' seems to mean 'in the end it has charm', but it reaches across all four following words.",
+     "definitionFit": "Smut is crude or indecent writing and pictures, a direct synonym for obscene material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1368,48 @@
     "text": "Highbrow shindig starting late?",
     "enumeration": "4"
    },
-   "solution": "ARTY"
+   "solution": "ARTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTY",
+    "definitions": [
+     {
+      "text": "Highbrow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting late",
+      "for": "deletion",
+      "note": "something starting late misses its beginning, so the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shindig",
+      "gives": "PARTY",
+      "note": "a shindig is a lively party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sophisticated soirée that does not get going until late.",
+     "walkthrough": "PARTY loses its P.",
+     "definitionFit": "Arty describes someone showily interested in art and culture, close in sense to highbrow or pretentious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1423,60 @@
     "text": "I kick up a fuss about Ruth’s mother-in-law",
     "enumeration": "5"
    },
-   "solution": "NAOMI"
+   "solution": "NAOMI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NAOMI",
+    "definitions": [
+     {
+      "text": "Ruth’s mother-in-law",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to go about is to turn round, so the letters face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kick up a fuss",
+      "gives": "MOAN",
+      "note": "to moan is to complain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAOMI"
+     ],
+     "reversals": [
+      {
+       "from": "IMOAN",
+       "to": "NAOMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits to complaining about their daughter-in-law Ruth's relative.",
+     "walkthrough": "'About' looks like 'concerning', but it turns I MOAN around. In the Bible's Book of Ruth, Ruth stays loyal to her mother-in-law Naomi.",
+     "definitionFit": "Naomi is the Biblical widow whose son married Ruth, making her that woman's in-law relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1490,65 @@
     "text": "Distance for example a cart reversed",
     "enumeration": "7"
    },
-   "solution": "YARDAGE"
+   "solution": "YARDAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YARDAGE",
+    "definitions": [
+     {
+      "text": "Distance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means put into the opposite direction, so the run of letters goes backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cart",
+      "gives": "DRAY",
+      "note": "a dray is a low, heavy cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARDAGE"
+     ],
+     "reversals": [
+      {
+       "from": "EGADRAY",
+       "to": "YARDAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How far a cart goes when it is backed up, given as an example.",
+     "walkthrough": "The turnaround covers the whole string, not just the cart; a dray is a low flat cart once used by brewers.",
+     "definitionFit": "Yardage is a length measured in yards, especially gained ground in football, so it is a measure of distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Distance"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1562,56 @@
     "text": "Big hammer finally smashes shelf",
     "enumeration": "6"
    },
-   "solution": "SLEDGE"
+   "solution": "SLEDGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLEDGE",
+    "definitions": [
+     {
+      "text": "Big hammer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smashes",
+      "gives": "S",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "shelf",
+      "gives": "LEDGE",
+      "note": "a ledge is a narrow shelf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy hammer at last brings a shelf crashing down.",
+     "walkthrough": "'Finally' seems to describe the hammer's last blow; it points to the end of the following word.",
+     "definitionFit": "A sledge is short for sledgehammer, the heavy long-handled hammer used for demolition work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1625,48 @@
     "text": "Find a way round with the help of … I don’t know!",
     "enumeration": "6"
    },
-   "solution": "BYPASS"
+   "solution": "BYPASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BYPASS",
+    "definitions": [
+     {
+      "text": "Find a way round",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with the help of",
+      "gives": "BY",
+      "note": "by means through or using, as in 'by hand'"
+     },
+     {
+      "clueFragment": "I don’t know!",
+      "gives": "PASS",
+      "note": "what a quiz contestant says when they do not know the answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked for a way round a problem shrugs and gives up.",
+     "walkthrough": "The ellipsis sets up a quiz-show moment: 'pass' is what you say when stumped.",
+     "definitionFit": "To bypass is to go around an obstacle or avoid it, a verb synonym of finding a way round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "know"
+    }
+   }
   }
  ]
 }
