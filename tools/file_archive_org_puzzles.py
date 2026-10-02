@@ -1113,8 +1113,9 @@ def read_solution(sol, grid, above=False):
 
 # ------------------------------------------------------------ the run
 
-#: Editions read at once: the desktop VLM serves one request at a time and
-#: the host has four cores, so two keep both busy.
+#: Editions read at once: the desktop VLM serves one request at a time, so a
+#: second one's OCR fills the first one's wait; more contend for the host's
+#: four cores.
 WORKERS = 2
 
 
