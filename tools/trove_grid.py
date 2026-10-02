@@ -9,9 +9,10 @@ read_grid(path) returns (rows, None), each row a string of "#" (block) and
   1. Otsu's threshold splits ink from paper.
   2. The lattice is the largest connected patch of ink: rules, frame and
      blocks all touch, and a column rule or a headline beside it does not.
-  3. Within its bounding box, a grid line is a row (or column) of pixels that
-     is ink nearly all the way across. The line centres must fall on one
-     regular pitch, which gives the cell count.
+  3. Within its bounding box, the white cells are paper patches walled in by
+     rules. Each is counted onto a row and column from its neighbours (a
+     curled page's pitch drifts), and the rows and columns they fill give the
+     cell count; a patch off its row's or column's line is a refusal.
   4. Each cell's middle (clear of its rules and of the number in its corner)
      is either mostly ink or mostly paper. A cell in between is a refusal:
      a smudge or a fold, not a guess.
@@ -20,6 +21,7 @@ Pure Pillow + numpy; the caller checks the result against the clue list.
 """
 import sys
 from collections import deque
+from itertools import pairwise
 
 import numpy as np
 from PIL import Image
@@ -28,6 +30,9 @@ from PIL import Image
 BLOCK_ABOVE = 0.85
 #: ...and a light only if it is at most this inky.
 WHITE_BELOW = 0.25
+#: A white patch further than this share of a cell from its row's and
+#: column's line refuses the grid.
+OFF_LATTICE = 0.25
 SIZES = (9, 11, 13, 15, 17, 19, 21, 23, 27)
 
 
@@ -109,10 +114,32 @@ def components(mask):
     return out
 
 
-def read_grid(path, block_above=BLOCK_ABOVE, off_lattice=0.25):
-    """(rows, None) or (None, why): see the module docstring. A white patch
-    more than `off_lattice` of a cell from the fitted lattice refuses the
-    grid; a 27x27 Jumbo on a curled page drifts further at its corners."""
+def steps(pos):
+    """Each position's index on a line of cells, `pos` counted in cells:
+    positions within half a cell of the one before are one cluster, and each
+    cluster's index is the last one's plus the gap between their means,
+    rounded. Counting from the neighbour, not from the first cell, keeps a
+    curled page's few percent of pitch from adding up to a whole cell
+    across a 27-cell grid."""
+    order = sorted(range(len(pos)), key=lambda i: pos[i])
+    groups = [[order[0]]]
+    for i, j in pairwise(order):
+        if pos[j] - pos[i] > 0.5:
+            groups.append([])
+        groups[-1].append(j)
+    out, index, last = [0] * len(pos), 0, None
+    for g in groups:
+        mean = float(np.mean([pos[i] for i in g]))
+        if last is not None:
+            index += max(1, round(mean - last))
+        last = mean
+        for i in g:
+            out[i] = index
+    return out
+
+
+def read_grid(path, block_above=BLOCK_ABOVE):
+    """(rows, None) or (None, why): see the module docstring."""
     gray = np.asarray(Image.open(path).convert("L"), dtype=np.uint8)
     cut = otsu(gray)
     ink = gray < cut
@@ -158,8 +185,8 @@ def read_grid(path, block_above=BLOCK_ABOVE, off_lattice=0.25):
                   [np.median([d[1] for d in down]), np.median([d[1] for d in across])]])
     seed = min(patches, key=lambda c: c[1] + c[2])
     inv = np.linalg.inv(m)
-    place = [tuple(round(float(v)) for v in inv @ np.array([c[1] - seed[1], c[2] - seed[2]]))
-             for c in patches]
+    frac = [inv @ np.array([c[1] - seed[1], c[2] - seed[2]]) for c in patches]
+    place = list(zip(steps([float(f[0]) for f in frac]), steps([float(f[1]) for f in frac])))
     a = np.array([[1, r, c] for r, c in place], dtype=float)
     fy, *_ = np.linalg.lstsq(a, np.array([c[1] for c in patches]), rcond=None)
     fx, *_ = np.linalg.lstsq(a, np.array([c[2] for c in patches]), rcond=None)
@@ -176,13 +203,27 @@ def read_grid(path, block_above=BLOCK_ABOVE, off_lattice=0.25):
         return None, (f"a {n}x{n} lattice at {pitch * step:.0f}px a cell is "
                       f"larger than the {w}x{h}px frame")
 
+    # A curled page bends the lattice: rows and columns keep their own
+    # spacing, so each row's (column's) offset from the affine fit is the
+    # mean of its patches', interpolated across a row with no white cell.
+    def bend(key, err):
+        got = {}
+        for (r, c), e in zip(place, err):
+            got.setdefault((r, c)[key], []).append(e)
+        at = sorted(got)
+        return np.interp(np.arange(n), at, [float(np.mean(got[k])) for k in at])
+
+    dy = bend(0, [c[1] - fy[0] - fy[1] * r - fy[2] * k for c, (r, k) in zip(patches, place)])
+    dx = bend(1, [c[2] - fx[0] - fx[1] * r - fx[2] * k for c, (r, k) in zip(patches, place)])
+
     def centre(r, c):
-        return fy[0] + fy[1] * r + fy[2] * c, fx[0] + fx[1] * r + fx[2] * c
+        return (fy[0] + fy[1] * r + fy[2] * c + dy[r],
+                fx[0] + fx[1] * r + fx[2] * c + dx[c])
 
     cells = set()
     for (area, cy, cx, hh, ww), (r, c) in zip(patches, place):
         ey, ex = centre(r, c)
-        if abs(cy - ey) > off_lattice * pitch or abs(cx - ex) > off_lattice * pitch:
+        if abs(cy - ey) > OFF_LATTICE * pitch or abs(cx - ex) > OFF_LATTICE * pitch:
             return None, f"the white patch at r{r + 1}c{c + 1} sits off the lattice"
         cells.add((r, c))
     grid = []

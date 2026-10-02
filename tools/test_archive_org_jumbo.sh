@@ -3,7 +3,9 @@
 # (the banner's is cut short), read "SOLUTION TO JUMBO 17 8" as 178, look for
 # an unheaded solution in the edition two weeks on, blank a light whose count
 # is short of it, keep the clue columns left of the Times Two's, and match a
-# solution grid by its blocks when its middle prints grey?
+# solution grid by its blocks when its middle prints grey, follow a grid
+# down past the window under the prize text, and read a 27x27 grid whose
+# rows widen down a curled page?
 #
 #     bash tools/test_archive_org_jumbo.sh
 #
@@ -95,6 +97,45 @@ check("its own blocks fit", 1.0, aj.block_fit(img, want, lat))
 other = list(want)
 other[0] = "#...#"
 check("another grid's blocks do not", True, aj.block_fit(img, other, lat) < 1.0)
+
+# A grid running past the 1400px window under the prize text is followed to
+# its foot.
+from PIL import Image, ImageDraw
+page = Image.new("L", (2000, 2400), 255)
+ImageDraw.Draw(page).rectangle((300, 500, 1450, 1650), fill=0)
+def noisy(im):
+    a = np.asarray(im).astype(int) + np.random.default_rng(1).integers(-20, 21, (im.height, im.width))
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+page = noisy(page)
+check("grid past the window: its foot", True,
+      abs(aj.grid_of(page, {"box": (600, 100, 900, 120)})[3] - 1650) <= 2)
+
+# A drawn 27x27 grid on a curled page: rows 38px apart at the top widening
+# to 46px at the foot, so counting rows by one pitch from the top lands a
+# whole row out; blocks where row and column are both odd.
+import trove_grid
+n = 27
+ys = [10]
+for r in range(n):
+    ys.append(ys[-1] + round(38 + 8 * r / (n - 1)))
+xs = [10 + 42 * c for c in range(n + 1)]
+draw = Image.new("L", (xs[-1] + 10, ys[-1] + 10), 255)
+d = ImageDraw.Draw(draw)
+for y in ys:
+    d.rectangle((xs[0], y, xs[-1] + 2, y + 2), fill=0)
+for x in xs:
+    d.rectangle((x, ys[0], x + 2, ys[-1] + 2), fill=0)
+want = ["".join("#" if r % 2 and c % 2 else "." for c in range(n)) for r in range(n)]
+for r in range(n):
+    for c in range(n):
+        if want[r][c] == "#":
+            d.rectangle((xs[c], ys[r], xs[c + 1], ys[r + 1]), fill=0)
+import tempfile
+with tempfile.NamedTemporaryFile(suffix=".png") as f:
+    noisy(draw).save(f.name)
+    check("curled 27x27 grid", (want, None), trove_grid.read_grid(f.name))
+check("rows counted from their neighbours", [0, 1, 2, 4, 5],
+      trove_grid.steps([0.0, 1.04, 2.1, 4.2, 5.25]))
 
 print("FAILS", fails)
 EOF
