@@ -60,6 +60,10 @@ def stage(src, out):
             if not f.is_file():
                 continue
             rel = f.relative_to(src).as_posix()
+            # Two globs may name one file (puzzles/*/index.html and
+            # puzzles/series/**/* both match puzzles/series/index.html).
+            if rel in staged:
+                continue
             dest = out / rel
             if dest.parent not in made:
                 dest.parent.mkdir(parents=True, exist_ok=True)
