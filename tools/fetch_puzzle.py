@@ -55,6 +55,7 @@ import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
+from clue_index import ClueIndex, clue_keys  # noqa: E402 — which puzzles share clues
 import groups  # noqa: E402 — linked answers; see tools/groups.py
 from groups import entry_id  # noqa: E402
 import definitions  # where each definition sits in its clue; see tools/definitions.py
@@ -2674,11 +2675,6 @@ def fetch_page(num):
     raise last
 
 
-def clue_texts(puzzle):
-    return {c["text"] for e in puzzle["entries"]
-            if isinstance(c := e.get("clue"), dict) and c.get("text")}
-
-
 def check_served(num, data):
     """Refuse a page that is not the one /crosswords/{cryptic,prize}/<num> was
     asked for: its own id or number names another puzzle."""
@@ -2691,23 +2687,26 @@ def check_served(num, data):
             f"{data.get('id')!r} number {data.get('number')!r} — refusing it")
 
 
+_CLUE_INDEX = None
+
+
+def clue_index():
+    """The corpus's clue index, built once per process (a few seconds)."""
+    global _CLUE_INDEX
+    if _CLUE_INDEX is None:
+        _CLUE_INDEX = ClueIndex.build()
+    return _CLUE_INDEX
+
+
 def check_not_copy(puzzle):
-    """Refuse a page whose clues are another series' puzzle of the same number.
-    /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with Quiptic
-    591's clues; filing it made two files hold one puzzle."""
-    mine = clue_texts(puzzle)
-    for other in puzzle_paths.PUZZLE_DIR.glob(f"*/*/*-{puzzle['number']}.json"):
-        if other.stem == puzzle["id"]:
-            continue
-        try:
-            held = clue_texts(json.loads(other.read_text(encoding="utf-8")))
-        except (OSError, ValueError, KeyError, TypeError):
-            continue
-        if mine and len(mine & held) * 2 > len(mine):
-            raise ValueError(
-                f"requested {puzzle['id']} but the page served the clues of "
-                f"{other.stem} ({len(mine & held)} of {len(mine)} clues are "
-                f"the same) — refusing to file a copy")
+    """Refuse a page whose clues are another held puzzle's, of any series or
+    number. /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with
+    Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either made
+    two files hold one puzzle."""
+    for other, shared, m, _ in clue_index().matches(puzzle["id"], clue_keys(puzzle)):
+        raise ValueError(
+            f"requested {puzzle['id']} but the page served the clues of "
+            f"{other} ({shared} of {m} clues are the same) — refusing to file a copy")
 
 
 def fetch_number(num):
@@ -2730,6 +2729,7 @@ def fetch_number(num):
     # Named explicitly: this IS the acquiring fetcher, so it overwrites any
     # banner a recovery tool left, rather than inheriting it.
     write_puzzle_file(path, puzzle, generator="tools/fetch_puzzle.py")
+    clue_index().add(puzzle["id"], puzzle)
     reindex()
     print(("fetched " if is_new else "refreshed ") + puzzle["id"])
     if graded is not None:

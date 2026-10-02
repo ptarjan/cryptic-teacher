@@ -74,16 +74,39 @@ check("a page whose id is another number is refused, saying both",
 served["id"] = "crosswords/quiptic/591"
 check("a page whose id is another series is refused",
       raises(fp.check_served, 591, served) is not None)
-quip = {"id": "quiptic-591", "date": "2011-03-14",
-        "entries": [{"clue": {"text": "Feline"}}]}
-puzzle_paths.file_for(quip).parent.mkdir(parents=True, exist_ok=True)
-puzzle_paths.file_for(quip).write_text(json.dumps(quip))
-copy = fp.convert(page(591, -1187485200000, -1187485200000))
-msg = raises(fp.check_not_copy, copy)
+def clues(prefix, n=10):
+    return [{"clue": {"text": f"{prefix} clue number {i} (5)"}} for i in range(n)]
+
+def held_puzzle(pid, date, entries):
+    held = {"id": pid, "date": date, "entries": entries}
+    puzzle_paths.file_for(held).parent.mkdir(parents=True, exist_ok=True)
+    puzzle_paths.file_for(held).write_text(json.dumps(held))
+
+def served(number, entries):
+    return {"id": f"cryptic-{number}", "number": number, "entries": entries}
+
+held_puzzle("quiptic-591", "2011-03-14", clues("alpha"))
+held_puzzle("cryptic-25545", "2011-03-15", clues("beta"))
+fp._CLUE_INDEX = None  # rebuilt from the scratch tree
+
+msg = raises(fp.check_not_copy, served(591, clues("alpha")))
 check("cryptic 591 carrying quiptic 591's clues is refused, naming both",
-      msg is not None and "requested cryptic-591" in msg and "quiptic-591" in msg)
-copy["entries"][0]["clue"] = {"text": "Canine (3)"}
-check("a puzzle with its own clues is filed", raises(fp.check_not_copy, copy) is None)
+      msg is not None and "requested cryptic-591" in msg and "quiptic-591" in msg
+      and "10 of 10" in msg)
+msg = raises(fp.check_not_copy, served(2545, clues("beta")))
+check("cryptic 2545 carrying cryptic 25545's clues (another number) is refused",
+      msg is not None and "requested cryptic-2545" in msg and "cryptic-25545" in msg)
+nearly = clues("beta")
+nearly[0] = {"clue": {"text": "Reworded entirely (4)"}}
+msg = raises(fp.check_not_copy, served(2545, nearly))
+check("a copy with one of ten clues changed is still refused, saying 9 of 10",
+      msg is not None and "9 of 10" in msg)
+half = clues("beta")[:5] + clues("gamma")[5:]
+check("a puzzle sharing half its clues is filed",
+      raises(fp.check_not_copy, served(2545, half)) is None)
+check("a genuine new puzzle is filed", raises(fp.check_not_copy, served(2546, clues("delta"))) is None)
+check("a puzzle is not a copy of itself on refresh",
+      raises(fp.check_not_copy, served(25545, clues("beta"))) is None)
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
 PY

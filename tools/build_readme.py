@@ -457,6 +457,7 @@ LAYOUT = [
     ("fetching", "tools/test_ann_normalize.sh", "what apply_annotations.normalize computes, so the run need not write it"),
     ("fetching", "tools/derive_assembly.py", "an annotation's `assembly`, worked out from its blocks"),
     ("fetching", "tools/test_derive_assembly.sh", "is `assembly` worked out from the blocks, and only with the clue's own operations?"),
+    ("fetching", "tools/clue_index.py", "which puzzle files share clues: normalised clue text -> puzzle ids"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
