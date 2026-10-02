@@ -243,14 +243,16 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
 {
   const offenders = appSrc.split("\n").map((l, i) => ({ l, n: i + 1 }))
     .filter(({ l }) => /["'`]puzzles\//.test(l))
-    .filter(({ l }) => !/\bat\(/.test(l) && !/new URL\(/.test(l) && !/^\s*(\/\/|\*)/.test(l));
+    .filter(({ l }) => !/\b(at|addressUrl)\(/.test(l) && !/new URL\(/.test(l) && !/^\s*(\/\/|\*)/.test(l));
   assert(!offenders.length,
     "app.js builds a URL from a bare \"puzzles/…\" literal. Once a puzzle is open "
     + "the address bar says /puzzles/<id>/, so that resolves one level deeper and "
-    + "404s — wrap it in at(): "
+    + "404s — wrap it in at() (or addressUrl() for the address bar): "
     + offenders.map((o) => `app.js:${o.n} ${o.l.trim()}`).join(" | "));
   assert(/function at\(rel\) \{ return new URL\(rel, homeUrl\(\)\)\.href; \}/.test(appSrc),
     "app.js still resolves the URLs it builds against the front door, with at()");
+  assert(/function addressUrl\(rel\) \{[^}]*homeUrl\(\)/.test(appSrc),
+    "app.js's addressUrl() still resolves against the front door, as at() does");
 }
 
 // The same hazard in index.html's own links: the page stays loaded while the
@@ -1490,7 +1492,10 @@ const seriesOf = (id) => ((allPuzzles.find((p) => p.id === id) || {}).series
   || String(id).replace(/-\d+$/, ""));
 const numberIn = (id) => numberOf(id) || Number(String(id).replace(/^.*-/, ""));
 const pickerSearchFor = (id) => typeInPicker(numberIn(id) + " " + seriesOf(id));
+// The menus are remembered across opens, so a filter left set would hide the
+// puzzle being looked up by id: clear them first.
 const pickerRowFor = (id) => {
+  ["picker-paper", "picker-band", "picker-tag"].forEach((m) => { if (registry[m].value) chooseIn(m, ""); });
   pickerSearchFor(id);
   const rows = drainPicker();
   // The series chip too: a number and a series word can name two puzzles,
@@ -1511,7 +1516,7 @@ const pickerRowFor = (id) => {
   const shelf = name.includes(", ") && name.split(", ").pop();
   const byShelf = shelf && rows.find((li) => li.children[0] && new RegExp(
     ">" + shelf.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?!\\d)").test(li.children[0].innerHTML));
-  return byNumber || byShelf || (rows.length === 1 ? rows[0] : undefined);
+  return byNumber || byShelf || (rows.length === 1 && rows[0].children[0] ? rows[0] : undefined);
 };
 // Opens the picker first, because most callers are arriving from another puzzle.
 const openFromPicker = (id) => {
@@ -5654,11 +5659,13 @@ global.realSetTimeout(() => {
       assert(matched() > 0 && matched() <= both,
         `typing "${day}" narrows the chosen paper and band: ${matched()} of ${both}`);
     }
-    // Opening the picker again starts from all papers and any difficulty.
+    // Closing and reopening the picker keeps the menus as they were chosen.
     registry["btn-picker-close"].onclick();
     registry["btn-picker"].onclick();
-    assert(registry["picker-paper"].value === "" && registry["picker-band"].value === "",
-      "the menus start at all on every open");
+    assert(registry["picker-paper"].value === biggest && registry["picker-band"].value === band,
+      `the menus keep their choice across a close and reopen: ${registry["picker-paper"].value}|${registry["picker-band"].value}`);
+    choosePaper("");
+    chooseIn("picker-band", "");
   }
   typeInPicker("");
   registry["btn-picker-close"].onclick();
