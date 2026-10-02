@@ -301,15 +301,12 @@ ARCHIVE_ORG_PER_NIGHT="${ARCHIVE_ORG_PER_NIGHT:-150}"
 if [ -d "$HOME/.cache/archive_org_editions" ]; then
   aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org.XXXXXX")"
   mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
-  # Paul's limit is 2% misread words and marks, judged by
-  # tools/measure_archive_org_ocr.py on held-out editions. Editions from
-  # ARCHIVE_ORG_FILE_FROM on measure under it and file into puzzles/times;
-  # earlier ones go to the scratch dir. Every reading still reaches
-  # archiveorg-source for cross_validate.py. Lower the year only when the
-  # held-out editions of the added years measure 2% or less.
-  ARCHIVE_ORG_FILE_FROM="${ARCHIVE_ORG_FILE_FROM:-1983}"
+  # Only a puzzle with every clue read goes into puzzles/times, whatever its
+  # year; one with a blank clue goes to the scratch dir, since a solver
+  # cannot work it. Every reading still reaches archiveorg-source for
+  # cross_validate.py.
   if python3 tools/file_archive_org_puzzles.py --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" --file-from "$ARCHIVE_ORG_FILE_FROM" \
+      --out "$HOME/.cache/archive_org_crops/unfiled" \
       >"$aorg_out" 2>&1; then
     cat "$aorg_out"
     git status --porcelain -- puzzles/times puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
@@ -318,13 +315,11 @@ if [ -d "$HOME/.cache/archive_org_editions" ]; then
     alert "tools/file_archive_org_puzzles.py failed, so no Times puzzle is filed off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
   rm -f "$aorg_out"
-  # The FT 1971-99 (ftcryptic-N) the same way. Its held-out gold measures
-  # over 2%, so every reading goes to the scratch dir until it does; then
-  # set ARCHIVE_ORG_FT_FILE_FROM to the first year that measures under it.
+  # The FT 1971-99 (ftcryptic-N) by the same rule: complete puzzles into
+  # puzzles/ftcryptic, ones with a blank clue to the scratch dir.
   aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-ft.XXXXXX")"
   if python3 tools/file_archive_org_puzzles.py --paper ft --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" \
-      ${ARCHIVE_ORG_FT_FILE_FROM:+--file-from "$ARCHIVE_ORG_FT_FILE_FROM"} >"$aorg_out" 2>&1; then
+      --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
     cat "$aorg_out"
     git status --porcelain -- puzzles/ftcryptic | grep -q . && python3 tools/fetch_puzzle.py --reindex
   else
@@ -332,14 +327,12 @@ if [ -d "$HOME/.cache/archive_org_editions" ]; then
     alert "tools/file_archive_org_puzzles.py --paper ft failed, so no FT puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
   rm -f "$aorg_out"
-  # The Guardian 1971/1984-85/1995-98 (cryptic-N, below the feed's floor).
-  # Its held-out gold (1997) measures under 2% misread, so a puzzle with
-  # every clue read from ARCHIVE_ORG_GUARDIAN_FILE_FROM (the measured
-  # 1990s layout) on goes into the corpus; the rest to the scratch dir.
+  # The Guardian 1971/1984-85/1995-98 (cryptic-N, below the feed's floor),
+  # by the same rule: complete puzzles into puzzles/cryptic, the rest to the
+  # scratch dir.
   aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-guardian.XXXXXX")"
   if python3 tools/file_archive_org_puzzles.py --paper guardian --limit "$ARCHIVE_ORG_PER_NIGHT" \
-      --out "$HOME/.cache/archive_org_crops/unfiled" \
-      --file-from "${ARCHIVE_ORG_GUARDIAN_FILE_FROM:-1995}" >"$aorg_out" 2>&1; then
+      --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
     cat "$aorg_out"
     git status --porcelain -- puzzles/cryptic | grep -q . && python3 tools/fetch_puzzle.py --reindex
   else
