@@ -436,6 +436,8 @@ LAYOUT = [
     ("fetching", "tools/vlm_column_prompt.md", "what the VLM reader is told when transcribing a clue column verbatim"),
     ("fetching", "tools/vlm_pick_prompt.md", "what the VLM reader is told when the readers disagree on one clue"),
     ("fetching", "tools/test_annotate_partial.sh", "a puzzle that has hints and lacks some is annotated only where it lacks them"),
+    ("fetching", "tools/errata.py", "a paper's erratum is a fix to the puzzle, not a preamble"),
+    ("fetching", "tools/test_errata.sh", "a paper's erratum in the preamble fixes its clue and leaves the preamble; the instructions beside it stay, and the write gate refuses one left behind"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

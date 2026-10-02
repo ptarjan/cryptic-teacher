@@ -59,6 +59,7 @@ import groups  # noqa: E402 — linked answers; see tools/groups.py
 from groups import entry_id  # noqa: E402
 import definitions  # where each definition sits in its clue; see tools/definitions.py
 import enumeration  # a clue's printed letter counts; see tools/enumeration.py
+import errata  # a paper's corrections in the preamble; see tools/errata.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle, shim_path)
@@ -873,6 +874,9 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A linked answer's lights in the order that reads as words, before the
     # sources are compared against the joined answer.
     puzzle = order_groups(puzzle)
+    # A paper's erratum in the preamble fixes its clue, whoever wrote the
+    # file: tools/errata.py.
+    errata.apply(puzzle)
     if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
         puzzle = corroborate.corroborate(puzzle)
     # A puzzle built fresh from a page names only its url; the file's own
@@ -2030,7 +2034,7 @@ def convert(data):
             f"{published} — mis-filed page, refusing to write it")
     when = correct_source_date(pid, when)
 
-    return {
+    puzzle = {
         "id": pid,
         "number": data["number"],
         "series": series,
@@ -2039,11 +2043,15 @@ def convert(data):
         **({"date": when.isoformat()} if when else {}),
         "dimensions": data["dimensions"],
         # The paper's own note above the clues: a themed puzzle's special
-        # instructions, or an erratum. Absent when the page has none.
+        # instructions. Absent when the page has none.
         **({"preamble": pre} if (pre := preamble(data.get("instructions"))) else {}),
         "source": {"url": "https://www.theguardian.com/" + data["id"]},
         "entries": entries,
     }
+    # An erratum printed in that note fixes its clue here, before
+    # merge_annotations compares the clues a re-fetch keeps an annotation on.
+    errata.apply(puzzle)
+    return puzzle
 
 
 def merge_annotations(new_puzzle, old_puzzle):
