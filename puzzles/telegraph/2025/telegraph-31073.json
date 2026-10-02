@@ -10,19 +10,18 @@
  },
  "source": {
   "publisher": "Telegraph",
-  "url": "https://bigdave44.com/2025/11/07/dt-31073-full-review/",
-  "retrievedFrom": "blog",
-  "acquiredBy": "tools/file_telegraph_puzzles.py",
+  "url": "https://www.telegraph.co.uk/puzzles/",
+  "retrievedFrom": "publisher",
+  "acquiredBy": "tools/fetch_telegraph.py",
   "acquiredOn": "2026-09-26",
-  "gridOrigin": "reconstructed"
+  "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "bigdave44",
-  "url": "https://bigdave44.com/2025/11/07/dt-31073-full-review/",
-  "date": "2025-11-07",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +35,40 @@
     "text": "Perhaps Mr Owl ate my metal worm?",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PALINDROME",
+    "definitions": [
+     {
+      "text": "Perhaps Mr Owl ate my metal worm?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr Owl ate my metal worm",
+      "note": "surface reading: a nonsense tale of a bird eating a metal worm"
+     },
+     {
+      "clueFragment": "Perhaps",
+      "note": "setter's reading: the quoted sentence is an example of a phrase that reads the same backwards as forwards"
+     }
+    ],
+    "explanation": {
+     "surface": "A whimsical scene of an owl gobbling up a mechanical worm.",
+     "walkthrough": "Read the quoted words letter by letter from the end and they come out identical; 'Perhaps' tells you the sentence is just one example of the type.",
+     "definitionFit": "A word or sentence that reads identically in both directions is the term for this kind of letter-symmetrical phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Owl"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +82,56 @@
     "text": "Religious leader burst bubble at last",
     "enumeration": "4"
    },
-   "solution": "POPE"
+   "solution": "POPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POPE",
+    "definitions": [
+     {
+      "text": "Religious leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "'at last' points to the final position, so only the closing letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burst",
+      "gives": "POP",
+      "note": "to burst is to pop"
+     },
+     {
+      "clueFragment": "bubble",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric pricks somebody's bubble in the end.",
+     "walkthrough": "'Burst bubble' reads as one phrase, but 'burst' is a verb on its own and 'bubble at last' supplies one letter.",
+     "definitionFit": "The head of the Roman Catholic Church holds the title, making him the most prominent clerical figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bubble"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +145,60 @@
     "text": "Spooner’s pipe poor as weapon",
     "enumeration": "7"
    },
-   "solution": "LONGBOW"
+   "solution": "LONGBOW",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "LONGBOW",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "Rev Spooner was famous for swapping the opening sounds of words, so the initial sounds here trade places"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pipe",
+      "gives": "LONG",
+      "soundsLike": "BONG",
+      "note": "a bong is a water pipe; it takes the opening L sound of the next word"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "BOW",
+      "soundsLike": "LOW",
+      "note": "low means poor in quality; it takes the opening B sound of the previous word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's smoking pipe is so bad it might as well be used to fight with.",
+     "walkthrough": "BONG LOW becomes LONG BOW when the B and L sounds change places.",
+     "definitionFit": "A tall English archery bow used to devastating effect at Agincourt is a classic medieval arm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pipe"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +218,54 @@
      }
     ]
    },
-   "solution": "NATIONALTRUST"
+   "solution": "NATIONALTRUST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATIONAL TRUST",
+    "definitions": [
+     {
+      "text": "charitable organisation",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is being operated or processed, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naturalist not",
+      "gives": "NATURALISTNOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NATURALISTNOT",
+       "gives": "NATIONALTRUST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unemployed nature expert ends up doing charity work.",
+     "walkthrough": "'Not working' looks like a single phrase meaning idle, but 'not' is fodder and 'working' alone signals the rearrangement. The National Trust is the British charity that looks after historic houses and countryside.",
+     "definitionFit": "It is a registered British conservation charity that preserves stately homes, gardens and coastline for the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +279,51 @@
     "text": "Check two rivers for animal",
     "enumeration": "8"
    },
-   "solution": "REINDEER"
+   "solution": "REINDEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINDEER",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "REIN",
+      "note": "to rein in is to check or restrain"
+     },
+     {
+      "clueFragment": "two rivers",
+      "gives": "DEER",
+      "note": "the Dee, a river in Scotland and in Wales, plus R, the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REIN",
+      "DEE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector checks a pair of rivers looking for wildlife.",
+     "walkthrough": "'Check' reads as inspect, but here it means restrain, as you would a horse.",
+     "definitionFit": "This antlered Arctic deer is a species of mammal, so the general word covers it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +337,56 @@
     "text": "Chap taking pee in wood?",
     "enumeration": "5"
    },
-   "solution": "MAPLE"
+   "solution": "MAPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAPLE",
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "MALE",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "pee",
+      "gives": "P",
+      "note": "the letter P is spelt 'pee'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man relieving himself among the trees.",
+     "walkthrough": "The vulgar surface is a decoy: 'pee' is just the name of the letter P.",
+     "definitionFit": "The timber of this tree is a hardwood used for furniture and floors, so it names a type of lumber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pee"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +400,44 @@
     "text": "One’s served hot stuff",
     "enumeration": "4"
    },
-   "solution": "DISH"
+   "solution": "DISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISH",
+    "definitions": [
+     {
+      "text": "One’s served",
+      "at": 0,
+      "note": "read as 'one that is served'"
+     },
+     {
+      "text": "hot stuff",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One’s served",
+      "note": "first meaning: a course of food brought to the table"
+     },
+     {
+      "clueFragment": "hot stuff",
+      "note": "second meaning: an attractive person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as a waiter bringing something spicy; the second phrase is slang for a good-looking person.",
+     "definitionFit": "The word means a prepared item of food and is also informal slang for a sexy, attractive person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +451,43 @@
     "text": "Document website miser owns",
     "enumeration": "7"
    },
-   "solution": "ITEMISE"
+   "solution": "ITEMISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITEMISE",
+    "definitions": [
+     {
+      "text": "Document",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "owns",
+      "for": "hidden_word",
+      "note": "what a phrase owns it holds within it, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "website miser",
+      "gives": "ITEMISE",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tight-fisted person's online property is recorded on paper.",
+     "walkthrough": "'Document' looks like a noun, but it is the verb: to record in detail.",
+     "definitionFit": "To list things one by one in writing is to record each item, which is what documenting them means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Document"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +511,59 @@
      }
     ]
    },
-   "solution": "HITANDMISS"
+   "solution": "HITANDMISS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HIT-AND-MISS",
+    "definitions": [
+     {
+      "text": "disorganised",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters appear in an abnormal order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Admit NHS",
+      "gives": "ADMITNHS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADMITNHSIS",
+       "gives": "HITANDMISS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the health service is in chaos.",
+     "walkthrough": "'is' looks like the verb joining the parts but belongs in the fodder. The NHS is Britain's National Health Service.",
+     "definitionFit": "Something done haphazardly, sometimes succeeding and sometimes failing, lacks planning and order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Admit"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +577,55 @@
     "text": "Beer perhaps containing old wine",
     "enumeration": "5"
    },
-   "solution": "PINOT"
+   "solution": "PINOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PINOT",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer perhaps",
+      "gives": "PINT",
+      "note": "beer is an example of a drink served by the pint"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "O",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A glass of ale with some vintage wine mixed in.",
+     "walkthrough": "'Perhaps' marks beer as an example of what fills the measure, not as the measure itself.",
+     "definitionFit": "Pinot is a grape family (noir, grigio, blanc) and the red or white made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Beer"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +639,56 @@
     "text": "Reckless rascal seen with dirty books",
     "enumeration": "9"
    },
-   "solution": "IMPRUDENT"
+   "solution": "IMPRUDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPRUDENT",
+    "definitions": [
+     {
+      "text": "Reckless",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rascal",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     },
+     {
+      "clueFragment": "dirty",
+      "gives": "RUDE",
+      "note": "dirty jokes are rude"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "RUDE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A careless rogue spotted carrying smutty reading.",
+     "walkthrough": "'Books' in crosswords is often OT or NT, the Old or New Testament.",
+     "definitionFit": "Acting without care or thought for consequences is unwise, which is what lacking prudence means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +702,68 @@
     "text": "A French mature Brie at last judged “perfect”",
     "enumeration": "13"
    },
-   "solution": "UNADULTERATED"
+   "solution": "UNADULTERATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNADULTERATED",
+    "definitions": [
+     {
+      "text": "perfect",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "'at last' refers to the end, so only the final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is French for 'a'"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "ADULT",
+      "note": "mature means grown-up"
+     },
+     {
+      "clueFragment": "Brie",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the cheese's name"
+     },
+     {
+      "clueFragment": "judged",
+      "gives": "RATED",
+      "note": "judged means assessed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "ADULT",
+      "E",
+      "RATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A ripe French cheese is finally declared flawless.",
+     "walkthrough": "'Mature Brie' looks like a description of the cheese, but 'mature' is a separate piece and Brie only gives its last letter.",
+     "definitionFit": "Unadulterated means pure and complete, with nothing added, so it fits 'perfect' in the sense of utter or absolute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +783,59 @@
      }
     ]
    },
-   "solution": "BLOODRELATION"
+   "solution": "BLOODRELATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLOOD RELATION",
+    "definitions": [
+     {
+      "text": "family member",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fighting",
+      "for": "anagram",
+      "note": "letters in a fight are thrown about and scrambled into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lie to baron",
+      "gives": "LIETOBARON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIETOBARONOLD",
+       "gives": "BLOODRELATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone deceives a nobleman who is feuding with an elderly relative.",
+     "walkthrough": "'old' looks like it describes the family member, but it is part of the fodder.",
+     "definitionFit": "A person related by birth rather than marriage is a kin member of your family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +855,67 @@
      }
     ]
    },
-   "solution": "BLINDALLEY"
+   "solution": "BLINDALLEY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLIND ALLEY",
+    "definitions": [
+     {
+      "text": "cul de-sac",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "itinerant",
+      "for": "anagram",
+      "note": "an itinerant wanders from place to place, so the letters roam into a new order"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Led in by",
+      "gives": "LEDINBY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLIND",
+      "ALL",
+      "EY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEDINBY",
+       "gives": "BLINDEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering guide leads a group into a dead-end street.",
+     "walkthrough": "'itinerant' looks like a noun for the guide, but it is the anagram signal for the three words before it.",
+     "definitionFit": "A dead-end passage with no way through is a closed street, and figuratively a fruitless course of action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "itinerant"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +935,51 @@
      }
     ]
    },
-   "solution": "LOWWATER"
+   "solution": "LOWWATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOW WATER",
+    "definitions": [
+     {
+      "text": "This won’t float your boat",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unhappy",
+      "gives": "LOW",
+      "note": "feeling low is feeling sad"
+     },
+     {
+      "clueFragment": "quality",
+      "gives": "WATER",
+      "note": "as in a diamond 'of the first water', the highest quality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOW",
+      "WATER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dissatisfied with a product that fails to excite them.",
+     "walkthrough": "'Float your boat' is an idiom for pleasing someone, but here it is taken literally: a shallow tide can strand a vessel.",
+     "definitionFit": "When the tide is out there may be too little depth to keep a vessel afloat, so the phrase works literally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "float"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +993,58 @@
     "text": "Mother accepting employment in the Louvre, perhaps",
     "enumeration": "6"
    },
-   "solution": "MUSEUM"
+   "solution": "MUSEUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MUSEUM",
+    "definitions": [
+     {
+      "text": "the Louvre, perhaps",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MUM",
+      "note": "mum is an informal word for mother"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "employment of a tool is its use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "USE",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother takes a job at the famous Paris gallery.",
+     "walkthrough": "'Employment' suggests a job, but here it means use, as in putting something to use.",
+     "definitionFit": "The Louvre in Paris is an example of a public collection of art and antiquities on display."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "employment"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1058,51 @@
     "text": "Oil treated sore knee",
     "enumeration": "8"
    },
-   "solution": "KEROSENE"
+   "solution": "KEROSENE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KEROSENE",
+    "definitions": [
+     {
+      "text": "Oil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated is processed or worked on, so the letters are reworked into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sore knee",
+      "gives": "SOREKNEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOREKNEE",
+       "gives": "KEROSENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbing ointment into an aching joint.",
+     "walkthrough": "'Oil treated' reads as a remedy applied to the knee; 'Oil' is actually the definition.",
+     "definitionFit": "This is a paraffin fuel distilled from petroleum, burned in lamps and jet engines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1116,54 @@
     "text": "Deny wife’s being released from famous prison",
     "enumeration": "6"
    },
-   "solution": "NEGATE"
+   "solution": "NEGATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEGATE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being released from",
+      "for": "deletion",
+      "note": "someone released from a place leaves it, so a letter departs from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "famous prison",
+      "gives": "NEWGATE",
+      "note": "Newgate was a notorious London jail"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man refuses to accept that his wife is getting out of jail.",
+     "walkthrough": "Newgate was a London prison for over seven centuries, closed in 1902; remove its W.",
+     "definitionFit": "To negate something is to nullify it or say it is not true, which is to contradict or refute it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "released"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1177,88 @@
     "text": "On vacation, has put up with a week going after game bird",
     "enumeration": "7"
    },
-   "solution": "GOSHAWK"
+   "solution": "GOSHAWK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "GOSHAWK",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On vacation",
+      "for": "letter_selection",
+      "note": "a vacated place is emptied, so the word loses its interior and keeps its outer letters"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up lifts it bottom to top, so its letters run in reverse"
+     },
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "going after means following, so this group is placed behind the next one"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GO",
+      "note": "Go is a Japanese board game"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HS",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "week",
+      "gives": "WK",
+      "note": "WK is the abbreviation for week"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "SH",
+      "A",
+      "WK"
+     ],
+     "reversals": [
+      {
+       "from": "HS",
+       "to": "SH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker spends a week hunting pheasant or grouse.",
+     "walkthrough": "'Game bird' looks like the definition, but 'game' is the board game and only 'bird' defines.",
+     "definitionFit": "A goshawk is a large hawk, a bird of prey used in falconry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1272,60 @@
     "text": "Upset when one becomes European? Calm down!",
     "enumeration": "8"
    },
-   "solution": "DESTRESS"
+   "solution": "DESTRESS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DESTRESS",
+    "definitions": [
+     {
+      "text": "Calm down",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "becomes",
+      "for": "substitution",
+      "note": "when one thing becomes another it is swapped out, so a letter is exchanged for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upset",
+      "gives": "DISTRESS",
+      "note": "to upset is to distress"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "STRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is anxious about changing nationality and is told to relax.",
+     "walkthrough": "Swap the I in the word for upset with an E.",
+     "definitionFit": "To destress is to relax and shed tension, which is what calming down involves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1339,48 @@
     "text": "Choose artist, a complex woman?",
     "enumeration": "7"
    },
-   "solution": "ELECTRA"
+   "solution": "ELECTRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRA",
+    "definitions": [
+     {
+      "text": "a complex woman?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose",
+      "gives": "ELECT",
+      "note": "to elect is to choose"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "Picking a painter who turns out to be a complicated woman.",
+     "walkthrough": "'Complex' suggests complicated, but it is the psychological term: the Electra complex, named after the Greek heroine. RA stands for Royal Academician.",
+     "definitionFit": "Electra, the mythical Greek princess who avenged her father, gave her name to a theory in psychology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1400,48 @@
      }
     ]
    },
-   "solution": "ASSAULTCOURSE"
+   "solution": "ASSAULTCOURSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ASSAULT COURSE",
+    "definitions": [
+     {
+      "text": "physical test",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we want the sound rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sailor lacking refinement",
+      "gives": "ASSAULTCOURSE",
+      "soundsLike": "A SALT COARSE",
+      "note": "a salt is an old sailor and coarse means unrefined"
+     }
+    ],
+    "explanation": {
+     "surface": "A rough-mannered seaman is written up during a fitness exam.",
+     "walkthrough": "'Salt' (an old salt) is a crossword favourite for a sailor.",
+     "definitionFit": "An obstacle circuit used in military training tests strength, stamina and agility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reported"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1455,51 @@
     "text": "Temperature raised, showing a bit of leg",
     "enumeration": "5"
    },
-   "solution": "THIGH"
+   "solution": "THIGH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THIGH",
+    "definitions": [
+     {
+      "text": "a bit of leg",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "raised",
+      "gives": "HIGH",
+      "note": "raised means high"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Things get hot when a little leg is on show.",
+     "walkthrough": "'Temperature raised' reads as a fever, but the two words are separate pieces placed side by side.",
+     "definitionFit": "The thigh is the upper section of the limb between hip and knee, so it is one part of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1513,65 @@
     "text": "Occasionally, golden eagle’s tail brings joy",
     "enumeration": "4"
    },
-   "solution": "GLEE"
+   "solution": "GLEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLEE",
+    "definitions": [
+     {
+      "text": "joy",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only every other letter is kept"
+     },
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "a tail is the back end, so only the final letter is used"
+     }
+    ],
+    "linkWords": [
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golden",
+      "gives": "GLE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "eagle’s",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the bird's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher is thrilled to glimpse a golden eagle's tail now and then.",
+     "walkthrough": "'Golden eagle' looks like one bird, but the two words are treated separately.",
+     "definitionFit": "Glee is great delight or happiness, often gleeful exultation, so it is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "golden"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1585,44 @@
     "text": "Apparently most ignorant, anyway",
     "enumeration": "9"
    },
-   "solution": "LEASTWISE"
+   "solution": "LEASTWISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEASTWISE",
+    "definitions": [
+     {
+      "text": "Apparently most ignorant",
+      "at": 0,
+      "note": "a whimsical reading of the answer as two words"
+     },
+     {
+      "text": "anyway",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apparently most ignorant",
+      "note": "first meaning: split into two words, it describes the person with the smallest amount of wisdom"
+     },
+     {
+      "clueFragment": "anyway",
+      "note": "second meaning: at any rate, at least"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Apparently' warns that the first meaning comes from reading the word in two halves rather than a real sense.",
+     "definitionFit": "Leastwise is a dated or dialect adverb meaning at least or at any rate, used just as anyway is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ignorant"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1636,60 @@
     "text": "Stop Italy deporting all outsiders – that’s perfect",
     "enumeration": "5"
    },
-   "solution": "TOTAL"
+   "solution": "TOTAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOTAL",
+    "definitions": [
+     {
+      "text": "perfect",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deporting all outsiders",
+      "for": "letter_selection",
+      "note": "to deport is to expel, so every word loses its outermost letters and only the insides remain"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "TO",
+      "select": "middle",
+      "note": "inner letters of the word"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "TAL",
+      "select": "middle",
+      "note": "inner letters of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to end immigration from Italy, presented as an ideal outcome.",
+     "walkthrough": "The political-sounding surface hides a simple trim: strip the first and last letter of each of the two words.",
+     "definitionFit": "Both words can mean complete or absolute, as in a total stranger or a perfect stranger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deporting"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1703,43 @@
     "text": "Couple living in largely OK estate",
     "enumeration": "4"
    },
-   "solution": "YOKE"
+   "solution": "YOKE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YOKE",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "living in",
+      "for": "hidden_word",
+      "note": "a resident lives inside a place, so the letters dwell within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "largely OK estate",
+      "gives": "YOKE",
+      "note": "spans the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Two people living on a housing estate that's mostly fine.",
+     "walkthrough": "'Couple' looks like a noun for two people; as the definition it is the verb meaning join together.",
+     "definitionFit": "To yoke is to harness two animals together, or link things, which is to join or pair them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1753,65 @@
     "text": "Worn-out after study, lawyers enthralled by article",
     "enumeration": "10"
    },
-   "solution": "THREADBARE"
+   "solution": "THREADBARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THREADBARE",
+    "definitions": [
+     {
+      "text": "Worn-out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "to be enthralled is to be held captive, so these letters are held inside another piece"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "to read a subject at university is to study it"
+     },
+     {
+      "clueFragment": "lawyers",
+      "gives": "BAR",
+      "note": "the Bar is the legal profession of barristers"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "READ",
+      "BAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Exhausted after long hours of revision, lawyers are captivated by a piece of writing.",
+     "walkthrough": "'Article' suggests a written piece; in crosswords it often means THE, A or AN.",
+     "definitionFit": "Cloth worn so thin that the threads show is shabby and frayed, the literal sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   }
  ]
 }

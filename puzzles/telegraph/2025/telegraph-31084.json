@@ -10,19 +10,18 @@
  },
  "source": {
   "publisher": "Telegraph",
-  "url": "https://bigdave44.com/2025/11/14/dt-31084/",
-  "retrievedFrom": "blog",
-  "acquiredBy": "tools/file_telegraph_puzzles.py",
+  "url": "https://www.telegraph.co.uk/puzzles/",
+  "retrievedFrom": "publisher",
+  "acquiredBy": "tools/fetch_telegraph.py",
   "acquiredOn": "2026-09-26",
-  "gridOrigin": "reconstructed"
+  "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "bigdave44",
-  "url": "https://bigdave44.com/2025/11/14/dt-31084/",
-  "date": "2025-11-14",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +35,55 @@
     "text": "Butcher's working as barman",
     "enumeration": "8"
    },
-   "solution": "SCHUBERT"
+   "solution": "SCHUBERT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHUBERT",
+    "definitions": [
+     {
+      "text": "barman",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is being operated or wrought into shape, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Butcher's",
+      "gives": "BUTCHERS",
+      "note": "the letters taken as printed, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUTCHERS",
+       "gives": "SCHUBERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher moonlighting behind the bar of a pub.",
+     "walkthrough": "'Butcher's' looks like the subject of the sentence, but it is just the letters to rearrange into the composer SCHUBERT.",
+     "definitionFit": "A composer writes music measured out in bars, so the setter playfully calls him a man of bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barman"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +97,72 @@
     "text": "Flipping disco occasionally centrepiece of country party",
     "enumeration": "6"
    },
-   "solution": "SOCIAL"
+   "solution": "SOCIAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "SOCIAL",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done occasionally happens only now and then, so only every other letter is kept"
+     },
+     {
+      "text": "centrepiece of",
+      "for": "container",
+      "note": "a centrepiece sits in the middle, so one piece goes into the heart of another"
+     },
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way round, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "LAOS",
+      "note": "Laos is a country in Southeast Asia"
+     },
+     {
+      "clueFragment": "disco",
+      "gives": "IC",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOCIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAICOS",
+       "to": "SOCIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural get-together where a disco plays now and then as the main attraction.",
+     "walkthrough": "Put the alternate letters inside the middle of LAOS to get LAICOS, then flip the lot to read SOCIAL.",
+     "definitionFit": "A social is an informal gathering or get-together, a noun meaning much the same as a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +176,42 @@
     "text": "Pinch picnic basket",
     "enumeration": "6"
    },
-   "solution": "HAMPER"
+   "solution": "HAMPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMPER",
+    "definitions": [
+     {
+      "text": "Pinch",
+      "at": 0
+     },
+     {
+      "text": "picnic basket",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinch",
+      "note": "first meaning: to restrict or constrain, as a tight shoe pinches"
+     },
+     {
+      "clueFragment": "picnic basket",
+      "note": "second meaning: a wicker container for food"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pinch' reads like stealing a picnic basket; instead it is a verb meaning to restrict, a second sense of the basket word.",
+     "definitionFit": "The word is both a verb meaning to impede or constrain and a noun for a lidded wicker basket for food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pinch"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +225,55 @@
     "text": "Curse when cutting sandwich",
     "enumeration": "5"
    },
-   "solution": "BLAST"
+   "solution": "BLAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLAST",
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a blade cutting into something goes inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sandwich",
+      "gives": "BLT",
+      "note": "a bacon, lettuce and tomato sandwich"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in 'as I arrived', meaning at the time when"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BL",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears after slicing into their lunch.",
+     "walkthrough": "BLT is the standard short name for a bacon, lettuce and tomato sandwich; AS goes between its L and T.",
+     "definitionFit": "Blast is an exclamation of annoyance, a mild oath used the same way as curse words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +287,53 @@
     "text": "Clever to escape formidable stronghold",
     "enumeration": "7"
    },
-   "solution": "REDOUBT"
+   "solution": "REDOUBT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REDOUBT",
+    "definitions": [
+     {
+      "text": "stronghold",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to escape",
+      "for": "deletion",
+      "note": "whatever escapes gets out and is gone, so those letters leave the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formidable",
+      "gives": "REDOUBTABLE",
+      "note": "a synonym: inspiring fear or respect"
+     },
+     {
+      "clueFragment": "Clever",
+      "gives": "ABLE",
+      "note": "able means capable or skilled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDOUBT"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart prisoner breaking out of a forbidding castle.",
+     "walkthrough": "'Clever' seems to describe the escaper, but it is the word removed from the end of the longer adjective.",
+     "definitionFit": "A redoubt is a small fortification or defensive position, a place of military strength."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clever"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +347,40 @@
     "text": "Sportsperson touched by point from opponent?",
     "enumeration": "6"
    },
-   "solution": "FENCER"
+   "solution": "FENCER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FENCER",
+    "definitions": [
+     {
+      "text": "Sportsperson touched by point from opponent?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sportsperson touched by point from opponent?",
+      "note": "surface reading: an athlete moved emotionally by a remark a rival made"
+     },
+     {
+      "clueFragment": "touched by point",
+      "note": "setter's reading: physically hit by the tip of a rival's blade, scoring a hit in a bout"
+     }
+    ],
+    "explanation": {
+     "surface": "A sporting rival makes a gracious observation that moves the other player.",
+     "walkthrough": "'Touched' and 'point' suggest feelings and a remark; read literally they describe the tip of a sword landing on someone.",
+     "definitionFit": "In the sport of épée, foil and sabre, a hit is scored when the weapon's tip lands on the rival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "touched"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +394,62 @@
     "text": "Capital burden high, almost ridiculous",
     "enumeration": "9"
    },
-   "solution": "EDINBURGH"
+   "solution": "EDINBURGH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EDINBURGH",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is lost"
+     },
+     {
+      "text": "ridiculous",
+      "for": "anagram",
+      "note": "something ridiculous is absurd and out of order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burden",
+      "gives": "BURDEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "high",
+      "gives": "HIG",
+      "note": "the word with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BURDENHIG",
+       "gives": "EDINBURGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining that a city's tax burden is absurdly steep.",
+     "walkthrough": "'Capital' looks like money in a tax complaint, but it is a capital city: Scotland's.",
+     "definitionFit": "Edinburgh is the capital city of Scotland, so it is an example of a capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +469,51 @@
      }
     ]
    },
-   "solution": "CARDGAME"
+   "solution": "CARDGAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARD GAME",
+    "definitions": [
+     {
+      "text": "gin, maybe",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to supply"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Character",
+      "gives": "CARD",
+      "note": "a card is an amusing, eccentric person"
+     },
+     {
+      "clueFragment": "willing",
+      "gives": "GAME",
+      "note": "game means ready and willing, as in 'I'm game'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARD",
+      "GAME"
+     ]
+    },
+    "explanation": {
+     "surface": "An obliging barfly happy to provide a drink of gin.",
+     "walkthrough": "Gin here is gin rummy, not the spirit; the surface pushes the drink hard.",
+     "definitionFit": "Gin rummy is a two-player game played with a deck, so gin is one example of that category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +527,69 @@
     "text": "Around piano regularly rehearse old unknown musical piece",
     "enumeration": "8"
    },
-   "solution": "RHAPSODY"
+   "solution": "RHAPSODY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "RHAPSODY",
+    "definitions": [
+     {
+      "text": "musical piece",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "Around",
+      "for": "container",
+      "note": "to go around something is to surround it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rehearse old",
+      "gives": "RHASOD",
+      "select": "alternate",
+      "note": "the first, third, fifth and so on letters across both words"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, meaning softly"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHA",
+      "P",
+      "SOD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician running through an old forgotten piece at the piano again and again.",
+     "walkthrough": "The alternate letters span two words, 'rehearse old'; the piano letter slots in after RHA, and the unknown goes on the end.",
+     "definitionFit": "A rhapsody is a free-flowing, emotional instrumental composition, one kind of musical work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +603,47 @@
     "text": "Authority over Royal Marine perhaps",
     "enumeration": "8"
    },
-   "solution": "COMMANDO"
+   "solution": "COMMANDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMANDO",
+    "definitions": [
+     {
+      "text": "Royal Marine perhaps",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authority",
+      "gives": "COMMAND",
+      "note": "command is control or authority over others"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "o is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMAND",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with power over a soldier of the Royal Marines.",
+     "walkthrough": "'Over' looks like a preposition placing authority above the marine; it is the cricket abbreviation O.",
+     "definitionFit": "Britain's Royal Marines are a commando force, so a Royal Marine is one example of a commando."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +657,74 @@
     "text": "Ford once knight approached initially to cross English river",
     "enumeration": "6"
    },
-   "solution": "SIERRA"
+   "solution": "SIERRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SIERRA",
+    "definitions": [
+     {
+      "text": "Ford once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is used"
+     },
+     {
+      "text": "to cross",
+      "for": "container",
+      "note": "to cross something is to straddle it, so the outer letters span the inner pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knight",
+      "gives": "SIR",
+      "note": "the title given to a knight"
+     },
+     {
+      "clueFragment": "approached",
+      "gives": "A",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "ER",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight on horseback reaching a shallow crossing of an English river.",
+     "walkthrough": "'Ford' looks like a river crossing; it is the car maker, and 'once' says the model is no longer made. SIR plus A wraps around E and R.",
+     "definitionFit": "The Sierra was a popular family saloon made by the Ford motor company in the 1980s and early 1990s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ford"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +738,58 @@
     "text": "Miss captain nation abruptly dropped",
     "enumeration": "4"
    },
-   "solution": "SKIP"
+   "solution": "SKIP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SKIP",
+    "definitions": [
+     {
+      "text": "Miss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abruptly",
+      "for": "deletion",
+      "note": "abruptly means cut short, so the last letter is chopped off"
+     },
+     {
+      "text": "dropped",
+      "for": "deletion",
+      "note": "something dropped is let go and left out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "captain",
+      "gives": "SKIPPER",
+      "note": "a skipper is the captain of a ship or team"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "PER",
+      "note": "Peru, the South American nation, lacking its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A national team's captain suddenly left out of the side.",
+     "walkthrough": "'Miss' looks like a title for a woman captain; it is a verb. Take the cut-short country away from the end of the captain word.",
+     "definitionFit": "To skip something is to pass over it or omit it, which is what missing it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +809,60 @@
      }
     ]
    },
-   "solution": "AWESTRUCK"
+   "solution": "AWESTRUCK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWE-STRUCK",
+    "definitions": [
+     {
+      "text": "Dumbfounded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bridge player",
+      "gives": "WEST",
+      "note": "one of the four compass seats at a bridge table"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "RUCK",
+      "note": "a ruck is a brawl or scrum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WEST",
+      "RUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player stunned into silence when a brawl breaks out at the table.",
+     "walkthrough": "Bridge players are named North, South, East and West; here West breaks into A RUCK.",
+     "definitionFit": "Being filled with wonder leaves one speechless, which is what dumbfounded describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +876,65 @@
     "text": "False move to board vessel in retrospect",
     "enumeration": "5"
    },
-   "solution": "BOGUS"
+   "solution": "BOGUS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "BOGUS",
+    "definitions": [
+     {
+      "text": "False",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to board",
+      "for": "container",
+      "note": "boarding a ship means getting inside it, so one piece goes within another"
+     },
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "in retrospect means looking back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "SUB",
+      "note": "short for submarine"
+     },
+     {
+      "clueFragment": "move",
+      "gives": "GO",
+      "note": "a go is a turn or move in a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOGUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUGOB",
+       "to": "BOGUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets a mistaken attempt to climb aboard a ship.",
+     "walkthrough": "'Move' looks like a verb in the surface, but it is a noun: a turn in a game. 'Vessel' is the usual short name for an underwater boat.",
+     "definitionFit": "Bogus is an informal adjective meaning fake, counterfeit or not genuine, as false is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "False"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +948,42 @@
     "text": "Dead level",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLAT",
+    "definitions": [
+     {
+      "text": "Dead",
+      "at": 0
+     },
+     {
+      "text": "level",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead",
+      "note": "first meaning: lifeless, as a drink that has lost its fizz"
+     },
+     {
+      "clueFragment": "level",
+      "note": "second meaning: even, with no bumps or slopes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Dead level' reads as one phrase meaning perfectly even; split it and each word is a separate sense of the answer.",
+     "definitionFit": "A drink or market with no life is described this way, and so is a surface with no rise or fall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dead"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +997,51 @@
     "text": "Teach girl strangely lacking in energy",
     "enumeration": "9"
    },
-   "solution": "LETHARGIC"
+   "solution": "LETHARGIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LETHARGIC",
+    "definitions": [
+     {
+      "text": "lacking in energy",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd or unusual way, so the letters come out in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teach girl",
+      "gives": "TEACHGIRL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEACHGIRL",
+       "gives": "LETHARGIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tutor finds a pupil oddly sluggish.",
+     "walkthrough": "'Strangely' seems to describe the girl's behaviour, but it tells you to rearrange the two words before it.",
+     "definitionFit": "Lethargic describes someone sluggish and listless, without the vigour to do much at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strangely"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1055,57 @@
     "text": "Figure from Burundi Mary plainly upset",
     "enumeration": "7"
    },
-   "solution": "PYRAMID"
+   "solution": "PYRAMID",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PYRAMID",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means taken out of, so the letters are lifted straight out of the words that follow"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means overturned, and in a clue something overturned runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burundi Mary plainly",
+      "gives": "DIMARYP",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DIMARYP",
+       "to": "PYRAMID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman from the African country of Burundi is visibly distressed.",
+     "walkthrough": "'Figure' here is a geometric solid, not a person; the hidden letters read backwards from 'plainly' to 'Burundi'.",
+     "definitionFit": "A pyramid is a solid geometric shape with a square base and triangular sides, a figure in geometry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1119,59 @@
     "text": "Ban for former partner dismissed from show",
     "enumeration": "8"
    },
-   "solution": "PROHIBIT"
+   "solution": "PROHIBIT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "PROHIBIT",
+    "definitions": [
+     {
+      "text": "Ban",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissed from",
+      "for": "substitution",
+      "note": "being dismissed means being sent away, so one piece is thrown out and another takes its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or partner"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "EXHIBIT",
+      "note": "to exhibit is to show or display"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "HIBIT"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex is barred from appearing on a programme.",
+     "walkthrough": "'For' looks like a link word but supplies PRO, which replaces EX at the front of EXHIBIT.",
+     "definitionFit": "To prohibit is to forbid something formally, the same verb sense as to ban."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1185,55 @@
     "text": "Like Sark, typically keeping European happy",
     "enumeration": "8"
    },
-   "solution": "CAREFREE"
+   "solution": "CAREFREE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAREFREE",
+    "definitions": [
+     {
+      "text": "happy",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding on to it, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Sark, typically",
+      "gives": "CARFREE",
+      "note": "Sark, a small Channel Island, bans motor cars"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "E",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tranquil Channel Island where a visiting European feels content.",
+     "walkthrough": "Sark, one of the Channel Islands between England and France, famously allows no cars, so it is car-free; E slots in after CAR.",
+     "definitionFit": "Someone carefree has no worries or responsibilities weighing on them, so is light-hearted and content."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sark"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1247,47 @@
     "text": "Nuclear facility concerning Washington, perhaps",
     "enumeration": "7"
    },
-   "solution": "REACTOR"
+   "solution": "REACTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REACTOR",
+    "definitions": [
+     {
+      "text": "Nuclear facility",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means about, as in a letter heading"
+     },
+     {
+      "clueFragment": "Washington, perhaps",
+      "gives": "ACTOR",
+      "note": "Denzel Washington is a film star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about a nuclear plant and the US government.",
+     "walkthrough": "Washington suggests the US capital or government; it is the actor Denzel Washington, and 'perhaps' flags him as one example.",
+     "definitionFit": "A reactor is the apparatus at a power station where controlled nuclear fission takes place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Washington"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1301,50 @@
     "text": "Faces of rather exquisite Austrian ladies not made-up",
     "enumeration": "4"
    },
-   "solution": "REAL"
+   "solution": "REAL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "REAL",
+    "definitions": [
+     {
+      "text": "not made-up",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Faces of",
+      "for": "letter_selection",
+      "note": "a face is the front of something, so only the front letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather exquisite Austrian ladies",
+      "gives": "REAL",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Elegant Viennese women going about without cosmetics.",
+     "walkthrough": "'Made-up' suggests wearing make-up, but the definition means invented.",
+     "definitionFit": "Something not made up is not fictional or invented, so it is genuine and actually exists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "made-up"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1358,68 @@
     "text": "Author deceived over royalties essentially",
     "enumeration": "4"
    },
-   "solution": "DAHL"
+   "solution": "DAHL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DAHL",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turning something over brings it the other way round, so the letters run backwards"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is at its core, so the central letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deceived",
+      "gives": "HAD",
+      "note": "to be had is to be tricked"
+     },
+     {
+      "clueFragment": "royalties",
+      "gives": "L",
+      "select": "middle",
+      "note": "the fifth of its nine letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAH",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "HAD",
+       "to": "DAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer cheated by a publisher over the payments due on book sales.",
+     "walkthrough": "Roald Dahl wrote Charlie and the Chocolate Factory; 'had' as in 'I've been had' means tricked.",
+     "definitionFit": "Roald Dahl was a British writer of children's books and short stories, an example of an author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "royalties"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1433,43 @@
     "text": "Peter out in wild wind, legitimately",
     "enumeration": "7"
    },
-   "solution": "DWINDLE"
+   "solution": "DWINDLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DWINDLE",
+    "definitions": [
+     {
+      "text": "Peter out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means contained within, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wild wind, legitimately",
+      "gives": "DWINDLE",
+      "note": "spans the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A storm's gale gradually dying away as it lawfully should.",
+     "walkthrough": "'Peter' looks like a man's name in a weather story; 'peter out' is a phrasal verb meaning to fade.",
+     "definitionFit": "To peter out is to diminish gradually until nothing remains, which is the same as shrinking away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Peter"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1483,45 @@
     "text": "Colony member revealing all of novel criticised reportedly",
     "enumeration": "6"
    },
-   "solution": "NUDIST"
+   "solution": "NUDIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NUDIST",
+    "definitions": [
+     {
+      "text": "Colony member revealing all",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means according to what is said, so the sound counts rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novel criticised",
+      "gives": "NUDIST",
+      "soundsLike": "NEW DISSED",
+      "note": "novel means new and dissed is slang for criticised"
+     }
+    ],
+    "explanation": {
+     "surface": "A member of a writers' colony exposes everything about a panned book.",
+     "walkthrough": "'Colony' suggests an artists' colony; it is a naturist colony, and 'revealing all' is part of the definition, not a confession.",
+     "definitionFit": "A naturist community is called a colony, and its members wear no clothes, showing everything they have."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revealing"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1535,79 @@
     "text": "Scattered seed primarily cuckoo went to eat, right?",
     "enumeration": "6"
    },
-   "solution": "STREWN"
+   "solution": "STREWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "STREWN",
+    "definitions": [
+     {
+      "text": "Scattered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the first letter is used"
+     },
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "eating something takes it inside, so one piece swallows another"
+     },
+     {
+      "text": "cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go haywire into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seed",
+      "gives": "S",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "went",
+      "gives": "WENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TREWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WERNT",
+       "gives": "TREWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuckoo goes to feed on seed that has been thrown about.",
+     "walkthrough": "'Cuckoo' looks like the bird eating the seed; it is the scramble signal. R goes inside WENT before the shuffle.",
+     "definitionFit": "Strewn is a past participle meaning spread untidily over an area, the same sense as scattered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1621,62 @@
     "text": "Creature that sheds skin suppressing hunger",
     "enumeration": "5"
    },
-   "solution": "HYENA"
+   "solution": "HYENA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HYENA",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sheds skin",
+      "for": "letter_selection",
+      "note": "losing the skin strips away the outside, so only the inner letters stay"
+     },
+     {
+      "text": "suppressing",
+      "for": "container",
+      "note": "to suppress is to hold something down and keep it in, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "HA",
+      "select": "middle",
+      "note": "the two letters left once the first and last go"
+     },
+     {
+      "clueFragment": "hunger",
+      "gives": "YEN",
+      "note": "a yen is a craving or longing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake-like animal that moults while going without food.",
+     "walkthrough": "'Creature that sheds skin' wants to be the definition, a snake; the definition is only 'Creature', and 'that' is the word stripped.",
+     "definitionFit": "A hyena is a carnivorous African mammal, so it is one example of a living animal or creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "that"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1690,62 @@
     "text": "Endlessly urge action to develop site of battle",
     "enumeration": "9"
    },
-   "solution": "AGINCOURT"
+   "solution": "AGINCOURT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AGINCOURT",
+    "definitions": [
+     {
+      "text": "site of battle",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "endlessly means with no end, so the final letter goes"
+     },
+     {
+      "text": "to develop",
+      "for": "anagram",
+      "note": "developing something changes its form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urge",
+      "gives": "URG",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "ACTION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "URGACTION",
+       "gives": "AGINCOURT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A general keeps pressing for action on the battlefield.",
+     "walkthrough": "Agincourt is the 1415 battle where Henry V's English army defeated the French.",
+     "definitionFit": "Agincourt in northern France is where a famous medieval clash between English and French armies took place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "develop"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1759,63 @@
     "text": "Ringing family before emigrating finally",
     "enumeration": "5"
    },
-   "solution": "CLANG"
+   "solution": "CLANG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLANG",
+    "definitions": [
+     {
+      "text": "Ringing",
+      "at": 0,
+      "note": "a noun here, a ringing sound"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the very end, so only the last letter is used"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means placed in front, so one piece leads and the other follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "CLAN",
+      "note": "a clan is an extended family"
+     },
+     {
+      "clueFragment": "emigrating",
+      "gives": "G",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning relatives just before moving abroad for good.",
+     "walkthrough": "'Ringing' suggests making a phone call; here it is the noise of metal struck.",
+     "definitionFit": "A clang is a loud resonant metallic sound, the kind of noise a bell or struck metal makes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ringing"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1829,51 @@
     "text": "Aromatic herb's smell meeting with indignation",
     "enumeration": "6"
    },
-   "solution": "BORAGE"
+   "solution": "BORAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BORAGE",
+    "definitions": [
+     {
+      "text": "Aromatic herb",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "meeting with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smell",
+      "gives": "BO",
+      "note": "BO is body odour"
+     },
+     {
+      "clueFragment": "indignation",
+      "gives": "RAGE",
+      "note": "rage is fierce anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes offence at the pungent scent of a herb.",
+     "walkthrough": "BO, body odour, is a stock crossword smell.",
+     "definitionFit": "Borage is a plant with blue flowers and cucumber-scented leaves, grown and used as a culinary herb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "indignation"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1887,74 @@
     "text": "Regard as perfect current Adele hit one's plugging",
     "enumeration": "8"
    },
-   "solution": "IDEALISE"
+   "solution": "IDEALISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "IDEALISE",
+    "definitions": [
+     {
+      "text": "Regard as perfect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hit",
+      "for": "anagram",
+      "note": "something hit is knocked about, so the letters are knocked out of order"
+     },
+     {
+      "text": "plugging",
+      "for": "container",
+      "note": "a plug fills a gap, so one piece is pushed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "Adele",
+      "gives": "ADELE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, plus the s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL",
+      "IS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ADELE",
+       "gives": "DEALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans think a new Adele hit song is flawless while promoting it.",
+     "walkthrough": "'Hit' and 'plugging' look like music-business talk about a chart single; they are the scramble and insertion signals.",
+     "definitionFit": "To idealise someone is to see them as better than they are, treating them as faultless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1968,65 @@
     "text": "Ditch tool to lose weight after time",
     "enumeration": "6"
    },
-   "solution": "TRENCH"
+   "solution": "TRENCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRENCH",
+    "definitions": [
+     {
+      "text": "Ditch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to lose",
+      "for": "deletion",
+      "note": "losing something means being left without it, so that letter is taken away"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming later, so this piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation for time"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "WRENCH",
+      "note": "a wrench is a gripping tool, a spanner"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "standard abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Throwing away a tool to slim down after a while.",
+     "walkthrough": "'Ditch' looks like a verb meaning throw away; it is the noun for a long narrow channel.",
+     "definitionFit": "A trench is a long narrow excavation dug in the ground, which is what a ditch is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ditch"
+    }
+   }
   },
   {
    "number": 30,
@@ -482,7 +2040,58 @@
     "text": "Number tucking into chicken shows increase",
     "enumeration": "8"
    },
-   "solution": "HEIGHTEN"
+   "solution": "HEIGHTEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEIGHTEN",
+    "definitions": [
+     {
+      "text": "increase",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "tucking into means getting stuck inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a female chicken"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "EIGHT",
+      "note": "a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EIGHT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rise in the count of diners eating chicken.",
+     "walkthrough": "'Tucking into' suggests eating the chicken; here it means going inside the bird's name.",
+     "definitionFit": "To heighten is to intensify or raise something, making it greater, as increase does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   }
  ]
 }
