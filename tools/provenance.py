@@ -260,6 +260,11 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a fifteensquared write-up of an Independent puzzle older than "
                 "its feed, the grid rebuilt by tools/times_grids.py's search"},
+    "tools/file_georgeho_puzzles.py": {
+        "channel": "blog",
+        "what": "cryptics.georgeho.org's ODbL scrape of a times-for-the-times, "
+                "fifteensquared or bigdave44 write-up, the grid rebuilt from its "
+                "clues and answers by tools/times_grids.py"},
     "tools/build_authored_puzzle.py": {
         "channel": "authored", "what": "set here, not fetched"},
     "unknown": {
@@ -330,6 +335,19 @@ for _series in series_table.SERIES:
     if "blog" in series_table.meta(_series):
         _blog = series_table.meta(_series)["blog"]
         ACQUISITION_BY_SOURCE[(_series, _blog)] = (BLOG_FILER[_blog],)
+#: The write-up hosts cryptics.georgeho.org scraped, each with the series
+#: tools/file_georgeho_puzzles.py files from it.
+GEORGEHO_HOSTS = {
+    "times-xwd-times.livejournal.com": ("times", "timesquick", "timesjumbo",
+                                        "sundaytimes", "timesclub", "tls", "mephisto"),
+    "www.fifteensquared.net": ("cryptic", "everyman", "independent", "indysunday"),
+    "bigdave44.com": ("telegraph", "toughie", "sundaytel", "sundaytough"),
+}
+for _host, _names in GEORGEHO_HOSTS.items():
+    for _series in _names:
+        ACQUISITION_BY_SOURCE[(_series, _host)] = (
+            ACQUISITION_BY_SOURCE.get((_series, _host), ())
+            + ("tools/file_georgeho_puzzles.py",))
 
 # Series whose grid geometry is NOT the publisher's. Everything absent here is
 # "published", and that is checked rather than assumed: the book filers and
@@ -477,7 +495,7 @@ def grid_origin(series, url=None):
     and a blog series can hold puzzles read off its publisher's feed (the
     Telegraph's bucket, tools/fetch_telegraph.py)."""
     host = host_of(url)
-    if is_book(series) or host in BLOG_FILER:
+    if is_book(series) or host in BLOG_FILER or host in GEORGEHO_HOSTS:
         return "reconstructed"
     if "blog" in series_table.meta(series) and not any(
             channel_of(t) == "publisher" for t in ACQUISITION_BY_SOURCE.get((series, host), ())):
