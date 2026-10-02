@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,48 @@
     "text": "Strange date ditched",
     "enumeration": "4"
    },
-   "solution": "WEIR"
+   "solution": "WEIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WEIR",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "ditched",
+      "for": "deletion",
+      "note": "something ditched is thrown away, so a letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strange",
+      "gives": "WEIRD",
+      "note": "a five-letter synonym of strange, uncanny"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is the standard abbreviation for date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandons a date because it has turned odd.",
+     "walkthrough": "There is no definition: this is one of the ten themed answers, all composers.",
+     "definitionFit": "Judith Weir is a Scottish composer of operas and choral works, appointed Master of the Queen's Music in 2014."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +92,68 @@
     "text": "A friend he lost (I lost), executed naturally",
     "enumeration": "8"
    },
-   "solution": "FREEHAND"
+   "solution": "FREEHAND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FREEHAND",
+    "definitions": [
+     {
+      "text": "executed naturally",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I lost",
+      "for": "deletion",
+      "note": "a letter that is lost goes missing, so it is taken out of the fodder"
+     },
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "letters that are lost have wandered off their route, so they come back in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "FRIEND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFRENDHE",
+       "gives": "FREEHAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mourns a lost friend, who was put to death in a natural way.",
+     "walkthrough": "The bracketed '(I lost)' is a separate instruction: remove one letter before rearranging, so the anagram fodder is seven letters plus A.",
+     "definitionFit": "Drawing done freehand is produced without rulers or other instruments, by unaided natural skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "executed"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +167,60 @@
     "text": "No time to drink up",
     "enumeration": "6"
    },
-   "solution": "PISTON"
+   "solution": "PISTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PISTON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top, so the string runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the usual abbreviation for time"
+     },
+     {
+      "clueFragment": "to drink",
+      "gives": "SIP",
+      "note": "to sip is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PISTON"
+     ],
+     "reversals": [
+      {
+       "from": "NOTSIP",
+       "to": "PISTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call that there is no time left for drinking up.",
+     "walkthrough": "No definition: this is one of the ten themed composers.",
+     "definitionFit": "Walter Piston was an American composer and Harvard teacher, known for symphonies and the ballet The Incredible Flutist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +234,44 @@
     "text": "Doctor Richard Leakey's fossil hunters famously did in 1984",
     "enumeration": "8"
    },
-   "solution": "SAWBONES"
+   "solution": "SAWBONES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAWBONES",
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     },
+     {
+      "text": "Richard Leakey's fossil hunters famously did in 1984",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "note": "first meaning: slang for a surgeon or doctor"
+     },
+     {
+      "clueFragment": "Richard Leakey's fossil hunters famously did in 1984",
+      "note": "second meaning, read as two words: Leakey's team spotted the skeleton of Turkana Boy in 1984"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor connected with Leakey's famous fossil discovery.",
+     "walkthrough": "Split the answer as SAW BONES and it describes what Leakey's team did when they found the Turkana Boy skeleton in Kenya.",
+     "definitionFit": "Sawbones is old jocular slang for a surgeon, from the amputations once routine in the trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +285,55 @@
     "text": "Broadcast about sports body star",
     "enumeration": "6"
    },
-   "solution": "ALTAIR"
+   "solution": "ALTAIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALTAIR",
+    "definitions": [
+     {
+      "text": "star",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "sports body",
+      "gives": "LTA",
+      "note": "the LTA is the Lawn Tennis Association, British tennis's governing body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LTA",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports star being covered on television.",
+     "walkthrough": "'Sports body star' reads as a famous athlete, but the last word stands alone as the definition.",
+     "definitionFit": "Altair is the brightest star in the constellation Aquila, one corner of the Summer Triangle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +347,53 @@
     "text": "As carboxylic acid is lacy, top to bottom",
     "enumeration": "4"
    },
-   "solution": "ACYL"
+   "solution": "ACYL",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ACYL",
+    "definitions": [
+     {
+      "text": "As carboxylic acid is",
+      "at": 0,
+      "note": "a descriptive phrase for an adjective-like chemical term"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top to bottom",
+      "for": "cycling",
+      "note": "in a down entry the top letter is moved to the foot, rotating the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lacy",
+      "gives": "LACY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LACY",
+       "gives": "ACYL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note likening an acid to delicate lace.",
+     "walkthrough": "Moving the L of LACY from first to last spells the chemical term.",
+     "definitionFit": "An acyl group is the fragment left when a carboxylic acid loses its hydroxyl group, so such acids are acyl compounds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lacy"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +407,61 @@
     "text": "Northerner's age — or diet — has no bounds",
     "enumeration": "7"
    },
-   "solution": "GEORDIE"
+   "solution": "GEORDIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GEORDIE",
+    "definitions": [
+     {
+      "text": "Northerner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no bounds",
+      "for": "deletion",
+      "note": "with no boundaries the outer edges are gone, so the first and last letters drop away"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "age",
+      "gives": "AGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEORDIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A northerner's lifestyle, whether age or diet, knows no limits.",
+     "walkthrough": "Run AGE OR DIET together and strip its outer A and T.",
+     "definitionFit": "A Geordie is a native of Tyneside, around Newcastle in north-east England, so a northerner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bounds"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +475,52 @@
     "text": "Say Evelyn said \"Hank\"",
     "enumeration": "7"
    },
-   "solution": "WARLOCK"
+   "solution": "WARLOCK",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "WARLOCK",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so it is the sound that counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say Evelyn",
+      "gives": "WAR",
+      "soundsLike": "WAUGH",
+      "note": "Evelyn Waugh the novelist, whose surname is pronounced like war"
+     },
+     {
+      "clueFragment": "Hank",
+      "gives": "LOCK",
+      "note": "a hank of hair is a lock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "LOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Evelyn is quoted calling someone Hank.",
+     "walkthrough": "No definition: one of the themed composers. 'Say' marks Evelyn as an example name, pointing to the novelist Waugh.",
+     "definitionFit": "Peter Warlock was the pen name of Philip Heseltine, an English composer of songs and the Capriol Suite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hank"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +538,84 @@
    "group": [
     "9-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FREEBORN",
+    "definitions": [
+     {
+      "text": "Having no master from the start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so the word is read in reverse"
+     },
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "to swallow is to take inside, so one piece goes into another"
+     },
+     {
+      "text": "far edge",
+      "for": "letter_selection",
+      "note": "the far edge of a word is its end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pro",
+      "gives": "FOR",
+      "note": "to be pro something is to be for it"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "BEER",
+      "note": "beer is a drink"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "REEB",
+      "OR",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "BEER",
+       "to": "REEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf pro sinks a drink at the far side of the green.",
+     "walkthrough": "The definition runs to 'from the start', which looks like a letter selection instruction but is part of the meaning.",
+     "definitionFit": "Someone freeborn was born not a slave, so was never subject to any owner throughout life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +629,51 @@
     "text": "Small sketch of Tom and Spike?",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THUMBNAIL",
+    "definitions": [
+     {
+      "text": "Small sketch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom",
+      "gives": "THUMB",
+      "note": "Tom Thumb, the tiny hero of folk tale"
+     },
+     {
+      "clueFragment": "Spike",
+      "gives": "NAIL",
+      "note": "a spike is a large nail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THUMB",
+      "NAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A little drawing of the cartoon cat Tom and the bulldog Spike.",
+     "walkthrough": "Tom and Spike look like the Tom and Jerry cartoon characters; each name is completed or swapped for a word instead.",
+     "definitionFit": "A thumbnail sketch is a quick small drawing or brief outline, about the size of a thumbnail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spike"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +687,51 @@
     "text": "Out of bed, possibly dreadlocked, so dressed down",
     "enumeration": "9"
    },
-   "solution": "UPBRAIDED"
+   "solution": "UPBRAIDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPBRAIDED",
+    "definitions": [
+     {
+      "text": "dressed down",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of bed",
+      "gives": "UP",
+      "note": "out of bed is up"
+     },
+     {
+      "clueFragment": "possibly dreadlocked",
+      "gives": "BRAIDED",
+      "note": "dreadlocks are one kind of braided hair, hence possibly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "BRAIDED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets up, hair in dreadlocks, and throws on casual clothes.",
+     "walkthrough": "'Dressed down' suggests casual clothing, but here it means scolded.",
+     "definitionFit": "To upbraid someone is to scold them severely, the same as giving them a dressing-down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +758,55 @@
     "text": "Chablis ousts tea on Sunday!",
     "enumeration": "5"
    },
-   "solution": "BLISS"
+   "solution": "BLISS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BLISS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "ousts",
+      "for": "deletion",
+      "note": "to oust is to throw out, so some letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chablis",
+      "gives": "CHABLIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is British slang for tea"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "S is the abbreviation for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLIS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheer for wine replacing tea on a Sunday.",
+     "walkthrough": "No definition: one of the themed composers. Take the tea off the front of the wine, then add the day.",
+     "definitionFit": "Sir Arthur Bliss was an English composer and Master of the Queen's Music, known for the film score Things to Come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +820,70 @@
     "text": "Lean right and put out bust",
     "enumeration": "8"
    },
-   "solution": "BANKRUPT"
+   "solution": "BANKRUPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BANKRUPT",
+    "definitions": [
+     {
+      "text": "bust",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lean",
+      "gives": "BANK",
+      "note": "a plane or bike banks when it leans into a turn"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "PUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANK",
+      "R",
+      "UPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUT",
+       "gives": "UPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to lean to the right and put out a sculpted bust.",
+     "walkthrough": "'Put out' reads as a phrasal verb, but 'out' alone works on the word before it.",
+     "definitionFit": "Bust is an informal word for bankrupt, as in a business that has gone bust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +897,42 @@
     "text": "Catherine the Sixth (unknown)",
     "enumeration": "5"
    },
-   "solution": "PARRY"
+   "solution": "PARRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARRY",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Catherine the Sixth",
+      "gives": "PARR",
+      "note": "Catherine Parr was the sixth wife of Henry VIII"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is a mathematical unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen whose identity is uncertain, styled like royalty.",
+     "walkthrough": "No definition: one of the themed composers. 'The Sixth' looks like a regnal number but refers to Henry VIII's sixth wife.",
+     "definitionFit": "Sir Hubert Parry was an English composer best known for setting Blake's poem Jerusalem to music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sixth"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +950,53 @@
    "group": [
     "15-across",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIRD BRAIN",
+    "definitions": [
+     {
+      "text": "Charlie",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1960s-style girl",
+      "gives": "BIRD",
+      "note": "bird was British slang for a young woman, at its height in the 1960s"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "BRA",
+      "note": "a bra is an item of underwear"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "IN",
+      "note": "in means accepted or fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRD",
+      "BRA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A swinging sixties girl named Charlie, whose underwear passes muster.",
+     "walkthrough": "Charlie looks like a name, but in British slang a charlie is a fool.",
+     "definitionFit": "A birdbrain is a silly, empty-headed person, the same sense as calling someone a proper charlie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1010,54 @@
     "text": "Miss going east of eastern tip of Shandong",
     "enumeration": "5"
    },
-   "solution": "GLASS"
+   "solution": "GLASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLASS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "eastern tip",
+      "for": "letter_selection",
+      "note": "with east to the right, the eastern tip of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "going east of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shandong",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of Shandong"
+     },
+     {
+      "clueFragment": "Miss",
+      "gives": "LASS",
+      "note": "a miss is a girl or lass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman travelling to the far east of a Chinese province.",
+     "walkthrough": "No definition: one of the themed composers. In an across entry, east of means placed after.",
+     "definitionFit": "Philip Glass is an American minimalist composer, famous for operas such as Einstein on the Beach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1077,52 @@
      }
     ]
    },
-   "solution": "GABLEEND"
+   "solution": "GABLEEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GABLE END",
+    "definitions": [
+     {
+      "text": "Side Wall",
+      "at": 1
+     }
+    ],
+    "linkWords": [
+     "has",
+     "teamed with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old Hollywood heartthrob",
+      "gives": "GABLE",
+      "note": "Clark Gable, star of Gone with the Wind"
+     },
+     {
+      "clueFragment": "Close",
+      "gives": "END",
+      "note": "a close is an end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GABLE",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A film called Side Wall pairs a classic leading man with Glenn Close.",
+     "walkthrough": "Close looks like the actress Glenn Close but is the plain noun.",
+     "definitionFit": "A gable end is the triangular-topped end wall of a pitched-roof building, forming its side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1155,60 @@
      }
     ]
    },
-   "solution": "BATHCUBE"
+   "solution": "BATHCUBE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BATH CUBE",
+    "definitions": [
+     {
+      "text": "a water softener",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bum",
+      "for": "anagram",
+      "note": "bum is slang for bad or faulty, so the letters are in a poor arrangement"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "But",
+      "gives": "BUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beach",
+      "gives": "BEACH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUTBEACH",
+       "gives": "BATHCUBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beach bum, it turns out, softens hard water.",
+     "walkthrough": "'Beach bum' reads as a loafer, but 'bum' is the signal.",
+     "definitionFit": "A bath cube is a compressed block of salts dropped into the bath to soften and scent the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1222,54 @@
     "text": "Gave credit for publicity about writer",
     "enumeration": "8"
    },
-   "solution": "ASCRIBED"
+   "solution": "ASCRIBED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASCRIBED",
+    "definitions": [
+     {
+      "text": "Gave credit for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is publicity"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "SCRIBE",
+      "note": "a scribe is a writer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SCRIBE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An author gets acknowledgement in some promotional material.",
+     "walkthrough": "'About' here is positional, not 'concerning': the publicity literally wraps round the writer.",
+     "definitionFit": "To ascribe something to someone is to attribute it to them, crediting them with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1283,71 @@
     "text": "Act like a pig, covering flipping lot with eggs",
     "enumeration": "6"
    },
-   "solution": "ROOTLE"
+   "solution": "ROOTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROOTLE",
+    "definitions": [
+     {
+      "text": "Act like a pig",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "anagram",
+      "note": "flipping can mean crazy or upset, so the letters get scrambled"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes around something, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lot",
+      "gives": "LOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "ROE",
+      "note": "roe is fish eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "OTL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOT",
+       "gives": "OTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy diner piles a whole plate high with eggs.",
+     "walkthrough": "'Flipping' reads as a mild British expletive, but it turns the next word round.",
+     "definitionFit": "To rootle is to dig about with the snout, as pigs do when foraging, a variant of root."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1361,61 @@
     "text": "Familiar state, yet unfamiliar",
     "enumeration": "5"
    },
-   "solution": "MATEY"
+   "solution": "MATEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MATEY",
+    "definitions": [
+     {
+      "text": "Familiar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfamiliar",
+      "for": "anagram",
+      "note": "unfamiliar means strange, so the letters appear in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "MA",
+      "note": "MA is the abbreviation for Massachusetts"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "YET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "TEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YET",
+       "gives": "TEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paradox: a condition that is known yet strange.",
+     "walkthrough": "The clue opposes familiar and unfamiliar; one is the definition and the other the signal.",
+     "definitionFit": "Matey describes behaviour that is friendly and chummy, being on easy terms with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unfamiliar"
+    }
+   }
   },
   {
    "number": 20,
@@ -374,7 +1429,55 @@
     "text": "Big fish — both sides consumed by chief",
     "enumeration": "6"
    },
-   "solution": "MARLIN"
+   "solution": "MARLIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARLIN",
+    "definitions": [
+     {
+      "text": "Big fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "what is consumed is taken inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chief",
+      "gives": "MAIN",
+      "note": "main means chief"
+     },
+     {
+      "clueFragment": "both sides",
+      "gives": "RL",
+      "note": "right and left, R and L"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RL",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A big shot has eaten both halves of something.",
+     "walkthrough": "'Big fish' sounds like an important person, but it is literal.",
+     "definitionFit": "The marlin is a large ocean game fish with a long spear-like bill, prized by sport anglers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1491,65 @@
     "text": "Dog hides tail after phosphorous feed",
     "enumeration": "9"
    },
-   "solution": "PROVENDER"
+   "solution": "PROVENDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PROVENDER",
+    "definitions": [
+     {
+      "text": "feed",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hides",
+      "for": "container",
+      "note": "to hide something is to keep it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phosphorous",
+      "gives": "P",
+      "note": "P is the chemical symbol for phosphorus"
+     },
+     {
+      "clueFragment": "Dog",
+      "gives": "ROVER",
+      "note": "Rover is a stock name for a dog"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "END",
+      "note": "the tail is the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROV",
+      "END",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog conceals its tail after being given chemical-laced food.",
+     "walkthrough": "'After' places P in front, since the dog comes after it.",
+     "definitionFit": "Provender is animal fodder such as hay or grain, or jocularly any food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1563,50 @@
     "text": "Gin tipped over?",
     "enumeration": "4"
    },
-   "solution": "PART"
+   "solution": "PART",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PART",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "tipped over",
+      "for": "reversal",
+      "note": "something tipped over is upside down, so in a down entry the word reads upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gin",
+      "gives": "TRAP",
+      "note": "a gin is a snare or trap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART"
+     ],
+     "reversals": [
+      {
+       "from": "TRAP",
+       "to": "PART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has knocked over the gin.",
+     "walkthrough": "No definition: one of the themed composers. Gin is the drink in the surface but an old word for a snare here.",
+     "definitionFit": "Arvo Pärt is an Estonian composer of spare, bell-like sacred music such as Spiegel im Spiegel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gin"
+    }
+   }
   },
   {
    "number": 22,
@@ -416,7 +1620,55 @@
     "text": "Say Bill is rejected",
     "enumeration": "4"
    },
-   "solution": "CAGE"
+   "solution": "CAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CAGE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "is rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the string runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "eg, for example, means say"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account, a bill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAGE"
+     ],
+     "reversals": [
+      {
+       "from": "EGAC",
+       "to": "CAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A proposed law has been voted down.",
+     "walkthrough": "No definition: one of the themed composers. Bill is an account, not a proposed law.",
+     "definitionFit": "John Cage was an American avant-garde composer, notorious for 4'33\", a piece of silent performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 23,
@@ -430,7 +1682,44 @@
     "text": "Kelly, one of many passed on?",
     "enumeration": "4"
    },
-   "solution": "GENE"
+   "solution": "GENE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GENE",
+    "definitions": [
+     {
+      "text": "Kelly",
+      "at": 0
+     },
+     {
+      "text": "one of many passed on",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kelly",
+      "note": "first meaning: the forename of the dancer Kelly of Singin' in the Rain"
+     },
+     {
+      "clueFragment": "one of many passed on",
+      "note": "second meaning: a unit of heredity, one of thousands inherited"
+     }
+    ],
+    "explanation": {
+     "surface": "A Kelly asks whether she is one of many who have died.",
+     "walkthrough": "'Passed on' suggests death, but here it means inherited.",
+     "definitionFit": "Genes are units of heredity handed down from parents to offspring, and each person carries thousands of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1733,54 @@
     "text": "Flanks of inferior antelope",
     "enumeration": "7"
    },
-   "solution": "IRELAND"
+   "solution": "IRELAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IRELAND",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Flanks",
+      "for": "letter_selection",
+      "note": "flanks are the sides, so only the outside letters are kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inferior",
+      "gives": "IR",
+      "select": "outer",
+      "note": "the first and last letters of inferior"
+     },
+     {
+      "clueFragment": "antelope",
+      "gives": "ELAND",
+      "note": "the eland is a large African antelope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "ELAND"
+     ]
+    },
+    "explanation": {
+     "surface": "The sides of a poor-quality antelope.",
+     "walkthrough": "No definition: one of the themed composers, not the country it looks like.",
+     "definitionFit": "John Ireland was an English composer of songs, piano music and church anthems in the early twentieth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flanks"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1794,50 @@
     "text": "Performing is welcomed by the Bee Gees, family-wise",
     "enumeration": "7"
    },
-   "solution": "GIBBONS"
+   "solution": "GIBBONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIBBONS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "is welcomed by",
+      "for": "container",
+      "note": "a guest who is welcomed is taken in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Bee Gees, family-wise",
+      "gives": "GIBBS",
+      "note": "the Bee Gees were the Gibb brothers, so as a family they are the Gibbs"
+     },
+     {
+      "clueFragment": "Performing",
+      "gives": "ON",
+      "note": "a performer is on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIBB",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer is greeted by the Bee Gees, treated like one of the family.",
+     "walkthrough": "No definition: one of the themed composers; the apes are a false trail. Bee Gees were the brothers Gibb.",
+     "definitionFit": "Orlando Gibbons was an English Tudor and Jacobean composer of madrigals, keyboard pieces and church anthems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Performing"
+    }
+   }
   }
  ]
 }
