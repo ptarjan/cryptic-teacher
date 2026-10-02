@@ -177,9 +177,18 @@ def position(p):
     return series_meta.position_of(p.get("series") or "cryptic", p["number"])
 
 
+def number_day(p):
+    """The day a date-keyed number names (series.number_date), else None."""
+    return series_meta.number_date(p.get("series") or "cryptic", p["number"])
+
+
 def named(p):
-    """"Guardian Penguin Book 5 Cryptic No 18" — the puzzle in full prose."""
-    return f"{series_meta.paper_kind(p.get('series'), p['number'])} No {position(p):,}"
+    """"Guardian Penguin Book 5 Cryptic No 18" — the puzzle in full prose.
+    "Metro Cryptic, Tuesday 22 September 2026" where the number is a date."""
+    pk = series_meta.paper_kind(p.get('series'), p['number'])
+    if (day := number_day(p)):
+        return f"{pk}, {day:%A %-d %B %Y}"
+    return f"{pk} No {position(p):,}"
 
 
 def display_number(p):
@@ -509,7 +518,12 @@ def puzzle_page(puz, meta, prev_p, next_p):
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
     pretty = f"{position(puz):,}"
+    pk = series_meta.paper_kind(puz.get("series"), puz["number"])
     when = datestr(puz)
+    # A date-keyed number (Metro, the Canberra Times) is named by its day:
+    # "No 20,260,922" is a date with thousands separators.
+    day = number_day(puz)
+    dw = f"{day:%A %-d %B %Y}" if day else ""
     diff = (meta or {}).get("difficulty") or {}
     annotated = (meta or {}).get("annotated")
     # The page lives at its ID, not its number: two papers can reach the same
@@ -534,13 +548,15 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # bounce every time after.
     lead = "answers explained" if annotated else "answers"
     tail = "clue by clue" if annotated else "full solution"
-    title = (f"{what} {pretty} {lead} — {paper} crossword{by}" if by
+    title = (f"{pk}, {dw} – {lead}" + (f" – crossword{by}" if by else "") if day
+             else f"{what} {pretty} {lead} — {paper} crossword{by}" if by
              else f"{what} {pretty} {lead}, {tail} — {paper} crossword")
     # The snippet leads with the same promise for the same reason, and still says
     # which of the three pages this is: explained clue by clue, marked up from a
     # blog's write-up, or answers only.
     # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
-    full = f"{series_meta.paper_kind(puz.get('series'), puz['number'])} {pretty}{by}" + (f" ({when})" if when else "")
+    full = (f"{pk}, {dw}{by}" if day else
+            f"{pk} {pretty}{by}" + (f" ({when})" if when else ""))
     blog = puz.get("blog") if has_blog_hints(puz) else None
     desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
             if annotated else
@@ -554,7 +570,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
               *([(f"{series_name(ls)}, {ly}", listing_path(ls, ly))]
                 if meta else []),
-              (f"No {pretty}", "")]
+              (dw or f"No {pretty}", "")]
 
     across = [e for e in puz["entries"] if e["direction"] == "across"]
     down = [e for e in puz["entries"] if e["direction"] == "down"]
@@ -594,7 +610,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "headline": title, "url": canonical,
         "author": {"@type": "Person", "name": "Paul Tarjan", "url": "https://paultarjan.com/"},
         "isAccessibleForFree": True,
-        "about": {"@type": "Game", "name": f"{series_meta.paper_kind(puz.get('series'), puz['number'])} Crossword No {pretty}"},
+        "about": {"@type": "Game", "name": f"{pk} Crossword" + (f", {dw}" if day else f" No {pretty}")},
     }
     if datestr(puz):
         article_ld["datePublished"] = datestr(puz, "%Y-%m-%d")
@@ -602,7 +618,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     body = [
         masthead(crumbs),
         "<main class=\"static-main\">",
-        f"<h1>{series_meta.paper_kind(puz.get('series'), puz['number'])} Crossword No {pretty}</h1>",
+        f"<h1>{pk} Crossword" + (f", {dw}" if day else f" No {pretty}") + "</h1>",
         f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
         f'<p class="s-cta"><a class="cta" href="{BASE}/?p={puz["id"]}">Solve it yourself, '
         f'with hints one step at a time &rarr;</a></p>',

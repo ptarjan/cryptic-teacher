@@ -20,7 +20,9 @@ bad, n = [], 0
 for key in S.SERIES:
     if S.is_book(key):
         continue
-    puz = {"id": f"{key}-7", "series": key, "number": 7, "setter": None,
+    # A date-keyed series' number is a print date (series.number_date).
+    num = {None: 7, "": 20250101, "19": 850101}[S.meta(key).get("numberIsDate")]
+    puz = {"id": f"{key}-{num}", "series": key, "number": num, "setter": None,
            "date": "2025-01-01", "name": "x", "entries": [], "dimensions": {"cols": 15, "rows": 15}}
     page = B.puzzle_page(puz, None, None, None)
     parts = re.findall(r"<title>(.*?)</title>|<h1>(.*?)</h1>|"
