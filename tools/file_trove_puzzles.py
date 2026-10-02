@@ -256,12 +256,16 @@ def clues(text):
         if not m:
             return None, f"cannot find a clue number at: {text[pos:pos + 40]!r}"
         body_from = m.end()
-        tokens = [readings(t) for t in re.findall(rf"{NUM}|{JUNK_NUM}", m.group(1))] or [set()]
+        # Only the lead number may be junk; the ones it links ("1,4",
+        # "10,9dn") are numbers, and the commas and "dn" between are not.
+        lead = re.match(rf"{NUM}|{JUNK_NUM}", m.group(1))
+        links = re.sub(r"(?:across|down|and|ac|dn)\b", " ", m.group(1)[lead.end():], flags=re.IGNORECASE)
+        tokens = [readings(lead.group(0))] + [readings(t) for t in re.findall(NUM, links)]
         rest = text[body_from:]
         see = SEE_RE.match(rest)
         if see:
             # "See 12" (and maybe "Across."), then the next clue's number.
-            tail = re.match(r"see\s+\d+(?:\s*(?:across|down))?\.?", rest, re.IGNORECASE)
+            tail = re.match(r"see\s+\d+(?:\s*(?:across|down|ac|dn)\b)?\.?", rest, re.IGNORECASE)
             out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
                         "enums": set(), "see": int(see.group(1))})
             pos = body_from + tail.end()

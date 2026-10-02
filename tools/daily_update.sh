@@ -332,6 +332,21 @@ if [ -d "$HOME/.cache/archive_org_editions" ]; then
     alert "tools/file_archive_org_puzzles.py --paper ft failed, so no FT puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
   rm -f "$aorg_out"
+  # The Guardian 1971/1984-85/1995-98 (cryptic-N, below the feed's floor).
+  # Its held-out gold (1997) measures under 2% misread, so a puzzle with
+  # every clue read from ARCHIVE_ORG_GUARDIAN_FILE_FROM (the measured
+  # 1990s layout) on goes into the corpus; the rest to the scratch dir.
+  aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org-guardian.XXXXXX")"
+  if python3 tools/file_archive_org_puzzles.py --paper guardian --limit "$ARCHIVE_ORG_PER_NIGHT" \
+      --out "$HOME/.cache/archive_org_crops/unfiled" \
+      --file-from "${ARCHIVE_ORG_GUARDIAN_FILE_FROM:-1995}" >"$aorg_out" 2>&1; then
+    cat "$aorg_out"
+    git status --porcelain -- puzzles/cryptic | grep -q . && python3 tools/fetch_puzzle.py --reindex
+  else
+    cat "$aorg_out"
+    alert "tools/file_archive_org_puzzles.py --paper guardian failed, so no Guardian puzzle is read off archive.org's scans until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$aorg_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
+  rm -f "$aorg_out"
 fi
 
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---
