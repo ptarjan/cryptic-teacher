@@ -7,6 +7,7 @@ What is committed here, and what is fetched.
 | file | what |
 | --- | --- |
 | `abbreviations.json` | Standard British-cryptic abbreviations (H = hard, R = river…): every reading ten or more clues in `lexicons/blocks.json` use, plus whole sets like Roman numerals — see the `_comment` inside it. |
+| `indicator_note_words.json` | Every word at least 500 of the corpus's indicator notes use. `check_indicator_notes_name_no_block` lets a note use one of these though a block's clue words include it: it is how notes talk, not a name for the piece. Written by `tools/build_indicator_note_words.py`. |
 | `unclueable.json` | Words a setter rejected as answers, with the reason. `tools/grid_fill.py` vetoes them. |
 | `sample_fill_11.json` | The worked 11x11 fill (see `tools/AUTHORING.md`). |
 | `penguin_partial_fills/` | Answers from a Penguin-book solve that was stopped before it finished. The puzzle itself is filed UNSOLVED — `tools/daily_update.sh`'s cold solve (step 3a) owns it — because `tools/apply_solution.py` refuses to write over a puzzle that already holds answers and no solution detail (`tools/provenance.solution_detail`), so a half-filled puzzle file would turn away the job meant to finish it. These sit here instead, so the work is not bought twice. Nothing reads them automatically; they are for a person finishing one by hand. |
