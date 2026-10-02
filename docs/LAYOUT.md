@@ -1267,5 +1267,14 @@ tools/ocr_clues.py                           the clue-text OCR every scan filer 
                                              readers, the vote, the check
 tools/test_clue_record_shift.sh              does every Guardian clue record land on the light
                                              its number names?
+tools/ocr_full_pass.sh                       read every Trove article and archive.org edition
+                                             the scan filers have not read yet, to the end,
+                                             then stop
+tools/scan_queue.py                          the read queue the scan filers share
+                                             (tools/file_archive_org_puzzles.py,
+tools/test_scan_queue.sh                     does tools/scan_queue.py read the never-read
+                                             first, never send the queue back to the start,
+                                             keep N sources in flight, stop at its deadline,
+                                             and let only one run hold a ledger?
 ```
 <!-- LAYOUT-END -->

@@ -108,6 +108,15 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     git -C "$_ct_main" fetch -q origin master || {
       echo "WORKTREE: fetch failed — working from whatever origin/master was last known" >&2
     }
+    # The main checkout is nobody's editor window: the plugin manifests and the
+    # entry points the scheduler names are read from it, so it follows
+    # origin/master here, at every job start (the burn starts hourly). Only a
+    # clean fast-forward; a tree someone has dirtied or moved is left as found.
+    if [ -z "$(git -C "$_ct_main" status --porcelain --untracked-files=no)" ] &&
+       [ "$(git -C "$_ct_main" symbolic-ref -q --short HEAD)" = master ]; then
+      git -C "$_ct_main" merge -q --ff-only origin/master 2>/dev/null ||
+        echo "WORKTREE: $_ct_main could not fast-forward to origin/master" >&2
+    fi
     # Tracked files back to the branch, untracked state left alone. A leftover
     # from a crashed run is discarded here rather than committed tonight.
     if ! git -C "$_ct_tree" reset -q --hard origin/master; then
