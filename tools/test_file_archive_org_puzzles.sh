@@ -166,6 +166,11 @@ check("a lone I every reading has stands", "in letter I posted",
 got, blank = f.reconcile({"1-down": ("Unusual way over the mountains", "7", None)},
                          ["25 Vanquished (8)\nDOWN\nI Unusual way over the mountains (7)"] * 2)
 check("the DOWN heading over 1 down is no lost word of it", "Unusual way over the mountains", got["1-down"][0])
+check("a heading read badly is still the heading; a stray capital word is not",
+      ["DOWN", "DOWN", "ACROSS", None, None],
+      [f.heading_of(t) for t in ("DOW'N", "DOIN", "AROSS", "Down in", "SOLUTION")])
+check("a line starting a lower-case down carries on the line before", "9 Engineer tbe break down (8).\n10 Next (4)",
+      f.tidy("9 Engineer tbe break\ndown (8).\n10 Next (4)"))
 check("a possessive of a dictionary word is a word", True, f.is_word("Lear's") and f.is_word("bookie's"))
 
 # The solution grid's blocks: a heavy print's block flecked with paper is a

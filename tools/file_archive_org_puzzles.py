@@ -307,6 +307,14 @@ def tidy(text):
     out, prev = [], ""
     for line in text.splitlines():
         line = line.translate(BRACKETS).strip()
+        heading = heading_of(line)
+        if heading:
+            line = heading
+        elif out and re.match(r"(?:across|down)\b", line):
+            # A lower-case "down (8)." carries on the line before it: no heading.
+            out[-1] += " " + line
+            prev = out[-1]
+            continue
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z])", r"\1 ", line)
         line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
         if (re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev)
@@ -315,6 +323,18 @@ def tidy(text):
         out.append(line)
         prev = line
     return "\n".join(out)
+
+
+def heading_of(line):
+    """"ACROSS" or "DOWN" for a line that is the list's heading alone, read
+    however badly ("DOW'N", "DOIN", "AROSS"); else None."""
+    letters = re.sub(r"[^A-Za-z]", "", line)
+    if len(line) > 9 or not 3 <= len(letters) <= 7 or not letters.isupper():
+        return None
+    for word in ("ACROSS", "DOWN"):
+        if SequenceMatcher(None, letters, word).ratio() >= 0.7:
+            return word
+    return None
 
 
 BRACKETS = str.maketrans({"{": "(", "[": "(", "}": ")", "]": ")"})
@@ -900,6 +920,11 @@ def expected_number(day):
     return number + round((day - start).days * 6 / 7)
 
 
+#: The Times of the 1970s-80s prints its blocks grey (67-82% ink in the
+#: scans), not solid; the grid must still be symmetric to stand.
+BLOCK_ABOVE = 0.6
+
+
 def read_puzzle(d, found, hit, solutions):
     """(verdict, puzzle or None) for one title on one page."""
     n, leaf = hit["number"], hit["leaf"]
@@ -931,7 +956,7 @@ def read_puzzle(d, found, hit, solutions):
     gpath.parent.mkdir(parents=True, exist_ok=True)
     if not gpath.exists():
         img.crop((gbox[0] - 6, gbox[1] - 6, gbox[2] + 6, gbox[3] + 6)).save(gpath)
-    image, why = trove_grid.read_grid(gpath)
+    image, why = trove_grid.read_grid(gpath, block_above=BLOCK_ABOVE)
     g = image
     if g and not trove_grid.symmetric(g):
         g, why = None, "not 180-degree symmetric"
