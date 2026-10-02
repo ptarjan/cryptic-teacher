@@ -52,7 +52,7 @@ import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import annotate_only, current_view, default_input, view_path  # noqa: E402
 from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
-from find_answer_leaks import leaks, light_solutions, names, unname  # noqa: E402
+from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
 
@@ -278,7 +278,8 @@ def respell_answers(pending):
 
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
-    can do it without judgement; the entry ids changed.
+    can do it without judgement, or blank the answer in a note on one sense of
+    a double definition; the entry ids changed.
     check_block_notes_dont_name_the_answer is the commonest rejection, and each
     one it sends back costs a turn."""
     try:
@@ -293,14 +294,17 @@ def unname_block_notes(path, pending):
     for eid, a in (ann.items() if isinstance(ann, dict) else ()):
         if not isinstance(a, dict) or not isinstance(a.get("answer"), str):
             continue
+        lights = light_solutions(by_id.get(eid) or {}, by_id)
+        pieces = pieces_of(a)
+        senses = "double_definition" in (a.get("type") or [])
         for block in a.get("blocks") or []:
             if not isinstance(block, dict):
                 continue
-            lights = light_solutions(by_id.get(eid) or {}, by_id)
             for name in names(a["answer"], lights):
                 # "gives the answer" is true of the whole answer only, never of a light.
                 gives = block.get("gives") if name == a["answer"] else ""
-                new = unname(block.get("note"), name, gives, clues.get(eid, ""))
+                new = unname(block.get("note"), name, gives, clues.get(eid, ""),
+                             pieces, blank=senses and not block.get("gives"))
                 if new:
                     block["note"] = new
                     changed.append(eid)

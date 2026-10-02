@@ -76,7 +76,7 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     leaders_named,
     read_puzzle_file,
 )
-from find_answer_leaks import light_solutions, named, says  # noqa: E402 — one matcher, shared with the finder
+from find_answer_leaks import light_solutions, named, pieces_of, says  # noqa: E402 — one matcher, shared with the finder
 from groups import entry_id  # noqa: E402
 from puzzle_paths import (  # noqa: E402 — one glob, one id resolver
     puzzle_files,
@@ -1219,8 +1219,9 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings, lights=()
     PRIME MINISTER as surely as naming the whole phrase would.
     """
     answer = ann.get("answer")
+    pieces = pieces_of(ann)
     for block in ann.get("blocks") or []:
-        name = named(block.get("note"), answer, lights)
+        name = named(block.get("note"), answer, lights, pieces)
         if name is None:
             continue
         what = ("the answer" if name == answer
