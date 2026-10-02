@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Unfriendly presenter edges away from Miles",
     "enumeration": "7"
    },
-   "solution": "HOSTILE"
+   "solution": "HOSTILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HOSTILE",
+    "definitions": [
+     {
+      "text": "Unfriendly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges away from",
+      "for": "deletion",
+      "note": "when the edges go away, only the inside of the word stays, its first and last letters dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "presenter",
+      "gives": "HOST",
+      "note": "a host presents a television show"
+     },
+     {
+      "clueFragment": "Miles",
+      "gives": "MILES",
+      "note": "taken as written, before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy television presenter keeps his distance from someone called Miles.",
+     "walkthrough": "Miles reads as a person's name, but it is just a word to be trimmed, losing its first and last letters.",
+     "definitionFit": "Hostile and unfriendly are plain synonyms describing someone showing antagonism toward others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Miles"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +104,51 @@
      }
     ]
    },
-   "solution": "HARDCHEESE"
+   "solution": "HARDCHEESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARD CHEESE",
+    "definitions": [
+     {
+      "text": "bad luck",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so these letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has cheered",
+      "gives": "HASCHEERED",
+      "note": "ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASCHEERED",
+       "gives": "HARDCHEESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk has been celebrating loudly, yet it ends in misfortune.",
+     "walkthrough": "'Drunk' looks like a noun for the person cheering, but it signals the rearrangement. Hard cheese is a British informal expression of mock sympathy.",
+     "definitionFit": "The idiom is chiefly British slang for tough luck, often said with little real sympathy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +162,63 @@
     "text": "Direct visionary around Turkey’s capital",
     "enumeration": "5"
    },
-   "solution": "STEER"
+   "solution": "STEER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STEER",
+    "definitions": [
+     {
+      "text": "Direct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it, so one piece wraps the other"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter of a word, so only its opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visionary",
+      "gives": "SEER",
+      "note": "a seer is a prophet with visions"
+     },
+     {
+      "clueFragment": "Turkey’s",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to send a prophet off toward Ankara, Turkey's capital city.",
+     "walkthrough": "'Turkey's capital' wants to be Ankara; here capital means only its first letter.",
+     "definitionFit": "To steer is to guide or direct something along a chosen course, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +242,43 @@
      }
     ]
    },
-   "solution": "INTHEMAIN"
+   "solution": "INTHEMAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE MAIN",
+    "definitions": [
+     {
+      "text": "Mostly",
+      "at": 0
+     },
+     {
+      "text": "at sea",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mostly",
+      "note": "first meaning: generally, for the most part"
+     },
+     {
+      "clueFragment": "at sea",
+      "note": "second meaning: the main is an old poetic word for the open ocean"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'At sea' suggests being confused; the question mark flags the literal reading, since the main is the ocean, as in the Spanish Main.",
+     "definitionFit": "The phrase is an idiom for generally or on the whole, and read literally means located on the open ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +292,56 @@
     "text": "Puzzle in game’s complicated",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled up, so the letters come out in a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "GAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGAME",
+       "gives": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle within a game turns out to be tricky.",
+     "walkthrough": "The 's stands for 'is', so the fodder 'in game' is complicated.",
+     "definitionFit": "An enigma is a mystery or riddle, something puzzling and hard to understand, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complicated"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +355,45 @@
     "text": "Team audibly expressed disappointment",
     "enumeration": "4"
    },
-   "solution": "SIDE"
+   "solution": "SIDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIDE",
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audibly",
+      "for": "homophone",
+      "note": "audibly means in a way that can be heard, so the word is judged by its sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expressed disappointment",
+      "gives": "SIDE",
+      "soundsLike": "SIGHED",
+      "note": "letting out a long breath to show you are let down"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports team groans aloud after a disappointing result.",
+     "walkthrough": "'Team' looks like the subject of the sentence, but it is the definition standing alone.",
+     "definitionFit": "A side is a team in a sporting contest, as in picking sides for a match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "audibly"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +407,46 @@
     "text": "Very northern child",
     "enumeration": "3"
    },
-   "solution": "SON"
+   "solution": "SON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SON",
+    "definitions": [
+     {
+      "text": "child",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in so tired"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Very northern' reads as describing the child, but it is two separate pieces.",
+     "definitionFit": "A son is a male child of his parents, so the general word covers him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Very"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +460,57 @@
     "text": "Notwithstanding these tips, editor’s upset to some extent",
     "enumeration": "7"
    },
-   "solution": "DESPITE"
+   "solution": "DESPITE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DESPITE",
+    "definitions": [
+     {
+      "text": "Notwithstanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so the letters run the other way"
+     },
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only partly, so just a portion of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these tips, editor",
+      "gives": "ETIPSED",
+      "note": "a run of letters spanning the three words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ETIPSED",
+       "to": "DESPITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Despite some helpful pointers, an editor is somewhat annoyed.",
+     "walkthrough": "The letters sit inside 'these tips, editor' and read upward; the comma is just punctuation.",
+     "definitionFit": "Both words are prepositions meaning in spite of something, plain synonyms used in formal writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +524,52 @@
     "text": "Periodically grouse and regret",
     "enumeration": "3"
    },
-   "solution": "RUE"
+   "solution": "RUE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RUE",
+    "definitions": [
+     {
+      "text": "regret",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grouse",
+      "gives": "RUE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who complains from time to time and is sorry about it.",
+     "walkthrough": "'Grouse' could be the bird or a complaint; here it only supplies letters.",
+     "definitionFit": "To rue something is to feel sorrow or remorse over it, a literary synonym of the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grouse"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +583,68 @@
     "text": "Narrowest hotel bar established on seafront at last",
     "enumeration": "8"
    },
-   "solution": "THINNEST"
+   "solution": "THINNEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THINNEST",
+    "definitions": [
+     {
+      "text": "Narrowest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the very end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seafront",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "INN",
+      "note": "an inn is a pub, a place with a bar"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "EST is the standard abbreviation for established"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "INN",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "The skinniest hotel bar on the promenade has finally been set up.",
+     "walkthrough": "'On' places the seafront letter first, before the rest in an across answer.",
+     "definitionFit": "Narrowest and thinnest are both superlatives describing the least width, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "established"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +658,51 @@
     "text": "Doctor envies mate from Hanoi, perhaps",
     "enumeration": "10"
    },
-   "solution": "VIETNAMESE"
+   "solution": "VIETNAMESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VIETNAMESE",
+    "definitions": [
+     {
+      "text": "from Hanoi, perhaps",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "envies mate",
+      "gives": "ENVIESMATE",
+      "note": "ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENVIESMATE",
+       "gives": "VIETNAMESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician is jealous of a friend who comes from Hanoi.",
+     "walkthrough": "'Doctor' reads as a physician but is a verb signalling the rearrangement; 'perhaps' shows Hanoi is just one example.",
+     "definitionFit": "Hanoi is the capital of Vietnam, so someone from that city is an example of a person of that nationality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +716,49 @@
     "text": "Cut scarves shorter at both ends",
     "enumeration": "5"
    },
-   "solution": "CARVE"
+   "solution": "CARVE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CARVE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shorter at both ends",
+      "for": "letter_selection",
+      "note": "trimming at both ends leaves only the interior letters of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scarves",
+      "gives": "CARVE",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trims a pile of scarves to make them shorter.",
+     "walkthrough": "'Cut' could be an adjective for the scarves, but it is the definition, a verb.",
+     "definitionFit": "To carve is to cut something, such as meat or wood, with a blade, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +772,48 @@
     "text": "Swallow one drink",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swallow",
+      "gives": "MARTIN",
+      "note": "the house martin and sand martin are birds of the swallow family"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARTIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Gulp down a single drink.",
+     "walkthrough": "'Swallow' looks like a verb about drinking, but it is the bird.",
+     "definitionFit": "A martini is a cocktail made from gin or vodka with vermouth, an example of an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swallow"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +827,52 @@
     "text": "Selling gin I later trashed",
     "enumeration": "9"
    },
-   "solution": "RETAILING"
+   "solution": "RETAILING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETAILING",
+    "definitions": [
+     {
+      "text": "Selling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trashed",
+      "for": "anagram",
+      "note": "something trashed is wrecked, so the letters are smashed up and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gin I later",
+      "gives": "GINILATER",
+      "note": "nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GINILATER",
+       "gives": "RETAILING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sold gin, then got wrecked on it afterwards.",
+     "walkthrough": "'Trashed' suggests being drunk, fitting the gin, but it signals the rearrangement.",
+     "definitionFit": "Retailing is the business of offering goods to the public, so it is a kind of commercial sales activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trashed"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +886,60 @@
     "text": "Catch significant other briefly coming back",
     "enumeration": "6"
    },
-   "solution": "ENTRAP"
+   "solution": "ENTRAP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ENTRAP",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter of the word is dropped"
+     },
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means returning the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "significant other",
+      "gives": "PARTNER",
+      "note": "a partner is someone's spouse or lover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PARTNE",
+       "to": "ENTRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone meets their spouse for a short while on their return home.",
+     "walkthrough": "Shorten the word for a significant other, then read it backwards.",
+     "definitionFit": "To entrap is to catch someone in a trap or by trickery, a close verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +953,51 @@
     "text": "Rent trouble causes storm",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "storm",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rent",
+      "gives": "TORN",
+      "note": "rent is an old past participle of rend, meaning torn"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "ADO",
+      "note": "ado means fuss or bother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORN",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute over rent payments leads to an angry row.",
+     "walkthrough": "'Rent' looks like money paid to a landlord, but it means ripped.",
+     "definitionFit": "A tornado is a violent rotating windstorm, a specific example of the general weather word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1011,62 @@
     "text": "Large plant in extremely short road",
     "enumeration": "6"
    },
-   "solution": "STREET"
+   "solution": "STREET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STREET",
+    "definitions": [
+     {
+      "text": "road",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "ST",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "Large plant",
+      "gives": "TREE",
+      "note": "a tree is a large woody plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TREE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A big tree grows on a very short stretch of road.",
+     "walkthrough": "'Extremely short' reads as very brief, but it means the outer letters of 'short'.",
+     "definitionFit": "A street is a public road in a town, lined with buildings, a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1080,56 @@
     "text": "Entertain king for example with beer",
     "enumeration": "6"
    },
-   "solution": "REGALE"
+   "solution": "REGALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REGALE",
+    "definitions": [
+     {
+      "text": "Entertain",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EG",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Hosting a monarch, for instance, by serving him a pint.",
+     "walkthrough": "'For example' looks like it introduces the king as an instance, but it supplies its own abbreviation.",
+     "definitionFit": "To regale is to amuse or treat guests lavishly, often with stories or food and drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "example"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1143,63 @@
     "text": "Saint called George ultimately foreign",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "foreign",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "RANG",
+      "note": "to call someone on the phone is to ring them"
+     },
+     {
+      "clueFragment": "George",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A saint named George who turned out to be from abroad, like England's patron.",
+     "walkthrough": "'Called' suggests 'named', but it means telephoned, in the past tense.",
+     "definitionFit": "Strange in an older sense means foreign or alien, from somewhere unfamiliar, as in strange lands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1213,61 @@
     "text": "Country home charity returned",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so these letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be home is to be in"
+     },
+     {
+      "clueFragment": "charity",
+      "gives": "AID",
+      "note": "aid is charitable help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural estate gives its charity donation back.",
+     "walkthrough": "'Country home' reads as one phrase, a house in the countryside, but 'Country' is the definition.",
+     "definitionFit": "India is a nation in South Asia, a specific example of a sovereign state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1281,59 @@
     "text": "Greek character with key star’s inside",
     "enumeration": "5"
    },
-   "solution": "DELTA"
+   "solution": "DELTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DELTA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "letter_selection",
+      "note": "the inside of a word is its middle, with the outer letters stripped away"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "DEL",
+      "note": "DEL is the delete key on a computer keyboard"
+     },
+     {
+      "clueFragment": "star’s",
+      "gives": "TA",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure carries the key to a celebrity's home.",
+     "walkthrough": "'Key' suggests a door key or musical key, but it is a computer key.",
+     "definitionFit": "Delta is the fourth letter of the Greek alphabet, so it is an example of such a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1347,68 @@
     "text": "Tense friend in France eating the first bit of red meat",
     "enumeration": "8"
    },
-   "solution": "PASTRAMI"
+   "solution": "PASTRAMI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PASTRAMI",
+    "definitions": [
+     {
+      "text": "meat",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first bit of",
+      "for": "letter_selection",
+      "note": "the first bit of a word is its opening letter, so that alone is used"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating takes food inside, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "PAST",
+      "note": "the past is a grammatical tense"
+     },
+     {
+      "clueFragment": "friend in France",
+      "gives": "AMI",
+      "note": "ami is French for friend"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "R",
+      "AMI"
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious French friend nibbles at some red meat.",
+     "walkthrough": "'Tense' reads as nervous, but it is a grammatical tense; the two joined pieces enclose the letter.",
+     "definitionFit": "Pastrami is seasoned smoked beef, often served in sandwiches, so it is an example of cured meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1422,53 @@
     "text": "I’ll avoid cab charge",
     "enumeration": "3"
    },
-   "solution": "TAX"
+   "solution": "TAX",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TAX",
+    "definitions": [
+     {
+      "text": "charge",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "’ll avoid",
+      "for": "deletion",
+      "note": "saying something will avoid a place means it stays out of it, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cab",
+      "gives": "TAXI",
+      "note": "a taxi is a cab"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAX"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to skip the taxi to dodge the fare.",
+     "walkthrough": "'I'll' reads as the speaker, but the letter I is what will leave.",
+     "definitionFit": "A tax is a levy imposed by government, so it is a kind of charge or fee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "I’ll"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1482,54 @@
     "text": "Existence without fine fiction",
     "enumeration": "3"
    },
-   "solution": "LIE"
+   "solution": "LIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIE",
+    "definitions": [
+     {
+      "text": "fiction",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Existence",
+      "gives": "LIFE",
+      "note": "life is existence"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A life lacking any good fiction to read.",
+     "walkthrough": "'Fine fiction' looks like a pair, quality literature, but 'fine' belongs to the wordplay.",
+     "definitionFit": "A lie is an untrue statement, so it is a made-up fiction or falsehood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1543,62 @@
     "text": "Try to persuade company beginning to adopt social network",
     "enumeration": "4"
    },
-   "solution": "COAX"
+   "solution": "COAX",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COAX",
+    "definitions": [
+     {
+      "text": "Try to persuade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "adopt",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "social network",
+      "gives": "X",
+      "note": "X is the social media platform formerly called Twitter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "A",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging a business to start using a social media site.",
+     "walkthrough": "'Try to persuade company' reads as one action, but 'company' starts the wordplay.",
+     "definitionFit": "To coax is to gently urge someone into doing something by flattery or patience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1612,48 @@
     "text": "Deeply impress English party",
     "enumeration": "7"
    },
-   "solution": "ENGRAVE"
+   "solution": "ENGRAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENGRAVE",
+    "definitions": [
+     {
+      "text": "Deeply impress",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "ENG",
+      "note": "ENG is the abbreviation for English"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a large dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENG",
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English political party makes a strong impression on someone.",
+     "walkthrough": "'Party' suggests a political party after 'English', but it is a dance event.",
+     "definitionFit": "To engrave is literally to cut marks into a surface, and figuratively to fix something firmly in memory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   }
  ]
 }
