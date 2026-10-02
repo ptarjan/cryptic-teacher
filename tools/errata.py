@@ -10,8 +10,15 @@ out of the preamble and acts on it:
 - "In N across, 'word' should be in italics": the clue gets that italic span.
 - "the word X in 6d was changed to Y", "the spelling has been corrected to
   'Y'": the clue already reading Y confirms it; X still there is replaced.
-- "the clue for N has been corrected" with no text: the page that carries the
-  note carries the corrected clue, so the note is dropped.
+- "For N across read 'word'": the clue's word that reads the same but for
+  accents becomes it; "For 'X' read 'Y'" replaces X in the one clue holding it.
+- "The following clues should be asterisked: 9 and 16 across, ...": those
+  clues get the "* " the page left off.
+- "the clue for N has been corrected" (modified, altered, a word restored or
+  removed, no longer appears) with no text: the page that carries the note
+  carries the corrected clue, so the note is dropped.
+
+A misspelt keyword ("shoould read") is still an erratum.
 
 What is left of the preamble is kept (a themed puzzle's instructions); none
 left means no preamble. An erratum that cannot be acted on raises ValueError
@@ -32,11 +39,30 @@ DIRECTION = r"(?P<dir>acc?ross|down|ac|dn|a|d)\b"
 NUMS = r"(?P<nums>\d+(?:\s*(?:,|&|\band\b|an')\s*\d+)*)"
 REF = NUMS + r"\s*(?:" + DIRECTION + ")?"
 QUOTE = {'"': '"', "'": "'", "“": "”", "‘": "’"}
+QUOTED = r"[\"'‘“][^\"'’”]+[\"'’”]"
+
+
+def _fuzzy(word):
+    """`word`, also when a letter is doubled ("shoould")."""
+    return "".join(re.escape(c) + "+" for c in word)
+
+
+SHOULD = r"(?:" + _fuzzy("should") + r"|shoud|shuold|sould)"
+READ = r"(?:" + _fuzzy("read") + r"|raed)"
 
 SHOULD_READ = re.compile(
     r"(?:(?:The )?clue (?:for |to |at )?|In (?:clue )?)?" + REF
     + r"(?:\s*-\s*(?P<last>last word))?\s*(?:[-:,]\s*)?(?:clue\s*)?"
-    r"should (?:read\s*[:;,]?|be\s*[:;])\s*", re.I)
+    + SHOULD + r" (?:" + READ + r"\s*[:;,]?|be\s*[:;])\s*", re.I)
+
+#: "For 21 across read 'derrière'" (a word of the clue) or "For 'X' read 'Y'".
+FOR_READ = re.compile(
+    r"\bFor (?:(?:clue )?" + REF + r"|(?P<q0>" + QUOTED + r")),?\s*" + READ
+    + r"\s*:?\s*(?P<q1>" + QUOTED + r")\s*\.?", re.I)
+
+#: "The following clues should be asterisked: 9 and 16 across, 3 down."
+ASTERISKED = re.compile(r"(?:The following )?clues? " + SHOULD + r" be asterisked\s*:?\s*"
+                        r"(?P<refs>[^.]+)(?:\.|$)", re.I)
 
 ITALIC_WORD = r"(?:in italics|italicised|italicized)"
 ITALIC = re.compile(r"[^.]*\b" + ITALIC_WORD + r"\b[^.]*(?:\.|$)", re.I)
@@ -51,9 +77,15 @@ LEFTOVER = re.compile(r"(?:Note(?: added| posted)?[,:]?\s*)?(?:" + DATE + r")?\s
 
 # A correction that names no new text. Each reads as the paper owning up to a
 # change made on the page, never as an instruction for solving.
+FIXED = "|".join(_fuzzy(w) for w in ("corrected", "amended", "changed", "edited", "replaced",
+                                     "altered", "deleted", "reinstated", "modified", "updated"))
 CORRECTED = re.compile(
-    r"\b(?:has|have) been (?:corrected|amended|changed|edited|replaced|altered|"
-    r"deleted|reinstated)\b"
+    r"\b(?:has|have) been (?:" + FIXED + r")\b"
+    r"|\bclues? (?:for |to |at )?\d+\s*(?:" + DIRECTION + r")?\s*(?:was |were |has been |have been )?"
+    r"(?:" + FIXED + r")\b"
+    r"|\b(?:has|have) been (?:restored|removed|added|inserted) (?:to|from|in|into) (?:clue )?\d"
+    r"|\bchanges?\b[^.]*\b(?:has|have) been made to\b[^.]*\bclues?\b"
+    r"|\bno longer appears? in the clue\b"
     r"|\b(?:was|were) (?:corrected|amended|changed|edited|garbled|wrongly (?:numbered|listed)|"
     r"(?:originally |inadvertently |temporarily )?(?:left out|omitted|missing)|"
     r"(?:\w+ )?(?:published|uploaded|reprinted) in error)\b"
@@ -303,6 +335,67 @@ def _confirmed(puzzle, sentence, unresolved):
     unresolved.append(sentence)
 
 
+def _span(text, words):
+    """(start, end) of the one run of words in `text` reading `words` but for
+    accents and punctuation; None when there is not exactly one."""
+    n = len(words.split())
+    toks = list(re.finditer(r"[^\W_](?:[\w'’-]*[^\W_])?", text))
+    hits = [(toks[k].start(), toks[k + n - 1].end()) for k in range(len(toks) - n + 1)
+            if fold(text[toks[k].start():toks[k + n - 1].end()]) == fold(words)]
+    return hits[0] if len(hits) == 1 else None
+
+
+def _for_read(puzzle, text, reworded, unresolved):
+    """Apply every "For N across read 'word'" and "For 'X' read 'Y'" erratum;
+    the preamble without them."""
+    def one(m):
+        new = _unquote(m.group("q1"))
+        if m.group("nums"):
+            entry = _resolve(puzzle, _numbers(m.group("nums")), _direction(m.group("dir")))
+            at = entry and _span(entry["clue"].get("text", ""), new)
+        else:
+            old = _unquote(m.group("q0"))
+            pattern = re.compile(r"(?<!\w)" + re.escape(old) + r"(?!\w)")
+            holding = [e for e in puzzle.get("entries", []) if pattern.search(e["clue"].get("text", ""))]
+            entry = holding[0] if len(holding) == 1 else None
+            at = entry and pattern.search(entry["clue"]["text"]).span()
+            if not holding and any(re.search(r"(?<!\w)" + re.escape(new) + r"(?!\w)",
+                                             e["clue"].get("text", "")) for e in puzzle.get("entries", [])):
+                return ""  # the page already reads Y
+        if not at:
+            unresolved.append(m.group(0).strip())
+            return ""
+        old_text = entry["clue"]["text"]
+        _set_text(puzzle, entry, old_text[:at[0]] + new + old_text[at[1]:], None, reworded)
+        return ""
+    return FOR_READ.sub(one, text)
+
+
+def _asterisked(puzzle, text, unresolved):
+    """Apply "the following clues should be asterisked"; the preamble without it."""
+    def one(m):
+        refs, pending = [], []
+        for num, word in re.findall(r"(\d+)|\b(across|down|ac|dn)\b", m.group("refs"), re.I):
+            if num:
+                pending.append(int(num))
+            else:
+                refs += [(n, _direction(word)) for n in pending]
+                pending = []
+        refs += [(n, None) for n in pending]
+        for n, direction in refs:
+            # A linked clue's direction is printed loosely ("26 across and 28
+            # down" for 26,28 across): the number alone when that finds it.
+            entry = _resolve(puzzle, [n], direction) or _resolve(puzzle, [n], None)
+            if entry is None:
+                unresolved.append(f"{m.group(0).strip()} ({n})")
+                continue
+            clue = entry["clue"].get("text", "")
+            if clue and not re.match(r"(?i)see\b", clue) and not clue.startswith("*"):
+                _set_text(puzzle, entry, "* " + clue, None, set())
+        return ""
+    return ASTERISKED.sub(one, text)
+
+
 def _sentences(text):
     """The note cut into sentences, a bracketed "(Note ...)" aside whole."""
     out = []
@@ -334,7 +427,8 @@ def find(preamble):
     """The errata a preamble still holds, as text; [] when it has none."""
     text = preamble or ""
     found = [m.group(0) for m in SHOULD_READ.finditer(text)]
-    found += [m.group(0) for p in (SHOULD_CONTAIN, AMENDED) for m in p.finditer(text)]
+    found += [m.group(0) for p in (FOR_READ, ASTERISKED, SHOULD_CONTAIN, AMENDED)
+              for m in p.finditer(text)]
     if CONFESSED.search(text):
         return found
     found += [s for s in _sentences(text) if ITALIC.search(s) or CORRECTED.search(s)]
@@ -350,6 +444,7 @@ def apply(puzzle):
         return set()
     reworded, unresolved = set(), []
     text = _should_read(puzzle, text, reworded, unresolved)
+    text = _asterisked(puzzle, _for_read(puzzle, text, reworded, unresolved), unresolved)
     text = AMENDED.sub("", _symbols(puzzle, text, reworded, unresolved))
     if CONFESSED.search(text):
         # The paper owning up to a flaw the grid keeps (an answer misspelt to
