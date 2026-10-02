@@ -24,6 +24,9 @@
   "date": "2026-01-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "Setting for Gothic masterpiece which art restorer has framed",
     "enumeration": "8"
    },
-   "solution": "CHARTRES"
+   "solution": "CHARTRES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHARTRES",
+    "definitions": [
+     {
+      "text": "Setting for Gothic masterpiece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has framed",
+      "for": "hidden_word",
+      "note": "a frame surrounds a picture, so the run of words holds the solution inside its borders"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which art restorer",
+      "gives": "CHARTRES",
+      "note": "the letters run across the end of the first word, the whole second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A restorer has put a frame round a great Gothic work of art.",
+     "walkthrough": "'Which art' sounds like a phrase from the Lord's Prayer, tempting a search for ART alone; the answer is read straight through whiCH ART RESTorer.",
+     "definitionFit": "The cathedral at Chartres in northern France is among the finest examples of Gothic architecture, so the town is the setting for that masterpiece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "framed"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +90,56 @@
     "text": "Loud laugh an orphaned girl heard, folk partying",
     "enumeration": "10"
    },
-   "solution": "HOOTENANNY"
+   "solution": "HOOTENANNY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "HOOTENANNY",
+    "definitions": [
+     {
+      "text": "folk partying",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "what is heard is taken by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loud laugh",
+      "gives": "HOOT",
+      "note": "a hoot is a loud burst of laughter"
+     },
+     {
+      "clueFragment": "an orphaned girl",
+      "gives": "ENANNY",
+      "soundsLike": "AN ANNIE",
+      "note": "Little Orphan Annie is the famous orphaned girl of the comic strip and musical; 'an Annie' said quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOT",
+      "ENANNY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hears an orphan girl's loud laugh while folk are having a party.",
+     "walkthrough": "The orphaned girl is Annie, from the comic strip and musical Annie; 'an Annie' run together gives the middle and end of the word.",
+     "definitionFit": "A hootenanny is an informal gathering where folk musicians play and people dance, so it is folk people partying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "orphaned"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +153,58 @@
     "text": "Leaving steak and bread roll unfinished, dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its end, so each word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "Leaving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steak",
+      "gives": "RUM",
+      "note": "rump steak, a cut from the hindquarters, without its last letter"
+     },
+     {
+      "clueFragment": "bread roll",
+      "gives": "BA",
+      "note": "a bap is a soft British bread roll, here without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner walks away from half-eaten steak and roll to go dancing.",
+     "walkthrough": "Steak here is RUMP and the roll is a BAP, a soft flat bread roll common in Britain; both are cut short before joining.",
+     "definitionFit": "The rumba is a ballroom and Latin American dance of Cuban origin with a distinctive hip movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaving"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +218,61 @@
     "text": "Herb blended with cool new French cheese",
     "enumeration": "9"
    },
-   "solution": "REBLOCHON"
+   "solution": "REBLOCHON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REBLOCHON",
+    "definitions": [
+     {
+      "text": "French cheese",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blended",
+      "for": "anagram",
+      "note": "blending mixes ingredients together until their original order is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Herb",
+      "gives": "HERB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "COOL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERBCOOLN",
+       "gives": "REBLOCHON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: mix a herb into chilled fresh French cheese.",
+     "walkthrough": "'Cool' and 'new' read as describing the cheese, but they are letters thrown in with the herb.",
+     "definitionFit": "Reblochon is a soft washed-rind cow's milk cheese from the Savoie region of the French Alps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blended"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +286,54 @@
     "text": "Doubt 1,000 lost in crush",
     "enumeration": "7"
    },
-   "solution": "SCRUPLE"
+   "solution": "SCRUPLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCRUPLE",
+    "definitions": [
+     {
+      "text": "Doubt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "what is lost is no longer there, so that letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crush",
+      "gives": "SCRUMPLE",
+      "note": "to scrumple is a British word meaning to crush or crumple"
+     },
+     {
+      "clueFragment": "1,000",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRU",
+      "PLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fears that a thousand people died in a crowd crush.",
+     "walkthrough": "Scrumple, a British variant of crumple, loses its Roman thousand from the middle.",
+     "definitionFit": "A scruple is a moral qualm or hesitation, so it is a doubt about whether something is right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crush"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +347,59 @@
     "text": "Pretty bashful when indeterminate Spice Girl enters",
     "enumeration": "6"
    },
-   "solution": "COMELY"
+   "solution": "COMELY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMELY",
+    "definitions": [
+     {
+      "text": "Pretty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bashful",
+      "gives": "COY",
+      "note": "coy means shy or bashful"
+     },
+     {
+      "clueFragment": "indeterminate Spice Girl",
+      "gives": "MEL",
+      "note": "two Spice Girls were called Mel (Mel B and Mel C), so the name alone does not say which"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MEL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy young woman blushes prettily as a pop star walks in.",
+     "walkthrough": "The Spice Girls were a 1990s British pop group with two members named Mel, which is why the clue calls her indeterminate.",
+     "definitionFit": "Comely is an old-fashioned adjective for attractive or good-looking, matching pretty as a description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "indeterminate"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +413,53 @@
     "text": "Material OK to be dropped by large helicopter",
     "enumeration": "5"
    },
-   "solution": "CHINO"
+   "solution": "CHINO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHINO",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be dropped by",
+      "for": "deletion",
+      "note": "something dropped is let go, so those letters fall away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large helicopter",
+      "gives": "CHINOOK",
+      "note": "the Chinook is a big twin-rotor military helicopter"
+     },
+     {
+      "clueFragment": "OK",
+      "gives": "OK",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHINO"
+     ]
+    },
+    "explanation": {
+     "surface": "Supplies are cleared for a drop from a heavy-lift helicopter.",
+     "walkthrough": "'Material' looks like cargo for the airdrop, but it is the definition: cloth.",
+     "definitionFit": "Chino is a hard-wearing twill cotton fabric, best known from the trousers made of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +473,56 @@
     "text": "Microwave producer not German, surprisingly",
     "enumeration": "9"
    },
-   "solution": "MAGNETRON"
+   "solution": "MAGNETRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNETRON",
+    "definitions": [
+     {
+      "text": "Microwave producer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising result is not what was expected, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GERMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTGERMAN",
+       "gives": "MAGNETRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remarking that a microwave oven turns out not to be German-made.",
+     "walkthrough": "'Microwave producer' reads like an appliance maker, but it is the component that generates the waves.",
+     "definitionFit": "A magnetron is the vacuum tube in radar sets and microwave ovens that generates microwave radiation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +536,44 @@
     "text": "Escort which motorist doesn’t use any more?",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAD",
+    "definitions": [
+     {
+      "text": "Escort",
+      "at": 0
+     },
+     {
+      "text": "which motorist doesn’t use any more",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escort",
+      "note": "first meaning: to guide or accompany someone"
+     },
+     {
+      "clueFragment": "which motorist doesn’t use any more",
+      "note": "second meaning: the metal once added to petrol and since phased out"
+     }
+    ],
+    "explanation": {
+     "surface": "An old Ford Escort that drivers no longer use.",
+     "walkthrough": "The Ford Escort was a popular British family car, steering towards cars; leaded petrol has been banned, so motorists no longer use the metal.",
+     "definitionFit": "As a verb it means to guide someone along; as a noun it is the toxic metal formerly added to petrol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Escort"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +587,47 @@
     "text": "On which you might apply to get married",
     "enumeration": "4"
    },
-   "solution": "FORM"
+   "solution": "FORM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORM",
+    "definitions": [
+     {
+      "text": "On which you might apply",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to get",
+      "gives": "FOR",
+      "note": "to send for something is to send to get it"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Applying for a marriage licence on the right paperwork.",
+     "walkthrough": "The whole clue reads as one sentence about wedding paperwork; the last four words split off as the letters.",
+     "definitionFit": "Applications are written on official printed documents with blanks to fill in, so it is what you apply on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +647,61 @@
      }
     ]
    },
-   "solution": "BARKINGMAD"
+   "solution": "BARKINGMAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BARKING MAD",
+    "definitions": [
+     {
+      "text": "totally cracked",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means nearly but not quite, so the word stops one letter short"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counter",
+      "gives": "BAR",
+      "note": "a bar is a counter where drinks are served"
+     },
+     {
+      "clueFragment": "Charles",
+      "gives": "KING",
+      "note": "Charles III is the British king"
+     },
+     {
+      "clueFragment": "built",
+      "gives": "MAD",
+      "note": "built is made, without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "KING",
+      "MAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Something King Charles built nearly fell apart with cracks.",
+     "walkthrough": "'Counter' looks like a verb opposing Charles, but it is a noun, the bar.",
+     "definitionFit": "Barking mad is British slang for completely insane, and cracked is an informal word for crazy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Counter"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +715,62 @@
     "text": "Reform encountered a report of increased opposition",
     "enumeration": "12"
    },
-   "solution": "METAMORPHOSE"
+   "solution": "METAMORPHOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "METAMORPHOSE",
+    "definitions": [
+     {
+      "text": "Reform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a report of",
+      "for": "homophone",
+      "note": "a report is something spoken and heard, so the sound counts and not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "to meet someone is to encounter them"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "increased opposition",
+      "gives": "MORPHOSE",
+      "soundsLike": "MORE FOES",
+      "note": "more enemies means increased opposition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "A",
+      "MORPHOSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political reform drew a report of growing resistance.",
+     "walkthrough": "The 'a' does double service in the surface; the opposition is plural people, more foes.",
+     "definitionFit": "To metamorphose is to change completely in form or nature, which is to reform or be transformed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reform"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +784,64 @@
     "text": "Nuclear physicist that woman’s cross with battles to have sex on top",
     "enumeration": "10"
    },
-   "solution": "RUTHERFORD"
+   "solution": "RUTHERFORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUTHERFORD",
+    "definitions": [
+     {
+      "text": "Nuclear physicist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on top",
+      "for": "charade",
+      "note": "in a down entry what goes on top comes first in the reading"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battles to have sex",
+      "gives": "RUT",
+      "note": "the rut is the mating season of deer, when stags fight each other for the chance to mate"
+     },
+     {
+      "clueFragment": "that woman’s",
+      "gives": "HER",
+      "note": "her is the possessive for a woman"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "FORD",
+      "note": "to ford a river is to cross it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUT",
+      "HER",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry woman and her battles over who gets to be on top in bed.",
+     "walkthrough": "'Battles to have sex' together describe the rut, when stags fight for mates; 'cross' is a verb, not anger.",
+     "definitionFit": "Ernest Rutherford, the New Zealand-born scientist, discovered the atomic nucleus and is called the father of nuclear physics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +855,61 @@
     "text": "Being friendly, match oddly starts with hostility",
     "enumeration": "6"
    },
-   "solution": "WARMTH"
+   "solution": "WARMTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WARMTH",
+    "definitions": [
+     {
+      "text": "Being friendly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "odd positions are first, third, fifth, so only those letters are kept"
+     },
+     {
+      "text": "starts with",
+      "for": "charade",
+      "note": "what something starts with comes at its beginning, so that piece goes in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hostility",
+      "gives": "WAR",
+      "note": "war is open hostility"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "MTH",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "MTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting match that oddly turns friendly after a hostile start.",
+     "walkthrough": "'Being friendly' reads like an adjective phrase, but it names the quality, a noun.",
+     "definitionFit": "Warmth is the quality of affection and cordiality, the state of being kind and welcoming towards others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +923,49 @@
     "text": "Quiet complaint from Spooner, crushing rock",
     "enumeration": "9"
    },
-   "solution": "MILLSTONE"
+   "solution": "MILLSTONE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "MILLSTONE",
+    "definitions": [
+     {
+      "text": "crushing rock",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet complaint",
+      "gives": "MILLSTONE",
+      "soundsLike": "STILL MOAN",
+      "note": "quiet is still, a complaint is a moan; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MILLSTONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner grumbles quietly while some rock is being crushed.",
+     "walkthrough": "'Crushing' looks like Spooner's action, but it describes the rock: one that crushes grain.",
+     "definitionFit": "A millstone is one of the pair of heavy round stones that grind grain in a mill, a rock used for crushing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "crushing"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +979,61 @@
     "text": "European rifled our Pimm’s store",
     "enumeration": "8"
    },
-   "solution": "EMPORIUM"
+   "solution": "EMPORIUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EMPORIUM",
+    "definitions": [
+     {
+      "text": "store",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rifled",
+      "for": "anagram",
+      "note": "to rifle through something is to rummage and leave it in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "our Pimm",
+      "gives": "OURPIMM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MPORIUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OURPIMM",
+       "gives": "MPORIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreigner raided our stock of Pimm's.",
+     "walkthrough": "Pimm's is a British gin-based summer drink; 'store' looks like the supply being raided but is the definition, a shop.",
+     "definitionFit": "An emporium is a large retail shop selling many kinds of goods, so it is a store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1047,51 @@
     "text": "Light green tailored coat is hip",
     "enumeration": "9"
    },
-   "solution": "PISTACHIO"
+   "solution": "PISTACHIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PISTACHIO",
+    "definitions": [
+     {
+      "text": "Light green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailored",
+      "for": "anagram",
+      "note": "tailoring cuts and reshapes cloth, so the letters are recut into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat is hip",
+      "gives": "COATISHIP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COATISHIP",
+       "gives": "PISTACHIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion verdict: a pale green fitted coat is trendy.",
+     "walkthrough": "'Light green' reads as the coat's colour, but it is the definition.",
+     "definitionFit": "Pistachio is the pale yellowish-green colour of the nut's kernel, used as a name for that shade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tailored"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1105,59 @@
     "text": "Relative finishes off gin and tonic and Scotch to relax",
     "enumeration": "8"
    },
-   "solution": "UNCLENCH"
+   "solution": "UNCLENCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNCLENCH",
+    "definitions": [
+     {
+      "text": "relax",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishes off",
+      "for": "letter_selection",
+      "note": "the finish of a word is its end, so only the last letters are kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "UNCLE",
+      "note": "an uncle is a family relative"
+     },
+     {
+      "clueFragment": "gin and tonic and Scotch",
+      "gives": "NCH",
+      "select": "last",
+      "note": "the final letters of the three drinks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLE",
+      "NCH"
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle downs a G and T and a whisky to unwind.",
+     "walkthrough": "'Finishes off' looks like drinking up, but it takes the last letters; 'and' between the drinks is just joining them.",
+     "definitionFit": "To unclench a fist or jaw is to release tension from it, which is to let it relax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finishes"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1177,65 @@
      }
     ]
    },
-   "solution": "HISNIBS"
+   "solution": "HISNIBS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HIS NIBS",
+    "definitions": [
+     {
+      "text": "Lord Muck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap your arms round, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     },
+     {
+      "clueFragment": "brothers and sisters",
+      "gives": "SIBS",
+      "note": "sibs is short for siblings"
+     },
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "N stands for any number in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "S",
+      "N",
+      "IBS"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-important man greets his siblings with hugs all round.",
+     "walkthrough": "Lord Muck is British slang for a man who behaves as if he is grand; the 's is 'is', joining the definition to the wordplay.",
+     "definitionFit": "His Nibs is a mocking title for a self-important man, the same jokey sense as Lord Muck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hugging"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1249,48 @@
     "text": "Sikh family name two thirds of military academy",
     "enumeration": "6"
    },
-   "solution": "SANDHU"
+   "solution": "SANDHU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SANDHU",
+    "definitions": [
+     {
+      "text": "Sikh family name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "two thirds of",
+      "for": "letter_selection",
+      "note": "two thirds of a nine-letter word keeps six letters, here the opening ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military academy",
+      "gives": "SANDHU",
+      "select": "first",
+      "note": "Sandhurst is the British Army's officer training academy; its first six of nine letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANDHU"
+     ]
+    },
+    "explanation": {
+     "surface": "A Sikh surname shares much with a British military academy.",
+     "walkthrough": "Sandhurst, in Berkshire, is where British Army officers train.",
+     "definitionFit": "Sandhu is a common Jat clan surname among Sikhs from the Punjab region of India and Pakistan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1304,60 @@
     "text": "French composer’s works should exclude English, OK?",
     "enumeration": "12"
    },
-   "solution": "SATISFACTORY"
+   "solution": "SATISFACTORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SATISFACTORY",
+    "definitions": [
+     {
+      "text": "OK",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "should exclude",
+      "for": "deletion",
+      "note": "to exclude is to leave out, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French composer’s",
+      "gives": "SATIES",
+      "note": "Erik Satie was a French composer, with the possessive s"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "FACTORY",
+      "note": "works is a British word for a factory"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATIS",
+      "FACTORY"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a French composer's output may omit English pieces.",
+     "walkthrough": "'Works' suggests musical compositions next to the composer, but it is a factory; the removed E comes from Satie's name.",
+     "definitionFit": "Satisfactory means acceptable or good enough, which is just what OK means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1371,55 @@
     "text": "Lift carrying tons, lifting in shop?",
     "enumeration": "5"
    },
-   "solution": "THEFT"
+   "solution": "THEFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEFT",
+    "definitions": [
+     {
+      "text": "lifting in shop?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "charade",
+      "note": "in a down entry what is carried rides on top, so that piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     },
+     {
+      "clueFragment": "Lift",
+      "gives": "HEFT",
+      "note": "to heft is to lift something heavy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop's goods lift hauls heavy tons of stock.",
+     "walkthrough": "Shoplifting is stealing; the question mark flags that lifting here means stealing, not raising.",
+     "definitionFit": "Lifting is slang for stealing, and stealing from a shop is a form of the crime of taking property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lifting"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1433,46 @@
     "text": "Judge weak king",
     "enumeration": "5"
    },
-   "solution": "THINK"
+   "solution": "THINK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THINK",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weak",
+      "gives": "THIN",
+      "note": "a thin argument is a weak one"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Judge' looks like a noun naming a feeble ruler, but it is a verb.",
+     "definitionFit": "To think something is to consider or hold an opinion about it, which is to judge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1486,61 @@
     "text": "Mother picked up minute shells, etc",
     "enumeration": "4"
    },
-   "solution": "AMMO"
+   "solution": "AMMO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AMMO",
+    "definitions": [
+     {
+      "text": "shells, etc",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down entry picking up raises the letters, so they read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "MO",
+      "note": "mo is British slang for a moment, as in 'half a mo'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "MO"
+     ],
+     "reversals": [
+      {
+       "from": "MA",
+       "to": "AM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother collected tiny seashells and other bits on the beach.",
+     "walkthrough": "'Minute' reads as tiny, describing the shells, but it is a short time.",
+     "definitionFit": "Ammo is short for ammunition, which includes artillery shells along with bullets and cartridges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1554,68 @@
     "text": "Make poor little monkey in charge of his bananas",
     "enumeration": "10"
    },
-   "solution": "IMPOVERISH"
+   "solution": "IMPOVERISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IMPOVERISH",
+    "definitions": [
+     {
+      "text": "Make poor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so the letters go wild"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little monkey",
+      "gives": "IMP",
+      "note": "a mischievous child is called a little monkey or an imp"
+     },
+     {
+      "clueFragment": "in charge of",
+      "gives": "OVER",
+      "note": "to be over something is to be in charge of it"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "OVER",
+      "ISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky monkey in charge of the bananas makes someone poorer.",
+     "walkthrough": "Bananas sits naturally beside a monkey as food, but it signals craziness; 'little monkey' is a naughty child.",
+     "definitionFit": "To impoverish someone is to reduce them to poverty, which is to make them poor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1629,58 @@
     "text": "Carbon atom with extra electrons goes round star",
     "enumeration": "4"
    },
-   "solution": "ICON"
+   "solution": "ICON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ICON",
+    "definitions": [
+     {
+      "text": "star",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes round",
+      "for": "container",
+      "note": "going round something encircles it, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atom with extra electrons",
+      "gives": "ION",
+      "note": "an atom that has gained or lost electrons is a charged ion"
+     },
+     {
+      "clueFragment": "Carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry picture: a charged carbon atom orbiting a star.",
+     "walkthrough": "The science words all point to astrophysics, but 'star' is a celebrity.",
+     "definitionFit": "An icon is a celebrated person widely admired, so a star of film or music is an icon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1694,47 @@
     "text": "House and home upright",
     "enumeration": "6"
    },
-   "solution": "HONEST"
+   "solution": "HONEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HONEST",
+    "definitions": [
+     {
+      "text": "upright",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a nest is a home, especially a cosy one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "NEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A house and a home, both standing straight and true.",
+     "walkthrough": "'Upright' sounds like a house standing straight, but it describes a person of good character.",
+     "definitionFit": "An upright person is morally sound and truthful, which is what honest means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upright"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1748,51 @@
     "text": "Pale fizzy drink made with Oxo?",
     "enumeration": "8"
    },
-   "solution": "STOCKADE"
+   "solution": "STOCKADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCKADE",
+    "definitions": [
+     {
+      "text": "Pale",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxo",
+      "gives": "STOCK",
+      "note": "Oxo is a British brand of stock cube"
+     },
+     {
+      "clueFragment": "fizzy drink",
+      "gives": "ADE",
+      "note": "ade is a fizzy fruit drink, as in lemonade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "ADE"
+     ]
+    },
+    "explanation": {
+     "surface": "A queasy-sounding pale fizzy drink brewed from a stock cube.",
+     "walkthrough": "'Pale' looks like a colour describing the drink but is a noun, a fence of stakes; the question mark admits a drink made with Oxo is a stretch.",
+     "definitionFit": "A pale is a pointed wooden stake in a fence, and a stockade is a defensive barrier built of such stakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Pale"
+    }
+   }
   }
  ]
 }
