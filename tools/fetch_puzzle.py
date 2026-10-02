@@ -1904,7 +1904,9 @@ LINK_SENTENCE = re.compile(
 def preamble(instructions):
     """The page's note above the clues as our `preamble`, or None: plain text,
     one space between words, without the sentences that are only a link."""
-    text = LINK_SENTENCE.sub("", " ".join(plain_text(instructions or "").split())).strip()
+    text = " ".join(plain_text(instructions or "").split())
+    # Some pages escape the note twice ("F&amp;uuml;hrer", everyman-2977).
+    text = LINK_SENTENCE.sub("", html.unescape(text) if re.search(r"&#?\w+;", text) else text).strip()
     return text if re.search(r"\w\w", text) else None
 
 
