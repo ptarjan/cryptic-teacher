@@ -9,7 +9,9 @@ tools/data/archive_org_ocr_gold.json holds clues transcribed by hand off the
 scans, each edition marked "tune" (used to choose the voting rules) or
 "heldout" (never looked at while tuning; Paul's 2% bar is judged on these).
 Editions with "series": "listener" are Saturday Listeners, read by
-tools/archive_org_listener.py and split "listener" / "listener-heldout".
+tools/archive_org_listener.py and split "listener" / "listener-heldout";
+"series": "jumbo" ones are Saturday Jumbos, read by tools/archive_org_jumbo.py
+and split "jumbo" / "jumbo-heldout".
 Each edition is read as the filer reads it (no solution grid), and every
 clue it files non-blank is scored against the transcription: the misreads
 are the word-level edit distance between the two lists of words and voted
@@ -29,6 +31,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import archive_org_jumbo as jumbo
 import archive_org_listener as listener
 import file_archive_org_puzzles as fa
 
@@ -80,6 +83,16 @@ def read(edition, number, cache=fa.CACHE, series="times"):
                 verdict, laid = listener.read(d, hit, found["solutions"])
                 return {lid: t for lid, (t, _, _) in (laid or {}).items()}, verdict
         return {}, {"refused": f"no heading for Listener No {number}"}
+    if series == "jumbo":
+        found = jumbo.scan(d)
+        for hit in found["puzzles"]:
+            if hit["number"] == number:
+                verdict, puzzle = jumbo.read(d, found, hit, {})
+                if puzzle is None:
+                    return {}, verdict
+                return {f"{e['number']}-{e['direction']}": (e.get("clue") or {}).get("text", "")
+                        for e in puzzle["entries"]}, verdict
+        return {}, {"refused": f"no heading for Jumbo No {number}"}
     found = fa.scan(d)
     for hit in found["puzzles"]:
         if hit["number"] == number:
@@ -93,7 +106,7 @@ def read(edition, number, cache=fa.CACHE, series="times"):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--split", choices=("tune", "heldout", "listener", "listener-heldout"))
+    ap.add_argument("--split", choices=("tune", "heldout", "listener", "listener-heldout", "jumbo", "jumbo-heldout"))
     ap.add_argument("--gold", type=Path, default=GOLD)
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)

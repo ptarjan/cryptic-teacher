@@ -423,6 +423,8 @@ LAYOUT = [
     ("fetching", "tools/train_archive_org_tesseract.py", "fine-tune Tesseract's English LSTM on Times clue lines, for the archive.org filer"),
     ("fetching", "tools/archive_org_listener.py", "read the Listener crosswords in archive.org's scans of The Times' Saturday editions"),
     ("fetching", "tools/test_archive_org_listener.sh", "does tools/archive_org_listener.py find the Listener's own heading (not the coupon's), split the clue columns at DOWN (not the title's \"8 DOWN\"), carry across clues that run into the second column, read a list past a line that does not parse, and blank a clue no two readings agree on or that runs on?"),
+    ("fetching", "tools/archive_org_jumbo.py", "file the Times Jumbo cryptics in archive.org's scans of The Times' Saturday editions"),
+    ("fetching", "tools/test_archive_org_jumbo.sh", "does tools/archive_org_jumbo.py take the Jumbo's number from the prize text (the banner's is cut short), read \"SOLUTION TO JUMBO 17 8\" as 178, look for an unheaded solution in the edition two weeks on, blank a light whose count is short of it, keep the clue columns left of the Times Two's, and match a solution grid by its blocks when its middle prints grey?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

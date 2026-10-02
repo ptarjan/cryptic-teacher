@@ -40,6 +40,7 @@ check("a puzzle's announced solution ends the columns", True,
 # Counts the daily's parser takes; a split number; specks before it.
 check("(6, two words) is (6)", "Every colonist (6)", al.tidy("Every colonist (6. (wo words)"))
 check("1 9 is 19", "19 Nurse with silly plait (5)", al.tidy("1 9 Nurse with silly plait (5)"))
+check("a count set wide is one number", "Dealing with deliveries (11)", al.tidy("Dealing with deliveries (1 1)"))
 check("specks before a number go", "11 To some extent (6)", al.tidy(":. 11 To some extent (6)"))
 
 # Columns: DOWN level with ACROSS; the title's "DOWN" above the lists is not it.

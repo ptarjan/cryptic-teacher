@@ -28,7 +28,7 @@ from PIL import Image
 BLOCK_ABOVE = 0.85
 #: ...and a light only if it is at most this inky.
 WHITE_BELOW = 0.25
-SIZES = (9, 11, 13, 15, 17, 19, 21, 23)
+SIZES = (9, 11, 13, 15, 17, 19, 21, 23, 27)
 
 
 def otsu(gray):
@@ -109,8 +109,10 @@ def components(mask):
     return out
 
 
-def read_grid(path, block_above=BLOCK_ABOVE):
-    """(rows, None) or (None, why): see the module docstring."""
+def read_grid(path, block_above=BLOCK_ABOVE, off_lattice=0.25):
+    """(rows, None) or (None, why): see the module docstring. A white patch
+    more than `off_lattice` of a cell from the fitted lattice refuses the
+    grid; a 27x27 Jumbo on a curled page drifts further at its corners."""
     gray = np.asarray(Image.open(path).convert("L"), dtype=np.uint8)
     cut = otsu(gray)
     ink = gray < cut
@@ -180,7 +182,7 @@ def read_grid(path, block_above=BLOCK_ABOVE):
     cells = set()
     for (area, cy, cx, hh, ww), (r, c) in zip(patches, place):
         ey, ex = centre(r, c)
-        if abs(cy - ey) > 0.25 * pitch or abs(cx - ex) > 0.25 * pitch:
+        if abs(cy - ey) > off_lattice * pitch or abs(cx - ex) > off_lattice * pitch:
             return None, f"the white patch at r{r + 1}c{c + 1} sits off the lattice"
         cells.add((r, c))
     grid = []

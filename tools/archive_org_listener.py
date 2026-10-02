@@ -139,12 +139,15 @@ def columns(words):
     right = down[0] + 0.8 * (down[0] - across[0])
     cols = [[], [], []]
     for w in words:
-        if w is across or w is down or w[1] < across[3] - 5:
+        # By the word's middle: a reader's box for the first clue line can
+        # reach up into the heading's.
+        mid = (w[1] + w[3]) / 2
+        if w is across or w is down or mid < across[3]:
             continue
         if across[0] - 40 <= w[0] < split:
             side = 0
         elif split <= w[0] < right:
-            side = 2 if w[1] >= down[3] - 5 else 1
+            side = 2 if mid >= down[3] else 1
         else:
             continue
         cols[side].append((w[1], w[3], w[0], w[2], w[4]))
@@ -206,6 +209,11 @@ def tidy(text):
     """Listener counts into the daily's shape: "(6, two words)" is "(6)";
     a clue number read as two digits ("1 9 Nurse") is one, and specks
     before it go."""
+    # A two-digit count set wide, "(1 1)", is one number: a count's parts
+    # are printed with a comma or hyphen between them.
+    text = re.sub(r"\((\d) (\d)\)", r"(\1\2)", text)
+    # A speck read as a middle dot ("study·money") is a space.
+    text = text.replace("\u00b7", " ")
     # Specks the scan left before a clue number (". 11", ":. 11").
     text = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", text, flags=re.MULTILINE)
     text = re.sub(r"^(\d) (\d) (?=\S)", r"\1\2 ", text, flags=re.MULTILINE)
@@ -241,9 +249,10 @@ CORROBORATE = 0.7
 
 
 def sound(text):
-    """A clue text that is one clue: words, starting as a clue starts, with no
-    count or clue number inside it."""
-    return bool(text and re.match(r"[A-Z\"'.\u2018\u201c]", text)
+    """A clue text that is one clue: words, starting as a clue starts (a
+    lone "1" is the I fa.clean makes of it), with no count or clue number
+    inside it."""
+    return bool(text and re.match(r"[A-Z\"'.\u2018\u201c]|1\s", text)
                 and not RUN_ON.search(text) and not NEXT_NUMBER.search(text))
 
 
@@ -302,12 +311,26 @@ def read(d, hit, solutions=()):
         return verdict, None
     box = clue_box(img, grid, [s["box"] for s in solutions if s["leaf"] == leaf])
     # The crop is in the cache's name: a reading of another box is not this one.
-    key = f"{d.name}_listener{n}_{'-'.join(map(str, box))}"
+    return read_box(d, leaf, img, box, f"{d.name}_listener{n}_{'-'.join(map(str, box))}", verdict)
+
+
+def read_box(d, leaf, img, box, key, verdict, split=None):
+    """(verdict, {light: (text, enumeration, None)} or None) for the ACROSS
+    and DOWN columns inside `box` on one leaf: archive.org's words and every
+    fa.READERS reading (cached under `key`), parsed, laid by number (pick)
+    and voted on (fa.reconcile). With `split` (the x between the columns),
+    Tesseract reads each column alone: over two columns its line finder
+    runs lines of both together."""
     words = {"djvu": [w for ws in fa.leaf_lines(d / "djvu.xml.gz", {leaf})[leaf] for w in ws
                       if box[0] <= w[0] and w[2] <= box[2] and box[1] <= w[1] <= box[3]]}
     for which in fa.READERS:
         path = fa.CROPS / "rapid" / f"{key}.{fa.reader_key(which)}.json"
-        words[which] = ocr_words(img, box, which, path)
+        if split and which in fa.TESS_MODELS:
+            halves = ((box[0], box[1], split, box[3]), (split, box[1], box[2], box[3]))
+            words[which] = [w for k, half in enumerate(halves) for w in ocr_words(
+                img, half, which, path.with_name(f"{key}.col{k}.{fa.reader_key(which)}.json"))]
+        else:
+            words[which] = ocr_words(img, box, which, path)
     texts = {k: tidy(fa.tidy(text_of(columns(w)))) for k, w in words.items()}
     tried = []
     for k, t in texts.items():
