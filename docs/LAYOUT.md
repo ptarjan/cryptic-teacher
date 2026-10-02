@@ -1186,5 +1186,16 @@ tools/test_no_doubled_paper.sh               does any series' page say the same 
                                              tools/series.py and refuses a repeated adjacent
                                              word in the title, heading, description or series
                                              name
+tools/test_vlm_reader.sh                     does tools/vlm_reader.py stay out of the way when
+                                             the desktop's VLM does not answer, cache what it
+                                             asks, crop each clue column alone, and does
+                                             file_archive_org_puzzles.py fill a blank clue with
+                                             its reading and re-read an edition once it answers?
+tools/vlm_reader.py                          a vision-language model as one more reader of
+                                             scanned clue columns
+tools/vlm_column_prompt.md                   what the VLM reader is told when transcribing a
+                                             clue column verbatim
+tools/vlm_pick_prompt.md                     what the VLM reader is told when the readers
+                                             disagree on one clue
 ```
 <!-- LAYOUT-END -->

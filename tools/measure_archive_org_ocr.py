@@ -15,7 +15,9 @@ and split "jumbo" / "jumbo-heldout"; "series": "ft" ones are Financial Times
 cryptics (FinancialTimes<year>UKEnglish items), read by the same filer and
 split "ft" / "ft-heldout"; "series": "guardian" ones are Guardian cryptics
 (TheGuardian<year>UKEnglish items), split "guardian" / "guardian-heldout".
-Each edition is read as the filer reads it (no solution grid), and every
+Each edition is read as the filer reads it (no solution grid; with the
+desktop's VLM when it answers, tools/vlm_reader.py, so set VLM_READER_URL=
+to measure without it), and every
 clue it files non-blank is scored against the transcription: the misreads
 are the word-level edit distance between the two lists of words and voted
 marks (file_archive_org_puzzles.marked, words compared without case), over
