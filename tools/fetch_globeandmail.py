@@ -115,7 +115,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import puzzle_paths  # noqa: E402
-from fetch_puzzle import (flatten_clue, http_bytes,  # noqa: E402
+from fetch_puzzle import (flatten_clue, http_bytes, separators,  # noqa: E402
                           merge_annotations, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
@@ -354,6 +354,10 @@ def convert(data, ymd):
         for n in word_lens[:-1]:
             cum += n
             seps.append({"at": cum, "mark": ","})
+        # A count the clue prints itself says which breaks are apostrophes.
+        printed = enumeration.split(full_clue)[1]
+        if printed and "'" in printed and sum(enumeration.counts(printed)) == length:
+            seps = separators(printed, [length])[0]
         num = int(pw["clueNum"])
         entries.append({
             "number": num,

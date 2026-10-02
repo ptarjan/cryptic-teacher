@@ -284,9 +284,9 @@ def parse(doc, variant):
         if any(m not in lights for m in members):
             raise ValueError(f"{key[0]} {key[1]}: links a light the grid lacks")
         fmt = re.sub(r"\s+", "", c.get("format") or "") or str(lights[key]["length"])
-        # separators() splits on commas and hyphens; a "4'1" or "4.7" break
-        # sits at the same letter.
-        seps = separators(re.sub(r"[.'’]", ",", fmt), [lights[m]["length"] for m in members])
+        # separators() reads commas, hyphens and apostrophes; a "4.7" break
+        # sits at the same letter as a comma.
+        seps = separators(fmt.replace(".", ","), [lights[m]["length"] for m in members])
         text, italics = flatten_clue(cp1252(html.unescape(c["clue"])).strip())
         group = [f"{n}-{d}" for n, d in members]
         for i, m in enumerate(members):

@@ -65,7 +65,7 @@ CONTINUATION = re.compile(r"^\s*See\s+(\d+)\b", re.IGNORECASE)
 
 # "7,6" / "4-5" / "9,5,4": each count and the punctuation that follows it. The
 # separator after the last count is the end of the answer and is never written.
-ENUM_PART = re.compile(r"(\d+)\s*([,\-–/ ]?)")
+ENUM_PART = re.compile(r"(\d+)\s*([,\-–/ '’]?)")
 
 HYPHENS = "-–—"
 
@@ -90,7 +90,8 @@ def enumeration_parts(enumeration):
     """"9,5,4" -> [(9, ","), (5, ","), (4, "")]."""
     parts = []
     for count, sep in ENUM_PART.findall(enumeration or ""):
-        parts.append((int(count), "-" if sep in HYPHENS else ("," if sep else "")))
+        parts.append((int(count), "-" if sep and sep in HYPHENS else
+                      "'" if sep in ("'", "’") else ("," if sep else "")))
     if not parts:
         raise SystemExit(f"enumeration {enumeration!r} holds no counts")
     parts[-1] = (parts[-1][0], "")
