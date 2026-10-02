@@ -867,6 +867,14 @@ def render(path):
 
 
 def main():
+    # An unknown flag (--help included) must not fall through to the full
+    # rebuild: that is a multi-process corpus pass on a shared host.
+    unknown = [a for a in sys.argv[1:]
+               if a not in ("--check", "--check-layout", "--add-missing")]
+    if unknown:
+        print(__doc__, file=sys.stderr)
+        print(f"unknown argument: {' '.join(unknown)}", file=sys.stderr)
+        return 2
     # The layout table alone, and nothing generated. Every tracked file needs a
     # row or build_readme refuses to run at all, and it is run by the nightly
     # rebuild and by test_push_conflict.sh's -- so a new tool with no row does
