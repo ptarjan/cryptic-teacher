@@ -987,10 +987,19 @@ def held_numbers():
     return {int(p.stem.split("-")[1]) for p in (ROOT / "puzzles" / SERIES).glob("*/*.json")}
 
 
+def destination(puzzles, file_from, date):
+    """Where an edition dated `date` (YYYY-MM-DD) files its puzzle: the
+    `puzzles` dir, or None for the corpus. With `file_from`, editions of that
+    year or later go to the corpus even when `puzzles` is set."""
+    if puzzles and file_from and int((date or "0")[:4]) >= file_from:
+        return None
+    return puzzles
+
+
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE):
+        source=SOURCE, file_from=None):
     """File what is new under `cache`; `puzzles` writes there instead of the
-    corpus (tests). Returns the ledger rows."""
+    corpus (tests, and editions before `file_from`). Returns the ledger rows."""
     from fetch_puzzle import puzzle_path, write_puzzle_file
     ledger = Path(ledger or cache / "filed.jsonl")
     known = {}
@@ -1030,6 +1039,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             continue
         fresh += 1
         verdicts = []
+        dest = destination(puzzles, file_from, scans[rel].get("date"))
         for hit in scans[rel]["puzzles"]:
             try:
                 verdict, puzzle = read_puzzle(d, scans[rel], hit, solutions)
@@ -1041,10 +1051,10 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 if write:
                     source.mkdir(parents=True, exist_ok=True)
                     (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
-                path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
+                path = (Path(dest) / f"{puzzle['id']}.json" if dest
                         else puzzle_path(SERIES, puzzle["number"]))
                 better = path.exists() and improves(puzzle, path)
-                if hit["number"] in held and not puzzles and not better:
+                if hit["number"] in held and not dest and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
                 elif write and (better or not path.exists()):
                     try:
@@ -1190,6 +1200,8 @@ def main(argv=None):
     ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl")
     ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
+    ap.add_argument("--file-from", type=int, metavar="YEAR",
+                    help="with --out, editions of YEAR or later still go into puzzles/")
     ap.add_argument("--source", type=Path, default=SOURCE,
                     help="where every reading goes for cross_validate.py")
     ap.add_argument("--limit", type=int, help="read at most N new or changed editions")
@@ -1217,7 +1229,7 @@ def main(argv=None):
                           f"{(e['clue'] or {}).get('text', '')} ({(e['clue'] or {}).get('enumeration')})")
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        limit=args.limit, source=args.source)
+        limit=args.limit, source=args.source, file_from=args.file_from)
     if not args.out:
         match_canberra(args.source, write=not args.dry_run)
     return 0
