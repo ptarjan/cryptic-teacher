@@ -5961,10 +5961,13 @@
     const st = solverStats(Date.now());
     setHTML($("stats-body"), STATS_SECTIONS.map((f) => f(st)).join(""));
   }
+  // Both toggles return whether the panel ended up open, so a click that
+  // opened it can be counted and one that closed it is not.
   function toggleStats(show) {
-    if (!showPanel("stats-panel", show)) return;
+    if (!showPanel("stats-panel", show)) return false;
     if (P) flushState();
     whenStartedLoaded(() => { if (!$("stats-panel").classList.contains("hidden")) renderStats(); }, true);
+    return true;
   }
 
   // A milestone reached by the letter just typed gets one line under the
@@ -6696,6 +6699,7 @@
       });
       if (box && box.focus) box.focus();
     }
+    return want;
   }
 
   // ---------- puzzle lifecycle ----------
@@ -7127,7 +7131,7 @@
   function bindFeedback() {
     const note = $("fb-note"), msg = $("fb-msg");
     if (!note) return;
-    $("btn-feedback").onclick = () => { if (showPanel("fb-panel")) note.focus(); };
+    $("btn-feedback").onclick = () => { if (showPanel("fb-panel")) { note.focus(); beacon("feedback"); } };
     $("btn-feedback-close").onclick = () => showPanel("fb-panel", false);
     const send = () => {
       const text = (note.value || "").trim();
@@ -7154,13 +7158,13 @@
 
   function boot() {
     bindFeedback();
-    $("btn-stats").onclick = () => toggleStats();
+    $("btn-stats").onclick = () => { if (toggleStats()) beacon("stats"); };
     $("btn-stats-close").onclick = () => toggleStats(false);
     bindWelcome();
     // The lesson is /learn/ — a page, reached by a plain link in the header.
     // It is a document you read end to end, and it outgrew the collapsible
     // section it used to live in on this page.
-    $("btn-picker").onclick = () => togglePicker();
+    $("btn-picker").onclick = () => { if (togglePicker()) beacon("picker"); };
     $("btn-picker-close").onclick = () => togglePicker(false);
 
     // ---- sync ----
@@ -7168,7 +7172,7 @@
     // that explains it cannot work is worse than no control.
     if (!SYNC_ENDPOINT) $("btn-sync").classList.add("hidden");
     $("btn-sync").onclick = () => {
-      if (showPanel("sync-panel")) { renderSyncPanel(); if (syncOn()) syncPull(); }
+      if (showPanel("sync-panel")) { renderSyncPanel(); if (syncOn()) syncPull(); beacon("sync"); }
     };
     $("btn-sync-close").onclick = () => showPanel("sync-panel", false);
 
@@ -7194,7 +7198,7 @@
     // ---- notifications ----
     if (!notifyAvailable()) $("btn-notify").classList.add("hidden");
     $("btn-notify").onclick = () => {
-      if (showPanel("notify-panel")) { renderNotifyPanel(); notifyNote(""); }
+      if (showPanel("notify-panel")) { renderNotifyPanel(); notifyNote(""); beacon("notify"); }
     };
     $("btn-notify-close").onclick = () => showPanel("notify-panel", false);
     // Bound to the list and not to the boxes, because renderNotifyPanel() throws
