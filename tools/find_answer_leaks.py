@@ -43,21 +43,72 @@ def letters(s):
     return re.sub(r"[^a-z]", "", (s or "").lower())
 
 
-def says(text, answer):
-    """Does `text` contain `answer` as a run of whole words?"""
+ARTICLES = {"a", "an", "the"}
+
+
+def _words_at(text):
+    """[(start, end, letters)] of each word of `text`; an apostrophe joins."""
+    return [(m.start(), m.end(), letters(m.group()))
+            for m in re.finditer(r"[A-Za-z]+(?:['\u2019][A-Za-z]+)*", text or "")]
+
+
+def _spans(text, answer):
+    """(start, end, word letters) of every run of whole words of `text` that
+    spells `answer` plus at most an inflection.
+
+    Not a run: one whose last word, not in capitals, lends the answer a single
+    letter ("lung is" on LUNGI) or is the note's copula ("a tun is a large
+    cask" on TUNIS), and,
+    when the answer is one word, one opening on an article before a word not in
+    capitals ("a jar is a glass container" on AJAR)."""
     target = letters(answer)
     if len(target) < 3:
-        return False
-    words = [letters(w) for w in re.split(r"[^A-Za-z]+", text or "") if letters(w)]
+        return
+    one_word = len(re.findall(r"[A-Za-z]+", answer or "")) == 1
+    words = _words_at(text)
+    raw = [text[a:b] for a, b, _ in words]
     for i in range(len(words)):
+        if (one_word and words[i][2] in ARTICLES and i + 1 < len(raw)
+                and not raw[i + 1].isupper()):
+            continue
         run = ""
         for j in range(i, min(i + len(target), len(words))):
-            run += words[j]
+            before = len(run)
+            run += words[j][2]
             if len(run) > len(target) + 3:
                 break
-            if run.startswith(target) and run[len(target):] in INFLECTIONS:
-                return True
-    return False
+            if (run.startswith(target) and run[len(target):] in INFLECTIONS
+                    and (j == i or raw[j].isupper()
+                         or (len(target) - before >= 2 and words[j][2] != "is"))):
+                yield words[i][0], words[j][1], [w for _, _, w in words[i:j + 1]]
+                break
+
+
+def _run(text, answer, pieces=()):
+    """(start, end) of the first run of `text` that names `answer`, or None.
+
+    A piece the blocks rung prints as letters is no leak in its note: a run
+    inside a longer piece ("Double Gloucester" on GLOUCESTER, a block giving
+    DOUBLEGLOUCESTER), a run that is a piece (a light of a linked answer that a
+    block gives), or one whose every word is a piece ("yon is" on YONIS, from
+    YON and IS)."""
+    shown = {letters(p) for p in pieces if letters(p)}
+    if not shown:
+        return next(((a, b) for a, b, _ in _spans(text, answer)), None)
+    inside = [(a, b) for p in shown for a, b, _ in _spans(text, p)]
+    for a, b, words in _spans(text, answer):
+        if "".join(words) in shown or all(w in shown for w in words):
+            continue
+        if any(lo <= a and b <= hi for lo, hi in inside):
+            continue
+        return a, b
+    return None
+
+
+def says(text, answer, pieces=()):
+    """Does `text` contain `answer` as a run of whole words? `pieces` are the
+    blocks' letters, which the blocks rung shows anyway."""
+    return _run(text, answer, pieces) is not None
 
 
 # A function word every sentence needs cannot be kept out of a note, and naming
@@ -77,9 +128,20 @@ def names(answer, lights=()):
     return out
 
 
-def named(text, answer, lights=()):
+def named(text, answer, lights=(), pieces=()):
     """The first of names(answer, lights) that `text` says, else None."""
-    return next((n for n in names(answer, lights) if says(text, n)), None)
+    return next((n for n in names(answer, lights) if says(text, n, pieces)), None)
+
+
+def pieces_of(ann):
+    """The letters the blocks rung prints for `ann`: every block's `gives`, bar
+    the whole answer and a cryptic definition's, which app.js blockLetters hides."""
+    if "cryptic_definition" in (ann.get("type") or []):
+        return []
+    answer = letters(ann.get("answer"))
+    return [b["gives"] for b in ann.get("blocks") or []
+            if isinstance(b, dict) and isinstance(b.get("gives"), str)
+            and letters(b["gives"]) != answer]
 
 
 def light_solutions(entry, by_id):
@@ -197,10 +259,13 @@ def _unname_clause(clause, answer, whole, clue):
     return fixed
 
 
-def unname(note, answer, gives=None, clue=""):
+def unname(note, answer, gives=None, clue="", pieces=(), blank=False):
     """`note` rewritten so it no longer names `answer`, or None when that takes
-    judgement. `gives` is the block's letters, `clue` the clue's text."""
-    if not isinstance(note, str) or not says(note, answer):
+    judgement. `gives` is the block's letters, `clue` the clue's text, `pieces`
+    every block's letters. `blank` is for a block with no letters on a double
+    definition, one sense: what no rule clears has the answer's words replaced by
+    "...", the corpus's way of quoting a phrase without its missing word."""
+    if not isinstance(note, str) or not says(note, answer, pieces):
         return None
     whole = gives is None or letters(gives) == letters(answer)
     parts = CLAUSE_BREAK.split(note)
@@ -211,15 +276,23 @@ def unname(note, answer, gives=None, clue=""):
             kept.append([sep, fixed])
         elif sep.strip() == ":" and len(kept) > 1 and _words(kept[-1][1]) <= 2:
             kept.pop()  # "inside: R-EARL-IGHT" loses its label with its display
-    if not kept:
-        return None
-    kept[0][0] = ""
-    new = "".join(s + c for s, c in kept).strip(" ;:,-—–")
-    # What is left must still be a note: not a stub, and most of what was written.
-    if (says(new, answer) or _words(new) < 2 or len(letters(new)) < 6
-            or len(letters(new)) < 0.4 * len(letters(note))):
+    new = None
+    if kept:
+        kept[0][0] = ""
+        new = "".join(s + c for s, c in kept).strip(" ;:,-—–")
+    if blank and (new is None or not _still_a_note(new, note, answer)):
+        new = note
+        while (span := _run(new, answer)) is not None:
+            new = new[:span[0]] + "..." + new[span[1]:]
+    if new is None or not _still_a_note(new, note, answer):
         return None
     return new[0].upper() + new[1:] if note[:1].isupper() else new
+
+
+def _still_a_note(new, note, answer):
+    """Not a stub, and most of what was written."""
+    return not (says(new, answer) or _words(new) < 2 or len(letters(new)) < 6
+                or len(letters(new)) < 0.4 * len(letters(note)))
 
 
 def leaks(only=()):
@@ -233,7 +306,8 @@ def leaks(only=()):
             if not answer:
                 continue
             lights = light_solutions(entry, by_id)
-            bad = [b for b in (ann.get("blocks") or []) if named(b.get("note"), answer, lights)]
+            pieces = pieces_of(ann)
+            bad = [b for b in (ann.get("blocks") or []) if named(b.get("note"), answer, lights, pieces)]
             if bad:
                 yield {
                     "file": path.name,
@@ -242,7 +316,7 @@ def leaks(only=()):
                     "type": ann.get("type"),
                     "answer": answer,
                     "notes": [{"clueFragment": b.get("clueFragment"), "note": b.get("note"),
-                               "names": named(b.get("note"), answer, lights)}
+                               "names": named(b.get("note"), answer, lights, pieces)}
                               for b in bad],
                 }
 
