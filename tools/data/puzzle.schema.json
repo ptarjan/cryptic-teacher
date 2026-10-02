@@ -762,12 +762,10 @@
   "block": {
    "description": "One piece of the wordplay: the clue words, and the letters they give. `gives` is always the letters these words produce, after `select` or `soundsLike` if the block has one, and before anything done to them together with other blocks: shuffles and reversals are the annotation's assembly.anagrams and assembly.reversals, which say the letters before and after and need not cut the answer where the blocks do. No gives means the words give no letters (an indicator or link).",
    "type": "object",
-   "required": [
-    "clueFragment"
-   ],
    "additionalProperties": false,
    "properties": {
     "clueFragment": {
+     "description": "The clue words, verbatim. Absent for letters the puzzle's preamble supplies, which have no words in the clue.",
      "type": "string",
      "minLength": 1
     },
