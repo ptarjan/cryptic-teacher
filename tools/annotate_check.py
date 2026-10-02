@@ -52,7 +52,7 @@ import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import annotate_only, current_view, default_input, view_path  # noqa: E402
 from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
-from find_answer_leaks import leaks, unname  # noqa: E402
+from find_answer_leaks import leaks, light_solutions, names, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
 
@@ -288,6 +288,7 @@ def unname_block_notes(path, pending):
         return []
     clues = {entry_id(e): (e.get("clue") or {}).get("text") or "" for e in entries
              if isinstance(e.get("clue"), dict)}
+    by_id = {entry_id(e): e for e in entries}
     changed = []
     for eid, a in (ann.items() if isinstance(ann, dict) else ()):
         if not isinstance(a, dict) or not isinstance(a.get("answer"), str):
@@ -295,10 +296,14 @@ def unname_block_notes(path, pending):
         for block in a.get("blocks") or []:
             if not isinstance(block, dict):
                 continue
-            new = unname(block.get("note"), a["answer"], block.get("gives"), clues.get(eid, ""))
-            if new:
-                block["note"] = new
-                changed.append(eid)
+            lights = light_solutions(by_id.get(eid) or {}, by_id)
+            for name in names(a["answer"], lights):
+                # "gives the answer" is true of the whole answer only, never of a light.
+                gives = block.get("gives") if name == a["answer"] else ""
+                new = unname(block.get("note"), name, gives, clues.get(eid, ""))
+                if new:
+                    block["note"] = new
+                    changed.append(eid)
     if changed:
         pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return sorted(set(changed), key=changed.index)

@@ -265,6 +265,30 @@ say("given_entry_definition_passes", errs == [])
 V.check_no_answer_in_early_rungs("3D", {"answer": "ABCD", "definitions": [{"text": "ABCD"}]}, "Letters (4)", errs, [])
 say("written_answer_still_fails", len(errs) == 1)
 
+# A linked answer's lights are answers too: a note naming one light leaks it,
+# though the whole answer is never said. A function word light leaks nothing.
+errs = []
+V.check_block_notes_dont_name_the_answer("1A", {"answer": "PRIME MINISTER", "blocks": [
+    {"note": "to prime a gun is to make it ready", "gives": "PRIME"}]}, errs, [],
+    ["PRIME", "MINISTER"])
+say("light_answer_named_fails", len(errs) == 1 and "'PRIME'" in errs[0])
+errs = []
+V.check_block_notes_dont_name_the_answer("1A", {"answer": "THE LADY", "blocks": [
+    {"note": "the rack stretched a prisoner", "gives": "THE"}]}, errs, [], ["THE", "LADY"])
+say("function_word_light_passes", errs == [])
+V.check_block_notes_dont_name_the_answer("1A", {"answer": "PRIME MINISTER", "blocks": [
+    {"note": "a priest is a cleric"}]}, errs, [])
+say("unlinked_still_whole_answer_only", errs == [])
+linked = path.parent / "cyclops-99997.json"
+linked.write_text(json.dumps({"entries": [
+    {"number": 1, "direction": "across", "solution": "PRIME", "group": ["1-across", "2-down"],
+     "clue": {"text": "Prepare a cleric for high office (5,8)"}},
+    {"number": 2, "direction": "down", "solution": "MINISTER", "clue": {"text": "See 1"}}]}))
+pending.write_text(json.dumps({"1-across": {"answer": "PRIME MINISTER", "blocks": [
+    {"note": "to prime is to prepare", "gives": "PRIME"}]}}))
+say("light_name_unnamed", AC.unname_block_notes(linked, pending) == ["1-across"]
+    and json.loads(pending.read_text())["1-across"]["blocks"][0]["note"] == "to prepare")
+
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io
 errs = []
@@ -297,6 +321,8 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
          preview_names_validator_errors patch_deletes_its_file \
+         light_answer_named_fails function_word_light_passes \
+         unlinked_still_whole_answer_only light_name_unnamed \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
          explain_unknown_refused comma_answer_spaced answer_opener_trimmed \
          unname_gives_the_answer unname_partial_block_drops_clause \
