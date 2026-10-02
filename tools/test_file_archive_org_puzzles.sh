@@ -303,6 +303,8 @@ titles, sols = f.ft_headings([line("CROSSWORD", 2429, 2957), line("No. 8,650 Set
 check("1990s FT title over its number line, setter read, box the grid's width; prize-date line no heading",
       ([(8650, "Dante", f.FT_GRID_SPAN)], [8649]),
       ([(n, s, b[2] - b[0]) for n, b, s in titles], [n for n, _ in sols]))
+check("a byline our files or the dictionary know stands without a second reading", ["Dante", "Vixen", None],
+      [f.byline(None, {"setterRead": "Dante"}), f.byline(None, {"setterRead": "Vixen"}), f.byline(None, {})])
 titles, sols = f.ft_headings([line("F.T. CROSSWORD PUZZLE No. 2,766", 200, 2841),
                               line("SOLUTION TO PUZZLE", 573, 4049), line("No. 2,765", 656, 4073)])
 check("1970s FT title on one line, solution number on the line under", ([2766], [2765]),

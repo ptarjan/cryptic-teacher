@@ -1135,7 +1135,7 @@ def scan(d):
     for leaf, lines in leaf_lines(d / "djvu.xml.gz", leaves).items():
         titles, sols = paper.headings(lines)
         for n, box, setter in titles:
-            found["puzzles"].append({"number": n, "leaf": leaf, "box": box, **({"setter": setter} if setter else {})})
+            found["puzzles"].append({"number": n, "leaf": leaf, "box": box, **({"setterRead": setter} if setter else {})})
         for n, box in sols:
             found["solutions"].append({"number": n, "leaf": leaf, "box": box})
     return found
@@ -1206,8 +1206,7 @@ _FT_SETTERS = None
 
 
 def ft_setters():
-    """The setters our ftcryptic files name: a pseudonym read off a scan
-    ("Grifftn") stands only when it is one of them or a dictionary word."""
+    """The setters our ftcryptic files name."""
     global _FT_SETTERS
     if _FT_SETTERS is None:
         _FT_SETTERS = {json.loads(p.read_text()).get("setter")
@@ -1253,9 +1252,8 @@ def ft_headings(lines):
             continue
         box, whole = box_of(ws), box_of(ws + under)
         setter = FT_SETTER.search(num.group(2))
-        setter = setter and setter.group(1).title()
         puzzles.append((number_of(num.group(1)), centred((box[0], whole[1], box[2], whole[3]), FT_GRID_SPAN),
-                        setter if setter and (setter in ft_setters() or is_word(setter.lower())) else None))
+                        setter.group(1).title() if setter else None))
     return puzzles, solutions
 
 
@@ -1400,8 +1398,9 @@ def read_puzzle(d, found, hit, solutions):
         verdict["blank"] = blank
     puzzle = build(n, day, grid, how, laid, found["item"], leaf, series=paper.series,
                    name=paper.name.format(n))
-    if hit.get("setter"):
-        puzzle["setter"] = hit["setter"]
+    setter = byline(img, hit)
+    if setter:
+        puzzle["setter"] = setter
     sol = solutions.get(n)
     if sol:
         answers, info = read_solution(sol, grid)
@@ -1409,6 +1408,25 @@ def read_puzzle(d, found, hit, solutions):
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+def byline(img, hit):
+    """The setter archive.org's words name under the title ("Set by DANTE"),
+    when it is one our ftcryptic files name, a dictionary word, or what
+    RapidOCR reads there too: archive.org alone misreads ("Grifftn")."""
+    read = hit.get("setterRead")
+    if not read or read in ft_setters() or is_word(read.lower()):
+        return read
+    import numpy as np
+    x0, y0, x1, y1 = hit["box"]
+    crop = img.crop((x0, y0 - 10, x1, y1 + 10)).convert("RGB")
+    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    for which in ("en5", "ch"):
+        res, _ = engine(which)(np.asarray(crop), use_cls=False)
+        m = FT_SETTER.search(" ".join(t for _, t, _ in res or ()))
+        if m and m.group(1).title() == read:
+            return read
+    return None
 
 
 #: The share of a solution grid's cells that must be block or light exactly
