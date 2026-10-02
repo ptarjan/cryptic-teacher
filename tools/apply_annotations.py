@@ -241,7 +241,8 @@ def normalize(ann, entry, entries):
 def move_alteration(entry):
     """Move an `alteration` the annotation carries onto the entry, where the
     schema keeps it: the preamble's change to the answer before grid entry."""
-    alteration = entry["annotation"].pop("alteration", None)
+    ann = entry.get("annotation")
+    alteration = ann.pop("alteration", None) if isinstance(ann, dict) else None
     if alteration:
         entry["alteration"] = alteration
 

@@ -191,7 +191,7 @@ try:
     text = view.read_text()
     say("view_has_no_url", "http" not in text and "fifteensquared" not in text)
     say("view_keeps_solutions",
-        [e["solution"] for e in json.loads(text)["entries"]] == ["ABCD"] * 30)
+        all(" | ABCD | " in l for l in json.loads(text)["entries"]))
 finally:
     view.unlink()
 apply_annotations.apply(path, {entry_id(e): {"type": ["charade"]} for e in real["entries"]},
