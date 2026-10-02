@@ -11,8 +11,9 @@ and deletes FILE. Many clues' fixes are one Write and this one command, not a
 fix script, which these runs cannot get approved.
 
 An entry the _ann file has no key for is filled in as null (not done yet), so
-a file written a few clues at a time applies as it stands, and an `answer`
-typed with the enumeration's commas is respelt with spaces.
+a file written a few clues at a time applies as it stands, an `answer`
+typed with the enumeration's commas is respelt with spaces, and
+`assembly.pieces` a slip away from the answer are recut from its letters.
 
 Applies tools/_ann_<ID>.json, validates, runs both audit tools, syntax-checks
 the file and refreshes the index — and prints one report with a count at the
@@ -43,6 +44,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
 from annotate_audit import load_templates, rule_name  # noqa: E402
+from annotation import wordplay_letters  # noqa: E402
 import blog_post  # noqa: E402
 import clue_types  # noqa: E402
 import definitions  # noqa: E402
@@ -276,6 +278,84 @@ def respell_answers(pending):
     return changed
 
 
+def _edits(a, b):
+    """Levenshtein distance between two strings."""
+    row = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        prev, row[0] = row[0], i
+        for j, cb in enumerate(b, 1):
+            prev, row[j] = row[j], min(row[j] + 1, row[j - 1] + 1, prev + (ca != cb))
+    return row[-1]
+
+
+def recut(pieces, want, gives=()):
+    """`want` cut into as many chunks as `pieces`, or None.
+
+    The chunks are the answer's own letters, so they always join to it: the
+    pieces of a whole-answer reversal written in the order they were reversed
+    from (RATS+RE+PUS for SUPERSTAR) are each turned round and listed back to
+    front; otherwise each piece is matched to the run of `want` it differs
+    least from, a run that is some block's `gives` preferred. Only a slip is recut: the same letters out of order, or at
+    most two letters wrong. Anything further is a different parse or answer,
+    and stays an error."""
+    bare = [re.sub(r"[^A-Z]", "", str(p).upper()) for p in pieces]
+    joined = "".join(bare)
+    if not want or joined == want or not 0 < len(bare) <= len(want) or not all(bare):
+        return None
+    if joined[::-1] == want:
+        return [p[::-1] for p in reversed(bare)]
+    if sorted(joined) != sorted(want) and _edits(joined, want) > 2:
+        return None
+    k, n = len(bare), len(want)
+    inf = float("inf")
+    best = [[inf] * (n + 1) for _ in range(k + 1)]
+    cut = [[0] * (n + 1) for _ in range(k + 1)]
+    best[0][0] = 0
+    for i in range(1, k + 1):
+        for j in range(i, n - (k - i) + 1):
+            for m in range(i - 1, j):
+                if best[i - 1][m] < inf:
+                    c = (best[i - 1][m] + _edits(bare[i - 1], want[m:j])
+                         - 0.5 * (want[m:j] in gives))
+                    if c < best[i][j]:
+                        best[i][j], cut[i][j] = c, m
+    out, j = [], n
+    for i in range(k, 0, -1):
+        out.append(want[cut[i][j]:j])
+        j = cut[i][j]
+    return out[::-1]
+
+
+def recut_pieces(path, pending):
+    """Recut each `assembly.pieces` that misses the answer by a slip (see
+    `recut`); the entry ids changed, with the new pieces. `pieces` restates
+    letters the blocks already give, and a slip in retyping them was the
+    third commonest first-check failure, each costing a turn."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = {entry_id(e): e for e in read_puzzle_file(path)["entries"]}
+    except (ValueError, OSError, KeyError):
+        return []
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        build = a.get("assembly") if isinstance(a, dict) else None
+        pieces = build.get("pieces") if isinstance(build, dict) else None
+        if not isinstance(pieces, list) or not pieces:
+            continue
+        entry = dict(entries.get(eid) or {})
+        if isinstance(a.get("alteration"), dict):
+            entry["alteration"] = a["alteration"]
+        gives = {re.sub(r"[^A-Z]", "", str(b.get("gives") or "").upper())
+                 for b in a.get("blocks") or [] if isinstance(b, dict)}
+        new = recut(pieces, wordplay_letters(a, entry), gives)
+        if new:
+            build["pieces"] = new
+            changed.append((eid, new))
+    if changed:
+        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return changed
+
+
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
     can do it without judgement, or blank the answer in a note on one sense of
@@ -385,6 +465,11 @@ def main(argv):
         if spaced:
             print(f"answers written with commas, now spaced in {pending.name}: "
                   f"{', '.join(spaced)}\n")
+        recut_done = recut_pieces(path, pending)
+        if recut_done:
+            print("assembly.pieces that did not join to the answer, recut from its "
+                  f"letters in {pending.name}: "
+                  + "; ".join(f"{eid} {'+'.join(p)}" for eid, p in recut_done) + "\n")
         unnamed = unname_block_notes(path, pending)
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "
