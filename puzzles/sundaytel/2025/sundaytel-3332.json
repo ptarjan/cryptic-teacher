@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Vehicle, ten in back, last one thrown out",
     "enumeration": "4"
    },
-   "solution": "TAXI"
+   "solution": "TAXI",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "TAXI",
+    "definitions": [
+     {
+      "text": "Vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed inside another sits within it, so a letter goes inside a word"
+     },
+     {
+      "text": "last one thrown out",
+      "for": "deletion",
+      "note": "throwing out the final one means the closing letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "TAIL",
+      "note": "the tail is the back end of something"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "X",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a vehicle, perhaps ten passengers crammed in the back with the last one ejected.",
+     "walkthrough": "X goes into TAIL to make TAXIL, and dropping the final L leaves TAXI.",
+     "definitionFit": "A taxi is a hired car, a straightforward example of a road vehicle for passengers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +103,48 @@
     "text": "Snip off new flower",
     "enumeration": "6"
    },
-   "solution": "SEVERN"
+   "solution": "SEVERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEVERN",
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snip off",
+      "gives": "SEVER",
+      "note": "to sever is to cut off"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener trims away a freshly opened bloom.",
+     "walkthrough": "'Flower' is read as a bloom, but in crosswords it often means something that flows, a river. The Severn is Britain's longest river, running through Wales and England.",
+     "definitionFit": "A river is a thing that flows, so crosswords call rivers flowers; this one is the major British river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +158,42 @@
     "text": "Link account",
     "enumeration": "8"
    },
-   "solution": "RELATION"
+   "solution": "RELATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RELATION",
+    "definitions": [
+     {
+      "text": "Link",
+      "at": 0
+     },
+     {
+      "text": "account",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Link",
+      "note": "first meaning: a connection between two things"
+     },
+     {
+      "clueFragment": "account",
+      "note": "second meaning: a telling or narrative of events"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like a banking instruction to connect an account, but each is a separate meaning of one word.",
+     "definitionFit": "The word means both a connection between things and, more formally, the act of narrating a story or report."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +207,50 @@
     "text": "Tension in small hair",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Tension",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Tension shows up in a short hair, perhaps one that is pulled tight.",
+     "walkthrough": "'In' looks like it puts one thing inside another, but here it only joins the definition to the wordplay.",
+     "definitionFit": "Stress and tension are synonyms, both for physical strain and for mental pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +264,66 @@
     "text": "Sovereign invested in mending of teapot – light work made of it?",
     "enumeration": "8"
    },
-   "solution": "OPERETTA"
+   "solution": "OPERETTA",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "OPERETTA",
+    "definitions": [
+     {
+      "text": "light work",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "to be invested in something is to be clothed or installed within it, so one piece goes inside"
+     },
+     {
+      "text": "mending of",
+      "for": "anagram",
+      "note": "mending a broken object means putting its bits back together in a new order"
+     }
+    ],
+    "linkWords": [
+     "made of it?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sovereign",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the crossword shorthand for the Queen"
+     },
+     {
+      "clueFragment": "teapot",
+      "gives": "TEAPOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAPOTER",
+       "gives": "OPERETTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen gets involved in repairing a teapot, and the job turns out to be easy.",
+     "walkthrough": "'Light work' looks like an easy task, but it means a light musical work; ER put among the letters of TEAPOT, all rearranged, gives OPERETTA.",
+     "definitionFit": "An operetta is a short comic opera, a musical piece lighter in tone than grand opera."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +343,70 @@
      }
     ]
    },
-   "solution": "DEJAVU"
+   "solution": "DEJAVU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DEJA VU",
+    "definitions": [
+     {
+      "text": "Sense something isn't new",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tarnished",
+      "for": "anagram",
+      "note": "something tarnished has been spoiled and altered, so the letters lose their original order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jade",
+      "gives": "JADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, from the old U and non-U usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEJA",
+      "V",
+      "U"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JADE",
+       "gives": "DEJA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy collector senses something familiar about an old, dull piece of jade.",
+     "walkthrough": "U for upper-class or posh is a British usage from the 1950s U versus non-U debate.",
+     "definitionFit": "Deja vu is the French phrase for the eerie feeling that a present moment has happened before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tarnished"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +420,43 @@
     "text": "Network in time shredded",
     "enumeration": "4"
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MESH",
+    "definitions": [
+     {
+      "text": "Network",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters wanted sit inside the following words, running across their join"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time shredded",
+      "gives": "MESH",
+      "note": "the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A network gets torn to pieces over time.",
+     "walkthrough": "'Shredded' looks like an anagram signal, but the answer sits intact across the two words.",
+     "definitionFit": "A mesh is an interlaced net of strands or connections, so it is a kind of network."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shredded"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +476,53 @@
      }
     ]
    },
-   "solution": "ATPRESENT"
+   "solution": "ATPRESENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT PRESENT",
+    "definitions": [
+     {
+      "text": "currently",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "PRESENT",
+      "note": "to be present is to be here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "PRESENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes an occasion when they are here right now.",
+     "walkthrough": "The dash makes it read like a single statement about the present, but the first three words build the answer.",
+     "definitionFit": "Both phrases are adverbs meaning now, at this moment in time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +536,51 @@
     "text": "Touch upon chaos for nationalist",
     "enumeration": "7"
    },
-   "solution": "PATRIOT"
+   "solution": "PATRIOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATRIOT",
+    "definitions": [
+     {
+      "text": "nationalist",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "upon",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touch",
+      "gives": "PAT",
+      "note": "a pat is a light touch"
+     },
+     {
+      "clueFragment": "chaos",
+      "gives": "RIOT",
+      "note": "a riot is a scene of chaos"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "RIOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A nationalist movement stumbles into disorder.",
+     "walkthrough": "'Upon' sits the first piece on top of the second in this down clue.",
+     "definitionFit": "A patriot loves and defends their country, close in sense to a nationalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Touch"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +594,45 @@
     "text": "Bit quiet, whispered?",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whispered?",
+      "for": "homophone",
+      "note": "whispering is speaking, so the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "peace is quiet, and it sounds identical to a word for a portion"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether something was said a little quietly.",
+     "walkthrough": "'Bit quiet' reads as 'rather quiet', but 'Bit' is the definition standing alone.",
+     "definitionFit": "A piece is a portion or fragment of something, a direct synonym for a bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bit"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +660,43 @@
      }
     ]
    },
-   "solution": "INTHESAMEBREATH"
+   "solution": "INTHESAMEBREATH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE SAME BREATH",
+    "definitions": [
+     {
+      "text": "How birthday candles should be blown out",
+      "at": 0
+     },
+     {
+      "text": "simultaneously",
+      "at": 42
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How birthday candles should be blown out",
+      "note": "first meaning, playful: all extinguished by one puff of air"
+     },
+     {
+      "clueFragment": "simultaneously",
+      "note": "second meaning: said at the very same moment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is read literally: the tradition is to blow out all the candles in one go.",
+     "definitionFit": "The idiom describes saying two things at once, so it means at the same time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +710,67 @@
     "text": "One passing note about an Italian drink",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHIANTI",
+    "definitions": [
+     {
+      "text": "Italian drink",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps round another"
+     },
+     {
+      "text": "passing",
+      "for": "charade",
+      "note": "one thing passing another goes beyond it, so this piece is placed after the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "CHIT",
+      "note": "a chit is a short written note"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "AN",
+      "T",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passing by leaves a note about an Italian wine.",
+     "walkthrough": "'One passing note' looks like a person passing by, but 'passing' only moves the numeral beyond the rest; a chit is a slip of paper, often an IOU.",
+     "definitionFit": "Chianti is a red wine from Tuscany, a well-known example of an Italian wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +784,60 @@
     "text": "One with a hood perhaps, top half of coat and underwear",
     "enumeration": "5"
    },
-   "solution": "COBRA"
+   "solution": "COBRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COBRA",
+    "definitions": [
+     {
+      "text": "One with a hood perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top half of",
+      "for": "letter_selection",
+      "note": "the top half of a down word is its opening portion, so only those letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "CO",
+      "select": "first",
+      "note": "the first letter and the next, the first two of its four letters"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "BRA",
+      "note": "a bra is an item of underwear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "BRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A hooded figure is dressed in the upper part of a coat and underwear.",
+     "walkthrough": "The hood suggests a hoodie or cloak, but the clue means the flared neck of a snake; 'perhaps' marks it as an example.",
+     "definitionFit": "Cobras spread a flap of skin behind the head when threatened, called a hood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hood"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +851,56 @@
     "text": "Settled amount with a fruit",
     "enumeration": "7"
    },
-   "solution": "SATSUMA"
+   "solution": "SATSUMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATSUMA",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settled",
+      "gives": "SAT",
+      "note": "to settle on a seat is to sit, past tense sat"
+     },
+     {
+      "clueFragment": "amount",
+      "gives": "SUM",
+      "note": "a sum is an amount"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "SUM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bill is paid off with a piece of fruit.",
+     "walkthrough": "'Settled amount' reads as a paid bill, but the two words give separate pieces.",
+     "definitionFit": "A satsuma is a small loose-skinned citrus, a kind of mandarin orange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Settled"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +914,57 @@
     "text": "Awake in theatre, laid up",
     "enumeration": "5"
    },
-   "solution": "ALERT"
+   "solution": "ALERT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ALERT",
+    "definitions": [
+     {
+      "text": "Awake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters wanted sit inside the following words, spanning their join"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre, laid",
+      "gives": "TRELA",
+      "note": "the tail of the first word and head of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TRELA",
+       "to": "ALERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ill actor lies awake in bed, laid up in the theatre.",
+     "walkthrough": "'Laid up' reads as being ill in bed, but 'laid' supplies letters and 'up' turns them round.",
+     "definitionFit": "Being alert means fully watchful and attentive, the same as being wide awake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +992,44 @@
      }
     ]
    },
-   "solution": "BETWEENYOUANDME"
+   "solution": "BETWEENYOUANDME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETWEEN YOU AND ME",
+    "definitions": [
+     {
+      "text": "It's a secret",
+      "at": 0
+     },
+     {
+      "text": "dividing us",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's a secret",
+      "note": "first meaning: a phrase used to share a confidence"
+     },
+     {
+      "clueFragment": "dividing us",
+      "note": "second meaning, literal: whatever separates two people lies in the space between them"
+     }
+    ],
+    "explanation": {
+     "surface": "A confidant admits that a secret has come between them.",
+     "walkthrough": "The second half takes the idiom literally: anything placed in the gap between two people divides them.",
+     "definitionFit": "The phrase is said to mark information as confidential, meaning it must not be repeated to others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dividing"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1043,66 @@
     "text": "Remain nervous supporting old judge",
     "enumeration": "8"
    },
-   "solution": "EXAMINER"
+   "solution": "EXAMINER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EXAMINER",
+    "definitions": [
+     {
+      "text": "judge",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nervous",
+      "for": "anagram",
+      "note": "someone nervous is jittery and unsettled, so the letters are jumbled"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, a supporting piece sits underneath, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "Remain",
+      "gives": "REMAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMINER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REMAIN",
+       "gives": "AMINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious candidate stays put, backing a retired judge.",
+     "walkthrough": "'Remain nervous' reads as a state of mind, but 'Remain' is the raw letters and 'nervous' scrambles them.",
+     "definitionFit": "An examiner assesses candidates and decides their results, so they act as a judge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remain"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1116,50 @@
     "text": "Circling planet, gold and cold!",
     "enumeration": "8"
    },
-   "solution": "ORBITING"
+   "solution": "ORBITING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORBITING",
+    "definitions": [
+     {
+      "text": "Circling planet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "BITING",
+      "note": "a biting wind is a bitterly cold one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BITING"
+     ]
+    },
+    "explanation": {
+     "surface": "A space mission describes a planet that is shiny and freezing.",
+     "walkthrough": "OR for gold comes from heraldry and is a frequent crossword abbreviation.",
+     "definitionFit": "A satellite or moon orbiting goes round and round a planet, travelling in a circular path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1173,72 @@
     "text": "Prince shaking hand I will hold up",
     "enumeration": "7"
    },
-   "solution": "DAUPHIN"
+   "solution": "DAUPHIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DAUPHIN",
+    "definitions": [
+     {
+      "text": "Prince",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking",
+      "for": "anagram",
+      "note": "shaking something jumbles it about, so the letters are rearranged"
+     },
+     {
+      "text": "will hold",
+      "for": "container",
+      "note": "holding something means surrounding it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hand",
+      "gives": "HAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "UP",
+      "HIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HANDI",
+       "gives": "DAHIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal shakes hands and promises to hold something up.",
+     "walkthrough": "'Hold up' looks like a phrase meaning delay or support, but 'hold' wraps the shuffled letters round 'up'.",
+     "definitionFit": "The dauphin was the title of the eldest son and heir of the King of France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shaking"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1258,44 @@
      }
     ]
    },
-   "solution": "ALLEARS"
+   "solution": "ALLEARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL EARS",
+    "definitions": [
+     {
+      "text": "Observant",
+      "at": 0
+     },
+     {
+      "text": "as a cornfield?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observant",
+      "note": "first meaning: listening closely and attentively"
+     },
+     {
+      "clueFragment": "as a cornfield?",
+      "note": "second meaning, literal: a field of corn is covered in the grain-bearing heads of the plants"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer jokes that a field of wheat is paying close attention.",
+     "walkthrough": "An ear of corn is the seed head of the plant, so a cornfield is literally covered in them.",
+     "definitionFit": "The idiom means listening eagerly, a fair if loose match for being watchful and attentive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cornfield"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1309,60 @@
     "text": "Leader under fifty I love",
     "enumeration": "6"
    },
-   "solution": "LIKING"
+   "solution": "LIKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIKING",
+    "definitions": [
+     {
+      "text": "love",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, a piece placed under another is written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Leader",
+      "gives": "KING",
+      "note": "a king is a ruler or leader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses a fondness for a leader not yet fifty years old.",
+     "walkthrough": "'Under fifty' reads as an age, but it places the leader below the numeral in the grid.",
+     "definitionFit": "A liking is a fondness or affection for something, a milder synonym for love."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1376,55 @@
     "text": "Mottled receptacle confined to dump",
     "enumeration": "6"
    },
-   "solution": "SPOTTY"
+   "solution": "SPOTTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPOTTY",
+    "definitions": [
+     {
+      "text": "Mottled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confined to",
+      "for": "container",
+      "note": "something confined to a space is shut up inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dump",
+      "gives": "STY",
+      "note": "a sty, or pigsty, is a filthy dump of a place"
+     },
+     {
+      "clueFragment": "receptacle",
+      "gives": "POT",
+      "note": "a pot is a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POT",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A blotchy bin is stuck at the rubbish tip.",
+     "walkthrough": "'Dump' looks like a tip for rubbish, but here it is any messy hovel.",
+     "definitionFit": "Something mottled is marked with patches of colour, which is to say covered in spots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dump"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1438,63 @@
     "text": "Nice thing I observed in cubist going surreal?",
     "enumeration": "7"
    },
-   "solution": "BISCUIT"
+   "solution": "BISCUIT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "BISCUIT",
+    "definitions": [
+     {
+      "text": "Nice thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed in",
+      "for": "container",
+      "note": "something observed in a place is seen within it, so one piece is put inside"
+     },
+     {
+      "text": "going surreal",
+      "for": "anagram",
+      "note": "turning surreal means becoming bizarrely distorted, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cubist",
+      "gives": "CUBIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUBISTI",
+       "gives": "BISCUIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art lover spots something pleasing in a Cubist painting that is turning dreamlike.",
+     "walkthrough": "'Nice' reads as pleasant, but it is the French city, and a Nice is a coconut-flavoured British biscuit named after it.",
+     "definitionFit": "A Nice biscuit is a sugar-topped coconut biscuit, so the answer is the Nice thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1508,55 @@
     "text": "Shelter welcomed by mole off to the Land of Nod",
     "enumeration": "6"
    },
-   "solution": "SLEEPY"
+   "solution": "SLEEPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEEPY",
+    "definitions": [
+     {
+      "text": "off to the Land of Nod",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "a guest welcomed by a host is taken in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mole",
+      "gives": "SPY",
+      "note": "a mole is a spy planted inside an organisation"
+     },
+     {
+      "clueFragment": "Shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, away from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A burrowing mole drifts off to sleep in its cosy shelter.",
+     "walkthrough": "The mole looks like the burrowing animal, but it is an undercover agent. The Land of Nod is a jokey name for sleep.",
+     "definitionFit": "Someone heading off to the Land of Nod is about to fall asleep, so drowsy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mole"
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1588,44 @@
      }
     ]
    },
-   "solution": "TAKEITONTHECHIN"
+   "solution": "TAKEITONTHECHIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE IT ON THE CHIN",
+    "definitions": [
+     {
+      "text": "Accept nasty hit",
+      "at": 0
+     },
+     {
+      "text": "what to do with jaw-breaker?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accept nasty hit",
+      "note": "first meaning: endure a setback stoically"
+     },
+     {
+      "clueFragment": "what to do with jaw-breaker?",
+      "note": "second meaning, literal: a jaw-breaking punch lands on the face"
+     }
+    ],
+    "explanation": {
+     "surface": "A boxer braces for a brutal punch to the jaw.",
+     "walkthrough": "A jaw-breaker is a punch hard enough to break the jaw, also the name of a very hard sweet.",
+     "definitionFit": "The idiom means to suffer a blow or misfortune bravely, accepting it without complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jaw-breaker"
+    }
+   }
   },
   {
    "number": 24,
@@ -446,7 +1639,42 @@
     "text": "Small biter? That's correct!",
     "enumeration": "4"
    },
-   "solution": "TICK"
+   "solution": "TICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TICK",
+    "definitions": [
+     {
+      "text": "Small biter",
+      "at": 0
+     },
+     {
+      "text": "That's correct!",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small biter?",
+      "note": "first meaning: a tiny blood-sucking parasite"
+     },
+     {
+      "clueFragment": "That's correct!",
+      "note": "second meaning: the mark a teacher puts by a right answer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A tick is the mark British teachers use for a right answer, what Americans call a check mark.",
+     "definitionFit": "Ticks are tiny arachnids that bite to feed on blood, and a tick marks something as right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "biter"
+    }
+   }
   },
   {
    "number": 25,
@@ -460,7 +1688,66 @@
     "text": "Case of emperor, no clothes for Roman leader",
     "enumeration": "4"
    },
-   "solution": "NERO"
+   "solution": "NERO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NERO",
+    "definitions": [
+     {
+      "text": "Roman leader",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "the case of something is its outer shell, so just the outside letters are kept"
+     },
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "to clothe something is to wrap it up, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "emperor",
+      "gives": "ER",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "The tale of the emperor's new clothes is applied to a Roman ruler.",
+     "walkthrough": "The surface evokes the emperor with no clothes, but 'no' is the outside piece that clothes the core.",
+     "definitionFit": "Nero was a first-century emperor of Rome, notorious for supposedly fiddling while the city burned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 26,
@@ -474,7 +1761,55 @@
     "text": "Boat staff inflated with oxygen",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inflated with",
+      "for": "container",
+      "note": "something inflated is filled from inside, so a piece is put within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staff",
+      "gives": "CANE",
+      "note": "a cane is a walking staff"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "O",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A crew pump air into an inflatable boat.",
+     "walkthrough": "'Staff' looks like a boat's crew, but it is a stick.",
+     "definitionFit": "A canoe is a narrow paddled vessel, a simple instance of a small boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 27,
@@ -494,7 +1829,59 @@
      }
     ]
    },
-   "solution": "TINOPENER"
+   "solution": "TINOPENER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIN-OPENER",
+    "definitions": [
+     {
+      "text": "Particular device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plays",
+      "for": "anagram",
+      "note": "to play with something is to fiddle about with it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Pinter",
+      "gives": "PINTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEPINTER",
+       "gives": "TINOPENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A literary critic notes a particular device that features in Harold Pinter's plays.",
+     "walkthrough": "'Device' reads as a dramatic technique, given Harold Pinter the playwright, but it means a gadget; 'plays' is a verb signalling the shuffle.",
+     "definitionFit": "A tin-opener is a specific kitchen gadget for cutting open cans, one particular sort of device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   }
  ]
 }
