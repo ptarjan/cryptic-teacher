@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Up there: some endlessly stormy god",
     "enumeration": "10"
    },
-   "solution": "PROMETHEUS"
+   "solution": "PROMETHEUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PROMETHEUS",
+    "definitions": [
+     {
+      "text": "god",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter of the word is lopped off"
+     },
+     {
+      "text": "stormy",
+      "for": "anagram",
+      "note": "a storm tosses things about, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Up there",
+      "gives": "UPTHERE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "SOM",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPTHERESOM",
+       "gives": "PROMETHEUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone points at the sky and describes a god raging up above in a storm.",
+     "walkthrough": "'Up there' feels like a pointer to the heavens, but it is simply raw letters to be mixed with the shortened 'some'.",
+     "definitionFit": "Prometheus is the Titan of Greek myth who stole fire for humanity, loosely called a god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stormy"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +111,62 @@
      }
     ]
    },
-   "solution": "EGGWHITE"
+   "solution": "EGGWHITE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EGG WHITE",
+    "definitions": [
+     {
+      "text": "cook using this",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "something reduced is cut down, so the word loses its final letter"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "done in some unspecified way, so the letters can come out in any order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "WEIGH",
+      "note": "the word cut short by its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETWEIGH",
+       "gives": "EGGWHITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter is told to lose weight one way or another and to cook with a low-fat ingredient.",
+     "walkthrough": "The surface reads as diet advice; in fact 'Get' and a trimmed 'weight' supply the letters to rearrange. The definition is a loose description rather than a synonym.",
+     "definitionFit": "The clear part of an egg is a common cooking ingredient, used for meringues and glazes, prized by dieters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +180,58 @@
     "text": "Swimmer takes position restricting current",
     "enumeration": "6"
    },
-   "solution": "PLAICE"
+   "solution": "PLAICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLAICE",
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "to restrict is to hem in, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "position",
+      "gives": "PLACE",
+      "note": "a place is a position"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "I",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer holds their spot in the water against the pull of the current.",
+     "walkthrough": "'Swimmer' suggests a person in a race, but it means a fish. 'Current' is electrical, not the flow of water.",
+     "definitionFit": "Plaice is a flatfish, and crosswords often call any fish a swimmer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +245,49 @@
     "text": "Urge charming female to go topless",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go topless",
+      "for": "deletion",
+      "note": "in a down entry the top is the first letter, so losing it means dropping the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charming female",
+      "gives": "WITCH",
+      "note": "a witch casts charms, so she is a charming female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges an attractive woman to go topless.",
+     "walkthrough": "'Charming' is not about attractiveness but about casting charms, that is spells.",
+     "definitionFit": "An itch is a restless desire or craving, so it works as a noun synonym for an urge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charming"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +301,62 @@
     "text": "Meet old man entertaining men say",
     "enumeration": "10"
    },
-   "solution": "FOREGATHER"
+   "solution": "FOREGATHER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FOREGATHER",
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining guests has them inside the house, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man",
+      "gives": "FATHER",
+      "note": "'old man' is slang for one's father"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR stands for other ranks, soldiers who are not officers"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as 'say' does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OR",
+      "EG",
+      "ATHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man meets his father, who is entertaining some men.",
+     "walkthrough": "OR for 'men' is the military abbreviation for other ranks; 'say' signals an example, giving EG.",
+     "definitionFit": "To foregather is to assemble or come together, a slightly formal verb synonym for meeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +376,56 @@
      }
     ]
    },
-   "solution": "LASVEGAS"
+   "solution": "LASVEGAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAS VEGAS",
+    "definitions": [
+     {
+      "text": "Location likely to see better",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "arms embracing someone wrap around them, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "VEGA",
+      "note": "Vega is a bright star in the constellation Lyra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAS",
+      "VEGA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A place where a girl hugging a film star might hope to see better things.",
+     "walkthrough": "'Better' reads as the comparative of good, but it means one who bets, a gambler.",
+     "definitionFit": "The Nevada city is famous for casinos, so it is a spot where gamblers gather in great numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +439,68 @@
     "text": "Days initially lost in broadcast confused situation",
     "enumeration": "6"
    },
-   "solution": "BEDLAM"
+   "solution": "BEDLAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEDLAM",
+    "definitions": [
+     {
+      "text": "confused situation",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "BEAM",
+      "note": "to beam a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "Days",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "lost",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "DL",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Days of a broadcast are lost amid a muddle at the station.",
+     "walkthrough": "'Initially' applies to both 'Days' and 'lost', not just the first word.",
+     "definitionFit": "Bedlam, from the old London asylum, is a scene of uproar and chaos, a noun synonym for a confused situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +514,58 @@
     "text": "One in flight has tantrums when climbing",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEP",
+    "definitions": [
+     {
+      "text": "One in flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading upwards, from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tantrums",
+      "gives": "PETS",
+      "note": "to be in a pet is to be in a sulk or tantrum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEP"
+     ],
+     "reversals": [
+      {
+       "from": "PETS",
+       "to": "STEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous airline passenger throws tantrums as the plane climbs.",
+     "walkthrough": "'Flight' suggests an aeroplane, but it is a flight of stairs. A pet, in British usage, is a fit of sulking.",
+     "definitionFit": "A flight is a staircase, and each single tread in it is one of its component stairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +579,62 @@
     "text": "Fit pair to be worn by Latvian hunchback",
     "enumeration": "9"
    },
-   "solution": "RIGOLETTO"
+   "solution": "RIGOLETTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIGOLETTO",
+    "definitions": [
+     {
+      "text": "hunchback",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be worn by",
+      "for": "container",
+      "note": "earrings worn by a person hang on either side of the head, so things placed on both sides frame what lies between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit",
+      "gives": "RIG",
+      "note": "to rig out is to fit out or equip"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "OO",
+      "note": "a pair of rings, each ring shaped like the letter O"
+     },
+     {
+      "clueFragment": "Latvian",
+      "gives": "LETT",
+      "note": "a Lett is a native of Latvia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "O",
+      "LETT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunchbacked Latvian is fitted with a pair of something to wear.",
+     "walkthrough": "The pair is two rings, O and O, worn either side of the Latvian like earrings.",
+     "definitionFit": "Rigoletto is the hunchbacked court jester who is the title character of Verdi's opera."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +648,62 @@
     "text": "Worker traps extremely gullible negotiator",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "negotiator",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "traps",
+      "for": "container",
+      "note": "a trap closes around its catch, so one piece is held inside another"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "gives": "ANT",
+      "note": "a worker ant, a crossword staple"
+     },
+     {
+      "clueFragment": "gullible",
+      "gives": "GE",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker outwits a very naive negotiator.",
+     "walkthrough": "'Worker' is the insect, the usual crossword sense.",
+     "definitionFit": "An agent acts and bargains on someone else's behalf, as a sports or literary representative does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Worker"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +717,51 @@
     "text": "Soppy mouth attracting kiss from drunken lips?",
     "enumeration": "7"
    },
-   "solution": "MAWKISH"
+   "solution": "MAWKISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAWKISH",
+    "definitions": [
+     {
+      "text": "Soppy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attracting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mouth",
+      "gives": "MAW",
+      "note": "a maw is an animal's mouth or jaws"
+     },
+     {
+      "clueFragment": "kiss from drunken lips",
+      "gives": "KISH",
+      "note": "the word as slurred by a drunk, the S blurred into SH"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAW",
+      "KISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentimental drunk puckers up and slurs a request for a kiss.",
+     "walkthrough": "The question mark flags the playful step: a drunk would slur 'kiss' into 'kish'.",
+     "definitionFit": "Mawkish means sickly sentimental, and soppy is the informal adjective for exactly that excess of feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunken"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +775,73 @@
     "text": "Obscure English knight against European from the East",
     "enumeration": "7"
    },
-   "solution": "ENVELOP"
+   "solution": "ENVELOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ENVELOP",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the East",
+      "for": "reversal",
+      "note": "in an across entry, coming from the east means reading right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v. for versus"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "V",
+      "ELOP"
+     ],
+     "reversals": [
+      {
+       "from": "POLE",
+       "to": "ELOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unknown English knight faces a European opponent from the East.",
+     "walkthrough": "'Obscure' looks like an adjective describing the knight, but it is the verb, the definition.",
+     "definitionFit": "To envelop is to wrap or surround something completely, hiding it from view, as fog does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +855,62 @@
     "text": "Worn-out fossil one to throw away",
     "enumeration": "5"
    },
-   "solution": "TRITE"
+   "solution": "TRITE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRITE",
+    "definitions": [
+     {
+      "text": "Worn-out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "what is sent away is gone, so these letters are taken out of the word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fossil",
+      "gives": "TRILOBITE",
+      "note": "a trilobite is a common fossil sea creature"
+     },
+     {
+      "clueFragment": "throw",
+      "gives": "LOB",
+      "note": "to lob is to throw"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out old fossil, fit only to be thrown away.",
+     "walkthrough": "'Worn-out fossil' sounds like one phrase for a tired old person, but the definition stops at the hyphenated adjective.",
+     "definitionFit": "Trite describes a phrase or idea overused until stale, which is what worn-out means figuratively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fossil"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +924,64 @@
     "text": "One to march or stroll about in old crown dependency",
     "enumeration": "9"
    },
-   "solution": "ORANGEMAN"
+   "solution": "ORANGEMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORANGEMAN",
+    "definitions": [
+     {
+      "text": "One to march",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "stroll about",
+      "gives": "RANGE",
+      "note": "to range is to wander about"
+     },
+     {
+      "clueFragment": "crown dependency",
+      "gives": "MAN",
+      "note": "the Isle of Man is a British crown dependency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANGE",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a former royal possession chooses between marching and strolling.",
+     "walkthrough": "The Isle of Man, between Britain and Ireland, is a self-governing crown dependency, not part of the UK.",
+     "definitionFit": "Members of the Protestant Orange Order in Northern Ireland are known for their annual marching parades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "march"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1001,50 @@
      }
     ]
    },
-   "solution": "OFFBALANCE"
+   "solution": "OFFBALANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFF-BALANCE",
+    "definitions": [
+     {
+      "text": "Not prepared",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "away",
+      "gives": "OFF",
+      "note": "to be off is to be away"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "BALANCE",
+      "note": "to balance is to match or equal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "BALANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A football team is unready for its away fixture.",
+     "walkthrough": "'Away match' reads as one sporting phrase; it splits into two separate pieces.",
+     "definitionFit": "Caught off-balance means taken by surprise and unready to respond, as a person knocked unsteady would be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1064,71 @@
      }
     ]
    },
-   "solution": "NOELCOWARD"
+   "solution": "NOELCOWARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "NOEL COWARD",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no end",
+      "for": "deletion",
+      "note": "having no end means the final letter is missing"
+     },
+     {
+      "text": "impressing",
+      "for": "container",
+      "note": "to impress is to press into, so one piece is pushed inside another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "NOEL",
+      "note": "Noel is Christmas, from the French"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "CARD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "OWL",
+      "note": "an owl is a bird; it loses its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOEL",
+      "C",
+      "OW",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An author sends a Christmas card with a picture of a bird on it.",
+     "walkthrough": "'Writer's' looks possessive, but the 's is 'is', linking the definition to the wordplay.",
+     "definitionFit": "Noel Coward was an English playwright, composer and actor, author of Private Lives and Blithe Spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1156,79 @@
      }
     ]
    },
-   "solution": "ENEMYOFTHESTATE"
+   "solution": "ENEMYOFTHESTATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "ENEMY OF THE STATE",
+    "definitions": [
+     {
+      "text": "CIA target",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is not genuine, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yemen",
+      "gives": "YEMEN",
+      "note": "taken as written, to be mixed"
+     },
+     {
+      "clueFragment": "Regularly",
+      "gives": "OFT",
+      "note": "oft means often, regularly"
+     },
+     {
+      "clueFragment": "he's",
+      "gives": "HES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is a famous London art gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENEMY",
+      "OFT",
+      "HES",
+      "TATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YEMEN",
+       "gives": "ENEMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy-thriller picture: a suspect in a Yemeni gallery is on the CIA's hit list.",
+     "walkthrough": "'Regularly' looks like an every-other-letter instruction, but it is a word meaning often. 'Suspect' and 'Yemen' combine, and the Tate is a London gallery.",
+     "definitionFit": "A person deemed a threat to the nation is exactly whom an intelligence agency would hunt down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Regularly"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1242,57 @@
     "text": "Freeholders from the Old Country Railway",
     "enumeration": "8"
    },
-   "solution": "YEOMANRY"
+   "solution": "YEOMANRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YEOMANRY",
+    "definitions": [
+     {
+      "text": "Freeholders",
+      "at": 0,
+      "note": "the answer is a collective noun for the class, the clue a plural"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Old",
+      "gives": "YE",
+      "note": "ye is an archaic spelling of 'the'"
+     },
+     {
+      "clueFragment": "Country",
+      "gives": "OMAN",
+      "note": "Oman is a country in Arabia"
+     },
+     {
+      "clueFragment": "Railway",
+      "gives": "RY",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "OMAN",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Landowners hail from the old country, by way of the railway.",
+     "walkthrough": "'The Old' is read together as 'the' in old spelling, not as an adjective for 'Country'.",
+     "definitionFit": "Yeomen were English small farmers owning their own land, and the yeomanry is that class collectively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1306,51 @@
     "text": "Sceptical sort acting so atrociously",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNOSTIC",
+    "definitions": [
+     {
+      "text": "Sceptical sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "atrociously",
+      "for": "anagram",
+      "note": "something done atrociously is badly mangled, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting so",
+      "gives": "ACTINGSO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTINGSO",
+       "gives": "AGNOSTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cynical critic reviews a dreadful theatrical performance.",
+     "walkthrough": "The scathing review is a picture only; the two middle words are the raw letters.",
+     "definitionFit": "An agnostic doubts that the existence of God can be known, a person sceptical in religious matters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "atrociously"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1364,70 @@
     "text": "Reptile displays pride in Tarsus recklessly",
     "enumeration": "9"
    },
-   "solution": "STEGOSAUR"
+   "solution": "STEGOSAUR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STEGOSAUR",
+    "definitions": [
+     {
+      "text": "Reptile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     },
+     {
+      "text": "recklessly",
+      "for": "anagram",
+      "note": "acting recklessly throws things about carelessly, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "displays"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pride",
+      "gives": "EGO",
+      "note": "ego is self-esteem, pride"
+     },
+     {
+      "clueFragment": "Tarsus",
+      "gives": "TARSUS",
+      "note": "taken as written, to be mixed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EGO",
+      "SAUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TARSUS",
+       "gives": "STSAUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lizard struts proudly around the ancient city of Tarsus.",
+     "walkthrough": "Tarsus, St Paul's birthplace in Turkey, is only fodder here.",
+     "definitionFit": "A stegosaur is a plated dinosaur, and dinosaurs are classed as prehistoric reptiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "displays"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1441,52 @@
     "text": "Fur coat owner's hesitant admission?",
     "enumeration": "6"
    },
-   "solution": "ERMINE"
+   "solution": "ERMINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERMINE",
+    "definitions": [
+     {
+      "text": "Fur coat",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hesitant",
+      "gives": "ER",
+      "note": "er is a sound of hesitation"
+     },
+     {
+      "clueFragment": "owner's",
+      "gives": "MINE",
+      "note": "the word an owner uses when claiming a thing as their own"
+     },
+     {
+      "clueFragment": "admission",
+      "note": "surface padding: frames the two sounds as one confession"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sheepishly admits owning a fur coat.",
+     "walkthrough": "'Fur coat' is the animal's own winter coat, not a garment; the question mark marks the playful wordplay.",
+     "definitionFit": "Ermine is the white winter pelt of the stoat, used to trim ceremonial robes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1500,58 @@
     "text": "Workers organised to run in short jacket",
     "enumeration": "5"
    },
-   "solution": "TUNIC"
+   "solution": "TUNIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TUNIC",
+    "definitions": [
+     {
+      "text": "jacket",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Workers organised",
+      "gives": "TU",
+      "note": "organised workers form a trade union, abbreviated TU"
+     },
+     {
+      "clueFragment": "to run in",
+      "gives": "NICK",
+      "note": "to run someone in, or nick them, is to arrest them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "NIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Unionised workers are organised to run about in short jackets.",
+     "walkthrough": "'Organised' looks like an anagram signal but belongs with 'Workers' as a description. In British slang, to nick someone is to arrest them.",
+     "definitionFit": "A tunic is a close-fitting jacket worn as part of a military or police uniform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1571,62 @@
      }
     ]
    },
-   "solution": "TICTAC"
+   "solution": "TICTAC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIC-TAC",
+    "definitions": [
+     {
+      "text": "signalling of course",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "lying outside something means going around it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jerk",
+      "gives": "TIC",
+      "note": "a tic is a jerky involuntary twitch"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film certificate for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "CT",
+      "A",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool outside a courtroom with a grown-up, gesturing naturally.",
+     "walkthrough": "'Of course' reads as 'naturally' but means at a racecourse.",
+     "definitionFit": "Tic-tac is the hand-signal code bookmakers once used at British racecourses to pass on changing odds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1640,75 @@
     "text": "King needs a wash, mum reflected in capital",
     "enumeration": "7"
    },
-   "solution": "KAMPALA"
+   "solution": "KAMPALA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KAMPALA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a mirror reflection is back to front, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "needs",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "chess abbreviation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wash",
+      "gives": "LAP",
+      "note": "waves lap or wash against the shore"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MA",
+      "note": "ma is mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "AMPALA"
+     ],
+     "reversals": [
+      {
+       "from": "ALAPMA",
+       "to": "AMPALA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grubby king is told by his mother to wash, a scene played out in the capital.",
+     "walkthrough": "Everything after 'King' is read backwards as one run of letters.",
+     "definitionFit": "Kampala is the chief city and seat of government of Uganda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wash"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1722,55 @@
     "text": "Flesh and blood covering fifty pots fired here",
     "enumeration": "4"
    },
-   "solution": "KILN"
+   "solution": "KILN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KILN",
+    "definitions": [
+     {
+      "text": "pots fired here",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes over and around what it protects, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flesh and blood",
+      "gives": "KIN",
+      "note": "one's own flesh and blood are one's relatives"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "Roman numeral fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "L",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Relatives shelter fifty pots that are being shot at.",
+     "walkthrough": "'Pots fired' hints at gunfire or pot shots, but it is pottery baked in an oven.",
+     "definitionFit": "A kiln is the oven in which potters bake clay vessels hard, the definition describing its function."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 23,
@@ -427,7 +1784,48 @@
     "text": "Dull reporter saying something cutting?",
     "enumeration": "7"
    },
-   "solution": "HACKSAW"
+   "solution": "HACKSAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HACKSAW",
+    "definitions": [
+     {
+      "text": "something cutting?",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull reporter",
+      "gives": "HACK",
+      "note": "a hack is a mediocre, uninspired journalist"
+     },
+     {
+      "clueFragment": "saying",
+      "gives": "SAW",
+      "note": "a saw is a proverb or saying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HACK",
+      "SAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A boring journalist makes a cutting remark.",
+     "walkthrough": "'Something cutting' suggests a sharp remark, which fits the surface; the question mark admits it is literally a tool.",
+     "definitionFit": "A hacksaw is a fine-toothed saw for cutting metal, a tool whose whole job is slicing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1839,44 @@
     "text": "On radio man would listen",
     "enumeration": "4"
    },
-   "solution": "HEED"
+   "solution": "HEED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HEED",
+    "definitions": [
+     {
+      "text": "listen",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On radio",
+      "for": "homophone",
+      "note": "the radio is heard rather than seen, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man would",
+      "gives": "HEED",
+      "soundsLike": "HE'D",
+      "note": "a contraction of 'he would'"
+     }
+    ],
+    "explanation": {
+     "surface": "A man on the radio would pay attention.",
+     "walkthrough": "'He'd' is the contracted form of 'man would'; the two are spoken identically.",
+     "definitionFit": "To heed is to pay attention to advice or a warning, a near synonym for listen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1890,43 @@
     "text": "Refuse to be carried in this cruise ship?",
     "enumeration": "5"
    },
-   "solution": "LINER"
+   "solution": "LINER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LINER",
+    "definitions": [
+     {
+      "text": "Refuse to be carried in this",
+      "at": 0
+     },
+     {
+      "text": "cruise ship",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse to be carried in this",
+      "note": "first meaning: a plastic sack fitted inside a dustbin to hold rubbish"
+     },
+     {
+      "clueFragment": "cruise ship",
+      "note": "second meaning: a large passenger vessel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Refuse' looks like a verb meaning decline, but it is the noun, rubbish. Refuse is British for household waste, and a bin liner is a rubbish bag.",
+     "definitionFit": "The word names both a plastic sack lining a dustbin and a big ocean-going passenger vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1940,61 @@
     "text": "Sound shortened in shout to encourage Maurice?",
     "enumeration": "9"
    },
-   "solution": "CHEVALIER"
+   "solution": "CHEVALIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHEVALIER",
+    "definitions": [
+     {
+      "text": "Maurice?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "made shorter means the final letter is trimmed away"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shout to encourage",
+      "gives": "CHEER",
+      "note": "a cheer is a shout of encouragement"
+     },
+     {
+      "clueFragment": "Sound",
+      "gives": "VALID",
+      "note": "a sound argument is a valid one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "VALI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd yells encouragement to a performer called Maurice.",
+     "walkthrough": "'Sound' suggests noise, which fits the shouting, but it means valid. The definition is by example, hence the question mark.",
+     "definitionFit": "Maurice Chevalier was the French singer and actor of Gigi; the clue defines his surname through his first name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sound"
+    }
+   }
   }
  ]
 }
