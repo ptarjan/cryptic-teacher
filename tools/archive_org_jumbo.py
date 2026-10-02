@@ -48,9 +48,6 @@ ENTRY = re.compile(r"sent\s+to\W+jumbo\s+cross\s?word\s+(\d[\d ]{0,4})", re.IGNO
 SOLUTION = re.compile(r"^\W*solution\s+to\s+jumbo\s+(?:cross\s?word\s+)?(\d[\d ]{0,4})", re.IGNORECASE)
 #: The Jumbo numbers the 1990s Times printed.
 NUMBERS = range(1, 400)
-#: How far (in cells) a white patch may sit off the fitted lattice: the
-#: 27x27 grid's corners drift with the page's curl.
-OFF_LATTICE = 0.35
 #: The size of a Jumbo grid and of its solution grid on the scan, in pixels.
 GRID_PX = (750, 1250)
 SOLUTION_PX = (750, 1400)
@@ -97,10 +94,14 @@ def scan(d):
 
 
 def grid_of(img, hit):
-    """The grid's box: the largest ink under the prize text."""
+    """The grid's box: the largest ink under the prize text. Ink reaching the
+    window's foot runs on below it, so the window then reaches the page's."""
     x0, _, _, y1 = hit["box"]
     crop = (max(0, x0 - 500), y1, min(img.width, x0 + 1100), min(img.height, y1 + 1400))
     box = fa.ink_box(img.crop(crop))
+    if box is not None and crop[1] + box[3] >= crop[3] - 4 and crop[3] < img.height:
+        crop = crop[:3] + (img.height,)
+        box = fa.ink_box(img.crop(crop))
     if box is None:
         return None
     return (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
@@ -252,9 +253,8 @@ def read(d, found, hit, solutions=None):
         return verdict, None
     gpath = fa.CROPS / "grids" / f"{d.name}_jumbo{n}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
-    if not gpath.exists():
-        img.crop((grid[0] - 6, grid[1] - 6, grid[2] + 6, grid[3] + 6)).save(gpath)
-    g, why = trove_grid.read_grid(gpath, block_above=fa.BLOCK_ABOVE, off_lattice=OFF_LATTICE)
+    img.crop((grid[0] - 6, grid[1] - 6, grid[2] + 6, grid[3] + 6)).save(gpath)
+    g, why = trove_grid.read_grid(gpath, block_above=fa.BLOCK_ABOVE)
     if g and not trove_grid.symmetric(g):
         g, why = None, "not 180-degree symmetric"
     if not g:
