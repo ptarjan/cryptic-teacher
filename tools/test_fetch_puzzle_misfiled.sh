@@ -59,6 +59,31 @@ check("an archive page whose two dates agree is filed with no neighbours",
 island["creator"] = {"name": "a"}
 check("a one-letter creator is an anonymous placeholder, not a setter",
       fp.convert(island)["setter"] is None)
+def raises(fn, *args):
+    try:
+        fn(*args)
+    except ValueError as err:
+        return str(err)
+    return None
+
+served = page(591, -1187485200000, -1187485200000)
+check("a page that is the one requested passes", raises(fp.check_served, 591, served) is None)
+msg = raises(fp.check_served, 592, served)
+check("a page whose id is another number is refused, saying both",
+      msg is not None and "requested cryptic/prize 592" in msg and "crosswords/cryptic/591" in msg)
+served["id"] = "crosswords/quiptic/591"
+check("a page whose id is another series is refused",
+      raises(fp.check_served, 591, served) is not None)
+quip = {"id": "quiptic-591", "date": "2011-03-14",
+        "entries": [{"clue": {"text": "Feline"}}]}
+puzzle_paths.file_for(quip).parent.mkdir(parents=True, exist_ok=True)
+puzzle_paths.file_for(quip).write_text(json.dumps(quip))
+copy = fp.convert(page(591, -1187485200000, -1187485200000))
+msg = raises(fp.check_not_copy, copy)
+check("cryptic 591 carrying quiptic 591's clues is refused, naming both",
+      msg is not None and "requested cryptic-591" in msg and "quiptic-591" in msg)
+copy["entries"][0]["clue"] = {"text": "Canine (3)"}
+check("a puzzle with its own clues is filed", raises(fp.check_not_copy, copy) is None)
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
 PY
