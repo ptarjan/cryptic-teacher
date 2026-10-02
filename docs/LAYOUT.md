@@ -118,6 +118,9 @@ tools/trove_grid.py                          reads a crossword's black squares o
                                              grid image: walled white cells, a lattice fitted
                                              to them through any skew, solid ink for blocks;
                                              refuses rather than guesses
+tools/test_fetch_trove.sh                    fetch_trove.py with a stubbed opener: a timeout
+                                             and a 500 retried to success, a persistent 500
+                                             named by URL, a 4xx not retried
 tools/test_file_trove_puzzles.sh             files three real Trove articles: the grid read
                                              cell for cell, the solution grid skipped, a count
                                              the OCR misread held back by name, a second run
