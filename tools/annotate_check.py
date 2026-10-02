@@ -52,7 +52,7 @@ import groups  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
-from apply_annotations import annotate_only, current_view, default_input, view_path  # noqa: E402
+from apply_annotations import annotate_only, current_view, default_input, normalize, view_path  # noqa: E402
 from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
@@ -278,6 +278,22 @@ def respell_answers(pending):
     return changed
 
 
+def normalize_pending(path, pending):
+    """Write into `pending` what apply_annotations.normalize computes (an
+    `answer` left out, ...), so the steps before the apply see it too."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return
+    if not isinstance(ann, dict):
+        return
+    entries = read_puzzle_file(path)["entries"]
+    by_id = {entry_id(e): e for e in entries}
+    out = {k: normalize(v, by_id[k], entries) if k in by_id else v for k, v in ann.items()}
+    if out != ann:
+        pending.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def _edits(a, b):
     """Levenshtein distance between two strings."""
     row = list(range(len(b) + 1))
@@ -410,7 +426,7 @@ def preview(path, pending):
             if ann.get(entry_id(e)) is None:
                 e.pop("annotation", None)
             else:
-                e["annotation"] = ann[entry_id(e)]
+                e["annotation"] = normalize(ann[entry_id(e)], e, puzzle["entries"])
         try:
             definitions.place_puzzle(puzzle)
         except ValueError as err:
@@ -461,6 +477,7 @@ def main(argv):
         print(f"merged {patched} into {pending.name} and deleted it\n")
 
     if pending.exists():
+        normalize_pending(path, pending)
         spaced = respell_answers(pending)
         if spaced:
             print(f"answers written with commas, now spaced in {pending.name}: "

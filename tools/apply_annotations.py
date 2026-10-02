@@ -191,6 +191,43 @@ def annotator(by, pid):
     return model
 
 
+def derived_answer(entry, entries):
+    """The answer in display form, from the grid solution and the enumeration
+    the paper printed: a hyphen or apostrophe stays, every other break is a
+    space, so (2-3,4) over ABCDEFGHI gives "AB-CDE FGHI". A linked answer's leader joins its lights. None when the entry has no
+    solution, or the counts do not add up to its letters (then the model
+    writes it)."""
+    by_id = {entry_id(e): e for e in entries}
+    lights = [by_id.get(i) for i in entry.get("group") or [entry_id(entry)]]
+    if not all(lights) or not all(l.get("solution") for l in lights):
+        return None
+    word = "".join(l["solution"] for l in lights)
+    enum = entry["clue"].get("enumeration") or ""
+    counts = [int(n) for n in re.findall(r"\d+", enum)]
+    if not counts or sum(counts) != len(word):
+        return word
+    marks = [m.strip() for m in re.split(r"\d+", enum)[1:-1]]
+    out, at = "", 0
+    for i, n in enumerate(counts):
+        out += word[at:at + n]
+        at += n
+        if i < len(marks):
+            out += marks[i] if marks[i] in ("-", "'") else " "
+    return out
+
+
+def normalize(ann, entry, entries):
+    """`ann` with what code can compute filled in, so the run is not asked for it."""
+    if not isinstance(ann, dict):
+        return ann
+    ann = dict(ann)
+    if not ann.get("answer"):
+        derived = derived_answer(entry, entries)
+        if derived:
+            ann["answer"] = derived
+    return ann
+
+
 ENTRY_PATH = re.compile(r"\$\.entries\[(\d+)\]")
 BLOCKS_HELP = ("write `blocks` as annotate_prompt.md shows: a cryptic_definition has "
                "2+ blocks without `gives`; a double_definition has one block per definition")
@@ -257,7 +294,7 @@ def apply(path, annotations, by=None):
         if ann is None:
             entry.pop("annotation", None)
         else:
-            entry["annotation"] = ann
+            entry["annotation"] = normalize(ann, entry, puzzle["entries"])
     # Credited only for hints it changed: re-applying the file as it stands
     # writes nothing, and must not put a second name on someone else's work.
     changed = before != [e.get("annotation") for e in puzzle["entries"]]

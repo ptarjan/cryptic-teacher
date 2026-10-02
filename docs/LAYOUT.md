@@ -1285,5 +1285,7 @@ tools/test_scan_queue.sh                     does tools/scan_queue.py read the n
                                              first, never send the queue back to the start,
                                              keep N sources in flight, stop at its deadline,
                                              and let only one run hold a ledger?
+tools/test_ann_normalize.sh                  what apply_annotations.normalize computes, so the
+                                             run need not write it
 ```
 <!-- LAYOUT-END -->
