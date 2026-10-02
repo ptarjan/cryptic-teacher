@@ -3,6 +3,9 @@
 # The Listener is its own publisher and kind, so joining the two doubled it.
 # Renders a crawlable page for every series in tools/series.py and refuses a
 # repeated adjacent word in the title, heading, description or series name.
+# And each title leads with the paper and the number as searched, "Guardian
+# Cryptic 30111 answers" ("guardian 30111", "times crossword 29653"): no
+# thousands comma, "answers" straight after; a date-keyed number reads as its day.
 #
 #     bash tools/test_no_doubled_paper.sh
 set -uo pipefail
@@ -30,6 +33,13 @@ for key in S.SERIES:
     texts = [t for tup in parts for t in tup if t]
     texts += [B.named(puz), B.series_name(key)]
     n += 1
+    lead = (f"{S.paper_kind(key)}, " if S.number_date(key, num)
+            else f"{S.paper_kind(key)} {num} answers")
+    for setter, annotated in ((None, None), ("Brummie", None), (None, True), ("Brummie", True)):
+        p = B.puzzle_page({**puz, "setter": setter}, {"annotated": annotated}, None, None)
+        title = re.search(r"<title>(.*?)</title>", p).group(1)
+        if not title.startswith(lead) or re.search(r"\d,\d", title):
+            bad.append(f"{key}: title {title!r} does not lead with {lead!r}")
     for t in texts:
         if (d := doubled(t)):
             bad.append(f"{key}: {d!r} in {t!r}")

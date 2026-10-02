@@ -537,26 +537,28 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # Also empty when the source shipped no byline at all — a null setter.
     by = "" if not setter or setter == what else f" by {setter}"
 
-    # Intent word early, identifier early, paper last. A result is chosen on the
-    # first few words of its title, and a searcher after "everyman 4117 answers"
-    # needs to see "answers" there, not after the paper's name and "Crossword No".
-    # The setter stays wherever there is one, because setter names get searched;
-    # that costs the characters "clue by clue" spends where there is no setter.
+    # Paper and number first, then "answers": searches are "guardian 30111",
+    # "times crossword 29653", "everyman 4170 answers", so the identifier is the
+    # paper and its number as typed (no thousands comma), and the intent word
+    # follows it rather than trailing behind "Crossword No". The setter stays
+    # wherever there is one, because setter names get searched; that costs the
+    # characters "clue by clue" spends where there is no setter.
     # "explained" is a claim about the page. An un-annotated page prints the
     # answers and no wordplay, so its title stops at "answers": a title that
     # promises a walkthrough the page has not got earns the click once and the
     # bounce every time after.
     lead = "answers explained" if annotated else "answers"
-    tail = "clue by clue" if annotated else "full solution"
+    num = str(position(puz))
     title = (f"{pk}, {dw} – {lead}" + (f" – crossword{by}" if by else "") if day
-             else f"{what} {pretty} {lead} — {paper} crossword{by}" if by
-             else f"{what} {pretty} {lead}, {tail} — {paper} crossword")
+             else f"{pk} {num} {lead} – crossword{by}" if by
+             else f"{pk} {num} {lead} – full crossword, clue by clue" if annotated
+             else f"{pk} {num} {lead} – full crossword solution")
     # The snippet leads with the same promise for the same reason, and still says
     # which of the three pages this is: explained clue by clue, marked up from a
     # blog's write-up, or answers only.
     # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
     full = (f"{pk}, {dw}{by}" if day else
-            f"{pk} {pretty}{by}" + (f" ({when})" if when else ""))
+            f"{pk} {num}{by}" + (f" ({when})" if when else ""))
     blog = puz.get("blog") if has_blog_hints(puz) else None
     desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
             if annotated else
