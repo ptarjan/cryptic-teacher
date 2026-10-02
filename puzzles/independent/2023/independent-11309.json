@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Cutting lover's head in half causes terrible pain",
     "enumeration": "8"
    },
-   "solution": "DISTRESS"
+   "solution": "DISTRESS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DISTRESS",
+    "definitions": [
+     {
+      "text": "terrible pain",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cutting",
+      "for": "substitution",
+      "note": "to cut something is to reduce it, so one letter is replaced by a smaller value"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head in half",
+      "gives": "D",
+      "note": "the head of the lover is M, Roman 1000; half of that is 500, Roman D"
+     },
+     {
+      "clueFragment": "lover's",
+      "gives": "ISTRESS",
+      "note": "a mistress is a lover; the opening M is the part that gets swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISTRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A rejected suitor imagines a violent attack on a sweetheart that would cause dreadful suffering.",
+     "walkthrough": "MISTRESS has M at its head; treating M as Roman 1000 and halving it gives D (500), so DISTRESS replaces the M. 'Cutting' and 'in half' sound gruesome but are arithmetic.",
+     "definitionFit": "Distress is severe suffering or anguish, a close synonym for agony or great hurt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,57 @@
     "text": "Protest singers led by Conservative politicians",
     "enumeration": "9"
    },
-   "solution": "DEMOCRATS"
+   "solution": "DEMOCRATS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEMOCRATS",
+    "definitions": [
+     {
+      "text": "politicians",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "led by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protest",
+      "gives": "DEMO",
+      "note": "a demo is a protest march"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "singers",
+      "gives": "RATS",
+      "note": "an informer 'sings' to the police, and such people are rats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "C",
+      "RATS"
+     ]
+    },
+    "explanation": {
+     "surface": "Folk singers at a protest are fronted by right-wing politicians, an unlikely political rally.",
+     "walkthrough": "'Singers' looks musical but means informers, people who sing to the police. 'Led by' puts the Conservative ahead of them; the protest comes first in the charade.",
+     "definitionFit": "Democrats are members of a political party, chiefly the American one, so they are a kind of political figure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "singers"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,62 @@
     "text": "Tweeter talks informally about dispute",
     "enumeration": "7"
    },
-   "solution": "SPARROW"
+   "solution": "SPARROW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SPARROW",
+    "definitions": [
+     {
+      "text": "Tweeter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talks informally",
+      "gives": "RAPS",
+      "note": "to rap is to chat casually"
+     },
+     {
+      "clueFragment": "dispute",
+      "gives": "ROW",
+      "note": "a row is a quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR",
+      "ROW"
+     ],
+     "reversals": [
+      {
+       "from": "RAPS",
+       "to": "SPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone posting on social media chats casually about an argument online.",
+     "walkthrough": "'Tweeter' suggests a social media user, but it means a bird that tweets.",
+     "definitionFit": "A sparrow is a small songbird, and birds chirp, so a tweeter is a playful name for one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tweeter"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,67 @@
     "text": "Broadcaster spoke out, initially ignoring America",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RADIO",
+    "definitions": [
+     {
+      "text": "Broadcaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to pay it no attention, so those letters are dropped"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of a word, so only its opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoke",
+      "gives": "RADIUS",
+      "note": "a spoke of a wheel is a radius"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the usual short form for America"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADI",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A presenter speaks frankly about something, without mentioning America at first.",
+     "walkthrough": "'Spoke out' reads as a verb phrase, but 'spoke' is a noun (a wheel's radius) and 'out' only lends its first letter. RADIUS loses US, then O is added.",
+     "definitionFit": "A radio is a device or medium that transmits programmes, so it is a broadcasting outlet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +308,45 @@
     "text": "Characteristic of service force",
     "enumeration": "8"
    },
-   "solution": "STRENGTH"
+   "solution": "STRENGTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRENGTH",
+    "definitions": [
+     {
+      "text": "Characteristic",
+      "at": 0
+     },
+     {
+      "text": "service force",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Characteristic",
+      "note": "first meaning: a good quality"
+     },
+     {
+      "clueFragment": "service force",
+      "note": "second meaning: the number of personnel in a military unit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a feature of good service; 'of' only joins the two meanings.",
+     "definitionFit": "A strength is an asset or merit, and a regiment's strength is its full complement of troops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +360,62 @@
     "text": "Spot male priest taking mass outside",
     "enumeration": "6"
    },
-   "solution": "PIMPLE"
+   "solution": "PIMPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIMPLE",
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "P",
+      "note": "P is an abbreviation for priest"
+     },
+     {
+      "clueFragment": "mass outside",
+      "gives": "PILE",
+      "note": "a pile is a mass or heap; 'outside' says it goes around the rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "M",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a male cleric holding Mass in the open air.",
+     "walkthrough": "'Mass' looks like the church service, but here it is a heap, PILE, wrapped around M and P.",
+     "definitionFit": "A pimple is a small inflamed blemish on the skin, the same thing as a zit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +429,43 @@
     "text": "Series going into quite miserable detail",
     "enumeration": "7"
    },
-   "solution": "ITEMISE"
+   "solution": "ITEMISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITEMISE",
+    "definitions": [
+     {
+      "text": "detail",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Series going into",
+      "for": "hidden_word",
+      "note": "a run of letters going into the next words sits across them, so the solution is a consecutive string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quite miserable",
+      "gives": "ITEMISE",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A television series dives into the grim specifics of something rather depressing.",
+     "walkthrough": "'Series' looks like a TV show, but it is the run of letters inside 'quite miserable'.",
+     "definitionFit": "To itemise is to list point by point, so the verb sense of detail matches exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Series"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +479,61 @@
     "text": "Quietly slaughtered five centrally involved in espionage",
     "enumeration": "5"
    },
-   "solution": "PIANO"
+   "solution": "PIANO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PIANO",
+    "definitions": [
+     {
+      "text": "Quietly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "five centrally",
+      "for": "letter_selection",
+      "note": "the central five letters of a word are kept and the outer ones dropped"
+     },
+     {
+      "text": "slaughtered",
+      "for": "anagram",
+      "note": "something slaughtered is torn apart, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "involved in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "espionage",
+      "gives": "PIONA",
+      "select": "middle",
+      "note": "the middle five letters of the nine"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIONA",
+       "gives": "PIANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Five people involved in spying were silently killed, like a thriller plot.",
+     "walkthrough": "'Five' looks like a number of victims but counts letters taken from the middle of espionage.",
+     "definitionFit": "Piano is the musical direction to play softly, so in a score it means at low volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +547,40 @@
     "text": "This Roman cardinal appears in letter to the Corinthians",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELEVEN",
+    "definitions": [
+     {
+      "text": "This Roman cardinal appears in letter to the Corinthians",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This Roman cardinal appears in letter to the Corinthians",
+      "note": "surface reading: a cardinal of the Roman church is named in St Paul's epistle"
+     },
+     {
+      "clueFragment": "Roman cardinal",
+      "note": "setter's reading: a cardinal number written as Roman numerals, XI, which is also a letter of the Greek alphabet the Corinthians used"
+     }
+    ],
+    "explanation": {
+     "surface": "A senior Catholic churchman is mentioned in Paul's biblical letter to Corinth.",
+     "walkthrough": "'Cardinal' is a cardinal number, not a churchman; 'letter' is an alphabet letter, not an epistle. XI does both jobs.",
+     "definitionFit": "XI is the Roman numeral for the number after ten, and xi is the fourteenth Greek letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +594,63 @@
     "text": "Wound king in wicked action",
     "enumeration": "9"
    },
-   "solution": "MEANDERED"
+   "solution": "MEANDERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MEANDERED",
+    "definitions": [
+     {
+      "text": "Wound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wicked",
+      "gives": "MEAN",
+      "note": "mean is nasty or unkind"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an act"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "DE",
+      "R",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A king is injured in a cruel act of violence.",
+     "walkthrough": "'Wound' looks like an injury, but it is the past tense of wind, rhyming with found.",
+     "definitionFit": "To meander is to follow a twisting course, so a path that meandered snaked about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wound"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +664,45 @@
     "text": "Foolish person's puzzling use of words",
     "enumeration": "7"
    },
-   "solution": "DINGBAT"
+   "solution": "DINGBAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DINGBAT",
+    "definitions": [
+     {
+      "text": "Foolish person",
+      "at": 0
+     },
+     {
+      "text": "puzzling use of words",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foolish person",
+      "note": "first meaning: an idiot, an informal insult"
+     },
+     {
+      "clueFragment": "puzzling use of words",
+      "note": "second meaning: a picture puzzle in which word placement represents a phrase"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's reads as possessive, but it stands for 'is', joining two meanings. Dingbats were a popular British puzzle board game of visual word riddles.",
+     "definitionFit": "Dingbat is slang for a silly fool and also names a rebus-style word puzzle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzling"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +716,45 @@
     "text": "Electron beams reportedly destroy recording on tape",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "destroy recording on tape",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Electron beams",
+      "gives": "ERASE",
+      "soundsLike": "E RAYS",
+      "note": "E is the symbol for an electron, and beams are rays"
+     }
+    ],
+    "explanation": {
+     "surface": "Beams of electrons are said to wipe out a tape recording, plausible technical lore.",
+     "walkthrough": "E rays said out loud is exactly the verb; the scientific surface hides a simple pun.",
+     "definitionFit": "To erase a tape is to wipe its magnetic content, removing what was stored on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beams"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +768,62 @@
     "text": "Box office's opening interrupts funny sketch",
     "enumeration": "7"
    },
-   "solution": "CARTOON"
+   "solution": "CARTOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARTOON",
+    "definitions": [
+     {
+      "text": "funny sketch",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so only the first letter is taken"
+     },
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Box",
+      "gives": "CARTON",
+      "note": "a carton is a cardboard box"
+     },
+     {
+      "clueFragment": "office's",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CART",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of a theatre box office breaks into a comic stage routine.",
+     "walkthrough": "'Box office' reads as one theatre term, but Box is the carton and office only gives its first letter.",
+     "definitionFit": "A cartoon is a humorous drawing, and a sketch can mean a drawing as well as a comic scene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Box"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +837,73 @@
     "text": "Unpleasant gang of criminals briefly returned to infiltrate racket",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "NOISOME",
+    "definitions": [
+     {
+      "text": "Unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "brief means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the letters run the other way"
+     },
+     {
+      "text": "to infiltrate",
+      "for": "container",
+      "note": "infiltrating means getting inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "NOISE",
+      "note": "a racket is a din"
+     },
+     {
+      "clueFragment": "gang of criminals",
+      "gives": "MOB",
+      "note": "a mob is a criminal gang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOIS",
+      "OM",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "MO",
+       "to": "OM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty gang returns briefly to take over a criminal racket.",
+     "walkthrough": "'Racket' suggests a criminal scheme to match the gang, but here it means noise.",
+     "definitionFit": "Noisome means offensive or disgusting, especially of smells; it has nothing to do with noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +917,60 @@
     "text": "Location of dam and entrance to animal pen?",
     "enumeration": "5"
    },
-   "solution": "ASWAN"
+   "solution": "ASWAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASWAN",
+    "definitions": [
+     {
+      "text": "Location of dam",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance to",
+      "for": "letter_selection",
+      "note": "an entrance is the way in, so the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "pen",
+      "gives": "SWAN",
+      "note": "a pen is a female swan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SWAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmyard puzzle: where are the mother animal and the way into its enclosure?",
+     "walkthrough": "'Dam' and 'pen' both look farmyard (a mother animal, an enclosure), but the dam is a barrage and the pen is a swan.",
+     "definitionFit": "The Aswan High Dam spans the Nile in southern Egypt, so the town is where the dam stands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +984,62 @@
     "text": "International court blocks country in the blink of an eye",
     "enumeration": "9"
    },
-   "solution": "NICTATION"
+   "solution": "NICTATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NICTATION",
+    "definitions": [
+     {
+      "text": "blink of an eye",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocks",
+      "for": "container",
+      "note": "to block is to sit in the way, so one piece lodges inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "NATION",
+      "note": "a nation is a country"
+     },
+     {
+      "clueFragment": "International",
+      "gives": "I",
+      "note": "I is the abbreviation for International"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "CT",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A world court suddenly obstructs a nation, all in an instant.",
+     "walkthrough": "'International court' looks like a single body, but it splits into I and CT; 'in the' is part of the definition phrase rather than a link.",
+     "definitionFit": "Nictation is the technical word for winking or blinking, so it names the eyelid's quick closing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1053,43 @@
     "text": "Part of play that's still contributing to respectable audience",
     "enumeration": "7"
    },
-   "solution": "TABLEAU"
+   "solution": "TABLEAU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TABLEAU",
+    "definitions": [
+     {
+      "text": "Part of play that's still",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contributing to",
+      "for": "hidden_word",
+      "note": "letters that contribute to a phrase form part of it, so the solution lies inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "respectable audience",
+      "gives": "TABLEAU",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A quiet moment in a stage play is helping please a well-behaved theatre crowd.",
+     "walkthrough": "'Still' reads as an adverb (yet) but is the adjective motionless, belonging to the definition.",
+     "definitionFit": "A tableau is a motionless scene arranged on stage, the actors frozen in a picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1103,54 @@
     "text": "Successful period for every state capital",
     "enumeration": "9"
    },
-   "solution": "UPPERCASE"
+   "solution": "UPPERCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPPERCASE",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Successful period",
+      "gives": "UP",
+      "note": "an up, as in ups and downs, is a good spell"
+     },
+     {
+      "clueFragment": "for every",
+      "gives": "PER",
+      "note": "per means for each"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "CASE",
+      "note": "a case is a state of affairs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "PER",
+      "CASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A good spell for each US state's capital city.",
+     "walkthrough": "'State capital' reads as a city like Albany, but capital is the definition and means a capital letter.",
+     "definitionFit": "Uppercase letters are capitals, named from the top typesetting tray where printers kept them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1164,61 @@
     "text": "Firm retains most beneficial item under pressure",
     "enumeration": "8"
    },
-   "solution": "HARASSED"
+   "solution": "HARASSED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HARASSED",
+    "definitions": [
+     {
+      "text": "under pressure",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most",
+      "for": "deletion",
+      "note": "most of something is not all of it, so the final letter is lost"
+     },
+     {
+      "text": "retains",
+      "for": "container",
+      "note": "to retain is to keep hold of, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "HARD",
+      "note": "hard means firm"
+     },
+     {
+      "clueFragment": "beneficial item",
+      "gives": "ASSET",
+      "note": "an asset is something useful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "ASSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A company keeps hold of its best assets while under pressure.",
+     "walkthrough": "'Firm' looks like a company, but it is the adjective hard.",
+     "definitionFit": "Someone harassed is stressed and hounded by demands, the same as feeling hard-pressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1232,48 @@
     "text": "Small fish? One hopes it's not smelt",
     "enumeration": "6"
    },
-   "solution": "STENCH"
+   "solution": "STENCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STENCH",
+    "definitions": [
+     {
+      "text": "One hopes it's not smelt",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TENCH",
+      "note": "a tench is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Is this a little fish? Hopefully not a smelt, which is a kind of small fish.",
+     "walkthrough": "A smelt is itself a small fish, so the definition seems to continue the fishy theme; really smelt is the past participle of smell.",
+     "definitionFit": "A stench is a foul odour, which anyone would rather not have to breathe in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smelt"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1293,72 @@
      }
     ]
    },
-   "solution": "EARACHE"
+   "solution": "EARACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "EARACHE",
+    "definitions": [
+     {
+      "text": "issue with those that listen",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from the bottom, so the order is turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is an informal way to say what?"
+     },
+     {
+      "clueFragment": "Car",
+      "gives": "CAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "takes",
+      "gives": "AE",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARACHE"
+     ],
+     "reversals": [
+      {
+       "from": "EHCARAE",
+       "to": "EARACHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What Car?, the British motoring magazine, often complains about something to do with listeners.",
+     "walkthrough": "The italic title tempts you to read the magazine name as one unit, but its two words do separate jobs; eh? is a casual way of asking what?, and 'regularly' applies only to 'takes'.",
+     "definitionFit": "Ears are the organs that hear, and a pain in them is a medical problem with your hearing apparatus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1372,67 @@
     "text": "Sort of opiate inspiring welcome state",
     "enumeration": "8"
    },
-   "solution": "ETHIOPIA"
+   "solution": "ETHIOPIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ETHIOPIA",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sort of",
+      "for": "anagram",
+      "note": "to sort is to rearrange, so these letters are put in a new order"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "inspiring literally means breathing in, so one piece is drawn inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opiate",
+      "gives": "OPIATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "HI",
+      "OPIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OPIATE",
+       "gives": "ETOPIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of narcotic produces a pleasant, welcome state of mind.",
+     "walkthrough": "'State' looks like a frame of mind induced by the drug, but it is a country.",
+     "definitionFit": "Ethiopia is a sovereign country in the Horn of Africa, and a nation is a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1446,62 @@
     "text": "Provider of cover belonging to person taking action to preserve right",
     "enumeration": "7"
    },
-   "solution": "INSURER"
+   "solution": "INSURER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INSURER",
+    "definitions": [
+     {
+      "text": "Provider of cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to preserve",
+      "for": "container",
+      "note": "to preserve something is to keep it safe within, so one piece is held by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belonging to",
+      "gives": "IN",
+      "note": "to be in a group is to belong to it"
+     },
+     {
+      "clueFragment": "person taking action",
+      "gives": "SUER",
+      "note": "someone who takes legal action sues"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SU",
+      "R",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cover provider belongs to someone suing to protect their rights.",
+     "walkthrough": "'Taking action' sounds like doing something, but it is legal action, so the person is a litigant.",
+     "definitionFit": "An insurer is a company that underwrites policies, giving financial protection against loss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1515,68 @@
     "text": "Raised note beginning to reinforce echo effect",
     "enumeration": "6"
    },
-   "solution": "REVERB"
+   "solution": "REVERB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "REVERB",
+    "definitions": [
+     {
+      "text": "echo effect",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down entry, raising something brings its bottom to the top, turning the order round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reinforce",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "BREVE",
+      "note": "a breve is a long musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVERB"
+     ],
+     "reversals": [
+      {
+       "from": "BREVE",
+       "to": "EVERB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician raises a note at the start to boost the echo, studio talk.",
+     "walkthrough": "The musical surface fits the answer, so 'note' reads naturally; a breve is a long note worth two whole notes.",
+     "definitionFit": "Reverb, short for reverberation, is the sound processing that adds a lingering echo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1590,69 @@
     "text": "Enduring impression finally captured by a French painter",
     "enumeration": "9"
    },
-   "solution": "PERMANENT"
+   "solution": "PERMANENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PERMANENT",
+    "definitions": [
+     {
+      "text": "Enduring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the last letter is kept"
+     },
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "something captured is held inside, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a, as in five pounds a head"
+     },
+     {
+      "clueFragment": "French painter",
+      "gives": "MANET",
+      "note": "Edouard Manet was a French painter"
+     },
+     {
+      "clueFragment": "impression",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "MANE",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A lasting impression is captured by a French Impressionist painter.",
+     "walkthrough": "'Impression' hints at Impressionism, which suits Manet, but supplies only its last letter; 'a' is PER, as in so much a day.",
+     "definitionFit": "Something permanent lasts indefinitely, so it is lasting in the same sense as enduring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1666,55 @@
     "text": "Implores Francophone country to suppress resistance",
     "enumeration": "5"
    },
-   "solution": "PRAYS"
+   "solution": "PRAYS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRAYS",
+    "definitions": [
+     {
+      "text": "Implores",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to suppress",
+      "for": "container",
+      "note": "to suppress is to hold down within, so one piece is kept inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Francophone country",
+      "gives": "PAYS",
+      "note": "pays is the French for country"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "AYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone begs a French-speaking nation to crush an uprising.",
+     "walkthrough": "'Francophone country' looks like Belgium or Senegal, but it means the country word in French.",
+     "definitionFit": "To pray in the old sense is to beg earnestly, as in 'pray tell', so it equals begs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Francophone"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1728,48 @@
     "text": "Ends year on a bit of a high?",
     "enumeration": "5"
    },
-   "solution": "TIPSY"
+   "solution": "TIPSY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIPSY",
+    "definitions": [
+     {
+      "text": "on a bit of a high?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ends",
+      "gives": "TIPS",
+      "note": "the tips of things are their ends"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIPS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finishes the year on a happy note.",
+     "walkthrough": "'Ends' looks like a verb, but it is a plural noun.",
+     "definitionFit": "Tipsy means slightly drunk, and mild drunkenness is a light, merry high."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ends"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1783,62 @@
     "text": "Runs into drunk American rather carelessly",
     "enumeration": "5"
    },
-   "solution": "SORTA"
+   "solution": "SORTA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SORTA",
+    "definitions": [
+     {
+      "text": "rather carelessly",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means entering it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "SOT",
+      "note": "a sot is a drunkard"
+     },
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "R",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bumps into an intoxicated American in a fairly careless way.",
+     "walkthrough": "'Carelessly' belongs to the definition: it tells you the answer is the slurred, casual form of 'sort of'.",
+     "definitionFit": "Sorta is informal spelling of 'sort of', meaning somewhat, the way people say it casually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1852,58 @@
     "text": "Vault yields missing case in public records",
     "enumeration": "7"
    },
-   "solution": "ARCHIVE"
+   "solution": "ARCHIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARCHIVE",
+    "definitions": [
+     {
+      "text": "public records",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing case",
+      "for": "deletion",
+      "note": "a case is the outside, so without it the first and last letters are removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vault",
+      "gives": "ARCH",
+      "note": "a vault is an arched roof"
+     },
+     {
+      "clueFragment": "yields",
+      "gives": "GIVES",
+      "note": "to yield is to give"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank vault gives up a lost court case buried in official files.",
+     "walkthrough": "'Vault' suggests a strongroom for records, but it is the architectural arch; 'case' is the outer letters, not a legal case.",
+     "definitionFit": "An archive is a collection of historical documents, often kept by governments, so it holds official files."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 28,
@@ -445,7 +1917,65 @@
     "text": "Drain clogged with hair repelled unpopular people",
     "enumeration": "7"
    },
-   "solution": "PARIAHS"
+   "solution": "PARIAHS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "PARIAHS",
+    "definitions": [
+     {
+      "text": "unpopular people",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clogged with",
+      "for": "container",
+      "note": "a clogged pipe is blocked by something inside it, so one piece is held within another"
+     },
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "to repel is to drive back, so the letters go backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drain",
+      "gives": "SAP",
+      "note": "to sap is to drain energy"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "HAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARIAHS"
+     ],
+     "reversals": [
+      {
+       "from": "SHAIRAP",
+       "to": "PARIAHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plughole blocked with hair disgusts people, a grim bathroom scene.",
+     "walkthrough": "'Drain' looks like a plughole, but it is the verb sap; 'repelled' reads as disgusted but signals the reversal.",
+     "definitionFit": "Pariahs are outcasts shunned by society, so they are people nobody wants around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drain"
+    }
+   }
   },
   {
    "number": 29,
@@ -459,7 +1989,56 @@
     "text": "Polish husband's dated clothing",
     "enumeration": "5"
    },
-   "solution": "SHEEN"
+   "solution": "SHEEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHEEN",
+    "definitions": [
+     {
+      "text": "Polish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing covers a body, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dated",
+      "gives": "SEEN",
+      "note": "people who are seeing each other are dating"
+     },
+     {
+      "clueFragment": "husband's",
+      "gives": "H",
+      "note": "H is the abbreviation for husband; the 's is 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "EEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish man's outfit is old-fashioned.",
+     "walkthrough": "'Polish' with its capital looks like the nationality but means shine; 'dated' looks like old-fashioned but means went out with.",
+     "definitionFit": "Sheen is a soft gloss on a surface, the shine that polishing produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 30,
@@ -473,7 +2052,51 @@
     "text": "Object of desire developed finer body",
     "enumeration": "9"
    },
-   "solution": "BOYFRIEND"
+   "solution": "BOYFRIEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOYFRIEND",
+    "definitions": [
+     {
+      "text": "Object of desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finer body",
+      "gives": "FINERBODY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FINERBODY",
+       "gives": "BOYFRIEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longed for has worked out and built a better physique.",
+     "walkthrough": "The surface itself reads like a description of an attractive partner, which helps hide the shuffle signal.",
+     "definitionFit": "A boyfriend is a romantic partner, someone you are attracted to and want to be with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   }
  ]
 }
