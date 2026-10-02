@@ -1173,12 +1173,12 @@ tools/file_archive_org_puzzles.py            files the daily Times, FT, Guardian
                                              fetch_archive_org_editions.py cached as
                                              times-<No>, ftcryptic-<No>, cryptic-<No> and
                                              telegraph-<No> (--paper): clues voted on by
-                                             archive.org's OCR,
-                                             RapidOCR's two recognisers and Tesseract, the grid
-                                             read off the scan or rebuilt, answers off the next
-                                             edition's solution grid; every reading kept for
-                                             cross_validate.py's archiveorg adapter; names the
-                                             Times puzzle each canberra file reprints
+                                             archive.org's OCR, RapidOCR's two recognisers and
+                                             Tesseract, the grid read off the scan or rebuilt,
+                                             answers off the next edition's solution grid;
+                                             every reading kept for cross_validate.py's
+                                             archiveorg adapter; names the Times puzzle each
+                                             canberra file reprints
 tools/test_file_archive_org_puzzles.sh       does tools/file_archive_org_puzzles.py find the
                                              Times cryptic's title and not its neighbours',
                                              read the clue columns in order, keep only the
@@ -1188,12 +1188,11 @@ tools/measure_archive_org_ocr.py             measure how many clue words and mar
                                              file_archive_org_puzzles.py misreads, against the
                                              hand transcriptions in
                                              tools/data/archive_org_ocr_gold.json
-tools/data/archive_org_ocr_gold.json         Times, Listener, Jumbo, FT, Guardian and
-                                             Telegraph clues transcribed by hand off
-                                             archive.org's scans, each edition marked tune or
-                                             held out (heldout, ft-heldout, ...); the misread
-                                             rate is reported on the held-out ones and never
-                                             gates filing
+tools/data/archive_org_ocr_gold.json         Times, Listener, Jumbo, FT, Guardian and Telegraph
+                                             clues transcribed by hand off archive.org's scans,
+                                             each edition marked tune or held out (heldout,
+                                             ft-heldout, ...); the misread rate is reported on
+                                             the held-out ones and never gates filing
 tools/build_clue_compounds.py                count how the corpus's clues print two-word
                                              compounds: hyphenated or closed
 tools/data/clue_compounds.tsv                how often the corpus's clues print each two-word
