@@ -266,6 +266,7 @@ LAYOUT = [
 
     ("scheduling", "tools/daily_update.sh", "daily script: fetch latest, annotate backlog, validate, commit"),
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
+    ("scheduling", "tools/json_merge.py", "git merge driver: the keyed JSON data files several writers append to merge per key, so a rebase never stops on a ledger row"),
     ("scheduling", "tools/claude_path.sh", "sourced: finds the `claude` CLI wherever this machine keeps it, SDK-bundled copy included"),
     ("scheduling", "tools/alert.sh", "posts a run’s failures to Discord instead of burying them in a log"),
     ("scheduling", "tools/claude_session.sh", "sourced: session ids, so a run that dies is resumed rather than paid for twice"),
@@ -378,6 +379,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
     ("tables everything else reads", "tools/test_prereset_lock.sh", "does the pre-reset backfill still take over a lock nobody is holding?"),
     ("tables everything else reads", "tools/test_nightly_worktree.sh", "which tree does a scheduled job end up running in? checked by running one"),
+    ("tables everything else reads", "tools/test_json_merge.sh", "do the keyed JSON data files merge per key in a real rebase?"),
     ("tables everything else reads", "tools/test_refresh_window.sh", "does refresh_unsolved ever stop asking for an answer that is never coming?"),
     ("tables everything else reads", "tools/test_privateeye_dates.sh", "does tools/fetch_privateeye.py read the issue off every title shape the archive ships, and take the Eye's Christmas cover date as it prints it?"),
     ("tables everything else reads", "tools/test_fetch_puzzle_misfiled.sh", "does fetch_puzzle.convert() refuse a mis-filed Guardian page and accept a re-published one?"),
