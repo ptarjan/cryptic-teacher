@@ -144,6 +144,15 @@ print(sorted(O.lights(['...', '.#.', '...'])))")
 check "solution pairing and light numbering" "True False True False
 [(1, 'across'), (1, 'down'), (2, 'down'), (3, 'across')]" "$got"
 
+# An accepted answer must be a word: -d, -r and -st inflect only a lemma
+# ending in e, and -es only one ending in a sibilant or o, so a misread
+# letter that lands on such an ending stays unknown (WOOER read as WOOFR).
+got=$(cd "$REPO/tools" && python3 -c "
+import trove_solution_ocr as O
+print(*[O.known(w) for w in ('WOOFR', 'WOOFST', 'WOOFD', 'WOOFES', 'RUGE')],
+      *[O.known(w) for w in ('WOOER', 'WISER', 'WISEST', 'BAKED', 'BOXES', 'WOOFED')])")
+check "a misread on an inflection is no word" "False False False False False True True True True True True" "$got"
+
 # Reading the 2 June 1972 solution against that day's grid: whatever it
 # accepts fits its light and is one of the answers a person reads off the
 # scan. Skipped where the OCR engine is not installed (CI's test job).

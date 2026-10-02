@@ -308,6 +308,16 @@ SHORT_WORDS = {"a", "i", "am", "an", "as", "at", "be", "by", "do", "go", "he", "
                "set", "she", "the", "too", "two", "way", "who", "why", "you"}
 
 
+#: The regular inflections known() adds to every lemma.
+ENDINGS = ("s", "ed", "ing", "er", "est")
+#: The endings that inflect only a lemma ending in e (wise: wised, wiser,
+#: wisest). On any other lemma they make a misread a word: WOOF + R passed
+#: WOOER read as WOOFR.
+E_ENDINGS = ("d", "r", "st")
+#: The endings after which a plural takes -es (box, bush, church, potato).
+ES_AFTER = ("s", "x", "z", "ch", "sh", "o")
+
+
 def known(word):
     """Whether an answer is WordNet's (a lemma or a regular inflection of one),
     or up to four such words run together, each of four letters or more
@@ -319,9 +329,12 @@ def known(word):
             lemmas = {re.sub(r"[^a-z]", "", w.lower()) for w in json.load(f)["words"]}
         _WORDS = lemmas | SHORT_WORDS
         for w in (w for w in lemmas if len(w) > 2):
-            _WORDS.update(w + end for end in ("s", "es", "ed", "d", "ing", "er", "est", "r", "st"))
+            _WORDS.update(w + end for end in ENDINGS)
             if w.endswith("e"):
+                _WORDS.update(w + end for end in E_ENDINGS)
                 _WORDS.update((w[:-1] + "ing", w[:-1] + "ed"))
+            if w.endswith(ES_AFTER):
+                _WORDS.add(w + "es")
             if w.endswith("y"):
                 _WORDS.update((w[:-1] + "ies", w[:-1] + "ied"))
     w = word.lower()
