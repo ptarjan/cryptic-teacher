@@ -440,6 +440,8 @@ LAYOUT = [
     ("fetching", "tools/test_annotate_partial.sh", "a puzzle that has hints and lacks some is annotated only where it lacks them"),
     ("fetching", "tools/errata.py", "a paper's erratum is a fix to the puzzle, not a preamble"),
     ("fetching", "tools/test_errata.sh", "a paper's erratum in the preamble fixes its clue and leaves the preamble; the instructions beside it stay, and the write gate refuses one left behind"),
+    ("fetching", "tools/boilerplate.py", "a preamble's publishing boilerplate is not something a solver needs"),
+    ("fetching", "tools/test_boilerplate.sh", "a paper's publishing boilerplate in the preamble goes; a puzzle's instructions, tributes and kept errata stay; the write gate refuses it"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
