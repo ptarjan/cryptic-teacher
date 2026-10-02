@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Linguistically explain speed of light, astronomical unit",
     "enumeration": "6"
    },
-   "solution": "PARSEC"
+   "solution": "PARSEC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARSEC",
+    "definitions": [
+     {
+      "text": "astronomical unit",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Linguistically explain",
+      "gives": "PARSE",
+      "note": "to parse a sentence is to analyse its grammar"
+     },
+     {
+      "clueFragment": "speed of light",
+      "gives": "C",
+      "note": "c is the physics symbol for the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARSE",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A physics lecturer struggling to put the speed of light and astronomical units into words.",
+     "walkthrough": "The comma makes 'astronomical unit' look like part of a list of physics terms, but it is the definition sitting at the end.",
+     "definitionFit": "A parsec is a measure of interstellar distance, about 3.26 light years, used by astronomers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Linguistically"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,43 @@
     "text": "Make up very early in the day?",
     "enumeration": "5"
    },
-   "solution": "ATONE"
+   "solution": "ATONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATONE",
+    "definitions": [
+     {
+      "text": "Make up",
+      "at": 0
+     },
+     {
+      "text": "very early in the day?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make up",
+      "note": "first meaning: make amends for a wrong"
+     },
+     {
+      "clueFragment": "very early in the day?",
+      "note": "second meaning, split into two words: the time one o'clock in the morning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests putting on make-up at dawn; the question mark warns that the second half must be read as two words, AT ONE, a time just after midnight.",
+     "definitionFit": "To atone is to make amends or compensate for a wrong done, which is one sense of making up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +140,62 @@
     "text": "Poet on electronic system accessing prophet",
     "enumeration": "9"
    },
-   "solution": "SONNETEER"
+   "solution": "SONNETEER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SONNETEER",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accessing",
+      "for": "container",
+      "note": "to access something is to get inside it, so one part goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prophet",
+      "gives": "SEER",
+      "note": "a seer foresees the future"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "electronic system",
+      "gives": "NET",
+      "note": "the net is the internet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ON",
+      "NET",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet logging on to some electronic system to consult a prophet.",
+     "walkthrough": "'On' looks like a mere preposition in the surface but supplies two letters of its own; 'electronic system' is the internet.",
+     "definitionFit": "A sonneteer is a writer of sonnets, so a type of poet, often used slightingly for a minor versifier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accessing"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +209,55 @@
     "text": "Appeal having snaffled that woman's cricket ball",
     "enumeration": "6"
    },
-   "solution": "CHERRY"
+   "solution": "CHERRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHERRY",
+    "definitions": [
+     {
+      "text": "cricket ball",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having snaffled",
+      "for": "container",
+      "note": "to snaffle is to grab and keep hold of, so one part takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appeal",
+      "gives": "CRY",
+      "note": "a cry is an appeal or plea"
+     },
+     {
+      "clueFragment": "that woman's",
+      "gives": "HER",
+      "note": "possessive pronoun for a female person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HER",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fielder's appeal after a woman has pinched the cricket ball.",
+     "walkthrough": "In cricket slang a new, shiny red ball is the cherry. 'Appeal' looks like the cricketing howl to the umpire, which suits the surface but here just means a cry.",
+     "definitionFit": "Cricket players call the ball a cherry, especially a new one, from its bright red colour and round shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Appeal"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +271,67 @@
     "text": "Vitreous matter I said, no rocks, black parts",
     "enumeration": "8"
    },
-   "solution": "OBSIDIAN"
+   "solution": "OBSIDIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OBSIDIAN",
+    "definitions": [
+     {
+      "text": "Vitreous matter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "as a verb, to rock is to shake about, so these letters are tossed into a new order"
+     },
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "to part something is to split it open, so one letter is wedged inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I said, no",
+      "gives": "ISAIDNO",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "SIDIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISAIDNO",
+       "gives": "OSIDIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insisting a glassy substance contains no rocks, just black bits.",
+     "walkthrough": "'Rocks' looks like the geology of the surface but is the anagram signal; the rearranged letters are then split after the first O to take B.",
+     "definitionFit": "Obsidian is a natural volcanic glass, so its texture is literally vitreous, or glass-like."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +355,54 @@
      }
     ]
    },
-   "solution": "ONTHEWATERFRONT"
+   "solution": "ONTHEWATERFRONT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ON THE WATERFRONT",
+    "definitions": [
+     {
+      "text": "Old Oscar winner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one thing placed on another sits above it, so the first part comes before the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "floating",
+      "gives": "ONTHEWATER",
+      "note": "something floating is on the water"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "FRONT",
+      "note": "an air is a manner or show put on, as is a front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHEWATER",
+      "FRONT"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly Oscar winner so delighted that they are floating on air.",
+     "walkthrough": "'Floating on air' is an idiom for being elated, which hides the two separate pieces; 'air' here means an assumed manner.",
+     "definitionFit": "The 1954 Marlon Brando picture won the Academy Award for Best Picture, so it is a classic film that took an Oscar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "floating"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +416,67 @@
     "text": "Dark, alert snakes captivated by sibilant sound?",
     "enumeration": "8"
    },
-   "solution": "STARLESS"
+   "solution": "STARLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STARLESS",
+    "definitions": [
+     {
+      "text": "Dark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snakes",
+      "for": "anagram",
+      "note": "as a verb, to snake is to wind and twist, so these letters wriggle into a new order"
+     },
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "something captivated is held captive, so it sits inside the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sibilant sound",
+      "gives": "SSS",
+      "note": "a hiss, written as a string of esses"
+     },
+     {
+      "clueFragment": "alert",
+      "gives": "ALERT",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TARLE",
+      "SS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALERT",
+       "gives": "TARLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watchful snakes in the dark, charmed by a hissing noise.",
+     "walkthrough": "'Snakes' sits naturally beside the hissing, but it is a verb telling you to rearrange the word before it.",
+     "definitionFit": "A starless night is one with no stars visible, hence without light and so dark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snakes"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +490,56 @@
     "text": "Opening in dip, long channel",
     "enumeration": "5"
    },
-   "solution": "DITCH"
+   "solution": "DITCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DITCH",
+    "definitions": [
+     {
+      "text": "channel",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening in",
+      "for": "letter_selection",
+      "note": "the opening of a word is where it begins, so only its first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dip",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ITCH",
+      "note": "to long for something is to itch for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A hole in a dip in the ground leading to a long water channel.",
+     "walkthrough": "'Long' reads as an adjective describing the channel, but it is a verb meaning yearn.",
+     "definitionFit": "A ditch is a narrow trench dug for drainage, so it serves as a channel for water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +553,70 @@
     "text": "Identify a crime where suspicious crate's imported",
     "enumeration": "9"
    },
-   "solution": "ASCERTAIN"
+   "solution": "ASCERTAIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASCERTAIN",
+    "definitions": [
+     {
+      "text": "Identify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspicious",
+      "for": "anagram",
+      "note": "something suspicious is dodgy or not right, so these letters are out of order"
+     },
+     {
+      "text": "imported",
+      "for": "container",
+      "note": "goods imported are brought in, so these letters are carried inside the others"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a crime",
+      "gives": "ASIN",
+      "note": "a sin is a crime or wrongdoing"
+     },
+     {
+      "clueFragment": "crate's",
+      "gives": "CRATE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "CERTA",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRATE",
+       "gives": "CERTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customs officer identifying smuggling, where a dodgy crate has been brought into the country.",
+     "walkthrough": "The rearranged CRATE goes into A SIN, after the S. The surface of contraband makes 'imported' look literal.",
+     "definitionFit": "To ascertain is to find out for certain, which is to establish or identify a fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "imported"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +630,51 @@
     "text": "Plant in teapot is sprawling",
     "enumeration": "10"
    },
-   "solution": "POINSETTIA"
+   "solution": "POINSETTIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POINSETTIA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sprawling",
+      "for": "anagram",
+      "note": "something sprawling spreads out untidily, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in teapot is",
+      "gives": "INTEAPOTIS",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTEAPOTIS",
+       "gives": "POINSETTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A houseplant growing out of a teapot and sprawling everywhere.",
+     "walkthrough": "'In' looks like a link placing the plant in the pot, but it is part of the letters to be rearranged.",
+     "definitionFit": "The poinsettia is a Mexican shrub with red bracts, widely sold as a Christmas houseplant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +688,42 @@
     "text": "Nail course of action",
     "enumeration": "4"
    },
-   "solution": "TACK"
+   "solution": "TACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TACK",
+    "definitions": [
+     {
+      "text": "Nail",
+      "at": 0
+     },
+     {
+      "text": "course of action",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nail",
+      "note": "first meaning: a small, sharp, broad-headed nail"
+     },
+     {
+      "clueFragment": "course of action",
+      "note": "second meaning: an approach or line taken, as in try a different one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like an instruction to nail down a plan; the two halves are separate meanings.",
+     "definitionFit": "A tack is a short pin with a flat head; from sailing, it is also a policy or direction of approach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nail"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +737,73 @@
     "text": "Train picks up last of people after evacuation of Rome",
     "enumeration": "8"
    },
-   "solution": "REHEARSE"
+   "solution": "REHEARSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REHEARSE",
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evacuation of",
+      "for": "letter_selection",
+      "note": "evacuating a place empties it, so only the outside letters of the word remain"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of something is its final part, so only its closing letter is used"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following something means coming later in the line, so the rest goes behind it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the word with its middle emptied out"
+     },
+     {
+      "clueFragment": "picks up",
+      "gives": "HEARS",
+      "note": "to pick up a sound is to hear it"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEARS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A train collecting the last passengers after Rome has been evacuated.",
+     "walkthrough": "'Train' looks like the railway but is a verb, the definition; 'picks up' means hears, not collects.",
+     "definitionFit": "To rehearse is to practise a performance repeatedly, so to train or drill for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +817,55 @@
     "text": "Asian city I understand bound by traditions",
     "enumeration": "6"
    },
-   "solution": "LAHORE"
+   "solution": "LAHORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAHORE",
+    "definitions": [
+     {
+      "text": "Asian city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bound by",
+      "for": "container",
+      "note": "something bound by another is tied up and enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traditions",
+      "gives": "LORE",
+      "note": "lore is the body of traditions of a people"
+     },
+     {
+      "clueFragment": "I understand",
+      "gives": "AH",
+      "note": "an exclamation of comprehension"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AH",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor to an Asian city who finds it hemmed in by its customs.",
+     "walkthrough": "'I understand' is one exclamation, the sound someone makes when it clicks.",
+     "definitionFit": "Lahore is the capital of Punjab province in Pakistan and one of the largest cities in South Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "understand"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +879,44 @@
     "text": "Somewhat sweet, we established?",
     "enumeration": "4"
    },
-   "solution": "TWEE"
+   "solution": "TWEE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "TWEE",
+    "definitions": [
+     {
+      "text": "Somewhat sweet, we established?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet, we established",
+      "gives": "TWEE",
+      "note": "spans the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Two people agreeing, a little unsure, that something is rather sweet.",
+     "walkthrough": "The whole clue does double duty: read as wordplay it is a hidden word, read whole it is a tentative description of something rather sweet.",
+     "definitionFit": "Twee means excessively dainty or quaint, cloyingly pretty, which is sweetness taken too far."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "established"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +940,75 @@
      }
     ]
    },
-   "solution": "WHOOPDEDO"
+   "solution": "WHOOPDEDO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WHOOP-DE-DO",
+    "definitions": [
+     {
+      "text": "White House furore?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ludicrous",
+      "for": "anagram",
+      "note": "something ludicrous is absurd and topsy-turvy, so these letters are jumbled"
+     },
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "what leads goes in front, so this part comes before the next"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "WHO",
+      "note": "a question word"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "DOPE",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHO",
+      "OPDE",
+      "DO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOPE",
+       "gives": "OPDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ludicrous dope at the head of a party, causing uproar in the White House.",
+     "walkthrough": "The question mark flags a definition by example: a fuss in Washington is one kind of the commotion meant. 'Dope' is just letters to shuffle, not a fool.",
+     "definitionFit": "Whoop-de-do is informal for noisy excitement or commotion, a hullabaloo or fuss over something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1022,69 @@
     "text": "European chambers occupied by American nationals, primarily",
     "enumeration": "8"
    },
-   "solution": "AUSTRIAN"
+   "solution": "AUSTRIAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AUSTRIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so just the opening letter is taken"
+     },
+     {
+      "text": "occupied by",
+      "for": "container",
+      "note": "a space occupied by someone has them inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chambers",
+      "gives": "ATRIA",
+      "note": "atria are chambers of the heart"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American, as in US citizen"
+     },
+     {
+      "clueFragment": "nationals",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "US",
+      "TRIA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Rooms in Europe mainly occupied by American citizens.",
+     "walkthrough": "'Chambers' suggests rooms or parliaments, but the setter wants the heart's chambers, the atria. 'Primarily' applies only to the word right before it.",
+     "definitionFit": "An Austrian is a native or citizen of Austria, a country in central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chambers"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1104,56 @@
      }
     ]
    },
-   "solution": "RIFLESHOT"
+   "solution": "RIFLESHOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIFLE SHOT",
+    "definitions": [
+     {
+      "text": "banger?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scoffing",
+      "for": "container",
+      "note": "to scoff food is to wolf it down, so one part swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great fun",
+      "gives": "RIOT",
+      "note": "a riot is something hugely entertaining"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "FLESH",
+      "note": "flesh is the meat of an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "FLESH",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "Having a great time wolfing down meat, with a sausage on the side.",
+     "walkthrough": "A banger is British slang for a sausage, which suits the eating surface; the question mark says to read it literally instead, as something that goes bang.",
+     "definitionFit": "A gunshot from a rifle makes a loud bang, so it is jokingly something that bangs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banger"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1167,55 @@
     "text": "Titanic, casualty featured in item of mine?",
     "enumeration": "8"
    },
-   "solution": "COLOSSAL"
+   "solution": "COLOSSAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COLOSSAL",
+    "definitions": [
+     {
+      "text": "Titanic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "something featured in a work appears within it, so it is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item of mine",
+      "gives": "COAL",
+      "note": "coal is dug from a mine"
+     },
+     {
+      "clueFragment": "casualty",
+      "gives": "LOSS",
+      "note": "a casualty is a loss, as in losses in battle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LOSS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "The Titanic disaster, with a victim of a sea mine.",
+     "walkthrough": "The capital T makes 'Titanic' look like the ship, which ties in with casualty and mines; it is the adjective meaning huge.",
+     "definitionFit": "Titanic means of enormous size or strength, as does colossal, from the giant statue at Rhodes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Titanic"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1229,51 @@
     "text": "Small group of us, more at sixes and sevens!",
     "enumeration": "8"
    },
-   "solution": "FOURSOME"
+   "solution": "FOURSOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOURSOME",
+    "definitions": [
+     {
+      "text": "Small group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sixes and sevens",
+      "for": "anagram",
+      "note": "the idiom means in total disarray, so these letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of us, more",
+      "gives": "OFUSMORE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFUSMORE",
+       "gives": "FOURSOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little band of friends, with more joining, all in confusion.",
+     "walkthrough": "The numbers in the indicator tease the number hidden in the answer. 'At sixes and sevens' is an idiom for being in a muddle.",
+     "definitionFit": "A foursome is a set of four people, as at golf or doubles tennis, which is a small party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sixes"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1287,56 @@
     "text": "Ultimately aloof superhero, Batman resident in Gotham, for example",
     "enumeration": "4"
    },
-   "solution": "FONT"
+   "solution": "FONT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FONT",
+    "definitions": [
+     {
+      "text": "Gotham, for example",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so each word gives up only its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aloof superhero, Batman resident",
+      "gives": "FONT",
+      "select": "last",
+      "note": "the closing letters of four consecutive words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "O",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A standoffish superhero, Batman, living in Gotham City.",
+     "walkthrough": "Gotham looks like Batman's home city, the obvious picture; but Gotham is also a well-known typeface. 'Ultimately' applies to all four words, not only the first.",
+     "definitionFit": "Gotham is a sans-serif typeface designed in 2000, used widely in signage, so it is one example of a typeface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gotham"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1350,50 @@
     "text": "Day getting close, bruv",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "bruv",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "FRI",
+      "note": "FRI is the short form of Friday"
+     },
+     {
+      "clueFragment": "close",
+      "gives": "END",
+      "note": "the close of something is its end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telling a mate that the day is nearly over.",
+     "walkthrough": "Bruv is British street slang, short for brother, used as a term of address between friends.",
+     "definitionFit": "Bruv is slang for a mate or pal, a casual way of addressing a male companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1407,65 @@
     "text": "A line observed in sport for Olympian",
     "enumeration": "6"
    },
-   "solution": "APOLLO"
+   "solution": "APOLLO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "APOLLO",
+    "definitions": [
+     {
+      "text": "Olympian",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed in",
+      "for": "container",
+      "note": "something observed in a place is seen within it, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "POLO",
+      "note": "polo is a sport played on horseback"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "L",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "A line drawn on a sports field for an Olympic athlete.",
+     "walkthrough": "'Olympian' suggests an athlete, given the sport, but it means one of the gods of Mount Olympus.",
+     "definitionFit": "Apollo is one of the twelve Greek gods who lived on Mount Olympus, so he is an Olympian deity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Olympian"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1479,55 @@
     "text": "Good books devoured by stellar beast slowly",
     "enumeration": "5"
    },
-   "solution": "LENTO"
+   "solution": "LENTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LENTO",
+    "definitions": [
+     {
+      "text": "slowly",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoured by",
+      "for": "container",
+      "note": "something devoured is eaten up and so ends up inside the eater"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stellar beast",
+      "gives": "LEO",
+      "note": "Leo is the lion constellation"
+     },
+     {
+      "clueFragment": "Good books",
+      "gives": "NT",
+      "note": "NT is the New Testament, part of the Good Book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "NT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A star-sign beast slowly eating through some good books.",
+     "walkthrough": "'Stellar beast' is the constellation Leo, the lion in the stars.",
+     "definitionFit": "Lento is the Italian musical direction telling a performer to play at a slow tempo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stellar"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1547,72 @@
      }
     ]
    },
-   "solution": "FORKEEPS"
+   "solution": "FORKEEPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "FOR KEEPS",
+    "definitions": [
+     {
+      "text": "always",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting something shortens it, so the word loses its final letter"
+     },
+     {
+      "text": "when reversing",
+      "for": "reversal",
+      "note": "a vehicle reversing travels backwards, so the letters run the other way"
+     },
+     {
+      "text": "past",
+      "for": "charade",
+      "note": "going past something means coming after it, so this part follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split in road",
+      "gives": "FORK",
+      "note": "a fork is where a road divides"
+     },
+     {
+      "clueFragment": "Pace",
+      "gives": "SPEED",
+      "note": "pace is speed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORK",
+      "EEPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPEE",
+       "to": "EEPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver who slowed down while backing past a fork in the road.",
+     "walkthrough": "'Pace cut' sounds like slowing down, but 'cut' means lose a letter. 'Reversing' fits the driving picture neatly while doing its wordplay job.",
+     "definitionFit": "The idiom means permanently, for good, so it serves as an adverb meaning forever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1626,62 @@
     "text": "Bump signalled after start of pregnancy",
     "enumeration": "5"
    },
-   "solution": "PRANG"
+   "solution": "PRANG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRANG",
+    "definitions": [
+     {
+      "text": "Bump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its beginning, so only the first letter is used"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following something puts this part later in line, behind it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pregnancy",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "signalled",
+      "gives": "RANG",
+      "note": "rang a bell, as a signal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby bump announced early in a pregnancy.",
+     "walkthrough": "The baby-bump picture is the misdirection: a prang is British slang for a minor car crash.",
+     "definitionFit": "A prang is a small collision, especially of a car, so it is a bump in the motoring sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bump"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1695,44 @@
     "text": "Reporter's narcissistic manner",
     "enumeration": "4"
    },
-   "solution": "VEIN"
+   "solution": "VEIN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "VEIN",
+    "definitions": [
+     {
+      "text": "manner",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reporter's",
+      "for": "homophone",
+      "note": "a reporter delivers words by speaking, so it is the sound that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narcissistic",
+      "gives": "VEIN",
+      "soundsLike": "VAIN",
+      "note": "a narcissist is vain"
+     }
+    ],
+    "explanation": {
+     "surface": "A journalist with a self-absorbed style.",
+     "walkthrough": "'Reporter' suggests a journalist, but it is anyone speaking the word.",
+     "definitionFit": "Vein can mean a style or mood of speaking or writing, as in continuing in the same vein."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reporter's"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1746,56 @@
     "text": "Wetter South American native displayed clothes",
     "enumeration": "10"
    },
-   "solution": "SHOWERHEAD"
+   "solution": "SHOWERHEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHOWERHEAD",
+    "definitions": [
+     {
+      "text": "Wetter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "as a verb, to clothe is to cover, so one part wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "displayed",
+      "gives": "SHOWED",
+      "note": "displayed means showed"
+     },
+     {
+      "clueFragment": "South American native",
+      "gives": "RHEA",
+      "note": "the rhea is a flightless bird of South America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOWE",
+      "RHEA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A rain-soaked South American local showing off their outfit.",
+     "walkthrough": "'Clothes' looks like a noun but is the verb, to dress. 'Wetter' looks like a comparative adjective; it is a thing that wets.",
+     "definitionFit": "The fitting at the top of a shower sprays water over the bather, so it is literally something that wets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1809,67 @@
     "text": "Long novel, questionable covers – one doesn't translate!",
     "enumeration": "8"
    },
-   "solution": "MONOGLOT"
+   "solution": "MONOGLOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MONOGLOT",
+    "definitions": [
+     {
+      "text": "one doesn't translate!",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "something novel is new, so these letters are made into a new arrangement"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "a covering goes all round, so one part sits wrapped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "questionable",
+      "gives": "MOOT",
+      "note": "a moot point is open to question"
+     },
+     {
+      "clueFragment": "Long",
+      "gives": "LONG",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NOGL",
+      "OT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LONG",
+       "gives": "NOGL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long novel with dubious covers that nobody will translate.",
+     "walkthrough": "'Long novel' reads as a big book, but 'novel' is the signal to rearrange the word before it.",
+     "definitionFit": "A monoglot speaks only a single language, so cannot render words from one tongue into another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1883,54 @@
     "text": "Unfortunate twilight years, time after period in America?",
     "enumeration": "6"
    },
-   "solution": "DOTAGE"
+   "solution": "DOTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOTAGE",
+    "definitions": [
+     {
+      "text": "Unfortunate twilight years",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following something places this part later, behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period in America?",
+      "gives": "DOT",
+      "note": "Americans call a full stop a period; it is a dot"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Old age seen as an unlucky final chapter, spent in the United States.",
+     "walkthrough": "'Period' tempts as a span of time, given the years and time around it, but it is the American name for the punctuation mark.",
+     "definitionFit": "Dotage is the feeble-minded state of old age, the unhappy later stage of life when faculties decline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   }
  ]
 }
