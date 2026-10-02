@@ -83,7 +83,7 @@ TOOL = "tools/file_archive_org_puzzles.py"
 ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
 CODE = [Path(__file__), TOOLS / "file_trove_puzzles.py", TOOLS / "trove_grid.py",
-        TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py"]
+        TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv"]
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
@@ -429,7 +429,7 @@ def is_word(word):
     too loose here: they hold "al", "imo" and "chaft")."""
     if word.lower().endswith("'s") and len(word) > 3:
         return is_word(word[:-2])
-    return rank(word) is not None or word.lower() in ("a", "i")
+    return rank(word) is not None or word.lower() in ("a", "i") or word.lower().replace("'", "") in closed()
 
 
 #: The letters the print's worn type turns into one another, both ways.
@@ -527,8 +527,11 @@ def agree(clue, others):
                     seen[i][k] = theirs[j]
     # A word or mark that two other readings have where this one has nothing
     # (a word lost, two run together, a comma missed) is put in.
+    # A lone I is put in only when every reading has it: RapidOCR's two
+    # recognisers share one detector and read the same speck as a "1".
     adds = {g: [w for w, ks in e.items() if len(ks) >= 2 and len(ks) * 2 > len(others)
-                and (w in MARKS or is_word(w))] for g, e in enumerate(extra)}
+                and (w in MARKS or is_word(w)) and (w != "i" or len(ks) == len(others))]
+            for g, e in enumerate(extra)}
     # Words other readings have between the clue's number and its first word,
     # or between its last word and its count, were lost from this reading:
     # put in when most readings have the same ones, else no reading wins.
@@ -558,6 +561,11 @@ def agree(clue, others):
         if not got and i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper():
             # A letter before the clue's capital that no other reading has
             # is a speck or a misread clue number.
+            drop.add(i)
+            continue
+        if (i and a == "i" and len(got) * 2 < len(others)
+                and all(v.lower() == "i" for v in got.values())):
+            # A lone I most readings see nothing at is a speck.
             drop.add(i)
             continue
         if not got:
@@ -653,12 +661,76 @@ def clean(text):
     text = re.sub(r"(?<=[a-z]{2})\.(?=\s+[a-z])", ",", text)
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
-    # A word broken over a line end is one word when the lexicon has it whole.
-    # So is one whose halves are not both words ("hav- ing").
-    return re.sub(r"\b([A-Za-z]+)-\s+([a-z]+)\b",
-                  lambda m: m.group(1) + m.group(2)
-                  if is_word(m.group(1) + m.group(2)) or not (is_word(m.group(1)) and is_word(m.group(2)))
-                  else f"{m.group(1)}-{m.group(2)}", text)
+    text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
+    return re.sub(r"\b([A-Za-z]+)-\s+([a-z]+)\b", line_end_hyphen, text)
+
+
+#: What follows a clue number standing for a light, not a word.
+LIGHT_WORD = re.compile(r"(?:across|down|ac|dn|ack|dwn)\b", re.IGNORECASE)
+
+
+def one_for_i(m):
+    """A "1" standing as a word ("in letter 1 posted") or starting one
+    ("1t") the capital I it was printed as, when words go on after it and
+    the result is a word; a clue number before "across" or "down" stays."""
+    rest = m.group(1)
+    if not rest:
+        after = m.string[m.end():]
+        if (re.match(r"\s+[a-z]", after) and not LIGHT_WORD.match(after.lstrip())
+                and re.search(r"[A-Za-z][,;:'\"]?\s+$", m.string[:m.start()])):
+            return "I"
+        return m.group(0)
+    return "I" + rest if is_word("i" + rest) else m.group(0)
+
+
+_COMPOUNDS = None
+
+
+def compound(a, b):
+    """(hyphenated, closed): how many of the corpus's clues print a+b each
+    way (tools/data/clue_compounds.tsv), (0, 0) when none do."""
+    global _COMPOUNDS
+    if _COMPOUNDS is None:
+        _COMPOUNDS = {}
+        with open(TOOLS / "data" / "clue_compounds.tsv", encoding="utf-8") as f:
+            for line in f:
+                if not line.startswith("#"):
+                    k, h, c = line.rstrip("\n").split("\t")
+                    _COMPOUNDS[k] = (int(h), int(c))
+    return _COMPOUNDS.get(f"{a.lower()}-{b.lower()}", (0, 0))
+
+
+_CLOSED = None
+
+
+def closed():
+    """The compounds the corpus's clues print closed more often than
+    hyphenated ("backstreet"): words, though the lexicon lacks them."""
+    global _CLOSED
+    if _CLOSED is None:
+        compound("", "")
+        _CLOSED = {k.replace("-", "") for k, (h, c) in _COMPOUNDS.items() if c > h}
+    return _CLOSED
+
+
+def line_end_hyphen(m):
+    """A word hyphenated over a line end ("Pal- grave", "back- street",
+    "short- lived") as the print meant it. The hyphen is the line break's
+    when the lexicon has the word whole, when a half is no word ("hav- ing"),
+    when the corpus's clues print it closed more often than hyphenated, or
+    when it is a name (a capital after a lower-case word, "in Pal- grave");
+    else it is the compound's own."""
+    a, b = m.group(1), m.group(2)
+    if is_word(a + b) or not (is_word(a) and is_word(b)):
+        return a + b
+    hyphenated, closed = compound(a, b)
+    if hyphenated != closed:
+        return a + b if closed > hyphenated else f"{a}-{b}"
+    name = a[0].isupper() and a[1:].islower() and re.search(r"[a-z][,;:]?\s+$", m.string[:m.start()])
+    return a + b if name else f"{a}-{b}"
+
+
+HEADING = re.compile(r"^\W*(?:clues\s+)?(?:across|down)\W*$", re.IGNORECASE | re.MULTILINE)
 
 
 def reconcile(laid, streams):
@@ -668,7 +740,9 @@ def reconcile(laid, streams):
     were laid from different readings; one text or dict alone is one reading."""
     if isinstance(streams, (str, dict)):
         streams = [streams]
-    whole = [marked(clean(s), breaks=True) for s in streams if isinstance(s, str)]
+    # A list's heading bounds the clues either side like a number: "DOWN"
+    # over "1 Unusual ..." is no word lost from 1 down.
+    whole = [marked(clean(HEADING.sub("0", s)), breaks=True) for s in streams if isinstance(s, str)]
     per = [{k: marked(clean(v), breaks=True) for k, v in s.items()} for s in streams if isinstance(s, dict)]
     out, blank = {}, {}
     for lid, (text, enum, group) in laid.items():
