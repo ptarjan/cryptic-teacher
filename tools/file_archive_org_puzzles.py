@@ -84,7 +84,8 @@ TOOL = "tools/file_archive_org_puzzles.py"
 ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
 CODE = [Path(__file__), TOOLS / "file_trove_puzzles.py", TOOLS / "trove_grid.py",
-        TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv"]
+        TOOLS / "trove_solution_ocr.py", TOOLS / "trove_clue_ocr.py", TOOLS / "data" / "clue_compounds.tsv",
+        TOOLS / "data" / "lexicon.tsv", TOOLS / "data" / "clue_lm.tsv.gz"]
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
