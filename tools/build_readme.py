@@ -435,6 +435,7 @@ LAYOUT = [
     ("fetching", "tools/vlm_reader.py", "a vision-language model as one more reader of scanned clue columns"),
     ("fetching", "tools/vlm_column_prompt.md", "what the VLM reader is told when transcribing a clue column verbatim"),
     ("fetching", "tools/vlm_pick_prompt.md", "what the VLM reader is told when the readers disagree on one clue"),
+    ("fetching", "tools/test_annotate_partial.sh", "a puzzle that has hints and lacks some is annotated only where it lacks them"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

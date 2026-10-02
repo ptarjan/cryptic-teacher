@@ -10,8 +10,9 @@ on it is counted: memory over the size of a run, and idle cores over a run's
 measured CPU.
 
 The queue order is the round-robin tools/prereset_backfill.sh builds, with the
-puzzles a lockout cut off first, then Cracking the Cryptic's puzzles, then the
-puzzles with a notable tag (tools/puzzle_tags.py), then the indicator cover
+puzzles a lockout cut off first, then the partly annotated ones, fewest clues
+missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
+notable tag (tools/puzzle_tags.py), then the indicator cover
 (tools/indicator_cover.py).
 
     tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
@@ -729,13 +730,30 @@ def promote(queue, pinned, tagged):
     return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
 
 
+def partly_annotated(index_path=INDEX):
+    """{id: clues it lacks} for the puzzles that have hints and lack some (the
+    index's `unannotated`). A run annotates only those clues, so each costs a
+    fraction of a puzzle. Empty when there is no index to read."""
+    try:
+        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return {r["id"]: r["unannotated"]
+            for r in index.get("puzzles", []) + index.get("unlisted", [])
+            if r.get("unannotated")}
+
+
 def cover_first(pinned):
-    """The ids on stdin, reordered: pinned first, then Cracking the Cryptic's
-    puzzles, then the puzzles with a notable tag, then the indicator cover, then
-    the rest as they came. The summary goes to stderr, which is the burn's log."""
+    """The ids on stdin, reordered: pinned first, then the partly annotated
+    puzzles, then Cracking the Cryptic's puzzles, then the puzzles with a
+    notable tag, then the indicator cover, then the rest as they came. The
+    summary goes to stderr, which is the burn's log."""
     import indicator_cover
     queue = sys.stdin.read().split()
     ctc = ctc_puzzles()
+    partial = partly_annotated()
+    pinned = pinned + sorted((pid for pid in queue if pid in partial and pid not in pinned),
+                             key=partial.get)
     pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]
     tagged = tagged_puzzles()
     before = len(pinned)

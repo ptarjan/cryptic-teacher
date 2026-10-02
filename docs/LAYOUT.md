@@ -1209,5 +1209,7 @@ tools/vlm_column_prompt.md                   what the VLM reader is told when tr
                                              clue column verbatim
 tools/vlm_pick_prompt.md                     what the VLM reader is told when the readers
                                              disagree on one clue
+tools/test_annotate_partial.sh               a puzzle that has hints and lacks some is
+                                             annotated only where it lacks them
 ```
 <!-- LAYOUT-END -->

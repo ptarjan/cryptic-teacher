@@ -15,6 +15,11 @@ Every entry in the puzzle must appear as a key. A key whose value is `null` says
 the clue is deliberately unsolved, which the prompt allows and which is very
 different from forgetting one — so absence is an error and `null` is not.
 
+Except when the run's copy of the puzzle (tools/_puzzle_<ID>.json, written by
+`annotate_check.py --view`) lists `annotateOnly`: then only those ids need a
+key, every other entry keeps its annotation byte for byte, and a key that
+would change one is refused.
+
 This exists because the annotation run used to hand-write a throwaway Python
 script per puzzle to do it. Eighty-four of them, in six spellings of the same
 `sys.path` incantation; forty-eight re-typed the `/*JSON-START*/` markers by hand
@@ -41,6 +46,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -58,6 +64,38 @@ LANDING_COMMANDS = ("apply_annotations", "annotate_check")
 def default_input(path):
     """Beside the tools, named for the puzzle, ignored by git (`tools/_*`)."""
     return TOOLS / f"_ann_{path.stem}.json"
+
+
+def view_path(path):
+    """The annotate run's copy of the puzzle, beside the annotations file."""
+    return TOOLS / f"_puzzle_{path.stem}.json"
+
+
+# A run that is cut off resumes within hours (the five-hour window); a copy
+# older than this is a crashed run's leftover, not the current run's contract.
+VIEW_MAX_AGE_S = 12 * 3600
+
+
+def current_view(path):
+    """The current run's copy of the puzzle as a dict, or None."""
+    try:
+        if time.time() - view_path(path).stat().st_mtime > VIEW_MAX_AGE_S:
+            return None
+        view = json.loads(view_path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return view if isinstance(view, dict) else None
+
+
+def annotate_only(path):
+    """The ids the run may write, from its copy's `annotateOnly`; None for all.
+
+    A puzzle that already has hints and lacks some, most often because a data
+    fix cleared the entries whose clue or answer changed, is annotated only
+    where it lacks them: re-solving the rest buys hints it already has and
+    risks rewriting good ones."""
+    only = (current_view(path) or {}).get("annotateOnly")
+    return list(only) if isinstance(only, list) else None
 
 
 def load_annotations(spec):
@@ -180,7 +218,19 @@ def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
     continuations = groups.leader_of(puzzle["entries"])
     ids = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in continuations]
-    missing = [i for i in ids if i not in annotations]
+    only = annotate_only(path)
+    if only is not None:
+        current = {entry_id(e): e.get("annotation") for e in puzzle["entries"]}
+        kept = [k for k in ids if k in annotations and k not in only
+                and annotations[k] != current[k]]
+        if kept:
+            raise SystemExit(
+                f"apply_annotations: {path.name}: {', '.join(kept)} already "
+                f"annotated, and those annotations stay as they are — this run "
+                f"writes only {', '.join(only)} ({view_path(path).name} "
+                f"annotateOnly). Drop the other keys.")
+    required = ids if only is None else [i for i in ids if i in only]
+    missing = [i for i in required if i not in annotations]
     extra = [k for k in annotations if k not in ids and k not in continuations]
     covered = [f"{k} (annotate it on {continuations[k]})" for k in annotations
                if k in continuations and annotations[k] is not None]
@@ -201,7 +251,7 @@ def apply(path, annotations, by=None):
     had_hints = provenance.has_hints(puzzle)
     before = [e.get("annotation") for e in puzzle["entries"]]
     for entry in puzzle["entries"]:
-        if entry_id(entry) in continuations:
+        if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
         ann = annotations[entry_id(entry)]
         if ann is None:
@@ -221,8 +271,8 @@ def apply(path, annotations, by=None):
         write_puzzle_file(path, puzzle)
     except puzzle_integrity.RefusedWrite as err:
         raise SystemExit(refusal(path, puzzle, err))
-    solved = sum(1 for v in annotations.values() if v is not None)
-    return solved, len(ids)
+    solved = sum(1 for k in required if annotations[k] is not None)
+    return solved, len(required)
 
 
 def main(argv):
