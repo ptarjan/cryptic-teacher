@@ -117,6 +117,29 @@ check "skipped" "$(ledger skipped solve)" "ct-4"
 puzzle ct-4 GNU
 check "answers arriving are a new input" "$(ledger skipped solve)" ""
 
+echo "clearing by hand is the one-off retry after a code change"
+puzzle ct-5 CAT; puzzle ct-6 DOG
+ledger record solve ct-5 --judged --reason "pieces join to CAX, expected CAT" >/dev/null
+ledger record solve ct-6 --judged --reason "crossings disagree" >/dev/null
+check "a bare clear names nothing" "$(ledger clear solve 2>&1 >/dev/null; echo "rc=$?")" \
+  "failed_inputs.py clear: name the ids, a --reason, or --all"$'\n'"rc=1"
+check "clear by reason" "$(ledger clear solve --reason "PIECES JOIN")" "cleared 1 solve failures; they are tried again next run"
+check "the other stays skipped" "$(ledger skipped solve)" "ct-6"
+check "clear --all" "$(ledger clear solve --all >/dev/null; ledger skipped solve)" ""
+
+echo "a record from before the puzzle hash stays skipped, held to the puzzle as it is"
+python3 - "$FAILED_INPUTS_FILE" <<'EOF2'
+import json, sys
+d = json.load(open(sys.argv[1]))
+d["solve"]["ct-6"] = {"date": "2026-10-01", "inputs": "0123456789abcdef", "reason": "old"}
+json.dump(d, open(sys.argv[1], "w"))
+EOF2
+check "skipped" "$(ledger skipped solve)" "ct-6"
+check "re-keyed on disk" "$(python3 -c "import json; print(sorted(json.load(open('$FAILED_INPUTS_FILE'))['solve']['ct-6']))")" \
+  "['date', 'puzzle', 'reason']"
+puzzle ct-6 DOT
+check "and a changed puzzle comes back" "$(ledger skipped solve)" ""
+
 echo "new arrivals are not capped; ANNOTATE_MAX bounds only the older backlog"
 # shellcheck disable=SC2154 # $fresh is set by the eval of $pick
 fresh_q() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$fresh" ); }

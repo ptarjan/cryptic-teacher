@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Nightly work that failed, and the exact inputs it failed on.
+"""Nightly work that failed, and the puzzle it failed on.
 
 The nightly queues in tools/daily_update.sh pick work by date. When something
 fails deterministically it is still the newest candidate the next night, so it
 gets bought again at full price. So each failure is recorded along with a hash of
-the inputs that produced it. The item is skipped while that hash still matches.
-It becomes eligible again when its inputs change: a corrected answer, a re-fetched
-clue, a new prompt, or a fix to the code that judged it. Nobody has to reset
-anything, and there is no timer.
+the puzzle it failed on: its clues, answers and grid. The item is skipped while
+that hash still matches, and becomes eligible again by itself when the puzzle
+changes: a corrected answer, a re-fetched clue. The code is not part of the
+hash: whoever changes a prompt, a validator or an applier and wants old failures
+retried clears them once with `clear`, by id or by the words of their reason.
+There is no timer.
 
 A transient failure is never recorded, because it says nothing about the item.
 That covers a usage lockout, an expired login, a network error, or an overloaded
@@ -17,7 +19,9 @@ item for them. The check reads the CLI's last words, so it is skipped for
 item by definition, and it quotes clue text that could contain any word.
 
     python3 tools/failed_inputs.py record <kind> <id> --reason "..." [--judged]
-    python3 tools/failed_inputs.py clear <kind> <id>
+    python3 tools/failed_inputs.py clear <kind> <id> [<id> ...]   # it succeeded, or retry it
+    python3 tools/failed_inputs.py clear <kind> --reason "pieces"  # retry those whose reason says this
+    python3 tools/failed_inputs.py clear <kind> --all              # retry every one
     python3 tools/failed_inputs.py skipped <kind>     # ids to leave out tonight
     python3 tools/failed_inputs.py summary            # one line for the log
 
@@ -47,13 +51,7 @@ if os.environ.get("FAILED_INPUTS_PUZZLES"):
     puzzle_paths.PUZZLE_DIR = Path(os.environ["FAILED_INPUTS_PUZZLES"])
 BLIND_STASH = ROOT / ".blind"
 
-# Per kind: the code whose change can turn this failure into a success. The
-# puzzle's own clues, answers and grid are always part of the hash too.
-KINDS = {
-    "annotate": ["tools/annotate_prompt.md", "tools/validate_annotations.py",
-                 "tools/annotate_check.py"],
-    "solve": ["tools/solve_prompt.md", "tools/apply_solution.py"],
-}
+KINDS = ("annotate", "solve")
 
 # Failures that are about us or the network, not the item.
 TRANSIENT = re.compile(
@@ -97,15 +95,8 @@ def puzzle_inputs(pid):
     return {"dimensions": puzzle.get("dimensions"), "entries": entries}
 
 
-def input_hash(kind, pid):
-    h = hashlib.sha256()
-    h.update(json.dumps(puzzle_inputs(pid), sort_keys=True).encode())
-    for rel in KINDS[kind]:
-        try:
-            h.update((ROOT / rel).read_bytes())
-        except FileNotFoundError:
-            h.update(b"missing:" + rel.encode())
-    return h.hexdigest()[:16]
+def input_hash(pid):
+    return hashlib.sha256(json.dumps(puzzle_inputs(pid), sort_keys=True).encode()).hexdigest()[:16]
 
 
 def load():
@@ -119,8 +110,17 @@ def load():
         data = {}
     if not isinstance(data, dict):
         data = {}
+    # A record with no "puzzle" hash is held against the puzzle as it is now,
+    # so no failure on record comes back without its puzzle changing.
+    adopted = False
     for kind in KINDS:
-        data.setdefault(kind, {})
+        for pid, rec in data.setdefault(kind, {}).items():
+            if "puzzle" not in rec:
+                rec.pop("inputs", None)
+                rec["puzzle"] = input_hash(pid)
+                adopted = True
+    if adopted:
+        save(data)
     return data
 
 
@@ -130,9 +130,8 @@ def save(data):
 
 
 def skipped(data, kind):
-    """Ids whose recorded failure is still on the inputs they have now."""
-    return sorted(i for i, rec in data[kind].items()
-                  if rec.get("inputs") == input_hash(kind, i))
+    """Ids whose recorded failure is on the puzzle as it is now."""
+    return sorted(i for i, rec in data[kind].items() if rec["puzzle"] == input_hash(i))
 
 
 def cmd_record(args):
@@ -142,18 +141,27 @@ def cmd_record(args):
         sys.exit(3)   # a caller that alerts on a real failure tests for this
     data = load()
     data[args.kind][args.id] = {
-        "inputs": input_hash(args.kind, args.id),
+        "puzzle": input_hash(args.id),
         "date": datetime.now(timezone.utc).date().isoformat(),
         "reason": (args.reason or "")[:300],
     }
     save(data)
-    print(f"{args.id} failed on these inputs and is skipped until they change")
+    print(f"{args.id} failed on this puzzle and is skipped until it changes")
 
 
 def cmd_clear(args):
+    if not (args.ids or args.reason or args.all):
+        sys.exit("failed_inputs.py clear: name the ids, a --reason, or --all")
     data = load()
-    if data[args.kind].pop(args.id, None) is not None:
+    gone = [i for i, rec in data[args.kind].items()
+            if (not args.ids or i in args.ids)
+            and (not args.reason or args.reason.lower() in rec.get("reason", "").lower())]
+    for i in gone:
+        del data[args.kind][i]
+    if gone:
         save(data)
+    if not args.ids:
+        print(f"cleared {len(gone)} {args.kind} failures; they are tried again next run")
 
 
 def cmd_skipped(args):
@@ -164,7 +172,7 @@ def cmd_skipped(args):
 def cmd_summary(args):
     """One log line: how many items are held out, and which.
 
-    Records whose inputs have changed are dropped here. They are eligible again
+    Records whose puzzle has changed are dropped here. They are eligible again
     anyway, and keeping them would make the ledger look like a list of blocks.
     """
     data = load()
@@ -194,9 +202,11 @@ def main():
     p.add_argument("--judged", action="store_true",
                    help="a checker rejected the output: never treated as transient")
     p.set_defaults(func=cmd_record)
-    p = sub.add_parser("clear", help="forget an item: it succeeded")
+    p = sub.add_parser("clear", help="forget failures: an item succeeded, or the code that failed them changed")
     p.add_argument("kind", choices=KINDS)
-    p.add_argument("id")
+    p.add_argument("ids", nargs="*", metavar="id")
+    p.add_argument("--reason", help="only failures whose reason contains this (any case)")
+    p.add_argument("--all", action="store_true", help="every failure of this kind")
     p.set_defaults(func=cmd_clear)
     p = sub.add_parser("skipped", help="ids to leave out tonight, one per line")
     p.add_argument("kind", choices=KINDS)
