@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Turn red, black and green",
     "enumeration": "5"
    },
-   "solution": "BLUSH"
+   "solution": "BLUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUSH",
+    "definitions": [
+     {
+      "text": "Turn red",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the standard abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "LUSH",
+      "note": "lush vegetation is green and thriving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of colours, or something changing from red through black to green.",
+     "walkthrough": "The comma tempts you to read three colours in a row, but 'Turn red' is the definition and 'black and green' builds the word.",
+     "definitionFit": "Going pink in the face from embarrassment is exactly what it means to colour up, a synonym phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,44 @@
     "text": "Disreputable singer overheard",
     "enumeration": "4"
    },
-   "solution": "BASE"
+   "solution": "BASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BASE",
+    "definitions": [
+     {
+      "text": "Disreputable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "something overheard is caught by the ear, so we want a sound rather than a spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "BASE",
+      "soundsLike": "BASS",
+      "note": "a bass is a singer with the lowest male voice, pronounced like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A singer of poor reputation whose conversation someone happened to hear.",
+     "walkthrough": "The low-voiced singer is spelt BASS but said exactly like the adjective meaning low or morally unworthy.",
+     "definitionFit": "Base describes conduct that is morally low, contemptible and without honour, a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +144,50 @@
     "text": "Squad uniform on dummy",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNIT",
+    "definitions": [
+     {
+      "text": "Squad",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is the NATO phonetic alphabet word for U"
+     },
+     {
+      "clueFragment": "dummy",
+      "gives": "NIT",
+      "note": "a nit is a fool or dummy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A team's kit being tried on a tailor's dummy.",
+     "walkthrough": "In a down clue one piece placed 'on' another sits above it. 'Uniform' looks like clothing but is the radio-alphabet code word for one letter.",
+     "definitionFit": "A unit is a small organized group of soldiers or police working together, the same as a squad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +201,70 @@
     "text": "Two-facedness of rich spy you almost corrupted",
     "enumeration": "9"
    },
-   "solution": "HYPOCRISY"
+   "solution": "HYPOCRISY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HYPOCRISY",
+    "definitions": [
+     {
+      "text": "Two-facedness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word is dropped"
+     },
+     {
+      "text": "corrupted",
+      "for": "anagram",
+      "note": "corrupted means spoiled or altered, so the letters are rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rich",
+      "gives": "RICH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spy",
+      "gives": "SPY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YO",
+      "note": "the word with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RICHSPYYO",
+       "gives": "HYPOCRISY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy secret agent turned double agent, accused of duplicity.",
+     "walkthrough": "The trimmed second-person pronoun joins two other words, and the nine letters are then shuffled.",
+     "definitionFit": "Being two-faced means professing one thing while doing another, which is the essence of hypocrisy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupted"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +278,47 @@
     "text": "Mistake flower for flour product",
     "enumeration": "7"
    },
-   "solution": "BLOOMER"
+   "solution": "BLOOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLOOMER",
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     },
+     {
+      "text": "flour product",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "flower for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mistake",
+      "note": "first meaning: a blunder or embarrassing error"
+     },
+     {
+      "clueFragment": "flour product",
+      "note": "second meaning: a large crusty British loaf with diagonal slashes on top"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone confuses a garden flower with bread flour, a classic homophone mix-up.",
+     "walkthrough": "The surface mistake is itself a bloomer; a plant that flowers is also a bloomer, a third meaning playing in the background. A bloomer is a type of British white loaf.",
+     "definitionFit": "The word means both a silly blunder in informal British English and a particular baked loaf of bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mistake"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +332,59 @@
     "text": "British liner refurbished in European city",
     "enumeration": "6"
    },
-   "solution": "BERLIN"
+   "solution": "BERLIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BERLIN",
+    "definitions": [
+     {
+      "text": "European city",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refurbished",
+      "for": "anagram",
+      "note": "refurbishing a ship rebuilds and rearranges its fittings, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "liner",
+      "gives": "LINER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLINER",
+       "gives": "BERLIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British ocean liner being refitted in a dockyard in some continental port.",
+     "walkthrough": "The city is inland, so the shipyard picture is pure decoy.",
+     "definitionFit": "Berlin is the capital of Germany, an example of a major city in Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liner"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +398,54 @@
     "text": "Raised for the attention of clumsy fool",
     "enumeration": "3"
    },
-   "solution": "OAF"
+   "solution": "OAF",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OAF",
+    "definitions": [
+     {
+      "text": "clumsy fool",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down entry, raising the letters means reading them from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for the attention of",
+      "gives": "FAO",
+      "note": "FAO is the abbreviation used on letters and memos for 'for the attention of'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OAF"
+     ],
+     "reversals": [
+      {
+       "from": "FAO",
+       "to": "OAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something brought up for the notice of a bumbling idiot.",
+     "walkthrough": "FAO is a common British office abbreviation written at the top of a letter to name its intended reader.",
+     "definitionFit": "An oaf is a big, awkward, stupid person, the very picture of a clumsy fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +459,56 @@
     "text": "Max’s counterpart starts to support The Red Elvises’ lead singer",
     "enumeration": "8"
    },
-   "solution": "MINSTREL"
+   "solution": "MINSTREL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MINSTREL",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the opening letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Max’s counterpart",
+      "gives": "MIN",
+      "note": "the opposite of max (maximum) is min (minimum)"
+     },
+     {
+      "clueFragment": "support The Red Elvises’ lead",
+      "gives": "STREL",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "STREL"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician named Max's opposite number opens for the frontman of the band The Red Elvises.",
+     "walkthrough": "'lead singer' looks like one phrase, but 'lead' is the last word whose first letter is taken, leaving just 'singer' as the definition.",
+     "definitionFit": "A minstrel was a medieval entertainer who sang or recited poetry, so a kind of singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +522,40 @@
     "text": "Supporter of sovereign, even if right became left",
     "enumeration": "8"
    },
-   "solution": "ROYALIST"
+   "solution": "ROYALIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROYALIST",
+    "definitions": [
+     {
+      "text": "Supporter of sovereign",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supporter of sovereign",
+      "note": "surface reading: someone who backs the monarchy"
+     },
+     {
+      "clueFragment": "even if right became left",
+      "note": "setter's reading: swap the letter R for L and you get another word for a crown supporter, so the meaning survives the change"
+     }
+    ],
+    "explanation": {
+     "surface": "A monarchist stays loyal to the crown even if their politics swung from right to left.",
+     "walkthrough": "Right and left look political, but they stand for the letters R and L: change the first letter and LOYALIST still supports the sovereign.",
+     "definitionFit": "A royalist is someone who backs a king or queen and the institution of monarchy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +569,44 @@
     "text": "Captain who jumps over rope",
     "enumeration": "7"
    },
-   "solution": "SKIPPER"
+   "solution": "SKIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SKIPPER",
+    "definitions": [
+     {
+      "text": "Captain",
+      "at": 0
+     },
+     {
+      "text": "who jumps over rope",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Captain",
+      "note": "first meaning: the commander of a ship or team"
+     },
+     {
+      "clueFragment": "who jumps over rope",
+      "note": "second meaning: a person skipping with a rope"
+     }
+    ],
+    "explanation": {
+     "surface": "A ship's captain leaping over a coil of rope on deck.",
+     "walkthrough": "The rope fits the nautical scene, but here it is a skipping rope.",
+     "definitionFit": "Skipper is an informal term for a ship's master or team leader, and literally someone who skips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rope"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +620,55 @@
     "text": "Like supporter, cry when heart gets ripped out",
     "enumeration": "5"
    },
-   "solution": "FANCY"
+   "solution": "FANCY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FANCY",
+    "definitions": [
+     {
+      "text": "Like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when heart gets ripped out",
+      "for": "deletion",
+      "note": "the heart of a word is its centre, and ripping it out removes the middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter",
+      "gives": "FAN",
+      "note": "a fan is a supporter of a team or star"
+     },
+     {
+      "clueFragment": "cry",
+      "gives": "CY",
+      "note": "the word with its middle letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "CY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan weeps when their team's heart is torn out by defeat.",
+     "walkthrough": "'Like' seems to compare, but it is a verb meaning to be attracted to.",
+     "definitionFit": "To fancy someone or something is to find it appealing, an informal synonym for the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +682,60 @@
     "text": "Citadel can convert into flat, perhaps",
     "enumeration": "10"
    },
-   "solution": "ACCIDENTAL"
+   "solution": "ACCIDENTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACCIDENTAL",
+    "definitions": [
+     {
+      "text": "flat, perhaps",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "convert",
+      "for": "anagram",
+      "note": "converting a building changes its layout, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Citadel",
+      "gives": "CITADEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CITADELCAN",
+       "gives": "ACCIDENTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A developer turning an old fortress into an apartment.",
+     "walkthrough": "'flat' looks like housing, but it is the musical symbol that lowers a note.",
+     "definitionFit": "In music notation a flat, sharp or natural sign not in the key signature is called an accidental."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +749,56 @@
     "text": "Remove badly created AI",
     "enumeration": "9"
    },
-   "solution": "ERADICATE"
+   "solution": "ERADICATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ERADICATE",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters come out in a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "created",
+      "gives": "CREATED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "AI",
+      "gives": "AI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREATEDAI",
+       "gives": "ERADICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to delete a poorly built artificial intelligence.",
+     "walkthrough": "'badly created' reads as one phrase about the software, but 'badly' alone signals the rearrangement.",
+     "definitionFit": "To eradicate is to wipe out or get rid of completely, a stronger synonym of the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +812,50 @@
     "text": "Approximate maturity needed for coarse material",
     "enumeration": "8"
    },
-   "solution": "ROUGHAGE"
+   "solution": "ROUGHAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUGHAGE",
+    "definitions": [
+     {
+      "text": "coarse material",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "needed for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Approximate",
+      "gives": "ROUGH",
+      "note": "a rough figure is an approximate one"
+     },
+     {
+      "clueFragment": "maturity",
+      "gives": "AGE",
+      "note": "age is maturity, years of growing up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUGH",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe or process that needs ripening to produce a coarse fabric.",
+     "walkthrough": "'Approximate' looks like a verb but is the adjective meaning not exact.",
+     "definitionFit": "Roughage is coarse, fibrous plant matter in food that aids digestion, i.e. dietary fibre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +869,64 @@
     "text": "Oscar wearing leather shoe without front for special event",
     "enumeration": "8"
    },
-   "solution": "OCCASION"
+   "solution": "OCCASION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OCCASION",
+    "definitions": [
+     {
+      "text": "special event",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without front",
+      "for": "deletion",
+      "note": "lacking its front means the first letter is dropped"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whatever wears clothing is inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leather shoe",
+      "gives": "OCCASIN",
+      "note": "a moccasin is a soft leather shoe, minus its first letter"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is the NATO phonetic alphabet word for O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCCASI",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A film-award winner in leather shoes for a gala night.",
+     "walkthrough": "'Oscar' suggests the Academy Award, but it is the radio code word for one letter. It slips in near the end of the trimmed shoe.",
+     "definitionFit": "An occasion is a particular event or celebration, especially a notable one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +940,47 @@
     "text": "Perennial fantasy villain laid low",
     "enumeration": "6"
    },
-   "solution": "ORCHID"
+   "solution": "ORCHID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORCHID",
+    "definitions": [
+     {
+      "text": "Perennial",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fantasy villain",
+      "gives": "ORC",
+      "note": "orcs are monstrous villains in Tolkien and other fantasy"
+     },
+     {
+      "clueFragment": "laid low",
+      "gives": "HID",
+      "note": "to lie low is to hide, so laid low is hid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORC",
+      "HID"
+     ]
+    },
+    "explanation": {
+     "surface": "A recurring villain in a fantasy saga is finally brought down.",
+     "walkthrough": "'Perennial' looks like an adjective describing the villain, but it is a noun for a plant that lives for years.",
+     "definitionFit": "Many orchids are long-lived flowering plants returning year after year, so an example of a perennial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Perennial"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +994,56 @@
     "text": "Embrace a boring salad ingredient",
     "enumeration": "6"
    },
-   "solution": "CARESS"
+   "solution": "CARESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARESS",
+    "definitions": [
+     {
+      "text": "Embrace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "to bore is to drill into, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "salad ingredient",
+      "gives": "CRESS",
+      "note": "cress is a peppery leaf used in salads"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to hug a dull salad vegetable.",
+     "walkthrough": "'boring' looks like 'dull' but means drilling into.",
+     "definitionFit": "To caress is to stroke or hold someone tenderly, close in sense to an embrace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1057,47 @@
     "text": "Inexperienced English novelist",
     "enumeration": "6"
    },
-   "solution": "GREENE"
+   "solution": "GREENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREENE",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inexperienced",
+      "gives": "GREEN",
+      "note": "green means new and untried"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A young, untested English writer.",
+     "walkthrough": "'English' looks like it describes the novelist, but it supplies one letter.",
+     "definitionFit": "Graham Greene was a twentieth-century writer of books such as Brighton Rock and The Power and the Glory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1117,51 @@
      }
     ]
    },
-   "solution": "GRAVYTRAIN"
+   "solution": "GRAVYTRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRAVY TRAIN",
+    "definitions": [
+     {
+      "text": "Nice work if you can get it",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food offered in boat",
+      "gives": "GRAVY",
+      "note": "gravy is served at table from a gravy boat"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "TRAIN",
+      "note": "to coach is to train"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAVY",
+      "TRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Meals served on boats and buses, which sounds like a cushy job.",
+     "walkthrough": "The boat is a gravy boat, a jug-shaped dish, and 'coach' is the verb, not a bus.",
+     "definitionFit": "A gravy train is an easy job or scheme that pays well for little effort, an idiomatic description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boat"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1175,46 @@
     "text": "Ejected for quarrel",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "Ejected",
+      "at": 0
+     },
+     {
+      "text": "quarrel",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ejected",
+      "note": "first meaning: expelled from the mouth"
+     },
+     {
+      "clueFragment": "quarrel",
+      "note": "second meaning: a petty argument"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Ejected for quarrel' sounds like someone thrown out for fighting; the two words are separate meanings.",
+     "definitionFit": "The past tense of spit means forced out of the mouth, and a minor squabble is also called by this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ejected"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1228,44 @@
     "text": "Foreign character actor’s name coming ahead of Jones",
     "enumeration": "4"
    },
-   "solution": "ZETA"
+   "solution": "ZETA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ZETA",
+    "definitions": [
+     {
+      "text": "Foreign character",
+      "at": 0
+     },
+     {
+      "text": "actor’s name coming ahead of Jones",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign character",
+      "note": "first meaning: a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "actor’s name coming ahead of Jones",
+      "note": "second meaning: the front half of the hyphenated surname of the Welsh actress Catherine, whose name ends in Jones"
+     }
+    ],
+    "explanation": {
+     "surface": "An exotic film actor billed above someone called Jones.",
+     "walkthrough": "'character' suggests a role in a film, but it means a letter of an alphabet.",
+     "definitionFit": "Zeta is the sixth letter of the Greek alphabet and the first part of Catherine Zeta-Jones's double-barrelled surname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1279,50 @@
     "text": "Am I ahead of the game, buddy?",
     "enumeration": "5"
    },
-   "solution": "AMIGO"
+   "solution": "AMIGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMIGO",
+    "definitions": [
+     {
+      "text": "buddy",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "ahead of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Am I",
+      "gives": "AMI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the game",
+      "gives": "GO",
+      "note": "Go is the Japanese board game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMI",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking a friend whether they are winning.",
+     "walkthrough": "'ahead of the game' is an idiom for being in front, but here it just places one piece before the other.",
+     "definitionFit": "Amigo is Spanish for friend, borrowed into English as an informal word for a pal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ahead"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1336,43 @@
     "text": "Globe kept by Gorbachev",
     "enumeration": "3"
    },
-   "solution": "ORB"
+   "solution": "ORB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORB",
+    "definitions": [
+     {
+      "text": "Globe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept by",
+      "for": "hidden_word",
+      "note": "something kept by another is held inside it, so the letters sit within a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gorbachev",
+      "gives": "ORB",
+      "note": "letters two to four of the name"
+     }
+    ],
+    "explanation": {
+     "surface": "A globe that the Soviet leader Mikhail Gorbachev kept on his desk.",
+     "walkthrough": "The famous birthmark-and-world picture is decoy; the answer sits right inside the surname.",
+     "definitionFit": "An orb is a sphere or ball, and the globe of the world is a spherical body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gorbachev"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1386,51 @@
     "text": "One previously dated liberal, for instance",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "for instance",
+      "at": 30,
+      "note": "the phrase is adverbial; the answer is the noun it introduces"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One previously dated",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "AMPLE",
+      "note": "a liberal helping is an ample one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner who was a political Liberal, cited as a case in point.",
+     "walkthrough": "'liberal' looks political, but it means generous or plentiful.",
+     "definitionFit": "Saying 'for instance' introduces a case or illustration, which is what an example is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1444,46 @@
     "text": "Some given no blessing or honour",
     "enumeration": "7"
    },
-   "solution": "ENNOBLE"
+   "solution": "ENNOBLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENNOBLE",
+    "definitions": [
+     {
+      "text": "honour",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the letters are a part taken from the run of words"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given no blessing",
+      "gives": "ENNOBLE",
+      "note": "the run of letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people receive neither a blessing nor an honour.",
+     "walkthrough": "The negative 'no' seems to deny the honour, yet it supplies two of the hidden letters.",
+     "definitionFit": "To ennoble is to raise someone to the nobility or dignify them, a way to honour a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "no"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1497,44 @@
     "text": "Eg wide part of film’s background",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Eg wide",
+      "at": 0
+     },
+     {
+      "text": "part of film’s background",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eg wide",
+      "note": "first meaning: in cricket a wide, a ball bowled out of the batter's reach"
+     },
+     {
+      "clueFragment": "part of film’s background",
+      "note": "second meaning: a non-speaking actor in a crowd scene"
+     }
+    ],
+    "explanation": {
+     "surface": "A wide shot forming part of the backdrop of a film.",
+     "walkthrough": "'wide' looks like a camera term, but it is the cricket delivery; cricket is a bat-and-ball sport popular in Britain.",
+     "definitionFit": "Runs not scored off the bat are extras in cricket, and background film performers are extras too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wide"
+    }
+   }
   }
  ]
 }
