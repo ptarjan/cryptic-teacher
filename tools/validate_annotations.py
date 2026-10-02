@@ -2580,9 +2580,13 @@ def check_clue_unchanged(puzzle, path, errors):
 # first, before TEND" ("Tend is given away", 2026-09-30). Naming a piece by its
 # clue words gives it away as surely as by its letters. So a note says what the
 # indicator's words mean and do, and names no piece. Every note in the corpus
-# is held to it, so the app renders a note as written.
-NOTE_JOINERS = {"the", "this", "these", "those", "its", "one", "such", "for", "from", "with",
-                "that", "and", "are", "was", "not", "but", "his", "her", "their"}
+# is held to it, so the app renders a note as written. A word hundreds of notes
+# use about other clues is how indicator notes talk ("something new", "another
+# piece"), and names nothing on the clue where a block happens to use it too:
+# tools/build_indicator_note_words.py writes those, and NOTE_FUNCTION_WORDS are
+# the function words too rare in notes to make that list.
+NOTE_WORDS = frozenset(json.loads((ROOT / "tools/data/indicator_note_words.json").read_text(encoding="utf-8")))
+NOTE_FUNCTION_WORDS = {"such", "his", "her"}
 
 
 def blocks_named_in(note, ann, ind):
@@ -2596,7 +2600,8 @@ def blocks_named_in(note, ann, ind):
               if bare(b.get("gives")) and bare(b.get("gives")) != bare(b.get("clueFragment"))}
     own = set(words(ind.get("text")))
     named = {w for b in blocks for w in words(b.get("clueFragment"))
-             if len(w) >= 3 and w not in NOTE_JOINERS and w not in own}
+             if len(w) >= 3 and w not in NOTE_WORDS and w not in NOTE_FUNCTION_WORDS
+             and w not in own}
     return ([w for w in re.findall(r"\b[A-Z]+\b", str(note or ""))
              if w in hidden and w not in ("A", "I")]
             + [w for w in words(note) if w in named])

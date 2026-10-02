@@ -31,6 +31,14 @@ check("a block's letters", ["EH"],
 check("letters inside a longer word", [],
       v.blocks_named_in("so THEHOUSE is read backwards", {"blocks": [{"clueFragment": "what", "gives": "EH"}]},
                         {"text": "about"}))
+check("a word hundreds of notes use", [],
+      v.blocks_named_in("something exciting is stirred into a new order",
+                        {"blocks": [{"clueFragment": "new group", "gives": "NEWGROUP"},
+                                    {"clueFragment": "Something in wardrobe", "gives": "HANGER"}]},
+                        {"text": "Exciting"}))
+check("a block's own content word still counts", ["river"],
+      v.blocks_named_in("a piece crossing a river straddles it",
+                        {"blocks": [{"clueFragment": "river", "gives": "R"}]}, {"text": "Crossing"}))
 puzzle = {"id": "x-1", "entries": [{"number": 1, "direction": "across", "annotation": {
     "blocks": [{"clueFragment": "Nurse", "gives": "TEND"}],
     "indicators": [{"text": "at first", "note": "the lips come first, before TEND"}]}}]}
