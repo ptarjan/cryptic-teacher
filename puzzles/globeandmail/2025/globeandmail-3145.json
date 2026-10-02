@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Provider of food feeding endless tea to nurse?",
     "enumeration": "7"
    },
-   "solution": "CATERER"
+   "solution": "CATERER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CATERER",
+    "definitions": [
+     {
+      "text": "Provider of food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "something without an end has lost its final letter, so the word is cut short"
+     },
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "food that feeds someone goes inside them, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nurse",
+      "gives": "CARER",
+      "note": "a carer looks after the sick, as a nurse does"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TE",
+      "note": "the drink with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "TE",
+      "RER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone serves a nurse a cup of tea, perhaps a cafeteria worker on a ward round.",
+     "walkthrough": "'Nurse' looks like the person being fed, but it is the outer wordplay piece, a synonym for someone who looks after others, which the clipped drink is fed into.",
+     "definitionFit": "A caterer is a business or person supplying meals for events, a straightforward description of the job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,51 @@
     "text": "Char’s teapot broken — disaster!",
     "enumeration": "11"
    },
-   "solution": "CATASTROPHE"
+   "solution": "CATASTROPHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATASTROPHE",
+    "definitions": [
+     {
+      "text": "disaster",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken object is in pieces, so the letters are reassembled in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Char’s teapot",
+      "gives": "CHARSTEAPOT",
+      "note": "the letters taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHARSTEAPOT",
+       "gives": "CATASTROPHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaning lady drops and smashes her teapot, a domestic calamity.",
+     "walkthrough": "A char is a British cleaning woman (charlady); the possessive is only surface dressing and its letters all feed the mix.",
+     "definitionFit": "Both words name a sudden event causing great damage or suffering; they are direct synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Char’s"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,68 @@
     "text": "Huge amount to lease out, accommodating first of residents",
     "enumeration": "7"
    },
-   "solution": "TORRENT"
+   "solution": "TORRENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TORRENT",
+    "definitions": [
+     {
+      "text": "Huge amount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that initial is kept"
+     },
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "to accommodate a guest is to give them room inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lease out",
+      "gives": "RENT",
+      "note": "to rent something out is to lease it"
+     },
+     {
+      "clueFragment": "residents",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "R",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord lets out a property, taking in a first resident for a large sum.",
+     "walkthrough": "'To lease out' is read as one phrase, the infinitive of letting a property; the initial letter is then housed between its two words.",
+     "definitionFit": "A torrent is a violent rush of water, and by extension an overwhelming outpouring of anything, such as words or abuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodating"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +240,51 @@
     "text": "Fall on cue, dirt all over the place",
     "enumeration": "9"
    },
-   "solution": "REDUCTION"
+   "solution": "REDUCTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REDUCTION",
+    "definitions": [
+     {
+      "text": "Fall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "things scattered everywhere have lost their order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on cue, dirt",
+      "gives": "ONCUEDIRT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCUEDIRT",
+       "gives": "REDUCTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor takes a staged tumble right on cue, scattering dirt across the stage.",
+     "walkthrough": "'Fall' reads like a stage pratfall, but it is the noun meaning a decrease.",
+     "definitionFit": "A fall in prices or numbers is a reduction: both nouns describe something becoming smaller or lower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +298,62 @@
     "text": "A grape plant south of river in gorge",
     "enumeration": "6"
    },
-   "solution": "RAVINE"
+   "solution": "RAVINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAVINE",
+    "definitions": [
+     {
+      "text": "gorge",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down entry what lies south sits lower, so the following piece comes after the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grape plant",
+      "gives": "VINE",
+      "note": "grapes grow on a vine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "VINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grapevine growing down by a river at the bottom of a canyon.",
+     "walkthrough": "Because this is a down clue, 'south of' puts the A VINE below the R.",
+     "definitionFit": "A ravine is a deep narrow valley with steep sides, the same landform as a gorge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +367,44 @@
     "text": "Boy in lift?",
     "enumeration": "4"
    },
-   "solution": "JACK"
+   "solution": "JACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JACK",
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     },
+     {
+      "text": "lift",
+      "at": 7,
+      "note": "verb, as in to jack up a car"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "note": "first meaning: a boy's name"
+     },
+     {
+      "clueFragment": "lift",
+      "note": "second meaning: to raise something heavy with a mechanical device"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a lad riding an elevator; 'lift' is the British word for an elevator, but here it means to raise.",
+     "definitionFit": "Jack is a common boy's name, and to jack up a car is to hoist it with a jack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +418,48 @@
     "text": "Pot slightly open, lid off",
     "enumeration": "3"
    },
-   "solution": "JAR"
+   "solution": "JAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "JAR",
+    "definitions": [
+     {
+      "text": "Pot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lid off",
+      "for": "deletion",
+      "note": "taking the lid off removes the top, and in a down entry the top is the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slightly open",
+      "gives": "AJAR",
+      "note": "a door left slightly open is ajar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking pot left with its lid tipped aside, slightly open.",
+     "walkthrough": "In a down clue the first letter is at the top, so removing the lid drops the A.",
+     "definitionFit": "A jar is a container for storing food, much like a pot used for jam or honey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +473,42 @@
     "text": "Top money once",
     "enumeration": "5"
    },
-   "solution": "CROWN"
+   "solution": "CROWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROWN",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     },
+     {
+      "text": "money once",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "note": "first meaning: the highest part, as of a head or hill"
+     },
+     {
+      "clueFragment": "money once",
+      "note": "second meaning: a former British coin worth five shillings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The crown was an old British coin worth five shillings (a quarter of a pound); 'once' marks it as no longer in use.",
+     "definitionFit": "The crown of the head is its top, and the crown was also a coin in pre-decimal British currency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +522,62 @@
     "text": "Shattered, bound to keep resting at first",
     "enumeration": "5"
    },
-   "solution": "TIRED"
+   "solution": "TIRED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TIRED",
+    "definitions": [
+     {
+      "text": "Shattered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "what comes at first is the opening letter, so only that initial is used"
+     },
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bound",
+      "gives": "TIED",
+      "note": "bound with rope means tied"
+     },
+     {
+      "clueFragment": "resting",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "R",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An exhausted person is bound to need a rest first of all.",
+     "walkthrough": "'Shattered' is British slang for exhausted, not broken; 'bound' looks like 'certain to' but means tied up.",
+     "definitionFit": "In informal British speech, shattered means utterly exhausted, so it is a slang synonym for worn out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +591,55 @@
     "text": "US state partly over Montana",
     "enumeration": "7"
    },
-   "solution": "VERMONT"
+   "solution": "VERMONT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VERMONT",
+    "definitions": [
+     {
+      "text": "US state",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "deletion",
+      "note": "only part of the word is used, so a letter is dropped from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "OVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Montana",
+      "gives": "MONT",
+      "note": "Mont. is the traditional abbreviation for the state of Montana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "MONT"
+     ]
+    },
+    "explanation": {
+     "surface": "One American state overlaps Montana, as if spilling over its border.",
+     "walkthrough": "Only the tail of the first word survives, losing its O; the result sits before the state's short form.",
+     "definitionFit": "Vermont is one of the fifty states, in New England on the Canadian border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +653,62 @@
     "text": "Others in trailer scattered on the ground",
     "enumeration": "11"
    },
-   "solution": "TERRESTRIAL"
+   "solution": "TERRESTRIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "TERRESTRIAL",
+    "definitions": [
+     {
+      "text": "on the ground",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one group goes within the other"
+     },
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "scattered things are strewn in disorder, so all the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Others",
+      "gives": "REST",
+      "note": "the rest are the others remaining"
+     },
+     {
+      "clueFragment": "trailer",
+      "gives": "TRAILER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESTTRAILER",
+       "gives": "TERRESTRIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Other items tumble out of a trailer and end up strewn across the ground.",
+     "walkthrough": "'Others' is not fodder itself; it must first be turned into its synonym before mixing with the trailer.",
+     "definitionFit": "Terrestrial means of or living on land rather than in water or the air, so on the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Others"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +722,48 @@
     "text": "Observe letter that’s read out?",
     "enumeration": "3"
    },
-   "solution": "SEE"
+   "solution": "SEE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEE",
+    "definitions": [
+     {
+      "text": "Observe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading something out means saying it, so its sound rather than its spelling counts"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "SEE",
+      "soundsLike": "C",
+      "note": "the third letter of the alphabet, whose name is spoken this way"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to watch carefully while a letter is read out.",
+     "walkthrough": "The letter is C, whose name is spoken exactly like the verb.",
+     "definitionFit": "To see is to notice or watch with the eyes, a direct synonym for observe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +777,52 @@
     "text": "All at sea on certain vessel",
     "enumeration": "9"
    },
-   "solution": "CONTAINER"
+   "solution": "CONTAINER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTAINER",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "All at sea",
+      "for": "anagram",
+      "note": "someone all at sea is confused and disoriented, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on certain",
+      "gives": "ONCERTAIN",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCERTAIN",
+       "gives": "CONTAINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone is out on the ocean aboard a particular ship.",
+     "walkthrough": "'Vessel' and 'at sea' push towards a ship, but the vessel here is anything that holds things.",
+     "definitionFit": "A vessel can be any receptacle for holding liquid or goods, which is exactly what a container is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +836,39 @@
     "text": "A menacing high roller?",
     "enumeration": "9"
    },
-   "solution": "AVALANCHE"
+   "solution": "AVALANCHE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AVALANCHE",
+    "definitions": [
+     {
+      "text": "A menacing high roller?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A menacing high roller?",
+      "note": "surface reading: a threatening big gambler at a casino"
+     },
+     {
+      "clueFragment": "high roller",
+      "note": "setter's reading: a dangerous mass of snow rolling down from a mountain height"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A high roller is a gambler who bets big sums; read literally, it is something that rolls from high up, and a menacing one is a snowslide.",
+     "definitionFit": "This mass of snow and ice tumbles down a mountainside from on high and threatens anything below it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "roller"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +882,55 @@
     "text": "Keep Territorial Army in control",
     "enumeration": "6"
    },
-   "solution": "RETAIN"
+   "solution": "RETAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETAIN",
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "to rein in is to control, and reins control a horse"
+     },
+     {
+      "clueFragment": "Territorial Army",
+      "gives": "TA",
+      "note": "TA is the abbreviation for the Territorial Army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A government aims to keep its reserve forces under control.",
+     "walkthrough": "The Territorial Army was Britain's volunteer reserve force, abbreviated TA.",
+     "definitionFit": "To retain something is to continue to have or hold it, a plain synonym of keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +944,55 @@
     "text": "Girl writing story about idiot",
     "enumeration": "6"
    },
-   "solution": "LASSIE"
+   "solution": "LASSIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LASSIE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go around it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writing story",
+      "gives": "LIE",
+      "note": "a made-up story, a fib"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "ASS",
+      "note": "an ass is a foolish person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASS",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is writing a tale about a fool.",
+     "walkthrough": "A lie is an invented story; it wraps around ASS. Lassie is a Scottish and northern English word for a girl.",
+     "definitionFit": "Lassie is a Scots and northern dialect term for a young woman or girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1006,54 @@
     "text": "Grain, as brewed for alcoholic drink",
     "enumeration": "7"
    },
-   "solution": "SANGRIA"
+   "solution": "SANGRIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANGRIA",
+    "definitions": [
+     {
+      "text": "alcoholic drink",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing turns raw ingredients into something new, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grain, as",
+      "gives": "GRAINAS",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRAINAS",
+       "gives": "SANGRIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grain is brewed to make booze, as beer or whisky are.",
+     "walkthrough": "'Grain' and 'brewed' suggest beer, but the drink is made from wine, not grain at all.",
+     "definitionFit": "Sangria is a Spanish punch of red wine mixed with fruit and often brandy, so an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1073,48 @@
      }
     ]
    },
-   "solution": "PULLUP"
+   "solution": "PULLUP",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "PULL UP",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the same thing capsizing",
+      "for": "palindrome",
+      "note": "a thing that stays the same when turned upside down reads identically from either end of the down light"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "PULLUP",
+      "note": "the phrase used of a car halting by the kerb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PULLUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat halts, then flips over, yet seems unchanged.",
+     "walkthrough": "This down entry, flipped so its bottom is at the top, spells the same six letters.",
+     "definitionFit": "A driver who pulls up brings the vehicle to a halt, so the phrasal verb is a synonym for stopping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capsizing"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1128,51 @@
     "text": "Naples Uni developed strip of land",
     "enumeration": "9"
    },
-   "solution": "PENINSULA"
+   "solution": "PENINSULA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PENINSULA",
+    "definitions": [
+     {
+      "text": "strip of land",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "property that is developed is rebuilt into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naples Uni",
+      "gives": "NAPLESUNI",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAPLESUNI",
+       "gives": "PENINSULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The university in Naples builds on a stretch of coastline it owns.",
+     "walkthrough": "Fittingly, Naples sits near the Sorrento peninsula, and Italy itself is one.",
+     "definitionFit": "A peninsula is a piece of land jutting into water, surrounded on most sides, often long and narrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1186,44 @@
     "text": "Relative somewhere in the south of France, we hear?",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the sound of a word matters more than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somewhere in the south of France",
+      "gives": "NICE",
+      "soundsLike": "NEES",
+      "note": "the Riviera city of Nice"
+     }
+    ],
+    "explanation": {
+     "surface": "A family member lives somewhere on the Côte d'Azur.",
+     "walkthrough": "The French city of Nice is pronounced like 'neece', not like the English adjective.",
+     "definitionFit": "A niece is a daughter of one's brother or sister, so a family relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1237,55 @@
     "text": "Return of figure after tax",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "after tax",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "a number, here ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant reports the figure left on a tax return once deductions are made.",
+     "walkthrough": "'Return' and 'figure' suggest a tax return, but 'figure' is a numeral and 'Return of' turns it round.",
+     "definitionFit": "A net amount is what remains once deductions such as tax are taken off the gross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Return"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1299,73 @@
     "text": "Forever fashionable ultimately, navy with bluish-green trim",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "Forever",
+      "at": 0,
+      "note": "adverb in the clue; the answer is an adjective, as in 'forever young'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "trim",
+      "for": "container",
+      "note": "a trim is edging round something, so one piece borders the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "E",
+      "select": "last",
+      "note": "closing letter of the word"
+     },
+     {
+      "clueFragment": "bluish-green",
+      "gives": "TEAL",
+      "note": "teal is a greenish-blue colour"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TE",
+      "RN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A navy outfit edged in teal will always be in style.",
+     "walkthrough": "'Navy' looks like a colour beside the bluish-green, but here it is the Royal Navy abbreviated; the colour acts as a border wrapped round it.",
+     "definitionFit": "Eternal describes something lasting without end, the same idea as everlasting or forever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "navy"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1379,42 @@
     "text": "Head idiot",
     "enumeration": "3"
    },
-   "solution": "NUT"
+   "solution": "NUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUT",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     },
+     {
+      "text": "idiot",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head",
+      "note": "first meaning: slang for the skull"
+     },
+     {
+      "clueFragment": "idiot",
+      "note": "second meaning: a crazy or foolish person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a chief fool, but the two words are separate meanings; to use your noggin is to use your head.",
+     "definitionFit": "Informally, the head is called one's noggin, and a crazy person is called a nutcase or nutter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1428,51 @@
     "text": "Good lord and soldier — royal favourite?",
     "enumeration": "5"
    },
-   "solution": "CORGI"
+   "solution": "CORGI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORGI",
+    "definitions": [
+     {
+      "text": "royal favourite?",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good lord",
+      "gives": "COR",
+      "note": "a British exclamation of surprise, like 'good lord!'"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "GI"
+     ]
+    },
+    "explanation": {
+     "surface": "A noble lord and a soldier compete to be the monarch's favourite courtier.",
+     "walkthrough": "'Good lord' looks like a nobleman but is an exclamation; cor! is British slang for that.",
+     "definitionFit": "Queen Elizabeth II famously kept many corgis, so the dog breed is a playful royal pet, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lord"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1486,42 @@
     "text": "Construction in one’s tree?",
     "enumeration": "4"
    },
-   "solution": "NEST"
+   "solution": "NEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEST",
+    "definitions": [
+     {
+      "text": "Construction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the following words, spanning them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one’s tree",
+      "gives": "NEST",
+      "note": "letters running across the word break"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone builds something up in their own tree, perhaps a treehouse.",
+     "walkthrough": "The whole clue also describes the answer: a bird's construction in its tree.",
+     "definitionFit": "Birds build a nest from twigs and grass, so it is a structure they construct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1535,55 @@
     "text": "Overcome, minister has filled bucket",
     "enumeration": "7"
    },
-   "solution": "PREVAIL"
+   "solution": "PREVAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREVAIL",
+    "definitions": [
+     {
+      "text": "Overcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has filled",
+      "for": "container",
+      "note": "to fill a vessel is to be inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bucket",
+      "gives": "PAIL",
+      "note": "a pail is a bucket"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a minister of religion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REV",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "An emotional vicar, overcome, has filled a bucket with tears.",
+     "walkthrough": "'Overcome' reads as overwhelmed, but it is the verb meaning to win.",
+     "definitionFit": "To prevail is to triumph or win through, the verb sense of overcoming an opponent or difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Overcome"
+    }
+   }
   }
  ]
 }
