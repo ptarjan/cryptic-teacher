@@ -15,9 +15,9 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     ink under it (tools/trove_grid.py reads its blocks); the clues are the
     two columns under the grid, cut where the column's text stops being clues
     ("Solution to Puzzle No", another heading, a gap).
-  - The columns are read three ways: archive.org's words, and RapidOCR at
-    twice the size with two recognisers (multilingual PP-OCRv4 and English
-    PP-OCRv5, READERS). Each is parsed as file_trove_puzzles.py parses
+  - The columns are read four ways: archive.org's words, RapidOCR at twice
+    the size with two recognisers (multilingual PP-OCRv4 and English
+    PP-OCRv5), and Tesseract, whose errors are not RapidOCR's (READERS). Each is parsed as file_trove_puzzles.py parses
     Trove's text, after tidy() undoes the print's commonest slips, and each
     list is repaired from another reading (tools/trove_clue_ocr.py).
   - The grid read off the scan is used when it is symmetric and a list lies
@@ -27,10 +27,12 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     (tools/reconstruct_grid.py), nearest the scan when several fit, and the
     puzzle is filed only when the clues lie on the rebuilt grid.
   - Every clue's words and marks are then put to the other readings
-    (agree): each word takes the one spelling of the three the committed
-    lexicon has, else the lexicon spelling most readings share; a non-word
-    stands only when all three read it (or two read it as a name); a mark
-    no other reading has is dropped. The clue
+    (agree): each word takes the lexicon spelling most readings share, a
+    tie going to the one most like every reading's word; a non-word stands
+    only when three read it (or two read it as a name inside the clue); a
+    mark no other reading has is dropped, and a word or mark most other
+    readings have where this one has none (lost, run together, or before
+    the first word or after the last) is put in. The clue
     is filed blank (its count kept) when no spelling wins, when its count
     was lost, or when it holds another clue's number.
   - The answers come from the solution grid a later edition prints under
@@ -202,12 +204,17 @@ def columns(lines, grid):
 _ENGINES = {}
 #: RapidOCR reads the 200dpi print (~17px a line) far better twice the size.
 UPSCALE = 2
-#: The clue columns' second and third readers: RapidOCR's own multilingual
-#: PP-OCRv4 recogniser ("ch") and English PP-OCRv5 mobile ("en5"), the two
-#: that misread fewest clue words on hand-checked 1974, 1990 and 1995 crops
-#: (22% and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's
-#: 56%; the server recognisers cost over 20 times as long).
-READERS = {"ch": None, "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx"))}
+#: The clue columns' other readers: RapidOCR's own multilingual PP-OCRv4
+#: recogniser ("ch") and English PP-OCRv5 mobile ("en5"), the two that
+#: misread fewest clue words on hand-checked 1974, 1990 and 1995 crops (22%
+#: and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's 56%; the
+#: server recognisers cost over 20 times as long), and Tesseract ("tess"),
+#: a different engine whose misreads are not theirs. The vote's misread rate
+#: on tools/data/archive_org_ocr_gold.json: tools/measure_archive_org_ocr.py.
+READERS = {"ch": None,
+           "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx")),
+           "tess": "tesseract"}
+TESSERACT = Path(os.path.expanduser("~/.local/tess/bin/tesseract"))
 MODEL_URL = ("https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.4.0/onnx/PP-OCRv5/rec/"
              "en_PP-OCRv5_rec_mobile_infer.onnx")
 
@@ -232,9 +239,41 @@ def engine(which):
     return _ENGINES[which]
 
 
+def tesseract():
+    """The tesseract binary: on PATH, else the user-local conda-forge install
+    (no sudo on this host), else an error that says how to install it."""
+    import shutil
+    found = shutil.which("tesseract") or (str(TESSERACT) if TESSERACT.exists() else None)
+    if not found:
+        raise RuntimeError(f"tesseract is not installed (not on PATH, not {TESSERACT}); install it "
+                           f"without sudo: micromamba create -p ~/.local/tess -c conda-forge tesseract")
+    return found
+
+
+def tesseract_words(crop):
+    """[(x0, y0, x1, y1, word)] Tesseract reads in a PIL image."""
+    import subprocess
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "crop.png"
+        crop.save(path)
+        res = subprocess.run([tesseract(), str(path), "-", "--psm", "4", "-l", "eng", "tsv"],
+                             capture_output=True, text=True, timeout=300)
+    if res.returncode:
+        raise RuntimeError(f"tesseract failed ({res.returncode}): {res.stderr.strip()[-300:]}")
+    words = []
+    for row in res.stdout.splitlines()[1:]:
+        f = row.split("\t")
+        if len(f) == 12 and f[0] == "5" and f[11].strip():
+            x, y, w, h = map(int, f[6:10])
+            words.append((x, y, x + w, y + h, f[11].strip()))
+    return words
+
+
 def rapid_lines(img, grid, which, cache_path):
-    """RapidOCR's reading of the page under the grid, as djvu-style lines of
-    one word each, in page coordinates; cached as JSON."""
+    """One recogniser's reading of the page under the grid (RapidOCR's, or
+    Tesseract's for "tess"), as djvu-style lines of one word each, in page
+    coordinates; cached as JSON."""
     if cache_path.exists():
         return [[tuple(w)] for w in json.loads(cache_path.read_text())]
     import numpy as np
@@ -243,7 +282,10 @@ def rapid_lines(img, grid, which, cache_path):
     box = (max(0, gx0 - 40), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
     crop = img.crop(box).convert("RGB")
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
-    res, _ = engine(which)(np.asarray(crop), use_cls=False)
+    if which == "tess":
+        res = [(((x0, y0), (x1, y1)), t, None) for x0, y0, x1, y1, t in tesseract_words(crop)]
+    else:
+        res, _ = engine(which)(np.asarray(crop), use_cls=False)
     words = []
     for b, t, _ in res or ():
         xs, ys = [p[0] / UPSCALE for p in b], [p[1] / UPSCALE for p in b]
@@ -326,7 +368,8 @@ def similar(a, b):
 
 def align(mine, theirs):
     """[(i, j)] pairing clue words `mine` with words of the other reading
-    `theirs` (None for a word the other side lacks): the best semi-global
+    `theirs` (None for a word the other side lacks, and (None, j) for a word
+    of theirs inside the clue that `mine` lacks): the best semi-global
     alignment, where the other reading's words before and after the clue
     cost nothing and a pair costs what its spellings differ."""
     n, m = len(mine), len(theirs)
@@ -340,7 +383,8 @@ def align(mine, theirs):
         cost[i][0] = cost[i - 1][0] + gap
         back[i][0] = "up"
         for j in range(1, m + 1):
-            pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1]
+            pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1] else inf
+                                         if theirs[j - 1] == BREAK
                                          else 1.2 * (1 - similar(mine[i - 1], theirs[j - 1])))
             up, left = cost[i - 1][j] + gap, cost[i][j - 1] + gap
             cost[i][j], back[i][j] = min((pair, "pair"), (up, "up"), (left, "left"))
@@ -355,6 +399,8 @@ def align(mine, theirs):
             out.append((i - 1, None))
             i -= 1
         else:
+            # A word of theirs inside the clue that `mine` lacks: (None, j).
+            out.append((None, j - 1))
             j -= 1
     return out[::-1]
 
@@ -379,6 +425,8 @@ def rank(word):
 def is_word(word):
     """Whether the committed lexicon has the word (cmudict and WordNet are
     too loose here: they hold "al", "imo" and "chaft")."""
+    if word.lower().endswith("'s") and len(word) > 3:
+        return is_word(word[:-2])
     return rank(word) is not None or word.lower() in ("a", "i")
 
 
@@ -386,9 +434,36 @@ def is_word(word):
 MARKS = ",;:!?"
 
 
-def marked(text):
-    """The words and the voted punctuation marks of a text, in order."""
-    return re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|[" + MARKS + "]", text)
+#: A number in another reading's text (a clue's number or its count), which
+#: bounds the clue: the words between it and the clue's are the clue's too.
+BREAK = "#"
+
+
+def marked(text, breaks=False):
+    """The words and the voted punctuation marks of a text, in order; with
+    `breaks`, each number too, as BREAK."""
+    found = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|[" + MARKS + "]" + (r"|\d+" if breaks else ""), text)
+    return [BREAK if t[0].isdigit() else t for t in found]
+
+
+def ends(pairs, theirs):
+    """(lead, trail): the words and marks of `theirs` between the number
+    before the aligned clue and its first word, and between its last word and
+    the number after; None for an end no number bounds within six tokens."""
+    js = [j for i, j in pairs if i is not None and j is not None]
+    if not js:
+        return None, None
+    lead, k = [], min(js) - 1
+    while k >= 0 and theirs[k] != BREAK and len(lead) < 6:
+        lead.insert(0, theirs[k].lower())
+        k -= 1
+    lead_ok = k >= 0 and theirs[k] == BREAK
+    trail, k = [], max(js) + 1
+    while k < len(theirs) and theirs[k] != BREAK and len(trail) < 6:
+        trail.append(theirs[k].lower())
+        k += 1
+    trail_ok = k < len(theirs) and theirs[k] == BREAK
+    return tuple(lead) if lead_ok else None, tuple(trail) if trail_ok else None
 
 
 def agree(clue, others):
@@ -406,20 +481,62 @@ def agree(clue, others):
         return clue, "no words"
     low = [w.lower() for w in mine]
     seen = [{} for _ in mine]  # i -> {reading k: its word}
+    extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
+    leads, trails = [], []
     for k, theirs in enumerate(others):
-        for i, j in align(low, [w.lower() for w in theirs]):
-            if j is not None:
-                seen[i][k] = theirs[j]
+        at = 0
+        pairs = align(low, [w.lower() for w in theirs])
+        lead, trail = ends(pairs, theirs)
+        leads.append(lead)
+        trails.append(trail)
+        for i, j in pairs:
+            if i is None:
+                extra[at].setdefault(theirs[j].lower(), set()).add(k)
+            else:
+                at = i + 1
+                if j is not None:
+                    seen[i][k] = theirs[j]
+    # A word or mark that two other readings have where this one has nothing
+    # (a word lost, two run together, a comma missed) is put in.
+    adds = {g: [w for w, ks in e.items() if len(ks) >= 2 and len(ks) * 2 > len(others)
+                and (w in MARKS or is_word(w))] for g, e in enumerate(extra)}
+    # Words other readings have between the clue's number and its first word,
+    # or between its last word and its count, were lost from this reading:
+    # put in when most readings have the same ones, else no reading wins.
+    for side, got_ends in (("start", leads), ("end", trails)):
+        seen_ends = [e for e in (tuple(t for t in e if side == "end" or t not in MARKS)
+                                 for e in got_ends if e) if e]
+        if len(seen_ends) < 2:
+            continue
+        top = max(set(seen_ends), key=seen_ends.count)
+        words_at = [t for t in top if t not in MARKS]
+        if side == "start" and len(words_at) == 1 and len(words_at[0]) == 1:
+            # One letter before the clue is a misread clue number ("2I").
+            continue
+        if (seen_ends.count(top) * 2 > len(others) and all(is_word(t) for t in words_at)):
+            g = 0 if side == "start" else len(mine)
+            adds[g] = adds.get(g, []) + [" ".join(top)] if top else adds.get(g, [])
+        elif words_at or any(t not in MARKS for e in seen_ends for t in e):
+            return None, f"the clue's {side} is lost: other readings have {' / '.join(' '.join(e) for e in seen_ends)}"
     fixes, drop, how = {}, set(), "agree"
     for i, w in enumerate(mine):
         a = low[i]
-        got = {k: v for k, v in seen[i].items() if v not in MARKS}
+        got = {k: v for k, v in seen[i].items() if v not in MARKS and v != BREAK}
         if w in MARKS:
             if others and w not in seen[i].values():
                 drop.add(i)
             continue
+        if not got and i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper():
+            # A letter before the clue's capital that no other reading has
+            # is a speck or a misread clue number.
+            drop.add(i)
+            continue
         if not got:
             return None, f"no other reading has {w!r}"
+        if (i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper()
+                and len(got) * 2 < len(others)):
+            drop.add(i)
+            continue
         votes = {a: 1}
         spelt = {a: w}
         for v in got.values():
@@ -429,26 +546,26 @@ def agree(clue, others):
             # A capital one reader saw inside the clue and another did not.
             spelt[a] = next(v for v in got.values() if v.lower() == a)
             how = "settled by the dictionary"
-        words_ = [s for s in votes if is_word(s) and (s == a or similar(a, s) >= 0.6)]
+        # Of the dictionary spellings like this one (or shared by two
+        # readings), the one most readings share stands; a tie goes to the one
+        # far more like every reading's word (its support), else no spelling
+        # wins.
+        read = [a] + [v.lower() for v in got.values()]
+        support = {s: sum(similar(s, r) for r in read) for s in votes}
+        words_ = sorted((s for s in votes if is_word(s) and (votes[s] > 1 or similar(a, s) >= 0.5)),
+                        key=lambda s: (-votes[s], -support[s]))
         if len(words_) > 1:
-            # Several dictionary spellings: the one most readings share, else
-            # one far commoner than the rest.
-            top = sorted(words_, key=lambda s: -votes[s])
-            if votes[top[0]] > votes[top[1]]:
-                words_ = top[:1]
-            else:
-                by_rank = sorted(words_, key=lambda s: rank(s) or 10 ** 9)
-                if (rank(by_rank[0]) or 10 ** 9) * 3 < (rank(by_rank[1]) or 10 ** 9):
-                    words_ = by_rank[:1]
-        if len(words_) == 1:
+            top, nxt = words_[0], words_[1]
+            if votes[top] == votes[nxt] and support[top] - support[nxt] < 0.3:
+                return None, f"readings differ: {w} / {' / '.join(got.values())}"
+        if words_:
             pick = words_[0]
             if pick != a or votes[a] == 1:
                 how = "settled by the dictionary"
-        elif words_:
-            return None, f"readings differ: {w} / {' / '.join(got.values())}"
-        elif votes[a] >= 3 or (votes[a] > 1 and w[0].isupper()):
+        elif votes[a] >= 3 or (votes[a] > 1 and i and w[0].isupper() and w[1:].islower()):
             # No reading a dictionary word: what three readers saw stands,
-            # and a name two saw.
+            # and a name two saw inside the clue (the first word's capital
+            # says nothing).
             pick = a
         elif max(votes.values()) > 1 and votes[a] == 1 and len(a) > 3 and w[0].islower():
             return None, f"two readings agree on a non-word: {w} / {' / '.join(got.values())}"
@@ -457,30 +574,53 @@ def agree(clue, others):
                           else f"readings differ: {w} / {' / '.join(got.values())}")
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
-    if not fixes and not drop:
+    adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
+    if not fixes and not drop and not adds:
         return clue, how
     text, k, out = clue, 0, ""
     for i, old in enumerate(mine):
         at = text.find(old, k)
         new = "" if i in drop else fixes.get(i, old)
-        if new and i == 0 and old[0].isupper():
+        add = adds.get(i)
+        if i == 0 and add and add[0][0].isalpha():
+            # Lost opening words take the clue's capital.
+            add = [add[0][0].upper() + add[0][1:]]
+            if new and not new.isupper() and is_word(new.lower()) and not is_word_only_capital(new, seen[0]):
+                new = new[0].lower() + new[1:]
+        elif new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
-        out += text[k:at] + new
+        out += text[k:at] + (add[0] + " " if add else "") + new
         k = at + len(old)
-    out += text[k:]
+    out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + text[k:]
+    if adds and how == "agree":
+        how = "settled by the readings"
     if drop and how == "agree":
         how = "settled by the readings"
     return re.sub(r"\s+([" + MARKS + "])", r"\1", re.sub(r"  +", " ", out)).strip(), how
 
 
+def is_word_only_capital(word, seen):
+    """Whether the other readings print `word` with its capital too."""
+    return bool(seen) and all(v[0].isupper() for v in seen.values() if v.lower() == word.lower())
+
+
 def clean(text):
     """A reading without OCR's specks: a not-sign read for the hyphen that
-    breaks a word over a line end is the join, and an asterisk or bullet
-    beside a word is no part of it."""
+    breaks a word over a line end is the join, an asterisk or bullet beside
+    a word is no part of it, and a comma or exclamation mark misread as a
+    full stop or an I is put back."""
     text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
+    text = text.replace("\u2019", "'").replace("\u2018", "'")
+    # A clue's sentence never stops before a lower-case word: a full stop
+    # there is a comma the print's low ink lost the tail of.
+    text = re.sub(r"(?<=[a-z]{2})\.(?=\s+[a-z])", ",", text)
+    # An exclamation mark read as a capital I or a one, last before the count.
+    text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     # A word broken over a line end is one word when the lexicon has it whole.
-    return re.sub(r"\b([A-Za-z]+)- ([a-z]+)\b",
-                  lambda m: m.group(1) + m.group(2) if is_word(m.group(1) + m.group(2))
+    # So is one whose halves are not both words ("hav- ing").
+    return re.sub(r"\b([A-Za-z]+)-\s+([a-z]+)\b",
+                  lambda m: m.group(1) + m.group(2)
+                  if is_word(m.group(1) + m.group(2)) or not (is_word(m.group(1)) and is_word(m.group(2)))
                   else f"{m.group(1)}-{m.group(2)}", text)
 
 
@@ -491,11 +631,11 @@ def reconcile(laid, streams):
     were laid from different readings; one text or dict alone is one reading."""
     if isinstance(streams, (str, dict)):
         streams = [streams]
-    whole = [marked(clean(s)) for s in streams if isinstance(s, str)]
-    per = [{k: marked(clean(v)) for k, v in s.items()} for s in streams if isinstance(s, dict)]
+    whole = [marked(clean(s), breaks=True) for s in streams if isinstance(s, str)]
+    per = [{k: marked(clean(v), breaks=True) for k, v in s.items()} for s in streams if isinstance(s, dict)]
     out, blank = {}, {}
     for lid, (text, enum, group) in laid.items():
-        other = whole + [p.get(lid, []) for p in per]
+        other = [o for o in whole + [p.get(lid, []) for p in per] if o]
         if ftp.SEE_RE.match(text or ""):
             out[lid] = (text, enum, group)
             continue
@@ -503,7 +643,7 @@ def reconcile(laid, streams):
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
-        if re.match(r"[a-z]", text or ""):
+        if re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
             # Lower case first: the clue's opening ("23s about") was lost.
             blank[lid] = "starts mid-clue"
             out[lid] = ("", enum, group)

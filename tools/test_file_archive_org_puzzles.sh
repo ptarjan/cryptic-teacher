@@ -109,6 +109,37 @@ got, blank = f.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)
                          ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
 check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
 
+# Words and marks this reading lost, and the print's commonest mark slips.
+three = [f.marked(t, breaks=True) for t in ("9 Hurtful stuff, nicer as a cocktail? (7)",
+                                            "9 Hurtful stuff, nicer as a cocktail? (7)",
+                                            "9 Hurtfui stuff nicer as a cocktail (7)")]
+check("a comma most other readings have put in", "Hurtful stuff, nicer as a cocktail?",
+      f.agree("Hurtful stuff nicer as a cocktail?", three)[0])
+lost = [f.marked(t, breaks=True) for t in ("18 It's no go when caught (8)", "18 It's no go when caught (8)",
+                                           "18 Its no go when caught (8)")]
+check("lost opening words most readings have put in, with the capital", "It's no go when caught",
+      f.agree("Go when caught", lost)[0])
+check("lost opening words the readings differ on blank the clue", None,
+      f.agree("Go when caught", [f.marked(t, breaks=True) for t in
+                                 ("18 It's no go when caught (8)", "18 Is so go when caught (8)")])[0])
+check("lost closing words most readings have put in", "Girls were well sustained by it",
+      f.agree("Girls were well sustained by", [f.marked("19 Girls were well sustained by it (7)", breaks=True)] * 2)[0])
+check("a dictionary tie between readings blanks the word", None,
+      f.agree("Chucked one in", [f.marked("24 Chuckeu one in (5)", breaks=True),
+                                 f.marked("24 Che one in (5)", breaks=True)])[0])
+check("a misread clue number before the capital dropped", "Not small horse-pistols",
+      f.agree("I Not small horse-pistols", [f.marked(t, breaks=True) for t in
+                                            ("21 Not small horse-pistols (5)", "21 Not smal horse-pistols (5)")])[0])
+check("a full stop before a lower-case word is a comma", "Let nine go loose, being merciful",
+      f.clean("Let nine go loose. being merciful"))
+check("an ellipsis and an abbreviation keep their stops", "Oval . . . the C.I.D. man",
+      f.clean("Oval . . . the C.I.D. man"))
+check("an I last before the count is an exclamation mark", "Flirted outrageously! (7)",
+      f.clean("Flirted outrageously I (7)"))
+check("a word broken over a line end is joined", "Almost admire a lieutenant unknown",
+      f.clean("Almost admire a lieutenant un-\nknown"))
+check("a possessive of a dictionary word is a word", True, f.is_word("Lear's") and f.is_word("bookie's"))
+
 # The solution grid's blocks: a heavy print's block flecked with paper is a
 # block; a light whose letter is fat is not.
 import numpy as np, trove_solution_ocr as tso
