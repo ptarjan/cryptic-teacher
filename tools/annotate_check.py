@@ -44,7 +44,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
 from annotate_audit import load_templates, rule_name  # noqa: E402
-from annotation import wordplay_letters  # noqa: E402
+from annotation import assembly, wordplay_letters  # noqa: E402
 import blog_post  # noqa: E402
 import clue_types  # noqa: E402
 import definitions  # noqa: E402
@@ -52,7 +52,8 @@ import groups  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
-from apply_annotations import annotate_only, current_view, default_input, move_alteration, normalize, view_path  # noqa: E402
+from apply_annotations import (  # noqa: E402
+    annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
 from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
@@ -375,8 +376,9 @@ def recut(pieces, want, gives=()):
 
 
 def recut_pieces(path, pending):
-    """Recut each `assembly.pieces` that misses the answer by a slip (see
-    `recut`); the entry ids changed, with the new pieces. `pieces` restates
+    """Redo each `assembly.pieces` that misses the answer by a slip: rebuilt
+    from the blocks where they reach the answer (derive_assembly), else recut
+    (see `recut`); the entry ids changed, with the new pieces. `pieces` restates
     letters the blocks already give, and a slip in retyping them was the
     third commonest first-check failure, each costing a turn."""
     try:
@@ -395,6 +397,11 @@ def recut_pieces(path, pending):
             entry["alteration"] = a["alteration"]
         gives = {re.sub(r"[^A-Z]", "", str(b.get("gives") or "").upper())
                  for b in a.get("blocks") or [] if isinstance(b, dict)}
+        rebuilt = assembly(with_assembly(a, entry))
+        if rebuilt.get("pieces") and rebuilt != build:
+            a["assembly"] = rebuilt
+            changed.append((eid, rebuilt["pieces"]))
+            continue
         new = recut(pieces, wordplay_letters(a, entry), gives)
         if new:
             build["pieces"] = new

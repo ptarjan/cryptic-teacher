@@ -2148,6 +2148,16 @@ UNBALANCED_EXACT_TYPES = (["letter_selection"],)
 # but not performed while the allowance stood at two per puzzle.
 
 
+def blocks_miss_letters(ann, entry):
+    """Whether check_blocks_account_for_answer reports this entry: its blocks give
+    letters, not the answer's, and its type builds from them."""
+    atype = types_of(ann)
+    if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
+        return False
+    got = "".join(letters(b.get("gives")) for b in ann.get("blocks") or [] if isinstance(b, dict))
+    return bool(got) and sorted(got) != sorted(wordplay_letters(ann, entry))
+
+
 def check_blocks_account_for_answer(entries, errors, warnings):
     """The letters the blocks hand over have to be the answer's letters.
 
@@ -2168,15 +2178,9 @@ def check_blocks_account_for_answer(entries, errors, warnings):
         ann = e.get("annotation") or {}
         if not ann:
             continue
-        atype = types_of(ann)
-        if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
-            continue
-        from collections import Counter
-        got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
-        if not got:
-            continue
-        want = wordplay_letters(ann, e)
-        if Counter(got) != Counter(want):
+        if blocks_miss_letters(ann, e):
+            got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
+            want = wordplay_letters(ann, e)
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             hits.append(tag)
             extra, missing = multiset_diff(got, want)
@@ -2819,13 +2823,17 @@ def validate_puzzle(puzzle, corpus=False):
                                 for b in ann.get("blocks") or [] if b.get("soundsLike")))
             if built not in clue_letters and not reversed_ok and not sound_ok:
                 errors.append(f"{tag}: hidden answer {built} not found inside clue letters")
+        # apply_annotations derives the assembly wherever the blocks rebuild the
+        # answer, so one still missing is a step the blocks cannot show, or blocks
+        # that miss the answer's letters, which check_blocks_account_for_answer
+        # already reports.
         if not (build.get("pieces") or whole_anagram(ann, e) or {"hidden_word", "double_definition", "cryptic_definition",
-                    "homophone"} & set(types_of(ann))):
-            warnings.append(f"{tag}: no machine-checkable assembly. Give `assembly.pieces` "
-                            f"(the final chunks in answer order) for a charade, container "
-                            f"or deletion, and `assembly.anagrams` / `assembly.reversals` "
-                            f"for every anagram or reversal step (a whole-answer anagram "
-                            f"is the item whose gives is the answer)")
+                    "homophone"} & set(types_of(ann)) or blocks_miss_letters(ann, e)):
+            warnings.append(f"{tag}: no machine-checkable assembly, and the blocks do not "
+                            f"rebuild the answer by joining them with the reversals, "
+                            f"insertions and anagrams `type` names. Give `assembly.pieces` "
+                            f"(the final chunks in answer order), and `assembly.anagrams` / "
+                            f"`assembly.reversals` for each such step the blocks cannot show")
 
         # A definition's note silences the part-of-speech check, so it has to say
         # something: a one-word "fine" would turn the check into an off switch.

@@ -1287,5 +1287,9 @@ tools/test_scan_queue.sh                     does tools/scan_queue.py read the n
                                              and let only one run hold a ledger?
 tools/test_ann_normalize.sh                  what apply_annotations.normalize computes, so the
                                              run need not write it
+tools/derive_assembly.py                     an annotation's `assembly`, worked out from its
+                                             blocks
+tools/test_derive_assembly.sh                is `assembly` worked out from the blocks, and only
+                                             with the clue's own operations?
 ```
 <!-- LAYOUT-END -->

@@ -15,6 +15,10 @@ Every entry in the puzzle must appear as a key. A key whose value is `null` says
 the clue is deliberately unsolved, which the prompt allows and which is very
 different from forgetting one — so absence is an error and `null` is not.
 
+`assembly` is worked out from the blocks wherever they reach the answer
+(tools/derive_assembly.py): filled in when absent, and `pieces` with the right
+letters in the wrong order redone.
+
 Except when the run's copy of the puzzle (tools/_puzzle_<ID>.json, written by
 `annotate_check.py --view`) lists `annotateOnly`: then only those ids need a
 key, every other entry keeps its annotation byte for byte, and a key that
@@ -54,6 +58,7 @@ sys.path.insert(0, str(TOOLS))
 import provenance  # noqa: E402
 import puzzle_integrity  # noqa: E402
 import groups  # noqa: E402 — linked answers
+from derive_assembly import complete  # noqa: E402
 from groups import entry_id  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
 
@@ -235,7 +240,17 @@ def normalize(ann, entry, entries):
         if isinstance(ann.get(key), list):
             ann[key] = [{k: v for k, v in x.items() if k != "at"} if isinstance(x, dict) else x
                         for x in ann[key]]
-    return ann
+    return with_assembly(ann, entry)
+
+
+def with_assembly(ann, entry):
+    """`ann` with the assembly its blocks reach filled in (derive_assembly.complete),
+    read against the entry's alteration, which the _ann file may carry."""
+    if not isinstance(ann, dict):
+        return ann
+    if isinstance(ann.get("alteration"), dict):
+        entry = {**entry, "alteration": ann["alteration"]}
+    return complete(ann, entry)
 
 
 def move_alteration(entry):
@@ -277,8 +292,10 @@ def apply(path, annotations, by=None):
     only = annotate_only(path)
     if only is not None:
         current = {entry_id(e): e.get("annotation") for e in puzzle["entries"]}
+        by_id = {entry_id(e): e for e in puzzle["entries"]}
         kept = [k for k in ids if k in annotations and k not in only
-                and annotations[k] != current[k]]
+                and current[k] not in (annotations[k], normalize(
+                    annotations[k], by_id[k], puzzle["entries"]))]
         if kept:
             raise SystemExit(
                 f"apply_annotations: {path.name}: {', '.join(kept)} already "
