@@ -225,6 +225,16 @@ def normalize(ann, entry, entries):
         derived = derived_answer(entry, entries)
         if derived:
             ann["answer"] = derived
+    blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    types = ann.get("type")
+    if (any("select" in b for b in blocks) and isinstance(types, list)
+            and "letter_selection" not in types):
+        ann["type"] = [*types, "letter_selection"]
+    # Where a block or indicator sits in the clue is computed from its words.
+    for key in ("blocks", "indicators"):
+        if isinstance(ann.get(key), list):
+            ann[key] = [{k: v for k, v in x.items() if k != "at"} if isinstance(x, dict) else x
+                        for x in ann[key]]
     return ann
 
 
