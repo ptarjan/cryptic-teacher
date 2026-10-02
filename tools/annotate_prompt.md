@@ -95,8 +95,8 @@ printed; `for` is the one name from this clue's own `type` whose operation they 
 signal that operation in this clue (`"'stable? No' means unstable, and something
 unstable will not stay in the order it is given"`), never the general sentence about
 what the device does. An indicator gives no letters, so it gets no block. Its rung comes
-before the blocks, so its note names no piece, neither its letters nor its clue words:
-`"to grip is to hold, so one piece holds another"`, not `"'beginning' holds 'learner'"`.
+before the blocks, so its note may name a block's clue words but never its letters or the
+answer: `"returning means the word rats is read backwards"`, not `"returning means RATS becomes STAR"`.
 
 ## Taste
 
