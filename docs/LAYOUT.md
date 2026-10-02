@@ -1147,5 +1147,10 @@ tools/build_clue_lm.py                       count the words and word pairs of e
 tools/data/clue_lm.tsv.gz                    how often the corpus's clues print each word and
                                              word pair, and its answers each word; settles OCR
                                              readings that differ (build_clue_lm.py)
+tools/data/archive_org_tess.traineddata      Tesseract's English LSTM fine-tuned on Times clue
+                                             lines; the archive.org filer's Tesseract reader
+                                             (train_archive_org_tesseract.py)
+tools/train_archive_org_tesseract.py         fine-tune Tesseract's English LSTM on Times clue
+                                             lines, for the archive.org filer
 ```
 <!-- LAYOUT-END -->
