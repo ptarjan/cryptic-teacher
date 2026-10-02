@@ -95,10 +95,11 @@ same("a note's sentences that are only a link are not kept",
       fp.preamble("An annotated guide to solutions can be found by clicking here"),
       fp.preamble("Method: Solve the clue, which can be found here, and fit them in."),
       fp.preamble("x"),
+      fp.preamble("God to a F&amp;uuml;hrer"),
       fp.preamble("A Hogmanay puzzle (see perimeter)For a printable version of this crossword click here")],
      ["Eight solutions are of a kind.", None, "To see the clues please click here Method: fit them in.",
       None, "Theme: rivers.", None, "Method: Solve the clue, which can be found here, and fit them in.",
-      None, "A Hogmanay puzzle (see perimeter)"])
+      None, "God to a F\u00fchrer", "A Hogmanay puzzle (see perimeter)"])
 
 INDY = b"""<?xml version="1.0" encoding="UTF-8"?>
 <crossword-compiler xmlns="http://crossword.info/xml/crossword-compiler">
