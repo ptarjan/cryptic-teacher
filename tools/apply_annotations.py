@@ -238,6 +238,14 @@ def normalize(ann, entry, entries):
     return ann
 
 
+def move_alteration(entry):
+    """Move an `alteration` the annotation carries onto the entry, where the
+    schema keeps it: the preamble's change to the answer before grid entry."""
+    alteration = entry["annotation"].pop("alteration", None)
+    if alteration:
+        entry["alteration"] = alteration
+
+
 ENTRY_PATH = re.compile(r"\$\.entries\[(\d+)\]")
 BLOCKS_HELP = ("write `blocks` as annotate_prompt.md shows: a cryptic_definition has "
                "2+ blocks without `gives`; a double_definition has one block per definition")
@@ -305,6 +313,7 @@ def apply(path, annotations, by=None):
             entry.pop("annotation", None)
         else:
             entry["annotation"] = normalize(ann, entry, puzzle["entries"])
+            move_alteration(entry)
     # Credited only for hints it changed: re-applying the file as it stands
     # writes nothing, and must not put a second name on someone else's work.
     changed = before != [e.get("annotation") for e in puzzle["entries"]]

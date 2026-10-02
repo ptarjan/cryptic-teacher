@@ -6,6 +6,7 @@ set -uo pipefail
 cd "$(dirname "$0")/.."
 PYTHONPATH=tools python3 - <<'PY'
 import copy, itertools
+from pathlib import Path
 import apply_annotations as A
 import fetch_puzzle as F
 
@@ -77,5 +78,27 @@ with contextlib.redirect_stdout(io.StringIO()):
     errs2 = V.validate_puzzle(pz2)[1]
 check("no explanation at all is not a finding",
       not [x for x in puzzle_schema.validate(pz2) + errs2 if "explanation" in x or "walkthrough" in x])
+# An `alteration` in the _ann object lands on the stored entry.
+import json, shutil, tempfile
+import groups
+tmp = Path(tempfile.mkdtemp())
+try:
+    src = F.resolve_puzzle("cryptic-23340")
+    path = tmp / src.name
+    shutil.copy(src, path)
+    pz3 = F.read_puzzle_file(path)
+    cont = groups.leader_of(pz3["entries"])
+    full = {groups.entry_id(x): x.get("annotation") for x in pz3["entries"]
+            if groups.entry_id(x) not in cont}
+    victim = next(x for x in pz3["entries"] if x.get("alteration") and x.get("annotation"))
+    vid, alt = groups.entry_id(victim), victim["alteration"]
+    del victim["alteration"]
+    F.write_puzzle_file(path, pz3)
+    A.apply(path, {**full, vid: {**full[vid], "alteration": alt}}, by="human")
+    got = next(x for x in F.read_puzzle_file(path)["entries"] if groups.entry_id(x) == vid)
+    check("alteration moves onto the entry", got.get("alteration") == alt)
+    check("and is not left in the annotation", "alteration" not in got["annotation"])
+finally:
+    shutil.rmtree(tmp)
 raise SystemExit(1 if fails else 0)
 PY
