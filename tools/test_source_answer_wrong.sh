@@ -185,6 +185,60 @@ same "reverting to the served answers leaves every check silent" \
 same "because the two wrong lights agree about the cell they share" \
   "$(field SHARED_CELL "$out4")" "T T"
 
+echo "SOURCE_LIGHT_WRONG: the corpus holds every corrected light, and the served one is refused"
+out5=$(PYTHONPATH="$REPO/tools" python3 - <<'PY' 2>/tmp/slw_stale.err
+import copy
+import fetch_puzzle as fetcher
+import puzzle_integrity as pi
+from groups import entry_id
+
+table = fetcher.SOURCE_LIGHT_WRONG
+bad, refused = [], 0
+for pid in sorted({pid for pid, _ in table}):
+    held = pi.read_puzzle_file(pi.puzzle_paths.find(pid))
+    by_id = {entry_id(e): e for e in held["entries"]}
+    served = copy.deepcopy(held)
+    served_by = {entry_id(e): e for e in served["entries"]}
+    for (tpid, eid), (was, now, why) in table.items():
+        if tpid != pid:
+            continue
+        if eid not in by_id:
+            bad.append(f"{pid} {eid}: no such entry")
+            continue
+        if {f: fetcher._light_field(by_id[eid], f) for f in now} != now:
+            bad.append(f"{pid} {eid}: the file does not hold {now}")
+        if set(was) != set(now) or was == now or len(why) < 40:
+            bad.append(f"{pid} {eid}: corrects nothing, or says no why")
+        for field, value in was.items():
+            if field == "enumeration":
+                served_by[eid]["clue"]["enumeration"] = value
+            else:
+                served_by[eid][field] = value
+    # The page as served, corrected again, is the file on disk.
+    again = copy.deepcopy(served)
+    fetcher.correct_source_lights(pid, again["entries"])
+    if again["entries"] != held["entries"]:
+        bad.append(f"{pid}: correcting the served page does not give the file")
+    try:
+        pi.refuse_bad_write(served)
+    except pi.RefusedWrite:
+        refused += 1
+print("BAD", "; ".join(bad) or "none")
+print("REFUSED", refused == len({pid for pid, _ in table}))
+
+# A page since fixed is named, not rewritten.
+fixed = [{"number": 11, "direction": "across", "position": {"x": 0, "y": 3},
+          "length": 7, "clue": {}, "solution": "HANDLED"}]
+fetcher.correct_source_lights("cryptic-21730", fixed)
+print("FIXED", fixed[0]["position"]["y"])
+PY
+)
+same "every key holds on disk and corrects something" "$(field BAD "$out5")" "none"
+same "the page as served is refused by the writer, every puzzle" "$(field REFUSED "$out5")" "True"
+same "a page that fixed itself is kept as published" "$(field FIXED "$out5")" "3"
+same "and named as stale" "$(grep -c 'SOURCE_LIGHT_WRONG cryptic-21730 11-across is STALE' /tmp/slw_stale.err)" "1"
+rm -f /tmp/slw_stale.err
+
 [ "$fails" = 0 ] && echo "source_answer_wrong: all checks passed" \
   || echo "source_answer_wrong: $fails FAILED"
 exit $((fails > 0))

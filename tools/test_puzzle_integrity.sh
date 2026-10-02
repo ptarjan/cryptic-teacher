@@ -233,6 +233,19 @@ found = check_geometry(off)
 print("OFFBOARD", len(found))
 print("OFFBOARD_SAYS", found == ["1-across: 15 cells across from (1,0) runs off a 15x15 grid"])
 
+# No exception table forgives it, and the write path refuses it: a light off
+# the board is a cell no reader can draw, whatever a note says about why.
+pi.PUBLISHED_WRONG[(off["id"], found[0])] = "a note cannot put a cell on the board"
+flags = []
+pi.check_grid(off, flags)
+print("FORGIVEN_STILL_FLAGS", [w for _, _, w in flags] == found)
+try:
+    pi.refuse_bad_write(off)
+    print("WRITE_REFUSED", False)
+except pi.RefusedWrite as err:
+    print("WRITE_REFUSED", "runs off a 15x15 grid" in str(err))
+del pi.PUBLISHED_WRONG[(off["id"], found[0])]
+
 # A second across laid over the first four cells of 1-across: the shape a
 # mis-templated grid takes when a light is split or a block lands in the wrong
 # square. Numbered like 1-across so that only the overlap rule can speak.
@@ -249,6 +262,9 @@ XPY
 same "the puzzle as published is a coherent grid" "$(field PRISTINE "$out5")" "0"
 same "a light off the board is exactly one finding" "$(field OFFBOARD "$out5")" "1"
 same "and it names the light, the run and the board" "$(field OFFBOARD_SAYS "$out5")" "True"
+same "PUBLISHED_WRONG naming an off-board light does not forgive it" \
+  "$(field FORGIVEN_STILL_FLAGS "$out5")" "True"
+same "and the writer refuses to put it on disk" "$(field WRITE_REFUSED "$out5")" "True"
 same "two acrosses over four cells is four findings" "$(field OVERLAP "$out5")" "4"
 same "each names the cell and both lights" "$(field OVERLAP_SAYS "$out5")" "True"
 

@@ -1804,6 +1804,104 @@ def correct_source_answers(pid, entries):
               file=sys.stderr)
 
 
+# The lights the SOURCE placed wrong: a light whose position, length,
+# enumeration or answer the page serves in a way its own grid refutes. Keyed
+# by puzzle and entry like SOURCE_ANSWER_WRONG, holding the served and the
+# corrected value of each field the light gets wrong (`enumeration` is the
+# clue's). correct_source_lights applies it at fetch time; a page no longer
+# serving every `served` value is warned about and left as published.
+#
+# The evidence has to be the page's own: the crossing letters of the lights
+# the source got right fix where a misplaced light sits and what it holds.
+# A light the crossings cannot place is not filed here — it stays off the
+# grid, and the write is refused (tools/apply_solution.py check_geometry).
+_ROTATED_22482 = (
+    "the Guardian's 2002-04-01 Rufus has its downs from 14 on rotated by one "
+    "light: each clue sits beside the next light's answer, and mostly the "
+    "length and the printed count follow that answer. The clue "
+    "numbers, start cells and every across are right, and the acrosses' "
+    "letters cross each of these lights only as corrected: ")
+SOURCE_LIGHT_WRONG = {
+    ("cryptic-21730", "11-across"): (
+        {"position": {"x": 0, "y": 83}}, {"position": {"x": 0, "y": 3}},
+        "the page puts HANDLED at row 83 of a 15-row grid; row 3 is the only "
+        "row where a 7-cell across from column 0 is free, and there its H, N, "
+        "L and D are the fourth letters of 1-down ONTHETILES, 2-down STINKING, "
+        "3-down BOWLED and 4-down SKID, with 12-across after it at (8,3)"),
+    ("cryptic-22482", "14-down"): (
+        {"solution": "PRACTICAL"}, {"solution": "OVERSLEPT"},
+        _ROTATED_22482 + ("\"Did not turn out as intended\" is OVERSLEPT, its "
+        "V, R, L, P from 19-, 23-, 28- and 30-across")),
+    ("cryptic-22482", "15-down"): (
+        {"solution": "CUFFLINKS"}, {"solution": "PRACTICAL"},
+        _ROTATED_22482 + ("\"Realistic sort of joke for today\" is PRACTICAL, "
+        "its R, C, I, A from 19-, 23-, 28- and 30-across")),
+    ("cryptic-22482", "16-down"): (
+        {"length": 3, "enumeration": "3", "solution": "ALL"},
+        {"length": 9, "enumeration": "9", "solution": "CUFFLINKS"},
+        _ROTATED_22482 + ("\"Belt buckles worn by men\" is CUFFLINKS down "
+        "column 4, its U, F, I, K from 19-, 23-, 28- and 30-across")),
+    ("cryptic-22482", "17-down"): (
+        {"solution": "SPY"}, {"solution": "ALL"},
+        _ROTATED_22482 + ("\"A couple of pounds for the lot\" is ALL, its A, "
+        "L, L from 17-, 19- and 21-across")),
+    ("cryptic-22482", "18-down"): (
+        {"length": 7, "enumeration": "7", "solution": "ALABAMA"},
+        {"length": 3, "enumeration": "3", "solution": "SPY"},
+        _ROTATED_22482 + ("\"Look for a mole\" is SPY, its S, P, Y from 17-, "
+        "20- and 21-across")),
+    ("cryptic-22482", "22-down"): (
+        {"length": 6, "enumeration": "6", "solution": "AFFECT"},
+        {"length": 7, "enumeration": "7", "solution": "ALABAMA"},
+        _ROTATED_22482 + ("\"State of a student gaining a degree, then "
+        "another\" is AL+ABA+MA, its four As from 21-, 27-, 29- and 31-across")),
+    ("cryptic-22482", "24-down"): (
+        {"solution": "EDITOR"}, {"solution": "AFFECT"},
+        _ROTATED_22482 + ("\"Pretend to have influence\" is AFFECT, its F, E, "
+        "T from 27-, 29- and 31-across")),
+    ("cryptic-22482", "25-down"): (
+        {"solution": "FLYING"}, {"solution": "EDITOR"},
+        _ROTATED_22482 + ("\"He's in charge, but has a leader\" is EDITOR, its "
+        "D, T, R from 27-, 29- and 31-across")),
+    ("cryptic-22482", "26-down"): (
+        {"length": 9, "solution": "OVERSLEPT"}, {"length": 6, "solution": "FLYING"},
+        _ROTATED_22482 + ("\"Taking flight, running fast\" (6) is FLYING, its "
+        "L, I, G from 27-, 29- and 31-across; the page's 9 cells run three "
+        "rows off the board")),
+}
+
+
+def _light_field(entry, field):
+    return entry["clue"].get(field) if field == "enumeration" else entry.get(field)
+
+
+def correct_source_lights(pid, entries):
+    """Put SOURCE_LIGHT_WRONG's corrections into lights just read off the
+    page, warning instead when the page no longer serves what the table names
+    — the same staleness rule as correct_source_answers."""
+    by_id = {entry_id(e): e for e in entries}
+    for (table_pid, eid), (served, corrected, _why) in SOURCE_LIGHT_WRONG.items():
+        if table_pid != pid:
+            continue
+        entry = by_id.get(eid)
+        if entry is None:
+            print(f"WARNING: SOURCE_LIGHT_WRONG {pid} {eid}: this puzzle has no "
+                  "such entry — stale key, delete it", file=sys.stderr)
+            continue
+        now = {f: _light_field(entry, f) for f in served}
+        if now != served:
+            print(f"WARNING: SOURCE_LIGHT_WRONG {pid} {eid} is STALE: the page "
+                  f"serves {now}, not the {served} this table replaces — leaving "
+                  "it as published, delete the key", file=sys.stderr)
+            continue
+        for field, value in corrected.items():
+            if field == "enumeration":
+                entry["clue"]["enumeration"] = value
+            else:
+                entry[field] = value
+    entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
+
+
 # The publication dates the SOURCE got wrong, and the day its own sequence
 # prints them on. A series publishes one puzzle per issue, in number order, so
 # a date that is not after the number before it is wrong on one side or the
@@ -1964,6 +2062,7 @@ def convert(data):
     # Before anything reads the answers: reconcile_groups and the length checks
     # downstream all weigh letters, and the paper's wrong one is not the letter
     # this corpus holds.
+    correct_source_lights(pid, entries)
     correct_source_answers(pid, entries)
     reconcile_groups(entries)
     prune_one_sided_members(entries)

@@ -170,12 +170,10 @@ def has_unclued(puzzle):
 
 
 def grid_consistent(puzzle, white):
-    """Every run of two or more white squares is exactly one stored light and
-    every light lies in the grid. A grid that fails has lost or misplaced a
-    light, and its shape proves nothing."""
-    rows, cols = puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"]
-    if any(not (0 <= x < cols and 0 <= y < rows) for x, y in white):
-        return False
+    """Every run of two or more white squares is exactly one stored light. A
+    grid that fails has lost or misplaced a light, and its shape proves
+    nothing. Every light lies on the board: no writer can store one that does
+    not (puzzle_integrity.check_grid)."""
     lights = {(e["direction"], e["position"]["x"], e["position"]["y"], e["length"])
               for e in puzzle["entries"]}
     runs = set()
