@@ -400,16 +400,10 @@ stats_blocks = 0.9
 got, info = f.read_solution(sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
 
-check("editions from --file-from's year go to the corpus, earlier ones to --out",
-      ["out", None, None, "out", None],
-      [f.destination("out", 1983, "1982-12-31"), f.destination("out", 1983, "1983-01-03"),
-       f.destination(None, 1983, "1975-01-01"), f.destination("out", None, "1999-01-01"),
-       f.destination(None, None, "1999-01-01")])
-
+check("a complete puzzle goes to the corpus, with or without --out",
+      [None, None], [f.destination("out", True), f.destination(None, True)])
 check("a puzzle with a blank clue goes to --out or nowhere, never the corpus",
-      ["out", False, "out"],
-      [f.destination("out", 1983, "1990-01-01", False), f.destination(None, None, "1990-01-01", False),
-       f.destination("out", None, "1975-01-01", False)])
+      ["out", False], [f.destination("out", False), f.destination(None, False)])
 check("complete() is every clue having text", [True, False],
       [f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": "B"}}]}),
        f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": " "}}]})])
@@ -433,7 +427,7 @@ f.input_hash = lambda d, code: "h"
 f.held_numbers = lambda series="times": set()
 fetch_puzzle.puzzle_path = lambda series, n: Path(os.environ["TMP"]) / "corpus" / f"times-{n}.json"
 fetch_puzzle.write_puzzle_file = lambda path, puzzle, generator: wrote.append(path.parent.name + "/" + path.name)
-rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled", file_from=1983,
+rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled",
              source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
 check("run files the complete puzzle in the corpus and the one with a blank clue in --out",
       ["unfiled/times-18179.json", "corpus/times-18180.json"], sorted(wrote, reverse=True))
