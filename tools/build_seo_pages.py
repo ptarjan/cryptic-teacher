@@ -934,7 +934,6 @@ def hub_page(idx):
         "Under each paper, the bars show where its rated puzzles fall from easiest to "
         "hardest, coloured by band, and the line marks its middle puzzle. "
         f'New to cryptic crosswords? <a href="{BASE}/learn/">Start with how the clues work</a>.</p>',
-        *([f'<h2 id="latest">Latest puzzle in each paper</h2>{latest}'] if (latest := latest_list(idx)) else []),
         *sections,
         "</main>",
     ]
@@ -1057,41 +1056,6 @@ def series_page(series, years, today):
                "name": title, "url": canonical, "description": desc}
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
-
-
-LATEST_WINDOW = 14     # days behind the newest puzzle a series' newest may be
-
-
-def latest_by_series(idx):
-    """The newest puzzle of each series still printing, newest first: each
-    paper's own latest, not the newest dozen of all of them, so the list reads
-    as "today in each paper" rather than as random puzzles. A series whose
-    newest is more than LATEST_WINDOW days behind the newest puzzle anywhere
-    is a back archive (the Canberra Times' 1970s) and is left out, as is the
-    book shelf, which has no newest."""
-    heads = [next(iter(years.values()))[0] for s, years in listings(idx).items()
-             if not series_meta.is_book(s)]
-    heads = [p for p in heads if p.get("date")]
-    if not heads:
-        return []
-    top = max(series_meta.puzzle_day(p) for p in heads)
-    keep = [p for p in heads if (top - series_meta.puzzle_day(p)).days <= LATEST_WINDOW]
-    return sorted(keep, key=lambda p: series_meta.puzzle_day(p), reverse=True)
-
-
-def latest_list(idx):
-    """Crawlable links to each series' newest puzzle and its landing page."""
-    items = []
-    for p in latest_by_series(idx):
-        s = p.get("series") or "cryptic"
-        setter = p.get("setter") or ""
-        by = f" by {esc(setter)}" if setter and setter != kind(p) else ""
-        ident = display_number(p) if number_day(p) else f"No {position(p)}"
-        items.append(
-            f'<li><a href="{site_url(series_path(s))}">{esc(series_name(s))}</a>: '
-            f'<a href="{BASE}/puzzles/{p["id"]}/">{esc(ident)}</a>{by}, '
-            f'{esc(datestr(p))}</li>')
-    return f'<ul class="s-latest">{"".join(items)}</ul>' if items else ""
 
 
 def series_pages(idx, today=None):
@@ -1780,9 +1744,9 @@ def homepage_nav(idx):
     Without these the static pages exist but nothing points at them except the
     sitemap, and a sitemap-only URL is treated as a much weaker signal than one
     that is actually linked. The archive link reaches every puzzle through the
-    series listings. The puzzles linked by name are each paper's newest
-    (latest_by_series), one per paper and labelled with it, never the newest
-    dozen of all papers, which reads as a list of random puzzles.
+    series listings; no puzzle is linked by name, since a handful picked out of
+    the archive reads as random. A new puzzle is found through the recent
+    sitemap.
     """
     solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
     return f"""{NAV_START}
@@ -1796,7 +1760,6 @@ def homepage_nav(idx):
      <a href="{BASE}/indicators/">indicators</a>, read
      <a href="{BASE}/difficulty/">how difficulty is rated</a>, or browse
      <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>.</p>
-  {f'<h2>Latest puzzle in each paper</h2>{latest}' if (latest := latest_list(idx)) else ""}
 </section>
 {NAV_END}"""
 
