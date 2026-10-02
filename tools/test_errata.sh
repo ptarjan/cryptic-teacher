@@ -24,6 +24,10 @@ BASE = {"id": "cryptic-1", "entries": [
     entry(25, "across", "5  plus  11 = 4 x 4", "7,7", annotation={"type": ["charade"]}),
     entry(7, "down", "Me, pretentious, girl? Au contraire, in a manner of speaking", "5"),
     entry(17, "down", "Height 3pi   plus50  solved in old battlefield", "8"),
+    entry(21, "across", "Woman harbouring classy derriere, keeping the nation hot", "6,3,5",
+          annotation={"type": ["container"]}),
+    entry(17, "across", "Painting, inaccurate portrayal of Moliere plot", "6,5"),
+    entry(10, "across", "See 1", "5"),
 ]}
 
 fails = 0
@@ -44,6 +48,47 @@ p, changed = run('Clue 5 down should read: "Señor of the road as well as in the
 check("should read restores the accent", clue(p, 5, "down")["clue"]["text"].startswith("Señor"))
 check("an erratum-only preamble is removed", "preamble" not in p, p.get("preamble"))
 check("an accent alone keeps the annotation", "annotation" in clue(p, 5, "down") and not changed)
+
+p, changed = run('Clue 5 down shoould read: "Señor of the road as well as in the dance"')
+check("a misspelt should read is applied", clue(p, 5, "down")["clue"]["text"].startswith("Señor")
+      and "preamble" not in p, p.get("preamble"))
+
+p, changed = run("For 21 across read 'derrière'")
+check("for N read restores the word in place",
+      clue(p, 21, "across")["clue"]["text"] == "Woman harbouring classy derrière, keeping the nation hot"
+      and "preamble" not in p and "annotation" in clue(p, 21, "across") and not changed,
+      clue(p, 21, "across"))
+
+p, _ = run("For 'Moliere' read 'Molière'.")
+check("for X read Y replaces X in the clue holding it",
+      clue(p, 17, "across")["clue"]["text"] == "Painting, inaccurate portrayal of Molière plot"
+      and "preamble" not in p, clue(p, 17, "across"))
+
+p, _ = run("Two writers are asterisked. The following clues should be asterisked: "
+           "1 down and 10 across, 7 down.")
+check("should be asterisked marks the clues, a linked clue by its leader",
+      clue(p, 1, "down")["clue"]["text"].startswith("* 2s") and clue(p, 7, "down")["clue"]["text"]
+      .startswith("* Me") and clue(p, 10, "across")["clue"]["text"] == "See 1"
+      and p.get("preamble") == "Two writers are asterisked.", p.get("preamble"))
+
+for note, kept in (("1 September 2016. The clue for 1 across has been modified.", None),
+                   ("12/12/2020: changes, not affecting the solutions, have been made to five "
+                    "of the original clues", None),
+                   ("A ‘to’ has been restored to 17ac and a stray apostrophe removed from 4d.", None),
+                   ("A word in the entry for 25 across no longer appears in the clue", None),
+                   ("The clue for 25 across has been ammended.", None),
+                   ("Thirty-three solutions consist of two parts. [10 January 2019: Clue for "
+                    "25 across altered]", "Thirty-three solutions consist of two parts.")):
+    p, _ = run(note)
+    check(f"a correction without text is dropped: {note[:40]}",
+          errata.find(note) and p.get("preamble") == kept and "annotation" in clue(p, 25, "across"),
+          p.get("preamble"))
+
+try:
+    run("For 18 down read 'café'")
+    check("a for-read whose word is not in the clue raises", False)
+except ValueError as err:
+    check("a for-read whose word is not in the clue raises, naming it", "18 down" in str(err), err)
 
 p, _ = run('Clue 18 should read: "Are these the main reasons for afternoon business in café, increases in naps?"')
 check("a number without direction resolves when one clue fits",
@@ -88,8 +133,22 @@ check("an amended instruction keeps the instruction",
 for keep in ("The solution to 13 should be interested in 10 others, not otherwise defined",
              "These letters must be returned to the correct clues before solving.",
              "This puzzle was originally published in the December issue of the magazine.",
-             "There was an error in this crossword. The answer was \"reigning\", but only "
-             "\"reining\" would fit."):
+             "Cuts have been made to fit the quote in the grid.",
+             "There are minor changes and a hyphen, a dash and two full stops are lacking.",
+             "One word ('that') has been omitted.",
+             "For 12 clues an antonym of the solution – of the same length – is to be entered.",
+             "For the subsidiary parts of the clues these letters are deemed to have been restored.",
+             "This is Paul's first puzzle, published 25 years ago tomorrow, with a few clues updated.",
+             "Solutions to asterisked clues are of a kind and may not be further defined.",
+             # The paper confessing a flaw the grid keeps: no fix to apply.
+             "There was an error in this Cryptic Crossword. The clue given for 18 down was \"German "
+             "numero uno infiltrating group as kaiser?\" The answer was \"reigning\", but only the "
+             "homophone, \"reining\" would fit.",
+             "Unfortunately the answer to clue 21 across is a misspelling. We said that the flying "
+             "machine made from canes was a CESNA. This should have been CESSNA. Our apologies.",
+             "Note added 8 September 2011. There is a spelling mistake, involving one P too many, "
+             "in the solution to 9 across.",
+             "* there is an error in the clue and solution for 12 down"):
     p, _ = run(keep)
     check(f"not an erratum: {keep[:40]}", p.get("preamble") == keep and not errata.find(keep),
           p.get("preamble"))
