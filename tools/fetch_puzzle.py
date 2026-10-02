@@ -1693,6 +1693,11 @@ def bare_letters(solution):
 # which marks a whole puzzle's fill unofficial. This table is the opposite case:
 # an official key, published, with a known error in two of its letters.
 SOURCE_ANSWER_WRONG = {
+    ("cryptic-22711", "21-down"): (
+        "AQUATINIA", "AQUATINTA",
+        '"Unusual work of art used among volunteers after weedkiller, if below '
+        'par" is AQUATINTA, an etched print, ending in TA (volunteers); '
+        "AQUATINIA is not a word; the eighth cell is unchecked"),
     ("cryptic-23022", "1-across"): (
         "ANTISPUMANTE", "ASTISPUMANTE",
         '"Since it\'s 10 off, take it for champagne" is printed (4,8), and the '
