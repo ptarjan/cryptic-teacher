@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Discard half of that egg on seeing crack",
     "enumeration": "7"
    },
-   "solution": "ATTEMPT"
+   "solution": "ATTEMPT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ATTEMPT",
+    "definitions": [
+     {
+      "text": "crack",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discard half of",
+      "for": "deletion",
+      "note": "throwing away half a word leaves only its other half, here the back two letters"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "AT",
+      "note": "the front half TH is thrown away, leaving the back half"
+     },
+     {
+      "clueFragment": "egg on",
+      "gives": "TEMPT",
+      "note": "to egg someone on is to urge or entice them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEMPT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook gives up on a half-used egg once it turns out to be cracked.",
+     "walkthrough": "'Crack' looks like part of the egg story, but it is the definition, in the sense of 'have a crack at'. 'Egg on' is a phrasal verb, not breakfast.",
+     "definitionFit": "To have a crack at something is to make a try at it, so the noun crack is a colloquial synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,74 @@
     "text": "Crafty sea trout, dropping or rising freely",
     "enumeration": "6"
    },
-   "solution": "ASTUTE"
+   "solution": "ASTUTE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ASTUTE",
+    "definitions": [
+     {
+      "text": "Crafty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry something rising reads from the bottom upwards, so the short word turns round"
+     },
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "to drop something is to let it fall away, so these letters leave the fish"
+     },
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "letters moving freely are not tied to their places, so what remains is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea trout",
+      "gives": "SEATROUT",
+      "note": "taken as written, the name of the fish"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "RO",
+      "note": "taken as written and then turned round; this pair sits in the middle of the fish"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEATUT",
+       "gives": "ASTUTE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler admires a cunning sea trout that keeps diving and surfacing at will.",
+     "walkthrough": "Removing RO from SEATROUT leaves SEATUT, which rearranges to ASTUTE. 'Dropping or rising' reads like a fish's movement in the water.",
+     "definitionFit": "Someone crafty is shrewd and cunning in getting their way, which is what astute describes as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +182,45 @@
     "text": "Bottom place for royal projected broadcast",
     "enumeration": "6"
    },
-   "solution": "THRONE"
+   "solution": "THRONE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THRONE",
+    "definitions": [
+     {
+      "text": "Bottom place for royal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "a broadcast goes out over the air to listeners, so the word is to be heard rather than seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "projected",
+      "gives": "THRONE",
+      "soundsLike": "THROWN",
+      "note": "projected means hurled or thrown"
+     }
+    ],
+    "explanation": {
+     "surface": "A royal ranked at the bottom has their image projected on air.",
+     "walkthrough": "'Bottom' is not a ranking but the part of the body that sits down: the definition is the seat a monarch sits on.",
+     "definitionFit": "A throne is the ceremonial chair of a monarch, literally the place where a royal rests their backside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,62 @@
     "text": "Plug in marquee's animated front",
     "enumeration": "10"
    },
-   "solution": "MASQUERADE"
+   "solution": "MASQUERADE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "MASQUERADE",
+    "definitions": [
+     {
+      "text": "front",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in among the other's letters before they are stirred"
+     },
+     {
+      "text": "animated",
+      "for": "anagram",
+      "note": "animated means lively and moving about, so the combined letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marquee's",
+      "gives": "MARQUEES",
+      "note": "taken as written, with the S from the apostrophe"
+     },
+     {
+      "clueFragment": "Plug",
+      "gives": "AD",
+      "note": "a plug is an advertisement, AD for short"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARQUEADES",
+       "gives": "MASQUERADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert lights up the front of a marquee with moving signs.",
+     "walkthrough": "'Front' looks like the marquee's facade, but it is the definition in its sense of a false show. To plug a product is to advertise it.",
+     "definitionFit": "A front is a pretence hiding the truth, and a masquerade is likewise a false outward show or disguise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +303,67 @@
     "text": "They'll lay out a fortune to turn traitor over",
     "enumeration": "5"
    },
-   "solution": "TAROT"
+   "solution": "TAROT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TAROT",
+    "definitions": [
+     {
+      "text": "They'll lay out a fortune",
+      "at": 0,
+      "note": "the definition is plural because the answer names a pack of cards, many items under one singular name"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turning something over flips it, so the joined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "turn traitor",
+      "gives": "RAT",
+      "note": "to rat on someone is to betray them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      },
+      {
+       "from": "RAT",
+       "to": "TAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Informers who sell out their side are paid a fortune for it.",
+     "walkthrough": "'Lay out a fortune' sounds like spending a lot of money, but here the cards are laid out on a table to tell a fortune.",
+     "definitionFit": "Tarot cards are dealt in a spread by fortune-tellers, who read the future from the pattern on the table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fortune"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +377,58 @@
     "text": "Wind back instalment of virtual art simulation",
     "enumeration": "7"
    },
-   "solution": "MISTRAL"
+   "solution": "MISTRAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MISTRAL",
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "instalment of",
+      "for": "hidden_word",
+      "note": "an instalment is just a part of the whole, so the letters are a run inside the phrase"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtual art simulation",
+      "gives": "LARTSIM",
+      "note": "the run starts at the end of the first word and stops early in the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LARTSIM",
+       "to": "MISTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rewinds an episode of a virtual reality art show.",
+     "walkthrough": "'Wind back' looks like the rewinding of a recording, but 'Wind' is the definition, the noun for a moving air current.",
+     "definitionFit": "The mistral is a strong cold northerly wind that blows down the Rhône valley into southern France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +442,73 @@
     "text": "Little snapper bit rolls covered with instant milk",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MOUSETRAP",
+    "definitions": [
+     {
+      "text": "Little snapper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolls",
+      "for": "reversal",
+      "note": "something that rolls over ends up the other way round"
+     },
+     {
+      "text": "covered with",
+      "for": "charade",
+      "note": "in a down entry, being covered means the other pieces sit on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instant",
+      "gives": "MO",
+      "note": "a mo is a moment, a British short form"
+     },
+     {
+      "clueFragment": "milk",
+      "gives": "USE",
+      "note": "to milk a situation is to exploit or use it"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "PART",
+      "note": "a bit is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "USE",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small child takes a bite of bread rolls topped with powdered milk.",
+     "walkthrough": "'Little snapper' suggests a child or a small fish, but it is a device that snaps shut. 'Bit', 'rolls' and 'instant milk' all read as food.",
+     "definitionFit": "A spring-loaded catch for small rodents snaps shut on its victim, so it is a small snapping device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snapper"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +522,59 @@
     "text": "Do a bunk after husband's put down bit of capital",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "bit of capital",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put down",
+      "for": "container",
+      "note": "in a down entry, putting a letter down moves it lower, so it is lifted out and slotted further along"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do a bunk",
+      "gives": "SHOO",
+      "note": "doing a bunk is running off; shoo is the call that sends someone off"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband, lifted out of its second place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs away after a husband has been killed, taking part of the capital.",
+     "walkthrough": "The H of SHOO slides one place lower down the entry, after the first O. Soho is a district of central London known for nightlife.",
+     "definitionFit": "Soho is one neighbourhood of London's West End, so it is a small part of the capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +594,62 @@
      }
     ]
    },
-   "solution": "REELECTS"
+   "solution": "REELECTS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RE-ELECTS",
+    "definitions": [
+     {
+      "text": "puts in post again",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "writing something in puts it inside a text, so one piece goes inside another"
+     },
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the order of things, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article from Spain",
+      "gives": "EL",
+      "note": "el is the Spanish word for 'the'"
+     },
+     {
+      "clueFragment": "secret",
+      "gives": "SECRET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECRELET",
+       "gives": "REELECTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish revolutionary's article, written in secret, returns someone to office.",
+     "walkthrough": "'Article' looks like a newspaper piece, but it is the grammatical article. 'Revolutionary' reads as a noun for a rebel but is the signal to rearrange.",
+     "definitionFit": "Voters who return a sitting official to office for a further term put that person back in post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +663,42 @@
     "text": "Tucked into cornflakes, I'd eaten with water at hand",
     "enumeration": "8"
    },
-   "solution": "LAKESIDE"
+   "solution": "LAKESIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LAKESIDE",
+    "definitions": [
+     {
+      "text": "with water at hand",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tucked into",
+      "for": "hidden_word",
+      "note": "something tucked into a phrase is wrapped up inside it, so the letters run continuously within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cornflakes, I'd eaten",
+      "note": "the letters run straight on from the end of the cereal through the next two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes having had breakfast cereal with water at hand.",
+     "walkthrough": "'Tucked into' reads as eating, which suits the breakfast picture, but it means the answer is buried in the words. Crossing the comma and apostrophe is allowed.",
+     "definitionFit": "A lakeside place lies on the shore of a lake, so there is water close by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tucked"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +712,51 @@
     "text": "Times names relations",
     "enumeration": "5"
    },
-   "solution": "TERMS"
+   "solution": "TERMS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TERMS",
+    "definitions": [
+     {
+      "text": "Times",
+      "at": 0
+     },
+     {
+      "text": "names",
+      "at": 6
+     },
+     {
+      "text": "relations",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "note": "first meaning: fixed periods, as in school or prison sentences"
+     },
+     {
+      "clueFragment": "names",
+      "note": "second meaning: words used for things, as in technical vocabulary"
+     },
+     {
+      "clueFragment": "relations",
+      "note": "third meaning: standing between people, as in being on good ones"
+     }
+    ],
+    "explanation": {
+     "surface": "The Times newspaper publishes the names of family members.",
+     "walkthrough": "This is a triple definition: three separate meanings of one word. The capital T makes the first look like the newspaper.",
+     "definitionFit": "The plural noun covers periods of time, vocabulary words, and the footing on which people stand with each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +770,51 @@
     "text": "Model with bit of bottle gets rowdy",
     "enumeration": "9"
    },
-   "solution": "ROUGHNECK"
+   "solution": "ROUGHNECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUGHNECK",
+    "definitions": [
+     {
+      "text": "rowdy",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "with",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Model",
+      "gives": "ROUGH",
+      "note": "a rough is a preliminary sketch or mock-up"
+     },
+     {
+      "clueFragment": "bit of bottle",
+      "gives": "NECK",
+      "note": "the narrow top part of a bottle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUGH",
+      "NECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model who has had a drink or two becomes loud and disorderly.",
+     "walkthrough": "'Rowdy' reads as an adjective in the surface but is the definition as a noun, a rowdy person. 'Model' means a draft, not a catwalk figure.",
+     "definitionFit": "A rowdy is a rough, noisy troublemaker, and a roughneck is an informal term for the same kind of brawling person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +834,57 @@
      }
     ]
    },
-   "solution": "TONGUETIED"
+   "solution": "TONGUETIED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TONGUE-TIED",
+    "definitions": [
+     {
+      "text": "shrinking",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "charade",
+      "note": "the word signals that the named item is only an example of a wider class"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "TONGUE",
+      "note": "the language of Poland is one example of a tongue"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "TIED",
+      "note": "bound means tied up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONGUE",
+      "TIED"
+     ]
+    },
+    "explanation": {
+     "surface": "A tin of polish that keeps getting smaller as it is used up.",
+     "walkthrough": "Capitalised at the start, 'Polish' could be the shine for shoes; it is the nationality, and its language is a tongue. 'Shrinking' means shy, as in a shrinking violet.",
+     "definitionFit": "A shrinking person is timid and withdrawn, and someone too shy to speak is described as unable to find words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +904,76 @@
      }
     ]
    },
-   "solution": "FEES"
+   "solution": "FEES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "FEES",
+    "definitions": [
+     {
+      "text": "9",
+      "at": 41,
+      "note": "the number points to the answer at 9 across, used here in its sense of charges"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "a vacuous word is empty inside, so only its outside letters remain"
+     },
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "a screen shields what is behind it, so one piece wraps round the other"
+     },
+     {
+      "text": "Returns",
+      "for": "reversal",
+      "note": "returning means coming back, so the assembled letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sci-fi",
+      "gives": "SF",
+      "note": "SF is the usual abbreviation for science fiction"
+     },
+     {
+      "clueFragment": "Empire",
+      "gives": "EE",
+      "select": "outer",
+      "note": "only the first and last letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EE",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SEEF",
+       "to": "FEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema shows a science fiction film, a hollow sequel called Empire Returns 9.",
+     "walkthrough": "The italic title mimics a Star Wars sequel but carries only wordplay. The 9 is a cross-reference: it points to TERMS, meaning charges here.",
+     "definitionFit": "The terms of a deal can mean its charges or prices, as in reasonable rates, and fees are payments charged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +993,43 @@
      }
     ]
    },
-   "solution": "CLOSEDBOOK"
+   "solution": "CLOSEDBOOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLOSED BOOK",
+    "definitions": [
+     {
+      "text": "Done reading",
+      "at": 0
+     },
+     {
+      "text": "mystery",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Done reading",
+      "note": "first meaning: a volume shut when it is finished with"
+     },
+     {
+      "clueFragment": "mystery",
+      "note": "second meaning: something or someone impossible to understand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests someone has finished a mystery novel; the two parts are separate meanings of one phrase. The first is a literal reading of the phrase.",
+     "definitionFit": "A person or subject that cannot be understood is idiomatically called this, just as a shut volume cannot be read."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mystery"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1049,80 @@
      }
     ]
    },
-   "solution": "ARMOURPLATED"
+   "solution": "ARMOURPLATED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "anagram"
+    ],
+    "answer": "ARMOUR-PLATED",
+    "definitions": [
+     {
+      "text": "Firmly covered up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuddling",
+      "for": "container",
+      "note": "to cuddle is to wrap one's arms around, so one piece holds another"
+     },
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "something done roughly is done without care for order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romance",
+      "gives": "AMOUR",
+      "note": "amour is a love affair"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "dealt",
+      "gives": "DEALT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "MOUR",
+      "P",
+      "LATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEALT",
+       "gives": "LATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hushed up an affair with Romeo after Father treated him harshly.",
+     "walkthrough": "Romeo and Papa look like a lover and a father in a family drama, but they are just letters of the phonetic alphabet.",
+     "definitionFit": "Something with a protective steel skin is thickly covered against attack, so heavily shielded describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covered"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1136,69 @@
     "text": "Revolting old boy with debts hanging around Number 10",
     "enumeration": "9"
    },
-   "solution": "OBNOXIOUS"
+   "solution": "OBNOXIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBNOXIOUS",
+    "definitions": [
+     {
+      "text": "Revolting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hanging around",
+      "for": "charade",
+      "note": "in a down entry, something hanging around below another piece sits underneath it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is ten in Roman numerals"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to repay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "NO",
+      "X",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgusting old boy with debts loiters outside Number 10 Downing Street, the Prime Minister's residence.",
+     "walkthrough": "'Number 10' looks like Downing Street but splits into two abbreviations. 'Revolting' reads as rebellious; here it means disgusting.",
+     "definitionFit": "Revolting means extremely unpleasant or offensive, and the answer is a common synonym for that adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1212,62 @@
     "text": "Away days holding black magic seances",
     "enumeration": "8"
    },
-   "solution": "ABSENCES"
+   "solution": "ABSENCES",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "ABSENCES",
+    "definitions": [
+     {
+      "text": "Away days",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to contain it, so one letter goes inside"
+     },
+     {
+      "text": "magic",
+      "for": "anagram",
+      "note": "magic transforms things, so the letters are conjured into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "seances",
+      "gives": "SEANCES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEABNCES",
+       "gives": "ABSENCES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trips away are spent holding sessions of black magic.",
+     "walkthrough": "'Black magic' reads as a single phrase, but 'black' gives a letter and 'magic' is the signal to rearrange. Away days are days off, not trips.",
+     "definitionFit": "Days spent away from work or school are recorded as instances of not being present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "magic"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1281,45 @@
     "text": "Keep in good condition or state",
     "enumeration": "8"
    },
-   "solution": "MAINTAIN"
+   "solution": "MAINTAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAINTAIN",
+    "definitions": [
+     {
+      "text": "Keep in good condition",
+      "at": 0
+     },
+     {
+      "text": "state",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep in good condition",
+      "note": "first meaning: look after something so it stays in working order"
+     },
+     {
+      "clueFragment": "state",
+      "note": "second meaning: declare or assert that something is so"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Condition or state' looks like a pair of synonyms, but 'state' is a verb meaning to assert, and the second definition.",
+     "definitionFit": "The verb covers both servicing equipment to keep it working and insisting firmly that a claim is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1339,51 @@
      }
     ]
    },
-   "solution": "BOARDINGPASS"
+   "solution": "BOARDINGPASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOARDING PASS",
+    "definitions": [
+     {
+      "text": "given to a high-flier?",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of school",
+      "gives": "BOARDING",
+      "note": "a school where pupils live in term time"
+     },
+     {
+      "clueFragment": "exam result",
+      "gives": "PASS",
+      "note": "a successful grade in a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOARDING",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A top boarding school pupil earns exam results that mark them out as a high-flier.",
+     "walkthrough": "A high-flier sounds like a star pupil, but the question mark signals a literal reading: an air passenger flying high.",
+     "definitionFit": "Airline passengers are handed this card before getting on the plane, so it is literally given to someone who flies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high-flier"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1397,64 @@
     "text": "Muscles stretch out making a climb or quick descent",
     "enumeration": "6"
    },
-   "solution": "ABSEIL"
+   "solution": "ABSEIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABSEIL",
+    "definitions": [
+     {
+      "text": "quick descent",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a climb",
+      "for": "reversal",
+      "note": "in a down entry, climbing means going upwards, so the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muscles",
+      "gives": "ABS",
+      "note": "abs are abdominal muscles"
+     },
+     {
+      "clueFragment": "stretch out",
+      "gives": "LIE",
+      "note": "to stretch out on a bed is to lie down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "EIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIE",
+       "to": "EIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber's muscles get a stretch on the way up or a rapid descent.",
+     "walkthrough": "'Climb or quick descent' looks like a pair of alternatives for one activity, but 'making a climb' only turns a piece round.",
+     "definitionFit": "Abseiling is a rapid controlled way down a rock face or wall on a rope, so it is a fast descent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climb"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1468,61 @@
     "text": "Flexible shelter housing a new resident",
     "enumeration": "6"
    },
-   "solution": "TENANT"
+   "solution": "TENANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TENANT",
+    "definitions": [
+     {
+      "text": "resident",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "to house something is to give it a place inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flexible shelter",
+      "gives": "TENT",
+      "note": "a shelter of canvas, which bends and moves"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "A",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A flexible shelter scheme offers housing to a new resident.",
+     "walkthrough": "'Housing a new resident' reads like a landlord's advert, but 'housing' is the container signal. 'Flexible' just describes the soft walls of the shelter.",
+     "definitionFit": "Someone who rents and lives in a property is its occupier, so a renter is a resident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1542,62 @@
      }
     ]
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "Inferno",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so the outside letters go and the middle ones stay"
+     },
+     {
+      "text": "Twisted",
+      "for": "reversal",
+      "note": "twisting something round leaves it facing the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dante's",
+      "gives": "ANTE",
+      "select": "middle",
+      "note": "the first and last letters of the name with its S are dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANTE",
+       "to": "ETNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic calls the core of Dante's Inferno twisted.",
+     "walkthrough": "The italic title suggests the poem, but 'Inferno' alone is the definition: a blazing volcano. Etna is the active volcano on Sicily.",
+     "definitionFit": "An erupting volcano is a fiery furnace of molten rock, so the word for a blazing fire fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inferno"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1621,75 @@
      }
     ]
    },
-   "solution": "EXPENDABLE"
+   "solution": "EXPENDABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "EXPENDABLE",
+    "definitions": [
+     {
+      "text": "throwaway",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-heartedly",
+      "for": "deletion",
+      "note": "with half its heart gone, one of the two middle letters is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the middle of the others"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Echo",
+      "gives": "E",
+      "note": "Echo is E in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "X",
+      "note": "X is the multiplication sign, read as 'times'"
+     },
+     {
+      "clueFragment": "Writing item",
+      "gives": "PEN",
+      "note": "a pen is something to write with"
+     },
+     {
+      "clueFragment": "tinker",
+      "gives": "DABBLE",
+      "note": "to tinker is to dabble, dropping one B of the doubled pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PEN",
+      "DABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a feature in local papers, the Echo and Times, as half-hearted tinkering fit only for the bin.",
+     "walkthrough": "The italic Echo and Times look like newspapers, but they are letters: E from the phonetic alphabet, X as the multiplication sign. The pen sits between them and DABLE.",
+     "definitionFit": "Something throwaway can be discarded without loss, which is what an expendable item is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1703,53 @@
     "text": "Feelings of discontent with uneven losses mean an audit",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Feelings of discontent",
+      "at": 0,
+      "note": "the definition is plural but the answer is a mass noun for a state of mind made up of such feelings"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uneven losses",
+      "for": "letter_selection",
+      "note": "losing the uneven, odd-numbered places leaves the even-numbered ones"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean an audit",
+      "gives": "ENNUI",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENNUI"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff grumble that losses on the books will mean an audit.",
+     "walkthrough": "'Uneven losses' sounds like patchy financial losses, which fits the audit; it means losing the odd-numbered letters.",
+     "definitionFit": "Ennui is a listless weariness and dissatisfaction from boredom, a kind of discontent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uneven"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1769,64 @@
      }
     ]
    },
-   "solution": "SKIT"
+   "solution": "SKIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SKIT",
+    "definitions": [
+     {
+      "text": "Funny item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is used"
+     },
+     {
+      "text": "edited out",
+      "for": "deletion",
+      "note": "something edited out is cut from the text, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "edge",
+      "gives": "SKIRT",
+      "note": "to skirt is to go round the edge; a skirt is a border or fringe"
+     },
+     {
+      "clueFragment": "Mirror",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic piece in the Mirror newspaper was cut by the editor at the last minute.",
+     "walkthrough": "The italic Mirror looks like the tabloid newspaper, but only its last letter matters.",
+     "definitionFit": "A skit is a short comic sketch or parody, so it is a humorous piece of entertainment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mirror"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1840,57 @@
     "text": "Ending of blue joke delivered in the wrong order",
     "enumeration": "9"
    },
-   "solution": "CRACKDOWN"
+   "solution": "CRACKDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRACKDOWN",
+    "definitions": [
+     {
+      "text": "Ending",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered in the wrong order",
+      "for": "charade",
+      "note": "the two pieces are given the other way round from how the clue lists them"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "CRACK",
+      "note": "a crack is a wisecrack"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "DOWN",
+      "note": "feeling blue is feeling low"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian fluffs the punchline of a dirty joke by telling it backwards.",
+     "walkthrough": "'Blue joke' looks like a smutty gag, but the two words are separate pieces. 'Ending' is the definition, not part of the joke.",
+     "definitionFit": "A crackdown is firm action to stop an activity, bringing it to an end, so it is a stamping out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1904,48 @@
     "text": "Homeric character, nothing great",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Homeric character",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the letter O looks like a zero"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "MEGA",
+      "note": "mega is slang for great or excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEGA"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer finds a figure from Homer's epics unremarkable.",
+     "walkthrough": "'Homeric character' suggests Achilles or Odysseus, but character means a letter: Homer wrote in Greek.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, the script Homer's epics are written in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1959,65 @@
     "text": "Jolly, spinning the Devil's music",
     "enumeration": "7"
    },
-   "solution": "SONATAS"
+   "solution": "SONATAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SONATAS",
+    "definitions": [
+     {
+      "text": "music",
+      "at": 28,
+      "note": "the definition is a mass noun while the answer is plural, but several pieces together are music"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "a spinning thing turns round, so the letters face the other way"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jolly",
+      "gives": "SO",
+      "note": "jolly is British for very, as in jolly good, and so is very"
+     },
+     {
+      "clueFragment": "the Devil",
+      "gives": "SATAN",
+      "note": "the Devil's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "NATAS"
+     ],
+     "reversals": [
+      {
+       "from": "SATAN",
+       "to": "NATAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheerfully plays the devil's music on a turntable.",
+     "walkthrough": "'Jolly' looks like an adjective for merry but works as the British adverb meaning very. The 's after Devil joins it to the definition.",
+     "definitionFit": "Sonatas are classical compositions for one or two instruments, so together they are pieces of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jolly"
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +2037,39 @@
      }
     ]
    },
-   "solution": "INKBLOT"
+   "solution": "INKBLOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INK-BLOT",
+    "definitions": [
+     {
+      "text": "Dark psychological profile?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark psychological profile?",
+      "note": "surface reading: a grim assessment of someone's character"
+     },
+     {
+      "clueFragment": "Dark psychological profile?",
+      "note": "setter's reading: a black shape used in a personality test, as in the Rorschach test"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase suggests a sinister criminal profile, but the question mark points to a literal dark mark used to probe the mind.",
+     "definitionFit": "In the Rorschach test patients describe what they see in symmetrical dark stains, revealing their personality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "profile"
+    }
+   }
   }
  ]
 }
