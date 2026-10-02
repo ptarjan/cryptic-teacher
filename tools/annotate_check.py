@@ -52,7 +52,7 @@ import groups  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
-from apply_annotations import annotate_only, current_view, default_input, normalize, view_path  # noqa: E402
+from apply_annotations import annotate_only, current_view, default_input, move_alteration, normalize, view_path  # noqa: E402
 from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
@@ -427,6 +427,7 @@ def preview(path, pending):
                 e.pop("annotation", None)
             else:
                 e["annotation"] = normalize(ann[entry_id(e)], e, puzzle["entries"])
+            move_alteration(e)
         try:
             definitions.place_puzzle(puzzle)
         except ValueError as err:
