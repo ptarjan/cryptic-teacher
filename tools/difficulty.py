@@ -105,10 +105,11 @@ The nine components, higher = harder:
              The oldest and least arguable measure there is: an unchecked
              letter is one you must get from the wordplay alone. A 15x15 daily
              with heavy bars can run over 50% unchecked and it is felt
-             immediately. A barred grid (Listener, Mephisto) has none: it is
-             checked almost everywhere by convention, 9-19 sd off the blocked
-             grids' spread, and its difficulty lives in the clues and the
-             theme. Its checking is left out, not scored as Gentle.
+             immediately. A barred grid (Listener, Mephisto) is checked far
+             more by convention (~23% unchecked against ~46%), so it is
+             z-scored against the barred grids' own spread
+             (`checking_barred` in the baseline): more crossing letters still
+             rate it easier, against its own kind.
 
   rarity     How far down a frequency-ordered British cryptic word list the
              puzzle's three rarest answers sit, each looked up whole (a phrase
@@ -833,13 +834,19 @@ def clue_count(puz):
 def raw(puz, ctx):
     """The measurements, in their natural units, before any scaling."""
     fam = ctx.history.get(puz["id"]) or {}
-    return {"checking": None if puz.get("bars") else checking(puz), "rarity": rarity(puz, ctx.rank),
+    return {"checking": checking(puz), "rarity": rarity(puz, ctx.rank),
             "device": device(puz), "machinery": machinery(puz),
             "answer_novelty": fam.get("answer_novelty"),
             "pairing_novelty": fam.get("pairing_novelty"),
             "question_marks": question_marks(puz),
             "definition_unrelated": definition_unrelated(puz),
             "clue_count": clue_count(puz)}
+
+
+def reference(component, puz):
+    """The baseline key a component is z-scored against: a barred grid's
+    checking against the barred grids', every other against the corpus's."""
+    return "checking_barred" if component == "checking" and puz.get("bars") else component
 
 
 def score(puz, ctx):
@@ -858,7 +865,7 @@ def score(puz, ctx):
     parts = {k: v for k, v in raw(puz, ctx).items() if v is not None}
     zs = {}
     for k, v in parts.items():
-        ref = base.get(k)
+        ref = base.get(reference(k, puz))
         if not ref or not ref.get("sd"):
             continue
         zs[k] = (v - ref["mean"]) / ref["sd"]
@@ -1012,9 +1019,10 @@ def rebaseline():
     before = all_scores()
     cols = {}
     for path in puzzle_files():
-        for k, v in raw(read_puzzle_file(path), ctx).items():
+        puz = read_puzzle_file(path)
+        for k, v in raw(puz, ctx).items():
             if v is not None:
-                cols.setdefault(k, []).append(v)
+                cols.setdefault(reference(k, puz), []).append(v)
     comps = {}
     for k, vals in sorted(cols.items()):
         comps[k] = moments(vals)

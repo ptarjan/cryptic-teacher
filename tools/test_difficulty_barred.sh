@@ -1,10 +1,11 @@
 #!/bin/bash
-# Does a barred grid keep `checking` out of its difficulty rating?
+# Is a barred grid's checking rated against barred grids, not blocked ones?
 #
 #     bash tools/test_difficulty_barred.sh
 #
-# A barred grid is checked almost everywhere by convention, so its checking
-# sits far below every blocked grid's and would rate every Listener Gentle.
+# A barred grid is checked far more by convention, so against the blocked
+# grids' spread every Listener rated Gentle. More crossing letters still mean
+# easier, against its own kind.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 PYTHONPATH=tools python3 - <<'PY'
@@ -19,12 +20,12 @@ def puzzle(bars):
         p["bars"] = [{"x": 1, "y": 0, "side": "right"}]
     return p
 
-ctx = type("C", (), {"history": {}, "rank": {}})()
-D.rarity = D.device = D.machinery = D.question_marks = D.definition_unrelated = D.clue_count = lambda *a: None
 fails = 0
 for name, want, got in [
-        ("a blocked grid is scored on its checking", True, D.raw(puzzle(False), ctx)["checking"] is not None),
-        ("a barred grid's checking is left out", None, D.raw(puzzle(True), ctx)["checking"])]:
+        ("a blocked grid's checking is z-scored against the corpus", "checking", D.reference("checking", puzzle(False))),
+        ("a barred grid's checking against the barred grids", "checking_barred", D.reference("checking", puzzle(True))),
+        ("a barred grid's other components against the corpus", "rarity", D.reference("rarity", puzzle(True))),
+        ("the baseline holds the barred grids' spread", True, "checking_barred" in D.load_baseline())]:
     ok = want == got
     print(("  ok: " if ok else "  FAIL: ") + name + ("" if ok else f"\n    want {want}\n    got  {got}"))
     fails += not ok
