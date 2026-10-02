@@ -308,6 +308,7 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/suggest_demand.py", "asks Google autocomplete which puzzle numbers people search for, for the puzzles no page of ours ranks for yet"),
     ("finding out whether any of it is working", "tools/turn_cost.py", "how many turns an annotation session takes, from the transcripts — logged nightly so the figure can’t go stale unnoticed"),
     ("finding out whether any of it is working", "tools/annotate_audit.py", "ranks what annotation runs spend turns on — first-check failures by check, refused tool calls, cost and turn trend — from the transcripts; daily, and wakes the room only on a new or worse top item"),
+    ("finding out whether any of it is working", "tools/annotate_audit.sh", "the scheduled entry: runs the audit from a worktree at origin/master"),
     ("finding out whether any of it is working", "tools/test_annotate_audit.sh", "tests tools/annotate_audit.py: rule naming from the validator's AST, and that an unchanged finding never wakes the room twice"),
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
     ("finding out whether any of it is working", "tools/grade_clues.py", "blind A/B/C/D packets of our clues against real setters’ for the same answers"),
@@ -450,6 +451,9 @@ LAYOUT = [
     ("fetching", "tools/test_boilerplate.sh", "a paper's publishing boilerplate in the preamble goes; a puzzle's instructions, tributes and kept errata stay; the write gate refuses it"),
     ("fetching", "tools/ocr_clues.py", "the clue-text OCR every scan filer shares: the readers, the vote, the check"),
     ("fetching", "tools/test_clue_record_shift.sh", "does every Guardian clue record land on the light its number names?"),
+    ("fetching", "tools/ocr_full_pass.sh", "read every Trove article and archive.org edition the scan filers have not read yet, to the end, then stop"),
+    ("fetching", "tools/scan_queue.py", "the read queue the scan filers share (tools/file_archive_org_puzzles.py,"),
+    ("fetching", "tools/test_scan_queue.sh", "does tools/scan_queue.py read the never-read first, never send the queue back to the start, keep N sources in flight, stop at its deadline, and let only one run hold a ledger?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
