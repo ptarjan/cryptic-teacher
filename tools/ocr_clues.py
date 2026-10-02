@@ -830,6 +830,24 @@ def cut_at_count(text, enum):
     return text
 
 
+#: A count: "(15)", "(5,4)", "(3-2)".
+COUNT_IN = r"\(\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*\)"
+#: A clue number opening a capitalised clue, not a cross-reference ("1
+#: Down", "No. 1 Court", "e.g. 10 Downing Street").
+NEXT_CLUE = r"\s+\d{1,2}\.?\s+(?!(?:Down|Across|Ac|Dn)\b)[A-Z\"'][a-z]"
+#: That number after a count or a question or exclamation mark ("backed
+#: (15) 2 Master", "floor? 2 Seek"), or two counts in one text.
+RUN_TOGETHER = re.compile(rf"(?:{COUNT_IN}|[?!])\W*{NEXT_CLUE}|{COUNT_IN}.*{COUNT_IN}")
+
+
+def merged(text):
+    """Why a voted clue `text` is two clues run together, or None: a clue
+    number opening a capitalised clue after a count or a question or
+    exclamation mark ("Where everybody goes in to sweep around the floor? 2
+    Seek fresh increases"), or two counts."""
+    return "two clues run together" if RUN_TOGETHER.search(text or "") else None
+
+
 def reconcile(laid, streams, lengths=None, keep_known=False):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
@@ -899,6 +917,8 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         text = join_split(text, other)
         got, how = agree(text, other, keep_known)
         got = cut_at_count(got, enum)
+        if got is not None and merged(got):
+            got, how = None, merged(got)
         if got is None:
             blank[lid] = how
             out[lid] = ("", enum, group)
@@ -1068,7 +1088,7 @@ def vlm_pick(texts, laid, blank, parse, pick):
         if not cands:
             continue
         got = clean(COUNT_END.sub("", pick(lid, cands) or ""))
-        if not tokens(got):
+        if not tokens(got) or merged(got):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])
         del blank[lid]
