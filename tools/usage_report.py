@@ -39,7 +39,10 @@ def events():
     that silently goes missing rather than an error."""
     src = (ROOT / "sync" / "events.js").read_text(encoding="utf-8")
     body = src[src.index("Object.freeze(["):]
-    return re.findall(r'"([^"]+)"', body[:body.index("])")])
+    # Comments inside the list quote phrases too, so they go before the names
+    # are read.
+    body = re.sub(r"//[^\n]*", "", body[:body.index("])")])
+    return re.findall(r'"([^"]+)"', body)
 
 
 def bar(n, top, width=24):
