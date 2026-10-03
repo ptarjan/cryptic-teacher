@@ -38,6 +38,9 @@
   "date": "2024-05-12",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,65 @@
     "text": "Warrant curtains being returned right away",
     "enumeration": "5"
    },
-   "solution": "SEPAD"
+   "solution": "SEPAD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "SEPAD",
+    "definitions": [
+     {
+      "text": "Warrant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the curtains word is read from its end"
+     },
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "sent away means taken out, so the letter for right is dropped from the result"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curtains",
+      "gives": "DRAPES",
+      "note": "drapes is a common word for curtains"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPAD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAPES",
+       "to": "SEPARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is issued a warrant for curtains being sent back immediately.",
+     "walkthrough": "Reversed, DRAPES reads SEPARD; take out R and you have SEPAD.",
+     "definitionFit": "Sepad is an old Scots verb meaning to suppose or guarantee, so it serves as a word for warrant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +126,57 @@
     "text": "Maths I can do, complicated chem? Nasty",
     "enumeration": "9"
    },
-   "solution": "SCYTHEMAN"
+   "solution": "SCYTHEMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCYTHEMAN",
+    "definitions": [
+     {
+      "text": "Maths I can do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "complicated suggests something tangled, so the letters that follow are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chem",
+      "gives": "CHEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Nasty",
+      "gives": "NASTY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHEMNASTY",
+       "gives": "SCYTHEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student boasts of coping with mathematics but finds chemistry horribly complicated.",
+     "walkthrough": "'Maths' looks like arithmetic, but a math is an old word for a mowing (as in aftermath), so the person who can do maths is a mower.",
+     "definitionFit": "A scytheman cuts grass or hay with a scythe, and a mowing of grass is called a math."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Maths"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +190,72 @@
     "text": "Sharp turn passing back of pad — bowled out!",
     "enumeration": "5"
    },
-   "solution": "ELBOW"
+   "solution": "ELBOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ELBOW",
+    "definitions": [
+     {
+      "text": "Sharp turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the end of pad is wanted"
+     },
+     {
+      "text": "passing",
+      "for": "deletion",
+      "note": "passing something by means leaving it behind, so that letter is removed"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests disorder or being knocked about, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowled",
+      "gives": "BOWLED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pad",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of pad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELBOW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOWLE",
+       "gives": "ELBOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket ball turns sharply past the batsman's leg pad and he is bowled.",
+     "walkthrough": "Remove D from BOWLED and rearrange BOWLE. Pads are leg guards worn by a batsman in cricket.",
+     "definitionFit": "An elbow is an abrupt bend in a road, river or pipe, so it names a sharp turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pad"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +269,60 @@
     "text": "See Margherita perhaps when spending afternoon in this square",
     "enumeration": "6"
    },
-   "solution": "PIAZZA"
+   "solution": "PIAZZA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIAZZA",
+    "definitions": [
+     {
+      "text": "square",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spending",
+      "for": "container",
+      "note": "read backwards from the answer: this word spends, or loses, one letter to leave the pizza, so that letter sits inside it"
+     }
+    ],
+    "linkWords": [
+     "See",
+     "when",
+     "in this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Margherita perhaps",
+      "gives": "PIZZA",
+      "note": "a Margherita is a classic tomato-and-cheese pizza"
+     },
+     {
+      "clueFragment": "afternoon",
+      "gives": "A",
+      "note": "A is a crossword abbreviation for afternoon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "A",
+      "ZZA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist sits in an Italian square in the afternoon, watching for the pizza they ordered.",
+     "walkthrough": "The clue works backwards: take A out of the answer and you see PIZZA, so the answer is PIZZA with A put in.",
+     "definitionFit": "A piazza is the Italian name for a public town square or open market place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Margherita"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +336,55 @@
     "text": "Lowered head suddenly, caught out and punched",
     "enumeration": "5"
    },
-   "solution": "DUKED"
+   "solution": "DUKED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DUKED",
+    "definitions": [
+     {
+      "text": "punched",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "a batsman who is out leaves the field, so the letter for caught goes"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lowered head suddenly",
+      "gives": "DUCKED",
+      "note": "to duck is to drop the head quickly"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUKED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer bobs down, is caught out and takes a blow.",
+     "definitionFit": "Dukes is slang for fists, so to duke someone is to hit them with the fists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +404,61 @@
      }
     ]
    },
-   "solution": "DESTIJL"
+   "solution": "DESTIJL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DE STIJL",
+    "definitions": [
+     {
+      "text": "Art movement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works as a verb means is worked over or kneaded, so the letters before it are rearranged"
+     },
+     {
+      "text": "packing",
+      "for": "container",
+      "note": "packing means holding something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listed",
+      "gives": "LISTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "journal",
+      "gives": "J",
+      "note": "J is an abbreviation for journal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LISTEDJ",
+       "gives": "DESTIJL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A catalogue lists works of art in an exhibition bundled with a journal.",
+     "definitionFit": "De Stijl was the Dutch abstract art and design movement of Mondrian and van Doesburg, founded in 1917."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 5,
@@ -141,7 +472,58 @@
     "text": "Cut off payments to daughter — I grant that hurts",
     "enumeration": "8"
    },
-   "solution": "DISENDOW"
+   "solution": "DISENDOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISENDOW",
+    "definitions": [
+     {
+      "text": "Cut off payments to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grant",
+      "gives": "SEND",
+      "note": "send in its old sense of grant, as in 'God send you peace'"
+     },
+     {
+      "clueFragment": "that hurts",
+      "gives": "OW",
+      "note": "the cry made when something hurts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "SEND",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent stops a daughter's allowance and admits it is painful to do.",
+     "definitionFit": "To disendow is to take away the endowment, the settled income, of a church or institution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grant"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +537,44 @@
     "text": "Arab leader sounds alarm",
     "enumeration": "6"
    },
-   "solution": "SHEIKH"
+   "solution": "SHEIKH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHEIKH",
+    "definitions": [
+     {
+      "text": "Arab leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds tells us to go by what a word sounds like when spoken, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alarm",
+      "gives": "SHEIKH",
+      "soundsLike": "SHAKE",
+      "note": "to shake someone is to alarm or unsettle them"
+     }
+    ],
+    "explanation": {
+     "surface": "An Arab chief raises the alarm.",
+     "walkthrough": "'Sounds alarm' reads as raising the alarm; instead it says the answer sounds like a word for alarm.",
+     "definitionFit": "A sheikh is the chief of an Arab family, tribe or village."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +588,51 @@
     "text": "X’s predecessor and in another sense successor chirping",
     "enumeration": "8"
    },
-   "solution": "TWITTERY"
+   "solution": "TWITTERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWITTERY",
+    "definitions": [
+     {
+      "text": "chirping",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "and in another sense"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "X’s predecessor",
+      "gives": "TWITTER",
+      "note": "the social network X was called Twitter until 2023"
+     },
+     {
+      "clueFragment": "successor",
+      "gives": "Y",
+      "note": "in the alphabet the letter after X is Y"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWITTER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on the social network X, its former name and what came after, all of it birdlike chatter.",
+     "walkthrough": "'In another sense' switches X from the company to the letter, whose successor is Y.",
+     "definitionFit": "Twittery describes the light, rapid, high-pitched calls of small birds, a word built from twitter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "successor"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +646,45 @@
     "text": "Garment worn by Muslims 60 minutes in the morning?",
     "enumeration": "5"
    },
-   "solution": "IHRAM"
+   "solution": "IHRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IHRAM",
+    "definitions": [
+     {
+      "text": "Garment worn by Muslims",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "60 minutes",
+      "gives": "IHR",
+      "note": "sixty minutes is one hour: I for one and HR for hour"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. marks times before noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IHR",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a robe is put on for an hour each morning.",
+     "definitionFit": "The ihram is the plain white dress put on by Muslim pilgrims on the hajj to Mecca."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +698,70 @@
     "text": "Urge to whizz jack over bus in the Philippines",
     "enumeration": "7"
    },
-   "solution": "JEEPNEY"
+   "solution": "JEEPNEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "JEEPNEY",
+    "definitions": [
+     {
+      "text": "bus in the Philippines",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means upside down in a down clue, so the whole string is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urge",
+      "gives": "YEN",
+      "note": "a yen is a longing or urge"
+     },
+     {
+      "clueFragment": "whizz",
+      "gives": "PEE",
+      "note": "whizz is slang for urinate"
+     },
+     {
+      "clueFragment": "jack",
+      "gives": "J",
+      "note": "J is the card abbreviation for jack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "EEP",
+      "NEY"
+     ],
+     "reversals": [
+      {
+       "from": "YENPEEJ",
+       "to": "JEEPNEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic feels the need to speed up the jacking of a bus in Manila.",
+     "walkthrough": "Whizz looks like speed but is slang for urinating; the urge, the whizz and the jack are read together from the end.",
+     "definitionFit": "A jeepney is a converted jeep used as a cheap shared minibus, a familiar sight in the Philippines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whizz"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +775,73 @@
     "text": "Exclusive clubs running short start to search hard",
     "enumeration": "8"
    },
-   "solution": "CLIQUISH"
+   "solution": "CLIQUISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "CLIQUISH",
+    "definitions": [
+     {
+      "text": "Exclusive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before the end, so the final letter is lost"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card abbreviation for clubs"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "LIQUID",
+      "note": "a liquid is runny, flowing freely"
+     },
+     {
+      "clueFragment": "search",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of search"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIQUI",
+      "S",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Members-only clubs are running short of new recruits and must start looking hard.",
+     "definitionFit": "A cliquish group keeps to itself and shuts outsiders out, behaving like a clique."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +855,66 @@
     "text": "What a relief when taking Pakistan’s last wicket",
     "enumeration": "4"
    },
-   "solution": "WHEW"
+   "solution": "WHEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "WHEW",
+    "definitions": [
+     {
+      "text": "What a relief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one is wanted"
+     },
+     {
+      "text": "taking",
+      "for": "substitution",
+      "note": "taking one thing for another means swapping it in, so a letter is exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "WHEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Pakistan’s",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of Pakistan"
+     },
+     {
+      "clueFragment": "wicket",
+      "gives": "W",
+      "note": "W is the cricket scorecard abbreviation for wicket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Fans sigh with relief as the bowler takes the final Pakistan wicket.",
+     "walkthrough": "In WHEN the N, Pakistan's last letter, is replaced by W for wicket.",
+     "definitionFit": "Whew is an exclamation of relief, used like phew after a narrow escape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +928,58 @@
     "text": "Bikers paced about being cross-examined in Scotland",
     "enumeration": "11"
    },
-   "solution": "BACKSPEIRED"
+   "solution": "BACKSPEIRED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BACKSPEIRED",
+    "definitions": [
+     {
+      "text": "cross-examined in Scotland",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving around, so the letters of the words before it are shuffled into a new order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bikers",
+      "gives": "BIKERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "paced",
+      "gives": "PACED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIKERS PACED",
+       "gives": "BACKSPEIRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Motorcyclists walked up and down while being questioned by Scottish police.",
+     "definitionFit": "Backspeir is a Scots verb meaning to question closely or cross-question, so backspeired is its past participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paced"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +993,54 @@
     "text": "Scott’s shawl a hindrance around Australia",
     "enumeration": "5"
    },
-   "solution": "TOZIE"
+   "solution": "TOZIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOZIE",
+    "definitions": [
+     {
+      "text": "Scott’s shawl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece is placed on either side of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hindrance",
+      "gives": "TIE",
+      "note": "a tie is a restriction or encumbrance"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "OZ",
+      "note": "Oz is the informal name for Australia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OZ",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shawl in a Walter Scott novel proves a nuisance in the Australian heat.",
+     "walkthrough": "'Scott's' marks a word used by Sir Walter Scott, the Scottish novelist.",
+     "definitionFit": "Tozie is a Scots word, used by Walter Scott, for a shawl made of fine goat's down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1054,74 @@
     "text": "Grave words I draw upon following extreme pressure ending in death",
     "enumeration": "7"
    },
-   "solution": "EPITAPH"
+   "solution": "EPITAPH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPITAPH",
+    "definitions": [
+     {
+      "text": "Grave words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the I and draw-upon pieces are placed after the pressure piece"
+     },
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only that letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extreme pressure",
+      "gives": "EP",
+      "note": "EP is the engineering abbreviation for extreme pressure, as on lubricants"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "draw upon",
+      "gives": "TAP",
+      "note": "to tap a resource is to draw upon it"
+     },
+     {
+      "clueFragment": "death",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of death"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "I",
+      "TAP",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A mourner draws on their memory for a solemn tribute under terrible stress after a death.",
+     "walkthrough": "EP for extreme pressure is a technical label found on gear oils and greases.",
+     "definitionFit": "An epitaph is the inscription carved on a tombstone, so it is literally words on a grave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grave"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1135,64 @@
     "text": "Clock-maker’s half-hearted fear carrying box",
     "enumeration": "9"
    },
-   "solution": "HOROLOGER"
+   "solution": "HOROLOGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HOROLOGER",
+    "definitions": [
+     {
+      "text": "Clock-maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-hearted",
+      "for": "deletion",
+      "note": "with only half its heart, the doubled middle of the word loses one of its two letters"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding within, so the box word goes inside"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fear",
+      "gives": "HORROR",
+      "note": "horror is intense fear"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "LOGE",
+      "note": "a loge is a box in a theatre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORO",
+      "LOGE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A clockmaker is only half-heartedly afraid of carrying a clock case.",
+     "walkthrough": "The heart of the fear word is a doubled letter, and half of it goes. The 's after Clock-maker stands for is.",
+     "definitionFit": "A horologer is a maker or repairer of clocks and watches, from horology, the science of timekeeping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1206,78 @@
     "text": "Parasites perhaps put nothing back into Dawn’s Society",
     "enumeration": "8"
    },
-   "solution": "EPIZOANS"
+   "solution": "EPIZOANS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "EPIZOANS",
+    "definitions": [
+     {
+      "text": "Parasites perhaps",
+      "at": 0,
+      "note": "an example: epizoans are animals living on others, often parasites"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "put back means read in the opposite direction, so the word for nothing is turned round"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means placed inside, so the turned word goes within the dawn word"
+     }
+    ],
+    "linkWords": [
+     "put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "ZIP",
+      "note": "zip is slang for nothing"
+     },
+     {
+      "clueFragment": "Dawn’s",
+      "gives": "EOAN",
+      "note": "eoan is an adjective meaning of the dawn"
+     },
+     {
+      "clueFragment": "Society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIZ",
+      "OAN",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "ZIP",
+       "to": "PIZ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dawn feels her society club is infested with freeloaders who contribute nothing.",
+     "walkthrough": "Dawn looks like a woman's name, but eoan is the rare adjective for dawn, from Eos, the Greek dawn goddess.",
+     "definitionFit": "Epizoans live on the outside of other animals, and many such creatures are parasites."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dawn’s"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1291,39 @@
     "text": "What can create scent of plants (climbing)",
     "enumeration": "8"
    },
-   "solution": "SCANDENT"
+   "solution": "SCANDENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCANDENT",
+    "definitions": [
+     {
+      "text": "of plants (climbing)",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What can create scent of plants (climbing)",
+      "note": "surface reading: something able to make climbing plants smell sweet"
+     },
+     {
+      "clueFragment": "What can create scent",
+      "note": "setter's reading: the word itself, with its central AND taken out, leaves the word scent"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener wonders what will give climbing plants their fragrance.",
+     "walkthrough": "The answer is spelt S-C-AND-ENT: lift out AND and SCENT is created.",
+     "definitionFit": "Scandent is a botanical term for plants that climb, from Latin scandere, to climb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scent"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1337,64 @@
     "text": "Turn ashen? I would seeing snake",
     "enumeration": "6"
    },
-   "solution": "ELAPID"
+   "solution": "ELAPID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELAPID",
+    "definitions": [
+     {
+      "text": "snake",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn",
+      "for": "reversal",
+      "note": "turn means swing round, so the word for ashen is read backwards"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ashen",
+      "gives": "PALE",
+      "note": "ashen means pale-faced"
+     },
+     {
+      "clueFragment": "I would",
+      "gives": "ID",
+      "note": "I'd is the contraction of I would"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELAP",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "PALE",
+       "to": "ELAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits they would go white on seeing a snake.",
+     "walkthrough": "'Turn ashen' reads as going pale, but turn reverses PALE.",
+     "definitionFit": "Elapids are the family of venomous snakes that includes cobras, mambas and coral snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1408,54 @@
     "text": "Will gives me something on a part of St Andrews?",
     "enumeration": "7"
    },
-   "solution": "LEGATEE"
+   "solution": "LEGATEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGATEE",
+    "definitions": [
+     {
+      "text": "Will gives me something",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is also called the leg side"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "part of St Andrews",
+      "gives": "TEE",
+      "note": "St Andrews is a famous Scottish golf course, and a tee is part of any course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "A",
+      "TEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes a will leaves them a piece of the golf course at St Andrews.",
+     "walkthrough": "'Will' looks like a man's name; here it is a testament.",
+     "definitionFit": "A legatee is the person who receives a legacy, so a will gives them something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1469,56 @@
     "text": "Encourage having day in religious school",
     "enumeration": "6"
    },
-   "solution": "CHEDER"
+   "solution": "CHEDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEDER",
+    "definitions": [
+     {
+      "text": "religious school",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having means holding within, so one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encourage",
+      "gives": "CHEER",
+      "note": "to cheer is to encourage"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Pupils are urged to attend a religious school for a day.",
+     "definitionFit": "A cheder is a Jewish elementary school where children learn Hebrew and the faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1532,41 @@
     "text": "Somewhat inflamed I consult doctor",
     "enumeration": "6"
    },
-   "solution": "MEDICO"
+   "solution": "MEDICO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MEDICO",
+    "definitions": [
+     {
+      "text": "doctor",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means a part of, so the answer is a stretch of the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inflamed I consult",
+      "gives": "MEDICO",
+      "note": "the run of letters across inflaMED I COnsult"
+     }
+    ],
+    "explanation": {
+     "surface": "A patient with an inflamed wound goes to see a doctor.",
+     "definitionFit": "Medico is an informal word, from Italian and Spanish, for a physician or medical student."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1580,57 @@
     "text": "Magnum perhaps, not Colt the preference?",
     "enumeration": "6"
    },
-   "solution": "CHOICE"
+   "solution": "CHOICE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHOICE",
+    "definitions": [
+     {
+      "text": "preference",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the letter for colt is removed"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magnum perhaps",
+      "gives": "CHOCICE",
+      "note": "Magnum is a brand of chocolate-coated ice cream on a stick, a choc ice"
+     },
+     {
+      "clueFragment": "Colt",
+      "gives": "C",
+      "note": "C is the abbreviation for colt in horse-racing form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gun enthusiast wonders whether the Magnum rather than the Colt is preferred.",
+     "walkthrough": "Magnum and Colt look like firearms; Magnum is the ice cream, and a choc ice is a chocolate-covered block of ice cream.",
+     "definitionFit": "A choice is the thing picked out over the alternatives, which is what a preference is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Magnum"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1644,60 @@
     "text": "Man from East London circumventing old Ohio ravine",
     "enumeration": "6"
    },
-   "solution": "ARROYO"
+   "solution": "ARROYO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARROYO",
+    "definitions": [
+     {
+      "text": "ravine",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circumventing",
+      "for": "container",
+      "note": "circumventing means going round, so the man surrounds the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man from East London",
+      "gives": "ARRY",
+      "note": "'Arry is Harry with the dropped H of Cockney speech, Cockneys being East Londoners"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Ohio",
+      "gives": "O",
+      "note": "O is a dictionary abbreviation for Ohio"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARR",
+      "O",
+      "Y",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A Londoner's road trip skirts round old Ohio to reach a canyon.",
+     "definitionFit": "An arroyo, from Spanish, is a steep-sided gully or watercourse in the dry American southwest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1711,41 @@
     "text": "Rainforest inhabitant inside cooling off",
     "enumeration": "6"
    },
-   "solution": "OLINGO"
+   "solution": "OLINGO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OLINGO",
+    "definitions": [
+     {
+      "text": "Rainforest inhabitant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "inside means contained within, so the answer sits among the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooling off",
+      "gives": "OLINGO",
+      "note": "the run of letters across cOOLING Off"
+     }
+    ],
+    "explanation": {
+     "surface": "A rainforest creature retreats into the shade to cool down.",
+     "definitionFit": "The olingo is a small tree-dwelling relative of the raccoon found in Central and South American rainforests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1759,62 @@
     "text": "Fringe benefit in cover from Association",
     "enumeration": "5"
    },
-   "solution": "APRON"
+   "solution": "APRON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "APRON",
+    "definitions": [
+     {
+      "text": "Fringe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed within, so the benefit word sits between the other letters"
+     },
+     {
+      "text": "cover from",
+      "for": "letter_selection",
+      "note": "the cover of a word is its outside, so only its first and last letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Association",
+      "gives": "AN",
+      "select": "outer",
+      "note": "the first and last letters of Association"
+     },
+     {
+      "clueFragment": "benefit",
+      "gives": "PRO",
+      "note": "a pro is an advantage, as in pros and cons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PRO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A perk of membership is insurance cover from the Association.",
+     "walkthrough": "'Fringe benefit' reads as one perk, but the phrase splits: Fringe is the definition and benefit starts the wordplay.",
+     "definitionFit": "An apron is an edging strip, such as the closely mown border around a golf green or the front edge of a stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fringe"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1828,62 @@
     "text": "Fools mother leaving tomorrow with son",
     "enumeration": "5"
    },
-   "solution": "NANAS"
+   "solution": "NANAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NANAS",
+    "definitions": [
+     {
+      "text": "Fools",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means going away from, so the mother word departs from the tomorrow word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "tomorrow",
+      "gives": "MANANA",
+      "note": "mañana is Spanish for tomorrow, used in English too"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NANA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Foolish people let their mother leave tomorrow, accompanied by her son.",
+     "definitionFit": "Nana is British slang for a silly person, as in 'don't be a nana', so the plural means idiots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fools"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1897,53 @@
     "text": "Trouble in the past about Greece",
     "enumeration": "5"
    },
-   "solution": "AGGRO"
+   "solution": "AGGRO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGGRO",
+    "definitions": [
+     {
+      "text": "Trouble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first piece wraps round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the past",
+      "gives": "AGO",
+      "note": "ago means in the past"
+     },
+     {
+      "clueFragment": "Greece",
+      "gives": "GR",
+      "note": "GR is the international vehicle code for Greece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "GR",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "There was trouble in Greece some time back.",
+     "definitionFit": "Aggro is British slang, short for aggravation, for violent trouble or hassle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1957,63 @@
     "text": "Evacuated after noon before getting killed in World War One",
     "enumeration": "7"
    },
-   "solution": "NAPOOED"
+   "solution": "NAPOOED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAPOOED",
+    "definitions": [
+     {
+      "text": "killed in World War One",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming later, so the evacuated piece is placed behind the noon and before pieces"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "A",
+      "note": "a is short for ante, Latin for before, as in a.m."
+     },
+     {
+      "clueFragment": "Evacuated",
+      "gives": "POOED",
+      "note": "evacuated the bowels, in childish slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "POOED"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers evacuated a position after midday, ahead of being killed in the Great War.",
+     "walkthrough": "'After' puts POOED after N and A.",
+     "definitionFit": "Napoo was First World War army slang, from French il n'y en a plus, for finished or killed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Evacuated"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +2027,56 @@
     "text": "Confident army order to seize Russian plane",
     "enumeration": "5"
    },
-   "solution": "AMIGO"
+   "solution": "AMIGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMIGO",
+    "definitions": [
+     {
+      "text": "Confident",
+      "at": 0,
+      "note": "read as confidant, a trusted friend"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to seize",
+      "for": "container",
+      "note": "to seize is to grab and hold, so the order surrounds the plane"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army order",
+      "gives": "AO",
+      "note": "AO is the abbreviation for Army Order"
+     },
+     {
+      "clueFragment": "Russian plane",
+      "gives": "MIG",
+      "note": "the MiG is a Russian fighter aircraft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MIG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A confident army is ordered to capture a Russian jet.",
+     "walkthrough": "'Confident' is the adjective in the surface; as the definition it stands for confidant.",
+     "definitionFit": "Amigo is Spanish for friend, a trusted companion of the kind one confides in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Confident"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +2090,55 @@
     "text": "Foolish nattering is distressing",
     "enumeration": "11"
    },
-   "solution": "STRAITENING"
+   "solution": "STRAITENING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRAITENING",
+    "definitions": [
+     {
+      "text": "distressing",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foolish",
+      "for": "anagram",
+      "note": "foolish suggests nonsense, so the letters that follow are scrambled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nattering",
+      "gives": "NATTERING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NATTERING IS",
+       "gives": "STRAITENING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Silly chatter can be upsetting.",
+     "definitionFit": "To straiten is to put into hardship or difficulty, so straitening circumstances are distressing ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 31,
@@ -505,7 +2152,57 @@
     "text": "Farm-worker putting duck in enclosure",
     "enumeration": "4"
    },
-   "solution": "PEON"
+   "solution": "PEON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEON",
+    "definitions": [
+     {
+      "text": "Farm-worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting one thing in another places it inside, so the duck goes within the enclosure"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enclosure",
+      "gives": "PEN",
+      "note": "a pen is an animal enclosure"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nought in cricket, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmhand shuts a duck in its pen.",
+     "definitionFit": "A peon is a landless agricultural labourer in Latin America, so a farm hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 32,
@@ -519,7 +2216,70 @@
     "text": "Dock to preserve first-rate work unit on reflection",
     "enumeration": "8"
    },
-   "solution": "CANAIGRE"
+   "solution": "CANAIGRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CANAIGRE",
+    "definitions": [
+     {
+      "text": "Dock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things reversed, as in a mirror, so the unit is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "preserve",
+      "gives": "CAN",
+      "note": "to can food is to preserve it"
+     },
+     {
+      "clueFragment": "first-rate",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as I"
+     },
+     {
+      "clueFragment": "work unit",
+      "gives": "ERG",
+      "note": "the erg is a unit of work or energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "AI",
+      "GRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERG",
+       "to": "GRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harbour dock is maintained as a first-class place of work, after some thought.",
+     "walkthrough": "'Dock' suggests a harbour; it is the plant.",
+     "definitionFit": "Canaigre is a dock plant of the southwestern United States whose roots are used in tanning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dock"
+    }
+   }
   },
   {
    "number": 33,
@@ -533,7 +2293,45 @@
     "text": "Most close retreats established",
     "enumeration": "7"
    },
-   "solution": "DENSEST"
+   "solution": "DENSEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DENSEST",
+    "definitions": [
+     {
+      "text": "Most close",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retreats",
+      "gives": "DENS",
+      "note": "a den is a private retreat"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENS",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "The closest hideaways are long established.",
+     "definitionFit": "Dense means thick and tightly packed, so its superlative serves as the most compact or crowded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 34,
@@ -547,7 +2345,59 @@
     "text": "Heading to Snowdonia on stony trail",
     "enumeration": "5"
    },
-   "solution": "SPOOR"
+   "solution": "SPOOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPOOR",
+    "definitions": [
+     {
+      "text": "trail",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading to",
+      "for": "letter_selection",
+      "note": "a heading is what comes at the top, so only the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snowdonia",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Snowdonia"
+     },
+     {
+      "clueFragment": "stony",
+      "gives": "POOR",
+      "note": "stony, as in stony broke, means penniless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker heads into Snowdonia along a rocky path.",
+     "walkthrough": "Snowdonia is a mountainous national park in Wales.",
+     "definitionFit": "Spoor is the track or scent trail left by an animal, which hunters follow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stony"
+    }
+   }
   }
  ]
 }
