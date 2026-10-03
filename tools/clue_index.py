@@ -42,6 +42,19 @@ REPRINTS = {
         (("times-27331", "times-29539"), "Times rerun, five clues reworded"),
     )
 }
+# Series that bought another paper's puzzles and printed them weeks later:
+# their copies are the same puzzle by design, not a page under a wrong id.
+SYNDICATED = {
+    frozenset(pair): why for pair, why in (
+        (("canberra", "times"), "the Canberra Times reprinted the Times's cryptic in the 1970s"),
+    )
+}
+
+
+def known_copy(a, b):
+    """Whether ids `a` and `b` are a listed rerun or a syndicated reprint."""
+    series = frozenset(pid.rsplit("-", 1)[0] for pid in (a, b))
+    return frozenset((a, b)) in REPRINTS or series in SYNDICATED
 
 
 def norm(text):
@@ -93,7 +106,7 @@ class ClueIndex:
         for other, shared in hits.items():
             small = min(len(keys), self.size[other])
             if (small >= MIN_CLUES and shared >= THRESHOLD * small
-                    and frozenset((pid, other)) not in REPRINTS):
+                    and not known_copy(pid, other)):
                 out.append((other, shared, len(keys), self.size[other]))
         return sorted(out, key=lambda m: -m[1])
 
@@ -112,7 +125,7 @@ class ClueIndex:
             for b, shared in sorted(row.items()):
                 small = min(self.size[a], self.size[b])
                 if (small >= MIN_CLUES and shared >= THRESHOLD * small
-                        and frozenset((a, b)) not in REPRINTS):
+                        and not known_copy(a, b)):
                     out.append((a, b, shared, self.size[a], self.size[b]))
         return out
 
