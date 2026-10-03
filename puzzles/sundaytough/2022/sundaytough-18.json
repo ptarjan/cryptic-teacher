@@ -24,6 +24,9 @@
   "date": "2022-06-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
     "text": "Left Spain after report about weather front for ships",
     "enumeration": "10"
    },
-   "solution": "FORECASTLE"
+   "solution": "FORECASTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORECASTLE",
+    "definitions": [
+     {
+      "text": "front for ships",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells us the letters for leaving Spain come second, placed behind the weather report"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "report about weather",
+      "gives": "FORECAST",
+      "note": "a weather report predicting what is coming"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORECAST",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipping bulletin: someone leaves Spain after hearing of a weather front affecting ships.",
+     "walkthrough": "'Left Spain' is placed after the report, so L and E go at the end. 'Weather front' looks like one phrase, but 'front' belongs to the definition.",
+     "definitionFit": "The forecastle is the raised deck at the bow of a vessel, its foremost part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +107,69 @@
     "text": "Man with noted prints in diary, travelling south of France",
     "enumeration": "6"
    },
-   "solution": "FRIDAY"
+   "solution": "FRIDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FRIDAY",
+    "definitions": [
+     {
+      "text": "Man with noted prints",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "something travelling moves about, so the letters of diary get moved around"
+     },
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down clue, south of means placed below, so the country's letter sits on top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international vehicle code for France"
+     },
+     {
+      "clueFragment": "diary",
+      "gives": "RIDAY",
+      "note": "the letters of diary rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIDAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIARY",
+       "gives": "RIDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone records in a journal that they have left notable prints while travelling through southern France.",
+     "walkthrough": "'South of' in a down clue means F sits on top of the rearranged letters. The noted prints are the footprints in Robinson Crusoe.",
+     "definitionFit": "Man Friday is Crusoe's companion, whose footprint on the beach is the novel's famous discovery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "prints"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +183,61 @@
     "text": "One gaining net profit — twisted, heartless concern",
     "enumeration": "6"
    },
-   "solution": "RELATE"
+   "solution": "RELATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "RELATE",
+    "definitions": [
+     {
+      "text": "concern",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "a thing twisted round faces the other way, so the word is read back to front"
+     },
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One gaining net profit",
+      "gives": "ETAILER",
+      "note": "an online seller makes money on the internet, the net"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETAILER",
+       "to": "RELIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cynical remark about a profiteer: a twisted, heartless business pocketing the net gains.",
+     "walkthrough": "'Net profit' suggests accounts, but the net is the internet: an e-tailer sells online. Reverse it to RELIATE and drop the middle I to get RELATE.",
+     "definitionFit": "To relate to something is to concern it, as in matters that bear on or affect it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +257,40 @@
      }
     ]
    },
-   "solution": "CATHERINEWHEEL"
+   "solution": "CATHERINEWHEEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CATHERINE WHEEL",
+    "definitions": [
+     {
+      "text": "Turner lit up for display",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turner lit up",
+      "note": "surface reading: a painting by J. M. W. Turner illuminated in a gallery"
+     },
+     {
+      "clueFragment": "for display",
+      "note": "setter's reading: a spinning firework set alight at a fireworks show"
+     }
+    ],
+    "explanation": {
+     "surface": "A gallery spotlights a painting by the artist Turner for an exhibition.",
+     "walkthrough": "Turner looks like the painter, but here it is anything that turns; the display is a fireworks show, not an exhibition.",
+     "definitionFit": "This firework is a pinned spiral that spins round when lit, throwing sparks for spectators."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +310,74 @@
      }
     ]
    },
-   "solution": "SOAPOPERA"
+   "solution": "SOAPOPERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "anagram"
+    ],
+    "answer": "SOAP OPERA",
+    "definitions": [
+     {
+      "text": "Show made for TV",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "one thing that cuts into another sits inside it"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "seed that is broadcast is scattered widely, so the letters get scattered and resown"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then",
+      "gives": "SO",
+      "note": "so means then, as in 'so we left'"
+     },
+     {
+      "clueFragment": "appear",
+      "gives": "APPEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOAPOPERA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOAPPOEAR",
+       "gives": "SOAPOPERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A programme made for television, with old edited-out scenes now being shown on air.",
+     "walkthrough": "'Broadcast' seems to describe TV, but it is the scattering signal acting on SO, APPEAR and O together.",
+     "definitionFit": "A soap is a long-running serial drama produced for television or radio broadcasting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +391,64 @@
     "text": "Detailed charge again for hold-up — this one’s penned at length",
     "enumeration": "5"
    },
-   "solution": "LIFER"
+   "solution": "LIFER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "LIFER",
+    "definitions": [
+     {
+      "text": "this one’s penned at length",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Detailed",
+      "for": "deletion",
+      "note": "de-tailed means having the tail cut off, so the last letter goes"
+     },
+     {
+      "text": "hold-up",
+      "for": "reversal",
+      "note": "in a down clue, held up means lifted so the word reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge again",
+      "gives": "REFILL",
+      "note": "to charge a glass or pen again is to top it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFER"
+     ],
+     "reversals": [
+      {
+       "from": "REFIL",
+       "to": "LIFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police report: a detailed charge brought again for a robbery, with the culprit jailed for years.",
+     "walkthrough": "'Detailed' reads as 'thorough' and 'hold-up' as a robbery; both are instructions. Penned means locked in a pen, not written.",
+     "definitionFit": "A lifer is a prisoner serving a life sentence, kept behind bars for a very long time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Detailed"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +462,44 @@
     "text": "Objective person that careless writers put down endlessly",
     "enumeration": "4"
    },
-   "solution": "WHOM"
+   "solution": "WHOM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHOM",
+    "definitions": [
+     {
+      "text": "Objective person",
+      "at": 0
+     },
+     {
+      "text": "that careless writers put down endlessly",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Objective person",
+      "note": "first meaning: the pronoun for a person in the object case, after a verb or preposition"
+     },
+     {
+      "clueFragment": "that careless writers put down endlessly",
+      "note": "second, playful meaning: the pronoun sloppy writers always set down minus its final letter"
+     }
+    ],
+    "explanation": {
+     "surface": "A grammar grumble about a neutral person that sloppy writers keep denigrating.",
+     "walkthrough": "Objective is the grammatical case, not fairness. Careless writers put WHO where WHOM is needed, which is WHOM without its end.",
+     "definitionFit": "This pronoun is the object form of who, used after a verb or preposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Objective"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +513,55 @@
     "text": "Fairly good boxing in retreat",
     "enumeration": "8"
    },
-   "solution": "HONESTLY"
+   "solution": "HONESTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HONESTLY",
+    "definitions": [
+     {
+      "text": "Fairly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "a word boxing another encloses it like a box"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "HOLY",
+      "note": "holy as in saintly, morally good"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "NEST",
+      "note": "a nest is a snug hideaway or bolt-hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "NEST",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fair verdict on a decent boxer fighting while backing away.",
+     "walkthrough": "'Boxing in retreat' sounds like ring tactics; it means one word holds another.",
+     "definitionFit": "Doing something honestly means doing it fairly, without cheating or deceit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +575,70 @@
     "text": "Submission and article discarded by drunk make sense",
     "enumeration": "8"
    },
-   "solution": "MEEKNESS"
+   "solution": "MEEKNESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MEEKNESS",
+    "definitions": [
+     {
+      "text": "Submission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarded",
+      "for": "deletion",
+      "note": "something discarded is thrown away, so it leaves the phrase"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about unsteadily, so the letters lurch into a new order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make sense",
+      "gives": "MAKESENSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEEKNESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MKESENSE",
+       "gives": "MEEKNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giving in, and getting rid of a piece of writing, because a drunk is finally talking sense.",
+     "walkthrough": "'Drunk make sense' is a pleasing paradox; the article is A, taken out before the rest is rearranged.",
+     "definitionFit": "Meekness is a humble, yielding quality, the attitude of someone who submits without protest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +658,70 @@
      }
     ]
    },
-   "solution": "TURKISHDELIGHT"
+   "solution": "TURKISHDELIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TURKISH DELIGHT",
+    "definitions": [
+     {
+      "text": "jelly",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to repair",
+      "for": "anagram",
+      "note": "to repair something is to fix it up, rebuilding these letters in working order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rush",
+      "gives": "RUSH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kit",
+      "gives": "KIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bowl over",
+      "gives": "DELIGHT",
+      "note": "to bowl someone over is to thrill or enchant them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURKISH",
+      "DELIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUSHKIT",
+       "gives": "TURKISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries with a kit to mend a bowl that has fallen on a jelly.",
+     "walkthrough": "'Bowl' looks like a dish for the jelly, but 'bowl over' is a verb phrase; 'over' does double duty here as part of it.",
+     "definitionFit": "This sweet is a soft, gelatinous confection of starch and sugar, often rosewater-flavoured and dusted with icing sugar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +735,48 @@
     "text": "Opening serve may produce either outcome",
     "enumeration": "5"
    },
-   "solution": "INLET"
+   "solution": "INLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INLET",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serve may produce",
+      "gives": "IN",
+      "note": "a tennis serve that lands in the box is called in"
+     },
+     {
+      "clueFragment": "either outcome",
+      "gives": "LET",
+      "note": "a serve clipping the net and landing in is a let, replayed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis observation: the opening serve of a match could go either way.",
+     "walkthrough": "'Opening serve' reads as the first serve of a match; 'Opening' is the definition and the serve's two possible calls, in and let, are joined.",
+     "definitionFit": "An inlet is a narrow arm of water running into the coast, a gap or entrance in the shoreline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +790,71 @@
     "text": "Plenty with power not popular, having a following before",
     "enumeration": "9"
    },
-   "solution": "AFFLUENCE"
+   "solution": "AFFLUENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AFFLUENCE",
+    "definitions": [
+     {
+      "text": "Plenty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so that part is removed"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "having",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "INFLUENCE",
+      "note": "influence is sway or power over others"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FLUENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wealth and power without popularity, though once there was a fan base.",
+     "walkthrough": "'Having a following before' says A and F come in front of the shortened power word.",
+     "definitionFit": "Affluence is wealth, an abundance of money and material comfort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +874,55 @@
      }
     ]
    },
-   "solution": "ARTDECO"
+   "solution": "ARTDECO",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "ART DECO",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a cycle",
+      "for": "cycling",
+      "note": "going round on a cycle means letters move round, front one to the back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoot",
+      "gives": "DART",
+      "note": "to scoot is to dash or rush off quickly"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "ECO",
+      "note": "eco- means environmentally friendly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTD",
+      "ECO"
+     ]
+    },
+    "explanation": {
+     "surface": "Riding a bike is an environmentally friendly way to get about stylishly.",
+     "walkthrough": "'Scoot on a cycle' paints someone pedalling; the first letter of DART moves to the end, giving ARTD.",
+     "definitionFit": "Art Deco is the bold geometric design style of the 1920s and 1930s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycle"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +942,67 @@
      }
     ]
    },
-   "solution": "RAKESIN"
+   "solution": "RAKESIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RAKES IN",
+    "definitions": [
+     {
+      "text": "Makes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only every other letter shows"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "will appear"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "darkness",
+      "gives": "AKES",
+      "select": "alternate",
+      "note": "the even letters of darkness"
+     },
+     {
+      "clueFragment": "fiend",
+      "gives": "IN",
+      "select": "alternate",
+      "note": "the even letters of fiend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AKES",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sprints off before nightfall because a demon sometimes shows up.",
+     "walkthrough": "'Occasionally' applies to both darkness and fiend, taking their second and fourth letters.",
+     "definitionFit": "To rake in money is to earn it in large amounts, as you make a profit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fiend"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1022,81 @@
      }
     ]
    },
-   "solution": "TIMECAPSULES"
+   "solution": "TIMECAPSULES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "anagram"
+    ],
+    "answer": "TIME CAPSULES",
+    "definitions": [
+     {
+      "text": "Old messages",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word reads backwards"
+     },
+     {
+      "text": "translatable",
+      "for": "anagram",
+      "note": "something translatable can be turned into another form, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discharge",
+      "gives": "EMIT",
+      "note": "to emit is to give off or discharge"
+     },
+     {
+      "clueFragment": "roughly",
+      "gives": "CA",
+      "note": "ca. is circa, meaning roughly"
+     },
+     {
+      "clueFragment": "pulses",
+      "gives": "PSULES",
+      "note": "the letters of pulses rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIMECA",
+      "PSULES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMIT CA",
+       "gives": "ACEMIT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ACEMIT",
+       "to": "TIMECA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient signals arrive as emissions of decipherable pulses, like messages from space.",
+     "walkthrough": "'Pulses' suggests radio signals; here it is just raw letters to be rearranged. CA, for circa, is the dating abbreviation.",
+     "definitionFit": "Time capsules are sealed containers of items and letters buried for future generations to open, so they hold messages from the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pulses"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1110,56 @@
     "text": "Crevices a lively river’s following",
     "enumeration": "9"
    },
-   "solution": "APERTURES"
+   "solution": "APERTURES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APERTURES",
+    "definitions": [
+     {
+      "text": "Crevices",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lively",
+      "gives": "PERT",
+      "note": "pert means lively and jaunty"
+     },
+     {
+      "clueFragment": "river’s",
+      "gives": "URES",
+      "note": "the Ure is a Yorkshire river; the apostrophe S adds S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PERT",
+      "URES"
+     ]
+    },
+    "explanation": {
+     "surface": "Rock fissures that a fast-flowing river is following.",
+     "walkthrough": "The Ure is a river in North Yorkshire, often used in crosswords.",
+     "definitionFit": "Apertures are openings or gaps, and crevices are narrow cracks of that kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1173,44 @@
     "text": "Real bit of ‘artography‘ (sic) — a landscape",
     "enumeration": "8"
    },
-   "solution": "PHYSICAL"
+   "solution": "PHYSICAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PHYSICAL",
+    "definitions": [
+     {
+      "text": "Real",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "hidden_word",
+      "note": "a bit of something is only part of it, a run of letters lying inside the text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artography‘ (sic) — a landscape",
+      "gives": "PHYSICAL",
+      "note": "the letters run across the end of the misspelt word, sic, a, and the start of the last word"
+     }
+    ],
+    "explanation": {
+     "surface": "A note on a map-maker's misspelling, marked (sic), as part of a real landscape.",
+     "walkthrough": "The '(sic)' looks like an editor's note on a typo, but its letters are part of the run.",
+     "definitionFit": "Physical means material and tangible, existing in the real world rather than in the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sic"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1224,76 @@
     "text": "A record player I fixed in one day and connected",
     "enumeration": "8"
    },
-   "solution": "ADJOINED"
+   "solution": "ADJOINED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADJOINED",
+    "definitions": [
+     {
+      "text": "connected",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed in",
+      "for": "container",
+      "note": "a thing fixed in another is lodged inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "record player",
+      "gives": "DJ",
+      "note": "a disc jockey plays records"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "standard abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DJ",
+      "OINE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mends a gramophone in a single day and plugs it in.",
+     "walkthrough": "'Record player' looks like a turntable, but it is the person spinning the discs: a DJ.",
+     "definitionFit": "Things that are adjoined are joined or attached next to each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1313,44 @@
      }
     ]
    },
-   "solution": "HIDDENAGENDA"
+   "solution": "HIDDENAGENDA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIDDEN AGENDA",
+    "definitions": [
+     {
+      "text": "Secret line-up",
+      "at": 0
+     },
+     {
+      "text": "as might gather in A-lists?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secret line-up",
+      "note": "first meaning: a concealed list of aims or business items"
+     },
+     {
+      "clueFragment": "as might gather in A-lists?",
+      "note": "second, playful meaning: the word A-LISTS has 'a list' tucked inside it, a line-up kept out of sight"
+     }
+    ],
+    "explanation": {
+     "surface": "Celebrities gathering at an exclusive event might have a secret plan.",
+     "walkthrough": "A-list suggests celebrities, but the joke is that the word itself contains 'a list' out of sight.",
+     "definitionFit": "This phrase means a concealed set of intentions or aims behind someone's stated purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "A-lists"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1364,57 @@
     "text": "Gee whiz — love film, but unable to see it properly?",
     "enumeration": "6"
    },
-   "solution": "MYOPIC"
+   "solution": "MYOPIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MYOPIC",
+    "definitions": [
+     {
+      "text": "unable to see it properly?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gee whiz",
+      "gives": "MY",
+      "note": "my! is an exclamation of surprise"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "PIC",
+      "note": "pic is short for picture, a film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MY",
+      "O",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims they love the film, yet they could not see the screen clearly.",
+     "walkthrough": "The question mark flags that the definition is a playful one about a person who cannot see the film in sharp focus.",
+     "definitionFit": "Myopic means short-sighted, with distant objects blurred."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1428,47 @@
     "text": "Gangs getting collections picked up",
     "enumeration": "6"
    },
-   "solution": "HORDES"
+   "solution": "HORDES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HORDES",
+    "definitions": [
+     {
+      "text": "Gangs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means caught by the ear, as a radio picks up a signal"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "collections",
+      "gives": "HORDES",
+      "soundsLike": "HOARDS",
+      "note": "hoards are stored collections or stockpiles"
+     }
+    ],
+    "explanation": {
+     "surface": "Criminal gangs collect stashes of goods that are then seized.",
+     "walkthrough": "'Picked up' reads as being arrested or collected; it means heard.",
+     "definitionFit": "Hordes are large, unruly crowds or bands of people, like gangs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1482,43 @@
     "text": "Throttle fails MOT — Hertz providing vehicle",
     "enumeration": "7"
    },
-   "solution": "SMOTHER"
+   "solution": "SMOTHER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SMOTHER",
+    "definitions": [
+     {
+      "text": "Throttle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "providing vehicle",
+      "for": "hidden_word",
+      "note": "the words provide a vehicle that carries the letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fails MOT — Hertz",
+      "gives": "SMOTHER",
+      "note": "the run starts at the end of fails and stops inside Hertz"
+     }
+    ],
+    "explanation": {
+     "surface": "A car fails its MOT, the annual British roadworthiness test, so Hertz the car-hire firm supplies a replacement.",
+     "walkthrough": "'Throttle' tempts as an engine part in a motoring clue; it is the verb meaning choke.",
+     "definitionFit": "To smother someone is to suffocate them, much as throttling chokes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Throttle"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1532,63 @@
     "text": "Aviation equipment boom involving commercial for oxygen",
     "enumeration": "5"
    },
-   "solution": "RADAR"
+   "solution": "RADAR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RADAR",
+    "definitions": [
+     {
+      "text": "Aviation equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "substitution",
+      "note": "involving means bringing something in, here swapped in where another letter stood"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boom",
+      "gives": "ROAR",
+      "note": "a boom is a deep loud roar"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AD",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft boom involving an oxygen advertisement, like a flight industry promotion.",
+     "walkthrough": "'For oxygen' says the AD replaces the O in ROAR.",
+     "definitionFit": "Radar is the radio-based detection system used by aircraft and air traffic control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boom"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1608,54 @@
      }
     ]
    },
-   "solution": "TALLYHO"
+   "solution": "TALLYHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALLY-HO",
+    "definitions": [
+     {
+      "text": "that could shake up the pack",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Count",
+      "gives": "TALLY",
+      "note": "to tally is to count up"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "H",
+      "note": "H is the card abbreviation for hearts"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALLY",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A card game: count your hearts, and having none could liven up the deck.",
+     "walkthrough": "'Pack' and 'hearts' suggest cards, but the pack is a pack of hounds roused by the hunting cry.",
+     "definitionFit": "Tally-ho is the huntsman's shout on sighting the fox, which sets the hounds off in pursuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pack"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1669,49 @@
     "text": "Gladiator caught in oil-smeared net — no chance for comeback",
     "enumeration": "9"
    },
-   "solution": "CONTENDER"
+   "solution": "CONTENDER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CONTENDER",
+    "definitions": [
+     {
+      "text": "Gladiator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught in",
+      "for": "hidden_word",
+      "note": "caught in means held inside the following words"
+     },
+     {
+      "text": "for comeback",
+      "for": "reversal",
+      "note": "a comeback goes back the way it came, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil-smeared net — no chance",
+      "gives": "REDNETNOC",
+      "note": "the run starts at the end of smeared and ends at the start of chance"
+     }
+    ],
+    "explanation": {
+     "surface": "A gladiator trapped in an oily retiarius net has no hope of a fightback.",
+     "walkthrough": "'Gladiator' is a fighter or rival for a title, not just an arena combatant.",
+     "definitionFit": "A gladiator is someone who fights for a prize, and a contender is a competitor in a contest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1725,51 @@
     "text": "After golf, took off or split",
     "enumeration": "5"
    },
-   "solution": "GAPED"
+   "solution": "GAPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAPED",
+    "definitions": [
+     {
+      "text": "split",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "After",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "golf is G in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "took off",
+      "gives": "APED",
+      "note": "to take someone off is to imitate or ape them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "APED"
+     ]
+    },
+    "explanation": {
+     "surface": "After a round of golf, someone either departed or broke up with a partner.",
+     "walkthrough": "'Took off' looks like departed; it means mimicked. 'Split' is a verb meaning opened wide.",
+     "definitionFit": "Something that gaped opened wide, as a split or tear comes apart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1783,59 @@
     "text": "Place to take top off if only females go?",
     "enumeration": "4"
    },
-   "solution": "LIDO"
+   "solution": "LIDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LIDO",
+    "definitions": [
+     {
+      "text": "Place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "if only females go",
+      "for": "deletion",
+      "note": "only the females leaving means only the letters for female are removed"
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "LID",
+      "note": "a lid is a top or cover"
+     },
+     {
+      "clueFragment": "off",
+      "gives": "OFF",
+      "note": "taken as written; F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A spot for topless sunbathing, provided it is women only.",
+     "walkthrough": "F is the standard abbreviation for female, and 'off' holds two of them. A lido is a public open-air swimming pool, popular in Britain.",
+     "definitionFit": "A lido is a public outdoor pool or bathing spot, a place for swimming and sunbathing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "females"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1855,53 @@
      }
     ]
    },
-   "solution": "BRASSTACKS"
+   "solution": "BRASSTACKS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "BRASS TACKS",
+    "definitions": [
+     {
+      "text": "essentials",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "announced means spoken out, so the sound matters rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cash",
+      "gives": "BRASS",
+      "note": "brass is northern British slang for money"
+     },
+     {
+      "clueFragment": "levy",
+      "gives": "TACKS",
+      "soundsLike": "TAX",
+      "note": "a levy is a tax"
+     }
+    ],
+    "explanation": {
+     "surface": "A charge on cash is declared, covering the necessities.",
+     "walkthrough": "Brass for money is British slang, especially in the north of England.",
+     "definitionFit": "Getting down to brass tacks means dealing with the basic facts or fundamentals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "levy"
+    }
+   }
   }
  ]
 }
