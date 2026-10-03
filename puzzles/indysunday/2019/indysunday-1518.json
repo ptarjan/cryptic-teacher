@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Give a hand to guitar player doffing cap",
     "enumeration": "6"
    },
-   "solution": "ASSIST"
+   "solution": "ASSIST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASSIST",
+    "definitions": [
+     {
+      "text": "Give a hand to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doffing cap",
+      "for": "deletion",
+      "note": "to doff a cap is to take off what sits on top, so the first letter of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guitar player",
+      "gives": "BASSIST",
+      "note": "a bassist plays the bass guitar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician politely removes their hat before helping someone out.",
+     "walkthrough": "BASSIST loses its first letter, its 'cap', to leave ASSIST.",
+     "definitionFit": "To help someone or lend them support is a plain synonym for this verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,65 @@
     "text": "A drug agent detains Greek character being lawless",
     "enumeration": "8"
    },
-   "solution": "ANARCHIC"
+   "solution": "ANARCHIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANARCHIC",
+    "definitions": [
+     {
+      "text": "lawless",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detains",
+      "for": "container",
+      "note": "to detain is to hold someone inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drug agent",
+      "gives": "NARC",
+      "note": "narc is American slang for a narcotics officer"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NAR",
+      "CHI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A narcotics officer holds a Greek suspect who has been behaving badly.",
+     "walkthrough": "Narc is American slang, short for narcotics agent; 'character' here is a letter, not a person.",
+     "definitionFit": "Anarchy means the absence of government or order, so an anarchic situation has no rules being followed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +173,72 @@
      }
     ]
    },
-   "solution": "SONINLAW"
+   "solution": "SONINLAW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SON-IN-LAW",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "letters that are flying are scattered through the air and land in a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the scrambled letters go round the outside of the remaining pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is now",
+      "gives": "ISNOW",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Californian city",
+      "gives": "LA",
+      "note": "Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONI",
+      "NLA",
+      "W"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNOW",
+       "gives": "SONIW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's family member is currently travelling by air to a city in northern California.",
+     "walkthrough": "'Californian city' is a single piece, Los Angeles, and Northern is just its first letter, not a description of where the city lies.",
+     "definitionFit": "A daughter's husband becomes a family member by marriage, so he is a relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +252,42 @@
     "text": "Delay outlet at a fair",
     "enumeration": "5"
    },
-   "solution": "STALL"
+   "solution": "STALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STALL",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     },
+     {
+      "text": "outlet at a fair",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delay",
+      "note": "first meaning: to play for time or hold things up"
+     },
+     {
+      "clueFragment": "outlet at a fair",
+      "note": "second meaning: a booth or stand selling goods"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a stand opening late at a fair; the two parts are separate meanings of one word.",
+     "definitionFit": "The word means both to hold up proceedings deliberately and a small stand where traders sell goods at a market."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outlet"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +307,48 @@
      }
     ]
    },
-   "solution": "ICECREAM"
+   "solution": "ICECREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICE CREAM",
+    "definitions": [
+     {
+      "text": "dessert?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reserve",
+      "gives": "ICE",
+      "note": "reserve in the sense of coolness or aloofness of manner"
+     },
+     {
+      "clueFragment": "the best",
+      "gives": "CREAM",
+      "note": "the cream is the best part, as in 'cream of the crop'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "CREAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to save the finest pudding for later.",
+     "walkthrough": "'Reserve' looks like a verb meaning set aside, but it is the noun for chilly restraint.",
+     "definitionFit": "A frozen sweet made from dairy is a common pudding; the question mark flags that it is one example of a dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +372,51 @@
      }
     ]
    },
-   "solution": "CARBOOTSALE"
+   "solution": "CARBOOTSALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAR BOOT SALE",
+    "definitions": [
+     {
+      "text": "place for bargains?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for renovation",
+      "for": "anagram",
+      "note": "something marked for renovation is about to be rebuilt, so the letters are reworked into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A cool bar set",
+      "gives": "ACOOLBARSET",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACOOLBARSET",
+       "gives": "CARBOOTSALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy bar is about to be refurbished, which might mean cheap drinks.",
+     "walkthrough": "A car boot sale is a British outdoor event where people sell second-hand goods from the boot (trunk) of their cars.",
+     "definitionFit": "Such sales are known for cheap second-hand items, so they are where shoppers hunt for bargains; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "renovation"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +430,76 @@
     "text": "Queen, say, with almost unique capital turned up in secessionist area",
     "enumeration": "9"
    },
-   "solution": "CATALONIA"
+   "solution": "CATALONIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "CATALONIA",
+    "definitions": [
+     {
+      "text": "secessionist area",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning something up makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen, say",
+      "gives": "CAT",
+      "note": "a queen is a female cat"
+     },
+     {
+      "clueFragment": "unique",
+      "gives": "ALONE",
+      "note": "being the only one, standing alone"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "AI",
+      "note": "capital as an adjective means first-rate, A1, written AI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "ALON",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch joins a one-of-a-kind capital city in a breakaway region.",
+     "walkthrough": "'Queen' and 'capital' suggest royalty and a city, but they are a female cat and A1. CAT + ALON(e) + AI upside down.",
+     "definitionFit": "This Spanish region around Barcelona held an independence referendum in 2017, so it is known for its secessionist movement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +513,56 @@
     "text": "Philip's mate managed day for light task",
     "enumeration": "6"
    },
-   "solution": "ERRAND"
+   "solution": "ERRAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERRAND",
+    "definitions": [
+     {
+      "text": "light task",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Philip's mate",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen, wife of Prince Philip"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to run something is to manage it"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal consort's wife got through the day with only a simple chore.",
+     "walkthrough": "ER, the Latin initials of Queen Elizabeth, is the usual crossword queen; here she is identified through her husband Philip.",
+     "definitionFit": "A short trip to run a small job, such as fetching shopping, is a minor chore for someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mate"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +576,43 @@
     "text": "Insufficient time agreed to remove outsiders",
     "enumeration": "6"
    },
-   "solution": "MEAGRE"
+   "solution": "MEAGRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MEAGRE",
+    "definitions": [
+     {
+      "text": "Insufficient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to remove outsiders",
+      "for": "hidden_word",
+      "note": "stripping away the outer letters leaves a run of letters from the middle of the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time agreed",
+      "gives": "MEAGRE",
+      "note": "the letters left when the outer ones are stripped from the phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "Not enough time was allowed to throw out the strangers.",
+     "walkthrough": "The answer is tucked inside tiME AGREed once ti- and -ed are removed.",
+     "definitionFit": "A scanty or paltry amount falls short of what is needed, so it is lacking in quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +626,69 @@
     "text": "A pair of names for all to see given a line in reference book?",
     "enumeration": "6"
    },
-   "solution": "ANNUAL"
+   "solution": "ANNUAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANNUAL",
+    "definitions": [
+     {
+      "text": "reference book?",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "given",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pair of names",
+      "gives": "NN",
+      "note": "N for name, twice"
+     },
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the film certificate for universal viewing, suitable for all"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NN",
+      "U",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people's names are made public by being printed in a directory.",
+     "walkthrough": "U is the British film classification meaning suitable for everyone.",
+     "definitionFit": "A book published once a year, often a yearbook or children's gift volume, is one kind of reference book; hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +702,81 @@
     "text": "Recall broadcast film on Irish culture originally setting standards",
     "enumeration": "8"
    },
-   "solution": "CRITERIA"
+   "solution": "CRITERIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "CRITERIA",
+    "definitions": [
+     {
+      "text": "standards",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start of the word, so only its first letter is used"
+     },
+     {
+      "text": "Recall",
+      "for": "reversal",
+      "note": "to recall is to call back, so the whole string is read backwards"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "setting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "Spielberg's film E.T."
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "abbreviation for Irish"
+     },
+     {
+      "clueFragment": "culture",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRITERIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIRETIRC",
+       "to": "CRITERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster brings back a film about Irish culture as a benchmark.",
+     "walkthrough": "AIR + ET + IR + C, then the whole string runs backwards.",
+     "definitionFit": "Criteria are the principles or tests by which things are judged, which is what standards are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recall"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +790,67 @@
     "text": "Painter, one permitted to enter Swiss region endlessly",
     "enumeration": "9"
    },
-   "solution": "CANALETTO"
+   "solution": "CANALETTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "deletion"
+    ],
+    "answer": "CANALETTO",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "entering means going inside, so these pieces go within another word"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "permitted",
+      "gives": "LET",
+      "note": "to let is to allow"
+     },
+     {
+      "clueFragment": "Swiss region",
+      "gives": "CANTON",
+      "note": "Switzerland is divided into cantons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "ALET",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist is given permission to travel into part of Switzerland without end.",
+     "walkthrough": "Switzerland's 26 states are called cantons; 'one permitted' reads as a person but is two separate pieces.",
+     "definitionFit": "The eighteenth-century Venetian artist is famed for his detailed views of Venice and London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +870,55 @@
      }
     ]
    },
-   "solution": "THEREVENANT"
+   "solution": "THEREVENANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE REVENANT",
+    "definitions": [
+     {
+      "text": "rugged film",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "to cast is to throw or mould, so the letters are thrown into a new shape"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Veteran then",
+      "gives": "VETERANTHEN",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VETERANTHEN",
+       "gives": "THEREVENANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old actor is then given a part in a tough wilderness movie.",
+     "walkthrough": "'Cast' looks like casting actors in a film, which fits the surface, but it is the anagram signal.",
+     "definitionFit": "The 2015 survival western starring Leonardo DiCaprio, set in the harsh American frontier wilderness, is a gruelling movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +932,45 @@
     "text": "It covers bin's interior in big ship",
     "enumeration": "5"
    },
-   "solution": "LINER"
+   "solution": "LINER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LINER",
+    "definitions": [
+     {
+      "text": "It covers bin's interior",
+      "at": 0
+     },
+     {
+      "text": "big ship",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It covers bin's interior",
+      "note": "first meaning: a bag fitted inside a rubbish bin"
+     },
+     {
+      "clueFragment": "big ship",
+      "note": "second meaning: a large passenger vessel"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is used to line a bin on board a large vessel.",
+     "definitionFit": "The word names both a protective bag placed inside a waste container and an ocean-going passenger vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +990,54 @@
      }
     ]
    },
-   "solution": "ISAACNEWTON"
+   "solution": "ISAACNEWTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISAAC NEWTON",
+    "definitions": [
+     {
+      "text": "noted scientist",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contains awe",
+      "gives": "CONTAINSAWE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTAINSAWE",
+       "gives": "ISAACNEWTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician holds back their admiration for a famous scientist.",
+     "walkthrough": "'Doctor' looks like a noun for a person, but it is a verb meaning to falsify.",
+     "definitionFit": "The English physicist who formulated the laws of motion and universal gravitation is among history's most celebrated thinkers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1051,56 @@
     "text": "Extensive international account with promises of refunds?",
     "enumeration": "9"
    },
-   "solution": "CAPACIOUS"
+   "solution": "CAPACIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPACIOUS",
+    "definitions": [
+     {
+      "text": "Extensive",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "CAP",
+      "note": "a player chosen for their national team wins a cap and is called a cap"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "promises of refunds",
+      "gives": "IOUS",
+      "note": "an IOU is a written promise to repay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "AC",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A worldwide bank account comes with plenty of pledges to pay money back.",
+     "walkthrough": "In British sport an international is a player who represents their country, and each appearance earns a cap.",
+     "definitionFit": "Something roomy with a large capacity holds a great deal, so it is wide-ranging in size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1114,67 @@
     "text": "Gent represented in quick Parisian character sketch",
     "enumeration": "8"
    },
-   "solution": "VIGNETTE"
+   "solution": "VIGNETTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VIGNETTE",
+    "definitions": [
+     {
+      "text": "character sketch",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "represented means presented again in another form, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters are placed inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gent",
+      "gives": "GENT",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "quick Parisian",
+      "gives": "VITE",
+      "note": "the French word for quick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "GNET",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENT",
+       "gives": "GNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentleman is drawn in a hurried French sketch.",
+     "walkthrough": "'Parisian' signals a French word, a common crossword device for borrowing foreign vocabulary.",
+     "definitionFit": "A short descriptive piece of writing or a brief scene capturing someone's nature is a little portrait in words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1198,42 @@
      }
     ]
    },
-   "solution": "INMYBOOK"
+   "solution": "INMYBOOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN MY BOOK",
+    "definitions": [
+     {
+      "text": "How to describe writer's published words",
+      "at": 0
+     },
+     {
+      "text": "as far as I'm concerned",
+      "at": 41
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to describe writer's published words",
+      "note": "first meaning: an author would say the words appear in their own volume"
+     },
+     {
+      "clueFragment": "as far as I'm concerned",
+      "note": "second meaning: an idiom for 'in my opinion'"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase literally places words in an author's own volume, and idiomatically means 'in my opinion'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "published"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1247,60 @@
     "text": "Soldier in pointer for battle is getting ready",
     "enumeration": "11"
    },
-   "solution": "PREPARATION"
+   "solution": "PREPARATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PREPARATION",
+    "definitions": [
+     {
+      "text": "getting ready",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for battle",
+      "for": "anagram",
+      "note": "something put up for battle is fought over and knocked about, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PARA",
+      "note": "a paratrooper"
+     },
+     {
+      "clueFragment": "pointer",
+      "gives": "POINTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARAPOINTER",
+       "gives": "PREPARATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier in the role of scout is gearing up for combat.",
+     "walkthrough": "PARA placed in POINTER gives the eleven letters, which are then mixed up.",
+     "definitionFit": "The noun names the process of making things ready, so it can stand for the act of readying oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1314,61 @@
     "text": "Beauty treatment almost covers small board above shop window",
     "enumeration": "6"
    },
-   "solution": "FASCIA"
+   "solution": "FASCIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FASCIA",
+    "definitions": [
+     {
+      "text": "board above shop window",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite the whole, so the last letter is dropped"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "to cover something is to wrap round it, so one piece goes outside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beauty treatment",
+      "gives": "FACIAL",
+      "note": "a facial is a skin treatment at a salon"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "S",
+      "CIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A salon's sign above its window advertises treatments, with small print.",
+     "walkthrough": "FACIAL loses its last letter to give FACIA, which wraps round S.",
+     "definitionFit": "The fascia is the flat signboard over a storefront displaying the business name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1388,47 @@
      }
     ]
    },
-   "solution": "STIRUP"
+   "solution": "STIRUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIR UP",
+    "definitions": [
+     {
+      "text": "Excite",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "building filled by those inside",
+      "gives": "STIR",
+      "note": "stir is slang for prison, a building full of people who are 'inside', i.e. jailed"
+     },
+     {
+      "clueFragment": "at college",
+      "gives": "UP",
+      "note": "a student at university is said to be up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIR",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A college building is packed with the people within it, causing excitement.",
+     "walkthrough": "'Inside' is British slang for in prison, and stir is slang for the prison itself.",
+     "definitionFit": "To rouse or agitate people into action or strong feeling is a phrasal synonym for arousing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1442,46 @@
     "text": "Some Mancunian ticketed for prank",
     "enumeration": "5"
    },
-   "solution": "ANTIC"
+   "solution": "ANTIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTIC",
+    "definitions": [
+     {
+      "text": "prank",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of what follows, so a run of letters is taken from inside the words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mancunian ticketed",
+      "gives": "ANTIC",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Manchester resident was fined for a practical joke.",
+     "walkthrough": "A Mancunian is someone from Manchester; the answer sits in mancuniAN TICketed.",
+     "definitionFit": "An antic is a silly or playful act, a caper that amounts to a bit of mischief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ticketed"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1501,66 @@
      }
     ]
    },
-   "solution": "EVENMONEY"
+   "solution": "EVENMONEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EVEN MONEY",
+    "definitions": [
+     {
+      "text": "that's likely to happen!",
+      "at": 53,
+      "note": "loosely: even money means an equal chance, so as a comment it says something may well happen"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "something worn goes round the wearer, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "EVEN",
+      "note": "uniform means level or regular"
+     },
+     {
+      "clueFragment": "surprised expression",
+      "gives": "MY",
+      "note": "an exclamation of surprise, as in 'my!'"
+     },
+     {
+      "clueFragment": "Individual",
+      "gives": "ONE",
+      "note": "a single person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "M",
+      "ONE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A person in uniform looks astonished, saying things will probably happen.",
+     "walkthrough": "'Uniform' looks like clothing that the individual wears, but it is an adjective meaning level.",
+     "definitionFit": "In betting, odds of evens mean a fifty-fifty chance, so the phrase is used of an outcome that is quite possible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wears"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1574,42 @@
     "text": "Worth not altogether seen in tiresome ritual",
     "enumeration": "5"
    },
-   "solution": "MERIT"
+   "solution": "MERIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERIT",
+    "definitions": [
+     {
+      "text": "Worth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not altogether seen in",
+      "for": "hidden_word",
+      "note": "only partly visible inside the words, so the letters are found within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiresome ritual",
+      "gives": "MERIT",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some value is only partly to be found in a dull routine ceremony.",
+     "walkthrough": "The answer is in tiresoME RITual.",
+     "definitionFit": "Merit is the quality of being good or deserving praise, which is what something's value amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1623,43 @@
     "text": "One trained for engagement, characterising a body",
     "enumeration": "8"
    },
-   "solution": "CORPORAL"
+   "solution": "CORPORAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CORPORAL",
+    "definitions": [
+     {
+      "text": "One trained for engagement",
+      "at": 0
+     },
+     {
+      "text": "characterising a body",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One trained for engagement",
+      "note": "first meaning: a soldier, a non-commissioned officer, prepared for battle"
+     },
+     {
+      "clueFragment": "characterising a body",
+      "note": "second meaning: an adjective for things relating to the body"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Engagement' suggests a wedding, but here it is a military battle.",
+     "definitionFit": "The word is both a junior army rank, a soldier trained for combat, and an adjective meaning physical, as in corporal punishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1673,47 @@
     "text": "Greek and German fancy underground area",
     "enumeration": "6"
    },
-   "solution": "GROTTO"
+   "solution": "GROTTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GROTTO",
+    "definitions": [
+     {
+      "text": "fancy underground area",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "abbreviation for Greek"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "OTTO",
+      "note": "a typical German man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "OTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek and a German take a liking to a subterranean space.",
+     "walkthrough": "'Fancy' looks like a verb meaning like, but it is an adjective in the definition: ornamental.",
+     "definitionFit": "A grotto is a small cave, often an artificial decorated one in a garden, so a decorative cavern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1727,58 @@
     "text": "Set in place enthralled by impressionist? That's fitting",
     "enumeration": "8"
    },
-   "solution": "APPOSITE"
+   "solution": "APPOSITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APPOSITE",
+    "definitions": [
+     {
+      "text": "fitting",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "to be enthralled by something is to be held captive by it, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impressionist",
+      "gives": "APE",
+      "note": "to ape is to mimic, as an impressionist does"
+     },
+     {
+      "clueFragment": "Set in place",
+      "gives": "POSIT",
+      "note": "to posit is to put in position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "POSIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A setting is captured by an Impressionist painter, which seems appropriate.",
+     "walkthrough": "'Impressionist' suggests a painter such as Monet, but it means a mimic.",
+     "definitionFit": "Apposite remarks are well suited to the occasion, which is what appropriate or suitable means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impressionist"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1792,43 @@
     "text": "Flash irregular line of colour",
     "enumeration": "6"
    },
-   "solution": "STREAK"
+   "solution": "STREAK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STREAK",
+    "definitions": [
+     {
+      "text": "Flash",
+      "at": 0
+     },
+     {
+      "text": "irregular line of colour",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flash",
+      "note": "first meaning: to run naked through a public place"
+     },
+     {
+      "clueFragment": "irregular line of colour",
+      "note": "second meaning: a band or stripe of a different shade"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flash' suggests a burst of light; it is the verb for exposing oneself in public.",
+     "definitionFit": "The word means both to dash about naked in public and a thin uneven stripe of a contrasting shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flash"
+    }
+   }
   }
  ]
 }
