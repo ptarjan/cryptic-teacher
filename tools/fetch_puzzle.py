@@ -1906,6 +1906,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18199", "11-across"): (
+        "In retribution, smear with car? Not on!",
+        "In retribution, smear with tar? Not on!",
+        "OCR misread: PAY means to smear with tar, so the clue needs 'tar'"),
+    ("times-18199", "2-down"): (
+        "Issue unknown to the down at bed",
+        "Issue unknown to the down at heel",
+        "OCR misread: SEEDY means shabby, so the definition needs 'down at heel'"),
     ("times-18151", "3-down"): (
         "Don' view so much - it's inconsiderate",
         "Don't view so much - it's inconsiderate",
