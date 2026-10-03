@@ -23,6 +23,9 @@
   "date": "2024-01-29",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,54 @@
     "text": "Fish dish containing potassium",
     "enumeration": "4"
    },
-   "solution": "PIKE"
+   "solution": "PIKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIKE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing tells us the dish holds the next item inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish",
+      "gives": "PIE",
+      "note": "a pie is a baked dish"
+     },
+     {
+      "clueFragment": "potassium",
+      "gives": "K",
+      "note": "K is the chemical symbol for potassium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish dish with potassium in it, as on a nutrition label.",
+     "definitionFit": "The pike is a long predatory freshwater species with sharp teeth, caught by anglers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +100,68 @@
     "text": "Job with Head of Alsace Resistance after VE Day?",
     "enumeration": "7"
    },
-   "solution": "POSTWAR"
+   "solution": "POSTWAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POSTWAR",
+    "definitions": [
+     {
+      "text": "after VE Day?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so we keep only the start of Alsace"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Job",
+      "gives": "POST",
+      "note": "a post is a job or position"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with"
+     },
+     {
+      "clueFragment": "Alsace",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of Alsace"
+     },
+     {
+      "clueFragment": "Resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POST",
+      "W",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime job with the leader of the Alsace Resistance, taken up once Europe was liberated.",
+     "walkthrough": "The French Resistance flavour hides that Resistance is simply R, as in physics; the question mark flags a definition by example.",
+     "definitionFit": "VE Day marked victory in Europe in 1945, so anything after it belongs to the period following the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Resistance"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +185,68 @@
      }
     ]
    },
-   "solution": "KNOWITALL"
+   "solution": "KNOWITALL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KNOW-IT-ALL",
+    "definitions": [
+     {
+      "text": "smart Alec",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it back to front, so the expert's word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obsessive expert",
+      "gives": "WONK",
+      "note": "a wonk is a person obsessively devoted to a specialist subject"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "high in stature",
+      "gives": "TALL",
+      "note": "someone tall is high in stature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNOW",
+      "I",
+      "TALL"
+     ],
+     "reversals": [
+      {
+       "from": "WONK",
+       "to": "KNOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble about an obsessive expert who is tall and a smart Alec to boot.",
+     "walkthrough": "Flipping reads like a mild British oath, not an instruction to reverse the word that follows.",
+     "definitionFit": "A smart Alec is a cocky person who thinks they have every answer, which is exactly this label."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 3,
@@ -88,7 +260,50 @@
     "text": "Renouncing a bitcoin ad that’s circulating",
     "enumeration": "10"
    },
-   "solution": "ABDICATION"
+   "solution": "ABDICATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABDICATION",
+    "definitions": [
+     {
+      "text": "Renouncing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s circulating",
+      "for": "anagram",
+      "note": "letters that are circulating move around and settle in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bitcoin ad",
+      "gives": "ABITCOINAD",
+      "note": "all ten letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABITCOINAD",
+       "gives": "ABDICATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone giving up on cryptocurrency because of a bitcoin advert doing the rounds.",
+     "definitionFit": "Formally giving up a throne or responsibility is the act of renunciation, a noun matching the gerund."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circulating"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +317,75 @@
     "text": "Wine store putting up mature old Burgundy principally",
     "enumeration": "6"
    },
-   "solution": "BODEGA"
+   "solution": "BODEGA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "BODEGA",
+    "definitions": [
+     {
+      "text": "Wine store",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting up",
+      "for": "reversal",
+      "note": "in a down clue, putting something up makes it read from the bottom upwards"
+     },
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally points to the principal, leading letter of Burgundy"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mature",
+      "gives": "AGED",
+      "note": "mature wine has aged"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "Burgundy",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of Burgundy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "DEGA"
+     ],
+     "reversals": [
+      {
+       "from": "AGEDOB",
+       "to": "BODEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine shop laying down mature old Burgundy for the cellar.",
+     "walkthrough": "Putting up wine sounds like storing it, but here it reverses the pieces in this down entry.",
+     "definitionFit": "A bodega is a Spanish cellar or shop where wine is kept and sold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "putting"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +399,66 @@
     "text": "The setter’s visibly embarrassed to admit papa, behold, was begging",
     "enumeration": "8"
    },
-   "solution": "IMPLORED"
+   "solution": "IMPLORED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMPLORED",
+    "definitions": [
+     {
+      "text": "was begging",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "to admit is to let in, so the next pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The setter’s",
+      "gives": "IM",
+      "note": "the setter refers to himself as I, so the setter's is I'M"
+     },
+     {
+      "clueFragment": "visibly embarrassed",
+      "gives": "RED",
+      "note": "an embarrassed face turns red"
+     },
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "behold",
+      "gives": "LO",
+      "note": "lo is an old word for behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "P",
+      "LO",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter blushes, owning up that Dad saw him pleading.",
+     "definitionFit": "To implore is to ask desperately, so the past tense means someone was pleading earnestly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papa"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +482,57 @@
      }
     ]
    },
-   "solution": "ATDAGGERSDRAWN"
+   "solution": "ATDAGGERSDRAWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT DAGGERS DRAWN",
+    "definitions": [
+     {
+      "text": "Ready for a fight",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "AT",
+      "note": "by and at both mean next to, as in by the door"
+     },
+     {
+      "clueFragment": "obelisks",
+      "gives": "DAGGERS",
+      "note": "an obelisk is also the printer's dagger mark"
+     },
+     {
+      "clueFragment": "honours even",
+      "gives": "DRAWN",
+      "note": "with honours even a match is drawn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "DAGGERS",
+      "DRAWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Two rivals standing by monuments with the contest still level.",
+     "walkthrough": "Obelisks look like stone monuments, but printers call the dagger symbol an obelisk too.",
+     "definitionFit": "An idiom for two parties in open hostility, poised to attack each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "obelisks"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +546,72 @@
     "text": "Parliament rising to support Ireland’s premier epic work of literature",
     "enumeration": "5"
    },
-   "solution": "ILIAD"
+   "solution": "ILIAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ILIAD",
+    "definitions": [
+     {
+      "text": "epic work of literature",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "premier",
+      "for": "letter_selection",
+      "note": "the premier letter is the first one of Ireland"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ireland’s",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of Ireland"
+     },
+     {
+      "clueFragment": "Parliament",
+      "gives": "DAIL",
+      "note": "the Dáil is the lower house of the Irish parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "LIAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAIL",
+       "to": "LIAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Irish parliament standing up for the country's leading work of literature.",
+     "walkthrough": "In a down clue, to support means to sit beneath, so the reversed parliament goes under the I.",
+     "definitionFit": "Homer's poem of the Trojan War is one of the great founding epics of Western literature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "premier"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +625,55 @@
     "text": "Dark edges of intimate clothing",
     "enumeration": "7"
    },
-   "solution": "NIGHTIE"
+   "solution": "NIGHTIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NIGHTIE",
+    "definitions": [
+     {
+      "text": "clothing",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters at each end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark",
+      "gives": "NIGHT",
+      "note": "night is the dark part of the day"
+     },
+     {
+      "clueFragment": "intimate",
+      "gives": "IE",
+      "select": "outer",
+      "note": "outer letters of intimate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark-edged piece of lingerie.",
+     "definitionFit": "A nightdress is a garment worn in bed, so it is an item of clothing given by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dark"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +693,52 @@
      }
     ]
    },
-   "solution": "ORDINARYSEAMAN"
+   "solution": "ORDINARYSEAMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORDINARY SEAMAN",
+    "definitions": [
+     {
+      "text": "salt",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for manufacturing",
+      "for": "anagram",
+      "note": "manufacturing makes something new from raw materials, so these letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "San Marino ready",
+      "gives": "SANMARINOREADY",
+      "note": "all fourteen letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SANMARINOREADY",
+       "gives": "ORDINARYSEAMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The little republic of San Marino gears up to produce salt.",
+     "walkthrough": "Salt looks like the industrial product, but an old salt is a sailor.",
+     "definitionFit": "Salt is informal for an experienced sailor, and an ordinary seaman is a junior naval rating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +752,53 @@
     "text": "That is The Times boss purged",
     "enumeration": "7"
    },
-   "solution": "SCOURED"
+   "solution": "SCOURED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCOURED",
+    "definitions": [
+     {
+      "text": "purged",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That is",
+      "gives": "SC",
+      "note": "sc. is short for scilicet, Latin for that is or namely"
+     },
+     {
+      "clueFragment": "The Times",
+      "gives": "OUR",
+      "note": "a Times setter calls the paper our own"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "ED",
+      "note": "the boss of a newspaper is its editor, ED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "OUR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The editor of The Times sacked staff in a clear-out.",
+     "walkthrough": "Read as the setter speaking, The Times boss is our editor.",
+     "definitionFit": "To scour is to clean thoroughly or clear out, so a purged place has been scoured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +812,46 @@
     "text": "Page including verbiage",
     "enumeration": "7"
    },
-   "solution": "PADDING"
+   "solution": "PADDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PADDING",
+    "definitions": [
+     {
+      "text": "verbiage",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "including",
+      "gives": "ADDING",
+      "note": "including something is adding it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ADDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A page stuffed with wordiness.",
+     "definitionFit": "Padding is superfluous material added to fill out a text, which is wordy excess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "including"
+    }
+   }
   },
   {
    "number": 12,
@@ -240,7 +875,52 @@
      }
     ]
    },
-   "solution": "WAITINGFORGODOT"
+   "solution": "WAITINGFORGODOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WAITING FOR GODOT",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, so the letters are thrown into crazy disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woof!”, dog tiring at",
+      "gives": "WOOFDOGTIRINGAT",
+      "note": "all fifteen letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WOOFDOGTIRINGAT",
+       "gives": "WAITINGFORGODOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog barking woof, worn out from playing.",
+     "walkthrough": "Barking looks like the dog's noise but is the slang for mad; play is the definition, not the dog's game.",
+     "definitionFit": "Samuel Beckett's absurdist drama in which two tramps wait in vain is a famous stage work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barking"
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +934,42 @@
     "text": "Former leader emerging from Korea gang",
     "enumeration": "6"
    },
-   "solution": "REAGAN"
+   "solution": "REAGAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REAGAN",
+    "definitions": [
+     {
+      "text": "Former leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emerging from",
+      "for": "hidden_word",
+      "note": "something emerging from these words is already sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Korea gang",
+      "gives": "REAGAN",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An ex-ruler coming out of a Korean gang.",
+     "definitionFit": "Ronald Reagan was the fortieth President of the United States, so a past head of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Korea"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +983,83 @@
     "text": "Say a reverend bishop popped round to guzzle energy drink?",
     "enumeration": "8"
    },
-   "solution": "BEVERAGE"
+   "solution": "BEVERAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "BEVERAGE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "popped round",
+      "for": "reversal",
+      "note": "turned round, the pieces are read in the opposite direction"
+     },
+     {
+      "text": "to guzzle",
+      "for": "container",
+      "note": "guzzling takes something in, so the next letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "e.g. means for example, as say does"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reverend",
+      "gives": "REV",
+      "note": "Rev is the abbreviation for reverend"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "VERAGE"
+     ],
+     "reversals": [
+      {
+       "from": "EGAREVB",
+       "to": "BVERAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar and a bishop dropping in for an energy drink.",
+     "walkthrough": "Energy drink reads as one item, but the definition is only drink.",
+     "definitionFit": "A beverage is any liquid for drinking other than water, so a general word for something to drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popped"
+    }
+   }
   },
   {
    "number": 15,
@@ -292,7 +1083,43 @@
      }
     ]
    },
-   "solution": "ACUTABOVE"
+   "solution": "ACUTABOVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A CUT ABOVE",
+    "definitions": [
+     {
+      "text": "Higher class",
+      "at": 0
+     },
+     {
+      "text": "work performed by tree surgeon?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Higher class",
+      "note": "first meaning: superior to others"
+     },
+     {
+      "clueFragment": "work performed by tree surgeon?",
+      "note": "second meaning, taken literally: a tree surgeon trims branches overhead"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the literal reading of the idiom as an arborist's overhead chop.",
+     "definitionFit": "The idiom means noticeably superior, while a tree surgeon literally saws into branches overhead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surgeon"
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +1139,58 @@
      }
     ]
    },
-   "solution": "WATERRAT"
+   "solution": "WATERRAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WATER RAT",
+    "definitions": [
+     {
+      "text": "Riverbank creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the earth inside the temple"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buddhist temple",
+      "gives": "WAT",
+      "note": "a wat is a Buddhist temple in Thailand or Cambodia"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "TERRA",
+      "note": "terra is Latin for earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "TERRA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal by the river with its earth set inside a temple.",
+     "walkthrough": "Ratty, the water vole in The Wind in the Willows, lives on the riverbank.",
+     "definitionFit": "The water vole, popularly called by this name, burrows into banks of rivers and streams."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earth"
+    }
+   }
   },
   {
    "number": 17,
@@ -332,7 +1210,70 @@
      }
     ]
    },
-   "solution": "ALLEYCAT"
+   "solution": "ALLEYCAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ALLEY CAT",
+    "definitions": [
+     {
+      "text": "wild thing",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the singer's name runs backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer of swing",
+      "gives": "ELLA",
+      "note": "Ella Fitzgerald was a great swing and jazz singer"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "jazz fan",
+      "gives": "CAT",
+      "note": "cat is old jazz slang for a fan or musician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLE",
+      "Y",
+      "CAT"
+     ],
+     "reversals": [
+      {
+       "from": "ELLA",
+       "to": "ALLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band line-up: backing vocalist, an American jazz fan and a wild one.",
+     "walkthrough": "Backing singer reads as a single role, but backing is the reversal signal.",
+     "definitionFit": "A stray urban feline living rough in the streets is untamed, so a feral animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Backing"
+    }
+   }
   },
   {
    "number": 17,
@@ -346,7 +1287,51 @@
     "text": "Light rubber and aluminium device extending PC performance",
     "enumeration": "7"
    },
-   "solution": "ALADDIN"
+   "solution": "ALADDIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALADDIN",
+    "definitions": [
+     {
+      "text": "Light rubber",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aluminium",
+      "gives": "AL",
+      "note": "Al is the chemical symbol for aluminium"
+     },
+     {
+      "clueFragment": "device extending PC performance",
+      "gives": "ADDIN",
+      "note": "an add-in is software that extends a computer program"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "ADDIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A light eraser and an aluminium gadget to speed up your computer.",
+     "walkthrough": "Light rubber looks like a soft eraser; it is the man who rubbed a lamp.",
+     "definitionFit": "In the Arabian Nights tale the hero rubs a magic lamp and releases a genie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1345,67 @@
     "text": "Sharp expressions of disapproval about being stuck in A&E",
     "enumeration": "6"
    },
-   "solution": "ASTUTE"
+   "solution": "ASTUTE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ASTUTE",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about, the sounds of disapproval are read backwards"
+     },
+     {
+      "text": "being stuck in",
+      "for": "container",
+      "note": "stuck in means placed inside the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "A and E are kept as written"
+     },
+     {
+      "clueFragment": "expressions of disapproval",
+      "gives": "TUTS",
+      "note": "tut is a click of the tongue showing disapproval"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STUT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TUTS",
+       "to": "STUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sharp tutting from patients stuck waiting in A&E.",
+     "walkthrough": "A&E is the British hospital emergency department.",
+     "definitionFit": "Someone sharp is shrewd and quick-witted, which is the adjective's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuck"
+    }
+   }
   },
   {
    "number": 19,
@@ -374,7 +1419,71 @@
     "text": "Always empty eateries on top of Table Mountain",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVEREST",
+    "definitions": [
+     {
+      "text": "Mountain",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, leaving only the outer letters"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Always",
+      "gives": "EVER",
+      "note": "ever means always"
+     },
+     {
+      "clueFragment": "eateries",
+      "gives": "ES",
+      "select": "outer",
+      "note": "outer letters of eateries"
+     },
+     {
+      "clueFragment": "Table",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVER",
+      "ES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Restaurants on Cape Town's Table Mountain are always empty.",
+     "walkthrough": "Table Mountain is a real South African peak, but only Mountain is the definition.",
+     "definitionFit": "The world's highest peak, in the Himalayas on the Nepal–Tibet border, is an example of a summit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Table"
+    }
+   }
   },
   {
    "number": 20,
@@ -388,7 +1497,61 @@
     "text": "Second in command collecting junk still",
     "enumeration": "6"
    },
-   "solution": "STATIC"
+   "solution": "STATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STATIC",
+    "definitions": [
+     {
+      "text": "still",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means gathering in, so the junk is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "in command",
+      "gives": "IC",
+      "note": "i/c is short for in charge or in command"
+     },
+     {
+      "clueFragment": "junk",
+      "gives": "TAT",
+      "note": "tat is cheap worthless stuff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A deputy commander hoarding junk and refusing to throw it away.",
+     "walkthrough": "Second in command reads as one deputy, but it splits into two pieces.",
+     "definitionFit": "Static describes something not moving, matching still as an adjective meaning motionless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 21,
@@ -408,7 +1571,62 @@
      }
     ]
    },
-   "solution": "AMUSEMENTARCADE"
+   "solution": "AMUSEMENTARCADE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "AMUSEMENT ARCADE",
+    "definitions": [
+     {
+      "text": "leisure centre",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so the extra letter joins the mix"
+     },
+     {
+      "text": "conversion",
+      "for": "anagram",
+      "note": "a conversion changes something into a new form, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A true Damascene",
+      "gives": "ATRUEDAMASCENE",
+      "note": "fourteen letters used as fodder"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the abbreviation for mass"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATRUEDAMASCENEM",
+       "gives": "AMUSEMENTARCADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has a road-to-Damascus conversion while going to Mass at a leisure centre.",
+     "walkthrough": "A Damascene conversion is a sudden change of heart, after St Paul on the road to Damascus.",
+     "definitionFit": "A hall full of slot machines and video games is a place people go for fun and leisure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conversion"
+    }
+   }
   },
   {
    "number": 22,
@@ -422,7 +1640,62 @@
     "text": "Take command of moneylending business, assuming power for years",
     "enumeration": "5"
    },
-   "solution": "USURP"
+   "solution": "USURP",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "USURP",
+    "definitions": [
+     {
+      "text": "Take command of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assuming",
+      "for": "substitution",
+      "note": "assuming here means taking on one letter in place of another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moneylending business",
+      "gives": "USURY",
+      "note": "usury is lending money at interest"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is the abbreviation for years; this is the letter swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USUR",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A loan shark builds up power over the years.",
+     "walkthrough": "Power for years means P replaces Y.",
+     "definitionFit": "To usurp is to seize a position or authority without right, so to grab control of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assuming"
+    }
+   }
   },
   {
    "number": 23,
@@ -436,7 +1709,50 @@
     "text": "Percussionist daughter getting increasingly weird",
     "enumeration": "7"
    },
-   "solution": "DRUMMER"
+   "solution": "DRUMMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRUMMER",
+    "definitions": [
+     {
+      "text": "Percussionist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "increasingly weird",
+      "gives": "RUMMER",
+      "note": "rum is British slang for odd, so rummer is odder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUMMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent notes their musician daughter is getting stranger.",
+     "walkthrough": "Rum, meaning odd or peculiar, is old-fashioned British slang.",
+     "definitionFit": "Someone who plays the kit of skins and cymbals in a band is a percussion player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weird"
+    }
+   }
   },
   {
    "number": 24,
@@ -450,7 +1766,56 @@
     "text": "Robust line in figurative expression that hurts",
     "enumeration": "7"
    },
-   "solution": "TOWROPE"
+   "solution": "TOWROPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOWROPE",
+    "definitions": [
+     {
+      "text": "Robust line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the cry of pain inside the figure of speech"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figurative expression",
+      "gives": "TROPE",
+      "note": "a trope is a figure of speech"
+     },
+     {
+      "clueFragment": "that hurts",
+      "gives": "OW",
+      "note": "ow is the cry when something hurts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OW",
+      "ROPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough line within a painful metaphor.",
+     "walkthrough": "Line looks like a line of text, matching figurative expression, but it is a cord.",
+     "definitionFit": "A strong cable used to haul a vehicle is a sturdy cord, which is a line in nautical terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 25,
@@ -474,7 +1839,68 @@
      }
     ]
    },
-   "solution": "NIPANDTUCK"
+   "solution": "NIPANDTUCK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NIP AND TUCK",
+    "definitions": [
+     {
+      "text": "Knife work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things gone wrong, so the letters fall out of order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside the prison"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "NICK",
+      "note": "nick is British slang for a prison or police station"
+     },
+     {
+      "clueFragment": "put Dan",
+      "gives": "PANDTU",
+      "note": "the six letters of put Dan rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "PANDTU",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUTDAN",
+       "gives": "PANDTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dan was jailed for knife crime, sadly.",
+     "walkthrough": "Knife work sounds criminal, but it is cosmetic surgery.",
+     "definitionFit": "The phrase is informal for cosmetic surgery, where a surgeon's scalpel tightens the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Knife"
+    }
+   }
   },
   {
    "number": 26,
@@ -488,7 +1914,67 @@
     "text": "Turning tap to conserve key non-renewable fuel",
     "enumeration": "4"
    },
-   "solution": "PEAT"
+   "solution": "PEAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PEAT",
+    "definitions": [
+     {
+      "text": "non-renewable fuel",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "reversal",
+      "note": "turning it round makes the word run the other way"
+     },
+     {
+      "text": "to conserve",
+      "for": "container",
+      "note": "conserving means keeping something safe inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tap",
+      "gives": "TAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "E",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "TAP",
+       "to": "PAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning off the tap to save a key fossil fuel.",
+     "walkthrough": "Peat forms over thousands of years, so it is treated as non-renewable.",
+     "definitionFit": "Partly decayed bog vegetation is dug and burnt for heat, and it regenerates far too slowly to replace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   }
  ]
 }
