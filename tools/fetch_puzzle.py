@@ -1893,6 +1893,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17856", "14-down"): (
+        "Carry on quietly to rescue odd characters 5",
+        "Carry on quietly to rescue odd characters",
+        "OCR misread: a stray mark on the scan was read as a 5 after the clue"),
     ("times-17852", "24-down"): (
         "Ray left in danger",
         "Fay left in danger",
