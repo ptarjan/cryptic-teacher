@@ -70,6 +70,19 @@ F.carry_recovered_clues(fetched, stored)
 check("a recovered clue still is",
       fetched["entries"][0]["clue"].get("text") == "Recovered from the clue page")
 
+# The write guard protects a clue's words, and a placeholder has none to lose.
+import puzzle_integrity
+blank = {"id": "cryptic-22529", "entries": [entry("1-across", " (5)"), entry("2-down", " (5)")]}
+was = {"id": "cryptic-22529", "entries": [
+    entry("1-across", "See special instructions (5)"), entry("2-down", "See clues page (5)")]}
+flags = []
+puzzle_integrity.check_rewrite(was, blank, flags)
+check("blanking a placeholder is not losing a clue", flags == [])
+flags = []
+puzzle_integrity.check_rewrite(preamble, {"id": "cryptic-26741", "entries": [
+    entry("1-across", " (5)"), entry("5-down", " (5)")]}, flags)
+check("blanking a real clue, preamble pointer included, still is", len(flags) == 2)
+
 sys.exit(1 if fails else 0)
 PY
 status=$?
