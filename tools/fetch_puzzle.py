@@ -1889,6 +1889,26 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-15813", "4-across"): (
+        "Scarlet emblem of English admiral and French marshal in s time",
+        "Scarlet emblem of English admiral and French marshal in his time",
+        "OCR misread: the clue needs 'his time', Blake plus Ney giving Blakeney"),
+    ("times-15813", "7-down"): (
+        "Rest .troubled by the dark waters of the moon?",
+        "Rest troubled by the dark waters of the moon?",
+        "OCR misread: a stray full stop sits inside the definition 'Rest troubled'"),
+    ("times-15813", "12-across"): (
+        "Tavern crony we hear is in an-institution",
+        "Tavern crony we hear is in an institution",
+        "OCR misread: the definition needs 'in an institution' with a space"),
+    ("times-15813", "13-down"): (
+        "Sensational performance by -. new model Hindu hero",
+        "Sensational performance by new model Hindu hero",
+        "OCR misread: stray marks sit between the link word and the anagram indicator"),
+    ("times-15813", "15-down"): (
+        "Levantine capitalist to, go m for ornamental metal-work",
+        "Levantine capitalist to go in for ornamental metal-work",
+        "OCR misread: the second definition needs 'to go in for', the verb sense"),
     ("times-15494", "10-across"): (
         "Men so correspond in t'. mind",
         "Men so correspond in the mind",
