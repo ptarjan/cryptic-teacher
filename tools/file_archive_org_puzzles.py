@@ -892,12 +892,21 @@ def paper_of(d):
 BLOCK_ABOVE = 0.6
 
 
+def issue_day(day, n, numbers):
+    """The date of No `n` in an edition dated `day` holding `numbers`: an item
+    can bind the next days' papers too, so each number above the lowest is one
+    issue later (six a week, none on Sunday)."""
+    for _ in range(n - min(numbers) if n - min(numbers) <= 6 else 0):
+        day += datetime.timedelta(days=1 + (day.weekday() == 5))
+    return day
+
+
 def read_puzzle(d, found, hit, solutions):
     """(verdict, puzzle or None) for one title on one page."""
     n, leaf = hit["number"], hit["leaf"]
     verdict = {"number": n, "leaf": leaf}
     paper = paper_of(d)
-    day = datetime.date.fromisoformat(found["date"])
+    day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
     if abs(n - paper.expected(day)) > NUMBER_SLACK:
         verdict["refused"] = (f"No {n} is not near the {paper.expected(day)} the date "
                               f"{day} implies: the item's date is wrong")
