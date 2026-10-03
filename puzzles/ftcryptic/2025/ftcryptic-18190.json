@@ -24,6 +24,9 @@
   "date": "2025-10-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Less bubbly bottled by home-made drinks business",
     "enumeration": "10"
    },
-   "solution": "DISTILLERY"
+   "solution": "DISTILLERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISTILLERY",
+    "definitions": [
+     {
+      "text": "drinks business",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottled by",
+      "for": "container",
+      "note": "something bottled is held inside a container, so the first idea sits within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home-made",
+      "gives": "DIY",
+      "note": "DIY, do-it-yourself, describes things made at home"
+     },
+     {
+      "clueFragment": "Less bubbly",
+      "gives": "STILLER",
+      "note": "a still drink has no fizz, so a less bubbly one is stiller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STILLER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A home-brewing drinks firm whose product is flatter than it should be.",
+     "walkthrough": "Home-made reads as an adjective for the drinks, but it is the do-it-yourself abbreviation that does the bottling.",
+     "definitionFit": "A distillery is a business that produces spirits such as whisky and gin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bubbly"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,52 @@
     "text": "Bank held up by cheeky down-and-out",
     "enumeration": "4"
    },
-   "solution": "DYKE"
+   "solution": "DYKE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DYKE",
+    "definitions": [
+     {
+      "text": "Bank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "hidden_word",
+      "note": "the letters are held within the following words rather than given by meaning"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the letters from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheeky down",
+      "gives": "EKYD",
+      "note": "the last three letters of cheeky plus the first of down"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky tramp holding up a riverbank, or being held up by one.",
+     "walkthrough": "EKYD read upwards is DYKE.",
+     "definitionFit": "A dyke is an embankment or wall built to keep out water, a kind of bank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +161,51 @@
     "text": "Excel in French on I’m Sorry I Haven’t A Clue",
     "enumeration": "7"
    },
-   "solution": "SURPASS"
+   "solution": "SURPASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SURPASS",
+    "definitions": [
+     {
+      "text": "Excel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French on",
+      "gives": "SUR",
+      "note": "sur is the French word for on"
+     },
+     {
+      "clueFragment": "I’m Sorry I Haven’t A Clue",
+      "gives": "PASS",
+      "note": "what a quiz contestant says when they don't know the answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shining in French on the radio panel show I'm Sorry I Haven't A Clue.",
+     "walkthrough": "I'm Sorry I Haven't A Clue is a long-running BBC Radio 4 comedy panel game, but here the title is read as a plain admission of ignorance.",
+     "definitionFit": "To surpass is to outdo or go beyond, which is what excelling over others means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clue"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +219,67 @@
     "text": "During trick unoccupied trapeze remaining fixed, beyond doubt",
     "enumeration": "13"
    },
-   "solution": "INCONTESTABLE"
+   "solution": "INCONTESTABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INCONTESTABLE",
+    "definitions": [
+     {
+      "text": "beyond doubt",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unoccupied",
+      "for": "letter_selection",
+      "note": "an unoccupied word has had its inside emptied, leaving only its outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "During",
+      "gives": "IN",
+      "note": "in means during, as in 'in the night'"
+     },
+     {
+      "clueFragment": "trick",
+      "gives": "CON",
+      "note": "a con is a trick or swindle"
+     },
+     {
+      "clueFragment": "trapeze",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of trapeze"
+     },
+     {
+      "clueFragment": "remaining fixed",
+      "gives": "STABLE",
+      "note": "something stable stays fixed in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CON",
+      "TE",
+      "STABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A circus act where the trapeze hangs empty during a trick, steady beyond question.",
+     "definitionFit": "Something incontestable cannot be disputed or challenged, so it is certain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trick"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +299,57 @@
      }
     ]
    },
-   "solution": "LAIDBY"
+   "solution": "LAIDBY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LAID BY",
+    "definitions": [
+     {
+      "text": "saved",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two thirds of",
+      "for": "letter_selection",
+      "note": "keep the first two thirds of the following word and drop the final third"
+     },
+     {
+      "text": "in a storm",
+      "for": "anagram",
+      "note": "things caught in a storm get tossed about, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladybirds",
+      "gives": "LADYBI",
+      "select": "first",
+      "note": "the first six of its nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADYBI",
+       "gives": "LAIDBY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ladybirds rescued from a storm.",
+     "definitionFit": "Laid by is an idiom for put aside or stored up for later, as savings are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +363,48 @@
     "text": "Odd person running the FT in whispers",
     "enumeration": "8"
    },
-   "solution": "RUMOURED"
+   "solution": "RUMOURED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUMOURED",
+    "definitions": [
+     {
+      "text": "in whispers",
+      "at": 26,
+      "note": "an adjectival phrase: what is rumoured is passed on in whispers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odd",
+      "gives": "RUM",
+      "note": "rum is old-fashioned British slang for strange"
+     },
+     {
+      "clueFragment": "person running the FT",
+      "gives": "OURED",
+      "note": "from the paper's own viewpoint, its editor is our ed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "OURED"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange figure in charge of the Financial Times, talked about in hushed tones.",
+     "walkthrough": "The puzzle appears in the Financial Times, so the person running it is OUR ED(itor).",
+     "definitionFit": "Something rumoured is spread as unconfirmed gossip, passed along quietly from one person to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +418,47 @@
     "text": "Course designer’s sketch effectively lacking margins",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHEF",
+    "definitions": [
+     {
+      "text": "Course designer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking margins",
+      "for": "hidden_word",
+      "note": "with the edges trimmed away, only a stretch from the middle of the words survives"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sketch effectively",
+      "gives": "CHEF",
+      "note": "the end of sketch and the start of effectively"
+     }
+    ],
+    "explanation": {
+     "surface": "A golf course architect's drawing that works well despite lacking edges.",
+     "walkthrough": "Course suggests golf or education, but here it is a course of a meal.",
+     "definitionFit": "A cook plans the dishes served at each stage of a meal, so designs courses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Course"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +472,65 @@
     "text": "Guy’s Hospital stores bodily remains in pot",
     "enumeration": "7"
    },
-   "solution": "HASHISH"
+   "solution": "HASHISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HASHISH",
+    "definitions": [
+     {
+      "text": "pot",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stores",
+      "for": "container",
+      "note": "to store something is to keep it inside, so one part holds another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy’s",
+      "gives": "HIS",
+      "note": "something of a guy's is his"
+     },
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     },
+     {
+      "clueFragment": "bodily remains",
+      "gives": "ASH",
+      "note": "cremated remains are ashes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ASH",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A London hospital keeping body parts in a jar.",
+     "walkthrough": "Guy's Hospital is a real London hospital, which hides that the two words are clued separately here.",
+     "definitionFit": "Pot is slang for cannabis, and hashish is a resin made from that plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guy’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +550,53 @@
      }
     ]
    },
-   "solution": "FLYINGBOAT"
+   "solution": "FLYINGBOAT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "FLYING BOAT",
+    "definitions": [
+     {
+      "text": "Plane",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "Rev Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+     }
+    ],
+    "linkWords": [
+     "for which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acquiring pontoon",
+      "gives": "FLYINGBOAT",
+      "soundsLike": "BUYING FLOAT",
+      "note": "acquiring is buying and a pontoon is a float; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLYINGBOAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what kind of aircraft would come with a pontoon attached.",
+     "walkthrough": "BUYING FLOAT with its B and FL swapped becomes FLYING BOAT.",
+     "definitionFit": "A flying boat is a seaplane whose fuselage floats on water like a hull."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pontoon"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +610,69 @@
     "text": "American artist wearing silk welcome in Asian city",
     "enumeration": "7"
    },
-   "solution": "KARACHI"
+   "solution": "KARACHI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "KARACHI",
+    "definitions": [
+     {
+      "text": "Asian city",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing clothes is inside them, so one part is wrapped by another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician"
+     },
+     {
+      "clueFragment": "silk",
+      "gives": "KC",
+      "note": "a King's Counsel, a senior barrister, is called a silk from the gown worn"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ARA",
+      "CHI"
+     ]
+    },
+    "explanation": {
+     "surface": "An American painter in a silk garment greeting people in an Asian city.",
+     "walkthrough": "A silk in Britain is a senior barrister, so called from the silk gown worn on appointment.",
+     "definitionFit": "Karachi is the largest city in Pakistan, on the Arabian Sea coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silk"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +686,58 @@
     "text": "Joke puncturing PM’s dignity at Buckingham Palace?",
     "enumeration": "7"
    },
-   "solution": "MAJESTY"
+   "solution": "MAJESTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAJESTY",
+    "definitions": [
+     {
+      "text": "dignity at Buckingham Palace?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puncturing",
+      "for": "container",
+      "note": "something puncturing a thing pierces into it, so it ends up inside"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "JEST",
+      "note": "a jest is a joke"
+     },
+     {
+      "clueFragment": "PM",
+      "gives": "MAY",
+      "note": "Theresa May was a UK prime minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "JEST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A joke deflating the prime minister's composure during a visit to the King.",
+     "walkthrough": "The question mark flags that the definition is by example: Buckingham Palace is the monarch's London home.",
+     "definitionFit": "Majesty is royal dignity and grandeur, the quality expected of a monarch at the royal residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "PM’s"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +757,70 @@
      }
     ]
    },
-   "solution": "JOHNSTEINBECK"
+   "solution": "JOHNSTEINBECK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "JOHN STEINBECK",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "the words before it are changed in order, rearranged into new letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters go inside the last word's equivalent"
+     }
+    ],
+    "linkWords": [
+     "keeping"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten nibs he",
+      "gives": "TENNIBSHE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "DJ",
+      "gives": "JOCK",
+      "note": "a disc jockey is a jock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JO",
+      "HNSTEINBE",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TENNIBSHE",
+       "gives": "HNSTEINBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author with a stock of pen nibs, dressed in a dinner jacket.",
+     "walkthrough": "DJ looks like dinner jacket in the surface, but it is a disc jockey here.",
+     "definitionFit": "John Steinbeck was the American novelist who wrote The Grapes of Wrath and Of Mice and Men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "DJ"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +834,39 @@
     "text": "Stick with sable, perhaps putting coat on?",
     "enumeration": "10"
    },
-   "solution": "PAINTBRUSH"
+   "solution": "PAINTBRUSH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAINTBRUSH",
+    "definitions": [
+     {
+      "text": "Stick with sable, perhaps putting coat on?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick with sable, perhaps putting coat on?",
+      "note": "surface reading: a cane trimmed with fur, as worn with a fur coat"
+     },
+     {
+      "clueFragment": "Stick with sable, perhaps putting coat on?",
+      "note": "setter's reading: a handle tipped with sable hair, used to apply a coat of paint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sable fur is prized for fine artists' tools, and a coat is a layer of paint, not a garment.",
+     "definitionFit": "Artists' brushes are wooden handles with bristles, often sable hair, used to apply layers of colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +880,56 @@
     "text": "Coach stop once, filling station at the back",
     "enumeration": "3"
    },
-   "solution": "INN"
+   "solution": "INN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INN",
+    "definitions": [
+     {
+      "text": "Coach stop once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the back",
+      "for": "letter_selection",
+      "note": "only the letter at the back, the end, of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "filling",
+      "gives": "IN",
+      "note": "a filling is what goes in"
+     },
+     {
+      "clueFragment": "station",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of station"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A petrol station at the rear of an old coach stop.",
+     "walkthrough": "Filling station suggests petrol, but the words are split: filling for IN, station's last letter.",
+     "definitionFit": "Stagecoaches once halted at coaching inns, where travellers ate and horses were changed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +949,56 @@
      }
     ]
    },
-   "solution": "MISSMUFFET"
+   "solution": "MISSMUFFET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISS MUFFET",
+    "definitions": [
+     {
+      "text": "she’s arachnophobic",
+      "at": 61
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "gives": "MISS",
+      "note": "to drop a catch is to miss it"
+     },
+     {
+      "clueFragment": "hand covering",
+      "gives": "MUFF",
+      "note": "a muff is a fur tube that keeps the hands warm"
+     },
+     {
+      "clueFragment": "creature that made Drew Barrymore scream",
+      "gives": "ET",
+      "note": "the alien in the film E.T., at whom the young Drew Barrymore screamed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISS",
+      "MUFF",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A film anecdote about a child actor screaming, with a note that she fears spiders.",
+     "walkthrough": "Drew Barrymore played Gertie in E.T. and famously screamed on first seeing him.",
+     "definitionFit": "In the nursery rhyme, Little Miss Muffet is frightened away by a spider that sits beside her."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1012,42 @@
     "text": "Arch conforming with others",
     "enumeration": "6"
    },
-   "solution": "INSTEP"
+   "solution": "INSTEP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSTEP",
+    "definitions": [
+     {
+      "text": "Arch",
+      "at": 0
+     },
+     {
+      "text": "conforming with others",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arch",
+      "note": "first meaning: the curved upper part of the foot"
+     },
+     {
+      "clueFragment": "conforming with others",
+      "note": "second meaning, read as two words: marching in time with everyone else"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split into two words, the answer becomes 'in step'.",
+     "definitionFit": "The instep is the arched middle of the foot, while being in step means keeping pace with the group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arch"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1061,68 @@
     "text": "Mike rehashed BAME with his Indian missus",
     "enumeration": "8"
    },
-   "solution": "MEMSAHIB"
+   "solution": "MEMSAHIB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MEMSAHIB",
+    "definitions": [
+     {
+      "text": "Indian missus",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rehashed",
+      "for": "anagram",
+      "note": "rehashed material is reworked into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "BAME",
+      "gives": "BAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EMSAHIB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAMEHIS",
+       "gives": "EMSAHIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Mike reworking BAME, the British acronym for Black, Asian and minority ethnic, alongside his Indian wife.",
+     "definitionFit": "Memsahib was the respectful title used in colonial India for a married European woman, the master's wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rehashed"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1136,51 @@
     "text": "When chatting, notice prettier cruise passenger?",
     "enumeration": "8"
    },
-   "solution": "SEAFARER"
+   "solution": "SEAFARER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEAFARER",
+    "definitions": [
+     {
+      "text": "cruise passenger?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "When chatting",
+      "for": "homophone",
+      "note": "chatting is speaking, so the words count by how they are said rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "SEA",
+      "soundsLike": "SEE",
+      "note": "to notice is to see"
+     },
+     {
+      "clueFragment": "prettier",
+      "gives": "FARER",
+      "soundsLike": "FAIRER",
+      "note": "fairer means prettier"
+     }
+    ],
+    "explanation": {
+     "surface": "A chat-up line about spotting someone more attractive on a cruise ship.",
+     "walkthrough": "The question mark flags that a cruise passenger is only one example of a seafarer.",
+     "definitionFit": "A seafarer is someone who travels by ship, and a cruise passenger does exactly that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1194,56 @@
     "text": "Second baby of couple, what child really wants?",
     "enumeration": "8"
    },
-   "solution": "SWEETIES"
+   "solution": "SWEETIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEETIES",
+    "definitions": [
+     {
+      "text": "what child really wants?",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "baby",
+      "gives": "WEE",
+      "note": "wee is Scottish and British for tiny, as a baby is"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "TIES",
+      "note": "to couple is to join, as a verb, so it ties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple's second baby and the question of what a child truly wants.",
+     "walkthrough": "Sweeties is a British word for sweets, which is to say candy.",
+     "definitionFit": "Children famously crave sugary treats, so sweets are the thing a small child longs for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "baby"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1257,65 @@
     "text": "Man with lands arranged more fences for each",
     "enumeration": "7"
    },
-   "solution": "EMPORER"
+   "solution": "EMPORER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPORER",
+    "definitions": [
+     {
+      "text": "Man with lands",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into a fresh order, so the word next to it is rearranged"
+     },
+     {
+      "text": "fences",
+      "for": "container",
+      "note": "a fence encloses ground, so one part surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more",
+      "gives": "MORE",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in 'per person'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPORER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOREPER",
+       "gives": "EMPORER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landowner putting up fences for each of his plots.",
+     "walkthrough": "The grid spells this EMPORER, a misprint for EMPEROR; the setter's parse puts the for-each word inside a rearranged more.",
+     "definitionFit": "An emperor rules over an empire, a man holding dominion over many territories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fences"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1329,64 @@
     "text": "Jumper 23 has left with scarf, tiny jumper",
     "enumeration": "6"
    },
-   "solution": "JERBOA"
+   "solution": "JERBOA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "JERBOA",
+    "definitions": [
+     {
+      "text": "tiny jumper",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has left",
+      "for": "deletion",
+      "note": "something that has left is gone, so those letters depart from the word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jumper",
+      "gives": "JUMPER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "23",
+      "gives": "UMP",
+      "note": "the answer to 23 across"
+     },
+     {
+      "clueFragment": "scarf",
+      "gives": "BOA",
+      "note": "a boa is a long feathered or fur scarf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JER",
+      "BOA"
+     ]
+    },
+    "explanation": {
+     "surface": "A jumper, sweater, scarf and a tiny animal bundled together.",
+     "walkthrough": "Jumper is first the word itself, a British sweater in the surface, then the answer describes a leaping animal.",
+     "definitionFit": "The jerboa is a small desert rodent that hops on long hind legs like a miniature kangaroo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jumper"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1400,66 @@
     "text": "I vote against steak over rice dish",
     "enumeration": "7"
    },
-   "solution": "BIRYANI"
+   "solution": "BIRYANI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BIRYANI",
+    "definitions": [
+     {
+      "text": "rice dish",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over in a down clue, the letters are read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vote against",
+      "gives": "NAY",
+      "note": "a nay is a vote against"
+     },
+     {
+      "clueFragment": "steak",
+      "gives": "RIB",
+      "note": "a rib is a cut of beef for steak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIR",
+      "YAN",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "INAYRIB",
+       "to": "BIRYANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone voting against steak in favour of a rice dish.",
+     "definitionFit": "Biryani is a South Asian dish of spiced rice layered with meat or vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1473,46 @@
     "text": "Fellow Estonian, possibly kind of blue",
     "enumeration": "6"
    },
-   "solution": "COBALT"
+   "solution": "COBALT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COBALT",
+    "definitions": [
+     {
+      "text": "kind of blue",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "CO",
+      "note": "co- means fellow, as in co-worker"
+     },
+     {
+      "clueFragment": "Estonian, possibly",
+      "gives": "BALT",
+      "note": "an Estonian is one example of a Balt, a person from the Baltic states"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "BALT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow Estonian, possibly in a blue mood.",
+     "definitionFit": "Cobalt blue is a deep, vivid shade named after the pigment made from that metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1526,53 @@
     "text": "In short, official considering appeals bound to ignore judge",
     "enumeration": "3"
    },
-   "solution": "UMP"
+   "solution": "UMP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UMP",
+    "definitions": [
+     {
+      "text": "In short, official considering appeals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to ignore",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bound",
+      "gives": "JUMP",
+      "note": "to bound is to jump"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee weighing appeals is obliged to disregard the judge.",
+     "walkthrough": "In cricket and baseball, players appeal to the umpire for a decision; in short means the word is abbreviated.",
+     "definitionFit": "Ump is a casual clipped form of umpire, the official who rules on players' appeals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1586,65 @@
     "text": "Old, single railway enthusiast starts fooling around",
     "enumeration": "10"
    },
-   "solution": "BUFFOONERY"
+   "solution": "BUFFOONERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUFFOONERY",
+    "definitions": [
+     {
+      "text": "fooling around",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "charade",
+      "note": "starts places the word before it at the beginning of the string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enthusiast",
+      "gives": "BUFF",
+      "note": "a buff is a keen fan"
+     },
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "one means single"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUFF",
+      "O",
+      "ONE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly, unmarried train spotter beginning to mess about.",
+     "definitionFit": "Buffoonery is silly, clownish behaviour, which is exactly what fooling around describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1658,43 @@
     "text": "In attendance to learn from lecturer?",
     "enumeration": "4"
    },
-   "solution": "HERE"
+   "solution": "HERE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HERE",
+    "definitions": [
+     {
+      "text": "In attendance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from lecturer",
+      "for": "homophone",
+      "note": "a lecturer speaks aloud, so the word is taken by its spoken sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to learn",
+      "gives": "HERE",
+      "soundsLike": "HEAR",
+      "note": "to learn of something is to hear of it"
+     }
+    ],
+    "explanation": {
+     "surface": "A student turning up to class to learn from the lecturer.",
+     "definitionFit": "Being here means being present, which is what in attendance describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "learn"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1708,54 @@
     "text": "Choose to avoid terror gripping globe",
     "enumeration": "7"
    },
-   "solution": "FORBEAR"
+   "solution": "FORBEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FORBEAR",
+    "definitions": [
+     {
+      "text": "Choose to avoid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "something gripping another holds it tightly inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terror",
+      "gives": "FEAR",
+      "note": "terror is great fear"
+     },
+     {
+      "clueFragment": "globe",
+      "gives": "ORB",
+      "note": "an orb is a globe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ORB",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Deciding to steer clear of a world held in fear.",
+     "definitionFit": "To forbear is to refrain deliberately from doing something, holding back by choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "globe"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1769,47 @@
     "text": "Typical hail storm",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERAGE",
+    "definitions": [
+     {
+      "text": "Typical",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hail",
+      "gives": "AVE",
+      "note": "ave is Latin for hail, a greeting"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "RAGE",
+      "note": "to storm is to rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVE",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary hailstorm.",
+     "definitionFit": "Average means ordinary or normal, the usual standard of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hail"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1823,47 @@
     "text": "Rent until military service",
     "enumeration": "4"
    },
-   "solution": "TORN"
+   "solution": "TORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORN",
+    "definitions": [
+     {
+      "text": "Rent",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "until",
+      "gives": "TO",
+      "note": "to means until, as in 'nine to five'"
+     },
+     {
+      "clueFragment": "military service",
+      "gives": "RN",
+      "note": "RN, the Royal Navy, an armed service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Paying rent until joining the armed forces.",
+     "walkthrough": "Rent looks like a payment, but it is the past participle of rend.",
+     "definitionFit": "Rent is an old past form of rend, meaning ripped apart, the same as ripped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 29,
@@ -467,7 +1877,64 @@
     "text": "Red bible books and blue in stock",
     "enumeration": "10"
    },
-   "solution": "TROTSKYITE"
+   "solution": "TROTSKYITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TROTSKYITE",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the preceding parts inside the following word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bible books",
+      "gives": "OT",
+      "note": "OT, the Old Testament"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "SKY",
+      "note": "sky blue, so the sky stands for blue"
+     },
+     {
+      "clueFragment": "stock",
+      "gives": "TRITE",
+      "note": "a stock phrase is a trite one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OTSKY",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A colour mix of red and blue among a collection of Bibles.",
+     "walkthrough": "Red and blue look like colours, but red is a communist and blue the sky.",
+     "definitionFit": "A Trotskyite is a follower of Leon Trotsky, a revolutionary communist, and communists are called Reds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   }
  ]
 }
