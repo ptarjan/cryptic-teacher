@@ -1889,6 +1889,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17396", "7-down"): (
+        "Figure seen 31 uprising in Congo, perhaps",
+        "Figure seen at uprising in Congo, perhaps",
+        "OCR misread: the wordplay needs 'at' reversed inside an anagram of CONGO"),
+    ("times-17396", "8-down"): (
+        "Slightly tipsy old poet is a figure of tun?",
+        "Slightly tipsy old poet is a figure of fun?",
+        "OCR misread: the definition needs 'figure of fun'"),
     ("times-17387", "2-down"): (
         "Tincture for an archbishop based on 3 holy book",
         "Tincture for an archbishop based on a holy book",
