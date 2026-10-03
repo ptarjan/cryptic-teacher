@@ -1889,10 +1889,6 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
-    ("ftcryptic-8476", "4-across"): (
-        "Pole taking are returned shabby case",
-        "Pole taking cab returned shabby case",
-        "OCR misread: the wordplay needs CAB between S and BARD"),
     ("times-16360", "5-down"): (
         "Cockney's description of Dobermann n is faulty",
         "Cockney's description of Dobermann is faulty",
@@ -2226,6 +2222,10 @@ SOURCE_CLUE_WRONG = {
          "11-down too; bigdave44.com/2022/07/24/sunday-toughie-26-hints/ "
          "prints 11d as \"Insect made into meal for sports venue (7,6)\", "
          "CRICKET (insect) + GROUND (made into meal)")),
+    ("times-16626", "8-down"): (
+        "Amplify' a negative point of view?",
+        "Amplify a negative point of view?",
+        "OCR misread: a stray apostrophe after Amplify"),
 }
 
 
