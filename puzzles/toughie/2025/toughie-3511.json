@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Caribbean island reversing recent arrest, nominee is claiming",
     "enumeration": "10"
    },
-   "solution": "MONTSERRAT"
+   "solution": "MONTSERRAT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MONTSERRAT",
+    "definitions": [
+     {
+      "text": "Caribbean island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is claiming",
+      "for": "hidden_word",
+      "note": "a phrase that claims something holds it inside itself, so the run of letters sits within the clue words"
+     },
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing tells you to read the run of letters from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recent arrest, nominee",
+      "gives": "MONTSERRAT",
+      "note": "read backwards, the letters of these words contain the island's name ending in the first three letters of the last word"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item about an island where a nominee is claiming a recent arrest was overturned.",
+     "walkthrough": "Read backwards from the 'nom' of nominee through 'arrest' and into the end of 'recent' to find MONTSERRAT.",
+     "definitionFit": "Montserrat is a British overseas territory in the Leeward Islands of the West Indies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +92,43 @@
     "text": "Sauce Underground worker",
     "enumeration": "4"
    },
-   "solution": "MOLE"
+   "solution": "MOLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOLE",
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     },
+     {
+      "text": "Underground worker",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sauce",
+      "note": "first meaning: a rich Mexican sauce made with chilli and chocolate"
+     },
+     {
+      "clueFragment": "Underground worker",
+      "note": "second meaning: a burrowing animal, or a spy planted inside an organisation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Underground worker' suggests a Tube employee or miner; here it is the burrowing animal or a secret agent.",
+     "definitionFit": "Mole is both a spicy Mexican chocolate-chilli condiment and a tunnelling mammal or embedded spy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Underground"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +142,75 @@
     "text": "Wins title, wrongly dismissing league’s outsiders as “fools”",
     "enumeration": "7"
    },
-   "solution": "NITWITS"
+   "solution": "NITWITS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "NITWITS",
+    "definitions": [
+     {
+      "text": "fools",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "to dismiss is to send away, so those letters are taken out of the fodder"
+     },
+     {
+      "text": "outsiders",
+      "for": "deletion",
+      "note": "outsiders are the people on the edge, so only the first and last letters of the word are meant"
+     },
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "something done wrongly is done out of order, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wins title",
+      "gives": "WINSTITLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "league’s",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of league"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NITWITS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WINSTIT",
+       "gives": "NITWITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team wins a title, and pundits who wrote them off are branded fools.",
+     "walkthrough": "Remove L and E from WINSTITLE, then rearrange WINSTIT into NITWITS.",
+     "definitionFit": "Nitwits are silly, foolish people; the plural matches the plural in the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "league’s"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +224,68 @@
     "text": "Lift going up allows American to enter",
     "enumeration": "5"
    },
-   "solution": "STEAL"
+   "solution": "STEAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STEAL",
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "entering means going inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "allows",
+      "gives": "LETS",
+      "note": "lets is a synonym for allows"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "A",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LETS",
+       "to": "STEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lift heading upwards lets an American step inside.",
+     "walkthrough": "'Lift going up' reads as an elevator; Lift alone is the definition, and 'going up' turns LETS round.",
+     "definitionFit": "To lift something can mean to pinch it, taking it without permission, which is to steal it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lift"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +299,68 @@
     "text": "Kid, maybe smallest offspring, protects mum around home",
     "enumeration": "8"
    },
-   "solution": "RUMINANT"
+   "solution": "RUMINANT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUMINANT",
+    "definitions": [
+     {
+      "text": "Kid, maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protects",
+      "for": "container",
+      "note": "to protect something is to surround and shield it, so one piece holds another"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means wrapped about, so the next piece goes inside this one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smallest offspring",
+      "gives": "RUNT",
+      "note": "the runt is the smallest animal of a litter"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "M",
+      "IN",
+      "A",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny child, the smallest of the family, sheltered by their mother at home.",
+     "walkthrough": "Kid looks like a human child, but here it is a young goat, an animal that chews the cud.",
+     "definitionFit": "A kid is a young goat, and goats chew the cud, so a kid is an example of a cud-chewing animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Kid"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +374,58 @@
     "text": "Succeeding to promote area for change",
     "enumeration": "5"
    },
-   "solution": "ALTER"
+   "solution": "ALTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALTER",
+    "definitions": [
+     {
+      "text": "change",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to promote",
+      "for": "charade",
+      "note": "in a down clue, promoting a letter lifts it higher, so it moves to the top of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "Succeeding",
+      "gives": "LATER",
+      "note": "succeeding means coming after, later"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Winning promotion to a new area brings change.",
+     "walkthrough": "Take the A out of LATER and raise it to the top of the down entry: LATER becomes ALTER.",
+     "definitionFit": "To alter something is to modify it or make it different, the verb sense of change."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "promote"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +439,43 @@
     "text": "Great deal of money, mine perhaps",
     "enumeration": "4"
    },
-   "solution": "BOMB"
+   "solution": "BOMB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOMB",
+    "definitions": [
+     {
+      "text": "Great deal of money",
+      "at": 0
+     },
+     {
+      "text": "mine perhaps",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great deal of money",
+      "note": "first meaning: informal, as in a car that cost a fortune"
+     },
+     {
+      "clueFragment": "mine perhaps",
+      "note": "second meaning: an explosive device, of which a mine is one kind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mine' looks like a source of riches such as a gold mine, but it is the explosive kind.",
+     "definitionFit": "Informally something that costs a bomb costs a fortune; a landmine is one sort of explosive device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +489,76 @@
     "text": "Natural new grain in ordinary crops, originally",
     "enumeration": "7"
    },
-   "solution": "ORGANIC"
+   "solution": "ORGANIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ORGANIC",
+    "definitions": [
+     {
+      "text": "Natural",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new has been remade, so the letters take a fresh order"
+     },
+     {
+      "text": "originally",
+      "for": "charade",
+      "note": "originally points to the start, so only the first letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is a standard abbreviation for ordinary"
+     },
+     {
+      "clueFragment": "grain",
+      "gives": "RGANI",
+      "note": "the letters of grain rearranged"
+     },
+     {
+      "clueFragment": "crops",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of crops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RGANI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAIN",
+       "gives": "RGANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Natural farming means new grain among ordinary crops, as originally grown.",
+     "definitionFit": "Organic produce is grown without synthetic chemicals, so it is natural in the farming sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +572,73 @@
     "text": "Irritating European group returning to entertain different people",
     "enumeration": "10"
    },
-   "solution": "BOTHERSOME"
+   "solution": "BOTHERSOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "BOTHERSOME",
+    "definitions": [
+     {
+      "text": "Irritating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so these letters are read in the opposite direction"
+     },
+     {
+      "text": "to entertain",
+      "for": "container",
+      "note": "to entertain guests is to take them in, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "MOB",
+      "note": "a mob is a crowd or gang"
+     },
+     {
+      "clueFragment": "different people",
+      "gives": "OTHERS",
+      "note": "others are people other than oneself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OTHERS",
+      "OME"
+     ],
+     "reversals": [
+      {
+       "from": "EMOB",
+       "to": "BOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An annoying European group that keeps coming back to host foreigners.",
+     "walkthrough": "'European group' suggests the EU, but European is just its abbreviation and group a crowd; the reversal covers both before the insertion.",
+     "definitionFit": "Something bothersome causes annoyance or trouble, so it is irritating; both are adjectives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertain"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +652,52 @@
     "text": "Articulate Native American facing reminder of the past",
     "enumeration": "8"
    },
-   "solution": "SOUVENIR"
+   "solution": "SOUVENIR",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SOUVENIR",
+    "definitions": [
+     {
+      "text": "reminder of the past",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Articulate",
+      "for": "homophone",
+      "note": "to articulate is to pronounce words, so what follows is judged by how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Native American",
+      "gives": "SOU",
+      "soundsLike": "SIOUX",
+      "note": "the Sioux are a Native American people"
+     },
+     {
+      "clueFragment": "facing",
+      "gives": "VENIR",
+      "soundsLike": "VENEER",
+      "note": "a facing is a thin surface layer, a veneer"
+     }
+    ],
+    "explanation": {
+     "surface": "An eloquent Native American confronting a memento of history.",
+     "walkthrough": "'Articulate' looks like an adjective for the Native American; it is the sound signal. Said together, Sioux veneer is the answer.",
+     "definitionFit": "A souvenir is a keepsake or memento that brings back memories of a place or event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Articulate"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +711,48 @@
     "text": "Unlimited praise for what barista serves up",
     "enumeration": "5"
    },
-   "solution": "LATTE"
+   "solution": "LATTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LATTE",
+    "definitions": [
+     {
+      "text": "what barista serves up",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "deletion",
+      "note": "without limits means without its boundaries, so the first and last letters are lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "praise",
+      "gives": "FLATTER",
+      "note": "to flatter is to praise, often excessively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Lavish compliments for the coffee a barista hands over.",
+     "walkthrough": "Strip F and R from the ends of FLATTER.",
+     "definitionFit": "A latte is espresso with steamed milk, a standard drink made and handed over by coffee-shop staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Unlimited"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +766,55 @@
     "text": "This writer felt satisfied penning If",
     "enumeration": "9"
    },
-   "solution": "METHOUGHT"
+   "solution": "METHOUGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "METHOUGHT",
+    "definitions": [
+     {
+      "text": "This writer felt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "penning means enclosing as in a pen, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satisfied",
+      "gives": "MET",
+      "note": "to meet a demand is to satisfy it"
+     },
+     {
+      "clueFragment": "If",
+      "gives": "THOUGH",
+      "note": "as in 'as though' meaning 'as if'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "THOUGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet recalls the satisfaction of writing Kipling's poem If.",
+     "walkthrough": "'If' with its capital looks like Kipling's poem; it is just the word. Methought is an archaic form meaning 'I thought'.",
+     "definitionFit": "Methought is the old-fashioned form of 'it seemed to me', so it means the setter thought or felt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "If"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +834,73 @@
      }
     ]
    },
-   "solution": "INLANDREVENUE"
+   "solution": "INLANDREVENUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "INLAND REVENUE",
+    "definitions": [
+     {
+      "text": "HMRC previously",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departing",
+      "for": "deletion",
+      "note": "something departing leaves, so that letter comes out of the word"
+     },
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "FINLAND",
+      "note": "a Nordic country"
+     },
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "quits",
+      "gives": "EVEN",
+      "note": "to be quits is to be even, owing nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INLAND",
+      "R",
+      "EVEN",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman leaves her homeland, sorry to quit her job at the tax office.",
+     "walkthrough": "HMRC (His Majesty's Revenue and Customs) is the UK tax authority, formed in 2005 by merging the Inland Revenue with Customs and Excise.",
+     "definitionFit": "Before HMRC existed, the British body collecting income tax was called the Inland Revenue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "quits"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +920,58 @@
      }
     ]
    },
-   "solution": "SAINTSAENS"
+   "solution": "SAINTSAENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAINT-SAENS",
+    "definitions": [
+     {
+      "text": "French barman",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suspect",
+      "for": "anagram",
+      "note": "as an adjective suspect means dubious or not genuine, so the letters are not in their true order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nastiness",
+      "gives": "SAINTSAENS",
+      "note": "the ten letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAINTSAENS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANASTINESS",
+       "gives": "SAINTSAENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Suspicion that a French bartender harbours a nasty streak.",
+     "walkthrough": "'Barman' looks like a bartender, but here a bar is a unit of music, so a bar man is a composer.",
+     "definitionFit": "Camille Saint-Saëns was a French composer, a writer of musical bars, hence the playful bar man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barman"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +985,68 @@
     "text": "Promising to secure million for Republican is arrogant",
     "enumeration": "8"
    },
-   "solution": "ASSUMING"
+   "solution": "ASSUMING",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ASSUMING",
+    "definitions": [
+     {
+      "text": "arrogant",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "substitution",
+      "note": "to secure something is to take hold of it, so the new letter is brought into the word"
+     },
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means swapping it in place of the other letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Promising",
+      "gives": "ASSURING",
+      "note": "assuring means promising or pledging"
+     },
+     {
+      "clueFragment": "million",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSU",
+      "M",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Pledging to raise a million for a Republican campaign looks arrogant.",
+     "walkthrough": "In ASSURING, the R is swapped for an M.",
+     "definitionFit": "An assuming person takes too much for granted and is presumptuous, a sense close to haughty or overbearing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1060,70 @@
     "text": "Financial backing from Canada supports artist adding track",
     "enumeration": "8"
    },
-   "solution": "MONETARY"
+   "solution": "MONETARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MONETARY",
+    "definitions": [
+     {
+      "text": "Financial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing from",
+      "for": "letter_selection",
+      "note": "the backing of a word is its rear, so only the final letter is taken"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue, a piece that supports another sits beneath it"
+     }
+    ],
+    "linkWords": [
+     "adding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "MONET",
+      "note": "Claude Monet, the French Impressionist painter"
+     },
+     {
+      "clueFragment": "Canada",
+      "gives": "A",
+      "select": "last",
+      "note": "the last letter of Canada"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONET",
+      "A",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Canadian financial backing for a painter as he expands a racetrack.",
+     "walkthrough": "'Financial backing' reads as a single phrase, but backing belongs to the wordplay.",
+     "definitionFit": "Monetary describes matters relating to money or currency, the same field as financial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1137,66 @@
     "text": "Flipping sensible limits court establishes by law",
     "enumeration": "6"
    },
-   "solution": "ENACTS"
+   "solution": "ENACTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ENACTS",
+    "definitions": [
+     {
+      "text": "establishes by law",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way round, so the letters run backwards"
+     },
+     {
+      "text": "limits",
+      "for": "container",
+      "note": "limits are the edges round something, so these letters wrap around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sensible",
+      "gives": "SANE",
+      "note": "sane means sensible, rational"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENA",
+      "CT",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SANE",
+       "to": "ENAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated complaint that sensible limits set by a court are being imposed by statute.",
+     "definitionFit": "A legislature enacts a measure when it passes it into law, making it an Act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1216,64 @@
      }
     ]
    },
-   "solution": "CLUBMOSS"
+   "solution": "CLUBMOSS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLUB MOSS",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something being worn is wrapped in it, so these pieces go inside the next one"
+     }
+    ],
+    "linkWords": [
+     "arrives at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "CLUBS",
+      "note": "clubs is one of the four suits in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLUB",
+      "MOS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A second son, dressed in a suit, turns up at a factory.",
+     "walkthrough": "Plant looks like an industrial site in the surface; it is the botanical sense. 'Suit' is a card suit, not clothing.",
+     "definitionFit": "Club moss is a low evergreen spore-bearing plant related to ferns, an example of a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1287,53 @@
     "text": "Observing husband is lacking in love",
     "enumeration": "6"
    },
-   "solution": "NOTING"
+   "solution": "NOTING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NOTING",
+    "definitions": [
+     {
+      "text": "Observing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is lacking in",
+      "for": "deletion",
+      "note": "when something is lacking it is missing, so that letter is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "NOTHING",
+      "note": "in tennis, love means a score of nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTING"
+     ]
+    },
+    "explanation": {
+     "surface": "Noticing that a husband is lacking in affection.",
+     "walkthrough": "'Love' is the tennis score of zero; take the H out of NOTHING.",
+     "definitionFit": "Noting something means taking notice of it or remarking on it, the same as observing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1347,43 @@
     "text": "Tourist, one who’s grounded?",
     "enumeration": "7"
    },
-   "solution": "TRIPPER"
+   "solution": "TRIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIPPER",
+    "definitions": [
+     {
+      "text": "Tourist",
+      "at": 0
+     },
+     {
+      "text": "one who’s grounded?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tourist",
+      "note": "first meaning: a day-..., someone on a short pleasure trip"
+     },
+     {
+      "clueFragment": "one who’s grounded?",
+      "note": "second meaning, whimsical: someone who stumbles ends up on the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Grounded' suggests a punished teenager or a plane kept on the tarmac; the question mark flags the playful sense of one who trips and falls.",
+     "definitionFit": "A tripper is a sightseer on an outing, and literally also anyone who trips over and lands on the floor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grounded"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1397,59 @@
     "text": "Trite statement by gutless animal charity",
     "enumeration": "8"
    },
-   "solution": "ALTRUISM"
+   "solution": "ALTRUISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALTRUISM",
+    "definitions": [
+     {
+      "text": "charity",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutless",
+      "for": "letter_selection",
+      "note": "with its guts removed only the outer shell of the word remains"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "AL",
+      "select": "outer",
+      "note": "the first and last letters of animal"
+     },
+     {
+      "clueFragment": "Trite statement",
+      "gives": "TRUISM",
+      "note": "a truism is a self-evident, hackneyed remark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "TRUISM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cliché from a spineless animal welfare charity.",
+     "walkthrough": "'Animal charity' reads as one organisation, but charity alone is the definition.",
+     "definitionFit": "Altruism is selfless concern for others, which is the older, wider sense of charity as benevolence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charity"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1463,50 @@
     "text": "Where to find Gary, popular with royalty once",
     "enumeration": "7"
    },
-   "solution": "INDIANA"
+   "solution": "INDIANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDIANA",
+    "definitions": [
+     {
+      "text": "Where to find Gary",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable, popular"
+     },
+     {
+      "clueFragment": "royalty once",
+      "gives": "DIANA",
+      "note": "Diana, Princess of Wales, formerly part of the royal family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIANA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Gary who was once a favourite of the royals.",
+     "walkthrough": "Gary sounds like a person; it is a steel city on Lake Michigan.",
+     "definitionFit": "Gary is an industrial city in the American Midwest state, located in its northwest corner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gary"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1526,48 @@
      }
     ]
    },
-   "solution": "SKIRTINGBOARD"
+   "solution": "SKIRTINGBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIRTING-BOARD",
+    "definitions": [
+     {
+      "text": "one may face carpeting",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circumventing",
+      "gives": "SKIRTING",
+      "note": "skirting means going around, avoiding"
+     },
+     {
+      "clueFragment": "directors",
+      "gives": "BOARD",
+      "note": "a company's directors form its board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIRTING",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee who goes around the board of directors risks a reprimand.",
+     "walkthrough": "A carpeting is British slang for a dressing-down; here it is literal floor carpet.",
+     "definitionFit": "A skirting board is the wooden strip along the base of a wall, which sits directly beside the floor covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carpeting"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1581,43 @@
     "text": "Nordhausen in Thuringia inspiring Beethoven’s final symphony",
     "enumeration": "5"
    },
-   "solution": "NINTH"
+   "solution": "NINTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NINTH",
+    "definitions": [
+     {
+      "text": "Beethoven’s final symphony",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "hidden_word",
+      "note": "to inspire is literally to breathe in, so the clue words take the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nordhausen in Thuringia",
+      "gives": "NINTH",
+      "note": "the last letter of the first word, all of the second and the first two of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A German town in Thuringia that inspired the composer's last symphony.",
+     "walkthrough": "Thuringia is a German state, which makes a Beethoven setting feel natural.",
+     "definitionFit": "Beethoven completed nine symphonies, and the last, the Choral, is known simply as his Ninth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1631,51 @@
     "text": "Extremely deficient grid being refined",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATTIC",
+    "definitions": [
+     {
+      "text": "refined",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely deficient",
+      "for": "deletion",
+      "note": "deficient at the extremes means missing its ends, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grid",
+      "gives": "LATTICE",
+      "note": "a lattice is a grid of crossed strips"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A badly flawed grid being polished up.",
+     "walkthrough": "Remove L and E from the ends of LATTICE. Attic with a capital refers to ancient Athens.",
+     "definitionFit": "Attic style, from classical Athens, means elegant and pure, so it describes something polished or cultivated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1689,72 @@
     "text": "Props close to actors on set knocked over",
     "enumeration": "4"
    },
-   "solution": "LEGS"
+   "solution": "LEGS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "LEGS",
+    "definitions": [
+     {
+      "text": "Props",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is used"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one piece on another sits above it"
+     },
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "knocked over means toppled, so in a down entry the letters are turned upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actors",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of actors"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "GEL",
+      "note": "to set is to gel, as a jelly does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGS"
+     ],
+     "reversals": [
+      {
+       "from": "SGEL",
+       "to": "LEGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stage props near the actors get knocked over on the set.",
+     "walkthrough": "Props and set suggest theatre, but props are supports and set means solidify.",
+     "definitionFit": "Legs are supports, such as the legs propping up a table, so they serve as props."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Props"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1768,73 @@
     "text": "Language of hate, hard to ignore, person broadcast",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ESPERANTO",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to ignore",
+      "for": "deletion",
+      "note": "what you ignore is left out, so that letter is dropped from the word"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, as seed is, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hate",
+      "gives": "HATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "PERSON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESPERANTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATEPERSON",
+       "gives": "ESPERANTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hate speech from a person that is hard to ignore when it goes out on air.",
+     "walkthrough": "Drop the H from HATE and rearrange ATE with PERSON.",
+     "definitionFit": "Esperanto is an invented international tongue devised by Zamenhof in 1887."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1848,64 @@
     "text": "City skill reflected in draw",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "draw",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the letters run back to front"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode for the City of London"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art means skill, as in the art of persuasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "ECART",
+       "to": "TRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's artistic talent shown in a drawing.",
+     "walkthrough": "The City, capitalised, is London's financial district, whose postcodes begin EC.",
+     "definitionFit": "To trace is to copy a drawing through thin paper, so in that sense it means to draw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1919,45 @@
     "text": "“Order!” Speaker’s requested",
     "enumeration": "4"
    },
-   "solution": "SORT"
+   "solution": "SORT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SORT",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Speaker’s",
+      "for": "homophone",
+      "note": "a speaker's words are heard, not read, so the clue word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requested",
+      "gives": "SORT",
+      "soundsLike": "SOUGHT",
+      "note": "sought is a synonym for requested"
+     }
+    ],
+    "explanation": {
+     "surface": "The Speaker of the Commons calls 'Order!' as requested.",
+     "walkthrough": "'Order! Order!' is the famous cry of the Commons Speaker, so the speaker seems to be that official. In non-rhotic British speech, sought and sort sound the same.",
+     "definitionFit": "To sort things is to arrange them in sequence, which is putting them in order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Speaker’s"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +1971,70 @@
     "text": "Doctors in Spain, shy around nurses in charge",
     "enumeration": "10"
    },
-   "solution": "PHYSICIANS"
+   "solution": "PHYSICIANS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PHYSICIANS",
+    "definitions": [
+     {
+      "text": "Doctors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests letters thrown about, so the preceding words are rearranged"
+     },
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse something is to hold it close, so these letters take the next piece inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spain, shy",
+      "gives": "PHYSIANS",
+      "note": "the eight letters rearranged"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHYS",
+      "IC",
+      "IANS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPAINSHY",
+       "gives": "PHYSIANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bashful doctors in Spain hanging around nurses who are in charge.",
+     "walkthrough": "'Nurses' sits naturally beside doctors in the surface, but here it is a verb meaning holds.",
+     "definitionFit": "Physicians are medical practitioners, the formal name for doctors of medicine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   }
  ]
 }
