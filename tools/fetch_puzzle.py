@@ -1905,6 +1905,10 @@ SOURCE_CLUE_WRONG = {
         "“ In a —— -mighted December ” (Keats)",
         "“ In a —— -nighted December ” (Keats)",
         "OCR misread: Keats wrote drear-nighted December"),
+    ("times-14044", "6-down"): (
+        "Wrong, bonnet for a pig-buyer",
+        "Prong, bonnet for a pig-buyer",
+        "OCR misread: the first definition must be a verb meaning poke, as prong is"),
     ("times-17862", "6-down"): (
         "Working man gelling his knife into someone",
         "Working man getting his knife into someone",
