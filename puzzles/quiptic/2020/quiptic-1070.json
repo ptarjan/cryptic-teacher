@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Explosive and endlessly powerful European dish",
     "enumeration": "10"
    },
-   "solution": "MINESTRONE"
+   "solution": "MINESTRONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MINESTRONE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end, the word loses its final letter before it is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Explosive",
+      "gives": "MINE",
+      "note": "a mine is an explosive device"
+     },
+     {
+      "clueFragment": "powerful",
+      "gives": "STRONG",
+      "note": "a synonym, trimmed by the deletion signal"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINE",
+      "STRON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A volatile, punchy dish from somewhere in Europe.",
+     "walkthrough": "Explosive looks like an adjective describing the dish, but it is a noun here: the device MINE.",
+     "definitionFit": "Minestrone is an Italian vegetable soup, so it is a dish served at table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Explosive"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,42 @@
     "text": "Side dish found in Christmas hampers",
     "enumeration": "4"
    },
-   "solution": "MASH"
+   "solution": "MASH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MASH",
+    "definitions": [
+     {
+      "text": "Side dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "the answer is discovered sitting inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas hampers",
+      "gives": "MASH",
+      "note": "the letters span the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A side dish tucked into festive food hampers.",
+     "definitionFit": "Mashed potato, commonly called mash in Britain, is served alongside a main course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hampers"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,58 @@
     "text": "Want number associated with topless act",
     "enumeration": "4"
    },
-   "solution": "NEED"
+   "solution": "NEED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NEED",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "in a down entry the top is the first letter, so it is cut off"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the standard abbreviation for number"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "DEED",
+      "note": "a deed is an act, trimmed by the deletion signal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longing for a song to go with a topless stage show.",
+     "walkthrough": "Topless suggests a risque performance, but it only removes the first letter of DEED.",
+     "definitionFit": "To want something and to need it are close verb synonyms meaning to lack or require."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +227,54 @@
      }
     ]
    },
-   "solution": "SHEPHERDSPIE"
+   "solution": "SHEPHERDSPIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHEPHERD'S PIE",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s cooking",
+      "for": "anagram",
+      "note": "he's cooking reads as he is cooking: being cooked, the letters are mixed up into something new"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prep dishes he",
+      "gives": "PREPDISHESHE",
+      "note": "all twelve letters are the material to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PREPDISHESHE",
+       "gives": "SHEPHERDSPIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook preparing the dishes for dinner.",
+     "walkthrough": "The 's of he's is read as is, so the fodder is just prep dishes he.",
+     "definitionFit": "Shepherd's pie, minced lamb topped with mashed potato, is a classic British family meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +288,56 @@
     "text": "Rubbish old Republican is part of machine",
     "enumeration": "5"
    },
-   "solution": "ROTOR"
+   "solution": "ROTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROTOR",
+    "definitions": [
+     {
+      "text": "part of machine",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "ROT",
+      "note": "rot is nonsense or rubbish"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that a worn-out Republican politician is just a cog in the machine.",
+     "walkthrough": "Machine suggests a political machine, but here it is literally mechanical.",
+     "definitionFit": "A rotor is the rotating component of an engine, turbine or helicopter mechanism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "machine"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +357,65 @@
      }
     ]
    },
-   "solution": "NAPPYRASH"
+   "solution": "NAPPYRASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NAPPY RASH",
+    "definitions": [
+     {
+      "text": "infant's complaint",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "only the two extremities of the preceding word are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "PY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "impetuous",
+      "gives": "RASH",
+      "note": "rash means hasty or impetuous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP",
+      "PY",
+      "RASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sleepover that finishes with a wilful baby complaining.",
+     "walkthrough": "A nappy is the British word for a diaper.",
+     "definitionFit": "Nappy rash is skin irritation in babies, a common ailment or complaint of infancy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +429,43 @@
     "text": "Studied colour on the radio",
     "enumeration": "4"
    },
-   "solution": "READ"
+   "solution": "READ",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "READ",
+    "definitions": [
+     {
+      "text": "Studied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "on the radio you only hear words, so spelling does not count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colour",
+      "gives": "READ",
+      "soundsLike": "RED",
+      "note": "the colour red shares its sound with a past-tense verb spelt differently"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who learned about colour by listening to a broadcast.",
+     "definitionFit": "The past tense read, as in read history at university, means studied a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Studied"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +479,59 @@
     "text": "Accounting for former level in government",
     "enumeration": "10"
    },
-   "solution": "EXPLAINING"
+   "solution": "EXPLAINING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLAINING",
+    "definitions": [
+     {
+      "text": "Accounting for",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "PLAIN",
+      "note": "a plain is flat, level land"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLAIN",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A former minister justifying their record in government.",
+     "walkthrough": "In looks like a link but supplies its own two letters.",
+     "definitionFit": "Explaining something accounts for it: both mean giving reasons or justification for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +545,49 @@
     "text": "Found out detectives get protected",
     "enumeration": "10"
    },
-   "solution": "DISCOVERED"
+   "solution": "DISCOVERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCOVERED",
+    "definitions": [
+     {
+      "text": "Found out",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "DIS",
+      "note": "DIs are Detective Inspectors"
+     },
+     {
+      "clueFragment": "protected",
+      "gives": "COVERED",
+      "note": "covered means shielded or protected"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "COVERED"
+     ]
+    },
+    "explanation": {
+     "surface": "Undercover police officers exposed but given protection.",
+     "definitionFit": "Found out and discovered are synonyms meaning learned or uncovered something hidden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detectives"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +601,43 @@
     "text": "Stock image of kind of record player?",
     "enumeration": "10"
    },
-   "solution": "STEREOTYPE"
+   "solution": "STEREOTYPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEREOTYPE",
+    "definitions": [
+     {
+      "text": "Stock image",
+      "at": 0
+     },
+     {
+      "text": "kind of record player?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stock image",
+      "note": "first meaning: a fixed, oversimplified idea of a type of person"
+     },
+     {
+      "clueFragment": "kind of record player?",
+      "note": "second meaning, split in two: a type of stereo system"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the punning second reading, where the word splits into stereo and type.",
+     "definitionFit": "A stereotype is a conventional, widely held fixed picture of a group, and a stereo is a record player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stock"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +651,48 @@
     "text": "Chooses towpaths regularly",
     "enumeration": "4"
    },
-   "solution": "OPTS"
+   "solution": "OPTS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OPTS",
+    "definitions": [
+     {
+      "text": "Chooses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "towpaths",
+      "gives": "OPTS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who habitually picks canal-side paths for walks.",
+     "definitionFit": "To opt is to make a choice, so opts is a verb synonym for selects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "towpaths"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +706,54 @@
     "text": "Pivots camera around, getting luckier, happier better, perhaps",
     "enumeration": "12"
    },
-   "solution": "COMPARATIVES"
+   "solution": "COMPARATIVES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMPARATIVES",
+    "definitions": [
+     {
+      "text": "luckier, happier better, perhaps",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "turning the letters around moves them into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pivots camera",
+      "gives": "PIVOTSCAMERA",
+      "note": "all twelve letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIVOTSCAMERA",
+       "gives": "COMPARATIVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer swinging the lens round and feeling cheerier for it.",
+     "walkthrough": "The definition is an example list, flagged by perhaps.",
+     "definitionFit": "Luckier, happier and better are grammatical comparatives, adjective forms meaning more of a quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pivots"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +773,53 @@
      }
     ]
    },
-   "solution": "CHERRYTOMATO"
+   "solution": "CHERRYTOMATO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHERRY TOMATO",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the ordinary, so the letters are taken out of order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "archery motto",
+      "gives": "ARCHERYMOTTO",
+      "note": "all twelve letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARCHERYMOTTO",
+       "gives": "CHERRYTOMATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that an archery club's motto is a strange one.",
+     "definitionFit": "A cherry tomato is a small, round variety of tomato, botanically a fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "motto"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +833,67 @@
     "text": "European horse consumers adopting British kitchen utensils",
     "enumeration": "10"
    },
-   "solution": "EGGBEATERS"
+   "solution": "EGGBEATERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EGGBEATERS",
+    "definitions": [
+     {
+      "text": "kitchen utensils",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "to adopt is to take in, so the next item goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "gee-gee is a child's word for a horse"
+     },
+     {
+      "clueFragment": "consumers",
+      "gives": "EATERS",
+      "note": "consumers of food"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GG",
+      "B",
+      "EATERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Continental horse-eaters taking on a British way of doing things.",
+     "walkthrough": "Gee-gee is nursery talk for a horse; the British letter sits between the horse and the consumers.",
+     "definitionFit": "Egg beaters are hand whisks used in cooking to beat eggs, so they are kitchen implements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "consumers"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +913,62 @@
      }
     ]
    },
-   "solution": "WELLSPOKEN"
+   "solution": "WELLSPOKEN",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "WELL-SPOKEN",
+    "definitions": [
+     {
+      "text": "expressed articulately",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "SPELL",
+      "note": "a spell is a period of time"
+     },
+     {
+      "clueFragment": "aroused",
+      "gives": "WOKEN",
+      "note": "woken means roused from sleep"
+     },
+     {
+      "clueFragment": "time aroused",
+      "gives": "WELLSPOKEN",
+      "soundsLike": "SPELL WOKEN",
+      "note": "swap the opening sounds of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "SPOKEN"
+     ]
+    },
+    "explanation": {
+     "surface": "The good reverend says the moment of awakening was put eloquently.",
+     "definitionFit": "A well-spoken remark is articulate, clearly and properly voiced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aroused"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +982,53 @@
     "text": "Rule a girl breaks for freedom fighter",
     "enumeration": "9"
    },
-   "solution": "GUERRILLA"
+   "solution": "GUERRILLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GUERRILLA",
+    "definitions": [
+     {
+      "text": "freedom fighter",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "the words are broken apart and the pieces reassembled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule a girl",
+      "gives": "RULEAGIRL",
+      "note": "all nine letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RULEAGIRL",
+       "gives": "GUERRILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman defying the rules to escape to liberty.",
+     "definitionFit": "A guerrilla is an irregular fighter, often described sympathetically as fighting for liberation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1042,65 @@
     "text": "Left profession lacking very special positions",
     "enumeration": "9"
    },
-   "solution": "LOCATIONS"
+   "solution": "LOCATIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOCATIONS",
+    "definitions": [
+     {
+      "text": "positions",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the following letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "profession",
+      "gives": "VOCATION",
+      "note": "a vocation is a calling or profession"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very; this is the letter removed"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OCATION",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who left a career without very special roles to go to.",
+     "definitionFit": "Locations are places or sites, so they are positions in space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1114,50 @@
     "text": "Write directions for pasta",
     "enumeration": "5"
    },
-   "solution": "PENNE"
+   "solution": "PENNE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENNE",
+    "definitions": [
+     {
+      "text": "pasta",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "directions",
+      "gives": "NE",
+      "note": "two compass points, north and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to jot down a recipe for pasta.",
+     "walkthrough": "Directions suggests a recipe method, but it means compass points.",
+     "definitionFit": "Penne is a tube-shaped Italian pasta cut diagonally at the ends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directions"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1171,49 @@
     "text": "Whistleblower holding back accessories",
     "enumeration": "5"
    },
-   "solution": "BELTS"
+   "solution": "BELTS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BELTS",
+    "definitions": [
+     {
+      "text": "accessories",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "the word holds the answer within its letters"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whistleblower",
+      "gives": "STLEB",
+      "note": "the run of letters in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A whistleblower keeping secrets about something extra.",
+     "walkthrough": "Holding back sounds like withholding information, but it splits into two signals.",
+     "definitionFit": "Belts are worn with clothing as fashion accessories, items added to an outfit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1227,71 @@
     "text": "Firm, therefore, accepts emergency regulations, initially in agreement",
     "enumeration": "9"
    },
-   "solution": "COHERENCE"
+   "solution": "COHERENCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "COHERENCE",
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at first, so only the opening letters are taken"
+     },
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept is to take in, so the following goes inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "therefore",
+      "gives": "HENCE",
+      "note": "hence means therefore"
+     },
+     {
+      "clueFragment": "emergency regulations",
+      "gives": "ER",
+      "select": "first",
+      "note": "the first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "H",
+      "ER",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A company follows emergency rules, so everyone is in accord.",
+     "definitionFit": "Coherence is consistency or logical unity, the parts being in agreement with each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1305,77 @@
     "text": "Meetings in revolutionary health resort involving pressure and lotion",
     "enumeration": "12"
    },
-   "solution": "APPOINTMENTS"
+   "solution": "APPOINTMENTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "APPOINTMENTS",
+    "definitions": [
+     {
+      "text": "Meetings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the word is read backwards"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to include, so the next items go inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "health resort",
+      "gives": "SPA",
+      "note": "a spa is a health resort"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "lotion",
+      "gives": "OINTMENT",
+      "note": "an ointment is a soothing lotion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "P",
+      "OINTMENT",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SPA",
+       "to": "APS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bookings at a radical spa offering pressure treatment and lotions.",
+     "walkthrough": "Revolutionary looks like praise for the resort but turns it round.",
+     "definitionFit": "Appointments are arranged times to meet someone, so they are scheduled meetings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1389,57 @@
     "text": "Bird Sean ogles endlessly",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "letter_selection",
+      "note": "with no ends, each word loses its first and last letter and only the inside remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sean",
+      "gives": "EA",
+      "select": "middle",
+      "note": "the inner letters of the name"
+     },
+     {
+      "clueFragment": "ogles",
+      "gives": "GLE",
+      "select": "middle",
+      "note": "the inner letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "GLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Sean who can't stop leering at birds.",
+     "walkthrough": "Bird as slang for a woman fits the ogling surface, but it is the plain definition.",
+     "definitionFit": "The definition works by example: this large raptor with a hooked beak is one particular kind of feathered creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1453,59 @@
     "text": "Instrument is gong with hole in",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OBOE",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "with something in means holding it inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gong",
+      "gives": "OBE",
+      "note": "gong is slang for a medal or honour, such as the OBE (Order of the British Empire)"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "O",
+      "note": "O is shaped like a hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "O",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A gong with a hole in it counts as a musical instrument.",
+     "walkthrough": "Gong suggests percussion, but in British slang it means an honour or medal.",
+     "definitionFit": "The oboe is a double-reed woodwind musical instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gong"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1519,53 @@
     "text": "Lift paper found under man",
     "enumeration": "4"
    },
-   "solution": "HEFT"
+   "solution": "HEFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEFT",
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found under",
+      "for": "charade",
+      "note": "in a down entry, something found under another is placed after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the Financial Times, a British newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "FT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks up a newspaper discovered beneath a man.",
+     "definitionFit": "To heft something is to lift or hoist it, often to judge its weight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1579,49 @@
     "text": "Deer have small black sinuous tails",
     "enumeration": "4"
    },
-   "solution": "ELKS"
+   "solution": "ELKS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELKS",
+    "definitions": [
+     {
+      "text": "Deer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails",
+      "for": "letter_selection",
+      "note": "the tail of each word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have small black sinuous",
+      "gives": "ELKS",
+      "select": "last",
+      "note": "the final letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Deer with little dark, wavy tails.",
+     "walkthrough": "Deer looks like part of the description, but it is the definition, and the tails are the words' last letters.",
+     "definitionFit": "Elks are large members of the deer family, moose in North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tails"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1635,62 @@
     "text": "In favour of US soldier getting very fit — it's easily excused",
     "enumeration": "10"
    },
-   "solution": "FORGIVABLE"
+   "solution": "FORGIVABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORGIVABLE",
+    "definitions": [
+     {
+      "text": "easily excused",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "FOR",
+      "note": "for means in favour of"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "able means fit, capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "GI",
+      "V",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing a GI who gets into great shape is a pardonable choice.",
+     "definitionFit": "Something forgivable can be pardoned without difficulty, so it is readily excused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1704,54 @@
     "text": "Daughter after special educational needs post",
     "enumeration": "4"
    },
-   "solution": "SEND"
+   "solution": "SEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEND",
+    "definitions": [
+     {
+      "text": "post",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means placed behind, so this piece comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special educational needs",
+      "gives": "SEN",
+      "note": "SEN is the standard UK abbreviation for special educational needs"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter waiting for a post supporting pupils with learning needs.",
+     "walkthrough": "Post looks like a job, but it is the verb meaning mail.",
+     "definitionFit": "Plain verb synonyms: to dispatch a letter through the mail service is both things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1765,69 @@
     "text": "Agree to cover up unfortunate mess in appraisal",
     "enumeration": "10"
    },
-   "solution": "ASSESSMENT"
+   "solution": "ASSESSMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASSESSMENT",
+    "definitions": [
+     {
+      "text": "appraisal",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunate",
+      "for": "anagram",
+      "note": "an unfortunate state is a muddled one, so the letters are jumbled"
+     },
+     {
+      "text": "to cover up",
+      "for": "container",
+      "note": "covering up means wrapping round, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "gives": "ASSENT",
+      "note": "to assent is to agree"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "MESS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "ESSM",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MESS",
+       "gives": "ESSM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consenting to hide a regrettable mess in a performance review.",
+     "definitionFit": "An assessment is an evaluation or judgement of quality, so it is an appraisal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Agree"
+    }
+   }
   }
  ]
 }
