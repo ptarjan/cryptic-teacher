@@ -1965,6 +1965,10 @@ SOURCE_CLUE_WRONG = {
         "The silly old man's outs!",
         "The silly old man's nuts!",
         "OCR misread: the definition needs nuts, which almonds are"),
+    ("times-15545", "27-across"): (
+        "New craze is (to give some-pile a big send-off",
+        "New craze is to give some-pile a big send-off",
+        "OCR misread: the bracket before to is stray; some-pile is a garbled someone, more than a misread letter can mend"),
     ("times-15545", "28-across"): (
         "3 Sort of account for 13's customers?",
         "Sort of account for 13's customers?",

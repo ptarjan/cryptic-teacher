@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,43 @@
     "text": "Ship in for repairs detailed",
     "enumeration": "6"
    },
-   "solution": "DOCKED"
+   "solution": "DOCKED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOCKED",
+    "definitions": [
+     {
+      "text": "Ship in for repairs",
+      "at": 0
+     },
+     {
+      "text": "detailed",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ship in for repairs",
+      "note": "first meaning: brought into a dock, as a vessel is for repairs"
+     },
+     {
+      "clueFragment": "detailed",
+      "note": "second meaning, read as de-tailed: with the tail cut short, as with some dog breeds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Detailed' looks like 'thorough', but read it as de-tailed: having had its tail cut off.",
+     "definitionFit": "A vessel berthed at a harbour quay has been put in, and an animal whose tail has been cut short has been treated the same way in name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +88,59 @@
     "text": "Boy in gambling game gets nowhere near",
     "enumeration": "8"
    },
-   "solution": "DISTANCE"
+   "solution": "DISTANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISTANCE",
+    "definitions": [
+     {
+      "text": "nowhere near",
+      "at": 26,
+      "note": "the answer is a noun: a far-off place, one nowhere near"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another means the boy's name sits inside the game's name"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gambling game",
+      "gives": "DICE",
+      "note": "dice is a game played for stakes"
+     },
+     {
+      "clueFragment": "Boy",
+      "gives": "STAN",
+      "note": "a boy's name, short for Stanley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lad who takes up dice playing ends up going nowhere.",
+     "walkthrough": "'Gets nowhere near' reads as failing; the definition is the noun for a remote place, as in 'in the distance'.",
+     "definitionFit": "The distance is a remote spot far away, a place that lies nowhere close at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +154,50 @@
     "text": "Room with bunks and French furniture",
     "enumeration": "7"
    },
-   "solution": "CABINET"
+   "solution": "CABINET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CABINET",
+    "definitions": [
+     {
+      "text": "furniture",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Room with bunks",
+      "gives": "CABIN",
+      "note": "a ship's cabin is a small room fitted with bunks"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "ET",
+      "note": "French for 'and', standing in for the clue's 'and'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CABIN",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bedroom with bunk beds plus some furnishings from France.",
+     "walkthrough": "'and French' means the French for 'and', which is ET.",
+     "definitionFit": "A cabinet is a cupboard with shelves or drawers, a standard piece of household furnishing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +211,43 @@
     "text": "Capital sort of rock",
     "enumeration": "9"
    },
-   "solution": "EDINBURGH"
+   "solution": "EDINBURGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EDINBURGH",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     },
+     {
+      "text": "sort of rock",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capital",
+      "note": "first meaning: the capital city of Scotland"
+     },
+     {
+      "clueFragment": "sort of rock",
+      "note": "second meaning: a crumbly stick of sugar confectionery named after that city"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rock' suggests geology (the city's castle does stand on one), but here it is British rock, a hard stick of boiled sugar sweet.",
+     "definitionFit": "Edinburgh is Scotland's capital city, and Edinburgh rock is a traditional pastel-coloured sugar sweet made there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +261,48 @@
     "text": "Unfinished year book ?",
     "enumeration": "8"
    },
-   "solution": "TWELVEMO"
+   "solution": "TWELVEMO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TWELVEMO",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its ending, so the closing letters are cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "year",
+      "gives": "TWELVEMONTH",
+      "note": "an old word for a year, twelve months"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWELVEMO"
+     ]
+    },
+    "explanation": {
+     "surface": "A calendar year left incomplete, about which a book was written.",
+     "walkthrough": "TWELVEMONTH loses its last three letters, NTH, to leave TWELVEMO.",
+     "definitionFit": "Twelvemo is a book size, also written 12mo, where each printed sheet is folded into twelve leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +313,7 @@
    },
    "length": 14,
    "clue": {
-    "text": "Celebration where “ we . three” et al) would meet again",
+    "text": "Celebration where “we three” (et al) would meet again",
     "enumeration": "7,7",
     "separators": [
      {
@@ -111,7 +322,39 @@
      }
     ]
    },
-   "solution": "WITCHESSABBATH"
+   "solution": "WITCHESSABBATH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WITCHES SABBATH",
+    "definitions": [
+     {
+      "text": "Celebration where “we three” (et al) would meet again",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebration where “we three” (et al) would meet again",
+      "note": "surface reading: a reunion party for some trio and friends"
+     },
+     {
+      "clueFragment": "“we three”",
+      "note": "setter's reading: the three weird sisters of Macbeth, who open the play asking when they shall meet again, and their kind gathering at midnight"
+     }
+    ],
+    "explanation": {
+     "surface": "A reunion party where an old trio and their friends gather once more.",
+     "walkthrough": "Macbeth opens with the three witches asking 'When shall we three meet again?'; a midnight gathering of witches is a witches' sabbath.",
+     "definitionFit": "A witches' sabbath is the midnight assembly of witches in folklore, a celebration at which the Macbeth trio and others would gather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Celebration"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +368,39 @@
     "text": "A sucker for the rest of the players",
     "enumeration": "5"
    },
-   "solution": "LEMON"
+   "solution": "LEMON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEMON",
+    "definitions": [
+     {
+      "text": "A sucker for the rest of the players",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sucker for the rest of the players",
+      "note": "surface reading: an easy dupe whom the other card players take money from"
+     },
+     {
+      "clueFragment": "A sucker",
+      "note": "setter's reading: a fruit that is sucked, also slang for a dud or a fool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A sucker sounds like a mark at a card table; it is also a sour citrus fruit you might suck. At the interval of a match, players were traditionally given slices of it.",
+     "definitionFit": "Lemon is slang for a dud or a hopeless person, and players sucked lemon segments at half-time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sucker"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +414,65 @@
     "text": "Locally prevalent medicine is mixed without one",
     "enumeration": "7"
    },
-   "solution": "ENDEMIC"
+   "solution": "ENDEMIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENDEMIC",
+    "definitions": [
+     {
+      "text": "Locally prevalent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken out of the word"
+     },
+     {
+      "text": "is mixed",
+      "for": "anagram",
+      "note": "mixed means stirred together, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medicine",
+      "gives": "MEDICINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDEMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEDICNE",
+       "gives": "ENDEMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug is being mixed up without a single ingredient, and something is spreading in the area.",
+     "walkthrough": "MEDICINE loses one I to give MEDICNE, which is then rearranged.",
+     "definitionFit": "An endemic disease is one regularly found among a particular people or region, so it is prevalent in that locality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "medicine"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +486,39 @@
     "text": "Handy treatment for 25",
     "enumeration": "6"
    },
-   "solution": "OILING"
+   "solution": "OILING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OILING",
+    "definitions": [
+     {
+      "text": "Handy treatment for 25",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Handy treatment",
+      "note": "surface reading: a convenient remedy, or care applied with the hands"
+     },
+     {
+      "clueFragment": "for 25",
+      "note": "setter's reading: 25 is the answer to 25-across, paying someone off, and the idiom is greasing a person's palm"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Handy' points at the hand: to grease someone's palm is to bribe them, and 25-across is BRIBERY.",
+     "definitionFit": "Lubricating someone's palm is an idiom for paying them a bribe, so applying grease to the hand is that corrupt treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Handy"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +532,47 @@
     "text": "Do they tone down one's professional credentials ?",
     "enumeration": "14"
    },
-   "solution": "QUALIFICATIONS"
+   "solution": "QUALIFICATIONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUALIFICATIONS",
+    "definitions": [
+     {
+      "text": "Do they tone down",
+      "at": 0,
+      "note": "a question whose answer is the plural noun: they are things that soften"
+     },
+     {
+      "text": "professional credentials",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "one's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do they tone down",
+      "note": "first meaning: limiting conditions added to a statement, softening its force"
+     },
+     {
+      "clueFragment": "professional credentials",
+      "note": "second meaning: certificates or diplomas showing one is trained for a job"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question reads as if credentials might make a person modest; in fact the word for reservations that soften a statement is also the word for certificates.",
+     "definitionFit": "Qualifications are both reservations that limit a claim and the certificates proving fitness for a trade or career."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tone"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +586,54 @@
     "text": "Rob's quite put out by his nickname",
     "enumeration": "9"
    },
-   "solution": "SOBRIQUET"
+   "solution": "SOBRIQUET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOBRIQUET",
+    "definitions": [
+     {
+      "text": "nickname",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "anagram",
+      "note": "put out means upset or disturbed, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "by his"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rob's quite",
+      "gives": "ROBSQUITE",
+      "note": "taken as written, the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROBSQUITE",
+       "gives": "SOBRIQUET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Robert is rather annoyed by what people call him.",
+     "walkthrough": "'Put out' reads as 'annoyed', but it is telling you to rearrange the nine letters of Rob's quite.",
+     "definitionFit": "A sobriquet is an assumed name or epithet given to a person, the same thing as a familiar nickname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +647,46 @@
     "text": "Interfere, say, in an award",
     "enumeration": "5"
    },
-   "solution": "MEDAL"
+   "solution": "MEDAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MEDAL",
+    "definitions": [
+     {
+      "text": "an award",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say means spoken out loud, so the word is what the sound gives, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Interfere",
+      "gives": "MEDAL",
+      "soundsLike": "MEDDLE",
+      "note": "to meddle is to interfere, and it is pronounced the same as the prize word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone interfering in the decision over who wins a prize.",
+     "definitionFit": "A medal is a metal disc given as a prize or honour for achievement, so it is a kind of award."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +700,58 @@
     "text": "She'd be in the record",
     "enumeration": "7"
    },
-   "solution": "ANNABEL"
+   "solution": "ANNABEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANNABEL",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the little verb goes within the word for a record"
+     }
+    ],
+    "linkWords": [
+     "'d"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the record",
+      "gives": "ANNAL",
+      "note": "an annal is the record of a single year's events"
+     },
+     {
+      "clueFragment": "be",
+      "gives": "BE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNA",
+      "BE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who would like to appear in the history books.",
+     "walkthrough": "'She' alone is the definition, asking for a woman's name; annals, usually plural, are yearly chronicles.",
+     "definitionFit": "Annabel is a woman's first name, so it stands for an unnamed female person, the pronoun she."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +765,43 @@
     "text": "Tyburn operative taking up modern gliding ?",
     "enumeration": "7"
    },
-   "solution": "HANGMAN"
+   "solution": "HANGMAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HANGMAN",
+    "definitions": [
+     {
+      "text": "Tyburn operative",
+      "at": 0
+     },
+     {
+      "text": "taking up modern gliding",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tyburn operative",
+      "note": "first meaning: Tyburn was London's chief place of public execution, so its worker was the executioner at the gallows"
+     },
+     {
+      "clueFragment": "taking up modern gliding",
+      "note": "second meaning, whimsically: a fellow who takes up hang-gliding, the newly fashionable sport of the time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tyburn, near today's Marble Arch, was London's gallows site for centuries. The second half splits the answer into a sport and a fellow.",
+     "definitionFit": "An executioner at the gallows was the hangman, and a person who hang-glides could jokingly be called a hang man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gliding"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +815,46 @@
     "text": "Provide for such a cousin",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CATER",
+    "definitions": [
+     {
+      "text": "Provide",
+      "at": 0
+     },
+     {
+      "text": "such a cousin",
+      "at": 12,
+      "note": "names the first half of the old compound cater-cousin"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provide",
+      "note": "first meaning: to supply food or what is needed"
+     },
+     {
+      "clueFragment": "such a cousin",
+      "note": "second meaning: a ...-cousin is an old word, used by Shakespeare, for an intimate friend"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Provide for' looks like the whole definition, but 'for' only joins the two halves; the second half needs the archaic cater-cousin.",
+     "definitionFit": "To cater is to supply food or what is wanted, and a cater-cousin is an archaic term for a close companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cousin"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +868,50 @@
     "text": "Dashing fellow making easy money",
     "enumeration": "8"
    },
-   "solution": "FASTBUCK"
+   "solution": "FASTBUCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FASTBUCK",
+    "definitions": [
+     {
+      "text": "easy money",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dashing",
+      "gives": "FAST",
+      "note": "dashing means moving quickly"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "BUCK",
+      "note": "a buck is a lively young man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAST",
+      "BUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish young man who earns money without effort.",
+     "walkthrough": "'Dashing fellow' reads as one dashing man, but it splits into two pieces.",
+     "definitionFit": "A fast buck is a sum earned quickly and with little effort, often dishonestly, so it is effortless cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dashing"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +925,53 @@
     "text": "Block arrangement for a bird race",
     "enumeration": "9"
    },
-   "solution": "BARRICADE"
+   "solution": "BARRICADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BARRICADE",
+    "definitions": [
+     {
+      "text": "Block",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement is a putting in order, so the letters are laid out anew"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bird race",
+      "gives": "ABIRDRACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABIRDRACE",
+       "gives": "BARRICADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making the setup for a pigeon race or similar contest of birds.",
+     "definitionFit": "A barricade is an improvised barrier across a street or entrance, something that obstructs passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +985,45 @@
     "text": "Rosalind as wine-waiter",
     "enumeration": "8"
    },
-   "solution": "GANYMEDE"
+   "solution": "GANYMEDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GANYMEDE",
+    "definitions": [
+     {
+      "text": "Rosalind",
+      "at": 0
+     },
+     {
+      "text": "wine-waiter",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rosalind",
+      "note": "first meaning: the name Rosalind takes when disguised as a boy in Shakespeare's As You Like It"
+     },
+     {
+      "clueFragment": "wine-waiter",
+      "note": "second meaning: the Trojan youth carried off to be cupbearer to the gods on Olympus"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rosalind as wine-waiter' sounds like a casting note; it is two separate meanings, one from Shakespeare and one from Greek myth.",
+     "definitionFit": "In As You Like It, Rosalind calls herself Ganymede when in disguise, and the mythical Ganymede poured drink for Zeus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1037,39 @@
     "text": "Spanish dance not to be sneezed at; however!",
     "enumeration": "8"
    },
-   "solution": "CACHUCHA"
+   "solution": "CACHUCHA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CACHUCHA",
+    "definitions": [
+     {
+      "text": "Spanish dance",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish dance",
+      "note": "surface reading: a lively dance from Spain"
+     },
+     {
+      "clueFragment": "not to be sneezed at; however!",
+      "note": "setter's reading: the name, said aloud, is full of sneezing noises, like a-choo, yet it is no sneeze"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Not to be sneezed at' is the idiom for something worth having; here it jokes that the dance's name sounds like a string of sneezes.",
+     "definitionFit": "The cachucha is a lively Andalusian solo dance in triple time, performed with castanets, from southern Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sneezed"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,10 +1080,58 @@
    },
    "length": 7,
    "clue": {
-    "text": "The silly old man's outs!",
+    "text": "The silly old man's nuts!",
     "enumeration": "7"
    },
-   "solution": "ALMONDS"
+   "solution": "ALMONDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALMONDS",
+    "definitions": [
+     {
+      "text": "nuts",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish and muddled, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man's",
+      "gives": "OLDMANS",
+      "note": "taken as written, the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDMANS",
+       "gives": "ALMONDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims that the foolish elderly fellow has gone mad.",
+     "walkthrough": "'Nuts' looks like a verdict on the old man's sanity; it is the definition, in its literal sense.",
+     "definitionFit": "Almonds are the edible kernels of the almond tree's fruit, a familiar kind of tree nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1145,55 @@
     "text": "Girl artist carries the bricks",
     "enumeration": "5"
    },
-   "solution": "RHODA"
+   "solution": "RHODA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RHODA",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carries",
+      "for": "container",
+      "note": "carries means holds, so the artist's letters hold the other piece inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "the bricks",
+      "gives": "HOD",
+      "note": "a hod is the trough on a pole used to carry bricks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "HOD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman painter who lugs bricks around.",
+     "walkthrough": "RA, for Royal Academician, is the crossword's standard artist. The hod is named by what it carries.",
+     "definitionFit": "Rhoda is a female first name, so it is one example of what the clue calls a girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carries"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1207,47 @@
     "text": "Old boy observing instructions",
     "enumeration": "7"
    },
-   "solution": "OBEYING"
+   "solution": "OBEYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBEYING",
+    "definitions": [
+     {
+      "text": "observing instructions",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "observing",
+      "gives": "EYING",
+      "note": "eyeing, here spelt without the second E, means watching"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "EYING"
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil following orders.",
+     "walkthrough": "'Observing' does double duty: watching for the wordplay, complying in the definition.",
+     "definitionFit": "Obeying means complying with orders, the same as abiding by or keeping to commands that have been given."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "observing"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1261,42 @@
     "text": "Expels from eg 23 in an emergency",
     "enumeration": "6"
    },
-   "solution": "EJECTS"
+   "solution": "EJECTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EJECTS",
+    "definitions": [
+     {
+      "text": "Expels",
+      "at": 0
+     },
+     {
+      "text": "from eg 23 in an emergency",
+      "at": 7,
+      "note": "an elliptical phrase: gets out of a 23 in a crisis"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expels",
+      "note": "first meaning: throws out"
+     },
+     {
+      "clueFragment": "from eg 23 in an emergency",
+      "note": "second meaning: what a pilot does from 23-across, an aircraft, when it is about to crash"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "23-across is JUMP JET; a pilot in trouble leaves such an aircraft by the ejector seat.",
+     "definitionFit": "To eject is to throw something out forcibly, and a pilot ejects by firing the escape seat out of the cockpit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1316,39 @@
      }
     ]
    },
-   "solution": "JUMPJET"
+   "solution": "JUMPJET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JUMP-JET",
+    "definitions": [
+     {
+      "text": "Its main feature shown in elevation in perpendicular plane",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Its main feature shown in elevation in perpendicular plane",
+      "note": "surface reading: a technical drawing, showing something's chief feature in an elevation drawn on a vertical plane"
+     },
+     {
+      "clueFragment": "perpendicular plane",
+      "note": "setter's reading: an aircraft that rises straight upwards, its key feature being vertical take-off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Elevation' and 'plane' sound like draughtsman's geometry, but the plane is an aircraft and elevation is going up.",
+     "definitionFit": "A jump jet, such as the Harrier, is a fighter aircraft able to take off and land vertically without a runway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1362,40 @@
     "text": "Girl novelist ?",
     "enumeration": "5"
    },
-   "solution": "JOYCE"
+   "solution": "JOYCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOYCE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     },
+     {
+      "text": "novelist",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "note": "first meaning: a woman's first name"
+     },
+     {
+      "clueFragment": "novelist",
+      "note": "second meaning: the Irish writer of Ulysses"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Joyce is a female first name, and James Joyce was the Irish author of Ulysses and Finnegans Wake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1409,39 @@
     "text": "By which a number may be squared",
     "enumeration": "7"
    },
-   "solution": "BRIBERY"
+   "solution": "BRIBERY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRIBERY",
+    "definitions": [
+     {
+      "text": "By which a number may be squared",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "By which a number may be squared",
+      "note": "surface reading: arithmetic, multiplying a figure by itself"
+     },
+     {
+      "clueFragment": "a number may be squared",
+      "note": "setter's reading: a number of people may be squared, meaning paid off to keep them quiet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Squared' looks mathematical, but to square someone is slang for buying their silence or cooperation.",
+     "definitionFit": "Paying people off corruptly, which is to square them in slang, is the offence of offering illicit payments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "squared"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1455,50 @@
     "text": "Appearing sweet in lilac and yellow stripes?",
     "enumeration": "5"
    },
-   "solution": "CANDY"
+   "solution": "CANDY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANDY",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Appearing",
+      "for": "hidden_word",
+      "note": "appearing in means showing up inside the following words, which contain the answer"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lilac and yellow",
+      "gives": "CANDY",
+      "note": "the letters run across the end of lilac, all of and, and the start of yellow"
+     },
+     {
+      "clueFragment": "stripes",
+      "note": "surface padding: bands of alternating colour, which completes the picture of a striped sweet"
+     }
+    ],
+    "explanation": {
+     "surface": "A confection decorated with mauve and yellow stripes.",
+     "walkthrough": "Candy stripes are alternating bands of colour, which makes the surface fit the answer.",
+     "definitionFit": "Candy is the American word for sweets or confectionery, and in Britain it means sugar sweets such as rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stripes"
+    }
+   }
   },
   {
    "number": 27,
@@ -422,10 +1509,56 @@
    },
    "length": 9,
    "clue": {
-    "text": "New craze is (to give some-pile a big send-off",
+    "text": "New craze is to give some-pile a big send-off",
     "enumeration": "9"
    },
-   "solution": "OSTRACIZE"
+   "solution": "OSTRACIZE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTRACIZE",
+    "definitions": [
+     {
+      "text": "give some-pile a big send-off",
+      "at": 16,
+      "note": "the scan garbles 'someone' as some-pile; the printed definition is 'give someone a big send-off'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new means made fresh, so the following letters are reformed into a different word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "craze is to",
+      "gives": "CRAZEISTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRAZEISTO",
+       "gives": "OSTRACIZE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The latest fad is to throw a lavish farewell party for somebody.",
+     "walkthrough": "A big send-off sounds like a party; here it means being sent away for good, as in the Athenian vote banishing a citizen.",
+     "definitionFit": "To ostracize is to exclude a person from society, in effect banishing them, which is sending them off in a hostile way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "send-off"
+    }
+   }
   },
   {
    "number": 28,
@@ -436,10 +1569,50 @@
    },
    "length": 8,
    "clue": {
-    "text": "3 Sort of account for 13's customers?",
+    "text": "Sort of account for 13's customers?",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUSPENSE",
+    "definitions": [
+     {
+      "text": "Sort of account",
+      "at": 0
+     },
+     {
+      "text": "13's customers",
+      "at": 20,
+      "note": "the answer is what those customers are in, not the customers themselves"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of account",
+      "note": "first meaning: a bookkeeping account where uncertain items are held until they can be placed properly"
+     },
+     {
+      "clueFragment": "13's customers",
+      "note": "second meaning: 13-across is HANGMAN, whose customers are left hanging, in a state of anxious uncertainty"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A suspense account is accounting jargon; the hangman's clients are literally suspended, a grim pun.",
+     "definitionFit": "A suspense account holds unallocated sums temporarily, and those on the gallows are literally suspended, also anxiously uncertain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "customers"
+    }
+   }
   },
   {
    "number": 29,
@@ -453,7 +1626,38 @@
     "text": "Bird decapitated this hound",
     "enumeration": "6"
    },
-   "solution": "BEAGLE"
+   "solution": "BEAGLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEAGLE",
+    "definitions": [
+     {
+      "text": "this hound",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird decapitated this hound",
+      "note": "surface reading: a bird of prey killed and beheaded a hunting dog"
+     },
+     {
+      "clueFragment": "Bird decapitated",
+      "note": "setter's reading: reversed logic, the bird of prey is what this hound becomes once its first letter is cut off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The wordplay runs backwards: remove the head, the first letter B, from the dog and you get EAGLE, the bird.",
+     "definitionFit": "The beagle is a small short-legged scent hound bred for tracking hares, so it is a breed of hunting dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decapitated"
+    }
+   }
   }
  ]
 }
