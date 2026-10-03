@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17000", "12-across"): (
+        "Complaint of youth in 12 springtime?",
+        "Complaint of youth in springtime?",
+        "OCR misread: a stray '12' (the clue's own number) before 'springtime'"),
     ("times-16414", "20-down"): (
         "Way (to scrape the ship's planking",
         "Way to scrape the ship's planking",
