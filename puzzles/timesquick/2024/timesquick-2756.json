@@ -24,6 +24,9 @@
   "date": "2024-08-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,54 @@
     "text": "House here in France on the sea",
     "enumeration": "6"
    },
-   "solution": "MEDICI"
+   "solution": "MEDICI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDICI",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one part sitting on another comes after it, so the French word follows the sea"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the sea",
+      "gives": "MED",
+      "note": "the Med is short for the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "here in France",
+      "gives": "ICI",
+      "note": "ici is French for here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "ICI"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday home in France sits right by the sea.",
+     "walkthrough": "'House' looks like a building, but it means a dynasty, as in the House of Windsor.",
+     "definitionFit": "The Medici were the ruling family of Renaissance Florence, and a noble family line is called a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +101,67 @@
     "text": "Broken arm nursed by men he’s tailed",
     "enumeration": "6"
    },
-   "solution": "MERMAN"
+   "solution": "MERMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MERMAN",
+    "definitions": [
+     {
+      "text": "he’s tailed",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broken",
+      "for": "anagram",
+      "note": "something broken is smashed out of shape, so those letters are rearranged"
+     },
+     {
+      "text": "nursed by",
+      "for": "container",
+      "note": "to be nursed is to be held in the arms, so one piece sits cradled inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "arm",
+      "gives": "ARM",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "RMA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARM",
+       "gives": "RMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a broken arm is cared for by other men.",
+     "walkthrough": "'He's tailed' sounds like someone being followed, but it describes a creature with a fish's tail.",
+     "definitionFit": "A merman is the male counterpart of a mermaid, a mythical sea creature with a fish's tail instead of legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tailed"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +185,56 @@
      }
     ]
    },
-   "solution": "DADDYLONGLEGS"
+   "solution": "DADDYLONGLEGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DADDY-LONG-LEGS",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out are knocked out of place, so they must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gladly send dog",
+      "gives": "GLADLYSENDDOG",
+      "note": "the thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DADDYLONGLEGS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLADLYSENDDOG",
+       "gives": "DADDYLONGLEGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happily lets their dog loose to hunt down a bug.",
+     "definitionFit": "The daddy-longlegs is the common name for the crane fly, a gangly flying bug with very long thin limbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gladly"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +248,44 @@
     "text": "Frame way to describe Princess Royal?",
     "enumeration": "7"
    },
-   "solution": "CHASSIS"
+   "solution": "CHASSIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHASSIS",
+    "definitions": [
+     {
+      "text": "Frame",
+      "at": 0
+     },
+     {
+      "text": "way to describe Princess Royal?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frame",
+      "note": "first meaning: the base framework of a car or other vehicle"
+     },
+     {
+      "clueFragment": "way to describe Princess Royal?",
+      "note": "second meaning, split into words: C (Charles, the King) has sis, since Princess Anne is his sister"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders how best to frame a portrait of Princess Anne.",
+     "walkthrough": "The Princess Royal is Princess Anne, sister of King Charles; C is a standard short form for Charles, so 'C has sis' describes her. The question mark flags the playful second reading.",
+     "definitionFit": "The underlying structure of a motor vehicle, onto which the body is mounted, is its frame or chassis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Frame"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +299,55 @@
     "text": "Left under wraps, cry out",
     "enumeration": "6"
    },
-   "solution": "BELLOW"
+   "solution": "BELLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BELLOW",
+    "definitions": [
+     {
+      "text": "cry out",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wraps",
+      "for": "container",
+      "note": "to wrap something is to fold a covering around it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under",
+      "gives": "BELOW",
+      "note": "under and below are synonyms"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "L",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Something left secret prompts someone to shout in protest.",
+     "walkthrough": "'Under wraps' reads as one phrase meaning secret, but the two words do separate jobs.",
+     "definitionFit": "To bellow is to shout loudly in a deep voice, which is a way of crying out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wraps"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +361,48 @@
     "text": "She inspires weary author regularly",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "She inspires",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weary author",
+      "gives": "ERATO",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERATO"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired writer needs a muse to get going again.",
+     "definitionFit": "Erato is one of the nine Muses of Greek myth, the goddess who gives poets their inspiration for love poetry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "weary"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +422,57 @@
      }
     ]
    },
-   "solution": "LANCASTERGATE"
+   "solution": "LANCASTERGATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LANCASTER GATE",
+    "definitions": [
+     {
+      "text": "former FA location",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sorted",
+      "for": "anagram",
+      "note": "something sorted has been put into a new order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal get act",
+      "gives": "ARSENALGETACT",
+      "note": "the thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANCASTERGATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARSENALGETACT",
+       "gives": "LANCASTERGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal Football Club cleans up its behaviour at the football authority's old headquarters.",
+     "walkthrough": "The FA is England's Football Association; Arsenal is a London football club, which makes the surface feel like a disciplinary hearing.",
+     "definitionFit": "Lancaster Gate, a street in west London, was where the Football Association had its headquarters for many decades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Arsenal"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +486,54 @@
     "text": "Uses energy in remote region",
     "enumeration": "6"
    },
-   "solution": "WIELDS"
+   "solution": "WIELDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WIELDS",
+    "definitions": [
+     {
+      "text": "Uses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so a letter is placed within the larger word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remote region",
+      "gives": "WILDS",
+      "note": "the wilds are remote uninhabited areas"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "E",
+      "LDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone harnesses power out in the back of beyond.",
+     "definitionFit": "To wield a tool or weapon is to handle and employ it, so wields means uses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +547,62 @@
     "text": "Notice one in tirade incandescent",
     "enumeration": "7"
    },
-   "solution": "RADIANT"
+   "solution": "RADIANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RADIANT",
+    "definitions": [
+     {
+      "text": "incandescent",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so the first pieces go inside the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is an angry tirade"
+     },
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "a notice in a paper is an ad, short for advertisement"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AD",
+      "I",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a person mid-rant, white-hot with fury.",
+     "walkthrough": "'Incandescent' suggests rage, fitting the tirade, but here it means glowing with light.",
+     "definitionFit": "Something incandescent glows brightly with heat or light, and radiant similarly describes something shining or beaming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "incandescent"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +616,43 @@
     "text": "Play patience",
     "enumeration": "9"
    },
-   "solution": "TOLERANCE"
+   "solution": "TOLERANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOLERANCE",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     },
+     {
+      "text": "patience",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play",
+      "note": "first meaning: the slack or allowed variation in a moving part"
+     },
+     {
+      "clueFragment": "patience",
+      "note": "second meaning: forbearance with others' views or behaviour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The pair reads like an instruction to play the card game patience (solitaire), but the words are two separate meanings.",
+     "definitionFit": "In engineering the permitted leeway in a part is called play, and putting up calmly with others is called patience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "patience"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +666,63 @@
     "text": "Article by one German backed woman",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means moved backwards, so the German word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "one German",
+      "gives": "EIN",
+      "note": "ein is German for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "NIE"
+     ],
+     "reversals": [
+      {
+       "from": "EIN",
+       "to": "NIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece written by a German is supported by a woman.",
+     "definitionFit": "Annie is a common female first name, so it is an instance of a woman, as crosswords often clue names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +736,55 @@
     "text": "Area near ship in ocean depths",
     "enumeration": "5"
    },
-   "solution": "ABYSS"
+   "solution": "ABYSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABYSS",
+    "definitions": [
+     {
+      "text": "ocean depths",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means close to, as in a house by the sea"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BY",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A zone close to a vessel lies deep in the sea.",
+     "definitionFit": "The abyss is the deepest region of the sea, the profound trench far below the surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Area"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +798,67 @@
     "text": "Member returned in fat dancer’s costume",
     "enumeration": "7"
    },
-   "solution": "LEOTARD"
+   "solution": "LEOTARD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LEOTARD",
+    "definitions": [
+     {
+      "text": "dancer’s costume",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word for member is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the turned piece is placed within the word for fat"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member",
+      "gives": "TOE",
+      "note": "a toe is a member, a limb or part of the body"
+     },
+     {
+      "clueFragment": "fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EOT",
+      "ARD"
+     ],
+     "reversals": [
+      {
+       "from": "TOE",
+       "to": "EOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A club member goes back into the outfit worn by a plump dancer.",
+     "walkthrough": "'Member' suggests a club, but in crosswords it often means a body part such as a limb or digit.",
+     "definitionFit": "A leotard is the close-fitting one-piece garment worn by ballet dancers and gymnasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +872,52 @@
     "text": "Hawk-eyed old British man",
     "enumeration": "9"
    },
-   "solution": "OBSERVANT"
+   "solution": "OBSERVANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSERVANT",
+    "definitions": [
+     {
+      "text": "Hawk-eyed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "SERVANT",
+      "note": "a man can mean a manservant, as in a gentleman's man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "SERVANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-sighted elderly British fellow.",
+     "definitionFit": "Someone hawk-eyed misses nothing, with the keen sight of a bird of prey, which is what observant means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +931,56 @@
     "text": "Old general has a hold over father",
     "enumeration": "7"
    },
-   "solution": "AGRIPPA"
+   "solution": "AGRIPPA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGRIPPA",
+    "definitions": [
+     {
+      "text": "Old general",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue one piece over another sits above it, so it is written first"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hold",
+      "gives": "AGRIP",
+      "note": "a grip is a hold"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGRIP",
+      "PA"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired army commander has power over his dad.",
+     "definitionFit": "Marcus Agrippa was a Roman military commander, the friend and leading admiral of the emperor Augustus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +994,56 @@
     "text": "Cold in HGV? Extremely so!",
     "enumeration": "6"
    },
-   "solution": "ARCTIC"
+   "solution": "ARCTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCTIC",
+    "definitions": [
+     {
+      "text": "Extremely so",
+      "at": 13,
+      "note": "means extremely cold, picking up 'Cold' from the start of the clue"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so a letter goes inside the vehicle word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "HGV",
+      "gives": "ARTIC",
+      "note": "an artic is an articulated lorry, a typical heavy goods vehicle"
+     },
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "C",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A lorry driver complains the cab is freezing.",
+     "walkthrough": "HGV is British for heavy goods vehicle, a big truck; an artic is one with a separate cab and trailer. 'So' points back to 'Cold', so the definition reads extremely cold.",
+     "definitionFit": "Arctic describes the polar north, so it is used loosely for weather that is bitterly, intensely chilly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "HGV"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1057,56 @@
     "text": "Revolver English brought into factory",
     "enumeration": "6"
    },
-   "solution": "PLANET"
+   "solution": "PLANET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLANET",
+    "definitions": [
+     {
+      "text": "Revolver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought into",
+      "for": "container",
+      "note": "to bring something into a place is to put it inside, so a letter goes within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is an industrial factory"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An English handgun is smuggled into a works.",
+     "walkthrough": "'Revolver' looks like a gun, but it means something that revolves, here around the Sun.",
+     "definitionFit": "A world such as Mars or Earth orbits, or revolves around, its star, so it is playfully a revolver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Revolver"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1120,53 @@
     "text": "Diet? Army unit shedding tons!",
     "enumeration": "7"
    },
-   "solution": "REGIMEN"
+   "solution": "REGIMEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REGIMEN",
+    "definitions": [
+     {
+      "text": "Diet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shedding",
+      "for": "deletion",
+      "note": "to shed something is to cast it off, so a letter is dropped from the army word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Army unit",
+      "gives": "REGIMENT",
+      "note": "a regiment is a unit of an army"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGIMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A battalion goes on a diet and loses tons of weight.",
+     "definitionFit": "A regimen is a prescribed course of eating or exercise, so a planned diet is one kind of regimen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tons"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1180,56 @@
     "text": "Duke drawn in by dinner gong",
     "enumeration": "5"
    },
-   "solution": "MEDAL"
+   "solution": "MEDAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEDAL",
+    "definitions": [
+     {
+      "text": "gong",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drawn in by",
+      "for": "container",
+      "note": "something drawn in by another is pulled inside it, so a letter sits within the meal word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dinner",
+      "gives": "MEAL",
+      "note": "dinner is a meal"
+     },
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "D",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke is summoned to the table by the dinner gong.",
+     "walkthrough": "'Dinner gong' reads as one thing, the bell rung for meals, but the words split: gong is British slang for a decoration.",
+     "definitionFit": "In British informal usage a gong is an honour or decoration, the kind of award pinned on a uniform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gong"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1243,52 @@
     "text": "Run with Russian runner for country",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 28,
+      "note": "an attributive noun, as in country life, matching the adjective"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for run"
+     },
+     {
+      "clueFragment": "Russian runner",
+      "gives": "URAL",
+      "note": "a runner is a river, and the Ural flows through Russia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "URAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian athlete races for their nation.",
+     "walkthrough": "'Runner' looks like an athlete, but in crosswords a runner is often a river, since rivers run.",
+     "definitionFit": "Country as in country life refers to the countryside, and rural describes things of the countryside rather than towns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1302,60 @@
     "text": "River close to port and dock perhaps",
     "enumeration": "5"
    },
-   "solution": "TWEED"
+   "solution": "TWEED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TWEED",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter of port is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "T",
+      "select": "last",
+      "note": "its final letter"
+     },
+     {
+      "clueFragment": "dock perhaps",
+      "gives": "WEED",
+      "note": "dock is a common weed, and 'perhaps' flags it as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat lies near the harbour and its quay.",
+     "walkthrough": "Port and dock suggest a harbour, but dock here is the broad-leaved plant.",
+     "definitionFit": "The Tweed is a river in the Scottish Borders, part of which marks the boundary between Scotland and England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1369,46 @@
     "text": "Say why lover no longer unattractive?",
     "enumeration": "7"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLAIN",
+    "definitions": [
+     {
+      "text": "Say why",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover no longer",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "unattractive",
+      "gives": "PLAIN",
+      "note": "plain means not good-looking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks why a partner has stopped being attracted to them.",
+     "definitionFit": "To give reasons or account for something is to explain it, which is literally to say why."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "unattractive"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1422,58 @@
     "text": "Stronghold and loch in order",
     "enumeration": "6"
    },
-   "solution": "CASTLE"
+   "solution": "CASTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASTLE",
+    "definitions": [
+     {
+      "text": "Stronghold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so a letter is placed within the order word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "order",
+      "gives": "CASTE",
+      "note": "a caste is a social order or class"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "L is the abbreviation for loch, a Scottish lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish fortress and its lake are kept in good shape.",
+     "walkthrough": "'In order' reads as tidy, but order here is a rank of society.",
+     "definitionFit": "A castle is a fortified building, a classic stronghold that can be defended against attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1487,54 @@
     "text": "Beer feeding explosive ability",
     "enumeration": "6"
    },
-   "solution": "TALENT"
+   "solution": "TALENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TALENT",
+    "definitions": [
+     {
+      "text": "ability",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "something feeding into another is going inside it, so the drink word sits within the explosive"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explosive",
+      "gives": "TNT",
+      "note": "TNT is trinitrotoluene, a common explosive"
+     },
+     {
+      "clueFragment": "Beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Drink fuels someone's volatile gift.",
+     "definitionFit": "A talent is a natural gift or skill, the aptitude to do something well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feeding"
+    }
+   }
   }
  ]
 }
