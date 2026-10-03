@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Reporter beginning to judge yours and my denial",
     "enumeration": "6"
    },
-   "solution": "JOURNO"
+   "solution": "JOURNO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JOURNO",
+    "definitions": [
+     {
+      "text": "Reporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "select": "first",
+      "note": "first letter of judge"
+     },
+     {
+      "clueFragment": "yours and my",
+      "gives": "OUR",
+      "note": "what belongs to you and me together is ours"
+     },
+     {
+      "clueFragment": "denial",
+      "gives": "NO",
+      "note": "the simplest word of denial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "OUR",
+      "NO"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist starts judging while flatly refusing something on behalf of the two of us.",
+     "definitionFit": "Journo is informal British slang for a journalist, someone who reports news for a paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +109,55 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKIN-DEEP",
+    "definitions": [
+     {
+      "text": "Shallow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another ends up enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drip",
+      "gives": "SEEP",
+      "note": "to drip slowly through is to seep"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "KIND",
+      "note": "a type is a kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIND",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "Some feeble sort of person, a mere drip, is dismissed as lacking depth.",
+     "walkthrough": "'Drip' reads as an insult for a weak person, but here it is the verb for leaking slowly.",
+     "definitionFit": "Something skin-deep goes no further than the surface, so it is superficial in character or feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drip"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +177,78 @@
      }
     ]
    },
-   "solution": "POLITICALANIMAL"
+   "solution": "POLITICALANIMAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "POLITICAL ANIMAL",
+    "definitions": [
+     {
+      "text": "Beastly campaigner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ridiculously",
+      "for": "anagram",
+      "note": "something done ridiculously is absurdly jumbled, so the letters are rearranged"
+     },
+     {
+      "text": "impresses",
+      "for": "container",
+      "note": "to impress is to press something into a surface, so the one goes inside"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during an event sits within it, so these letters sit inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "election",
+      "gives": "POLL",
+      "note": "an election is a poll"
+     },
+     {
+      "clueFragment": "maniacal, it",
+      "gives": "MANIACALIT",
+      "note": "the words taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POL",
+      "ITICALANIMA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANIACALITI",
+       "gives": "ITICALANIMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild-eyed candidate rampages through an election campaign in a frenzy.",
+     "walkthrough": "The anagram letters take in an extra I before the whole lot is wrapped in POLL.",
+     "definitionFit": "A political animal is a person who thrives on politics; 'beastly' is a playful nod to the animal half of the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Beastly"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +262,68 @@
     "text": "Loaded question about dubious tale",
     "enumeration": "7"
    },
-   "solution": "WEALTHY"
+   "solution": "WEALTHY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WEALTHY",
+    "definitions": [
+     {
+      "text": "Loaded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dubious",
+      "for": "anagram",
+      "note": "a dubious account is not to be trusted as given, so its letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word placed about another goes around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "WHY",
+      "note": "why is a question word"
+     },
+     {
+      "clueFragment": "tale",
+      "gives": "TALE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EALT",
+      "HY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TALE",
+       "gives": "EALT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading question is asked about a story that sounds suspicious.",
+     "walkthrough": "'Loaded question' is a set phrase, but 'Loaded' is the definition and 'question' the start of the wordplay.",
+     "definitionFit": "Loaded is informal for having plenty of money, the same sense as rich."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Loaded"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +347,64 @@
      }
     ]
    },
-   "solution": "IVANTHETERRIBLE"
+   "solution": "IVANTHETERRIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IVAN THE TERRIBLE",
+    "definitions": [
+     {
+      "text": "Shocking Russian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plays",
+      "for": "anagram",
+      "note": "plays here is a verb, as letters that play about move freely into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV",
+      "gives": "TV",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "THREE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Liberian",
+      "gives": "LIBERIAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TVTHREELIBERIAN",
+       "gives": "IVANTHETERRIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Russian television screens three dramas from Liberia, which some find shocking.",
+     "walkthrough": "'Plays' looks like a plural noun for dramas; it is a verb telling the letters to move.",
+     "definitionFit": "Ivan IV, the sixteenth-century tsar, earned his grim nickname through notorious cruelty, so he is a shocking Russian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +418,46 @@
     "text": "Dog in front, great success",
     "enumeration": "6"
    },
-   "solution": "BOWWOW"
+   "solution": "BOWWOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOWWOW",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "front",
+      "gives": "BOW",
+      "note": "the bow is the front of a ship"
+     },
+     {
+      "clueFragment": "great success",
+      "gives": "WOW",
+      "note": "a wow is a sensational hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOW",
+      "WOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog out in front proves a huge hit, perhaps at a show.",
+     "definitionFit": "Bow-wow is a nursery or childish word for a canine, imitating its bark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 7,
@@ -138,7 +471,43 @@
     "text": "Marine mammal shut up",
     "enumeration": "4"
    },
-   "solution": "SEAL"
+   "solution": "SEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEAL",
+    "definitions": [
+     {
+      "text": "Marine mammal",
+      "at": 0
+     },
+     {
+      "text": "shut up",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marine mammal",
+      "note": "first meaning: a flippered sea creature"
+     },
+     {
+      "clueFragment": "shut up",
+      "note": "second meaning: to close something off tightly"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tells a noisy sea creature to be quiet.",
+     "definitionFit": "The word names both a flippered sea creature and the act of closing a container firmly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shut"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +521,43 @@
     "text": "House in Surrey or Kent",
     "enumeration": "4"
    },
-   "solution": "YORK"
+   "solution": "YORK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YORK",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surrey or Kent",
+      "gives": "YORK",
+      "note": "spans the end of Surrey, all of or and the start of Kent"
+     }
+    ],
+    "explanation": {
+     "surface": "An estate agent locates a property somewhere in Surrey or Kent, two English counties near London.",
+     "walkthrough": "'House' suggests a building; it means a royal dynasty.",
+     "definitionFit": "The royal dynasty that produced Edward IV and Richard III is the House of that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +571,48 @@
     "text": "Creative work so profound, narrative ends",
     "enumeration": "3"
    },
-   "solution": "ODE"
+   "solution": "ODE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ODE",
+    "definitions": [
+     {
+      "text": "Creative work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "only the final letters of each word are wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so profound, narrative",
+      "gives": "ODE",
+      "select": "last",
+      "note": "the last letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "A deep piece of writing in which the story finally reaches its conclusion.",
+     "definitionFit": "A lyric poem addressed to a subject is a piece of artistic writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 10,
@@ -180,7 +626,52 @@
     "text": "Shade aggressive, knight knocked out",
     "enumeration": "6"
    },
-   "solution": "VIOLET"
+   "solution": "VIOLET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VIOLET",
+    "definitions": [
+     {
+      "text": "Shade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked out",
+      "for": "deletion",
+      "note": "something knocked out has been removed from where it stood"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aggressive",
+      "gives": "VIOLENT",
+      "note": "aggressive means violent"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIOLET"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady, aggressive character is knocked out by a knight in combat.",
+     "definitionFit": "Shade here means colour or hue, and a bluish-purple tint is one such."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shade"
+    }
+   }
   },
   {
    "number": 11,
@@ -194,7 +685,74 @@
     "text": "Country governed by leader in Borneo: that is revolutionary",
     "enumeration": "6"
    },
-   "solution": "BRUNEI"
+   "solution": "BRUNEI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "BRUNEI",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so these letters go backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Borneo",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of Borneo"
+     },
+     {
+      "clueFragment": "governed",
+      "gives": "RUN",
+      "note": "a country that is governed is run"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUN",
+      "EI"
+     ],
+     "reversals": [
+      {
+       "from": "IE",
+       "to": "EI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country on Borneo is ruled by a leader whom some call revolutionary.",
+     "walkthrough": "The surface is factually apt: this sultanate sits on Borneo.",
+     "definitionFit": "Brunei is a small oil-rich sultanate on the north coast of Borneo, a sovereign nation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +772,50 @@
      }
     ]
    },
-   "solution": "LONEWOLF"
+   "solution": "LONEWOLF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LONE WOLF",
+    "definitions": [
+     {
+      "text": "Isolated individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on manoeuvres",
+      "for": "anagram",
+      "note": "troops on manoeuvres move about in new formations, so the letters rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow on",
+      "gives": "FELLOWON",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FELLOWON",
+       "gives": "LONEWOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier off on military exercises becomes cut off from his comrades.",
+     "definitionFit": "A lone wolf is an idiom for a person who prefers to act alone, away from company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvres"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +843,39 @@
      }
     ]
    },
-   "solution": "GONEWITHTHEWIND"
+   "solution": "GONEWITHTHEWIND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GONE WITH THE WIND",
+    "definitions": [
+     {
+      "text": "Picture blown away?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Picture blown away?",
+      "note": "surface reading: a painting or photo carried off by a gust"
+     },
+     {
+      "clueFragment": "Picture blown away?",
+      "note": "setter's reading: a film whose title describes being swept off by a breeze"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Picture' is the old word for a film, and the question mark warns that 'blown away' paraphrases a famous title.",
+     "definitionFit": "The 1939 Civil War epic starring Vivien Leigh carries a title meaning carried off by a breeze."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Picture"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +889,56 @@
     "text": "Fastener in cask pulled up",
     "enumeration": "3"
    },
-   "solution": "NUT"
+   "solution": "NUT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NUT",
+    "definitions": [
+     {
+      "text": "Fastener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down clue, pulling a word up reads it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cask",
+      "gives": "TUN",
+      "note": "a tun is a large cask for wine or beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUN",
+       "to": "NUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fastening is hauled up from inside a barrel.",
+     "definitionFit": "A threaded metal piece screwed onto a bolt holds parts together, so it fastens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulled"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +952,55 @@
     "text": "Ramp alongside water, edge cut into rock",
     "enumeration": "7"
    },
-   "solution": "SLIPWAY"
+   "solution": "SLIPWAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLIPWAY",
+    "definitions": [
+     {
+      "text": "Ramp alongside water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut into",
+      "for": "container",
+      "note": "something cut into another is set inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rock",
+      "gives": "SWAY",
+      "note": "to rock is to sway"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "LIP",
+      "note": "a lip is an edge or rim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LIP",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sloping path by the sea where a ledge has been carved into a rock face.",
+     "walkthrough": "'Rock' looks like stone; it is the verb for moving to and fro.",
+     "definitionFit": "A slipway is a sloping surface leading down to the sea for launching boats and ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1014,48 @@
     "text": "Sign put up in bistro, elevated",
     "enumeration": "3"
    },
-   "solution": "LEO"
+   "solution": "LEO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LEO",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters lie inside the words that follow"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, putting letters up reads them bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bistro, elevated",
+      "gives": "OEL",
+      "note": "spans the end of bistro and the start of elevated"
+     }
+    ],
+    "explanation": {
+     "surface": "A notice is fixed high up on the wall of a little restaurant.",
+     "definitionFit": "The lion is one of the twelve zodiac signs, so this is a star sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1069,54 @@
     "text": "Deceitful behaviour in the last suspect",
     "enumeration": "7"
    },
-   "solution": "STEALTH"
+   "solution": "STEALTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEALTH",
+    "definitions": [
+     {
+      "text": "Deceitful behaviour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is not what it seems, so the letters are not in their true order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the last",
+      "gives": "THELAST",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THELAST",
+       "gives": "STEALTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final person under suspicion has been acting sneakily, as in a whodunnit.",
+     "walkthrough": "'Suspect' reads as a noun for the accused; it is an adjective prompting a rearrangement.",
+     "definitionFit": "Stealth is furtive, secretive conduct, acting so as not to be noticed, hence underhand behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1130,56 @@
     "text": "That man’s visiting a seedy joint — tacky!",
     "enumeration": "8"
    },
-   "solution": "ADHESIVE"
+   "solution": "ADHESIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADHESIVE",
+    "definitions": [
+     {
+      "text": "tacky",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "someone visiting a place goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a seedy joint",
+      "gives": "ADIVE",
+      "note": "a dive is a seedy bar, with a taken as written"
+     },
+     {
+      "clueFragment": "That man’s",
+      "gives": "HES",
+      "note": "that man is he, so that man's is he's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HES",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man drops into a sleazy bar and finds it all rather vulgar.",
+     "walkthrough": "'Tacky' reads as cheap and tasteless; it means sticky.",
+     "definitionFit": "Tacky in its literal sense means slightly sticky to the touch, like glue that clings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tacky"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1193,54 @@
     "text": "Feeling appendage, all toes bandaged by girl",
     "enumeration": "7"
    },
-   "solution": "ANTENNA"
+   "solution": "ANTENNA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANTENNA",
+    "definitions": [
+     {
+      "text": "Feeling appendage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bandaged by",
+      "for": "container",
+      "note": "a wound bandaged by a dressing is wrapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "ANNA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "all toes",
+      "gives": "TEN",
+      "note": "a person normally has ten toes in all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TEN",
+      "NA"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl has all her toes bandaged after an injury, and they hurt.",
+     "definitionFit": "An insect's antenna is a jointed feeler on the head used for touch and smell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Feeling"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1268,51 @@
      }
     ]
    },
-   "solution": "COMERAINORSHINE"
+   "solution": "COMERAINORSHINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COME RAIN OR SHINE",
+    "definitions": [
+     {
+      "text": "whatever the weather",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "winds",
+      "for": "anagram",
+      "note": "a verb here: what winds about twists and turns into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m on racehorse, in",
+      "gives": "IMONRACEHORSEIN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMONRACEHORSEIN",
+       "gives": "COMERAINORSHINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jockey declares they will ride their racehorse in any conditions, even in wind.",
+     "walkthrough": "'Winds' reads as gusts of weather; it is the verb meaning twists.",
+     "definitionFit": "The set phrase is an idiom meaning regardless of circumstances, much like the definition's own expression."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "winds"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1326,46 @@
     "text": "Partner dispatched cheeky ace",
     "enumeration": "6"
    },
-   "solution": "EXPERT"
+   "solution": "EXPERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPERT",
+    "definitions": [
+     {
+      "text": "ace",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner dispatched",
+      "gives": "EX",
+      "note": "a partner sent packing becomes a former one"
+     },
+     {
+      "clueFragment": "cheeky",
+      "gives": "PERT",
+      "note": "pert means saucy or cheeky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone whose partner has been sent away turns out to be a cheeky tennis player serving aces.",
+     "definitionFit": "An ace is someone highly skilled at something, a master of their craft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dispatched"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1379,43 @@
     "text": "Person stealing money",
     "enumeration": "6"
    },
-   "solution": "NICKER"
+   "solution": "NICKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICKER",
+    "definitions": [
+     {
+      "text": "Person stealing",
+      "at": 0
+     },
+     {
+      "text": "money",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person stealing",
+      "note": "first meaning: one who nicks, British slang for steals"
+     },
+     {
+      "clueFragment": "money",
+      "note": "second meaning: British slang for a pound sterling"
+     }
+    ],
+    "explanation": {
+     "surface": "A thief is caught taking cash.",
+     "walkthrough": "To nick is British slang for to steal, and a nicker is slang for one pound.",
+     "definitionFit": "The word means both someone who nicks things and a slang term for a pound coin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1429,55 @@
     "text": "Kind of grey sock dipped in Merlot, say",
     "enumeration": "8"
    },
-   "solution": "GRAPHITE"
+   "solution": "GRAPHITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAPHITE",
+    "definitions": [
+     {
+      "text": "Kind of grey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dipped in",
+      "for": "container",
+      "note": "something dipped in a liquid is surrounded by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Merlot, say",
+      "gives": "GRAPE",
+      "note": "Merlot is an example of a wine grape, signalled by say"
+     },
+     {
+      "clueFragment": "sock",
+      "gives": "HIT",
+      "note": "to sock someone is to hit them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAP",
+      "HIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sock stained grey after falling into a glass of red wine.",
+     "walkthrough": "'Sock' looks like clothing; it is the slang verb for punch.",
+     "definitionFit": "Graphite is a dark metallic colour named after the carbon used in pencils, so it is one shade of grey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sock"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1491,42 @@
     "text": "By the sound of it, travel destination in Italy",
     "enumeration": "4"
    },
-   "solution": "ROME"
+   "solution": "ROME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROME",
+    "definitions": [
+     {
+      "text": "destination in Italy",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "we are told to go by how a word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel",
+      "gives": "ROME",
+      "soundsLike": "ROAM",
+      "note": "to travel about aimlessly is to roam"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes an Italian destination on a holiday itinerary.",
+     "definitionFit": "Italy's capital is a major tourist city, an obvious place to visit there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1540,48 @@
     "text": "Creature a member of religious organisation?",
     "enumeration": "6"
    },
-   "solution": "INSECT"
+   "solution": "INSECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSECT",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a member of",
+      "gives": "IN",
+      "note": "someone who is a member of a group is in it"
+     },
+     {
+      "clueFragment": "religious organisation",
+      "gives": "SECT",
+      "note": "a sect is a religious group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether some being belongs to a religious body.",
+     "walkthrough": "The question mark flags that the wordplay is a playful reading of the answer as two words.",
+     "definitionFit": "A beetle, ant or fly is a living thing, so the six-legged animal is a creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1595,57 @@
     "text": "Let me think about that boy, briefly, in Italian region",
     "enumeration": "6"
    },
-   "solution": "UMBRIA"
+   "solution": "UMBRIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "UMBRIA",
+    "definitions": [
+     {
+      "text": "Italian region",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something said briefly is cut short, losing its end"
+     }
+    ],
+    "linkWords": [
+     "about",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let me think",
+      "gives": "UM",
+      "note": "the hesitant noise made while thinking"
+     },
+     {
+      "clueFragment": "that boy",
+      "gives": "BRIAN",
+      "note": "a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "BRIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates over which Italian region a certain boy comes from.",
+     "definitionFit": "Umbria is a landlocked area of central Italy, home to Perugia and Assisi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1659,51 @@
     "text": "Nothing new, I left",
     "enumeration": "3"
    },
-   "solution": "NIL"
+   "solution": "NIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIL",
+    "definitions": [
+     {
+      "text": "Nothing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reports there is no news since they went away.",
+     "definitionFit": "Nil is a score of zero, a word for none at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1717,64 @@
     "text": "Sight the four of us recalled?",
     "enumeration": "4"
    },
-   "solution": "VIEW"
+   "solution": "VIEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "VIEW",
+    "definitions": [
+     {
+      "text": "Sight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "called back means brought back the other way, so the letters run in reverse"
+     }
+    ],
+    "linkWords": [
+     "the",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "WE",
+      "note": "us in the subject form is we"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "IV is the Roman numeral for four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "EW"
+     ],
+     "reversals": [
+      {
+       "from": "WEIV",
+       "to": "VIEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of four friends remembers a scene they once saw.",
+     "definitionFit": "A view is a scene or prospect seen from somewhere, a sight before the eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   }
  ]
 }
