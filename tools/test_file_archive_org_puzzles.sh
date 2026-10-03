@@ -840,6 +840,68 @@ text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
 check("the clue columns left of the grid are read, across then down",
       (True, True), (text.startswith("ACROSS\nI Footwear"), "\nDOWN\n2 Fruit" in text))
 
+side, shaped, box = located("times-16960-foot")
+check("a grid box ends at the grid's foot frame, not under the ACROSS line touching it (Times 16,960)",
+      ("below", 711), (side, box[3]))
+side, shaped, box = located("times-16357-title")
+check("a grid whose top frame reaches into its title's box is the title's grid (Times 16,357)",
+      ("below", True), (side, shaped))
+
+# Real clue readings (tools/fixtures/archive-org-clues: each edition's
+# column texts as the readers read them and its scanned grid; times-16960
+# also has RapidOCR's words and the grid box): the clue each reading spoils
+# is filed whole.
+import file_trove_puzzles as ftp
+import reconstruct_grid as rg
+clue_cases = json.loads(Path("fixtures/archive-org-clues/cases.json").read_text())
+def readings_of(name):
+    c = clue_cases[name]
+    lengths = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(c["grid"]).items()}
+    return c["texts"], lengths
+def parsed_of(name, reader):
+    p, why = f.parse(clue_cases[name]["texts"][reader])
+    assert p, why
+    return {(n, d): c for d in ("across", "down") for c in p[d]
+            for n in (c["tokens"][0] if len(c["tokens"][0]) == 1 else ())}
+def voted(name, reader, lid, text, enum):
+    texts, lengths = readings_of(name)
+    return ocr_clues.reconcile({lid: (text, enum, None)}, [t for k, t in texts.items() if k != reader],
+                               lengths)[0][lid][0]
+check("a clue the print opens in lower case, every reading with its number before it, is filed (Times 15,122 13A)",
+      "under twenty-one", voted("times-15122", "djvu", "13-across", "under twenty-one", "5"))
+check("a clue opening on two cross-references is filed (Times 15,122 5D)",
+      "3 3 on the watch", voted("times-15122", "djvu", "5-down", "3 3 on the watch", "5"))
+check("a cross-reference read apart is one number where most readings have it (Times 16,376 19D)",
+      "Agaric, maybe, confused with 15's first reformer",
+      voted("times-16376", "djvu", "19-down", "Agaric, maybe, confused with 1 5's first reformer", "7"))
+check("a cross-reference before \"I\" is no next clue run on (Times 16,357 16D)",
+      "Removal of 25 I notice in distress outside",
+      voted("times-16357", "ch", "16-down", "Removal of 25 I notice in distress outside", "8"))
+d16960 = parsed_of("times-16960", "djvu")
+check("a count read as a bracket and a digit on its own line ends its clue, the grid giving it (Times 16,960 20A)",
+      ("What Ractatraw, in spite of all temptations, remained", set(), "Fine island, jolly compact"),
+      (d16960[20, "across"]["text"], d16960[20, "across"]["enums"], d16960[21, "across"]["text"]))
+check("a notice printed between two clues is in neither (Times 16,960 5D, 6D)",
+      ("Be responsible for burning high church taper", "Peer inside the pearly gates"),
+      (d16960[5, "down"]["text"], d16960[6, "down"]["text"]))
+c = clue_cases["times-16960"]
+text = f.column_text(f.columns([[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])))
+check("a line printed across both clue columns ends the column (Times 16,960)",
+      (False, True), ("Collins" in text, "\nPeer inside the pearty gztes" in text))
+d16626 = parsed_of("times-16626", "djvu")
+check("\"Prize Crossword in\" between two clues is in neither (Times 16,626 3D, 4D)",
+      ("Bones of little girl in centre of trail", "Of great significance to chaps in Missouri.all French"),
+      (d16626[3, "down"]["text"], d16626[4, "down"]["text"]))
+check("a count torn at a clue's end is read as its count: \"17).\", \"IS).\" (Times 16,626 5A, 19A)",
+      (("Definitely the product of a writer", {"7"}), ("Souvenir exhibited by Kildare licensee", True)),
+      ((d16626[5, "across"]["text"], d16626[5, "across"]["enums"]),
+       (d16626[19, "across"]["text"], "5" in d16626[19, "across"]["enums"])))
+p, _ = f.parse(clue_cases["times-13683"]["texts"]["en5"])
+p, _ = ftp.renumber(p)
+nums = [next(iter(c["tokens"][0])) for c in p["across"] if len(c["tokens"][0]) == 1]
+check("a clue number its list's order refuses is left for the grid to place (Times 13,683: 19 between 9 and 12)",
+      (True, set()), (nums == sorted(set(nums)), next(c for c in p["across"] if c["text"].startswith("Man"))["tokens"][0]))
+
 # Real page crops whose archive.org text has no crossword title
 # (tools/fixtures/archive-org-titles; cases.json gives each one's scan, its
 # paper and date, and the words our readers read in each title band, so no

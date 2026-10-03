@@ -820,6 +820,20 @@ def unhyphen(text):
 HEADING = re.compile(r"^\W*(?:clues\s+)?(?:across|down)\W*$", re.IGNORECASE | re.MULTILINE)
 
 
+def numbers_joined(clue, streams):
+    """The clue with a cross-reference read apart ("with 1 5's") made one
+    number where most other readings (`streams`, raw texts or {light: text})
+    print it whole after the same word ("with 15's"); "5 3 3 on the watch"
+    stands where they print it apart."""
+    texts = [s if isinstance(s, str) else " ".join(v for v in s.values() if v) for s in streams]
+
+    def one(m):
+        word, number = m[1], m[2] + m[3]
+        whole = re.compile(rf"(?<!\w){re.escape(word)}\s+{number}(?!\d)")
+        return f"{word} {number}" if texts and sum(bool(whole.search(t)) for t in texts) * 2 > len(texts) else m[0]
+    return re.sub(r"(?<!\S)([A-Za-z]+,?) (\d) (\d)(?![\d(])", one, clue)
+
+
 def join_split(clue, others):
     """The clue with two of its words run together where most other readings
     have them as one lexicon word: a word the print broke over a line end
@@ -903,6 +917,21 @@ def trimmed(text, lid, voted=True):
     return text
 
 
+def opening_printed(text, own, streams):
+    """Whether another reading prints the clue's number straight before
+    its first two words ("13 under twenty-one", "5 3 3 on the watch"): an
+    opening the print has, however it looks, and no line lost before it."""
+    head = text.split()[:2]
+    if not head:
+        return False
+    words = r"\s+".join(re.escape(w) for w in head)
+    line = re.compile(rf"(?m)^\W{{0,2}}{own}\W?\s+{words}(?![\w])")
+    return any(line.search(s) if isinstance(s, str) else
+               re.match(rf"\W{{0,2}}{words}(?![\w])", s.get(f"{own}-across", "") or "")
+               or re.match(rf"\W{{0,2}}{words}(?![\w])", s.get(f"{own}-down", "") or "")
+               for s in streams)
+
+
 def reconcile(laid, streams, lengths=None, keep_known=False):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
@@ -927,9 +956,13 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         # A list counts up, so only a number above this clue's own can be
         # the next clue run on, and with the grid known, only one naming a
         # light: "Map 10 E" in 24 across is the clue's text.
+        # It is the list's next clue, or the one after when that was lost:
+        # "Removal of 25 I notice" in 16 down is a reference.
+        way = lid.split("-")[1]
+        later = sorted(int(k.split("-")[0]) for k in lengths or () if k.endswith("-" + way)
+                       and int(k.split("-")[0]) > own)[:2]
         inside = next((m for m in re.finditer(r"\s(\d{1,2})\s+[A-Z]", text or "")
-                       if int(m.group(1)) > own and (not lengths or any(
-                           k.startswith(m.group(1) + "-") for k in lengths))), None)
+                       if int(m.group(1)) > own and (not lengths or int(m.group(1)) in later)), None)
         if inside and lengths:
             # The next clue run on after this one's count: cut it off, and
             # the count with it, which the grid gives.
@@ -957,7 +990,8 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
         opens_on_light = bool(ref and lengths and int(ref.group(1)) != own
                               and any(k.startswith(ref.group(1) + "-") for k in lengths))
-        if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
+        if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or "") \
+                and not opening_printed(text, own, streams):
             # Lower case first: the clue's opening ("23s about") was lost.
             blank[lid] = "starts mid-clue"
             out[lid] = ("", enum, group)
@@ -975,7 +1009,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         lead = re.match(r"(\d{1,2})\.? (?=[A-Z\"'])", text)
         if lead and lead.group(1) in lid.split("-")[0]:
             text = text[lead.end():]
-        text = join_split(text, other)
+        text = join_split(numbers_joined(text, streams), other)
         got, how = agree(text, other, keep_known)
         got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and merged(got):

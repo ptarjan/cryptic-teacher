@@ -86,7 +86,8 @@ LAYOUT = [
     ("fetching", "tools/test_fetch_trove.sh", "fetch_trove.py with a stubbed opener: a timeout and a 500 retried to success, a persistent 500 named by URL, a 4xx not retried, no retry past an article's ITEM_SECONDS, a run of failures stopping the run, and `zones` fetching only pending articles that lack them"),
     ("fetching", "tools/test_file_trove_puzzles.sh", "files three real Trove articles: the grid read cell for cell, the solution grid skipped, a count the OCR misread held back by name, a second run touching nothing, and the clues alone filing a puzzle whose picture is missing"),
     ("fetching", "tools/trove_clue_ocr.py", "repairs the clues Trove's OCR loses (a number read as junk, a broken bracket, \"(S)\") from RapidOCR's reading of the page's clue columns, cached in ~/.cache/trove-clues by fetch_trove.py zones; file_trove_puzzles.py applies it, anchored on text both readings share"),
-    ("fetching", "tools/fixtures/archive-org-grids/", "three archive.org page crops whose grid lies far under, over and left of its title (cases.json: scan, title box, and the FT one's words), the grids test_file_archive_org_puzzles.sh locates"),
+    ("fetching", "tools/fixtures/archive-org-grids/", "archive.org page crops whose grid lies far under, over or left of its title, touches its title or has text touching its foot (cases.json: scan, title box, and the FT one's words), the grids test_file_archive_org_puzzles.sh locates"),
+    ("fetching", "tools/fixtures/archive-org-clues/", "real clue-column readings of archive.org Times editions with each one's scanned grid (cases.json; 16,960 also RapidOCR's words), the blank, cut-off and misnumbered clues test_file_archive_org_puzzles.sh files whole"),
     ("fetching", "tools/fixtures/archive-org-titles/", "four archive.org page crops whose title archive.org's own text lacks (cases.json: scan, paper, date, and our readers' words in each title band), the titles test_file_archive_org_puzzles.sh reads"),
     ("fetching", "tools/fixtures/trove-repair/", "the 14 July 1967 cryptic, whose OCR glued 6-down onto 5-down, with RapidOCR's reading of its clue columns and our three readers' text of them: the repair and vote test_file_trove_puzzles.sh checks"),
     ("fetching", "tools/fixtures/trove-clues/", "our three OCR readers' text of the 1 June 1972 article's clue zones, the other voters test_file_trove_puzzles.sh puts Trove's text to"),
@@ -492,6 +493,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/fixtures/trove/                        # covered by the directory line
     | ^tools/fixtures/archive-org-grids/            # covered by the directory line
     | ^tools/fixtures/archive-org-titles/           # covered by the directory line
+    | ^tools/fixtures/archive-org-clues/            # covered by the directory line
     | ^tools/fixtures/trove-repair/                 # covered by the directory line
     | ^tools/fixtures/trove-clues/                  # covered by the directory line
     | ^tools/fixtures/trove-solution/               # covered by the directory line
