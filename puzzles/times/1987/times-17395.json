@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "28 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,49 @@
      }
     ]
    },
-   "solution": "VANITYFAIR"
+   "solution": "VANITYFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VANITY FAIR",
+    "definitions": [
+     {
+      "text": "a novel denomination",
+      "at": 10,
+      "note": "the name of a novel, so it names the book's title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pnde",
+      "gives": "VANITY",
+      "note": "the scan misprints the word pride here; vanity is excessive pride in oneself"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "FAIR",
+      "note": "just and fair both mean even-handed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VANITY",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes pride in a new name for a religious denomination.",
+     "walkthrough": "The scanned first word 'Pnde' is a misprint of 'Pride'. 'Denomination' suggests a church; here it means a name, and 'novel' is a book, not 'new'.",
+     "definitionFit": "Vanity Fair is the title of Thackeray's famous Victorian novel, so it is literally the naming of a book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "denomination"
+    }
+   }
   },
   {
    "number": 1,
@@ -55,7 +100,55 @@
     "text": "Sun gave out — invisible by day",
     "enumeration": "4"
    },
-   "solution": "VEGA"
+   "solution": "VEGA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VEGA",
+    "definitions": [
+     {
+      "text": "Sun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out are put out of place, so their order is broken up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gave",
+      "gives": "GAVE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "invisible by day",
+      "note": "no letters: it extends the definition, since a far-off sun is a star seen only at night"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GAVE",
+       "gives": "VEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sun gave out its light and then vanished by day.",
+     "walkthrough": "The closing words 'invisible by day' extend the definition: a distant sun is a star, seen only at night.",
+     "definitionFit": "Vega is a bright star in the constellation Lyra, and any star is a distant sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +162,49 @@
     "text": "Time the same here and in Australia",
     "enumeration": "4"
    },
-   "solution": "NOON"
+   "solution": "NOON",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "NOON",
+    "definitions": [
+     {
+      "text": "Time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the same here and in Australia",
+      "for": "palindrome",
+      "note": "Australia is down under, upside down in a down entry, so the word must read the same either way up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "NOON",
+      "note": "midday, a time of day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOON"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that the clock shows the same hour in Britain and Australia.",
+     "walkthrough": "In a down answer, turning it over for the land down under reads it bottom to top, and this word survives unchanged.",
+     "definitionFit": "Twelve o'clock in the middle of the day is a specific hour, so it serves as a time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Australia"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +215,7 @@
    },
    "length": 12,
    "clue": {
-    "text": "Rallying grounds where one may-hold the advantage?",
+    "text": "Rallying grounds where one may hold the advantage?",
     "enumeration": "6-6",
     "separators": [
      {
@@ -89,7 +224,39 @@
      }
     ]
    },
-   "solution": "TENNISCOURTS"
+   "solution": "TENNISCOURTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TENNIS-COURTS",
+    "definitions": [
+     {
+      "text": "Rallying grounds where one may hold the advantage?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rallying grounds",
+      "note": "surface reading: places where troops or supporters gather and rally"
+     },
+     {
+      "clueFragment": "where one may hold the advantage?",
+      "note": "setter's reading: rallies are exchanges of shots, and advantage is the score after deuce in that game"
+     }
+    ],
+    "explanation": {
+     "surface": "A general picks rallying points where his side will have the upper hand.",
+     "definitionFit": "Tennis is played on courts, rallies are its long exchanges, and 'advantage' is its scoring term after deuce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rallying"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +270,45 @@
     "text": "Sacked - report to follow",
     "enumeration": "5"
    },
-   "solution": "FIRED"
+   "solution": "FIRED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIRED",
+    "definitions": [
+     {
+      "text": "Sacked",
+      "at": 0
+     },
+     {
+      "text": "report to follow",
+      "at": 9,
+      "note": "describes a gun that has been shot, whose bang follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sacked",
+      "note": "first meaning: dismissed from a job"
+     },
+     {
+      "clueFragment": "report to follow",
+      "note": "second meaning: a gun discharged, its report, the bang, following"
+     }
+    ],
+    "explanation": {
+     "surface": "An employee has been dismissed, and a written report will come later.",
+     "walkthrough": "'Report' looks like paperwork about the dismissal; it is the loud crack of a gun going off.",
+     "definitionFit": "The word means dismissed from employment and also discharged, as a weapon whose bang then follows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +322,50 @@
     "text": "No minster can be intimate",
     "enumeration": "9"
    },
-   "solution": "INNERMOST"
+   "solution": "INNERMOST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INNERMOST",
+    "definitions": [
+     {
+      "text": "intimate",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be",
+      "for": "anagram",
+      "note": "'can be' says the letters could become something else when rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No minster",
+      "gives": "NOMINSTER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOMINSTER",
+       "gives": "INNERMOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that no cathedral can feel cosy or personal.",
+     "definitionFit": "Innermost feelings are the most private and personal, which is what intimate describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minster"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +379,39 @@
     "text": "Gained point of no return",
     "enumeration": "4"
    },
-   "solution": "ACED"
+   "solution": "ACED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ACED",
+    "definitions": [
+     {
+      "text": "Gained point of no return",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point of no return",
+      "note": "surface reading: the stage past which turning back is impossible"
+     },
+     {
+      "clueFragment": "Gained point",
+      "note": "setter's reading: in tennis a serve the opponent cannot return wins a point outright"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reached the moment beyond which there is no going back.",
+     "definitionFit": "A tennis player who serves an untouchable ball wins the point without any return being made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +425,70 @@
     "text": "A bosom friend - one in study by fine poet",
     "enumeration": "10"
    },
-   "solution": "CONFIDANTE"
+   "solution": "CONFIDANTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONFIDANTE",
+    "definitions": [
+     {
+      "text": "A bosom friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'one in' places the single letter inside the pair of pieces that follow"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is to study or learn by heart"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencils"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "DANTE",
+      "note": "Dante Alighieri, the Italian poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "F",
+      "I",
+      "DANTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A close friend sits in a study beside a talented poet.",
+     "walkthrough": "The numeral for one sits between F and the Italian poet, and CON stands next to that group.",
+     "definitionFit": "A confidante is a trusted woman to whom secrets are told, exactly a bosom friend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +502,40 @@
     "text": "Country type lacking self-control",
     "enumeration": "10"
    },
-   "solution": "DEPENDENCY"
+   "solution": "DEPENDENCY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEPENDENCY",
+    "definitions": [
+     {
+      "text": "Country type lacking self-control",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lacking self-control",
+      "note": "surface reading: a kind of person with no restraint, a rustic sort"
+     },
+     {
+      "clueFragment": "Country type",
+      "note": "setter's reading: a kind of territory that does not govern itself but is ruled by another state"
+     }
+    ],
+    "explanation": {
+     "surface": "A rural character who cannot restrain themselves.",
+     "walkthrough": "'Country type' suggests a rustic person; it is a category of nation, and 'self-control' means self-government.",
+     "definitionFit": "A colony or territory ruled from elsewhere, without its own sovereign government, is called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +555,48 @@
      }
     ]
    },
-   "solution": "GROUNDRENT"
+   "solution": "GROUNDRENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROUND RENT",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     },
+     {
+      "text": "landslide damage",
+      "at": 11,
+      "note": "read as earth that has been torn"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "note": "first meaning: a yearly fee paid to a freeholder for the land a building stands on"
+     },
+     {
+      "clueFragment": "landslide damage",
+      "note": "second meaning, read literally: earth that has been torn apart"
+     }
+    ],
+    "explanation": {
+     "surface": "A bill presented for repairing the havoc a landslide caused.",
+     "walkthrough": "The joke reads the answer as earth that has been torn, while it is really a fee for land.",
+     "definitionFit": "Leaseholders pay a yearly sum to the freeholder for the plot under their property, so it is a charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "landslide"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +610,41 @@
     "text": "Game cry as ace follows ace, perhaps",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     },
+     {
+      "text": "cry as ace follows ace, perhaps",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "note": "first meaning: a children's card game"
+     },
+     {
+      "clueFragment": "cry as ace follows ace, perhaps",
+      "note": "second meaning: the shout in that game when two matching cards are turned up one after another"
+     }
+    ],
+    "explanation": {
+     "surface": "A shout raised at a card table when one ace lands on another.",
+     "definitionFit": "Players call out the game's own name when two cards of equal rank appear consecutively, so the name is both pastime and shout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +658,54 @@
     "text": "So mergers can be misinterpreted by dismal Jimmies",
     "enumeration": "12"
    },
-   "solution": "SCAREMONGERS"
+   "solution": "SCAREMONGERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCAREMONGERS",
+    "definitions": [
+     {
+      "text": "dismal Jimmies",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "be misinterpreted",
+      "for": "anagram",
+      "note": "something misinterpreted is read the wrong way, so the letters are taken in a different order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So mergers can",
+      "gives": "SOMERGERSCAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMERGERSCAN",
+       "gives": "SCAREMONGERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pessimists may twist the meaning of company mergers.",
+     "walkthrough": "A dismal Jimmy is an informal name for a gloomy person who always expects the worst.",
+     "definitionFit": "People who spread alarming rumours and predict disaster are gloomy pessimists, which is what dismal Jimmies are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +719,57 @@
     "text": "Leading astray when married is by the way",
     "enumeration": "12"
    },
-   "solution": "MISDIRECTION"
+   "solution": "MISDIRECTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISDIRECTION",
+    "definitions": [
+     {
+      "text": "Leading astray",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the way",
+      "gives": "DIRECTION",
+      "note": "a direction is the way one goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "DIRECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks, in passing, that marriage involves deception.",
+     "walkthrough": "'By the way' reads as the idiom 'incidentally', but 'by' only joins, and 'the way' is a route.",
+     "definitionFit": "Sending someone the wrong way, or deliberately distracting them, is the act of leading astray."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +789,40 @@
      }
     ]
    },
-   "solution": "SCRAPBOOKS"
+   "solution": "SCRAPBOOKS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCRAP-BOOKS",
+    "definitions": [
+     {
+      "text": "Boxing record holders?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boxing record holders?",
+      "note": "surface reading: champions who hold records in the ring"
+     },
+     {
+      "clueFragment": "Boxing",
+      "note": "setter's reading: a fight or scrap plus the volumes that keep records, albums of cuttings"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the title holders of the boxing world.",
+     "walkthrough": "A scrap is a fight, so the hyphenated parts read as fight volumes, while the whole is an album of pasted cuttings.",
+     "definitionFit": "These albums hold pasted clippings and souvenirs, keeping a record, and their first half is a word for a fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "holders"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +836,50 @@
     "text": "Trade ideas for making things we need",
     "enumeration": "10"
    },
-   "solution": "DESIDERATA"
+   "solution": "DESIDERATA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESIDERATA",
+    "definitions": [
+     {
+      "text": "things we need",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for making",
+      "for": "anagram",
+      "note": "making something out of material means reshaping it, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trade ideas",
+      "gives": "TRADEIDEAS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRADEIDEAS",
+       "gives": "DESIDERATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exchanging ideas in order to produce the goods we require.",
+     "definitionFit": "The Latin plural means things desired or required, essentials that are wanted or lacking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trade"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +893,40 @@
     "text": "Sign on staff for increasing output?",
     "enumeration": "9"
    },
-   "solution": "CRESCENDO"
+   "solution": "CRESCENDO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CRESCENDO",
+    "definitions": [
+     {
+      "text": "Sign on staff for increasing output?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign on staff for increasing output?",
+      "note": "surface reading: hire more employees to raise production"
+     },
+     {
+      "clueFragment": "Sign on staff",
+      "note": "setter's reading: a marking on a musical stave telling players to grow gradually louder"
+     }
+    ],
+    "explanation": {
+     "surface": "A factory manager plans to recruit more workers to boost production.",
+     "walkthrough": "A staff (or stave) is the set of five lines music is written on, and output here is volume of sound.",
+     "definitionFit": "It is the musical instruction, often written as a widening hairpin, for a gradual rise in loudness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +937,7 @@
    },
    "length": 9,
    "clue": {
-    "text": "Knight going to ground - a narrow' escape",
+    "text": "Knight going to ground - a narrow escape",
     "enumeration": "4,5",
     "separators": [
      {
@@ -289,7 +946,46 @@
      }
     ]
    },
-   "solution": "NEARTHING"
+   "solution": "NEARTHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEAR THING",
+    "definitions": [
+     {
+      "text": "a narrow escape",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "going to ground",
+      "gives": "EARTHING",
+      "note": "a fox earths when it goes to ground in its burrow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EARTHING"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight dives to the ground and narrowly escapes.",
+     "definitionFit": "A close call, where disaster was only just avoided, is a common phrase for a narrow escape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Knight"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +999,47 @@
     "text": "Study English author",
     "enumeration": "5"
    },
-   "solution": "READE"
+   "solution": "READE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "READE",
+    "definitions": [
+     {
+      "text": "author",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "READ",
+      "note": "to read a subject is to study it at university"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READ",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to study an English writer.",
+     "walkthrough": "'English author' looks like one phrase, but English gives a letter and only author is the definition.",
+     "definitionFit": "Charles Reade was a Victorian novelist, author of The Cloister and the Hearth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1053,58 @@
     "text": "Finish in gold as farewell gesture",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "farewell gesture",
+      "at": 18,
+      "note": "the word is a spoken farewell rather than a gesture"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first piece inside the second"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "Finish",
+      "gives": "DIE",
+      "note": "to die is to come to an end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DIE",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Finishing a race in gold position as a way of signing off.",
+     "definitionFit": "The French word for goodbye is used in English as a formal farewell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1118,44 @@
     "text": "The inevitable weapon",
     "enumeration": "9"
    },
-   "solution": "AUTOMATIC"
+   "solution": "AUTOMATIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AUTOMATIC",
+    "definitions": [
+     {
+      "text": "inevitable",
+      "at": 4
+     },
+     {
+      "text": "weapon",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inevitable",
+      "note": "first meaning: following necessarily, bound to happen"
+     },
+     {
+      "clueFragment": "weapon",
+      "note": "second meaning: a gun that keeps firing while the trigger is held"
+     }
+    ],
+    "explanation": {
+     "surface": "A gloomy reference to a weapon that cannot be avoided.",
+     "definitionFit": "Something that happens as a matter of course is unavoidable, and a self-loading firearm goes by the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1175,39 @@
      }
     ]
    },
-   "solution": "BREATHTAKING"
+   "solution": "BREATHTAKING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BREATH-TAKING",
+    "definitions": [
+     {
+      "text": "Descriptive of runner's view of the London marathon?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Descriptive of runner's view of the London marathon?",
+      "note": "surface reading: the stunning sights along the route through London"
+     },
+     {
+      "clueFragment": "runner's view",
+      "note": "setter's reading: what the race does to the runner's lungs, leaving them gasping"
+     }
+    ],
+    "explanation": {
+     "surface": "Describing what a London marathon runner sees on the way round.",
+     "definitionFit": "The word means stunning or spectacular, and literally describes something that robs you of air, as 26 miles does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "view"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1221,40 @@
     "text": "Not out of the wood say",
     "enumeration": "5"
    },
-   "solution": "KNURR"
+   "solution": "KNURR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KNURR",
+    "definitions": [
+     {
+      "text": "Not out of the wood say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not out of the wood",
+      "note": "surface reading: still in danger, not yet out of the woods"
+     },
+     {
+      "clueFragment": "say",
+      "note": "setter's reading: 'say' makes the first word stand for its sound-alike, a knot, and this is a knot taken from timber"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is warned they are not out of trouble yet.",
+     "walkthrough": "'Say' marks 'Not' as standing for a sound-alike, a knot, the hard lump in a tree trunk.",
+     "definitionFit": "This rare dialect word means a knot or knob on a tree, and it was also a wooden ball used in a northern English game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Not"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1268,44 @@
     "text": "Sorcerers use a bit of imagination",
     "enumeration": "4"
    },
-   "solution": "MAGI"
+   "solution": "MAGI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MAGI",
+    "definitions": [
+     {
+      "text": "Sorcerers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "hidden_word",
+      "note": "a bit of a word is a run of its letters taken from inside it"
+     }
+    ],
+    "linkWords": [
+     "use"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "imagination",
+      "gives": "MAGI",
+      "note": "the second to fifth letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Wizards rely on a little imagination.",
+     "definitionFit": "The plural of magus means wise men or magicians, practitioners of magic and sorcery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1319,49 @@
     "text": "The author of Household Management's finishing school?",
     "enumeration": "4"
    },
-   "solution": "ETON"
+   "solution": "ETON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETON",
+    "definitions": [
+     {
+      "text": "school",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishing",
+      "for": "deletion",
+      "note": "the finishing part of a name is its end, so its front is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The author of Household Management's",
+      "gives": "BEETON",
+      "note": "Mrs Beeton wrote the famous Victorian Book of Household Management"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETON"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether Mrs Beeton ran a finishing school for young ladies.",
+     "walkthrough": "A finishing school teaches social graces to girls; here 'finishing' takes the last four letters of BEETON, giving the boys' school ETON.",
+     "definitionFit": "Eton College near Windsor is England's best-known private boarding school for boys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "finishing"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1375,51 @@
     "text": "Figure for eggs per pound",
     "enumeration": "4"
    },
-   "solution": "OVAL"
+   "solution": "OVAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVAL",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "per"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eggs",
+      "gives": "OVA",
+      "note": "ova is the Latin plural for eggs"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the abbreviation for a pound, from libra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The price of eggs per pound weight.",
+     "walkthrough": "'Figure' suggests a price; it is a shape.",
+     "definitionFit": "An egg-shaped outline is a geometric figure, rounded and longer than it is wide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1433,49 @@
     "text": "Place holder has taken commission",
     "enumeration": "10"
    },
-   "solution": "LIEUTENANT"
+   "solution": "LIEUTENANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIEUTENANT",
+    "definitions": [
+     {
+      "text": "has taken commission",
+      "at": 13,
+      "note": "describes the officer: one who holds a commission"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "LIEU",
+      "note": "lieu is French for place, as in 'in lieu of'"
+     },
+     {
+      "clueFragment": "holder",
+      "gives": "TENANT",
+      "note": "a tenant holds land or property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIEU",
+      "TENANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Whoever is keeping a seat has accepted a fee for doing so.",
+     "walkthrough": "The rank literally means placeholder, a deputy standing in place of a superior.",
+     "definitionFit": "This officer rank is conferred by a commission, so its holder is someone who has taken one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "commission"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1489,56 @@
     "text": "Pickwick swallows hard humbug",
     "enumeration": "4"
    },
-   "solution": "SHAM"
+   "solution": "SHAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHAM",
+    "definitions": [
+     {
+      "text": "humbug",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "whatever swallows something takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pickwick",
+      "gives": "SAM",
+      "note": "Samuel Pickwick is the hero of Dickens's Pickwick Papers"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Mr Pickwick gulps down a hard boiled sweet.",
+     "walkthrough": "A humbug is a British striped peppermint sweet, which the surface uses; the definition is the other sense, a fraud.",
+     "definitionFit": "Both words mean a fraud or pretence, something not genuine that deceives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "humbug"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1552,39 @@
     "text": "An example of the best defence?",
     "enumeration": "10"
    },
-   "solution": "AGGRESSION"
+   "solution": "AGGRESSION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AGGRESSION",
+    "definitions": [
+     {
+      "text": "An example of the best defence?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the best defence",
+      "note": "surface reading: a superb defensive line or legal case"
+     },
+     {
+      "clueFragment": "An example of",
+      "note": "setter's reading: the proverb says attack is the best form of defence"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the finest defence anyone could mount.",
+     "definitionFit": "The proverb holds that attack is the best defence, and hostile attacking behaviour is this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "defence"
+    }
+   }
   }
  ]
 }
