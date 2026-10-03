@@ -1889,6 +1889,11 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16937", "5-down"): (
+        "Chaser, or *e could be a runner of course",
+        "Chaser, or 'e could be a runner of course",
+        "OCR misread: the anagram needs Cockney 'e (he) for the ninth letter",
+    ),
     ("times-16360", "5-down"): (
         "Cockney's description of Dobermann n is faulty",
         "Cockney's description of Dobermann is faulty",
@@ -2290,6 +2295,10 @@ SOURCE_CLUE_WRONG = {
         "Nearly 1( involved in theft",
         "Nearly 100 involved in theft",
         "OCR misread: the anagram needs 100, C, not 1("),
+    ("times-16768", "17-across"): (
+        "Poet accepted in society, we bear",
+        "Poet accepted in society, we hear",
+        "OCR misread: the homophone needs 'we hear', not 'we bear'"),
 }
 
 
