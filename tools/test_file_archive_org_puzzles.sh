@@ -58,6 +58,18 @@ f.SCAN_CODE = code; f._SCAN_KEY.clear()
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+check("a title run together with its \"The\" is read (1995-04-12)", [19827],
+      [n for n, _ in f.headings([line("THETIMES CROSSWORD NO 19,827")], f.TITLE)])
+f.SCAN_CODE = code - {"ocr_titles"}; f._SCAN_KEY.clear()
+check("the title OCR is in the scan key", True, f.scan_key() != key)
+f.SCAN_CODE = code; f._SCAN_KEY.clear()
+words = [(2108, 2835, 2214, 2853, "Horthern Bank Ltd"), (2504, 2828, 2845, 2869, "CROSSWORD"),
+         (2262, 2729, 2293, 2947, "*922393s93s"), (2108, 2896, 2183, 2914, "Rea Brothers"),
+         (2468, 2892, 2882, 2924, "No.7,869 Set by CINEPHILE")]
+got = [" ".join(w[4] for w in l) for l in f.printed_lines(words)]
+check("OCR words make printed lines: a column apart is its own line, a column rule read as a word "
+      "(FT 1992-06-10) does not join the title to its number line",
+      (True, True, True), ("CROSSWORD" in got, "No.7,869 Set by CINEPHILE" in got, "Rea Brothers" in got))
 check("the Sunday Times's title is not the daily's", [], f.headings([line("The Sunday Times Crossword No 2,345")], f.TITLE))
 check("the cryptic's solution heading read", [18179],
       [n for n, _ in f.headings([line("Solution to Puzzle No 18,179"), line("SOLUTION TO NO 2064")], f.SOLUTION)])
@@ -827,6 +839,28 @@ lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-8649-left"]["lines"]]
 text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
 check("the clue columns left of the grid are read, across then down",
       (True, True), (text.startswith("ACROSS\nI Footwear"), "\nDOWN\n2 Fruit" in text))
+
+# Real page crops whose archive.org text has no crossword title
+# (tools/fixtures/archive-org-titles; cases.json gives each one's scan, its
+# paper and date, and the words our readers read in each title band, so no
+# OCR runs here): the grid is found, the title read over or under it, and the
+# number is the one its date implies.
+import datetime
+tfix = Path("fixtures/archive-org-titles")
+tcases = json.loads((tfix / "cases.json").read_text())
+band_words = f.band_words
+for name, what in (("cryptic-21238", "Guardian 1998-04-02, its title over the grid's left"),
+                   ("ftcryptic-9705", "FT 1998-06-11, its number line unread"),
+                   ("ftcryptic-7869", "FT 1992-06-10, a column rule beside its title"),
+                   ("times-19801", "Times 1995-03-13, its title 250px over the grid")):
+    c = tcases[name]
+    f.band_words = lambda img, band, which, path, c=c: [tuple(w) for w in c["bands"][",".join(map(str, band))][which]]
+    paper, day = f.PAPERS[c["paper"]], datetime.date.fromisoformat(c["date"])
+    got = f.ocr_titles(Image.open(tfix / f"{name}.jpg"), paper, day, name)
+    want = int(name.split("-")[1])
+    check(f"a title archive.org's text lacks is read by ours: {what}", ([want], True),
+          ([t[0] for t in got], bool(got) and abs(got[0][0] - paper.expected(day)) <= f.NUMBER_SLACK))
+f.band_words = band_words
 
 print(f"FAILS {fails}")
 EOF
