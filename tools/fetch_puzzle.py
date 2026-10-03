@@ -2,7 +2,8 @@
 """Fetch a Guardian crossword and convert it to this app's puzzle format.
 
 Usage:
-  python3 tools/fetch_puzzle.py 30066            # fetch by number, any series
+  python3 tools/fetch_puzzle.py 30066            # fetch a cryptic (or prize) by number
+  python3 tools/fetch_puzzle.py everyman-1       # fetch any series' puzzle by id
   python3 tools/fetch_puzzle.py --latest         # newest of EVERY series (see GUARDIAN_SERIES)
   python3 tools/fetch_puzzle.py --backfill [N] [series]
                                                  # fetch the last N puzzles (default 30)
@@ -2094,8 +2095,15 @@ def fits_sequence(series, number, when):
     """Does the day `when` sit where the puzzles held either side of `number` put it?
 
     Both neighbours must be on disk within ARCHIVE_GAP numbers, so a page far
-    from the continuous run (cryptic 1,183) never qualifies.
+    from the continuous run (cryptic 1,183) never qualifies. A series' first
+    issue has nothing below it, so it qualifies when it predates every puzzle
+    of the series we hold: Everyman No 1 (1946) was republished in 2023.
     """
+    if number == series_meta.first_number(series):
+        held = [series_meta.puzzle_day(read_puzzle_file(f)) for f in puzzle_files()
+                if f.stem.startswith(f"{series}-")]
+        held = [d for d in held if d]
+        return bool(held) and when < min(held)
     def nearest(step):
         for k in range(1, ARCHIVE_GAP + 1):
             path = puzzle_path(series, number + step * k)
@@ -2821,12 +2829,18 @@ NUMBER_URL_FIXES = {
 }
 
 
-def fetch_page(num):
-    """Get a puzzle page by number, trying each series URL (cryptic, then prize)."""
+def series_urls(series):
+    """The PUZZLE_URLS a series' pages live under: the cryptic's two (the prize
+    shares its numbers), every other series its own."""
+    return [u for u in PUZZLE_URLS if series_of(u.split(".com/", 1)[1]) == series]
+
+
+def fetch_page(num, series="cryptic"):
+    """Get a puzzle page by number, trying each of the series' URLs in turn."""
     if num in NUMBER_URL_FIXES:
         return http_get(NUMBER_URL_FIXES[num][0].format(num=num))
     last = None
-    for url in PUZZLE_URLS:
+    for url in series_urls(series):
         try:
             return http_get(url.format(num=num))
         except urllib.error.HTTPError as err:
@@ -2836,16 +2850,19 @@ def fetch_page(num):
     raise last
 
 
-def check_served(num, data):
-    """Refuse a page that is not the one /crosswords/{cryptic,prize}/<num> was
-    asked for: its own id or number names another puzzle."""
+def check_served(num, data, series="cryptic"):
+    """Refuse a page that is not the one asked for: its own id or number names
+    another puzzle, or another series."""
     if num in NUMBER_URL_FIXES:
         return
-    m = re.fullmatch(r"crosswords/(cryptic|prize)/(\d+)", data.get("id") or "")
-    if not m or int(m.group(2)) != num or data.get("number") != num:
+    page_id = data.get("id") or ""
+    m = re.fullmatch(r"crosswords/(cryptic|prize|quiptic|everyman)/(\d+)", page_id)
+    if (not m or int(m.group(2)) != num or data.get("number") != num
+            or series_of(page_id) != series):
+        asked = "cryptic/prize" if series == "cryptic" else series
         raise ValueError(
-            f"requested cryptic/prize {num} but the page served "
-            f"{data.get('id')!r} number {data.get('number')!r} — refusing it")
+            f"requested {asked} {num} but the page served "
+            f"{page_id!r} number {data.get('number')!r} — refusing it")
 
 
 _CLUE_INDEX = None
@@ -2870,9 +2887,9 @@ def check_not_copy(puzzle):
             f"{other} ({shared} of {m} clues are the same) — refusing to file a copy")
 
 
-def fetch_number(num):
-    data = extract_crossword_data(fetch_page(num))
-    check_served(num, data)
+def fetch_number(num, series="cryptic"):
+    data = extract_crossword_data(fetch_page(num, series))
+    check_served(num, data, series)
     data["cluePageInstructions"] = fetch_clue_page_instructions(data.get("instructions"))
     if num in NUMBER_URL_FIXES:
         forced_number = NUMBER_URL_FIXES[num][1]
@@ -2912,7 +2929,7 @@ def walk(numbers, series, what="backfill"):
             skipped += 1
             continue
         try:
-            fetch_number(num)
+            fetch_number(num, series)
             fetched += 1
         except urllib.error.HTTPError as err:
             # http_bytes has already backed off four times by here, so this is
@@ -3164,6 +3181,10 @@ def main(argv):
         if not got:
             return 1
         print(" ".join(got))
+        return 0
+    m = re.fullmatch(r"([a-z]+)-(\d+)", argv[0])
+    if m and m.group(1) in GUARDIAN_SERIES:
+        fetch_number(int(m.group(2)), m.group(1))
         return 0
     m = re.search(r"(\d{3,})", argv[0])
     if not m:

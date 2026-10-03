@@ -6,6 +6,10 @@
     python3 tools/extend_archive.py --target 80 # override the measured target
     python3 tools/extend_archive.py --all       # walk every source to its floor
 
+Every run first asks each series' source for its No 1 while we lack it
+(tools/first_issue.py): a walk backwards stops where its source runs out, and a
+first issue is often far below that.
+
 The papers publish four or five puzzles a day between them; a good week of the
 pre-reset burn annotates far more than that. Left alone the queue therefore
 empties, and a burn with nothing to annotate spends the rest of its five-hour
@@ -123,6 +127,11 @@ def main():
                     help="commit each round that fetched something")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
+
+    first = ["python3", "tools/first_issue.py"] + (["--dry-run"] if args.dry_run else [])
+    subprocess.run(first)
+    if args.commit and not args.dry_run:
+        commit("first issues")
 
     done = annotated_ids()
     have = backlog(done)

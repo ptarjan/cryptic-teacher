@@ -48,6 +48,8 @@ import re
 #   date, YYYYMMDD once this prefix is put in front of it ("" for a YYYYMMDD
 #   number, "19" for YYMMDD). Every reader-facing name shows the day instead
 #   (number_date()); "No 20,260,922" is a date with thousands separators.
+# firstIssue — the number the series' first puzzle printed under, when that is
+#   not 1. first_number() reads it.
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -207,6 +209,7 @@ SERIES = {
         # It ran from 20,000 to 20,278 (November 2023); from 274 (May 2024) it
         # is numbered afresh. Each numbering's dates rise on their own.
         "renumberedBelow": 20000,
+        "firstIssue": 20000,
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
         "datedFromNeighbours": True,
@@ -477,6 +480,26 @@ def unlisted(series):
     app.js marks them noindex when one is open.
     """
     return bool(meta(series).get("unlisted"))
+
+
+def first_number(series):
+    """The number the series' first puzzle printed under (Paul, 2026-10-02:
+    "Puzzle 1 is a special puzzle"): `firstIssue`, else 1. None where the
+    series has no first issue of its own: a number that is a date, a reprint
+    under another series' numbers, the book shelf (each book is a run of
+    positions) and our own unlisted puzzles."""
+    m = meta(series)
+    if (series not in SERIES or is_book(series) or "numberIsDate" in m
+            or m.get("reprints") or m.get("unlisted")):
+        return None
+    return m.get("firstIssue", 1)
+
+
+def is_first_issue(pid):
+    """Whether the id names its series' first puzzle. False for anything that
+    is not <series>-<number>."""
+    m = re.fullmatch(r"([a-z0-9]+)-(\d+)", str(pid))
+    return bool(m) and int(m.group(2)) == first_number(m.group(1))
 
 
 def kind(series, number=None):
