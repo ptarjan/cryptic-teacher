@@ -23,6 +23,9 @@
   "date": "2024-01-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,46 @@
     "text": "Winning gamble — result!",
     "enumeration": "6"
    },
-   "solution": "UPSHOT"
+   "solution": "UPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSHOT",
+    "definitions": [
+     {
+      "text": "result",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winning",
+      "gives": "UP",
+      "note": "a side that is up is ahead, winning"
+     },
+     {
+      "clueFragment": "gamble",
+      "gives": "SHOT",
+      "note": "a shot is an attempt or punt, a gamble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "SHOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter celebrates a bet that has come off.",
+     "definitionFit": "The upshot is the final outcome or consequence of events, a standard synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "result"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +92,56 @@
     "text": "Book one has expert on cheese",
     "enumeration": "9"
    },
-   "solution": "PROVOLONE"
+   "solution": "PROVOLONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROVOLONE",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "PRO",
+      "note": "a pro is a professional, an expert"
+     },
+     {
+      "clueFragment": "Book",
+      "gives": "VOL",
+      "note": "vol is the abbreviation for volume"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "VOL",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Volume one of a book contains an expert's take on cheese.",
+     "walkthrough": "In a down clue 'on' means placed above, so the expert comes first.",
+     "definitionFit": "Provolone is a mild Italian stretched-curd cheese made from cow's milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +155,72 @@
     "text": "Move south and north touring old US city",
     "enumeration": "7"
    },
-   "solution": "HOUSTON"
+   "solution": "HOUSTON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HOUSTON",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Move",
+      "for": "anagram",
+      "note": "moving letters around puts them in a new order"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "a tour goes around a place, so the jumbled letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "south",
+      "gives": "SOUTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUST",
+      "O",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOUTHN",
+       "gives": "HOUSTN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller heads south then north on a tour of an old American city.",
+     "walkthrough": "'South' reads as a direction to move in, but it is the letters to rearrange.",
+     "definitionFit": "Houston is a major city in Texas in the United States, home of NASA's mission control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "south"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +234,43 @@
     "text": "Draw string",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIE",
+    "definitions": [
+     {
+      "text": "Draw",
+      "at": 0
+     },
+     {
+      "text": "string",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Draw",
+      "note": "first meaning: a match with no winner"
+     },
+     {
+      "clueFragment": "string",
+      "note": "second meaning: to fasten with a cord"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Draw string' reads as a drawstring cord; the two words are separate meanings.",
+     "definitionFit": "The word means a game ending level and also to bind or knot something with cord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Draw"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +284,67 @@
     "text": "Brown has muzzled dog, keeping it quiet",
     "enumeration": "8"
    },
-   "solution": "TACITURN"
+   "solution": "TACITURN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TACITURN",
+    "definitions": [
+     {
+      "text": "quiet",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has muzzled",
+      "for": "container",
+      "note": "a muzzle closes round a mouth, so the colour word wraps around what follows"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside, so the dog word holds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "C",
+      "IT",
+      "UR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Brown silences a noisy dog by muzzling it.",
+     "walkthrough": "Two containers nest: the dog keeps 'it', and the colour muzzles the dog.",
+     "definitionFit": "A taciturn person says very little, reserved and uncommunicative in manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +358,53 @@
     "text": "With all players expressing disapproval, sending off no good",
     "enumeration": "5"
    },
-   "solution": "TUTTI"
+   "solution": "TUTTI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TUTTI",
+    "definitions": [
+     {
+      "text": "With all players",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sending off",
+      "for": "deletion",
+      "note": "sending off removes a player from the field, so those letters are dismissed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expressing disapproval",
+      "gives": "TUTTING",
+      "note": "tutting is clicking the tongue in disapproval"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUTTI"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee disapproves of everyone on the pitch and sends off an incompetent player.",
+     "walkthrough": "The football picture hides a musical term; NG is removed from TUTTING.",
+     "definitionFit": "Tutti is an Italian musical direction meaning the whole orchestra plays together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +424,56 @@
      }
     ]
    },
-   "solution": "COFFEETABLE"
+   "solution": "COFFEETABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COFFEE TABLE",
+    "definitions": [
+     {
+      "text": "Furniture item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing something means holding it fast, so the rope word holds the next phrase inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rope",
+      "gives": "CABLE",
+      "note": "a cable is a thick rope"
+     },
+     {
+      "clueFragment": "pedal",
+      "gives": "OFFEET",
+      "note": "pedal as an adjective means of feet, as in pedal extremities"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OFFEET",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ties a rope round a bicycle pedal.",
+     "walkthrough": "Pedal looks like a noun (bike part) but is the adjective meaning relating to the feet, giving OF FEET inside C...ABLE.",
+     "definitionFit": "A coffee table is a low table placed in front of a sofa in a living room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pedal"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +487,58 @@
     "text": "Laugh, glugging whiskey in state of excitement",
     "enumeration": "7"
    },
-   "solution": "TWITTER"
+   "solution": "TWITTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TWITTER",
+    "definitions": [
+     {
+      "text": "state of excitement",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "glugging",
+      "for": "container",
+      "note": "glugging is drinking down, so the laugh word takes in the drink"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laugh",
+      "gives": "TITTER",
+      "note": "a titter is a nervous laugh"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "Whiskey is W in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "ITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laughs while gulping whiskey, getting worked up.",
+     "walkthrough": "W goes inside TITTER after T.",
+     "definitionFit": "To be in a twitter is to be in a nervous flutter or agitated state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +552,43 @@
     "text": "Measure sovereign",
     "enumeration": "5"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RULER",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     },
+     {
+      "text": "sovereign",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "note": "first meaning: a straight edge marked for measuring"
+     },
+     {
+      "clueFragment": "sovereign",
+      "note": "second meaning: a monarch who governs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Measure sovereign' looks like weighing a gold coin; the words are two meanings.",
+     "definitionFit": "The word is both a marked strip for measuring length and a king or queen who reigns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +602,55 @@
     "text": "Greek character in second statue?",
     "enumeration": "8"
    },
-   "solution": "MONUMENT"
+   "solution": "MONUMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONUMENT",
+    "definitions": [
+     {
+      "text": "statue?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MOMENT",
+      "note": "a second is a brief moment"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is the thirteenth letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NU",
+      "MENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure appears briefly, like a living statue.",
+     "walkthrough": "The question mark is there because a statue is only one kind of the thing defined.",
+     "definitionFit": "A statue erected to commemorate someone is one example of a public memorial structure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +664,65 @@
     "text": "Fancy horse that’s hugging rails initially",
     "enumeration": "6"
    },
-   "solution": "FRILLY"
+   "solution": "FRILLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FRILLY",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the preceding word"
+     },
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap arms around, so the horse word encloses the kept letter"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "FILLY",
+      "note": "a filly is a young female horse"
+     },
+     {
+      "clueFragment": "rails",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of rails"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "ILLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A racegoer fancies a horse that keeps close to the running rails.",
+     "walkthrough": "'Fancy horse' reads as a verb and its object; fancy is in fact the adjective defined.",
+     "definitionFit": "Frilly clothing is decorated with ruffles and trimmings, so ornate and elaborate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +742,53 @@
      }
     ]
    },
-   "solution": "POSTOFFICE"
+   "solution": "POSTOFFICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POST OFFICE",
+    "definitions": [
+     {
+      "text": "building on high street?",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "POST",
+      "note": "to post someone is to place or station them"
+     },
+     {
+      "clueFragment": "no longer functions",
+      "gives": "OFF",
+      "note": "a machine that is off is not working"
+     },
+     {
+      "clueFragment": "decorate",
+      "gives": "ICE",
+      "note": "to ice a cake is to decorate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POST",
+      "OFF",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A defunct local amenity is spruced up while it no longer works.",
+     "walkthrough": "The surface laments closures of high-street services, which the answer is a famous example of.",
+     "definitionFit": "Post offices are typical premises found in a British town's main shopping street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +808,62 @@
      }
     ]
    },
-   "solution": "FIRSTCOUSIN"
+   "solution": "FIRSTCOUSIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FIRST COUSIN",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbed out",
+      "for": "deletion",
+      "note": "rubbing out erases, so those letters are removed from the text that follows"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the remaining letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fleming, say",
+      "gives": "IAN",
+      "note": "Ian Fleming created James Bond; say marks the name as an example"
+     },
+     {
+      "clueFragment": "Russian fiction",
+      "gives": "RUSSIANFICTION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUSSFICTION",
+       "gives": "FIRSTCOUSIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Bond author is erased from a Russian novel.",
+     "walkthrough": "IAN comes out of RUSSIAN, leaving eleven letters to rearrange.",
+     "definitionFit": "A first cousin is the child of one's aunt or uncle, a family member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +877,53 @@
     "text": "Wrong pace after retirement",
     "enumeration": "4"
    },
-   "solution": "TORT"
+   "solution": "TORT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TORT",
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after retirement",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the word is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pace",
+      "gives": "TROT",
+      "note": "a trot is a running pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORT"
+     ],
+     "reversals": [
+      {
+       "from": "TROT",
+       "to": "TORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slows the pace wrongly after giving up work.",
+     "definitionFit": "In law a tort is a civil wrong for which damages can be claimed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +937,41 @@
     "text": "Something soft on the ground",
     "enumeration": "4"
    },
-   "solution": "DOWN"
+   "solution": "DOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOWN",
+    "definitions": [
+     {
+      "text": "Something soft",
+      "at": 0
+     },
+     {
+      "text": "on the ground",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something soft",
+      "note": "first meaning: fine fluffy feathers"
+     },
+     {
+      "clueFragment": "on the ground",
+      "note": "second meaning: fallen or floored"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a soft landing; the two phrases are separate meanings.",
+     "definitionFit": "The word names a bird's fine under-feathers and also describes a boxer floored or a plane landed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +991,63 @@
      }
     ]
    },
-   "solution": "RIGHTBRAIN"
+   "solution": "RIGHTBRAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIGHT BRAIN",
+    "definitions": [
+     {
+      "text": "half one’s loaf?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has cut",
+      "for": "container",
+      "note": "a thing that cuts into something sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OK",
+      "gives": "RIGHT",
+      "note": "right as in all right, OK"
+     },
+     {
+      "clueFragment": "source of fibre",
+      "gives": "BRAN",
+      "note": "bran is a dietary source of fibre"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT",
+      "BRA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker is fine with halving a fibre-rich loaf.",
+     "walkthrough": "Loaf is slang for head, as in 'use your loaf', and the brain has two hemispheres; I goes inside BRAN.",
+     "definitionFit": "The right hemisphere is one of two halves of the brain inside a person's head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "loaf"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1061,43 @@
     "text": "Fish swimming around hooks",
     "enumeration": "3"
    },
-   "solution": "GAR"
+   "solution": "GAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GAR",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hooks",
+      "for": "hidden_word",
+      "note": "to hook is to catch, so the phrase catches the answer within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swimming around",
+      "gives": "GAR",
+      "note": "the letters spanning the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish swimming about takes the bait.",
+     "walkthrough": "Hooks looks like a noun, fishing tackle, but it is a verb meaning catches.",
+     "definitionFit": "The gar is a long-snouted freshwater fish of North America with needle-like teeth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hooks"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1111,73 @@
     "text": "Clever voiding of guarantee, unions I suspect defending it",
     "enumeration": "9"
    },
-   "solution": "INGENIOUS"
+   "solution": "INGENIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "INGENIOUS",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voiding of",
+      "for": "letter_selection",
+      "note": "voiding empties out, so only the two end letters remain"
+     },
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dodgy, so the letters are not to be trusted in this order"
+     },
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defenders stand round what they protect, so the jumbled letters surround the kept pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guarantee",
+      "gives": "GE",
+      "select": "outer",
+      "note": "first and last letters of guarantee"
+     },
+     {
+      "clueFragment": "unions I",
+      "gives": "UNIONSI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "GE",
+      "NIOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNIONSI",
+       "gives": "INNIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suspects unions of defending a cancelled guarantee by a clever ruse.",
+     "definitionFit": "Ingenious means inventive and resourceful, showing originality and skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1191,66 @@
     "text": "Courage is lacking in this mug, lovely chap?",
     "enumeration": "10"
    },
-   "solution": "HEARTTHROB"
+   "solution": "HEARTTHROB",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HEARTTHROB",
+    "definitions": [
+     {
+      "text": "lovely chap?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is lacking in",
+      "for": "deletion",
+      "note": "lacking means without, so those two letters are taken out of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Courage",
+      "gives": "HEART",
+      "note": "heart means bravery"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written, before losing two letters"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the letters removed"
+     },
+     {
+      "clueFragment": "mug",
+      "gives": "ROB",
+      "note": "to mug someone is to rob them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEART",
+      "TH",
+      "ROB"
+     ]
+    },
+    "explanation": {
+     "surface": "A bruiser who robs people lacks real courage, despite being called lovely.",
+     "walkthrough": "Mug looks like a face or cup; here it is a verb.",
+     "definitionFit": "A heartthrob is a handsome man whom many admirers find attractive and swoon over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1264,61 @@
     "text": "Italian maestro edges away from junction, heading for Italy",
     "enumeration": "7"
    },
-   "solution": "ROSSINI"
+   "solution": "ROSSINI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSSINI",
+    "definitions": [
+     {
+      "text": "Italian maestro",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges away from",
+      "for": "deletion",
+      "note": "with its edges gone, the word loses its first and last letters"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is at the top, so the first letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "junction",
+      "gives": "CROSSING",
+      "note": "a crossing is a junction of roads or rails"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSSIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian conductor edges away from a road junction, heading for home.",
+     "definitionFit": "Gioachino Rossini was the Italian composer of The Barber of Seville and William Tell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1332,44 @@
     "text": "Writer of silent work shut up",
     "enumeration": "4"
    },
-   "solution": "CAGE"
+   "solution": "CAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAGE",
+    "definitions": [
+     {
+      "text": "Writer of silent work",
+      "at": 0
+     },
+     {
+      "text": "shut up",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer of silent work",
+      "note": "first meaning: the American composer of 4'33\", a piece of silence"
+     },
+     {
+      "clueFragment": "shut up",
+      "note": "second meaning: to confine, as an animal"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer of silent work is told to be quiet.",
+     "walkthrough": "'Shut up' sounds like an order to be quiet but means to confine. John Cage wrote 4'33\", in which the performer plays nothing.",
+     "definitionFit": "The surname names the composer of a silent piece, and the verb means to imprison behind bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shut"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1383,71 @@
     "text": "English accessing castle, tipsy — is one hammered?",
     "enumeration": "7"
    },
-   "solution": "CELESTA"
+   "solution": "CELESTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CELESTA",
+    "definitions": [
+     {
+      "text": "one hammered?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tipsy",
+      "for": "anagram",
+      "note": "a tipsy person is unsteady, so the letters stagger into a new order"
+     },
+     {
+      "text": "accessing",
+      "for": "container",
+      "note": "accessing means getting inside, so the letter goes within the others"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "castle",
+      "gives": "CASTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CEL",
+      "E",
+      "STA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASTLE",
+       "gives": "CELSTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman gets into a castle drunk and asks whether someone is hammered.",
+     "walkthrough": "Hammered looks like slang for drunk, matching tipsy; it actually describes an instrument whose hammers strike metal bars.",
+     "definitionFit": "A celesta is a keyboard instrument in which felt hammers strike steel plates, heard in the Sugar Plum Fairy dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hammered"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1461,60 @@
     "text": "A musical, but not a book",
     "enumeration": "4"
    },
-   "solution": "ACTS"
+   "solution": "ACTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ACTS",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding, so the following letter is removed from the show name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "CATS",
+      "note": "Lloyd Webber's long-running musical"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recommends a musical rather than reading.",
+     "walkthrough": "'Not a book' seems to reject reading; actually book is the definition, and only the letter a is dropped.",
+     "definitionFit": "The Acts of the Apostles is the fifth book of the New Testament in the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1528,48 @@
     "text": "Island oddly curved then",
     "enumeration": "5"
    },
-   "solution": "CRETE"
+   "solution": "CRETE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CRETE",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the odd-numbered letters, first, third, fifth and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curved then",
+      "gives": "CRETE",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "An island's coastline curves in an odd way.",
+     "definitionFit": "Crete is the largest Greek island, in the Mediterranean south of the mainland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1593,44 @@
      }
     ]
    },
-   "solution": "ONTHEBLINK"
+   "solution": "ONTHEBLINK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE BLINK",
+    "definitions": [
+     {
+      "text": "About to fail",
+      "at": 0
+     },
+     {
+      "text": "like one’s indicators?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About to fail",
+      "note": "first meaning: malfunctioning, on its last legs"
+     },
+     {
+      "clueFragment": "like one’s indicators?",
+      "note": "second meaning, cryptic: car turn signals flash on and off"
+     }
+    ],
+    "explanation": {
+     "surface": "A worried driver suspects the car is failing.",
+     "walkthrough": "The second meaning is a whimsical literal reading of the idiom, hence the question mark.",
+     "definitionFit": "The idiom describes equipment working erratically and close to breaking down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "indicators"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1644,61 @@
     "text": "Skyscraper, say, erected on what?",
     "enumeration": "5"
    },
-   "solution": "TOWER"
+   "solution": "TOWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TOWER",
+    "definitions": [
+     {
+      "text": "Skyscraper, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erected",
+      "for": "reversal",
+      "note": "in a down clue, erected means set upright, so the letters read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "WOT",
+      "note": "wot is a jocular spelling of what"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOW",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REWOT",
+       "to": "TOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puzzles over what a skyscraper was built on.",
+     "walkthrough": "'Say' marks a skyscraper as one example of the defined thing.",
+     "definitionFit": "A skyscraper is a very tall building, an example of a tower rising high above its surroundings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "erected"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1712,62 @@
     "text": "Fines collected, last of those stuffed into trousers",
     "enumeration": "6"
    },
-   "solution": "LEVIES"
+   "solution": "LEVIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LEVIES",
+    "definitions": [
+     {
+      "text": "Fines collected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of points to the final letter of the next word"
+     },
+     {
+      "text": "stuffed into",
+      "for": "container",
+      "note": "stuffed into means packed inside something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers",
+      "gives": "LEVIS",
+      "note": "Levi's are a brand of jeans"
+     },
+     {
+      "clueFragment": "those",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of those"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVI",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Collected fines are crammed into a pair of trousers.",
+     "walkthrough": "E goes inside LEVIS between the I and the S.",
+     "definitionFit": "Levies are charges imposed and gathered by an authority, so sums of money taken as penalties or taxes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1781,57 @@
     "text": "Course that’s hard in Notts town",
     "enumeration": "8"
    },
-   "solution": "WORKSHOP"
+   "solution": "WORKSHOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WORKSHOP",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is surrounded by it"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notts town",
+      "gives": "WORKSOP",
+      "note": "Worksop is a market town in Nottinghamshire"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORKS",
+      "H",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A demanding course is held in a Nottinghamshire town.",
+     "walkthrough": "Notts is the usual short form of Nottinghamshire, an English county in the Midlands.",
+     "definitionFit": "A workshop is a short practical training session or class on a particular subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1845,47 @@
     "text": "Mythical bird bigger, so gigantic ultimately",
     "enumeration": "3"
    },
-   "solution": "ROC"
+   "solution": "ROC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ROC",
+    "definitions": [
+     {
+      "text": "Mythical bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bigger, so gigantic",
+      "gives": "ROC",
+      "select": "last",
+      "note": "the final letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROC"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary bird is described as huge and growing.",
+     "definitionFit": "The roc is a giant bird of Arabian legend, said to carry off elephants in the Sinbad stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1899,50 @@
     "text": "Ask for private trainee",
     "enumeration": "8"
    },
-   "solution": "BEGINNER"
+   "solution": "BEGINNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEGINNER",
+    "definitions": [
+     {
+      "text": "trainee",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ask",
+      "gives": "BEG",
+      "note": "to beg is to ask earnestly"
+     },
+     {
+      "clueFragment": "private",
+      "gives": "INNER",
+      "note": "inner thoughts are private ones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEG",
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's request on behalf of a new recruit.",
+     "walkthrough": "Private suggests a soldier, which fits trainee nicely, but it is an adjective here.",
+     "definitionFit": "A beginner is a novice just starting to learn, as an apprentice or learner is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 29,
@@ -490,7 +1956,54 @@
     "text": "Old carriage I observed in pursuit",
     "enumeration": "6"
    },
-   "solution": "CHAISE"
+   "solution": "CHAISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAISE",
+    "definitions": [
+     {
+      "text": "Old carriage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed in",
+      "for": "container",
+      "note": "something observed in a place is seen inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pursuit",
+      "gives": "CHASE",
+      "note": "a chase is a pursuit"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "I",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A narrator spots a horse-drawn carriage in a chase scene.",
+     "definitionFit": "A chaise was a light two-wheeled horse-drawn vehicle for one or two people, now historical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "observed"
+    }
+   }
   }
  ]
 }
