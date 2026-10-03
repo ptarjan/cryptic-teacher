@@ -1893,6 +1893,14 @@ SOURCE_CLUE_WRONG = {
         "Complaint of youth in 12 springtime?",
         "Complaint of youth in springtime?",
         "OCR misread: a stray '12' (the clue's own number) before 'springtime'"),
+    ("times-17016", "24-down"): (
+        "Probation can be an ordeal (5t.",
+        "Probation can be an ordeal",
+        "OCR misread: stray '(5t.' after the clue"),
+    ("times-17016", "7-down"): (
+        "7 . . . but there's one in church here",
+        ". . . but there's one in church here",
+        "OCR misread: a stray '7' before the ellipsis"),
     ("times-16414", "20-down"): (
         "Way (to scrape the ship's planking",
         "Way to scrape the ship's planking",
