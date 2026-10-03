@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Free wine - nothing left",
     "enumeration": "4"
    },
-   "solution": "SAVE"
+   "solution": "SAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SAVE",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nothing left",
+      "for": "deletion",
+      "note": "read as 'nothing has left', the zero-shaped letter departs from the wine's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "SOAVE",
+      "note": "Soave is a dry white wine from the Veneto in Italy"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice promising free wine, with a warning that none is left.",
+     "walkthrough": "SOAVE loses its O to leave SAVE; 'nothing left' reads as an instruction, not a report that the bottles are empty.",
+     "definitionFit": "To save someone is to rescue or liberate them, setting a captive loose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,62 @@
     "text": "Small group of spies with involuntary twitching - a nervous condition",
     "enumeration": "8"
    },
-   "solution": "SCIATICA"
+   "solution": "SCIATICA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCIATICA",
+    "definitions": [
+     {
+      "text": "a nervous condition",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "group of spies",
+      "gives": "CIA",
+      "note": "the CIA is the American intelligence agency"
+     },
+     {
+      "clueFragment": "involuntary twitching",
+      "gives": "TIC",
+      "note": "a tic is an involuntary muscle spasm"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CIA",
+      "TIC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A small team of spies suffers from twitches, which sounds like a nervous disorder.",
+     "walkthrough": "The 'a' does double duty in the surface but is just the final letter of the answer, leaving 'nervous condition' as the definition.",
+     "definitionFit": "Sciatica is pain along the sciatic nerve running down the leg, a complaint of the nerves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twitching"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +166,60 @@
     "text": "View travel document in Thailand? On the contrary",
     "enumeration": "5"
    },
-   "solution": "VISTA"
+   "solution": "VISTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VISTA",
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one item sits within the other; the reversal note then swaps which holds which"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "on the contrary flips the stated relation, so the country goes inside the document instead"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel document",
+      "gives": "VISA",
+      "note": "a visa is a permit stamped in a passport for entry"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle registration code for Thailand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIS",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller wonders whether a document is on view while in Thailand.",
+     "walkthrough": "As written the visa would go inside Thailand; 'On the contrary' reverses that, so T goes inside VISA.",
+     "definitionFit": "A vista is a pleasing view, especially a long one seen through an opening or avenue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +239,62 @@
      }
     ]
    },
-   "solution": "SLAGHEAP"
+   "solution": "SLAGHEAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SLAG HEAP",
+    "definitions": [
+     {
+      "text": "It's probably next to mine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boomerangs",
+      "for": "reversal",
+      "note": "a boomerang flies out and comes back, so the possessive word returns in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl's",
+      "gives": "GALS",
+      "note": "gal is an informal word for a girl, plus the possessive s"
+     },
+     {
+      "clueFragment": "collection",
+      "gives": "HEAP",
+      "note": "a heap is a pile or collection of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAG",
+      "HEAP"
+     ],
+     "reversals": [
+      {
+       "from": "GALS",
+       "to": "SLAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether a girl collects boomerangs.",
+     "walkthrough": "'Next to mine' sounds like a neighbour's possessions; here mine means a coal mine.",
+     "definitionFit": "A slag heap is the mound of waste rock dumped beside a colliery or pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +308,43 @@
     "text": "In Dublin see diesel oil producer?",
     "enumeration": "7"
    },
-   "solution": "LINSEED"
+   "solution": "LINSEED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LINSEED",
+    "definitions": [
+     {
+      "text": "oil producer?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in tells you the letters lie inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dublin see diesel",
+      "gives": "LINSEED",
+      "note": "the letters run across the end of Dublin, all of see, and the start of diesel"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone in Dublin wonders whether diesel comes from some oil source.",
+     "walkthrough": "The question mark flags that the plant is an oil producer only in an unusual sense.",
+     "definitionFit": "Linseed is flax seed, pressed to yield linseed oil used in paints and wood finishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "diesel"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +364,70 @@
      }
     ]
    },
-   "solution": "GLANDULARFEVER"
+   "solution": "GLANDULARFEVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GLANDULAR FEVER",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Labour",
+      "for": "anagram",
+      "note": "to labour over something is to work it hard, so these letters are worked into a new order"
+     },
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissing sends something away, so that letter is dropped from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unravels",
+      "gives": "UNRAVELS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "red flag",
+      "gives": "REDFLAG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLANDULARFEVER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNRAVELREDFLAG",
+       "gives": "GLANDULARFEVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Labour Party's anthem, The Red Flag, falls apart in a political story.",
+     "walkthrough": "'Labour' looks like the party, and 'unravels' like the signal; in fact 'unravels' is fodder. One S goes before the rearrangement.",
+     "definitionFit": "Glandular fever is an illness caused by a virus, and complaint is a common word for an ailment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +441,82 @@
     "text": "Mysterious Eastern drink knocked back and mother starts to turn immensely clingy",
     "enumeration": "9"
    },
-   "solution": "ENIGMATIC"
+   "solution": "ENIGMATIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ENIGMATIC",
+    "definitions": [
+     {
+      "text": "Mysterious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "a drink knocked back is downed, but read literally it is sent backwards"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts to points at the opening letter of each following word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for Eastern"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "turn immensely clingy",
+      "gives": "TIC",
+      "select": "first",
+      "note": "the initials of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NIG",
+      "MA",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "GIN",
+       "to": "NIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Eastern drink is downed, and mother becomes oddly clinging.",
+     "definitionFit": "Something enigmatic is puzzling and hard to interpret, like a riddle or enigma."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +530,44 @@
     "text": "Boat back against the bank",
     "enumeration": "4"
    },
-   "solution": "PUNT"
+   "solution": "PUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUNT",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     },
+     {
+      "text": "back against the bank",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boat",
+      "note": "first meaning: a flat-bottomed boat pushed along with a pole"
+     },
+     {
+      "clueFragment": "back against the bank",
+      "note": "second meaning: to bet against the bank, as a gambler does in a casino"
+     }
+    ],
+    "explanation": {
+     "surface": "A boat drifts back and comes to rest against the river bank.",
+     "walkthrough": "Bank looks like a riverside, matching the boat, but it is the casino's bank and back means to bet.",
+     "definitionFit": "A punt is a pole-propelled river boat, and to punt is to gamble against the house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +587,52 @@
      }
     ]
    },
-   "solution": "PRISONVISITORS"
+   "solution": "PRISONVISITORS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "PRISON VISITORS",
+    "definitions": [
+     {
+      "text": "They could give stir provisions, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could give",
+      "for": "anagram",
+      "note": "these letters could give something else when moved about, a possibility signalled by could"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stir provisions",
+      "gives": "STIRPROVISIONS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STIRPROVISIONS",
+       "gives": "PRISONVISITORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who bring supplies to those inside jail.",
+     "walkthrough": "Stir is slang for prison, so the whole clue also describes the answer: callers bringing things to inmates.",
+     "definitionFit": "People calling on inmates in jail often bring them food or small comforts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stir"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +646,65 @@
     "text": "This writer rejected employer's raise in relief",
     "enumeration": "6"
    },
-   "solution": "EMBOSS"
+   "solution": "EMBOSS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMBOSS",
+    "definitions": [
+     {
+      "text": "raise in relief",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is thrown back, so this word is read from the far end"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This writer",
+      "gives": "ME",
+      "note": "the setter referring to themself"
+     },
+     {
+      "clueFragment": "employer",
+      "gives": "BOSS",
+      "note": "a boss is the person who employs you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BOSS"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is refused a pay rise by the employer, to some relief.",
+     "walkthrough": "'Raise' sounds like a pay rise and 'relief' like comfort; together they define a craft term.",
+     "definitionFit": "To emboss is to make a design stand out from a surface, a carving or stamping technique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +718,71 @@
     "text": "One entering tournament isn't prepared for what score shows?",
     "enumeration": "15"
    },
-   "solution": "INSTRUMENTATION"
+   "solution": "INSTRUMENTATION",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "INSTRUMENTATION",
+    "definitions": [
+     {
+      "text": "what score shows?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so the single letter joins the other letters"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready, worked into a fresh form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "tournament",
+      "gives": "TOURNAMENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSTRUMENTATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITOURNAMENTISNT",
+       "gives": "INSTRUMENTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contestant arrives at a tournament unprepared for what the scoreboard says.",
+     "walkthrough": "Score looks like a sports result; it is a musical score.",
+     "definitionFit": "A musical score sets out the instrumentation, the allocation of parts among the players' instruments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +796,76 @@
     "text": "Coaches leaving one Italian river oddly seen to turn",
     "enumeration": "9"
    },
-   "solution": "TRANSPOSE"
+   "solution": "TRANSPOSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRANSPOSE",
+    "definitions": [
+     {
+      "text": "turn",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so that letter goes out of the vehicles' word"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the letters in the odd positions of the next word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coaches",
+      "gives": "TRAINS",
+      "note": "to coach is to train, and coaches as vehicles fits the surface"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "Italian river",
+      "gives": "PO",
+      "note": "the Po is the longest river in Italy"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "SE",
+      "select": "alternate",
+      "note": "first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANS",
+      "PO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Coaches turn away from an Italian river, seen from a distance.",
+     "walkthrough": "TRAINS without I gives TRANS; 'Coaches' are vehicles in the surface but the verb train here.",
+     "definitionFit": "To transpose is to change the order or position of things, swapping them around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coaches"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +879,48 @@
     "text": "Dutch politician a load of rubbish?",
     "enumeration": "4"
    },
-   "solution": "DUMP"
+   "solution": "DUMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUMP",
+    "definitions": [
+     {
+      "text": "a load of rubbish?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch",
+      "gives": "DU",
+      "note": "Du. is the dictionary abbreviation for Dutch"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a Dutch politician as talking nonsense.",
+     "walkthrough": "'A load of rubbish' sounds like an insult; the question mark warns it is a place where rubbish is literally loaded.",
+     "definitionFit": "A dump is a tip, a site holding a great heap of waste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +934,52 @@
     "text": "Boxers? Nancies' pants",
     "enumeration": "7"
    },
-   "solution": "CANINES"
+   "solution": "CANINES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANINES",
+    "definitions": [
+     {
+      "text": "Boxers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish or poor, so these letters are badly arranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nancies'",
+      "gives": "NANCIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NANCIES",
+       "gives": "CANINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boxer shorts are underpants belonging to some women called Nancy.",
+     "walkthrough": "Boxers and pants both suggest underwear, but boxers here are dogs and pants is slang for bad.",
+     "definitionFit": "Boxers are a breed of dog, and canines is the collective term for dogs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boxers"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +993,62 @@
     "text": "Make ordinary group of stars special in made-up story",
     "enumeration": "9"
    },
-   "solution": "NORMALISE"
+   "solution": "NORMALISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NORMALISE",
+    "definitions": [
+     {
+      "text": "Make ordinary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside another, here a letter inside the story word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of stars",
+      "gives": "NORMA",
+      "note": "Norma is a southern constellation"
+     },
+     {
+      "clueFragment": "made-up story",
+      "gives": "LIE",
+      "note": "a lie is an invented tale"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NORMA",
+      "LI",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Stars are made to seem ordinary through a special invented tale.",
+     "walkthrough": "Group of stars suggests celebrities; it is the constellation NORMA.",
+     "definitionFit": "To normalise is to bring something back to the usual standard, making it regular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1062,55 @@
     "text": "Remove obstruction by the net, perhaps, in river",
     "enumeration": "6"
    },
-   "solution": "DELETE"
+   "solution": "DELETE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DELETE",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the tennis term inside the waterway's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Wales, England and Scotland"
+     },
+     {
+      "clueFragment": "obstruction by the net, perhaps",
+      "gives": "LET",
+      "note": "in tennis a let is called when a serve clips the net"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing a blockage caused by a fishing net in a river.",
+     "walkthrough": "The net seems to be a fishing net; it is the tennis net, where a let is replayed.",
+     "definitionFit": "To delete is to erase or strike out, taking text away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1124,61 @@
     "text": "Shy about most of crap material",
     "enumeration": "8"
    },
-   "solution": "CORDUROY"
+   "solution": "CORDUROY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CORDUROY",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the shy word wraps the other"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means nearly all, so the final letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shy",
+      "gives": "COY",
+      "note": "coy means bashful"
+     },
+     {
+      "clueFragment": "crap",
+      "gives": "ORDURE",
+      "note": "ordure is excrement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ORDUR",
+      "OY"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy person is reluctant to talk about mostly rubbish material.",
+     "walkthrough": "Crap is vulgar slang for excrement; 'most of' trims the last letter before the shy word wraps around it.",
+     "definitionFit": "Corduroy is a ridged cotton fabric, a cloth for trousers and jackets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crap"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1192,52 @@
     "text": "I start rocking?",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ARTIST",
+    "definitions": [
+     {
+      "text": "I start rocking?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocking",
+      "for": "anagram",
+      "note": "rocking means shaking about, so these letters are jolted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I start",
+      "gives": "ISTART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISTART",
+       "gives": "ARTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer announcing that they are about to rock out.",
+     "walkthrough": "The whole clue is something a performer on stage might say, hence the question mark.",
+     "definitionFit": "A musician or performer is an artist, who might well begin a rock set."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rocking"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1251,67 @@
     "text": "Upsetting gunshot entertaining old soldier",
     "enumeration": "7"
    },
-   "solution": "TROOPER"
+   "solution": "TROOPER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TROOPER",
+    "definitions": [
+     {
+      "text": "soldier",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upsetting",
+      "for": "anagram",
+      "note": "upsetting means knocking over, so these letters are tipped into another order"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain is to host, so the reworked word holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gunshot",
+      "gives": "REPORT",
+      "note": "a report is the bang of a gun"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "O",
+      "PER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REPORT",
+       "gives": "TROPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distressing gunshot amuses an old soldier.",
+     "walkthrough": "'Gunshot' is a noun for the bang, a report.",
+     "definitionFit": "A trooper is a private soldier, especially in a cavalry or armoured regiment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1325,62 @@
     "text": "Bird caught in low country",
     "enumeration": "7"
    },
-   "solution": "MOROCCO"
+   "solution": "MOROCCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MOROCCO",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these letters inside the cow-sound word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to make the sound of cattle"
+     },
+     {
+      "clueFragment": "Bird",
+      "gives": "ROC",
+      "note": "a roc is a giant mythical bird"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scoring abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ROC",
+      "C",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is trapped in a low-lying land.",
+     "walkthrough": "Low looks like an adjective for land, but it is the verb for a cow's call.",
+     "definitionFit": "Morocco is a nation in north-west Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1394,63 @@
     "text": "Service from graduate isn't fantastic",
     "enumeration": "6"
    },
-   "solution": "MATINS"
+   "solution": "MATINS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MATINS",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "fantastic means wildly fanciful, so these letters are rearranged extravagantly"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduate",
+      "gives": "MA",
+      "note": "a Master of Arts"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "TINS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "TINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate sniffs that a church service isn't very exciting.",
+     "definitionFit": "Matins is the morning prayer service of the Anglican and Catholic churches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fantastic"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1464,66 @@
     "text": "Independence after boy turns 17",
     "enumeration": "4"
    },
-   "solution": "DALI"
+   "solution": "DALI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DALI",
+    "definitions": [
+     {
+      "text": "17",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "turns means facing about, so the boy's word reads from right to left"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the independence letter second, following the boy's word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "Independence",
+      "gives": "I",
+      "note": "I is the abbreviation for independence or independent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAL",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "LAD",
+       "to": "DAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy gains his independence on turning seventeen.",
+     "walkthrough": "17 is not an age but a cross-reference to 17 across, ARTIST. 'After' puts I after the reversed LAD.",
+     "definitionFit": "Salvador Dali was the famous Spanish surrealist painter, an example of the category named at that entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "17"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1547,55 @@
      }
     ]
    },
-   "solution": "ONTHEMEND"
+   "solution": "ONTHEMEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ON THE MEND",
+    "definitions": [
+     {
+      "text": "getting better",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     },
+     {
+      "clueFragment": "those people",
+      "gives": "THEM",
+      "note": "them refers to those people"
+     },
+     {
+      "clueFragment": "aim",
+      "gives": "END",
+      "note": "an end is a goal or aim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "THEM",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Working alongside people whose goal is self-improvement.",
+     "definitionFit": "Someone on the mend is recovering from illness or injury, improving in health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1609,61 @@
     "text": "Go in hospital department with the woman, ignoring husband",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "Go in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving out, so that letter is disregarded"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ear, nose and throat department"
+     },
+     {
+      "clueFragment": "the woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman goes into a hospital department while her husband is ignored.",
+     "definitionFit": "To enter is to come or walk into a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1677,44 @@
     "text": "Teenager's potentially squeezing this?",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "SPOT",
+    "definitions": [
+     {
+      "text": "Teenager's potentially squeezing this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squeezing",
+      "for": "hidden_word",
+      "note": "squeezing means holding tightly within, so the letters are gripped inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teenager's potentially",
+      "gives": "SPOT",
+      "note": "the last letter of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An adolescent is probably squeezing a blemish.",
+     "walkthrough": "The whole clue describes the answer and also holds it, crossing the apostrophe.",
+     "definitionFit": "A pimple is something an adolescent might squeeze, and a spot is a common word for one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1738,68 @@
      }
     ]
    },
-   "solution": "POISONPENLETTER"
+   "solution": "POISONPENLETTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "POISON PEN LETTER",
+    "definitions": [
+     {
+      "text": "Terrible author could write this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so these letters are given a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters surround the lake letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note inept prose",
+      "gives": "NOTEINEPTPROSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POISONPEN",
+      "L",
+      "ETTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTEINEPTPROSE",
+       "gives": "POISONPENETTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful writer might produce a novel full of inept prose.",
+     "walkthrough": "'Terrible author' suggests a bad novelist; it means someone writing something nasty, and 'novel' is the signal, not a book.",
+     "definitionFit": "An anonymous, malicious letter is written by a spiteful, terrible person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1813,59 @@
     "text": "Tense about a certain term of endearment",
     "enumeration": "8"
    },
-   "solution": "TREASURE"
+   "solution": "TREASURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREASURE",
+    "definitions": [
+     {
+      "text": "term of endearment",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RE",
+      "A",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is nervous about a particular affectionate nickname.",
+     "walkthrough": "Tense looks like nervous; it is the grammar term.",
+     "definitionFit": "Calling someone 'treasure' is an affectionate way of saying they are precious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1879,43 @@
     "text": "Heard victim beg",
     "enumeration": "4"
    },
-   "solution": "PRAY"
+   "solution": "PRAY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRAY",
+    "definitions": [
+     {
+      "text": "beg",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "heard means the word is caught by ear, so its sound matters, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victim",
+      "gives": "PRAY",
+      "soundsLike": "PREY",
+      "note": "prey is an animal hunted as a victim"
+     }
+    ],
+    "explanation": {
+     "surface": "A victim is overheard begging for mercy.",
+     "definitionFit": "To pray someone to do something is an old way to ask earnestly, to plead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "victim"
+    }
+   }
   }
  ]
 }
