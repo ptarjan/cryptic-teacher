@@ -484,7 +484,19 @@ def printed_answers(puzzle):
     if not solution_detail(puzzle):
         return {entry_id(e): e["solution"] for e in puzzle.get("entries") or []
                 if e.get("solution")}
-    return dict((puzzle.get("solutions") or {}).get("printed") or {})
+    return key_corrected(puzzle.get("id"), (puzzle.get("solutions") or {}).get("printed") or {})
+
+
+def key_corrected(pid, printed):
+    """`printed` with SOURCE_ANSWER_WRONG's letters in place of the key's
+    misprints: a misprint is not the answer the paper meant, and a row added
+    after the fill recorded `printed` must still win over it."""
+    from fetch_puzzle import SOURCE_ANSWER_WRONG
+    out = dict(printed)
+    for (table_pid, eid), (served, corrected, _why) in SOURCE_ANSWER_WRONG.items():
+        if table_pid == pid and out.get(eid) == served:
+            out[eid] = corrected
+    return out
 
 
 #: The count apply_solution.py writes into `check` when it filled around answers
@@ -501,7 +513,7 @@ def check_answer_detail(puzzle):
     if printed is not None and not (isinstance(printed, dict) and printed):
         findings.append(f"solutions.printed is {printed!r} — want entry id -> answer")
         printed = {}
-    printed = printed or {}
+    printed = key_corrected(puzzle.get("id"), printed or {})
     for eid, answer in printed.items():
         if eid not in grid:
             findings.append(f"solutions.printed names {eid}, which is not an entry")
