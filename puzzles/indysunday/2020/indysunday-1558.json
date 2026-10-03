@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "Buttonhole with a carnation initially added to price",
     "enumeration": "6"
    },
-   "solution": "ACCOST"
+   "solution": "ACCOST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCOST",
+    "definitions": [
+     {
+      "text": "Buttonhole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the flower named just before it"
+     },
+     {
+      "text": "added to",
+      "for": "charade",
+      "note": "added to says the earlier pieces are attached in front of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "carnation",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of carnation"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "COST",
+      "note": "the price of something is what it costs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "COST"
+     ]
+    },
+    "explanation": {
+     "surface": "A man wearing a carnation buttonhole, with its cost added on to the bill.",
+     "walkthrough": "Buttonhole looks like a noun for the flower in a lapel, but here it is a verb: to buttonhole someone is to stop them and talk.",
+     "definitionFit": "To buttonhole a person is to approach and detain them in conversation, which is exactly what accosting someone means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Buttonhole"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +114,61 @@
     "text": "Last word written by Dickens' first editor corrected",
     "enumeration": "7"
    },
-   "solution": "AMENDED"
+   "solution": "AMENDED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AMENDED",
+    "definitions": [
+     {
+      "text": "corrected",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the novelist's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last word written",
+      "gives": "AMEN",
+      "note": "the word that closes a prayer"
+     },
+     {
+      "clueFragment": "Dickens'",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of Dickens"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEN",
+      "D",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary anecdote about the final word Dickens wrote and the editor who fixed it.",
+     "definitionFit": "A text that has been amended has had changes made to put errors right, so it has been corrected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +182,43 @@
     "text": "Hide money for the audience",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CACHE",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience",
+      "for": "homophone",
+      "note": "an audience listens, so the word is to be heard spoken rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "CACHE",
+      "soundsLike": "CASH",
+      "note": "money in notes and coins, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone stashing money out of sight of an audience.",
+     "definitionFit": "A cache is a secret store of valuables or supplies, so as a noun it is a hiding place or hoard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +232,51 @@
     "text": "Hebrew sad about loaves baked for sabbath",
     "enumeration": "9"
    },
-   "solution": "SHEWBREAD"
+   "solution": "SHEWBREAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHEWBREAD",
+    "definitions": [
+     {
+      "text": "loaves baked for sabbath",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests the letters are turned around and moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hebrew sad",
+      "gives": "HEBREWSAD",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEBREWSAD",
+       "gives": "SHEWBREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A melancholy Hebrew thinking about the bread prepared for the sabbath.",
+     "walkthrough": "Shewbread is the biblical bread set out in the Temple, renewed each sabbath.",
+     "definitionFit": "Shewbread was the twelve consecrated loaves placed before God in the Jewish Temple and replaced every sabbath, as described in Leviticus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sad"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +290,54 @@
     "text": "Youngster taking male out",
     "enumeration": "7"
    },
-   "solution": "SAPLING"
+   "solution": "SAPLING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SAPLING",
+    "definitions": [
+     {
+      "text": "Youngster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out says the following letter is removed from the word it sits in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking",
+      "gives": "SAMPLING",
+      "note": "taking a small portion to try it"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "PLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A young person who is ignoring the boys or getting a man out of the way.",
+     "walkthrough": "Sampling with its M dropped leaves the answer; youngster is a young tree here, not a child.",
+     "definitionFit": "A sapling is a young tree, and figuratively a young person, so it is a youngster in both plant and human terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +351,60 @@
     "text": "Unusual compass found under edges of seat",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "edges are the two outermost letters of the following word"
+     },
+     {
+      "text": "found under",
+      "for": "charade",
+      "note": "in a down clue, a piece found under another is written below it, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the outside letters of seat"
+     },
+     {
+      "clueFragment": "compass",
+      "gives": "RANGE",
+      "note": "compass in the sense of scope or extent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd discovery: a compass tucked beneath the edge of a chair.",
+     "definitionFit": "Something strange is out of the ordinary, which is the plain sense of unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "compass"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +418,56 @@
     "text": "Dish of tomato sauce with half of salt omitted",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitted",
+      "for": "deletion",
+      "note": "omitted means those letters are left out of the longer word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tomato sauce",
+      "gives": "PASSATA",
+      "note": "passata is sieved tomato sauce"
+     },
+     {
+      "clueFragment": "half of salt",
+      "gives": "SA",
+      "note": "the first half of salt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: tomato sauce made with less salt.",
+     "definitionFit": "Pasta is an Italian food served as a meal, typically as a plate of noodles or shapes, so it is a dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dish"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +481,53 @@
     "text": "Gelatine is in drinking vessel",
     "enumeration": "9"
    },
-   "solution": "ISINGLASS"
+   "solution": "ISINGLASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISINGLASS",
+    "definitions": [
+     {
+      "text": "Gelatine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drinking vessel",
+      "gives": "GLASS",
+      "note": "a glass is a vessel to drink from"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "IN",
+      "GLASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wobbly jelly set in a tumbler.",
+     "walkthrough": "'In' looks like it puts one piece inside another, but it is simply its own letters.",
+     "definitionFit": "Isinglass is a pure gelatine made from fish swim bladders, used for clarifying beer and wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +541,45 @@
     "text": "Look for bird",
     "enumeration": "6"
    },
-   "solution": "GANDER"
+   "solution": "GANDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GANDER",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     },
+     {
+      "text": "bird",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "note": "first meaning: a quick glance"
+     },
+     {
+      "clueFragment": "bird",
+      "note": "second meaning: a male goose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like hunting for a bird, but the two words are separate meanings joined by 'for'.",
+     "definitionFit": "Informally a gander is a glance at something, and the same word names the male of the goose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +593,55 @@
     "text": "Dandruff in animal's hair occurring twice",
     "enumeration": "6"
    },
-   "solution": "FURFUR"
+   "solution": "FURFUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FURFUR",
+    "definitions": [
+     {
+      "text": "Dandruff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occurring twice",
+      "for": "charade",
+      "note": "occurring twice tells you to write the piece down two times in a row"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal's hair",
+      "gives": "FUR",
+      "note": "the hair coat of an animal"
+     },
+     {
+      "clueFragment": "animal's hair",
+      "gives": "FUR",
+      "note": "the same piece again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUR",
+      "FUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet notices flakes of scurf caught twice in a pet's coat.",
+     "definitionFit": "Furfur is a rare medical term for scaly flakes of skin on the scalp, i.e. scurf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +655,58 @@
     "text": "Letter given to speaker's investigator in government department",
     "enumeration": "9"
    },
-   "solution": "EXCHEQUER"
+   "solution": "EXCHEQUER",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "EXCHEQUER",
+    "definitions": [
+     {
+      "text": "government department",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given to",
+      "for": "charade",
+      "note": "given to means the first piece is placed in front of the next one"
+     },
+     {
+      "text": "speaker's",
+      "for": "homophone",
+      "note": "a speaker says words aloud, so the next word goes by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter",
+      "gives": "EX",
+      "note": "the name of the letter X spelt out"
+     },
+     {
+      "clueFragment": "investigator",
+      "gives": "CHEQUER",
+      "soundsLike": "CHECKER",
+      "note": "someone who checks things, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "A government inspector being handed a letter by a parliamentary speaker.",
+     "walkthrough": "Letter here is the alphabet letter X, written as its name.",
+     "definitionFit": "The Exchequer is the UK government department responsible for public revenue, headed by the Chancellor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +720,64 @@
     "text": "Relative embracing sources of child's immunisation for young member of the family",
     "enumeration": "5"
    },
-   "solution": "SCION"
+   "solution": "SCION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCION",
+    "definitions": [
+     {
+      "text": "young member of the family",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sources of",
+      "for": "letter_selection",
+      "note": "sources are where things begin, so the first letters of the next two words"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means wrapping arms around, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "SON",
+      "note": "a son is a family relative"
+     },
+     {
+      "clueFragment": "child's immunisation",
+      "gives": "CI",
+      "select": "first",
+      "note": "the first letters of child's and immunisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member getting a child vaccinated.",
+     "definitionFit": "A scion is a descendant or heir, typically a younger member of a notable family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +791,65 @@
     "text": "Foreign weed given to British fool",
     "enumeration": "5"
    },
-   "solution": "DWEEB"
+   "solution": "DWEEB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DWEEB",
+    "definitions": [
+     {
+      "text": "fool",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foreign",
+      "for": "anagram",
+      "note": "foreign suggests something strange and changed, so the letters are rearranged"
+     },
+     {
+      "text": "given to",
+      "for": "charade",
+      "note": "given to means the next piece is attached after the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weed",
+      "gives": "WEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DWEE",
+      "B"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEED",
+       "gives": "DWEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some imported cannabis handed to a silly Brit.",
+     "definitionFit": "A dweeb is slang for a socially awkward, boring or stupid person, a nerd or a dope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weed"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +863,53 @@
     "text": "Enthusiast to hang elaborate ornament",
     "enumeration": "9"
    },
-   "solution": "FANDANGLE"
+   "solution": "FANDANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FANDANGLE",
+    "definitions": [
+     {
+      "text": "elaborate ornament",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "to here means joined on, so the second piece follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enthusiast",
+      "gives": "FAN",
+      "note": "a fan is an enthusiastic supporter"
+     },
+     {
+      "clueFragment": "hang",
+      "gives": "DANGLE",
+      "note": "to dangle is to hang loosely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "DANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A keen collector wanting to hang up a fancy decoration.",
+     "definitionFit": "Fandangle is an old word for a fantastic or showy trinket, a piece of gaudy decoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Enthusiast"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +923,70 @@
     "text": "Performer died in front of a tipsy nurse",
     "enumeration": "7"
    },
-   "solution": "DANSEUR"
+   "solution": "DANSEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DANSEUR",
+    "definitions": [
+     {
+      "text": "Performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "in front of places the first piece before what follows"
+     },
+     {
+      "text": "tipsy",
+      "for": "anagram",
+      "note": "tipsy means unsteady with drink, so the letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "NURSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANSEUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANURSE",
+       "gives": "ANSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatic scene: someone dies in front of a nurse who has been drinking.",
+     "definitionFit": "A danseur is a male ballet dancer, so he is a stage performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "died"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1006,69 @@
      }
     ]
    },
-   "solution": "NANNYGOAT"
+   "solution": "NANNYGOAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NANNY GOAT",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third",
+      "for": "letter_selection",
+      "note": "third picks the letter in third place of the word before it"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "to accept means to take something in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Childcare provider",
+      "gives": "NANNY",
+      "note": "a nanny looks after children"
+     },
+     {
+      "clueFragment": "learnt",
+      "gives": "GOT",
+      "note": "got in the sense of understood or picked up"
+     },
+     {
+      "clueFragment": "charge's",
+      "gives": "A",
+      "select": 3,
+      "note": "the third letter of charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NANNY",
+      "GO",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A nanny who has learned to welcome her young charge's pet.",
+     "walkthrough": "Charge looks like the child in the nanny's care, but only its third letter is needed.",
+     "definitionFit": "A nanny goat is a female goat, which is a farm animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge's"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1082,53 @@
     "text": "Dead skin points to burn",
     "enumeration": "6"
    },
-   "solution": "ESCHAR"
+   "solution": "ESCHAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESCHAR",
+    "definitions": [
+     {
+      "text": "Dead skin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "to means joined on, so the second piece follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "points",
+      "gives": "ES",
+      "note": "E and S are compass points, east and south"
+     },
+     {
+      "clueFragment": "burn",
+      "gives": "CHAR",
+      "note": "to char is to scorch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CHAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor pointing to the dead skin around a burn.",
+     "definitionFit": "An eschar is the dry scab of dead tissue that forms over a burn or wound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1142,53 @@
     "text": "Colonel slipped then fell over",
     "enumeration": "9"
    },
-   "solution": "COLLAPSED"
+   "solution": "COLLAPSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLAPSED",
+    "definitions": [
+     {
+      "text": "fell over",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "then",
+      "for": "charade",
+      "note": "then puts the second piece straight after the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colonel",
+      "gives": "COL",
+      "note": "COL is the abbreviation for colonel"
+     },
+     {
+      "clueFragment": "slipped",
+      "gives": "LAPSED",
+      "note": "lapsed in the sense of slipped or fell away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "LAPSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A colonel lost his footing and toppled.",
+     "definitionFit": "Collapsing is falling down suddenly, as a person or structure that gives way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slipped"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1202,57 @@
     "text": "Cook made a new fillet",
     "enumeration": "6"
    },
-   "solution": "ANADEM"
+   "solution": "ANADEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANADEM",
+    "definitions": [
+     {
+      "text": "fillet",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook something is to work it into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made a",
+      "gives": "MADEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADEAN",
+       "gives": "ANADEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef has prepared a new cut of fish or meat.",
+     "walkthrough": "Fillet suggests a cut of meat; here it is a band worn round the head.",
+     "definitionFit": "An anadem is a poetic word for a garland or headband, and a fillet is also a ribbon worn round the hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fillet"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1266,79 @@
     "text": "Confused smuggler carrying diamonds deserted at end of road",
     "enumeration": "7"
    },
-   "solution": "MUDDLED"
+   "solution": "MUDDLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "MUDDLED",
+    "definitions": [
+     {
+      "text": "Confused",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a carrier holds its load inside, so the following pieces sit within the first"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "at",
+      "for": "charade",
+      "note": "at here places the last piece after everything else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smuggler",
+      "gives": "MULE",
+      "note": "a mule is a drug smuggler who carries goods across borders"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card abbreviation for diamonds"
+     },
+     {
+      "clueFragment": "deserted",
+      "gives": "D",
+      "note": "D is the abbreviation for deserted"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "D",
+      "D",
+      "LE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug mule carrying stolen gems has fled and is lost at the end of a road.",
+     "definitionFit": "Muddled describes a mind that is in a state of mental disorder and unable to think clearly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deserted"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1352,65 @@
     "text": "Fabric close to crease in sail is damaged",
     "enumeration": "7"
    },
-   "solution": "SILESIA"
+   "solution": "SILESIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SILESIA",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     },
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "damaged means broken up, so the letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crease",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of crease"
+     },
+     {
+      "clueFragment": "sail is",
+      "gives": "SAILIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESAILIS",
+       "gives": "SILESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor notices fabric failing near a crease in a torn sail.",
+     "definitionFit": "Silesia is a thin twilled cotton or linen cloth used for linings, named after the region it came from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fabric"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1424,54 @@
     "text": "Shift featuring English seamstresses' handiwork",
     "enumeration": "6"
    },
-   "solution": "SEWING"
+   "solution": "SEWING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEWING",
+    "definitions": [
+     {
+      "text": "seamstresses' handiwork",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "featuring means including, so the second piece is placed inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shift",
+      "gives": "SWING",
+      "note": "a swing is a change or shift, as in a swing of opinion"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "WING"
+     ]
+    },
+    "explanation": {
+     "surface": "A work shift including English seamstresses at their craft.",
+     "definitionFit": "Sewing is the work of stitching cloth with needle and thread, the job a seamstress does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shift"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1485,74 @@
     "text": "Direct soldiers next to arms base into annexes",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Direct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base",
+      "for": "letter_selection",
+      "note": "the base of a down word is its bottom, final letter"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to places the two pieces side by side"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into puts the earlier pieces inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annexes",
+      "gives": "ADDS",
+      "note": "to annex is to add on"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, an army corps"
+     },
+     {
+      "clueFragment": "arms",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of arms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADD",
+      "RE",
+      "S",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Orders for troops to be posted beside the armoury and into outbuildings.",
+     "walkthrough": "Annexes looks like extra buildings but is the verb meaning adds.",
+     "definitionFit": "To address something is to direct it, as a letter is addressed or a remark directed at someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "annexes"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1566,65 @@
     "text": "Get home after boat is damaged",
     "enumeration": "6"
    },
-   "solution": "OBTAIN"
+   "solution": "OBTAIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OBTAIN",
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so its letters are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the first piece behind the one that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "BOAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBTA",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOAT",
+       "gives": "OBTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to head home once the boat has been wrecked.",
+     "definitionFit": "To obtain something is to acquire or come by it, the same as to get it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1644,68 @@
      }
     ]
    },
-   "solution": "BAYWINDOW"
+   "solution": "BAYWINDOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAY WINDOW",
+    "definitions": [
+     {
+      "text": "type of recess in wall",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "to means joined on, so the pieces are written one after another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tree",
+      "gives": "BAY",
+      "note": "the bay is a laurel tree"
+     },
+     {
+      "clueFragment": "twist",
+      "gives": "WIND",
+      "note": "to wind is to twist or coil"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for over"
+     },
+     {
+      "clueFragment": "width",
+      "gives": "W",
+      "note": "W is the abbreviation for width"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAY",
+      "WIND",
+      "O",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree bending across the width of an alcove in a wall.",
+     "definitionFit": "A bay window projects outward from a wall to form a recess inside the room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1719,55 @@
     "text": "Constituents of nitre surprisingly chemically inactive",
     "enumeration": "5"
    },
-   "solution": "INERT"
+   "solution": "INERT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INERT",
+    "definitions": [
+     {
+      "text": "chemically inactive",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Constituents of",
+      "for": "anagram",
+      "note": "constituents are the component parts, which are to be taken apart and reused"
+     },
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly suggests an unexpected outcome, here an unexpected order of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nitre",
+      "gives": "NITRE",
+      "note": "taken as written; nitre is potassium nitrate"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NITRE",
+       "gives": "INERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: saltpetre's ingredients turn out not to react.",
+     "definitionFit": "An inert substance does not readily take part in chemical reactions, like the noble gases."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Constituents"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1781,59 @@
     "text": "Pungent plant without European identity",
     "enumeration": "5"
    },
-   "solution": "ACRID"
+   "solution": "ACRID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ACRID",
+    "definitions": [
+     {
+      "text": "Pungent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is removed from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "ACER",
+      "note": "acer is the maple genus"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "ID",
+      "note": "ID is short for identity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACR",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A smelly plant lacking any European character.",
+     "definitionFit": "Acrid describes a sharp, bitter smell or taste that stings the nose and throat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "identity"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1847,61 @@
     "text": "King replacing fellow in fake government",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "REIGN",
+    "definitions": [
+     {
+      "text": "government",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing means one letter takes the place of another in the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is the abbreviation for rex, Latin for king"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "fake",
+      "gives": "FEIGN",
+      "note": "to feign is to fake or pretend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EIGN"
+     ]
+    },
+    "explanation": {
+     "surface": "A king steps in to replace a man in a sham administration.",
+     "definitionFit": "A reign is the period of rule by a monarch, so it is a form of sovereign rule over a state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fake"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1915,56 @@
     "text": "Building material in publicity given award",
     "enumeration": "5"
    },
-   "solution": "ADOBE"
+   "solution": "ADOBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADOBE",
+    "definitions": [
+     {
+      "text": "Building material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given",
+      "for": "charade",
+      "note": "given means handed on, so the second piece is added after the first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "OBE",
+      "note": "the OBE, Officer of the Order of the British Empire, is a UK honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "OBE"
+     ]
+    },
+    "explanation": {
+     "surface": "A building supplier wins an award for its advertising.",
+     "definitionFit": "Adobe is sun-dried brick made of clay and straw, used for houses in dry climates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "award"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1978,74 @@
     "text": "Leader of lions died during Daniel's unorthodox convincing victory",
     "enumeration": "9"
    },
-   "solution": "LANDSLIDE"
+   "solution": "LANDSLIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "LANDSLIDE",
+    "definitions": [
+     {
+      "text": "convincing victory",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader of",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so this takes the opening letter"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within a span, so these pieces sit inside the next"
+     },
+     {
+      "text": "unorthodox",
+      "for": "anagram",
+      "note": "unorthodox means not following convention, so the letters break their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lions",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lions"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died"
+     },
+     {
+      "clueFragment": "Daniel's",
+      "gives": "DANIELS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LDDANIELS",
+       "gives": "LANDSLIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Daniel in the lions' den, where the chief lion died: a story of an unusual triumph.",
+     "walkthrough": "The surface recalls Daniel in the lions' den from the Bible.",
+     "definitionFit": "A landslide is an election won by an overwhelming margin, hence a decisive victory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lions"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +2059,50 @@
     "text": "New date not written in series of symbols",
     "enumeration": "7"
    },
-   "solution": "NOTATED"
+   "solution": "NOTATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOTATED",
+    "definitions": [
+     {
+      "text": "written in series of symbols",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new means made over, so the letters take a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date not",
+      "gives": "DATENOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DATENOT",
+       "gives": "NOTATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new appointment that hasn't been put down in the diary.",
+     "definitionFit": "Notated music or speech is recorded in a system of signs, such as staff notation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +2116,59 @@
     "text": "Handsome youth is following American college fellow",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "Handsome youth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the first piece after those that come next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "college fellow",
+      "gives": "DON",
+      "note": "a don is a university teacher, especially at Oxford or Cambridge"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DON",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A good-looking young man trails after a US academic.",
+     "definitionFit": "Adonis was the beautiful youth loved by Aphrodite in Greek myth, so the name stands for any very attractive young man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   }
  ]
 }

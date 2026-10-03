@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,70 @@
     "text": "Injury caused by birch tree catching lumberjack’s head",
     "enumeration": "8"
    },
-   "solution": "WHIPLASH"
+   "solution": "WHIPLASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WHIPLASH",
+    "definitions": [
+     {
+      "text": "Injury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "a head is the top or front, so only the opening letter of the woodsman's word is used"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "the birch and the tree together grab and hold a letter between them"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "birch",
+      "gives": "WHIP",
+      "note": "to birch someone is to flog them with a rod"
+     },
+     {
+      "clueFragment": "lumberjack’s",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of the woodsman"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIP",
+      "L",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A woodsman is hurt when a falling birch lands on his head.",
+     "walkthrough": "Birch is not the tree here but the verb meaning to flog; the actual tree comes next.",
+     "definitionFit": "Whiplash is a neck injury from a sudden jolting movement, typically in car collisions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "birch"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +112,46 @@
     "text": "Cover small cooking vessel",
     "enumeration": "4"
    },
-   "solution": "SPAN"
+   "solution": "SPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPAN",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "cooking vessel",
+      "gives": "PAN",
+      "note": "a pan is a pot used for cooking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to put a lid on a little saucepan.",
+     "definitionFit": "To span is to extend across or stretch over a distance, as a bridge does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +165,47 @@
     "text": "Something black and brown — that’s checked",
     "enumeration": "6"
    },
-   "solution": "TARTAN"
+   "solution": "TARTAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARTAN",
+    "definitions": [
+     {
+      "text": "that’s checked",
+      "at": 28,
+      "note": "a noun phrase: something with a checked pattern"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something black",
+      "gives": "TAR",
+      "note": "tar is a black sticky substance"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "TAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a fabric pattern of black and brown squares.",
+     "definitionFit": "Tartan is the woollen cloth woven in a pattern of crossing coloured stripes forming squares, associated with Scottish clans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Something"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +225,80 @@
      }
     ]
    },
-   "solution": "PUREBRED"
+   "solution": "PUREBRED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PURE-BRED",
+    "definitions": [
+     {
+      "text": "Unmixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "only the final letter of the spice word is wanted"
+     },
+     {
+      "text": "stirred",
+      "for": "anagram",
+      "note": "a drink that is stirred has its contents mixed about, so the letters move"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "the earlier letters go inside the pudding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "PUD",
+      "note": "pud is British slang for pudding, a dessert"
+     },
+     {
+      "clueFragment": "ginger",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter of ginger"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "BEER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "R",
+      "EBRE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEER",
+       "gives": "EBRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step: pour ginger beer into a pudding and stir.",
+     "walkthrough": "The R and the rearranged beer both sit between the U and D of the dessert.",
+     "definitionFit": "A purebred animal comes from parents of one breed, with no crossing of different strains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ginger"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +312,55 @@
     "text": "Terrible milliner: give voice about that",
     "enumeration": "10"
    },
-   "solution": "SHATTERING"
+   "solution": "SHATTERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHATTERING",
+    "definitions": [
+     {
+      "text": "Terrible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the singing goes around, surrounding the hat maker mentioned as that"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "give voice",
+      "gives": "SING",
+      "note": "to give voice is to sing"
+     },
+     {
+      "clueFragment": "milliner",
+      "gives": "HATTER",
+      "note": "a milliner makes hats; 'that' points back to this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HATTER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful hat maker is urged to sing about it.",
+     "walkthrough": "'that' refers back to the milliner, so the hat maker is what the singing goes round.",
+     "definitionFit": "Shattering is informal for devastating or exhausting, so it works as an intensely bad, terrible adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terrible"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +380,54 @@
      }
     ]
    },
-   "solution": "SLIPON"
+   "solution": "SLIPON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLIP-ON",
+    "definitions": [
+     {
+      "text": "Shoe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped inside it, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy child"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "LIP",
+      "note": "a lip is the rim or edge of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LIP",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A shoe whose rim is gripped by a small boy.",
+     "definitionFit": "A slip-on is footwear without laces that you simply push your foot into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +441,47 @@
     "text": "Member of religious body gentleman put down",
     "enumeration": "8"
    },
-   "solution": "CHAPLAIN"
+   "solution": "CHAPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAPLAIN",
+    "definitions": [
+     {
+      "text": "Member of religious body",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gentleman",
+      "gives": "CHAP",
+      "note": "chap is informal British for a man"
+     },
+     {
+      "clueFragment": "put down",
+      "gives": "LAIN",
+      "note": "past participle of lay, as in laid down to rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "LAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman is described as a gentleman who was humiliated.",
+     "walkthrough": "'put down' suggests insulted, but it means lain, placed lying down.",
+     "definitionFit": "A chaplain is a clergyman attached to an institution such as a school, hospital or regiment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +495,68 @@
     "text": "Dry rolls glazed with egg, superlatively enjoyable",
     "enumeration": "6"
    },
-   "solution": "NICEST"
+   "solution": "NICEST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NICEST",
+    "definitions": [
+     {
+      "text": "superlatively enjoyable",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolls",
+      "for": "reversal",
+      "note": "something that rolls turns over, so the word for dry is read backwards"
+     },
+     {
+      "text": "glazed with",
+      "for": "container",
+      "note": "a glaze coats the outside, so the egg word wraps around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "egg",
+      "gives": "NIT",
+      "note": "a nit is the egg of a louse"
+     },
+     {
+      "clueFragment": "Dry",
+      "gives": "SEC",
+      "note": "sec is the wine term for dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "CES",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "SEC",
+       "to": "CES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bread rolls brushed with egg wash taste best of all.",
+     "walkthrough": "Rolls and glazed with egg read like baking, but rolls is a verb; NI(CES)T.",
+     "definitionFit": "The superlative of nice, meaning pleasant, is the most pleasing or agreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rolls"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +570,44 @@
     "text": "Wicked not having cavities, did you say?",
     "enumeration": "6"
    },
-   "solution": "UNHOLY"
+   "solution": "UNHOLY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "UNHOLY",
+    "definitions": [
+     {
+      "text": "Wicked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what was said points to a word heard rather than seen in print"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not having cavities",
+      "gives": "UNHOLY",
+      "soundsLike": "UNHOLEY",
+      "note": "without holes, if that coinage existed"
+     }
+    ],
+    "explanation": {
+     "surface": "A playful question whether wickedness means having no holes.",
+     "definitionFit": "Unholy means sinful or impious, opposed to what is sacred or godly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cavities"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +621,53 @@
     "text": "Wheel bites when rotated",
     "enumeration": "4"
    },
-   "solution": "SPIN"
+   "solution": "SPIN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPIN",
+    "definitions": [
+     {
+      "text": "Wheel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when rotated",
+      "for": "reversal",
+      "note": "turning round makes the word face the other way, read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bites",
+      "gives": "NIPS",
+      "note": "nips are little bites"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIPS",
+       "to": "SPIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wheel that pinches when it is turned.",
+     "definitionFit": "To wheel is to turn round rapidly, to whirl or rotate on the spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wheel"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +687,65 @@
      }
     ]
    },
-   "solution": "TICKERTAPE"
+   "solution": "TICKERTAPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TICKER TAPE",
+    "definitions": [
+     {
+      "text": "paper printed out",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting the word short trims off its final letter"
+     },
+     {
+      "text": "doctored",
+      "for": "anagram",
+      "note": "a doctored document has been tampered with, so its letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "TAKE",
+      "note": "taken as written, before its tail is cut"
+     },
+     {
+      "clueFragment": "receipt",
+      "gives": "RECEIPT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TICKERTAPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAKRECEIPT",
+       "gives": "TICKERTAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skims money by falsifying a receipt.",
+     "walkthrough": "Take loses its E to give TAK, which is jumbled with receipt.",
+     "definitionFit": "Ticker tape was the paper strip on which telegraph machines printed stock prices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +759,42 @@
     "text": "Couple of beers for French trip",
     "enumeration": "6"
    },
-   "solution": "CANCAN"
+   "solution": "CANCAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANCAN",
+    "definitions": [
+     {
+      "text": "French trip",
+      "at": 20,
+      "note": "trip in the sense of a dance step"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple of beers",
+      "gives": "CANCAN",
+      "note": "two cans of beer, a can being one beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANCAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Having two beers on a trip to France.",
+     "definitionFit": "The cancan is a high-kicking dance from Paris music halls, and to trip is to dance nimbly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +814,48 @@
      }
     ]
    },
-   "solution": "CRICKETBAT"
+   "solution": "CRICKETBAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRICKET BAT",
+    "definitions": [
+     {
+      "text": "One’s lifted when facing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two animals",
+      "gives": "CRICKET",
+      "note": "first animal: a chirping insect"
+     },
+     {
+      "clueFragment": "two animals",
+      "gives": "BAT",
+      "note": "second animal: a flying mammal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRICKET",
+      "BAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Something gets picked up when confronted by a pair of creatures.",
+     "walkthrough": "In cricket the batsman facing is the one receiving the bowling, and raises his bat to play.",
+     "definitionFit": "Facing describes a batsman at the crease to receive the ball, and he lifts this wooden implement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "facing"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +869,50 @@
     "text": "Rogue gets near officer",
     "enumeration": "8"
    },
-   "solution": "SERGEANT"
+   "solution": "SERGEANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERGEANT",
+    "definitions": [
+     {
+      "text": "officer",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rogue",
+      "for": "anagram",
+      "note": "a rogue behaves wildly and out of order, so the letters break out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gets near",
+      "gives": "GETSNEAR",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSNEAR",
+       "gives": "SERGEANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain closes in on a police officer.",
+     "definitionFit": "A sergeant is a non-commissioned army rank or police rank above constable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rogue"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +926,46 @@
     "text": "Musical party style",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "gives": "HAIR",
+      "note": "Hair is the 1960s rock musical"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable approach to a party with music.",
+     "definitionFit": "A hairdo is the way someone's hair is cut and arranged, a coiffure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Musical"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +979,50 @@
     "text": "Fine lace tied in knots",
     "enumeration": "8"
    },
-   "solution": "DELICATE"
+   "solution": "DELICATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DELICATE",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in knots",
+      "for": "anagram",
+      "note": "knotted things are tangled up, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lace tied",
+      "gives": "LACETIED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LACETIED",
+       "gives": "DELICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delicate lacework fastened in knots.",
+     "definitionFit": "Fine and delicate both describe something thin, dainty and easily damaged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1036,47 @@
     "text": "Commercial break some way off",
     "enumeration": "6"
    },
-   "solution": "ADRIFT"
+   "solution": "ADRIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADRIFT",
+    "definitions": [
+     {
+      "text": "some way off",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial, an advertisement"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "RIFT",
+      "note": "a rift is a break or split"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "RIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A television ad break that seems distant.",
+     "walkthrough": "'Commercial break' looks like one phrase, but each word supplies its own piece.",
+     "definitionFit": "Adrift means off course or astray, as in falling some distance short of a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1096,48 @@
      }
     ]
    },
-   "solution": "TEACHEST"
+   "solution": "TEACHEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEA CHEST",
+    "definitions": [
+     {
+      "text": "household items transported in one?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trains",
+      "gives": "TEACHES",
+      "note": "to train someone is to teach them"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEACHES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Railway trains run punctually while carrying people's belongings.",
+     "walkthrough": "Trains is a verb, not railway carriages; the definition is a cryptic hint at moving house.",
+     "definitionFit": "A tea chest is a large wooden box once used to ship tea and later for packing belongings when moving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trains"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1151,61 @@
     "text": "A vote beginning to offend God",
     "enumeration": "6"
    },
-   "solution": "APOLLO"
+   "solution": "APOLLO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APOLLO",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "only the start, the first letter, of the following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "POLL",
+      "note": "a poll is a vote"
+     },
+     {
+      "clueFragment": "offend",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of offend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A ballot that might start to upset the Almighty.",
+     "definitionFit": "Apollo was the Greek and Roman deity of music, poetry and the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offend"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1219,62 @@
     "text": "Support mates after revolution, encouraging strike",
     "enumeration": "8"
    },
-   "solution": "BACKSLAP"
+   "solution": "BACKSLAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BACKSLAP",
+    "definitions": [
+     {
+      "text": "encouraging strike",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the word for friends is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "BACK",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "mates",
+      "gives": "PALS",
+      "note": "mates and pals are friends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "SLAP"
+     ],
+     "reversals": [
+      {
+       "from": "PALS",
+       "to": "SLAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workers backing comrades in an industrial strike after an uprising.",
+     "walkthrough": "'strike' sounds like industrial action but is a hit, a pat on the back.",
+     "definitionFit": "A backslap is a hearty pat on someone's back to congratulate or encourage them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1288,43 @@
     "text": "Well-built woman, great South American runner?",
     "enumeration": "6"
    },
-   "solution": "AMAZON"
+   "solution": "AMAZON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMAZON",
+    "definitions": [
+     {
+      "text": "Well-built woman",
+      "at": 0
+     },
+     {
+      "text": "great South American runner?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Well-built woman",
+      "note": "first meaning: a tall strong woman, after the female warriors of Greek myth"
+     },
+     {
+      "clueFragment": "great South American runner?",
+      "note": "second meaning: the huge river, since a river runs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Runner suggests an athlete, but a river runs, so the great runner is a river.",
+     "definitionFit": "The word names both a strong warrior woman of legend and the mighty river crossing Brazil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1338,46 @@
     "text": "Dance identified, one’s pieced together",
     "enumeration": "6"
    },
-   "solution": "JIGSAW"
+   "solution": "JIGSAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JIGSAW",
+    "definitions": [
+     {
+      "text": "one’s pieced together",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance",
+      "gives": "JIG",
+      "note": "a jig is a lively dance"
+     },
+     {
+      "clueFragment": "identified",
+      "gives": "SAW",
+      "note": "saw, as in spotted or recognised"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JIG",
+      "SAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A dance is recognised as something assembled from parts.",
+     "definitionFit": "A jigsaw puzzle is made of interlocking cut shapes fitted back into a picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "identified"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1391,43 @@
     "text": "Top lower",
     "enumeration": "6"
    },
-   "solution": "JERSEY"
+   "solution": "JERSEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JERSEY",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     },
+     {
+      "text": "lower",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "note": "first meaning: a knitted pullover garment"
+     },
+     {
+      "clueFragment": "lower",
+      "note": "second meaning: one that lows, a cow of the Channel Island breed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Top and lower look like opposites; lower is really something that moos.",
+     "definitionFit": "The word names both a woollen sweater worn on the upper body and a breed of dairy cattle, which moo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1441,41 @@
     "text": "Discriminating fact",
     "enumeration": "10"
    },
-   "solution": "PARTICULAR"
+   "solution": "PARTICULAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARTICULAR",
+    "definitions": [
+     {
+      "text": "Discriminating",
+      "at": 0
+     },
+     {
+      "text": "fact",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discriminating",
+      "note": "first meaning: fussy, choosy"
+     },
+     {
+      "clueFragment": "fact",
+      "note": "second meaning: a detail or item of information"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means choosy as an adjective, and as a noun one detail, as in full particulars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discriminating"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1489,49 @@
     "text": "Children’s author had tea with Orwell, finally",
     "enumeration": "4"
    },
-   "solution": "DAHL"
+   "solution": "DAHL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DAHL",
+    "definitions": [
+     {
+      "text": "Children’s author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "applied to each word before it, keeping only the closing letter of every one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had tea with Orwell",
+      "gives": "DAHL",
+      "select": "last",
+      "note": "last letters of four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAHL"
+     ]
+    },
+    "explanation": {
+     "surface": "One writer took afternoon tea with George Orwell at last.",
+     "walkthrough": "'finally' looks as if it applies only to Orwell, but it takes the last letter of every word.",
+     "definitionFit": "Roald Dahl wrote much-loved books for young readers such as Matilda and The BFG."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1545,47 @@
     "text": "Rollers died on the rocks",
     "enumeration": "4"
    },
-   "solution": "DICE"
+   "solution": "DICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DICE",
+    "definitions": [
+     {
+      "text": "Rollers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died"
+     },
+     {
+      "clueFragment": "on the rocks",
+      "gives": "ICE",
+      "note": "a drink on the rocks is served over ice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gamblers' fortunes perished when things went wrong.",
+     "definitionFit": "Dice are the small cubes thrown in games, so they are things that get rolled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1599,54 @@
     "text": "Shopping centre inspiring Australian maestro",
     "enumeration": "6"
    },
-   "solution": "MOZART"
+   "solution": "MOZART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOZART",
+    "definitions": [
+     {
+      "text": "maestro",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so the shopping place takes the next word inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shopping centre",
+      "gives": "MART",
+      "note": "a mart is a market"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "OZ",
+      "note": "Oz is slang for Australia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OZ",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "A mall motivates an Australian conductor.",
+     "definitionFit": "Mozart, the Austrian composer, is the great classical master of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1660,46 @@
     "text": "Dull, remaining actors",
     "enumeration": "8"
    },
-   "solution": "OVERCAST"
+   "solution": "OVERCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERCAST",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remaining",
+      "gives": "OVER",
+      "note": "left over means remaining"
+     },
+     {
+      "clueFragment": "actors",
+      "gives": "CAST",
+      "note": "a cast is the set of actors in a play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Uninspiring performers still left on stage.",
+     "definitionFit": "Overcast describes cloudy grey weather, a dull sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dull"
+    }
+   }
   }
  ]
 }

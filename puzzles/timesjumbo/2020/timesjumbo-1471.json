@@ -23,6 +23,9 @@
   "date": "2020-12-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,54 @@
     "text": "Bag deposited outside hotel building",
     "enumeration": "5"
    },
-   "solution": "SHACK"
+   "solution": "SHACK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHACK",
+    "definitions": [
+     {
+      "text": "building",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deposited outside",
+      "for": "container",
+      "note": "something deposited outside another thing ends up surrounding it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bag",
+      "gives": "SACK",
+      "note": "a sack is a large bag"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A bag has been left just outside the front of a hotel.",
+     "definitionFit": "A shack is a crude hut, a small and roughly made kind of structure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +106,70 @@
      }
     ]
    },
-   "solution": "SITUPS"
+   "solution": "SITUPS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SIT-UPS",
+    "definitions": [
+     {
+      "text": "Exercises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing on head",
+      "for": "reversal",
+      "note": "in a down clue, a word standing on its head is turned upside down and so read bottom to top"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one thing holding another has it held inside its own letters"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little girl",
+      "gives": "SIS",
+      "note": "sis is short for sister, a little girl in the family"
+     },
+     {
+      "clueFragment": "position",
+      "gives": "PUT",
+      "note": "to put something is to position it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "TUP",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SPUTIS",
+       "to": "SITUPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainer's routine: get a small girl into a headstand for her workout.",
+     "walkthrough": "In a down clue 'standing on head' turns a word upside down, which is how a reversal reads in a column.",
+     "definitionFit": "Sit-ups are a familiar gym movement for strengthening the stomach muscles, lifting the torso from lying flat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +183,39 @@
     "text": "Numbers working in hospitals",
     "enumeration": "13"
    },
-   "solution": "ANAESTHETISTS"
+   "solution": "ANAESTHETISTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANAESTHETISTS",
+    "definitions": [
+     {
+      "text": "Numbers working in hospitals",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "note": "surface reading: a quantity of staff, as in numbers of people employed by the health service"
+     },
+     {
+      "clueFragment": "Numbers working in hospitals",
+      "note": "setter's reading: 'numbers' as people who numb, the doctors who put patients under before surgery"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read 'numbers' with a long U and no B sound: NUM-ers, things that numb, rather than a count of staff.",
+     "definitionFit": "These hospital doctors give drugs that deaden feeling, so they are literally people who make patients numb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Numbers"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +229,42 @@
     "text": "Greek character not completely Greek, apparently",
     "enumeration": "5"
    },
-   "solution": "KAPPA"
+   "solution": "KAPPA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KAPPA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not completely",
+      "for": "hidden_word",
+      "note": "not completely means only part of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek, apparently",
+      "gives": "KAPPA",
+      "note": "found spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone seems only partly Greek, judging by appearances.",
+     "definitionFit": "Kappa is the tenth letter of the Greek alphabet, the one equivalent to the Roman K."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "completely"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +278,70 @@
     "text": "Old animal arrived with short stride by a road",
     "enumeration": "10"
    },
-   "solution": "CAMELOPARD"
+   "solution": "CAMELOPARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CAMELOPARD",
+    "definitions": [
+     {
+      "text": "Old animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before its end, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrived",
+      "gives": "CAME",
+      "note": "came is the past tense of come, to arrive"
+     },
+     {
+      "clueFragment": "stride",
+      "gives": "LOPE",
+      "note": "a lope is a long easy stride"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "RD is the usual abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAME",
+      "LOP",
+      "A",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient beast turned up, taking short strides alongside a road.",
+     "definitionFit": "Camelopard is the archaic name for the giraffe, imagined as a cross between a camel and a leopard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +355,58 @@
     "text": "Northern half of country — region for song",
     "enumeration": "7"
    },
-   "solution": "CANZONE"
+   "solution": "CANZONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANZONE",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Northern half of",
+      "for": "deletion",
+      "note": "in a down clue the northern half is the upper part, so only the first half of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "CANADA",
+      "note": "Canada is a country"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "ZONE",
+      "note": "a zone is a region or area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "ZONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Splitting a country in two along a border, then naming the region after a song.",
+     "walkthrough": "The country has six letters, so its top half is the first three.",
+     "definitionFit": "A canzone is an Italian or Provençal lyric poem or ballad set to music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Northern"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +420,53 @@
     "text": "Must consider changes, being taken amiss",
     "enumeration": "12"
    },
-   "solution": "MISCONSTRUED"
+   "solution": "MISCONSTRUED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISCONSTRUED",
+    "definitions": [
+     {
+      "text": "taken amiss",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the words must consider are changed into a different order of the same letters"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Must consider",
+      "gives": "MUSTCONSIDER",
+      "note": "the twelve letters of the two words are the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUSTCONSIDER",
+       "gives": "MISCONSTRUED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that one must think about changes before they are misread.",
+     "definitionFit": "Something misconstrued has been misunderstood or wrongly interpreted, given a meaning the speaker never intended."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +486,54 @@
      }
     ]
    },
-   "solution": "LASVEGAS"
+   "solution": "LASVEGAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAS VEGAS",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "one thing hugging another wraps its arms around it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "VEGA",
+      "note": "Vega is a bright star in the constellation Lyra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAS",
+      "VEGA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan in America throws her arms around a celebrity she meets.",
+     "definitionFit": "Las Vegas is the gambling city in Nevada, in the western United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +547,47 @@
     "text": "I’ve no time for that quiet little wood",
     "enumeration": "5"
    },
-   "solution": "PSHAW"
+   "solution": "PSHAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PSHAW",
+    "definitions": [
+     {
+      "text": "I’ve no time for that",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "little wood",
+      "gives": "SHAW",
+      "note": "a shaw is an old and dialect word for a small wood or thicket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SHAW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a small quiet wood as not worth a moment of their attention.",
+     "walkthrough": "The definition is a whole spoken phrase, standing for an exclamation of impatience.",
+     "definitionFit": "Pshaw is an old-fashioned exclamation of contempt or impatience, a scornful brushing aside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +607,58 @@
      }
     ]
    },
-   "solution": "REDHERRING"
+   "solution": "REDHERRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED HERRING",
+    "definitions": [
+     {
+      "text": "that detracts from the main issue",
+      "at": 38,
+      "note": "a relative clause standing for the noun: something that detracts"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Embarrassed",
+      "gives": "RED",
+      "note": "embarrassed people go red in the face"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "mistake",
+      "gives": "ERRING",
+      "note": "erring is making a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "H",
+      "ERRING"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest blushes over a hotel blunder that distracts from the real business.",
+     "walkthrough": "In a down clue 'over' places the first piece above the next one.",
+     "definitionFit": "A red herring is a misleading clue or distraction which draws attention away from the real question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Embarrassed"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +672,60 @@
     "text": "Stylish agent, one hiding with two females",
     "enumeration": "6"
    },
-   "solution": "SPIFFY"
+   "solution": "SPIFFY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPIFFY",
+    "definitions": [
+     {
+      "text": "Stylish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "something that hides another keeps it inside, out of sight"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "SPY",
+      "note": "a spy is a secret agent"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "two females",
+      "gives": "FF",
+      "note": "F is the abbreviation for female, doubled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "I",
+      "FF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart secret agent hides out with a couple of women.",
+     "definitionFit": "Spiffy is informal American slang for smart, neat and well-dressed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agent"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +739,54 @@
     "text": "Fire stemmed in the middle of historical construction",
     "enumeration": "7"
    },
-   "solution": "PYRAMID"
+   "solution": "PYRAMID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PYRAMID",
+    "definitions": [
+     {
+      "text": "historical construction",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stemmed",
+      "for": "deletion",
+      "note": "a flow that is stemmed is stopped short, so the word is cut off before its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fire",
+      "gives": "PYRE",
+      "note": "a pyre is a fire built to burn a body"
+     },
+     {
+      "clueFragment": "in the middle",
+      "gives": "AMID",
+      "note": "amid means in the middle of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PYR",
+      "AMID"
+     ]
+    },
+    "explanation": {
+     "surface": "A blaze was contained right in the heart of an old monument.",
+     "definitionFit": "The pyramids of Egypt are ancient monumental tombs, built thousands of years ago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stemmed"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +800,64 @@
     "text": "Celebration curtailed — bit left inside being most dull",
     "enumeration": "9"
    },
-   "solution": "FRUMPIEST"
+   "solution": "FRUMPIEST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FRUMPIEST",
+    "definitions": [
+     {
+      "text": "most dull",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means having had the tail cut off, so the final letter goes"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us one piece sits within the letters of the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebration",
+      "gives": "FIESTA",
+      "note": "a fiesta is a festive celebration"
+     },
+     {
+      "clueFragment": "bit left",
+      "gives": "RUMP",
+      "note": "a rump is a small remnant, the bit left over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RUMP",
+      "IEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A party cut short, with only scraps remaining, proves the most tedious event.",
+     "walkthrough": "The celebration loses its final A, and the leftover bit goes in after its first letter.",
+     "definitionFit": "Frumpy describes dowdy, old-fashioned and drab dress, so the superlative means the most dowdy or drab."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +871,76 @@
     "text": "End of July, crop-growing area — farmer’s beginning to go out for produce",
     "enumeration": "5"
    },
-   "solution": "YIELD"
+   "solution": "YIELD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "YIELD",
+    "definitions": [
+     {
+      "text": "produce",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     },
+     {
+      "text": "to go out",
+      "for": "deletion",
+      "note": "a letter that goes out leaves the word it was in"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "July",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of July"
+     },
+     {
+      "clueFragment": "crop-growing area",
+      "gives": "FIELD",
+      "note": "a field is where crops are grown"
+     },
+     {
+      "clueFragment": "farmer",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of farmer, which is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "IELD"
+     ]
+    },
+    "explanation": {
+     "surface": "At the end of July a farmer begins heading out to his fields for the harvest.",
+     "definitionFit": "A yield is the amount a farm produces, the output of its crops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "produce"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +968,50 @@
      }
     ]
    },
-   "solution": "ENEMYATTHEDOOR"
+   "solution": "ENEMYATTHEDOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENEMY AT THE DOOR",
+    "definitions": [
+     {
+      "text": "serious threat",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "ENEMY",
+      "note": "time is the enemy, as in the old phrase 'how goes the enemy?' for asking the time"
+     },
+     {
+      "clueFragment": "Like people calling, maybe",
+      "gives": "ATTHEDOOR",
+      "note": "visitors who call are waiting on the doorstep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENEMY",
+      "ATTHEDOOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Visitors knocking, perhaps, come to seem menacing after a while.",
+     "walkthrough": "'After' places the callers' phrase behind the word for time. 'How goes the enemy?' is an old jokey way of asking the time.",
+     "definitionFit": "An enemy at the door is a danger that has arrived and is imminent, an urgent and pressing menace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +1025,56 @@
     "text": "Stuff offered by singing family in G&S",
     "enumeration": "9"
    },
-   "solution": "TRAPPINGS"
+   "solution": "TRAPPINGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAPPINGS",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "offered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singing family",
+      "gives": "TRAPP",
+      "note": "the von Trapp family singers, of The Sound of Music"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "G&S",
+      "gives": "GS",
+      "note": "the two initials of Gilbert and Sullivan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAPP",
+      "IN",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "A singing family performing Gilbert and Sullivan operetta.",
+     "walkthrough": "G&S is Gilbert and Sullivan, the Victorian writers of comic operas.",
+     "definitionFit": "Trappings are the accessories and outward adornments that come with something, its associated paraphernalia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 15,
@@ -292,7 +1088,70 @@
     "text": "Psychologist — he dances madly around showing a perverse delight",
     "enumeration": "13"
    },
-   "solution": "SCHADENFREUDE"
+   "solution": "SCHADENFREUDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCHADENFREUDE",
+    "definitions": [
+     {
+      "text": "a perverse delight",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dances madly",
+      "for": "anagram",
+      "note": "madly says the letters go wild and land in a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the jumbled letters are placed about the other piece"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he dances",
+      "gives": "SCHADENE",
+      "note": "the letters of he dances, jumbled"
+     },
+     {
+      "clueFragment": "Psychologist",
+      "gives": "FREUD",
+      "note": "Sigmund Freud, founder of psychoanalysis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHADEN",
+      "FREUD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEDANCES",
+       "gives": "SCHADENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous psychologist is pleased by the sight of a man dancing wildly around him.",
+     "walkthrough": "'Dances' looks like the verb, but it belongs to the fodder; 'madly' alone does the stirring.",
+     "definitionFit": "Schadenfreude is a German loanword for pleasure taken in another person's misfortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dances"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1165,50 @@
     "text": "Sudden movement to overtake met with commotion",
     "enumeration": "7"
    },
-   "solution": "PASSADO"
+   "solution": "PASSADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSADO",
+    "definitions": [
+     {
+      "text": "Sudden movement",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "met with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overtake",
+      "gives": "PASS",
+      "note": "to pass another vehicle is to overtake it"
+     },
+     {
+      "clueFragment": "commotion",
+      "gives": "ADO",
+      "note": "ado is fuss or commotion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver swerves out to overtake and causes a fuss on the road.",
+     "definitionFit": "A passado is an old fencing term for a forward thrust or lunge with the sword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overtake"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1222,55 @@
     "text": "Dazzle done with, wife having taken commanding position",
     "enumeration": "9"
    },
-   "solution": "OVERWHELM"
+   "solution": "OVERWHELM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERWHELM",
+    "definitions": [
+     {
+      "text": "Dazzle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having taken"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done with",
+      "gives": "OVER",
+      "note": "something that is over is finished"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "commanding position",
+      "gives": "HELM",
+      "note": "to be at the helm is to be in command"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "W",
+      "HELM"
+     ]
+    },
+    "explanation": {
+     "surface": "Finished with dazzling, the wife has taken the reins in the household.",
+     "definitionFit": "To overwhelm is to overpower or overcome someone completely, as a brilliant performance can."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dazzle"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1284,44 @@
     "text": "Showed unhappiness with two-wheeled vehicle",
     "enumeration": "5"
    },
-   "solution": "MOPED"
+   "solution": "MOPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOPED",
+    "definitions": [
+     {
+      "text": "Showed unhappiness",
+      "at": 0
+     },
+     {
+      "text": "two-wheeled vehicle",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Showed unhappiness",
+      "note": "first meaning: sulked, past tense of a verb"
+     },
+     {
+      "clueFragment": "two-wheeled vehicle",
+      "note": "second meaning: a small motorbike"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sulked about being given a small motorbike.",
+     "definitionFit": "To mope is to sulk listlessly, and a moped is a light motorised bicycle with pedals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1335,57 @@
     "text": "Cheeky youngster? The person administering corporal punishment’s the head",
     "enumeration": "14"
    },
-   "solution": "WHIPPERSNAPPER"
+   "solution": "WHIPPERSNAPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHIPPERSNAPPER",
+    "definitions": [
+     {
+      "text": "Cheeky youngster?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The person administering corporal punishment",
+      "gives": "WHIPPER",
+      "note": "a whipper is one who whips"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the possessive ending kept as written"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NAPPER",
+      "note": "napper is old slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIPPER",
+      "S",
+      "NAPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "An impudent kid is told that the flogger is the headmaster.",
+     "walkthrough": "Split the answer as WHIPPER'S NAPPER, the flogger's head. Napper is dated British slang for the head.",
+     "definitionFit": "A whippersnapper is a young person thought presumptuous or overconfident, an impudent upstart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1399,57 @@
     "text": "Established action to get around editor",
     "enumeration": "9"
    },
-   "solution": "PROCEDURE"
+   "solution": "PROCEDURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROCEDURE",
+    "definitions": [
+     {
+      "text": "Established action",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around places one word about the other, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get",
+      "gives": "PROCURE",
+      "note": "to procure is to get or obtain"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROC",
+      "ED",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Office routine says you must find a way round the editor.",
+     "definitionFit": "A procedure is an established, official way of doing something, a fixed course of action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1463,59 @@
     "text": "Piano, working again, perhaps, I must leave ready",
     "enumeration": "8"
    },
-   "solution": "PREPARED"
+   "solution": "PREPARED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PREPARED",
+    "definitions": [
+     {
+      "text": "ready",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must leave",
+      "for": "deletion",
+      "note": "a letter that must leave is taken out of the word it sat in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piano",
+      "gives": "P",
+      "note": "P is the abbreviation for piano"
+     },
+     {
+      "clueFragment": "working again, perhaps",
+      "gives": "REPAIRED",
+      "note": "something repaired is working again, one example of how"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REPARED"
+     ]
+    },
+    "explanation": {
+     "surface": "The piano has been fixed and is working again, so I have to go now that it's ready.",
+     "definitionFit": "Prepared means made ready in advance, set up and equipped for what comes next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piano"
+    }
+   }
   },
   {
    "number": 22,
@@ -390,7 +1529,47 @@
     "text": "Speech from e.g. 10 Downing Street",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Speech",
+      "at": 0
+     },
+     {
+      "text": "e.g. 10 Downing Street",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speech",
+      "note": "first meaning: a formal talk given to an audience"
+     },
+     {
+      "clueFragment": "e.g. 10 Downing Street",
+      "note": "second meaning: the street location of a building, here the Prime Minister's residence"
+     }
+    ],
+    "explanation": {
+     "surface": "A prime ministerial speech delivered from Number 10.",
+     "walkthrough": "10 Downing Street is the official home of the British Prime Minister, where speeches are often given at the door.",
+     "definitionFit": "An address is both a formal speech and the house number and street where someone lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1589,63 @@
      }
     ]
    },
-   "solution": "SCREENTEST"
+   "solution": "SCREENTEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCREEN TEST",
+    "definitions": [
+     {
+      "text": "Audition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged letters have been put into a new order"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new says the following word appears in a fresh form"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centres",
+      "gives": "CENTRES",
+      "note": "taken as written for the fodder"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written for the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CENTRESSET",
+       "gives": "SCREENTEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Auditions are held in arts centres, with a fresh stage set built.",
+     "definitionFit": "A screen test is a filmed trial of an actor to judge their suitability for a movie part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1659,39 @@
     "text": "It’s about a pupil and much more",
     "enumeration": "10"
    },
-   "solution": "OPHTHALMIC"
+   "solution": "OPHTHALMIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OPHTHALMIC",
+    "definitions": [
+     {
+      "text": "It’s about a pupil and much more",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about a pupil",
+      "note": "surface reading: something concerning a schoolchild and their wider education"
+     },
+     {
+      "clueFragment": "It’s about a pupil and much more",
+      "note": "setter's reading: the pupil is the dark opening in the eye, and the word covers all of the eye, not just that"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pupil' wants to be a student; it is the part of the eye.",
+     "definitionFit": "Ophthalmic means relating to the eye and its diseases, which includes the pupil along with the rest of the eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1711,52 @@
      }
     ]
    },
-   "solution": "PUTFORWARD"
+   "solution": "PUTFORWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUT FORWARD",
+    "definitions": [
+     {
+      "text": "Proposed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PUT",
+      "note": "to put something is to place it"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital facility",
+      "gives": "WARD",
+      "note": "a ward is a room for patients in a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUT",
+      "FOR",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A site has been suggested for a new hospital building.",
+     "definitionFit": "To put forward a plan or a candidate is to suggest or nominate it for consideration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 26,
@@ -464,7 +1776,66 @@
      }
     ]
    },
-   "solution": "WHISTLEBLOWERS"
+   "solution": "WHISTLEBLOWERS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WHISTLE-BLOWERS",
+    "definitions": [
+     {
+      "text": "Reporters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing a street means stretching across it, so one word spans and encloses the other"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "WHILE",
+      "note": "a while is a period of time"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "fans",
+      "gives": "BLOWERS",
+      "note": "fans are devices that blow air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHI",
+      "ST",
+      "LE",
+      "BLOWERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists caught crossing the road on their way to meet admirers.",
+     "walkthrough": "'Fans' looks like supporters, but here means devices that move air.",
+     "definitionFit": "Whistle-blowers report wrongdoing inside an organisation to the authorities or the public, exposing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 27,
@@ -484,7 +1855,63 @@
      }
     ]
    },
-   "solution": "PEANUTBUTTER"
+   "solution": "PEANUTBUTTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PEANUT BUTTER",
+    "definitions": [
+     {
+      "text": "Edible spread",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exceptionally",
+      "for": "anagram",
+      "note": "something done exceptionally is out of the ordinary, so the letters fall into an unusual order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neat pub",
+      "gives": "PEANUTB",
+      "note": "the letters of neat pub rearranged"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEANUTB",
+      "UTTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEATPUB",
+       "gives": "PEANUTB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A buffet spread laid out in a remarkably tidy pub.",
+     "definitionFit": "Peanut butter is a paste of ground roasted peanuts, eaten spread on bread or toast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 28,
@@ -498,7 +1925,71 @@
     "text": "Medical specialist’s diary is found in old city book collection",
     "enumeration": "9"
    },
-   "solution": "UROLOGIST"
+   "solution": "UROLOGIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UROLOGIST",
+    "definitions": [
+     {
+      "text": "Medical specialist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is found in",
+      "for": "container",
+      "note": "being found in something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient city of Mesopotamia"
+     },
+     {
+      "clueFragment": "book collection",
+      "gives": "OT",
+      "note": "OT, the Old Testament, is a collection of books of the Bible"
+     },
+     {
+      "clueFragment": "diary",
+      "gives": "LOG",
+      "note": "a log is a daily record"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UR",
+      "O",
+      "LOG",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's journal turns up in an ancient city's library.",
+     "walkthrough": "Ur is the Sumerian city in the Bible, birthplace of Abraham; the Old Testament is a collection of books.",
+     "definitionFit": "A urologist is a doctor dealing with the urinary tract and the male reproductive organs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 29,
@@ -512,7 +2003,60 @@
     "text": "With this, spray lens with care?",
     "enumeration": "8"
    },
-   "solution": "CLEANSER"
+   "solution": "CLEANSER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "CLEANSER",
+    "definitions": [
+     {
+      "text": "With this, spray lens with care?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spray",
+      "for": "anagram",
+      "note": "spraying scatters something widely, so the letters land in a new pattern"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lens",
+      "gives": "LENS",
+      "note": "taken as written for the fodder"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "CARE",
+      "note": "taken as written for the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENSCARE",
+       "gives": "CLEANSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on cleaning spectacles: spray the lens carefully with this.",
+     "walkthrough": "The whole clue defines too: a cleaning liquid is what you would spray on glasses.",
+     "definitionFit": "A cleanser is a cleaning product, the sort of liquid sprayed onto lenses to clean them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spray"
+    }
+   }
   },
   {
    "number": 30,
@@ -526,7 +2070,58 @@
     "text": "Country’s leader’s moving along showing sense",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "sense",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving along",
+      "for": "container",
+      "note": "the first letter moves along the word to sit further inside it"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "STATE",
+      "note": "a state is a country"
+     },
+     {
+      "clueFragment": "leader’s",
+      "note": "names the first letter of the country, the one that does the moving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "S",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation's head of state is on the move and demonstrating good judgement.",
+     "walkthrough": "'Leader' means the first letter, S, which leaves the front and is slipped back in after TA.",
+     "definitionFit": "Taste is one of the five senses, the faculty for perceiving flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader’s"
+    }
+   }
   },
   {
    "number": 31,
@@ -546,7 +2141,51 @@
      }
     ]
    },
-   "solution": "IDEALGAS"
+   "solution": "IDEALGAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDEAL GAS",
+    "definitions": [
+     {
+      "text": "an unrealistic scientific concept",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "laid out",
+      "for": "anagram",
+      "note": "laid out in a new pattern, the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sage laid",
+      "gives": "SAGELAID",
+      "note": "the fodder, all eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAGELAID",
+       "gives": "IDEALGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise man sets out an impractical theory.",
+     "walkthrough": "'Laid' is shared: it is part of the fodder, while 'out' signals the shuffle.",
+     "definitionFit": "An ideal gas is a theoretical gas whose particles have no size or attraction, a model no real gas matches exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sage"
+    }
+   }
   },
   {
    "number": 32,
@@ -560,7 +2199,56 @@
     "text": "Daughter facing school had to explode",
     "enumeration": "8"
    },
-   "solution": "DETONATE"
+   "solution": "DETONATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETONATE",
+    "definitions": [
+     {
+      "text": "explode",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "facing",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "ETON",
+      "note": "Eton is the famous English public school"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "ATE",
+      "note": "to have a meal is to eat, so had can mean ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ETON",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter up against school pressures is ready to blow up.",
+     "definitionFit": "To detonate a bomb or charge is to make it explode, or to go off oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "had"
+    }
+   }
   },
   {
    "number": 33,
@@ -580,7 +2268,51 @@
      }
     ]
    },
-   "solution": "AMERICANDREAM"
+   "solution": "AMERICANDREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMERICAN DREAM",
+    "definitions": [
+     {
+      "text": "Hollywood’s ideal?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misrepresented",
+      "for": "anagram",
+      "note": "misrepresented means shown wrongly, so the letters are given in a false order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dire cameraman",
+      "gives": "DIRECAMERAMAN",
+      "note": "the thirteen letters of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIRECAMERAMAN",
+       "gives": "AMERICANDREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor film cameraman distorts the picture of Hollywood's perfect image.",
+     "walkthrough": "The question mark admits Hollywood stands for the USA as a whole by example.",
+     "definitionFit": "The American Dream is the ideal of success and prosperity for all, much celebrated by Hollywood films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dire"
+    }
+   }
   },
   {
    "number": 34,
@@ -594,7 +2326,68 @@
     "text": "Agree right away — very good perfume makes one lustful",
     "enumeration": "12"
    },
-   "solution": "CONCUPISCENT"
+   "solution": "CONCUPISCENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CONCUPISCENT",
+    "definitions": [
+     {
+      "text": "lustful",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right away",
+      "for": "deletion",
+      "note": "with right sent away, the letter standing for it is removed"
+     }
+    ],
+    "linkWords": [
+     "makes one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "gives": "CONCUR",
+      "note": "to concur is to agree"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "PI",
+      "note": "pi, short for pious, is crossword shorthand for very good"
+     },
+     {
+      "clueFragment": "perfume",
+      "gives": "SCENT",
+      "note": "scent is perfume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONCU",
+      "PI",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Agreeing at once that a very nice perfume arouses desire.",
+     "definitionFit": "Concupiscent is a formal word for full of sexual desire, lascivious or libidinous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Agree"
+    }
+   }
   },
   {
    "number": 35,
@@ -608,7 +2401,47 @@
     "text": "A sailor’s reported for acts of violence",
     "enumeration": "8"
    },
-   "solution": "ASSAULTS"
+   "solution": "ASSAULTS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ASSAULTS",
+    "definitions": [
+     {
+      "text": "acts of violence",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means spoken of, so the words are taken by their sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sailor’s",
+      "gives": "ASSAULTS",
+      "soundsLike": "A SALT'S",
+      "note": "a salt is an old sailor, and the possessive is said aloud"
+     }
+    ],
+    "explanation": {
+     "surface": "A seaman has been charged over violent attacks.",
+     "walkthrough": "Salt, or old salt, is slang for an experienced sailor.",
+     "definitionFit": "Assaults are physical attacks on people, violent acts against them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reported"
+    }
+   }
   },
   {
    "number": 36,
@@ -622,7 +2455,88 @@
     "text": "A king facing west, king with Eastern maiden on old Japanese hanging",
     "enumeration": "8"
    },
-   "solution": "KAKEMONO"
+   "solution": "KAKEMONO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KAKEMONO",
+    "definitions": [
+     {
+      "text": "Japanese hanging",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "facing west",
+      "for": "reversal",
+      "note": "in an across clue facing west means reading right to left"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A king",
+      "gives": "AK",
+      "note": "A plus K, the abbreviation for king"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the abbreviation for king"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for Eastern"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M stands for a maiden over in cricket scoring"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KA",
+      "K",
+      "E",
+      "M",
+      "ON",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "AK",
+       "to": "KA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch gazing west at an eastern maiden depicted on an antique Japanese scroll.",
+     "walkthrough": "A maiden in cricket is an over with no runs scored.",
+     "definitionFit": "A kakemono is a vertical Japanese painted scroll, made to hang on a wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 37,
@@ -636,7 +2550,46 @@
     "text": "What’s obvious all through time",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "What’s obvious",
+      "at": 0,
+      "note": "the phrase stands for the adjective, what is plain to see"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all through",
+      "gives": "OVER",
+      "note": "over can mean throughout, as in over the summer"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "What is clear and visible remains so through all time.",
+     "definitionFit": "Overt means done openly and plainly visible, not secret or hidden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 38,
@@ -650,7 +2603,57 @@
     "text": "Having three parties in vexatious situation brought around in due course",
     "enumeration": "10"
    },
-   "solution": "TRILATERAL"
+   "solution": "TRILATERAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRILATERAL",
+    "definitions": [
+     {
+      "text": "Having three parties",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought around",
+      "for": "container",
+      "note": "brought around says one word is wrapped about the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vexatious situation",
+      "gives": "TRIAL",
+      "note": "a trial is a trying or troublesome experience"
+     },
+     {
+      "clueFragment": "in due course",
+      "gives": "LATER",
+      "note": "in due course means at a later time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "LATER",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A troublesome three-way political wrangle is resolved eventually.",
+     "definitionFit": "Trilateral means having three sides, or involving three nations or groups in an agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 39,
@@ -670,7 +2673,53 @@
      }
     ]
    },
-   "solution": "MALTESECROSS"
+   "solution": "MALTESECROSS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MALTESE CROSS",
+    "definitions": [
+     {
+      "text": "Badge of knights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in new display",
+      "for": "anagram",
+      "note": "a new display presents the same pieces laid out in a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lesser mascot",
+      "gives": "LESSERMASCOT",
+      "note": "the twelve letters of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LESSERMASCOT",
+       "gives": "MALTESECROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between a knightly emblem and a lesser team mascot on display.",
+     "definitionFit": "The Maltese Cross with eight points is the emblem of the Knights Hospitaller, the Knights of Malta."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mascot"
+    }
+   }
   },
   {
    "number": 40,
@@ -690,7 +2739,68 @@
      }
     ]
    },
-   "solution": "LOANSHARK"
+   "solution": "LOANSHARK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LOAN SHARK",
+    "definitions": [
+     {
+      "text": "Financial dealer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bucks",
+      "for": "anagram",
+      "note": "a horse that bucks throws things about, so the letters are thrown into a new order"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mischievous action",
+      "gives": "LARK",
+      "note": "a lark is a prank or bit of mischief"
+     },
+     {
+      "clueFragment": "has no",
+      "gives": "OANSH",
+      "note": "the letters of has no, jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OANSH",
+      "ARK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASNO",
+       "gives": "OANSH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trader without any dollars has fallen for a prank.",
+     "walkthrough": "'Bucks' looks like dollars, but it is the verb, like a horse throwing its rider.",
+     "definitionFit": "A loan shark is a moneylender charging extortionate interest, often backed by threats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bucks"
+    }
+   }
   },
   {
    "number": 41,
@@ -704,7 +2814,46 @@
     "text": "Undersupplies damage places like London",
     "enumeration": "10"
    },
-   "solution": "SCARCITIES"
+   "solution": "SCARCITIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARCITIES",
+    "definitions": [
+     {
+      "text": "Undersupplies",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damage",
+      "gives": "SCAR",
+      "note": "to scar is to damage or mark"
+     },
+     {
+      "clueFragment": "places like London",
+      "gives": "CITIES",
+      "note": "London is an example of a city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR",
+      "CITIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Shortages are hurting big cities such as London.",
+     "definitionFit": "Scarcities are shortages, situations where too little of something is available."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damage"
+    }
+   }
   },
   {
    "number": 42,
@@ -718,7 +2867,58 @@
     "text": "Examiner of idiots not totally kind",
     "enumeration": "8"
    },
-   "solution": "ASSESSOR"
+   "solution": "ASSESSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASSESSOR",
+    "definitions": [
+     {
+      "text": "Examiner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not totally",
+      "for": "deletion",
+      "note": "not totally means one letter short of complete, so the last is dropped"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiots",
+      "gives": "ASSES",
+      "note": "asses are fools"
+     },
+     {
+      "clueFragment": "kind",
+      "gives": "SORT",
+      "note": "a sort is a kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSES",
+      "SOR"
+     ]
+    },
+    "explanation": {
+     "surface": "An exam marker who is less than wholly kind to foolish candidates.",
+     "walkthrough": "'Kind' looks like an adjective, but here it is the noun meaning type.",
+     "definitionFit": "An assessor evaluates or examines things, such as property values or candidates' work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 43,
@@ -732,7 +2932,63 @@
     "text": "Painter of article discovered among church brass",
     "enumeration": "7"
    },
-   "solution": "CHAGALL"
+   "solution": "CHAGALL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAGALL",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered among",
+      "for": "container",
+      "note": "something discovered among others is found sitting between them"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "brass",
+      "gives": "GALL",
+      "note": "brass and gall both mean cheek or impudence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "GALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A portrait painter's work is found among a church's brasses.",
+     "walkthrough": "Brass is British slang for nerve or cheek, as is gall.",
+     "definitionFit": "Marc Chagall was a Russian-French artist known for dreamlike paintings and stained glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brass"
+    }
+   }
   },
   {
    "number": 44,
@@ -746,7 +3002,58 @@
     "text": "King James Bible established a new language, now outdated",
     "enumeration": "7"
    },
-   "solution": "AVESTAN"
+   "solution": "AVESTAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVESTAN",
+    "definitions": [
+     {
+      "text": "language, now outdated",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King James Bible",
+      "gives": "AV",
+      "note": "AV is the Authorised Version, the King James Bible"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "EST",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "The King James Bible fixed a new language that has since gone out of date.",
+     "definitionFit": "Avestan is the ancient Iranian language of the Zoroastrian scriptures, no longer spoken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "established"
+    }
+   }
   },
   {
    "number": 45,
@@ -766,7 +3073,39 @@
      }
     ]
    },
-   "solution": "LORDSSPIRITUAL"
+   "solution": "LORDSSPIRITUAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LORDS SPIRITUAL",
+    "definitions": [
+     {
+      "text": "See folk in Parliament",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See folk",
+      "note": "surface reading: an instruction to go and look at the people in Parliament"
+     },
+     {
+      "clueFragment": "See folk in Parliament",
+      "note": "setter's reading: a see is a bishop's diocese, so see folk are bishops, and some sit in the upper chamber"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'See' is the noun, a bishop's diocese. The UK House of Lords includes 26 Church of England bishops who sit by virtue of office.",
+     "definitionFit": "The Lords Spiritual are the bishops of the Church of England who sit as members of the House of Lords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 46,
@@ -780,7 +3119,61 @@
     "text": "German gentleman served up cooked dish",
     "enumeration": "7"
    },
-   "solution": "RISOTTO"
+   "solution": "RISOTTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RISOTTO",
+    "definitions": [
+     {
+      "text": "cooked dish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue anything served up is lifted so it reads from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "OTTO",
+      "note": "Otto is a typical German man's name"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIR",
+      "note": "sir is a form of address for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIS",
+      "OTTO"
+     ],
+     "reversals": [
+      {
+       "from": "OTTOSIR",
+       "to": "RISOTTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German man was served a hot meal.",
+     "walkthrough": "The German name reads the same either way, so only the gentleman visibly flips.",
+     "definitionFit": "Risotto is an Italian rice dish cooked slowly in stock until creamy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 47,
@@ -794,7 +3187,50 @@
     "text": "Legendary spinner of cotton maybe getting old",
     "enumeration": "6"
    },
-   "solution": "CLOTHO"
+   "solution": "CLOTHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOTHO",
+    "definitions": [
+     {
+      "text": "Legendary spinner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cotton maybe",
+      "gives": "CLOTH",
+      "note": "cotton is one kind of cloth"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOTH",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A mythical spinner of cotton is ageing.",
+     "walkthrough": "'Spinner' suggests a cricket bowler or yarn-maker; it is one of the Fates of myth.",
+     "definitionFit": "Clotho was one of the three Fates of Greek myth, the one who spun the thread of human life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spinner"
+    }
+   }
   },
   {
    "number": 48,
@@ -808,7 +3244,42 @@
     "text": "Snooker feature in Christmas season",
     "enumeration": "5"
    },
-   "solution": "MASSE"
+   "solution": "MASSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MASSE",
+    "definitions": [
+     {
+      "text": "Snooker feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas season",
+      "gives": "MASSE",
+      "note": "found spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Snooker on television is a feature of the festive season.",
+     "definitionFit": "A massé is a snooker or billiards shot played with a steeply raised cue, making the ball curve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feature"
+    }
+   }
   },
   {
    "number": 48,
@@ -822,7 +3293,47 @@
     "text": "Male employer — a thoughtful type",
     "enumeration": "5"
    },
-   "solution": "MUSER"
+   "solution": "MUSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUSER",
+    "definitions": [
+     {
+      "text": "a thoughtful type",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "employer",
+      "gives": "USER",
+      "note": "one who employs a tool uses it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "USER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss is reflective about his staff.",
+     "walkthrough": "'Employer' wants to be a boss; here it means one who employs, that is uses, something.",
+     "definitionFit": "A muser is someone who muses, pondering and reflecting deeply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "employer"
+    }
+   }
   },
   {
    "number": 49,
@@ -836,7 +3347,71 @@
     "text": "Dry period unending in country with sierra",
     "enumeration": "9"
    },
-   "solution": "WATERLESS"
+   "solution": "WATERLESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "WATERLESS",
+    "definitions": [
+     {
+      "text": "Dry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unending",
+      "for": "deletion",
+      "note": "unending means having lost its end, so the last letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened word inside the next one"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period",
+      "gives": "TERM",
+      "note": "a term is a period of time"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "WALES",
+      "note": "Wales is a country of the UK"
+     },
+     {
+      "clueFragment": "sierra",
+      "gives": "S",
+      "note": "S is sierra in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "TER",
+      "LES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A drought period that never ends in a mountainous country.",
+     "walkthrough": "'Sierra' suggests a mountain range, but is the radio code word for S.",
+     "definitionFit": "Waterless means lacking any water, completely dry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sierra"
+    }
+   }
   },
   {
    "number": 50,
@@ -850,7 +3425,63 @@
     "text": "One river or another offering current for duck",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RHINE",
+    "definitions": [
+     {
+      "text": "One river",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "offering",
+      "for": "substitution",
+      "note": "offering one thing for another is swapping it in as a replacement"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "RHONE",
+      "note": "another river: the Rhône, which flows through Switzerland and France"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "I",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck gets swept along by the current of one river or the next.",
+     "walkthrough": "The other river has an O where the answer has I; swap them.",
+     "definitionFit": "The Rhine is a major European waterway, flowing from the Swiss Alps to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 51,
@@ -864,7 +3495,69 @@
     "text": "Boys returning outside prison creating shocking incident",
     "enumeration": "7"
    },
-   "solution": "SCANDAL"
+   "solution": "SCANDAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SCANDAL",
+    "definitions": [
+     {
+      "text": "shocking incident",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word is read from right to left"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside says one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boys",
+      "gives": "LADS",
+      "note": "lads are boys"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "CAN",
+      "note": "the can is slang for prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAN",
+      "DAL"
+     ],
+     "reversals": [
+      {
+       "from": "LADS",
+       "to": "SDAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Young men coming back from jail have caused an outrage.",
+     "definitionFit": "A scandal is an event that causes public outrage, a disgraceful affair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prison"
+    }
+   }
   },
   {
    "number": 52,
@@ -878,7 +3571,43 @@
     "text": "“Use a face covering” — that’s what we hear",
     "enumeration": "5"
    },
-   "solution": "AVAIL"
+   "solution": "AVAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVAIL",
+    "definitions": [
+     {
+      "text": "Use",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s what we hear",
+      "for": "homophone",
+      "note": "what we hear is a sound, so the words are judged by how they are said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a face covering",
+      "gives": "AVAIL",
+      "soundsLike": "A VEIL",
+      "note": "a veil covers the face"
+     }
+    ],
+    "explanation": {
+     "surface": "Public advice to wear a mask, passed on by word of mouth.",
+     "definitionFit": "Avail as a noun means use or benefit, as in 'to no avail'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Use"
+    }
+   }
   },
   {
    "number": 53,
@@ -892,7 +3621,51 @@
     "text": "Dreamy types in broadcast with intellectuals",
     "enumeration": "13"
    },
-   "solution": "SCATTERBRAINS"
+   "solution": "SCATTERBRAINS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCATTERBRAINS",
+    "definitions": [
+     {
+      "text": "Dreamy types",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "SCATTER",
+      "note": "to broadcast seed is to scatter it"
+     },
+     {
+      "clueFragment": "intellectuals",
+      "gives": "BRAINS",
+      "note": "brains are clever people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCATTER",
+      "BRAINS"
+     ]
+    },
+    "explanation": {
+     "surface": "Absent-minded people appear on air alongside clever experts.",
+     "walkthrough": "'Broadcast' looks like radio or television; it is the old farming sense of sowing seed by hand.",
+     "definitionFit": "Scatterbrains are disorganised, forgetful people who cannot keep their minds on things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 54,
@@ -906,7 +3679,66 @@
     "text": "Old party-goer, having no booze around, good mixer in company?",
     "enumeration": "9"
    },
-   "solution": "EXTRAVERT"
+   "solution": "EXTRAVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXTRAVERT",
+    "definitions": [
+     {
+      "text": "good mixer in company?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "no booze",
+      "gives": "TT",
+      "note": "TT, teetotal, means drinking no alcohol"
+     },
+     {
+      "clueFragment": "party-goer",
+      "gives": "RAVER",
+      "note": "a raver goes to wild parties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "T",
+      "RAVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A former clubber who now stays sober still mingles well at gatherings.",
+     "walkthrough": "TT stands for teetotal, abstaining from alcohol.",
+     "definitionFit": "An extravert is an outgoing sociable person who enjoys being with others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mixer"
+    }
+   }
   },
   {
    "number": 55,
@@ -920,7 +3752,47 @@
     "text": "Artist, top man working in garden?",
     "enumeration": "6"
    },
-   "solution": "RAKING"
+   "solution": "RAKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAKING",
+    "definitions": [
+     {
+      "text": "working in garden?",
+      "at": 16,
+      "note": "a participle describing an activity, with the question mark admitting it is one example"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     },
+     {
+      "clueFragment": "top man",
+      "gives": "KING",
+      "note": "a king is the man at the top"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter, the boss himself, busy in the garden.",
+     "definitionFit": "Raking is drawing a rake over soil or lawn to gather leaves, a typical gardening job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Artist"
+    }
+   }
   },
   {
    "number": 56,
@@ -934,7 +3806,53 @@
     "text": "Tricky to greet all in a brisk movement",
     "enumeration": "10"
    },
-   "solution": "ALLEGRETTO"
+   "solution": "ALLEGRETTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALLEGRETTO",
+    "definitions": [
+     {
+      "text": "a brisk movement",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tricky",
+      "for": "anagram",
+      "note": "something tricky is awkward and contorted, so the letters come out twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to greet all",
+      "gives": "TOGREETALL",
+      "note": "the ten letters of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOGREETALL",
+       "gives": "ALLEGRETTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It's awkward to say hello to everyone while hurrying past.",
+     "definitionFit": "Allegretto is a musical tempo marking for fairly lively, and names a passage played at that speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 57,
@@ -948,7 +3866,56 @@
     "text": "Bishop in car somewhere en route to heavenly destination?",
     "enumeration": "5"
    },
-   "solution": "LIMBO"
+   "solution": "LIMBO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMBO",
+    "definitions": [
+     {
+      "text": "somewhere en route to heavenly destination?",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "LIMO",
+      "note": "a limo is a limousine, a large car"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIM",
+      "B",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop riding in a limousine, as if being chauffeured to heaven.",
+     "walkthrough": "The bishop's journey suggests the surface; the definition is a waystation in Catholic theology.",
+     "definitionFit": "Limbo in Catholic theology is a region on the border of hell where souls wait, never reaching heaven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "car"
+    }
+   }
   }
  ]
 }
