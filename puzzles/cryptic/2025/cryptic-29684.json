@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "£500 (double the amount in cash)",
     "enumeration": "6"
    },
-   "solution": "MONKEY"
+   "solution": "MONKEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONKEY",
+    "definitions": [
+     {
+      "text": "£500",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in cash' places the preceding amount inside whatever word stands for cash"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cash",
+      "gives": "MONEY",
+      "note": "cash is money"
+     },
+     {
+      "clueFragment": "double the amount",
+      "gives": "K",
+      "note": "twice £500 is £1,000, and K stands for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "K",
+      "EY"
+     ]
+    },
+    "explanation": {
+     "surface": "A price tag of £500 with a bracketed aside about doubling the sum in hard cash.",
+     "walkthrough": "The bracket looks like an aside but is the wordplay: K (a thousand, double 500) goes inside MONEY.",
+     "definitionFit": "In British slang a monkey is five hundred pounds, as a pony is twenty-five and a grand a thousand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,53 @@
     "text": "One doesn’t like spending time away from man",
     "enumeration": "5"
    },
-   "solution": "MISER"
+   "solution": "MISER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MISER",
+    "definitions": [
+     {
+      "text": "One doesn’t like spending",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "away from tells us one letter goes missing from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MISTER",
+      "note": "mister is the title for a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who dislikes spending time away from another person.",
+     "walkthrough": "'Spending time' reads as one phrase; the definition stops at spending, which is money.",
+     "definitionFit": "A miser hoards money and hates parting with it, so is someone reluctant to pay out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spending"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +168,48 @@
      }
     ]
    },
-   "solution": "NOCANDO"
+   "solution": "NOCANDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NO CAN DO",
+    "definitions": [
+     {
+      "text": "Impossible!",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Negative",
+      "gives": "NO",
+      "note": "no is a negative reply"
+     },
+     {
+      "clueFragment": "letters from company",
+      "gives": "CANDO",
+      "note": "the abbreviation for company is CO, so its letters are C and O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "CANDO"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm sends letters full of refusals, and the recipient exclaims.",
+     "walkthrough": "'Letters' looks like correspondence; it means the two letters of the abbreviation, spelt out with the word 'and'.",
+     "definitionFit": "No can do is an informal reply refusing a request because it cannot be done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +223,74 @@
     "text": "Body of letter describes quite questionable manners",
     "enumeration": "9"
    },
-   "solution": "ETIQUETTE"
+   "solution": "ETIQUETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "ETIQUETTE",
+    "definitions": [
+     {
+      "text": "manners",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Body of",
+      "for": "letter_selection",
+      "note": "the body is what lies within, so the outer letters of the next word are dropped"
+     },
+     {
+      "text": "questionable",
+      "for": "anagram",
+      "note": "something questionable is suspect and unsettled, so its letters are rearranged"
+     },
+     {
+      "text": "describes",
+      "for": "container",
+      "note": "to describe a shape is to draw around it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "ETTE",
+      "select": "middle",
+      "note": "letter without its first and last letters"
+     },
+     {
+      "clueFragment": "quite",
+      "gives": "IQUET",
+      "note": "the fodder rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TIQUE",
+      "TTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IQUET",
+       "gives": "TIQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The main text of a letter describes some fairly dubious behaviour.",
+     "walkthrough": "The anagram of quite sits inside the trimmed letter, splitting it as ET...TE.",
+     "definitionFit": "Etiquette is the code of polite behaviour in society, the accepted standards of good manners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describes"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +304,40 @@
     "text": "Man is one (except according to Donne!)",
     "enumeration": "6"
    },
-   "solution": "ISLAND"
+   "solution": "ISLAND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ISLAND",
+    "definitions": [
+     {
+      "text": "Man is one (except according to Donne!)",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man is one",
+      "note": "surface reading: a statement about mankind, echoing John Donne's line that no man is one"
+     },
+     {
+      "clueFragment": "Man",
+      "note": "setter's reading: the Isle of Man in the Irish Sea, a piece of land surrounded by water"
+     }
+    ],
+    "explanation": {
+     "surface": "A quip that every man stands alone, correcting the poet Donne who said the opposite.",
+     "walkthrough": "Donne wrote 'No man is an island'; the clue contradicts him because here Man is the Isle of Man, which plainly is one.",
+     "definitionFit": "The Isle of Man is a self-governing piece of land surrounded by sea between Britain and Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +351,62 @@
     "text": "Heading for Sandwich in small craft",
     "enumeration": "5"
    },
-   "solution": "SHIPS"
+   "solution": "SHIPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHIPS",
+    "definitions": [
+     {
+      "text": "craft",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sandwich",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of Sandwich"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "in, meaning fashionable, is hip"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Small boats making for Sandwich, a port town in Kent.",
+     "walkthrough": "The surface wants 'small craft' together; small is a separate piece and craft alone is the definition.",
+     "definitionFit": "Craft is a plural-friendly word for vessels, and ships are seagoing vessels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +430,48 @@
      }
     ]
    },
-   "solution": "ATAPUSH"
+   "solution": "ATAPUSH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AT A PUSH",
+    "definitions": [
+     {
+      "text": "if really necessary",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it’s taken on",
+      "for": "hidden_word",
+      "note": "taken on means taken aboard, so the letters are carried inside the preceding words"
+     },
+     {
+      "text": "Looking to the sky",
+      "for": "reversal",
+      "note": "in a down clue, looking upward means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weighs up a task",
+      "gives": "HSUPATA",
+      "note": "the letters spanning the end of weighs, up, a and the start of task"
+     }
+    ],
+    "explanation": {
+     "surface": "A stargazer sizes up a job they would accept only if forced.",
+     "definitionFit": "At a push is a British idiom for 'if absolutely needed' or 'only with effort'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weighs"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +491,53 @@
      }
     ]
    },
-   "solution": "DIESELOIL"
+   "solution": "DIESELOIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIESEL OIL",
+    "definitions": [
+     {
+      "text": "fuel",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passes",
+      "gives": "DIES",
+      "note": "to pass away is to die"
+     },
+     {
+      "clueFragment": "Morlocks’ prey",
+      "gives": "ELOI",
+      "note": "in H. G. Wells's The Time Machine the subterranean Morlocks feed on the Eloi"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIES",
+      "ELOI",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks past the creatures the Morlocks hunt, left behind as fuel.",
+     "walkthrough": "Passes looks like moving by; it means dies.",
+     "definitionFit": "Diesel oil is the heavy petroleum fuel burned in diesel engines of lorries and trains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Passes"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +551,48 @@
     "text": "Mystical style of Gangnam artist?",
     "enumeration": "7"
    },
-   "solution": "PSYCHIC"
+   "solution": "PSYCHIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PSYCHIC",
+    "definitions": [
+     {
+      "text": "Mystical",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gangnam artist",
+      "gives": "PSY",
+      "note": "PSY is the South Korean singer of the 2012 hit Gangnam Style"
+     },
+     {
+      "clueFragment": "style",
+      "gives": "CHIC",
+      "note": "chic is stylishness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PSY",
+      "CHIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether the mystical-looking dance of a K-pop star counts as a style.",
+     "walkthrough": "'Gangnam Style' reads as one phrase, but style and the artist are separate pieces, with the artist's piece coming first.",
+     "definitionFit": "Psychic describes powers beyond the physical, such as clairvoyance, close in sense to mystical or occult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "style"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +606,55 @@
     "text": "After work, a priest knocks off",
     "enumeration": "7"
    },
-   "solution": "PIRATES"
+   "solution": "PIRATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIRATES",
+    "definitions": [
+     {
+      "text": "knocks off",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After work",
+      "for": "anagram",
+      "note": "after being worked, the letters have been kneaded into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a priest",
+      "gives": "APRIEST",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIRATES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APRIEST",
+       "gives": "PIRATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman clocks off at the end of the working day.",
+     "walkthrough": "'Knocks off' pretends to mean finishing work; here it is the definition, meaning copies illegally.",
+     "definitionFit": "To pirate a film or design is to produce an unauthorised copy, which is to knock it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knocks"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +674,40 @@
      }
     ]
    },
-   "solution": "PALMTREES"
+   "solution": "PALMTREES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PALM TREES",
+    "definitions": [
+     {
+      "text": "Handy plants for sandy shade?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Handy plants",
+      "note": "surface reading: convenient garden plants"
+     },
+     {
+      "clueFragment": "Handy",
+      "note": "setter's reading: handy as relating to part of the hand, the trees named after it shading desert sands"
+     }
+    ],
+    "explanation": {
+     "surface": "Recommending useful plants to give shade in a sandy garden.",
+     "walkthrough": "Handy means 'of the hand', not useful; the inner face of the hand gives the trees their name, and they shade beaches and oases.",
+     "definitionFit": "These tall tropical trees with fan-shaped fronds grow on beaches and desert oases, giving shade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Handy"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +727,69 @@
      }
     ]
    },
-   "solution": "ORANGUTANS"
+   "solution": "ORANGUTANS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ORANG-UTANS",
+    "definitions": [
+     {
+      "text": "Island natives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the name that follows"
+     },
+     {
+      "text": "spooked",
+      "for": "anagram",
+      "note": "spooked creatures scatter in all directions, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argonauts",
+      "gives": "ARGONAUTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Jason",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of Jason"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORANGUTANS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARGONAUTSN",
+       "gives": "ORANGUTANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jason and his Argonauts, landing on an island, are frightened by the locals.",
+     "walkthrough": "The Greek myth pulls toward a Mediterranean island, but the natives are apes of Borneo and Sumatra.",
+     "definitionFit": "Orang-utans are great apes found in the wild only on the islands of Borneo and Sumatra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Island"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +803,49 @@
     "text": "Employed setters and someone more senior",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Employed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setters",
+      "gives": "US",
+      "note": "the setters refer to themselves as us"
+     },
+     {
+      "clueFragment": "someone more senior",
+      "gives": "ED",
+      "note": "ED is the editor, who outranks the setters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A workforce list: the crossword setters and their boss, all on the payroll.",
+     "definitionFit": "Something employed has been put to use or made use of, as a tool is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Employed"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +859,48 @@
     "text": "German publican’s spirit",
     "enumeration": "5"
    },
-   "solution": "GHOST"
+   "solution": "GHOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GHOST",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "publican",
+      "gives": "HOST",
+      "note": "a publican is the host or landlord of a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOST"
+     ]
+    },
+    "explanation": {
+     "surface": "A German pub landlord's drink, a schnapps perhaps.",
+     "walkthrough": "Spirit in a pub suggests liquor; here it is the supernatural kind.",
+     "definitionFit": "A ghost is the spirit of a dead person said to appear to the living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +914,70 @@
     "text": "Ordered cigs, unopened beer, or household supplies",
     "enumeration": "9"
    },
-   "solution": "GROCERIES"
+   "solution": "GROCERIES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GROCERIES",
+    "definitions": [
+     {
+      "text": "household supplies",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "unopened means the opening letter of the next word is removed"
+     },
+     {
+      "text": "Ordered",
+      "for": "anagram",
+      "note": "ordered means arranged afresh, so the letters are put into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cigs",
+      "gives": "CIGS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "BEER",
+      "note": "taken as written, then losing its first letter"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROCERIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CIGSEEROR",
+       "gives": "GROCERIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping order of cigarettes, unopened beer, or other things for the home.",
+     "walkthrough": "'Ordered' looks like 'bought'; it signals the rearrangement.",
+     "definitionFit": "Groceries are food and everyday goods bought for the home from a shop or supermarket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ordered"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +997,51 @@
      }
     ]
    },
-   "solution": "MEATHOOK"
+   "solution": "MEATHOOK",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "MEAT HOOK",
+    "definitions": [
+     {
+      "text": "One suspends cuts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recounting",
+      "for": "homophone",
+      "note": "recounting means telling, so we hear the word spoken rather than see it written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encounter",
+      "gives": "MEAT",
+      "soundsLike": "MEET",
+      "note": "to encounter is to meet"
+     },
+     {
+      "clueFragment": "leader of 9",
+      "gives": "HOOK",
+      "note": "Captain Hook leads the pirates (the answer to 9) in Peter Pan"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who stops financial cuts recounts meeting a leader.",
+     "walkthrough": "Cuts look like budget cuts; they are cuts of meat hung up by a butcher.",
+     "definitionFit": "A butcher hangs carcasses and joints from a sharp metal hook, so the hook holds up the cuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 15,
@@ -301,7 +1055,78 @@
     "text": "Trump’s slogan boosted men struggling against legendary warrior",
     "enumeration": "9"
    },
-   "solution": "AGAMEMNON"
+   "solution": "AGAMEMNON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AGAMEMNON",
+    "definitions": [
+     {
+      "text": "legendary warrior",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boosted",
+      "for": "reversal",
+      "note": "in a down clue, boosted means pushed upward, so the letters read from bottom to top"
+     },
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling men are thrashing about, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump’s slogan",
+      "gives": "MAGA",
+      "note": "Make America Great Again, Donald Trump's campaign slogan"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "the fodder"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ON",
+      "note": "on can mean against, as in leaning on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGAM",
+      "EMN",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEN",
+       "gives": "EMN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MAGA",
+       "to": "AGAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political slogan rallies men to fight a mythical champion.",
+     "definitionFit": "Agamemnon was the Greek king who led the army against Troy in Homer's Iliad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boosted"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1146,49 @@
      }
     ]
    },
-   "solution": "ROOTBEER"
+   "solution": "ROOTBEER",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "ROOT BEER",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner swapped the opening sounds of words, so the phrase must be said with its initial sounds exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kick in the pants",
+      "gives": "ROOTBEER",
+      "soundsLike": "BOOT REAR",
+      "note": "a kick in the pants is a boot to the rear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOTBEER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink with a real kick, as Spooner might put it.",
+     "definitionFit": "Root beer is a sweet fizzy soft drink flavoured with sassafras root, popular in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kick"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1202,49 @@
     "text": "Teaching paper will be in Spanish as part of the bigger picture",
     "enumeration": "7"
    },
-   "solution": "TESSERA"
+   "solution": "TESSERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TESSERA",
+    "definitions": [
+     {
+      "text": "part of the bigger picture",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teaching paper",
+      "gives": "TES",
+      "note": "TES, formerly the Times Educational Supplement, is a British teachers' paper"
+     },
+     {
+      "clueFragment": "will be in Spanish",
+      "gives": "SERA",
+      "note": "será is Spanish for 'will be'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TES",
+      "SERA"
+     ]
+    },
+    "explanation": {
+     "surface": "An educational newspaper will appear in Spanish as part of a wider plan.",
+     "definitionFit": "A tessera is one small tile among many making up a mosaic image."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1258,43 @@
     "text": "From the mouth, heard by the ear",
     "enumeration": "5"
    },
-   "solution": "AURAL"
+   "solution": "AURAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AURAL",
+    "definitions": [
+     {
+      "text": "by the ear",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard tells us to take the word as it sounds when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "From the mouth",
+      "gives": "AURAL",
+      "soundsLike": "ORAL",
+      "note": "spoken from the mouth is oral"
+     }
+    ],
+    "explanation": {
+     "surface": "Sound travels from the speaker's mouth and is heard by the listener's ear.",
+     "definitionFit": "Aural means relating to the ear or hearing, so something aural is taken in by listening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1308,78 @@
     "text": "Part exchange delivered: you are last to receive transport",
     "enumeration": "7"
    },
-   "solution": "RAPTURE"
+   "solution": "RAPTURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RAPTURE",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchange",
+      "for": "anagram",
+      "note": "exchange means swapping things round, so these letters change places"
+     },
+     {
+      "text": "last to",
+      "for": "letter_selection",
+      "note": "last to points at the final letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "delivered:"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part",
+      "gives": "RAPT",
+      "note": "the fodder rearranged"
+     },
+     {
+      "clueFragment": "you are",
+      "gives": "UR",
+      "note": "you are in text-message shorthand"
+     },
+     {
+      "clueFragment": "receive",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of receive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAPT",
+      "UR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PART",
+       "gives": "RAPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car part-exchange deal is done, and the buyer gets their new vehicle.",
+     "walkthrough": "Part exchange is a British trade-in; here the phrase splits. Transport means ecstasy, not a vehicle.",
+     "definitionFit": "To be transported is to be carried away with joy, so transport is a state of ecstatic delight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1393,49 @@
     "text": "Rocks back, kisses me, gently content",
     "enumeration": "4"
    },
-   "solution": "GEMS"
+   "solution": "GEMS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GEMS",
+    "definitions": [
+     {
+      "text": "Rocks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content",
+      "for": "hidden_word",
+      "note": "content means what is held inside, so the letters sit within the following words"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells us to read the hidden letters from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kisses me, gently",
+      "gives": "SMEG",
+      "note": "the letters straddling the end of kisses, me, and the start of gently"
+     }
+    ],
+    "explanation": {
+     "surface": "A lover rocks back and kisses gently, contentedly.",
+     "walkthrough": "Rocks looks like a verb of swaying; it is the noun, slang for jewels.",
+     "definitionFit": "Rocks is informal slang for precious stones, especially diamonds, so they are gems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rocks"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1449,40 @@
     "text": "Might those they work with be stingy?",
     "enumeration": "10"
    },
-   "solution": "BEEKEEPERS"
+   "solution": "BEEKEEPERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEEKEEPERS",
+    "definitions": [
+     {
+      "text": "Might those they work with be stingy?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might those they work with be stingy?",
+      "note": "surface reading: a question about whether some workers' colleagues are mean with money"
+     },
+     {
+      "clueFragment": "stingy",
+      "note": "setter's reading: stingy as having stings, so the workmates are insects that sting"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering aloud whether certain people's colleagues are tight-fisted.",
+     "walkthrough": "Stingy is read as 'full of stings': the people work with bees.",
+     "definitionFit": "Beekeepers tend hives of bees, insects that sting, so their working companions are literally stinging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stingy"
+    }
+   }
   },
   {
    "number": 21,
@@ -405,7 +1496,56 @@
     "text": "Wild country with river running through shrubby area",
     "enumeration": "5"
    },
-   "solution": "BRUSH"
+   "solution": "BRUSH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRUSH",
+    "definitions": [
+     {
+      "text": "shrubby area",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running through",
+      "for": "container",
+      "note": "something running through another passes inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wild country",
+      "gives": "BUSH",
+      "note": "the bush is wild uncultivated country, especially in Australia"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "USH"
+     ]
+    },
+    "explanation": {
+     "surface": "A river flows through wild scrubland.",
+     "definitionFit": "Brush is land covered with scrub and small bushes, a shrubby stretch of ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1559,51 @@
     "text": "Scored and wore away missing veneer",
     "enumeration": "5"
    },
-   "solution": "RATED"
+   "solution": "RATED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATED",
+    "definitions": [
+     {
+      "text": "Scored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing veneer",
+      "for": "deletion",
+      "note": "a veneer is a thin outer layer, so the front letter is stripped away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wore away",
+      "gives": "GRATED",
+      "note": "to grate is to wear away by rubbing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A surface was scratched and worn down until the veneer came off.",
+     "walkthrough": "Scored looks like scratched; it means given a mark.",
+     "definitionFit": "Something rated has been assessed and given a mark, as a film is scored out of ten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scored"
+    }
+   }
   },
   {
    "number": 23,
@@ -439,7 +1623,51 @@
      }
     ]
    },
-   "solution": "WISEGUY"
+   "solution": "WISEGUY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WISE GUY",
+    "definitions": [
+     {
+      "text": "Alec, perhaps",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ernie",
+      "gives": "WISE",
+      "note": "Ernie Wise was the straight man of the British comedy double act Morecambe and Wise"
+     },
+     {
+      "clueFragment": "Ritchie",
+      "gives": "GUY",
+      "note": "Guy Ritchie is the British film director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WISE",
+      "GUY"
+     ]
+    },
+    "explanation": {
+     "surface": "Two British entertainers bump into a third man called Alec.",
+     "walkthrough": "The clue gives the surnames' partners: each piece is the other half of a famous name.",
+     "definitionFit": "A smart alec is a know-all, and a wise guy is the same kind of cocky person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Alec"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1681,60 @@
     "text": "Behaves badly – boorish tussling’s no good",
     "enumeration": "7"
    },
-   "solution": "INSULTS"
+   "solution": "INSULTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INSULTS",
+    "definitions": [
+     {
+      "text": "Behaves badly",
+      "at": 0,
+      "note": "a verb phrase; the answer is the transitive verb 'insults'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no good",
+      "for": "deletion",
+      "note": "no good means without the letter for good, so that letter is struck out"
+     },
+     {
+      "text": "boorish",
+      "for": "anagram",
+      "note": "boorish behaviour is rough and disorderly, so the letters are knocked about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tussling",
+      "gives": "TUSSLING",
+      "note": "taken as written; G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSULTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUSSLIN",
+       "gives": "INSULTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misbehaves by brawling in a boorish, unpleasant way.",
+     "definitionFit": "Someone who insults another is being rude and offensive, a form of bad behaviour toward them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boorish"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1748,52 @@
     "text": "Batman’s thus indicated cloak?",
     "enumeration": "6"
    },
-   "solution": "SWATHE"
+   "solution": "SWATHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWATHE",
+    "definitions": [
+     {
+      "text": "cloak",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batman’s thus indicated",
+      "note": "no letters of its own: the name is split into bat and man, and 'thus indicated' says to read those halves as instructions"
+     },
+     {
+      "clueFragment": "Bat",
+      "gives": "SWAT",
+      "note": "the first half of Batman: to bat is to hit, or swat"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "the second half of Batman: a man is referred to as he"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWAT",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the caped crusader's cape what he is famous for?",
+     "walkthrough": "Batman splits into bat and man; the question mark warns of the trick, and the cape is a fitting nod.",
+     "definitionFit": "To swathe is to wrap or envelop someone in fabric, much as to cloak them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Batman’s"
+    }
+   }
   },
   {
    "number": 26,
@@ -481,7 +1807,58 @@
     "text": "Like 13as, having no right to short notice",
     "enumeration": "6"
    },
-   "solution": "UNDEAD"
+   "solution": "UNDEAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNDEAD",
+    "definitions": [
+     {
+      "text": "Like 13as",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having no right",
+      "for": "deletion",
+      "note": "having no right means lacking the letter for right, so it is taken away"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "UNDER",
+      "note": "short of a target is under it"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice advertising something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is given no right to be told anything at short notice.",
+     "walkthrough": "13as refers to the answer at 13 across, ghosts. R is the abbreviation for right.",
+     "definitionFit": "Ghosts belong to the undead, beings dead yet still active among the living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   }
  ]
 }
