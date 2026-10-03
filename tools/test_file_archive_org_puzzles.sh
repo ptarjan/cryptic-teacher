@@ -765,6 +765,29 @@ check("one clue on two lights its count fills one of: kept there, the other read
       (["15-across"], "", "Occasional raid cops turn out for"),
       (sorted(blank), laid["15-across"][0], laid["18-across"][0]))
 
+# A held filing with one clue on two lights takes this reading's clue for
+# each of them, blank where it has none; the rest of the file stands.
+def held_13998(texts):
+    return {"id": "times-13998", "source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 8, "rows": 3},
+            "entries": [{"number": n, "direction": "across", "position": {"x": 0, "y": y}, "length": 8,
+                         "clue": {"text": t, "enumeration": "8"} if t else {"text": "", "missing": True},
+                         "solution": a}
+                        for (n, y, a), t in zip([(14, 0, "VALETTTT"), (15, 1, "ANTIMONY"), (18, 2, "SPORADIC")],
+                                                texts)]}
+occasional = "Occasional raid cops turn out for"
+path = Path(os.environ["TMP"]) / "times-13998.json"
+path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
+mended, now = f.mend_duplicates(held_13998(["A man's man", "An Athenian acted in any element", occasional]), path)
+check("a held clue on two lights takes this reading's clue for each, answers kept",
+      (["A man's man", "An Athenian acted in any element", occasional], {"15-across": "An Athenian acted in any element", "18-across": occasional}, "ANTIMONY"),
+      ([e["clue"]["text"] for e in mended["entries"]], now, mended["entries"][1]["solution"]))
+mended, now = f.mend_duplicates(held_13998(["A man's man", "", occasional]), path)
+check("a light this reading has no clue for is filed blank", ("", True),
+      (mended["entries"][1]["clue"]["text"], mended["entries"][1]["clue"].get("missing")))
+check("a held filing with no clue on two lights is left alone", None,
+      f.mend_duplicates(held_13998(["A man's man", "x", "y"]), path.write_text(json.dumps(
+          held_13998(["A man's man", "An Athenian", occasional]))) and path))
+
 check("a one read as l before a digit, and the space lost after a question mark, mended",
       "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
 

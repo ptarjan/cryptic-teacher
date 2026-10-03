@@ -676,16 +676,19 @@ def build(number, day, grid, how, laid, item, leaf, series=SERIES, name=None):
         for tail in group[1:]:
             if not (laid.get(tail) or ("",))[0].strip():
                 laid[tail] = (f"See {lid.split('-')[0]}", None, None)
+    from fetch_puzzle import source_clue
+    pid = series_meta.puzzle_id(series, number)
     for e in entries:
         lid = entry_id(e)
         text, enum, _ = laid.get(lid, ("", None, None))
+        text = source_clue(pid, lid, text)
         line = f"{text} ({enum})" if enum else text
         e["clue"] = enumeration.clue(line, separators=seps.get(lid), missing=not text.strip())
         if lid in groups:
             e["group"] = groups[lid]
         e["solution"] = None
     return {
-        "id": series_meta.puzzle_id(series, number),
+        "id": pid,
         "number": number,
         "series": series,
         "name": name or f"Times cryptic crossword No {number:,}",
@@ -1425,11 +1428,12 @@ def progress(line):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None):
+        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None):
     """File what is new under `cache`: complete puzzles into the corpus, ones
     with a blank clue into `puzzles` when given. At most `limit` editions are
     read, none started after `seconds`, `workers` at once (scan_queue).
-    `reread` (a datetime) reads again every edition last read before it.
+    `reread` (a datetime) reads again every edition last read before it;
+    `editions` ("ITEM/EDITION" names) reads those again and no other.
     Returns the ledger rows; [] when another run holds the ledger and `wait`
     is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
@@ -1438,7 +1442,8 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
             return []
-        return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers, reread)
+        return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers, reread,
+                    editions)
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
@@ -1460,7 +1465,7 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
     return None
 
 
-def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread):
+def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None):
     from fetch_puzzle import puzzle_path, write_puzzle_file
     known = {}
     if ledger.exists():
@@ -1503,7 +1508,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         rel = rels[d]
         h = known[rel]["filesHash"]
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        if due_reason(known[rel], h, sol_seen, seen_by, reread):
+        if (rel in editions) if editions else due_reason(known[rel], h, sol_seen, seen_by, reread):
             due[d] = (h, sol_seen)
     queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
@@ -1523,6 +1528,19 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 if write:
                     source.mkdir(parents=True, exist_ok=True)
                     (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
+                held_path = puzzle_path(paper.series, puzzle["number"])
+                mended = mend_duplicates(puzzle, held_path) if held_path.exists() else None
+                if mended is not None:
+                    verdict["mended"] = mended[1]
+                    if write:
+                        try:
+                            write_puzzle_file(held_path, mended[0], generator=TOOL)
+                        except puzzle_integrity.RefusedWrite as e:
+                            verdict["refusedWrite"] = str(e)
+                        else:
+                            verdict["wrote"] = True
+                    verdicts.append(verdict)
+                    continue
                 dest = destination(puzzles, complete(puzzle))
                 if dest is False:
                     verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
@@ -1610,6 +1628,35 @@ def improves(puzzle, path):
     if not all(have(old, f) <= have(puzzle, f) for f in ("clue", "solution")):
         return False
     return filled(puzzle) != filled(old)
+
+
+def mend_duplicates(puzzle, path):
+    """(the held file at `path` mended, {light: its clue now}), or None: each
+    light the file gives a clue it gives another light too
+    (fetch_puzzle.duplicated_clues) takes this reading's clue for it, which
+    one_light_each left on one light at most, else blank, for the blank-clue
+    re-read. None when the file holds no such clue, is not this tool's, or
+    lies on another grid than this reading."""
+    from fetch_puzzle import duplicated_clues
+    old = json.loads(path.read_text())
+    if (old.get("source") or {}).get("acquiredBy") != TOOL \
+            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+        return None
+    lost = {i for ids in duplicated_clues(old["entries"]) for i in ids}
+    if not lost:
+        return None
+    now = {entry_id(e): e["clue"] for e in puzzle["entries"]}
+    blank = enumeration.clue("", missing=True)
+    for e in old["entries"]:
+        if entry_id(e) in lost:
+            e["clue"] = now.get(entry_id(e)) or blank
+    # This reading's clue for a lost light may be one the file keeps on
+    # another: that light's then goes blank too.
+    for ids in duplicated_clues(old["entries"]):
+        for e in old["entries"]:
+            if entry_id(e) in ids and entry_id(e) in lost:
+                e["clue"] = blank
+    return old, {entry_id(e): e["clue"].get("text") or "" for e in old["entries"] if entry_id(e) in lost}
 
 
 def save(ledger, known):
@@ -1721,6 +1768,8 @@ def main(argv=None):
     ap.add_argument("--reread", nargs="?", const="now", metavar="BEFORE",
                     help="read again every edition last read before BEFORE (an ISO time; default now): "
                          "the one-off after a change to this code or the VLM model, which alone makes nothing due")
+    ap.add_argument("--edition", action="append", metavar="ITEM/EDITION",
+                    help="read this edition again, and no other (repeatable)")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
@@ -1749,7 +1798,7 @@ def main(argv=None):
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
         limit=args.limit, source=args.source, paper=PAPERS[args.paper], seconds=args.seconds,
-        workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread))
+        workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread), editions=args.edition)
     if args.paper == "times":
         match_canberra(args.source, write=not args.dry_run)
     return 0
