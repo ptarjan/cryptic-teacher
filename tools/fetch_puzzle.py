@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17639", "2-down"): (
+        "Someone admired joint of meat found on the .breakfast table",
+        "Someone admired joint of meat found on the breakfast table",
+        "OCR misread: the stray full stop before 'breakfast' is a scan speck"),
     ("times-17396", "7-down"): (
         "Figure seen 31 uprising in Congo, perhaps",
         "Figure seen at uprising in Congo, perhaps",
