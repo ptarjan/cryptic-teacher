@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17384", "9-across"): (
+        "Fool-rest can be used in wrestling",
+        "Foot-rest can be used in wrestling",
+        "OCR misread: the first definition needs 'Foot-rest', a hold for the foot"),
     ("times-17381", "3-down"): (
         "Go into biding when girl's father comes up with fruit",
         "Go into hiding when girl's father comes up with fruit",
