@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,44 @@
      }
     ]
    },
-   "solution": "KNOCKON"
+   "solution": "KNOCKON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNOCK-ON",
+    "definitions": [
+     {
+      "text": "Keep rapping",
+      "at": 0
+     },
+     {
+      "text": "that may lead to a scrum",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep rapping",
+      "note": "first meaning: a phrasal verb, to go on hammering at a door"
+     },
+     {
+      "clueFragment": "that may lead to a scrum",
+      "note": "second meaning: in rugby, dropping the ball forward is an offence restarted with a scrum"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone told to go on rapping at a door, as though the noise might start a brawl.",
+     "walkthrough": "In rugby a knock-on is fumbling the ball forwards, and the usual penalty is a scrum.",
+     "definitionFit": "The phrasal verb means continue hitting, and the hyphenated noun is the rugby handling error punished by a scrum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rapping"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +93,62 @@
     "text": "Less comfortable indoors, young relative takes in US state one part at a time",
     "enumeration": "10"
    },
-   "solution": "DRAUGHTIER"
+   "solution": "DRAUGHTIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRAUGHTIER",
+    "definitions": [
+     {
+      "text": "Less comfortable indoors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes in",
+      "for": "container",
+      "note": "to take something in is to absorb it inside yourself, so the relative surrounds the state"
+     },
+     {
+      "text": "one part at a time",
+      "for": "container",
+      "note": "the state's abbreviation goes in piecemeal, each letter slotted into a different gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young relative",
+      "gives": "DAUGHTER",
+      "note": "a daughter is a young relative"
+     },
+     {
+      "clueFragment": "US state",
+      "gives": "RI",
+      "note": "postal abbreviation for Rhode Island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "AUGHT",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl absorbing the facts about an American state bit by bit, while feeling chilly at home.",
+     "walkthrough": "R goes in after the D and I after the T, so DAUGHTER becomes DRAUGHTIER.",
+     "definitionFit": "A draughty room lets in cold currents of air, making an interior less cosy; this is the comparative form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +162,44 @@
     "text": "Agree not to vote, even in France",
     "enumeration": "4"
    },
-   "solution": "PAIR"
+   "solution": "PAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAIR",
+    "definitions": [
+     {
+      "text": "Agree not to vote",
+      "at": 0
+     },
+     {
+      "text": "even in France",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree not to vote",
+      "note": "first meaning: MPs on opposing sides arrange to abstain together so their absences cancel out"
+     },
+     {
+      "clueFragment": "even in France",
+      "note": "second meaning: the French word for an even number"
+     }
+    ],
+    "explanation": {
+     "surface": "An abstention pact that is apparently made even across the Channel.",
+     "walkthrough": "Pairing is a Westminster custom: two MPs from opposing parties both stay away from a vote.",
+     "definitionFit": "Parliamentary pairing is a mutual abstention arrangement, and the French adjective pair describes numbers divisible by two."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +213,75 @@
     "text": "Overgrown with prickles, front of house is with predictable exceptions totally covered",
     "enumeration": "7"
    },
-   "solution": "THISTLY"
+   "solution": "THISTLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "THISTLY",
+    "definitions": [
+     {
+      "text": "Overgrown with prickles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "with predictable exceptions",
+      "for": "letter_selection",
+      "note": "the exceptions fall at a regular, predictable spacing, so every other letter is dropped"
+     },
+     {
+      "text": "covered",
+      "for": "container",
+      "note": "something covered has a layer wrapped round it, so letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "H",
+      "select": "first",
+      "note": "opening letter of house"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "totally",
+      "gives": "TTLY",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of totally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "IS",
+      "TLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A neglected garden in front of the house, almost entirely smothered in weeds.",
+     "walkthrough": "HIS sits between the first T and the TLY of the alternate letters, giving T-HIS-TLY.",
+     "definitionFit": "Thistles are prickly weeds, so ground thick with them is covered in spiky growth; the adjective is rare but regular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "predictable"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +295,68 @@
     "text": "Madman in church starts to rebuke several people unable to keep quiet",
     "enumeration": "10"
    },
-   "solution": "CHATTERERS"
+   "solution": "CHATTERERS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHATTERERS",
+    "definitions": [
+     {
+      "text": "people unable to keep quiet",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their first letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madman",
+      "gives": "HATTER",
+      "note": "as mad as a hatter, after Carroll's Mad Hatter"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     },
+     {
+      "clueFragment": "rebuke several",
+      "gives": "RS",
+      "select": "first",
+      "note": "first letters of rebuke and several"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HATTER",
+      "E",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "A lunatic in church, and the congregation must tell off the people who will not shut up.",
+     "definitionFit": "Chatterers are folk who talk incessantly, so a group of them cannot stay silent; the plural matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Madman"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +370,47 @@
     "text": "One bird following another",
     "enumeration": "4"
    },
-   "solution": "FOWL"
+   "solution": "FOWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOWL",
+    "definitions": [
+     {
+      "text": "One bird",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "OWL",
+      "note": "another bird, an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "Birdwatching: one bird trailing behind a second.",
+     "walkthrough": "'Another' borrows bird from the definition: it means another bird.",
+     "definitionFit": "Fowl is a general word for a bird, especially poultry or game, so it names a single feathered creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +424,55 @@
     "text": "Repairman captures a snake",
     "enumeration": "7"
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEANDER",
+    "definitions": [
+     {
+      "text": "snake",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "to capture something is to hold it within your grasp"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repairman",
+      "gives": "MENDER",
+      "note": "someone who mends things"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "NDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A handyman catching a serpent.",
+     "walkthrough": "'Snake' is a verb here, not the reptile the surface suggests.",
+     "definitionFit": "A road or river that snakes winds in loops, and to meander is to follow such a twisting course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snake"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +486,62 @@
     "text": "After short dash caught fish that’s come too close",
     "enumeration": "8"
    },
-   "solution": "ENCROACH"
+   "solution": "ENCROACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENCROACH",
+    "definitions": [
+     {
+      "text": "come too close",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after says which pieces come later, so the short dash goes first"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short dash",
+      "gives": "EN",
+      "note": "an en dash is the shorter typographic dash"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ROACH",
+      "note": "a roach is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "C",
+      "ROACH"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler who, after a quick sprint, lands a fish that strayed too near.",
+     "definitionFit": "To encroach is to intrude gradually onto another's ground, moving nearer than is welcome; infinitive matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +555,53 @@
     "text": "Does some housework, run off feet",
     "enumeration": "6"
    },
-   "solution": "HOOVES"
+   "solution": "HOOVES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOOVES",
+    "definitions": [
+     {
+      "text": "feet",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "something taken off is removed and no longer there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does some housework",
+      "gives": "HOOVERS",
+      "note": "hoovering is vacuum cleaning, from the Hoover brand"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vacuuming, then running off their feet with chores.",
+     "walkthrough": "Hoover is the British everyday verb for vacuuming. Removing R from HOOVERS leaves HOOVES.",
+     "definitionFit": "Hooves are the horny feet of horses, cattle and similar animals, so the plural noun fits feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feet"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +615,54 @@
     "text": "Comes into lots of land: who from abroad is squatting?",
     "enumeration": "8"
    },
-   "solution": "ACQUIRES"
+   "solution": "ACQUIRES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACQUIRES",
+    "definitions": [
+     {
+      "text": "Comes into",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is squatting",
+      "for": "container",
+      "note": "a squatter occupies a building, living inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lots of land",
+      "gives": "ACRES",
+      "note": "acres are units of land area"
+     },
+     {
+      "clueFragment": "who from abroad",
+      "gives": "QUI",
+      "note": "the French word for who"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "QUI",
+      "RES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inheriting estates, and asking which foreigner is occupying them illegally.",
+     "definitionFit": "To come into something is to obtain it, typically through inheritance, and acquires means gains possession of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "squatting"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +676,49 @@
     "text": "Gift of story book",
     "enumeration": "6"
    },
-   "solution": "TALENT"
+   "solution": "TALENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALENT",
+    "definitions": [
+     {
+      "text": "Gift",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "NT",
+      "note": "New Testament, the usual crossword book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Receiving a storybook as a present.",
+     "definitionFit": "A gift can mean a natural aptitude, and talent is an innate ability or flair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gift"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +750,76 @@
      }
     ]
    },
-   "solution": "SOWHATELSEISNEW"
+   "solution": "SOWHATELSEISNEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SO WHAT ELSE IS NEW",
+    "definitions": [
+     {
+      "text": "I already knew about that",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filthy",
+      "for": "anagram",
+      "note": "filthy suggests things messed up and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spread",
+      "gives": "SOW",
+      "note": "to sow seed is to spread it"
+     },
+     {
+      "clueFragment": "animosity",
+      "gives": "HATE",
+      "note": "hate is strong animosity"
+     },
+     {
+      "clueFragment": "uni",
+      "gives": "LSE",
+      "note": "the London School of Economics, a university"
+     },
+     {
+      "clueFragment": "swine",
+      "gives": "ISNEW",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOW",
+      "HATE",
+      "LSE",
+      "ISNEW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SWINE",
+       "gives": "ISNEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disgusting pig at university stirring up ill will, and the reply that this is old news.",
+     "walkthrough": "Spread is a verb (sow seed), not a feast; the LSE is the London School of Economics.",
+     "definitionFit": "The phrase is a sarcastic retort meaning this is nothing surprising, exactly what someone says when they knew already."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +833,45 @@
     "text": "Interpreter cis for now, might we hear?",
     "enumeration": "10"
    },
-   "solution": "TRANSLATOR"
+   "solution": "TRANSLATOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRANSLATOR",
+    "definitions": [
+     {
+      "text": "Interpreter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might we hear",
+      "for": "homophone",
+      "note": "asking what we might hear says the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cis for now",
+      "gives": "TRANSLATOR",
+      "soundsLike": "TRANS LATER",
+      "note": "someone currently cisgender might be trans at a later time"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about gender identity changing over time, wrapped in a nod to interpreting.",
+     "walkthrough": "Cis and trans are opposites; being cis for now implies trans later.",
+     "definitionFit": "An interpreter renders speech or writing from one language into another, which is what a translator does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cis"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +885,62 @@
     "text": "Pouch closed, filled with noodle soup: capital!",
     "enumeration": "10"
    },
-   "solution": "SACRAMENTO"
+   "solution": "SACRAMENTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SACRAMENTO",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled with an item has that item inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pouch",
+      "gives": "SAC",
+      "note": "a sac is a bag-like pouch in a body"
+     },
+     {
+      "clueFragment": "closed",
+      "gives": "TO",
+      "note": "a door pushed to is shut"
+     },
+     {
+      "clueFragment": "noodle soup",
+      "gives": "RAMEN",
+      "note": "ramen is a Japanese noodle soup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAC",
+      "RAMEN",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "A sealed bag of instant noodle soup, greeted with a cheer of approval.",
+     "walkthrough": "'Capital!' sounds like an old-fashioned exclamation of delight, but it is the definition.",
+     "definitionFit": "Sacramento is the state capital of California, a city that is the seat of state government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +954,60 @@
     "text": "Competitor, one who has turned up without filling in card",
     "enumeration": "5"
    },
-   "solution": "RIVAL"
+   "solution": "RIVAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "RIVAL",
+    "definitions": [
+     {
+      "text": "Competitor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling in",
+      "for": "letter_selection",
+      "note": "the filling of a word is the part inside its outer letters"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who has turned up",
+      "gives": "ARRIVAL",
+      "note": "an arrival is a person who has come"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "AR",
+      "select": "middle",
+      "note": "the two inner letters of card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIVAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A rival who appeared without completing the entry card.",
+     "walkthrough": "Dropping AR from the start of ARRIVAL leaves RIVAL.",
+     "definitionFit": "A rival is someone contending against another for the same prize or goal, so a fellow competitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1021,55 @@
     "text": "Check on a rod for fish",
     "enumeration": "5"
    },
-   "solution": "PERCH"
+   "solution": "PERCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERCH",
+    "definitions": [
+     {
+      "text": "rod",
+      "at": 11
+     },
+     {
+      "text": "fish",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a, as in a pound a head"
+     },
+     {
+      "clueFragment": "Check",
+      "gives": "CH",
+      "note": "CH is the chess abbreviation for check"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler checking the rod while waiting for fish.",
+     "walkthrough": "In an across clue 'on' means comes after. A perch is an old unit of length, also called a rod or pole.",
+     "definitionFit": "A perch is both a measure of length identical to a rod and a common spiny-finned freshwater fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rod"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1083,51 @@
     "text": "Change a nasty sweet filling",
     "enumeration": "7"
    },
-   "solution": "GANACHE"
+   "solution": "GANACHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GANACHE",
+    "definitions": [
+     {
+      "text": "sweet filling",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "a nasty turn of events leaves things in a mess, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change a",
+      "gives": "CHANGEA",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHANGEA",
+       "gives": "GANACHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping out a horrible confectionery centre.",
+     "walkthrough": "'Change' looks like the anagram signal, but it is fodder; 'nasty' does the shuffling.",
+     "definitionFit": "Ganache is a mixture of chocolate and cream used to fill cakes and truffles, a sweet filling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1141,65 @@
     "text": "In part of joint, a thousand erotic moves",
     "enumeration": "7"
    },
-   "solution": "MORTICE"
+   "solution": "MORTICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MORTICE",
+    "definitions": [
+     {
+      "text": "part of joint",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moves",
+      "for": "anagram",
+      "note": "moves suggests shifting position, so the letters change places"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a thousand",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "erotic",
+      "gives": "EROTIC",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ORTICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EROTIC",
+       "gives": "ORTICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestive picture of a thousand saucy moves in a smoky joint.",
+     "walkthrough": "'Joint' is carpentry here, not a club or a cannabis cigarette.",
+     "definitionFit": "A mortice is the hole cut in timber to receive a tenon, one half of the mortice-and-tenon woodwork join."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1213,59 @@
     "text": "Two infusions to finish off menu in country house",
     "enumeration": "7"
    },
-   "solution": "CHATEAU"
+   "solution": "CHATEAU",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHATEAU",
+    "definitions": [
+     {
+      "text": "country house",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finish off",
+      "for": "letter_selection",
+      "note": "the finish of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two infusions",
+      "gives": "CHATEA",
+      "note": "cha (slang for tea) plus tea"
+     },
+     {
+      "clueFragment": "menu",
+      "gives": "U",
+      "select": "last",
+      "note": "last letter of menu"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHATEA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Afternoon tea at a stately home, with two cups to round off the meal.",
+     "walkthrough": "Cha (or char) is an old British slang word for tea.",
+     "definitionFit": "A chateau is a French castle or large manor in the countryside, a grand rural residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "infusions"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1285,68 @@
      }
     ]
    },
-   "solution": "WALRUSMOUSTACHE"
+   "solution": "WALRUSMOUSTACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WALRUS MOUSTACHE",
+    "definitions": [
+     {
+      "text": "this on the face",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tusker",
+      "gives": "WALRUS",
+      "note": "a walrus has prominent tusks"
+     },
+     {
+      "clueFragment": "has to",
+      "gives": "MUST",
+      "note": "must means has to"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     },
+     {
+      "clueFragment": "be in pain",
+      "gives": "ACHE",
+      "note": "to ache is to hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALRUS",
+      "M",
+      "O",
+      "UST",
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "An elephant in agony, and a question about what this face is wearing.",
+     "walkthrough": "'Tusker' suggests an elephant but leads to the walrus, whose whiskers name the face furniture.",
+     "definitionFit": "A walrus moustache is a thick, drooping growth over the upper lip, resembling the animal's whiskers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Tusker"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1360,67 @@
     "text": "Gap that all can see in ruined canal",
     "enumeration": "6"
    },
-   "solution": "LACUNA"
+   "solution": "LACUNA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LACUNA",
+    "definitions": [
+     {
+      "text": "Gap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its proper shape"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that all can see",
+      "gives": "U",
+      "note": "U is the British film certificate for universal viewing"
+     },
+     {
+      "clueFragment": "canal",
+      "gives": "CANAL",
+      "note": "five letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAC",
+      "U",
+      "NA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANAL",
+       "gives": "LACNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breach in a derelict canal, visible to everyone.",
+     "walkthrough": "U-rated films in Britain are suitable for all audiences.",
+     "definitionFit": "A lacuna is a missing section or blank space, especially in a manuscript or argument, so a gap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "all"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1434,42 @@
     "text": "Some beautiful Namibians, one on each arm",
     "enumeration": "4"
    },
-   "solution": "ULNA"
+   "solution": "ULNA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ULNA",
+    "definitions": [
+     {
+      "text": "one on each arm",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the words that follow is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beautiful Namibians",
+      "gives": "ULNA",
+      "note": "the end of beautiful and start of Namibians"
+     }
+    ],
+    "explanation": {
+     "surface": "Beautiful Namibian people, each with a companion on their arm.",
+     "definitionFit": "The ulna is one of the two forearm bones, so every arm has exactly one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1483,72 @@
     "text": "Abjuring alcohol, holding parties sadly’s ending in farce",
     "enumeration": "8"
    },
-   "solution": "TRAVESTY"
+   "solution": "TRAVESTY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAVESTY",
+    "definitions": [
+     {
+      "text": "farce",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within your grip"
+     },
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abjuring alcohol",
+      "gives": "TT",
+      "note": "teetotal"
+     },
+     {
+      "clueFragment": "parties",
+      "gives": "RAVES",
+      "note": "raves are dance parties"
+     },
+     {
+      "clueFragment": "sadly’s",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of sadly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVES",
+      "T",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotaller throwing parties, which sadly ends in a fiasco.",
+     "walkthrough": "TT, short for teetotal, describes someone who does not drink alcohol.",
+     "definitionFit": "A travesty is an absurd or grotesque misrepresentation, and a farce is a mockery of something serious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1562,52 @@
     "text": "A wife always on holiday?",
     "enumeration": "4"
    },
-   "solution": "AWAY"
+   "solution": "AWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWAY",
+    "definitions": [
+     {
+      "text": "on holiday",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "w is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay, or aye, is an archaic word for always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A spouse who seems to be permanently on vacation.",
+     "definitionFit": "Someone off on vacation is not at home or work but elsewhere, which is what being away means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "always"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1621,62 @@
     "text": "Hours on knees ultimately enthusiastic about ancestor worship",
     "enumeration": "6"
    },
-   "solution": "SHINTO"
+   "solution": "SHINTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHINTO",
+    "definitions": [
+     {
+      "text": "ancestor worship",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to what comes at the very end, the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knees",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of knees"
+     },
+     {
+      "clueFragment": "Hours",
+      "gives": "H",
+      "note": "h is the abbreviation for hours"
+     },
+     {
+      "clueFragment": "enthusiastic about",
+      "gives": "INTO",
+      "note": "to be into something is to be keen on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "INTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Spending hours kneeling, finally keen on venerating forebears.",
+     "walkthrough": "In an across clue 'on' puts hours after the end of knees.",
+     "definitionFit": "Shinto is the native Japanese religion, centred on veneration of kami, including the spirits of ancestors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knees"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1690,49 @@
     "text": "Put hands together on mouth creating gibberish",
     "enumeration": "8"
    },
-   "solution": "CLAPTRAP"
+   "solution": "CLAPTRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAPTRAP",
+    "definitions": [
+     {
+      "text": "gibberish",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put hands together",
+      "gives": "CLAP",
+      "note": "applauding by striking palms"
+     },
+     {
+      "clueFragment": "mouth",
+      "gives": "TRAP",
+      "note": "slang for mouth, as in shut your trap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAP",
+      "TRAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clapping a hand over a mouth that is spouting nonsense.",
+     "definitionFit": "Claptrap is pretentious or empty talk, nonsense speech aimed at winning applause, so meaningless chatter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mouth"
+    }
+   }
   }
  ]
 }
