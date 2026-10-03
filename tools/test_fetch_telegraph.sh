@@ -73,6 +73,23 @@ try:
 except ValueError:
     same("an answer longer than its light is refused", "refused", "refused")
 
+# One clue served on two lights: the bucket lost one, and the parse refuses
+# until SOURCE_CLUE_WRONG prints the missing clue, which a re-fetch then keeps.
+import fetch_puzzle
+dup = doc("Cryptic Crossword No 4", "Monday, 03 August 2026")
+dup["json"]["copy"]["clues"][1]["clues"][1]["clue"] = "Taxi"
+try:
+    ft.parse(dup, "cryptic-crossword-1")
+    same("a clue served on two lights is refused", "parsed", "refused")
+except ValueError as err:
+    same("a clue served on two lights is refused, naming both",
+         "1-down and 2-down" in str(err), True)
+fetch_puzzle.SOURCE_CLUE_WRONG[("telegraph-4", "2-down")] = ("Taxi", "Digit", "test")
+e = {(x["number"], x["direction"]): x for x in ft.parse(dup, "cryptic-crossword-1")["entries"]}
+same("SOURCE_CLUE_WRONG puts the printed clue back",
+     (e[(1, "down")]["clue"]["text"], e[(2, "down")]["clue"]["text"]), ("Taxi", "Digit"))
+del fetch_puzzle.SOURCE_CLUE_WRONG[("telegraph-4", "2-down")]
+
 open_prize = doc("Cryptic Crossword No 1", "Monday, 03 August 2026")
 open_prize["json"]["copy"]["words"][0]["solution"] = ""
 p = ft.parse(open_prize, "cryptic-crossword-1")

@@ -53,12 +53,14 @@ import enumeration
 import puzzle_paths
 import series as series_meta
 from fetch_puzzle import (
+    duplicated_clues,
     flatten_clue,
     is_continuation,
     puzzle_files,
     puzzle_path,
     read_puzzle_file,
     separators,
+    source_clue,
     write_puzzle_file,
 )
 
@@ -245,6 +247,7 @@ def parse(doc, variant):
     number = int(m.group(1).replace(",", ""))
     day = datetime.datetime.strptime(copy["date-publish"], "%A, %d %B %Y").date()
     series = series_for(variant, day)
+    pid = series_meta.puzzle_id(series, number)
     cols, rows = int(copy["gridsize"]["cols"]), int(copy["gridsize"]["rows"])
     words = {w["id"]: w for w in copy["words"]}
     lights, clues = {}, {}
@@ -289,6 +292,8 @@ def parse(doc, variant):
         seps = separators(fmt.replace(".", ","), [lights[m]["length"] for m in members])
         text, italics = flatten_clue(cp1252(html.unescape(c["clue"])).strip())
         group = [f"{n}-{d}" for n, d in members]
+        if (printed := source_clue(pid, group[0], text)) != text:
+            text, italics = printed, []
         for i, m in enumerate(members):
             entries.append({
                 **{k: v for k, v in lights[m].items() if k != "solution"},
@@ -299,6 +304,12 @@ def parse(doc, variant):
                 "solution": lights[m]["solution"],
             })
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
+    # The bucket can serve one light another's clue. No Telegraph puzzle prints
+    # one clue twice, so a repeat is a lost clue, never a theme.
+    if dups := duplicated_clues(entries):
+        raise ValueError(f"{pid}: {'; '.join(' and '.join(ids) for ids in dups)} are "
+                         f"served the same clue, so the bucket has lost all but one; "
+                         f"file the printed clue (bigdave44.com prints them) in fetch_puzzle.SOURCE_CLUE_WRONG")
     # Only the clues are mandatory. A prize puzzle whose entries are still
     # open has no answers yet: it files unsolved, with no half key, and a
     # later --holes run replaces it once the bucket publishes them.
@@ -308,7 +319,7 @@ def parse(doc, variant):
             del e["solution"]
     setter = (copy.get("setter") or copy.get("byline") or "").strip() or None
     return {
-        "id": series_meta.puzzle_id(series, number),
+        "id": pid,
         "number": number,
         "series": series,
         "name": f"{PAPER[series]} No {number:,}",
