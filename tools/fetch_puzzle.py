@@ -284,9 +284,9 @@ def placeholder_clues(entries):
 
 def clued(entries):
     """The entries a solver can read a clue for: has_words, less placeholders."""
-    gone = placeholder_clues(entries)
-    return [e for e in entries
-            if has_words(e["clue"].get("text", "")) and entry_id(e) not in gone]
+    if placeholder_clues(entries):
+        return []
+    return [e for e in entries if has_words(e["clue"].get("text", ""))]
 
 
 # What a continuation leg's clue is made of once its enumeration is off: the
