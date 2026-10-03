@@ -552,6 +552,19 @@ pool_interval_start() {
   # permutation back leaves the order as it was. A dry run plans once.
   if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
      { [ "$DRY_RUN" = 0 ] || [ "$POOL_PLANNED" = 0 ]; }; then
+    # A run lasts days: the backlog is read again, so a puzzle filed or made
+    # eligible since the run started joins the queue. The pool is drained here,
+    # so whatever this run already took is in queue[0..at).
+    if [ "$POOL_PLANNED" = 1 ]; then
+      local -A held=()
+      local id
+      for id in "${queue[@]}"; do held[$id]=1; done
+      for id in $(python3 tools/prereset_plan.py --backlog \
+          "$(python3 tools/failed_inputs.py skipped annotate)" \
+          "$(python3 tools/failed_inputs.py skipped solve)" 2>/dev/null); do
+        [ -n "${held[$id]:-}" ] || queue+=("$id")
+      done
+    fi
     POOL_PLANNED=1
     local reordered
     reordered=($(printf '%s\n' "${queue[@]:$at}" \
