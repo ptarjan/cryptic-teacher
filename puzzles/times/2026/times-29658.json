@@ -23,6 +23,9 @@
   "date": "2026-10-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,42 @@
     "text": "Made counterfeit",
     "enumeration": "6"
    },
-   "solution": "FORGED"
+   "solution": "FORGED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FORGED",
+    "definitions": [
+     {
+      "text": "Made",
+      "at": 0
+     },
+     {
+      "text": "counterfeit",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made",
+      "note": "first meaning: shaped or produced, as a smith hammers out metal or a bond is created"
+     },
+     {
+      "clueFragment": "counterfeit",
+      "note": "second meaning: faked, as a signature or banknote"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one phrase, 'made fake', but splits into two separate meanings of a single word.",
+     "definitionFit": "The word means both shaped at a smithy or brought into being, and fraudulently copied like a signature or banknote."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Made"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +88,46 @@
     "text": "Separate books belonging to that woman",
     "enumeration": "5"
    },
-   "solution": "OTHER"
+   "solution": "OTHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OTHER",
+    "definitions": [
+     {
+      "text": "Separate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a collection of books of the Bible"
+     },
+     {
+      "clueFragment": "belonging to that woman",
+      "gives": "HER",
+      "note": "the possessive pronoun for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sorts out the books that belong to a particular woman.",
+     "definitionFit": "Both are adjectives for something distinct or additional, apart from the thing already mentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Separate"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +147,58 @@
      }
     ]
    },
-   "solution": "GOINGINTO"
+   "solution": "GOINGINTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GOING INTO",
+    "definitions": [
+     {
+      "text": "Investigating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "yielding softly",
+      "for": "deletion",
+      "note": "yielding means giving up, and softly is the musical piano mark, so the horse gives up that soft letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racecourse condition",
+      "gives": "GOING",
+      "note": "the going is the state of the turf at a racecourse, such as good or soft"
+     },
+     {
+      "clueFragment": "piebald horse",
+      "gives": "PINTO",
+      "note": "a pinto is a horse with patches of white and another colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOING",
+      "INTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing tipster studies the state of the turf before backing a patchy-coated horse.",
+     "walkthrough": "P (piano, softly) comes off PINTO to leave INTO; in a down clue 'on' puts GOING above it.",
+     "definitionFit": "Going into a matter is an idiom for examining or looking into it closely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yielding"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +212,68 @@
     "text": "Third of ancient folk raised to the surface in tomb",
     "enumeration": "6"
    },
-   "solution": "DOLMEN"
+   "solution": "DOLMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DOLMEN",
+    "definitions": [
+     {
+      "text": "tomb",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Third of",
+      "for": "anagram",
+      "note": "picks out the letter in position three, the one that will be moved"
+     },
+     {
+      "text": "raised to the surface",
+      "for": "anagram",
+      "note": "in a down entry, raising a letter to the surface lifts it to the very top, rearranging the order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ancient",
+      "gives": "OLD",
+      "note": "a plain synonym for very aged"
+     },
+     {
+      "clueFragment": "folk",
+      "gives": "MEN",
+      "note": "people, taken as men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOLMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDMEN",
+       "gives": "DOLMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist finds a third of an ancient people's remains lifted up out of a burial site.",
+     "walkthrough": "Only one letter moves: the D, third letter of OLD MEN, rises to the top of the down entry.",
+     "definitionFit": "A dolmen is a prehistoric megalithic structure of upright stones topped by a slab, thought to have marked burial chambers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Third"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +287,65 @@
     "text": "“Grate” bang out of order when overlooked in misspelling of “Great Britain”",
     "enumeration": "8"
    },
-   "solution": "IRRITATE"
+   "solution": "IRRITATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IRRITATE",
+    "definitions": [
+     {
+      "text": "Grate",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of order when overlooked",
+      "for": "deletion",
+      "note": "the letters of that word, in any order, are passed over and dropped from the longer phrase"
+     },
+     {
+      "text": "misspelling of",
+      "for": "anagram",
+      "note": "a misspelling jumbles the letters of the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great Britain",
+      "gives": "GREATBRITAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bang",
+      "gives": "BANG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRRITATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETRITAI",
+       "gives": "IRRITATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pedant complains that a sign spelling the country's name wrongly really grates.",
+     "walkthrough": "Remove B, A, N and G from GREAT BRITAIN in whatever positions they sit, then rearrange the eight remaining letters.",
+     "definitionFit": "To grate on someone is to annoy or get on their nerves, the same as to vex them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bang"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +373,59 @@
      }
     ]
    },
-   "solution": "INFITSANDSTARTS"
+   "solution": "INFITSANDSTARTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN FITS AND STARTS",
+    "definitions": [
+     {
+      "text": "at irregular points",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wearing",
+      "gives": "IN",
+      "note": "dressed in, as in 'in a hat'"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "FIT",
+      "note": "a suit or fit is a matching, as clothes fit a body"
+     },
+     {
+      "clueFragment": "smooths",
+      "gives": "SANDS",
+      "note": "rubs down with sandpaper"
+     },
+     {
+      "clueFragment": "pastries",
+      "gives": "TARTS",
+      "note": "pastry cases with a filling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FIT",
+      "SANDS",
+      "TARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker in a suit is smoothing the pastry at uneven spots.",
+     "walkthrough": "The surface reads suit and smooths as nouns about a tailored baker, but both are verbs here.",
+     "definitionFit": "The idiom describes something happening in spurts with pauses, so irregularly from moment to moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +439,52 @@
     "text": "Stood up with bowl made of dark timber",
     "enumeration": "8"
    },
-   "solution": "ROSEWOOD"
+   "solution": "ROSEWOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSEWOOD",
+    "definitions": [
+     {
+      "text": "dark timber",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with",
+     "made of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stood up",
+      "gives": "ROSE",
+      "note": "got to one's feet"
+     },
+     {
+      "clueFragment": "bowl",
+      "gives": "WOOD",
+      "note": "in the game of bowls, each ball is called a wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "WOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone got to their feet holding a bowl carved from dark wood.",
+     "walkthrough": "A wood is a bowl in lawn bowls, the British game of rolling balls toward a small jack.",
+     "definitionFit": "Rosewood is a reddish-brown tropical hardwood prized for furniture and musical instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +498,56 @@
     "text": "Little bears this writer domesticated",
     "enumeration": "5"
    },
-   "solution": "TAMED"
+   "solution": "TAMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAMED",
+    "definitions": [
+     {
+      "text": "domesticated",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bears",
+      "for": "container",
+      "note": "to bear is to carry, so the first part holds the second inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "gives": "TAD",
+      "note": "a tad is a small amount"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter referring to themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A small child carries this author's stuffed bears around, all tamed.",
+     "walkthrough": "'bears' looks like the animals but is the verb carry.",
+     "definitionFit": "Both describe an animal brought under human control, made gentle rather than wild."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +561,63 @@
     "text": "Drawers that go up lower body parts comprising wide design",
     "enumeration": "9"
    },
-   "solution": "TOWPLANES"
+   "solution": "TOWPLANES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TOWPLANES",
+    "definitions": [
+     {
+      "text": "Drawers that go up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comprising",
+      "for": "container",
+      "note": "to comprise is to include, so the body parts hold the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lower body parts",
+      "gives": "TOES",
+      "note": "digits at the bottom of the body"
+     },
+     {
+      "clueFragment": "wide",
+      "gives": "W",
+      "note": "the cricket abbreviation for a wide ball"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "PLAN",
+      "note": "a scheme or layout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "W",
+      "PLAN",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Underpants are pulled up over the legs, cut to a broad pattern.",
+     "walkthrough": "'Drawers' suggests underwear, but here it means things that draw, pulling gliders into the sky.",
+     "definitionFit": "Tow planes are aircraft that haul gliders aloft on a cable, so they are pullers that climb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drawers"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +631,53 @@
     "text": "Moving seats in car, filth is all over the place",
     "enumeration": "10"
    },
-   "solution": "CHAIRLIFTS"
+   "solution": "CHAIRLIFTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAIRLIFTS",
+    "definitions": [
+     {
+      "text": "Moving seats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "scattered everywhere, so the letters are strewn into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car, filth is",
+      "gives": "CARFILTHIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARFILTHIS",
+       "gives": "CHAIRLIFTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the car's seats are moving and dirt is everywhere inside.",
+     "definitionFit": "These are ski-resort conveyances: chairs hung from a cable that carry riders uphill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Moving"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +691,44 @@
     "text": "Cut whingeing in conversation",
     "enumeration": "4"
    },
-   "solution": "MOWN"
+   "solution": "MOWN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MOWN",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conversation",
+      "for": "homophone",
+      "note": "in speech, so the word is judged by how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whingeing",
+      "gives": "MOWN",
+      "soundsLike": "MOAN",
+      "note": "whingeing is complaining, a moan"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sharply cuts off a person who keeps complaining while they chat.",
+     "walkthrough": "Whingeing is British for whining or complaining.",
+     "definitionFit": "Mown is the past participle of mow, describing grass that has been trimmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +742,55 @@
     "text": "Scrap US college society infiltrated by FBI agents",
     "enumeration": "8"
    },
-   "solution": "FRAGMENT"
+   "solution": "FRAGMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRAGMENT",
+    "definitions": [
+     {
+      "text": "Scrap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infiltrated by",
+      "for": "container",
+      "note": "something infiltrated has others slipped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US college society",
+      "gives": "FRAT",
+      "note": "a frat is an American student fraternity"
+     },
+     {
+      "clueFragment": "FBI agents",
+      "gives": "GMEN",
+      "note": "G-men is slang for FBI agents, government men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRA",
+      "GMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Federal agents go undercover in an American fraternity and there's a fight.",
+     "walkthrough": "'Scrap' looks like a fight but means a small piece.",
+     "definitionFit": "A scrap is a small broken-off piece, just as a fragment is a shard or bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +804,48 @@
     "text": "From behind, some beheld dawdler’s rocking gait",
     "enumeration": "6"
    },
-   "solution": "WADDLE"
+   "solution": "WADDLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "WADDLE",
+    "definitions": [
+     {
+      "text": "rocking gait",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "From behind",
+      "for": "reversal",
+      "note": "reading from the back means right to left"
+     },
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only part of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beheld dawdler",
+      "gives": "ELDDAW",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Watching a slow walker from behind, you notice their swaying walk.",
+     "definitionFit": "A waddle is the side-to-side walk of a duck, a swaying way of moving on foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +859,56 @@
     "text": "Scrutinise extremely satiric article",
     "enumeration": "4"
    },
-   "solution": "SCAN"
+   "solution": "SCAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAN",
+    "definitions": [
+     {
+      "text": "Scrutinise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "taken literally, at the extremes, so only the end letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satiric",
+      "gives": "SC",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader is told to examine a highly satirical piece of writing.",
+     "walkthrough": "'extremely' looks like an intensifier for satiric, but it means the extremities.",
+     "definitionFit": "To scan is to look over something carefully, examining it point by point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +928,52 @@
      }
     ]
    },
-   "solution": "CREAMSODA"
+   "solution": "CREAMSODA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CREAM SODA",
+    "definitions": [
+     {
+      "text": "Beverage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "an inebriated state, so the letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a comrade’s",
+      "gives": "ACOMRADES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACOMRADES",
+       "gives": "CREAMSODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink that a friend has knocked back.",
+     "walkthrough": "'drunk' reads as the past participle of drink, fitting the beverage, but it signals the shuffle.",
+     "definitionFit": "Cream soda is a sweet vanilla-flavoured fizzy soft drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +987,69 @@
     "text": "Preventing nothing in cutting-edge technology leads to no good",
     "enumeration": "8"
    },
-   "solution": "AVOIDING"
+   "solution": "AVOIDING",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVOIDING",
+    "definitions": [
+     {
+      "text": "Preventing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first piece is placed inside the next"
+     },
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "the leading letters, first of each word, are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "VOID",
+      "note": "emptiness"
+     },
+     {
+      "clueFragment": "cutting-edge technology",
+      "gives": "AI",
+      "note": "artificial intelligence is the current frontier of tech"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VOID",
+      "I",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "Claims that leading-edge tech does nothing to stop bad outcomes.",
+     "walkthrough": "Artificial intelligence is today's standard example of cutting-edge technology, and 'nothing' sits inside it.",
+     "definitionFit": "Avoiding something means steering clear of it, keeping it from happening, close to stopping it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leads"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1063,67 @@
     "text": "Guide outsiders from Ireland around cleric’s home",
     "enumeration": "9"
    },
-   "solution": "DIRECTORY"
+   "solution": "DIRECTORY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIRECTORY",
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outsiders from",
+      "for": "letter_selection",
+      "note": "the outside letters, first and last, are taken"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, so the pair swap places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ireland",
+      "gives": "ID",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "cleric’s home",
+      "gives": "RECTORY",
+      "note": "a rector's residence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "RECTORY"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Visitors from abroad are shown around an Irish priest's house.",
+     "definitionFit": "A directory is a listing of names and addresses, a book that helps people find things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1137,48 @@
     "text": "Whole tennis team’s belief regularly lacking",
     "enumeration": "8"
    },
-   "solution": "ENSEMBLE"
+   "solution": "ENSEMBLE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ENSEMBLE",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly lacking",
+      "for": "letter_selection",
+      "note": "dropping letters at a steady interval leaves every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis team’s belief",
+      "gives": "ENSEMBLE",
+      "select": "alternate",
+      "note": "the even-placed letters, second, fourth and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSEMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis squad loses faith in itself from time to time.",
+     "definitionFit": "An ensemble is a group or set taken together as one unit, all its parts combined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1192,53 @@
     "text": "Group of soldiers knight had noted",
     "enumeration": "8"
    },
-   "solution": "RENOWNED"
+   "solution": "RENOWNED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RENOWNED",
+    "definitions": [
+     {
+      "text": "noted",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group of soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "OWNED",
+      "note": "possessed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "N",
+      "OWNED"
+     ]
+    },
+    "explanation": {
+     "surface": "A regiment's knight had written something down.",
+     "walkthrough": "'noted' looks like 'wrote down' after 'had', but it is the adjective famous.",
+     "definitionFit": "Both words mean well-known and celebrated, enjoying a wide reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noted"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1252,52 @@
     "text": "Infatuation delivering constant feeling of euphoria",
     "enumeration": "4"
    },
-   "solution": "RUSH"
+   "solution": "RUSH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUSH",
+    "definitions": [
+     {
+      "text": "feeling of euphoria",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivering",
+      "for": "deletion",
+      "note": "delivering in the sense of freeing from, so the word is relieved of a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infatuation",
+      "gives": "CRUSH",
+      "note": "a crush is a passing infatuation"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the symbol for a constant, such as the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A love affair brings a steady sense of elation.",
+     "definitionFit": "A rush is a sudden thrilling surge of pleasure or excitement, like a high."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivering"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1311,65 @@
     "text": "One transformed corporation from the bottom up supported by worker",
     "enumeration": "6"
    },
-   "solution": "MUTANT"
+   "solution": "MUTANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MUTANT",
+    "definitions": [
+     {
+      "text": "One transformed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the bottom up",
+      "for": "reversal",
+      "note": "in a down entry, reading upward runs the word backwards"
+     }
+    ],
+    "linkWords": [
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corporation",
+      "gives": "TUM",
+      "note": "corporation is a jocular old word for a pot belly, a tum"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's stock worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUT",
+      "ANT"
+     ],
+     "reversals": [
+      {
+       "from": "TUM",
+       "to": "MUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company is reshaped from the ground up, propped up by its staff.",
+     "walkthrough": "'corporation' looks like a business, but it is old slang for a large stomach.",
+     "definitionFit": "A mutant is a living thing whose genes have changed, a being altered from its normal form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1383,50 @@
     "text": "Deconstruction of poem is set as task",
     "enumeration": "6"
    },
-   "solution": "IMPOSE"
+   "solution": "IMPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPOSE",
+    "definitions": [
+     {
+      "text": "set as task",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Deconstruction of",
+      "for": "anagram",
+      "note": "taking something apart lets it be rebuilt differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem is",
+      "gives": "POEMIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POEMIS",
+       "gives": "IMPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A literature teacher assigns pulling a poem apart as homework.",
+     "definitionFit": "To impose a duty or burden is to lay it on someone as an obligation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Deconstruction"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1440,57 @@
     "text": "Casino croupier finally cut deck",
     "enumeration": "5"
    },
-   "solution": "ORLOP"
+   "solution": "ORLOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORLOP",
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "at the end, so the last letter of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casino croupier",
+      "gives": "OR",
+      "select": "last",
+      "note": "the final letters of the two words"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "LOP",
+      "note": "to chop off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "LOP"
+     ]
+    },
+    "explanation": {
+     "surface": "In a casino, the dealer at last cuts the deck of cards.",
+     "walkthrough": "'deck' looks like a pack of cards but means a level on a ship.",
+     "definitionFit": "The orlop is the lowest deck of a sailing ship, below the waterline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1504,64 @@
     "text": "Prune nectar stripped guts out",
     "enumeration": "8"
    },
-   "solution": "TRUNCATE"
+   "solution": "TRUNCATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TRUNCATE",
+    "definitions": [
+     {
+      "text": "Prune",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "stripping removes the outer layer, leaving the inner letters"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out as in wrong or disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nectar",
+      "gives": "NECTAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "guts",
+      "gives": "UT",
+      "select": "middle",
+      "note": "its inner letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NECTAR UT",
+       "gives": "TRUNCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats a plum after the juice was removed and its insides scooped out.",
+     "walkthrough": "'Prune' looks like the dried fruit, sitting near nectar, but it is the verb meaning cut back.",
+     "definitionFit": "To prune is to cut back or shorten, as to truncate is to lop off the end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Prune"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1575,56 @@
     "text": "Brief discussion about feature of kite",
     "enumeration": "5"
    },
-   "solution": "TALON"
+   "solution": "TALON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TALON",
+    "definitions": [
+     {
+      "text": "feature of kite",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Brief",
+      "for": "deletion",
+      "note": "cut short, so the last letter is lopped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discussion",
+      "gives": "TALK",
+      "note": "a conversation"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on a subject, concerning it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAL",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A short chat about how a kite is made.",
+     "walkthrough": "The kite here is the bird of prey, not the toy on a string.",
+     "definitionFit": "A talon is a hooked claw, a characteristic part of a raptor such as a kite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kite"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1638,55 @@
     "text": "Hood initially covering bird of prey",
     "enumeration": "4"
    },
-   "solution": "COWL"
+   "solution": "COWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COWL",
+    "definitions": [
+     {
+      "text": "Hood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "at the start, so the first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "covering",
+      "gives": "C",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "bird of prey",
+      "gives": "OWL",
+      "note": "an owl hunts small animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A falconer's hood is first placed over a raptor.",
+     "definitionFit": "A cowl is a loose head covering, especially the large one on a monk's habit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1700,62 @@
     "text": "Roughly rock, held in place by stark strain of gondolier",
     "enumeration": "10"
    },
-   "solution": "BARCAROLLE"
+   "solution": "BARCAROLLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BARCAROLLE",
+    "definitions": [
+     {
+      "text": "strain of gondolier",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in place by",
+      "for": "container",
+      "note": "held by something means enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stark",
+      "gives": "BARE",
+      "note": "plain and unadorned"
+     },
+     {
+      "clueFragment": "Roughly",
+      "gives": "CA",
+      "note": "circa, about"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "ROLL",
+      "note": "to sway from side to side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "CA",
+      "ROLL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A boatman sings in a harsh, rocking style while steadying the boat.",
+     "walkthrough": "'strain' suggests effort, but it means a tune.",
+     "definitionFit": "A barcarolle is a traditional Venetian boat song sung by gondoliers, so a strain or melody of theirs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1769,54 @@
     "text": "Fish strikes, catching victim",
     "enumeration": "8"
    },
-   "solution": "LAMPREYS"
+   "solution": "LAMPREYS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMPREYS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "to catch is to grab hold, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strikes",
+      "gives": "LAMS",
+      "note": "to lam is an informal verb meaning to beat or thrash"
+     },
+     {
+      "clueFragment": "victim",
+      "gives": "PREY",
+      "note": "the hunted animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAM",
+      "PREY",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A predator fish strikes, snaring its victim.",
+     "definitionFit": "Lampreys are eel-like jawless fish with sucking mouths that latch onto other fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strikes"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1830,44 @@
     "text": "Difficult hearing",
     "enumeration": "6"
    },
-   "solution": "TRYING"
+   "solution": "TRYING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRYING",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     },
+     {
+      "text": "hearing",
+      "at": 10,
+      "note": "a verb form: conducting a court hearing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult",
+      "note": "first meaning: tiresome, hard to put up with"
+     },
+     {
+      "clueFragment": "hearing",
+      "note": "second meaning: judging a case in court"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Difficult hearing' sounds like a deafness problem; a judge is hearing a case when trying it.",
+     "definitionFit": "The word means both irksome and wearing, and putting someone on trial before a judge in court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   }
  ]
 }
