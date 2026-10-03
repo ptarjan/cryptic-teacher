@@ -142,6 +142,10 @@ tools/trove_clue_ocr.py                      repairs the clues Trove's OCR loses
                                              ~/.cache/trove-clues by fetch_trove.py zones;
                                              file_trove_puzzles.py applies it, anchored on text
                                              both readings share
+tools/fixtures/archive-org-grids/            three archive.org page crops whose grid lies far
+                                             under, over and left of its title (cases.json:
+                                             scan, title box, and the FT one's words), the
+                                             grids test_file_archive_org_puzzles.sh locates
 tools/fixtures/trove-repair/                 the 14 July 1967 cryptic, whose OCR glued 6-down
                                              onto 5-down, with RapidOCR's reading of its clue
                                              columns and our three readers' text of them: the

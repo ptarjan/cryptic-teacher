@@ -42,6 +42,23 @@ check("1970s title read", [13677], [n for n, _ in f.headings([line("The Times Cr
 check("Concise, Times Two and Jumbo titles are not the cryptic's", [],
       f.headings([line("CONCISE CROSSWORD NO 2065"), line("Times Two Crossword, page 32"),
                   line("Times Jumbo Crossword No 812")], f.TITLE))
+# Real misread titles from scans the pass found no title on (1977-03-31,
+# 1975-06-05, 1992-03-10, 1999-03-31).
+check("misread titles read: first word, a mark before Crossword, a split number, a comma read as *",
+      [14564, 14012, 18862, 21065],
+      [n for t in ("Hie Times Crossword Puzzle No 14,564", "The Times 'Crossword Puzzle No 14,012",
+                   "THE TIMES CROSSWORD PUZZLE NO 1 8,862", "THE TIMES CROSSWORD NO 21*065")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+# A scan cached by older heading code is made again, and a title it finds
+# that no verdict covers makes the edition due.
+key, code = f.scan_key(), f.SCAN_CODE
+f.SCAN_CODE = code - {"TITLE"}; f._SCAN_KEY.clear()
+check("the title pattern is in the scan key", True, f.scan_key() != key)
+f.SCAN_CODE = code; f._SCAN_KEY.clear()
+check("a title no verdict covers makes the edition due", "titles changed",
+      f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
+                    "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+check("the Sunday Times's title is not the daily's", [], f.headings([line("The Sunday Times Crossword No 2,345")], f.TITLE))
 check("the cryptic's solution heading read", [18179],
       [n for n, _ in f.headings([line("Solution to Puzzle No 18,179"), line("SOLUTION TO NO 2064")], f.SOLUTION)])
 check("1970s solution heading read", [13676],
@@ -701,6 +718,28 @@ check("a changed model changes the cache name", True, ocr_clues.reader_key("time
 check("RapidOCR readers keep their name", "en5", ocr_clues.reader_key("en5"))
 ocr_clues.TESS_MODELS.clear(); ocr_clues.TESS_MODELS.update(saved[0])
 ocr_clues._MODEL_HASHES.clear(); ocr_clues._MODEL_HASHES.update(saved[1])
+
+# Real page crops (tools/fixtures/archive-org-grids, cases.json gives each
+# one's scan and title box): the grid is the one the title heads wherever it
+# lies, whole.
+from PIL import Image
+fix = Path("fixtures/archive-org-grids")
+cases = json.loads((fix / "cases.json").read_text())
+def located(name):
+    box, side = f.locate_grid(Image.open(fix / f"{name}.jpg"), cases[name]["title"])
+    return side, f.grid_shaped(box), box
+side, shaped, box = located("times-20117-below-far")
+check("a grid further under its title than the first crop reaches is read whole (Times 20,117)",
+      ("below", True, True), (side, shaped, abs((box[3] - box[1]) - (box[2] - box[0])) < 30))
+side, shaped, box = located("times-17001-above")
+check("a grid printed over its title is found (Times 17,001)", ("above", True), (side, shaped))
+side, shaped, gbox = located("ftcryptic-8649-left")
+check("a grid left of its title is found, not ink under the title (FT Monday Prize 8,649)",
+      ("left", True), (side, shaped))
+lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-8649-left"]["lines"]]
+text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
+check("the clue columns left of the grid are read, across then down",
+      (True, True), (text.startswith("ACROSS\nI Footwear"), "\nDOWN\n2 Fruit" in text))
 
 print(f"FAILS {fails}")
 EOF
