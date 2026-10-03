@@ -3190,6 +3190,14 @@ SOURCE_CLUE_WRONG = {
         "William Cantwar's double in retreat",
         "William Cantuar's double in retreat",
         "OCR misread: Cantuar is the Archbishop of Canterbury's signature, as Laud signed"),
+    ("times-18011", "27-across"): (
+        "Number of Iclegs",
+        "Number of legs",
+        "OCR misread: the bingo call legs eleven needs the word legs alone"),
+    ("times-18011", "8-down"): (
+        "Freed from anxiety, as was, in a word., Lady Smith",
+        "Freed from anxiety, as was, in a word, Lady Smith",
+        "OCR misread: a stray full stop after word"),
 }
 
 
