@@ -51,6 +51,19 @@ check("bare answer string needs a definition",
       apply_solution.check_definitions(hw, defs) == ["15-across: no definition given"])
 see = {**hw, "entries": [{**hw["entries"][0], "clue": {"text": "See 5"}}]}
 check("a See clue needs none", not apply_solution.check_definitions(see, {}))
+
+# A scan that kept some of its answers is filled around them, never over them;
+# a previous model fill is not the paper's and may be replaced.
+part = {**hw, "solutions": {"origin": "published"},
+        "entries": [{**hw["entries"][0], "solution": "HALLWAY"}]}
+check("a fill agreeing with the printed answer passes",
+      not apply_solution.check_printed(part, {"15-across": "HALL-WAY"}))
+check("a fill disagreeing with it is refused",
+      "the paper printed HALLWAY" in "".join(apply_solution.check_printed(part, {"15-across": "GALLWAY"})))
+check("a missing answer to a printed entry is refused",
+      len(apply_solution.check_printed(part, {})) == 1)
+model = {**part, "solutions": {"origin": "model", "model": "opus", "date": "2026-10-01", "check": "x"}}
+check("a model fill may be replaced", not apply_solution.check_printed(model, {"15-across": "GALLWAY"}))
 sys.exit(fails)
 PY
 rc=$?

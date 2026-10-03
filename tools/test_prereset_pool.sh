@@ -14,7 +14,9 @@
 #   - a width change at a checkpoint takes effect, growing and shrinking;
 #   - at width 0 nothing starts, and the pool naps and resumes when it grows;
 #   - the tree is only synced with nothing in flight;
-#   - each checkpoint is handed the average in flight, measured.
+#   - each checkpoint is handed the average in flight, measured;
+#   - a puzzle without all its answers is solved first, its fill applied and
+#     committed, then annotated in the same run.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT="$REPO/tools/prereset_backfill.sh"
@@ -33,7 +35,8 @@ export POOL_LAUNCH_GAP=0.1
 POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at once
 POOL_SYNC_SECS=2    # and a mid-run drain for the sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
-for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool; do
+for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
+          needs_solve solve_applied; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
   eval "$block"
@@ -48,6 +51,20 @@ run_claude() {
   echo "done $1" >"/tmp/ct-prereset-$1.txt"
   [ "$1" != "$FAIL_ID" ]
 }
+UNSOLVED_ID="pooltest-$$-3"
+run_solve() {
+  echo "start $1 $(now)" >>"$EVENTS"
+  echo "solve $1" >>"$EVENTS"
+  sleep 0.5
+  echo '{}' >"/tmp/ct-prereset-$1.fill"
+  echo "end $1 $(now)" >>"$EVENTS"
+  echo "solved $1" >"/tmp/ct-prereset-$1.txt"
+}
+git() { echo "git $1 ${*: -1}" >>"$EVENTS"; }
+tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
+discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
+puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
+SOLVED_HERE=" " MODEL=opus
 handled=0
 # Width 2 to start; 4 after the fourth run is handled; 1 after the tenth; 0 for
 # one checkpoint after the thirteenth, then 1 again.
@@ -75,6 +92,9 @@ python3() {
   case "$1" in
     tools/puzzle_paths.py) echo "puzzles/x/2026/$2.json" ;;
     tools/weekly_usage.py) echo 10 ;;
+    tools/prereset_plan.py) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
+    tools/apply_solution.py) echo "applied $2 $*" >>"$EVENTS" ;;
+    tools/provenance.py) echo "Trailer: x" ;;
     *) echo "unexpected python3 $*" >&2; return 1 ;;
   esac
 }
@@ -101,6 +121,7 @@ verdicts=$(awk -v gap="$POOL_LAUNCH_GAP" -v n="${#ids[@]}" '
   }
   $1 == "end" { inflight--; older = inflight }
   $1 == "ok" || $1 == "fail" { handled[$2]++; kind[$1]++ }
+  $1 == "solve" { solved[$2] = 1 }
   $1 == "sync" && $2 != "inflight=0" { dirty_sync++ }
   $1 == "sync" { syncs++ }
   $1 == "after" && $2 == "failed=1" { failure_checkpoints++ }
@@ -111,7 +132,7 @@ verdicts=$(awk -v gap="$POOL_LAUNCH_GAP" -v n="${#ids[@]}" '
   }
   END {
     for (id in handled) if (handled[id] != 1) twice++
-    for (id in started) if (started[id] != 1) twice++
+    for (id in started) if (started[id] != ((id in solved) ? 2 : 1)) twice++
     print "over=" over + 0
     print "refilled=" (refilled_while_busy > 0)
     print "spacing=" close_launch + 0
@@ -138,6 +159,19 @@ check "at width 0 the pool naps with nothing in flight" 1 \
   "$(printf '%s\n' "$out" | grep -cm1 '^--- pool of 0: napping')"
 check "the pool logs its width for the planner" 1 \
   "$(printf '%s\n' "$out" | grep -cm1 '^--- pool of [0-9][0-9]*: ')"
+# The solve, its fill applied without a reindex and committed, then the
+# annotation, in that order and once each.
+check "an answerless puzzle is solved, applied, committed, pushed, then annotated" \
+  "solve applied --no-reindex git-add git-commit push ok" \
+  "$(awk -v id="$UNSOLVED_ID" '
+      $1 == "solve" && $2 == id { printf "solve " }
+      $1 == "applied" && $2 == id { printf "applied %s ", $NF }
+      $1 == "git" && $2 == "add" && index($3, id) { printf "git-add " }
+      $1 == "git" && $2 == "commit" { printf "git-commit " }
+      $1 == "push" { printf "push " }
+      ($1 == "ok" || $1 == "fail") && $2 == id { printf "%s", $1 }' "$EVENTS")"
+check "the solve starts as a solve and requeues the puzzle for its annotation" "1 1" \
+  "$(printf '%s\n' "$out" | grep -c "\[$UNSOLVED_ID\] started, solving it first") $(printf '%s\n' "$out" | grep -c "\[$UNSOLVED_ID\] solved, annotating it next")"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
 
 if [ "$fails" -gt 0 ]; then

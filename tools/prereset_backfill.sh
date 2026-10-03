@@ -312,6 +312,77 @@ run_claude() {
   return $rc
 }
 
+# Solve a puzzle without all its answers cold, writing the fill to
+# /tmp/ct-prereset-<id>.fill. The fill goes in through solve_applied, which runs
+# in the reaping shell like every git command. Same tools and limits as the
+# nightly job's cold solve in daily_update.sh.
+run_solve() {
+  local id="$1" log="/tmp/ct-prereset-$1.txt" fill="/tmp/ct-prereset-$1.fill"
+  rm -f "$fill"
+  if [ "$DRY_RUN" = 1 ]; then
+    echo "would spend one $MODEL run solving $id" >"$log"
+    sleep 1
+    return 0
+  fi
+  nice -n 19 claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$id") in this repo. Its answers have not all been published, so there is no key: follow tools/solve_prompt.md exactly (it is your system prompt's appendix; do not open the file), write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $id --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+    "${CLAUDE_HEADLESS[@]}" \
+    --append-system-prompt-file tools/solve_prompt.md \
+    --exclude-dynamic-system-prompt-sections \
+    --model "$MODEL" \
+    --effort "$ANNOTATE_EFFORT" \
+    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
+    --max-turns 120 >"$log" 2>&1
+  local rc=$?
+  if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" "$log"; then
+    alert "pre-reset backfill cannot authenticate — the CLI needs a fresh /login. Nothing has been backfilled since this started."
+  fi
+  return $rc
+}
+
+# Ids this run has solved, so pool_launch sends them to the annotator next.
+SOLVED_HERE=" "
+# Whether pool_launch should solve the puzzle before annotating it.
+needs_solve() {
+  case "$SOLVED_HERE" in *" $1 "*) return 1 ;; esac
+  python3 tools/prereset_plan.py --unsolved "$1"
+}
+
+# A finished solve run: write its fill if tools/apply_solution.py passes it,
+# commit and push that, and queue the puzzle to be annotated next. A rejected
+# fill writes nothing and goes in the solve ledger (tools/failed_inputs.py),
+# which keeps it out of the queue until its inputs change.
+solve_applied() {
+  local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
+  local judged="" said="/tmp/ct-prereset-$1.txt" out
+  if [ "$DRY_RUN" = 1 ]; then
+    echo "  [$id] would apply the fill"
+  elif [ -s "$fill" ] &&
+       python3 tools/apply_solution.py "$id" --fill "$fill" --model "$MODEL" --no-reindex >"$verdict" 2>&1; then
+    git add -A -- "$(puzzle_spec "$id")"
+    if ! out=$(git commit -q -m "$(printf 'Solve %s\n\n%s' "$id" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+      alert "pre-reset backfill could not commit its solve of $id, so it is not annotated either: $(printf '%s' "$out" | tail -5)"
+      discard_puzzle "$id"
+      rm -f "$fill" "$verdict"
+      return 1
+    fi
+    tools/push_puzzle_commit.sh ||
+      alert "pre-reset backfill committed its solve of $id but could not push it — the pool's next sync retries. See .prereset.log."
+  else
+    if [ -s "$fill" ]; then judged=--judged said="$verdict"; fi
+    echo "  [$id] solve rejected, nothing written: $(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)"
+    # shellcheck disable=SC2086 # $judged is one flag or nothing
+    python3 tools/failed_inputs.py record solve "$id" $judged \
+      --reason "$(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)" || true
+    discard_puzzle "$id"
+    rm -f "$fill" "$verdict"
+    return 1
+  fi
+  rm -f "$fill" "$verdict"
+  SOLVED_HERE="$SOLVED_HERE$id "
+  queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
+  echo "  [$id] solved, annotating it next"
+}
+
 # One puzzle's file as a git pathspec: puzzles/<series>/<year>/<id>.json in
 # whichever year folder, so a write that moved it to another year is staged or
 # undone as both halves of the rename.
@@ -368,6 +439,7 @@ POOL_CHECK_SECS="${POOL_CHECK_SECS:-300}"
 # (sync_wave), so this often the pool stops refilling, drains and syncs.
 POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
+declare -A POOL_SOLVING=()  # pid -> 1 for each of those that is a solve
 POOL_RUN_US=0            # run-microseconds in flight since the checkpoint
 POOL_MARK_US=0           # when POOL_RUN_US was last brought up to date
 POOL_STARTED_US=0        # when the interval since the last checkpoint began
@@ -391,9 +463,15 @@ pool_launch() {
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"
   local again=""
   [ -s "/tmp/ct-prereset-$id.resume" ] && again=", picking up its cut-off conversation"
-  prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
   pool_mark
-  run_claude "$id" "${prompt//@/$id}" &
+  if [ "$WAVE_WHAT" = Annotate ] && needs_solve "$id"; then
+    again="$again, solving it first"
+    run_solve "$id" &
+    POOL_SOLVING[$!]=1
+  else
+    prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
+    run_claude "$id" "${prompt//@/$id}" &
+  fi
   POOL_RUNS[$!]="$id"
   POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
   echo "  [$id] started$again (${#POOL_RUNS[@]} of $wide in flight)"
@@ -431,7 +509,18 @@ pool_reap() {
   id="${POOL_RUNS[$pid]}"
   unset "POOL_RUNS[$pid]"
   POOL_DONE=$((POOL_DONE + 1))
-  if [ "$rc" -eq 0 ]; then
+  if [ -n "${POOL_SOLVING[$pid]:-}" ]; then
+    unset "POOL_SOLVING[$pid]"
+    if [ "$rc" -eq 0 ]; then
+      tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
+      solve_applied "$id"
+    else
+      # Cut off, most likely by a lockout: requeued as a solve again.
+      tail -5 "/tmp/ct-prereset-$id.txt" 2>/dev/null | sed "s/^/  [$id] solve failed: /"
+      rm -f "/tmp/ct-prereset-$id.fill"
+      WAVE_FAILED_IDS+=("$id")
+    fi
+  elif [ "$rc" -eq 0 ]; then
     tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
     commit_puzzle "$id" "$WAVE_WHAT"
   else
@@ -791,86 +880,14 @@ else
     echo "archive extend failed or its puzzles could not be published — running on what is already on disk"
 fi
 
-# --- 1. un-annotated puzzles, quiptics first ---------------------------------
+# --- 1. un-annotated puzzles, and the answerless solved first ---------------
+# The queue, its order and what it leaves out are tools/prereset_plan.py's
+# backlog(). A puzzle without all its answers is solved cold (pool_launch)
+# before it is annotated: its clues are all a puzzle has to come with.
 echo "un-annotated backlog, newest first:"
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
-todo=$(python3 - "$annotate_blocked" <<'EOF'
-import json, os, sys
-from datetime import date
-sys.path.insert(0, "tools")
-from series import puzzle_day
-idx = json.load(open("puzzles/index.json"))
-# Selection here is by date and nothing else, so a puzzle that fails is the
-# newest un-annotated puzzle again at the next checkpoint and on tomorrow's run, and
-# is solved from scratch at a full puzzle's price each time — everyman-4110 was
-# bought three times over one word its setter never wrote. The nightly job has
-# skipped these since tools/failed_inputs.py; this is the same queue and
-# reads the same ledger.
-blocked = set(sys.argv[1].split())
-todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")
-        and p["id"] not in blocked]
-# $CT_SERIES, a space-separated list of series keys, narrows the burn to those
-# papers. Unset or empty means every series.
-only = set(os.environ.get("CT_SERIES", "").split())
-if only:
-    todo = [p for p in todo if p["series"] in only]
-# Round-robin across the series, newest first inside each one.
-#
-# Newest first, and nothing else, inside a lane. Recency is the only property
-# of a puzzle that predicts whether anyone will look for it: 79% of the site's
-# search impressions land on the two most recent publication months. Any other
-# key — number, series tier, measured demand — ranks something above a newer
-# puzzle, and there is no evidence that anything beats being new.
-#
-# Measured demand in particular must NOT be a sort key here, however tempting a
-# per-puzzle impression count looks. Impressions accumulate with age, so the
-# only puzzles that can score high are the old ones; sorting by it walks the
-# queue backwards, which is precisely the order this is supposed to avoid.
-#
-# Round-robin, not one flat date sort, because a flat sort by date runs the
-# whole of the deepest paper's recent archive before the shallowest paper's
-# newest gap, and the backlog is always deeper than one window of quota. This
-# way no series can starve another and every series' newest gap is reached
-# within the pool's first round.
-#
-# Not by number, either: each paper numbers from its own 1, so a number sort is
-# a series sort wearing a disguise.
-lanes = {}
-for p in todo:
-    lanes.setdefault(p["series"], []).append(p)
-# A book puzzle holds a `year` rather than a `date`, and a cyclops puzzle not
-# yet dated off its neighbours holds neither, so puzzle_day() makes the key a
-# day. Undated sorts last
-# inside its lane — "newest first" has nothing to say about a puzzle with no when — and
-# never raises: this key crashed the whole listing, which is read with $(...),
-# so one None emptied the queue and the pool spent itself on definitionFit
-# instead of on the backlog it exists to clear.
-for lane in lanes.values():
-    lane.sort(key=lambda p: puzzle_day(p) or date.min, reverse=True)
-# Series order within a round, so a window cut short by a lockout has spent
-# itself on the papers people search for most. This ranks SERIES, never
-# puzzles: every entry in a round is already its own lane's newest gap. A series
-# missing from this list still runs; it just goes at the back of each cycle.
-BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
-cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
-                                     else len(BY_DEMAND), s))
-todo = [lanes[s][i]
-        for i in range(max((len(l) for l in lanes.values()), default=0))
-        for s in cycle if i < len(lanes[s])]
-# The order this job spends a whole window in is worth one readable line in the
-# log. It ran in the wrong order for weeks behind a single line listing 166 ids.
-# stderr, because stdout is the queue itself.
-for p in todo[:5]:
-    when = (f"{p['year']:<10}" if "year" in p
-            else f"{p['date']:<10}" if "date" in p else "  undated  ")
-    print(f"  {when}  {p['id']}", file=sys.stderr)
-if len(todo) > 5:
-    print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
-# IDs, not numbers: an id is what tools/puzzle_paths.py finds a file by, so
-# nothing downstream has to resolve a number that two papers could one day share.
-print(" ".join(p["id"] for p in todo))
-EOF
-)
+solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
+todo=$(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked")
 
 # Not "Guardian crossword": since 2026-08-05 some of these are the
 # Independent's. The puzzle file records its own series and publisher.

@@ -9,7 +9,9 @@ projected spend, and no more than the machine has free once everything else
 on it is counted: memory over the size of a run, and idle cores over a run's
 measured CPU.
 
-The queue order is the round-robin tools/prereset_backfill.sh builds, with the
+The queue is backlog(): every un-annotated puzzle, those without all their
+answers included (the burn solves them cold, then annotates them). Its order
+is backlog()'s round-robin, with the
 puzzles a lockout cut off first, then each series' first puzzle
 (series.is_first_issue), then the partly annotated ones, fewest clues
 missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
@@ -17,6 +19,8 @@ notable tag (tools/puzzle_tags.py), then the indicator cover
 (tools/indicator_cover.py).
 
     tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
+    tools/prereset_plan.py --backlog "ANNOTATE_BLOCKED" "SOLVE_BLOCKED"  # the queue
+    tools/prereset_plan.py --unsolved ID      # exit 0 when ID lacks any answer
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --self-test
 """
@@ -435,9 +439,10 @@ def self_test():
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
-           + first_self_test())
+           + first_self_test() + backlog_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES))
+         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES)
+         + len(BACKLOG_CASES))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -639,6 +644,42 @@ def first_self_test():
     return bad
 
 
+def _row(pid, day, solved=True, annotated=False, **extra):
+    return {"id": pid, "series": pid.rsplit("-", 1)[0], "date": day,
+            "annotated": annotated, "hasSolutions": solved, **extra}
+
+
+_SCAN = [_row("times-21042", "1999-03-01", solved=False),       # an OCR scan, no answers
+         _row("canberra-500", "2001-01-01", solved=False),      # a whole series filed bare
+         _row("times-29600", "2026-09-01"),
+         _row("times-29601", "2026-09-02", annotated=True),
+         _row("times-21000", "1999-01-01", solved=False,        # mostly blank clues
+              clues={"present": 10, "total": 30}),
+         _row("times-20994", "1998-12-01", solved=False,        # a few answers, a few gaps
+              clues={"present": 27, "total": 28})]
+# (rows, annotate ledger, solve ledger, series) -> queue ids
+BACKLOG_CASES = [
+    # answerless puzzles a model can read are queued, round-robin, newest first
+    (_SCAN, (), (), (), ["canberra-500", "times-29600", "times-21042", "times-20994"]),
+    # a solve that failed on these inputs stays out; an annotate failure keeps one out too
+    (_SCAN, ("times-29600",), ("times-21042",), (), ["canberra-500", "times-20994"]),
+    # $CT_SERIES narrows it
+    (_SCAN, (), (), ("canberra",), ["canberra-500"]),
+    (_SCAN[2:4], (), (), (), ["times-29600"]),
+]
+
+
+def backlog_self_test():
+    bad = 0
+    for rows, annotate, solve, only, want in BACKLOG_CASES:
+        got = [p["id"] for p in backlog(rows, annotate, solve, only)]
+        if got != want:
+            print(f"FAIL backlog(ledgers {annotate}, {solve}, series {only}) = {got} "
+                  f"(want {want})", file=sys.stderr)
+            bad += 1
+    return bad
+
+
 # (queue, pinned, {id: notable tags}) -> pinned after promote()
 TAG_CASES = [
     (["a", "b", "c"], [], {"c": ["special-rules"]}, ["c"]),
@@ -777,6 +818,86 @@ def partly_annotated(index_path=INDEX):
             if r.get("unannotated")}
 
 
+# Series order within a round, so a window cut short by a lockout has spent
+# itself on the papers people search for most. This ranks SERIES, never
+# puzzles: every entry in a round is already its own lane's newest gap. A series
+# missing from this list still runs; it just goes at the back of each cycle.
+BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
+
+
+def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
+    """The burn's queue: every un-annotated row, round-robin across the series,
+    newest first inside each one.
+
+    A row without all its answers is in it too, when a model can read enough
+    of its clues to solve it cold (fetch_puzzle.cold_solvable) and that solve
+    has not failed on these inputs: the burn solves it, then annotates it. The
+    clues are the only thing a puzzle must come with; its answers are derived.
+    A row the solve or annotate ledger (tools/failed_inputs.py) holds out is
+    left out: selection is by date, so a puzzle that fails is otherwise the
+    newest gap again at every checkpoint, bought from scratch each time.
+
+    Newest first, and nothing else, inside a lane. Recency is the only property
+    of a puzzle that predicts whether anyone will look for it: 79% of the site's
+    search impressions land on the two most recent publication months. Measured
+    demand must NOT be a key: impressions accumulate with age, so sorting by it
+    walks the queue backwards. Not by number either: each paper numbers from its
+    own 1, so a number sort is a series sort in disguise.
+
+    Round-robin, not one flat date sort, because a flat sort runs the whole of
+    the deepest paper's recent archive before the shallowest paper's newest gap.
+    This way every series' newest gap is reached within the pool's first round.
+
+    A book puzzle holds a `year` rather than a `date`, and a cyclops puzzle not
+    yet dated off its neighbours holds neither, so puzzle_day() makes the key a
+    day; undated sorts last inside its lane and never raises. only, when given,
+    narrows the queue to those series keys."""
+    from datetime import date
+    from fetch_puzzle import cold_solvable
+    annotate_blocked, solve_blocked, only = set(annotate_blocked), set(solve_blocked), set(only)
+    todo = [p for p in rows
+            if not p["annotated"] and p["id"] not in annotate_blocked
+            and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
+            and (not only or p["series"] in only)]
+    lanes = {}
+    for p in todo:
+        lanes.setdefault(p["series"], []).append(p)
+    for lane in lanes.values():
+        lane.sort(key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
+    cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
+                                         else len(BY_DEMAND), s))
+    return [lanes[s][i]
+            for i in range(max((len(lane) for lane in lanes.values()), default=0))
+            for s in cycle if i < len(lanes[s])]
+
+
+def print_backlog(annotate_blocked, solve_blocked):
+    """The queue's ids on stdout, from the index; its head and how many of it
+    are to be solved first on stderr, which is the burn's log. $CT_SERIES, a
+    space-separated list of series keys, narrows it to those papers."""
+    index = json.loads(INDEX.read_text(encoding="utf-8"))
+    todo = backlog(index["puzzles"], annotate_blocked.split(), solve_blocked.split(),
+                   os.environ.get("CT_SERIES", "").split())
+    for p in todo[:5]:
+        when = (f"{p['year']:<10}" if "year" in p
+                else f"{p['date']:<10}" if "date" in p else "  undated  ")
+        print(f"  {when}  {p['id']}", file=sys.stderr)
+    if len(todo) > 5:
+        print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
+    print(f"  {sum(1 for p in todo if not p.get('hasSolutions'))} of them lack answers "
+          "and are solved cold first", file=sys.stderr)
+    print(" ".join(p["id"] for p in todo))
+    return 0
+
+
+def unsolved(pid):
+    """Whether the puzzle's file lacks an answer to any entry: the burn solves
+    it cold before annotating it."""
+    from fetch_puzzle import read_puzzle_file
+    from puzzle_paths import resolve_puzzle
+    return not all(e.get("solution") for e in read_puzzle_file(resolve_puzzle(pid))["entries"])
+
+
 def cover_first(pinned):
     """The ids on stdin, reordered: pinned first, then each series' first
     puzzle, then the partly annotated
@@ -811,6 +932,12 @@ def main():
         return cover_first(" ".join(sys.argv[at + 1:]).split())
     if "--self-test" in sys.argv:
         return self_test()
+    if "--backlog" in sys.argv:
+        at = sys.argv.index("--backlog")
+        args = sys.argv[at + 1:] + ["", ""]
+        return print_backlog(args[0], args[1])
+    if "--unsolved" in sys.argv:
+        return 0 if unsolved(sys.argv[sys.argv.index("--unsolved") + 1]) else 1
     if "--width" in sys.argv:
         at = sys.argv.index("--width")
         print(width(sys.argv[at + 1] if at + 1 < len(sys.argv) else None,

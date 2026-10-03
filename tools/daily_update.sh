@@ -571,18 +571,14 @@ unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
 # why nothing here alerts: there is no failure, only a fetch that came back
 # empty, and the thing that fixes it is re-fetching the clue text.
 #
-# The line is a majority, not "any clue at all". Unclued entries have to come
-# out of the crossings, and the crossing check in apply_solution.py is the only
-# thing between a guess and the published site — it cannot tell an invented fill
-# that happens to interlock from a solved one. A gap or two the rest of the grid
-# pins down is fine; a minority of readable clues means the model is writing the
-# puzzle, so those wait for the clue text like the blank ones do.
+# The line is fetch_puzzle.cold_solvable, which the burn's queue shares.
+from fetch_puzzle import cold_solvable
 readable = {}  # id -> (present, total), only for puzzles the index flags
+unreadable = set()
 for p in idx["puzzles"]:
-    cov = p.get("clues")  # absent means every entry carries a clue
-    if cov and p["id"] in unsolved_ids:
-        readable[p["id"]] = (cov["present"], cov["total"])
-unreadable = {i for i, (present, total) in readable.items() if present * 2 <= total}
+    if p["id"] in unsolved_ids and not cold_solvable(p):
+        readable[p["id"]] = (p["clues"]["present"], p["clues"]["total"])
+        unreadable.add(p["id"])
 if unreadable:
     print("not queued for a cold solve, too little clue text to read: "
           + ", ".join(f"{i} ({readable[i][0]}/{readable[i][1]} clues)"

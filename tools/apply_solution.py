@@ -20,6 +20,8 @@ CAN be verified is self-consistency, mechanically and completely:
   * every answer's stated definition words of its clue, at one end of it
     (check_definitions)
   * every crossing cell agreeing between its across and its down
+  * every answer the paper printed, where it printed some: a scan that kept
+    half its answer grid is filled around them, never over them
   * every answer a blog we hold for the puzzle names (tools/corroborate.py's
     sources), where it names one: a cell no down word crosses is checked by
     nothing else, and a blog that wrote the puzzle up is the answer key we
@@ -218,6 +220,18 @@ def check_fill(puzzle, fill):
     return cells, crossings, problems
 
 
+def check_printed(puzzle, fill):
+    """Problems for every answer the fill gives that differs from one the paper
+    printed. None for a puzzle whose answers are a previous model fill, which
+    this may replace."""
+    if provenance.solution_detail(puzzle):
+        return []
+    return [f"{entry_id(e)}: the paper printed {e['solution']}, the fill has "
+            f"{normalise(fill.get(entry_id(e), '')) or 'nothing'}"
+            for e in puzzle["entries"]
+            if e.get("solution") and normalise(fill.get(entry_id(e), "")) != normalise(e["solution"])]
+
+
 def check_sources(puzzle, fill, sources=None):
     """Every answer another source prints for this puzzle that the fill does
     not have, as problems. A fill that agrees with its own crossings can still
@@ -341,6 +355,8 @@ def main():
     ap.add_argument("--model", default="unknown", help="which model produced the fill")
     ap.add_argument("--check-only", action="store_true",
                     help="report and exit without touching the puzzle file")
+    ap.add_argument("--no-reindex", action="store_true",
+                    help="leave puzzles/index.json for the caller to rebuild")
     args = ap.parse_args()
 
     path = resolve_puzzle(args.number)
@@ -355,7 +371,8 @@ def main():
     cells, crossings, problems = check_fill(puzzle, fill)
     # The grid before the fill: a fill that agrees with an incoherent grid has
     # agreed with nothing, so nothing may be written into one.
-    problems = check_geometry(puzzle) + problems + check_definitions(puzzle, defs)
+    problems = (check_geometry(puzzle) + problems + check_definitions(puzzle, defs)
+                + check_printed(puzzle, fill))
     if not problems:
         problems = check_sources(puzzle, fill)
     print(f"{args.number}: {len(puzzle['entries'])} entries, {len(fill)} answers given, "
@@ -373,9 +390,10 @@ def main():
     if args.check_only:
         return
 
-    if any(e.get("solution") for e in puzzle["entries"]) and not provenance.solution_detail(puzzle):
-        # Refuse to paint over the paper's own answers. Only a puzzle that is
-        # unsolved, or already carrying a model fill, can be written here.
+    printed = (0 if provenance.solution_detail(puzzle)
+               else sum(1 for e in puzzle["entries"] if e.get("solution")))
+    if printed == len(puzzle["entries"]):
+        # Nothing to solve: the paper printed every answer.
         raise SystemExit(f"{args.number} already has published solutions — refusing to overwrite")
 
     for entry in puzzle["entries"]:
@@ -383,7 +401,8 @@ def main():
     detail = {
         "model": args.model,
         "date": datetime.date.today().isoformat(),
-        "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts",
+        "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts"
+                 + (f", agrees with the {printed} answers the paper printed" if printed else ""),
     }
     # Whether a key is ever coming is a fact about the series, not about this
     # solve, so it is read from tools/series.py rather than carried in the fill.
@@ -401,7 +420,8 @@ def main():
     puzzle = provenance.with_solution_detail(puzzle, detail)
     path = write_puzzle_file(path, puzzle)
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
-    reindex()
+    if not args.no_reindex:
+        reindex()
 
 
 if __name__ == "__main__":
