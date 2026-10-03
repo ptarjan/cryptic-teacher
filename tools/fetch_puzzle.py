@@ -1889,10 +1889,26 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16975", "10-across"): (
+        "Inclination to be in the pub, assume",
+        "Inclination to be in the pub, I assume",
+        "OCR misread: the hidden answer needs the I between pub and assume"),
+    ("times-16975", "21-down"): (
+        "If It's present on arrival",
+        "It's present on arrival",
+        "OCR misread: the stray 'If' is scan debris before the clue"),
     ("times-16960", "3-down"): (
         "Tap a growth area? (8",
         "Tap a growth area?",
         "OCR misread: the stray '(8' is the enumeration read into the clue"),
+    ("times-16980", "9-across"): (
+        ") A measure for the study of defamation in quitting one's country",
+        "A measure for the study of defamation in quitting one's country",
+        "OCR misread: the stray bracket is scan debris; the clue opens with A measure, EM"),
+    ("times-16980", "17-down"): (
+        "Tragedian in “The Vortex*' wanting a proportionate rise",
+        "Tragedian in “The Vortex” wanting a proportionate rise",
+        "OCR misread: the stray *' is the closing quotation mark round the play title"),
     ("times-16960", "20-across"): (
         "What Rackstraw, in spite of all temptations, remained 0).",
         "What Rackstraw, in spite of all temptations, remained",
