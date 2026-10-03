@@ -1945,6 +1945,38 @@ SOURCE_CLUE_WRONG = {
         "No such lack for Alice in . rabbit-hole.",
         "No such lack for Alice in rabbit-hole.",
         "OCR misread: a stray full stop before rabbit-hole"),
+    ("times-15832", "27-across"): (
+        "A hazard to sailors — rd say not",
+        "A hazard to sailors — I'd say not",
+        "OCR misread: the clue needs I'd say, the speaker saying not aloud"),
+    ("times-15832", "3-down"): (
+        "Adam and!",
+        "Adam and I!",
+        "OCR misread: the double definition needs I, the grammatical first person, beside Adam"),
+    ("times-15832", "4-down"): (
+        "Some have a go at me— all I need in (the Land of Cakes",
+        "Some have a go at me— all I need in the Land of Cakes",
+        "OCR misread: a stray bracket before the Land of Cakes"),
+    ("times-15832", "5-down"): (
+        "Simple skill needed -in bridge",
+        "Simple skill needed in bridge",
+        "OCR misread: a stray hyphen before in"),
+    ("times-15832", "14-down"): (
+        "Gambler loses head and becomes a chief-",
+        "Gambler loses head and becomes a thief",
+        "OCR misread: the definition of PECULATOR needs thief, not chief"),
+    ("times-15832", "16-down"): (
+        "The claims he' made for transmutation!",
+        "The claims he's made for transmutation!",
+        "OCR misread: the surface needs he's made"),
+    ("times-15832", "19-down"): (
+        "Sauce in some other-shape",
+        "Sauce in some other shape",
+        "OCR misread: a stray hyphen between other and shape"),
+    ("times-15832", "23-across"): (
+        "Offer 21 tune changes-",
+        "Offer 21 tune changes",
+        "OCR misread: a stray hyphen after changes"),
     ("times-14603", "12-across"): (
         "Paper surely not for lie head of the class?",
         "Paper surely not for the head of the class?",
