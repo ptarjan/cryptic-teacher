@@ -2557,6 +2557,10 @@ SOURCE_CLUE_WRONG = {
         "Girl in' the cells",
         "Girl in the cells",
         "OCR misread: a stray apostrophe after in"),
+    ("times-16413", "24-down"): (
+        "Sleer to leave this part of Africa",
+        "Steer to leave this part of Africa",
+        "OCR misread: the wordplay needs steer, which gives CON"),
 }
 
 
