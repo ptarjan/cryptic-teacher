@@ -24,6 +24,9 @@
   "date": "2025-10-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Youngster told off outside the front of Lidl",
     "enumeration": "5"
    },
-   "solution": "CHILD"
+   "solution": "CHILD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHILD",
+    "definitions": [
+     {
+      "text": "Youngster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the scolding word sits outside, wrapping round the letter taken from the shop name"
+     },
+     {
+      "text": "the front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told off",
+      "gives": "CHID",
+      "note": "chid is an old past tense of chide, to tell off"
+     },
+     {
+      "clueFragment": "Lidl",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of the supermarket name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A child gets a scolding just outside the entrance of a Lidl supermarket.",
+     "walkthrough": "CHID goes round L to make CHILD. Lidl is a discount supermarket chain.",
+     "definitionFit": "A child is a young person, so youngster is a plain synonym for the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +109,74 @@
     "text": "Something with a bell heard around the middle of Ely?",
     "enumeration": "9"
    },
-   "solution": "CATHEDRAL"
+   "solution": "CATHEDRAL",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "CATHEDRAL",
+    "definitions": [
+     {
+      "text": "Something with a bell heard around the middle of Ely?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests letters turned about, so they are rearranged"
+     },
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something with a bell",
+      "gives": "CAT",
+      "note": "pet cats often wear a bell on their collar"
+     },
+     {
+      "clueFragment": "heard",
+      "gives": "HEARD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ely",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of the city name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "HEDRAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEARDL",
+       "gives": "HEDRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bell ringing out across the centre of the Cambridgeshire city of Ely.",
+     "walkthrough": "Ely is a small cathedral city in Cambridgeshire whose great church dominates the town centre, so the whole clue describes the answer.",
+     "definitionFit": "A cathedral is a large church with bells, and Ely's famous one stands at the heart of the city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +190,44 @@
     "text": "Theoretical statement uttered by croupier?",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Theoretical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "statement uttered",
+      "for": "homophone",
+      "note": "an uttered statement is something said aloud, so we want the sound of the words rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "croupier",
+      "gives": "IDEAL",
+      "soundsLike": "EYE DEAL",
+      "note": "a croupier runs a casino table and hands out the cards, announcing that he is the one doing so"
+     }
+    ],
+    "explanation": {
+     "surface": "A casino dealer makes a statement that sounds rather abstract and academic.",
+     "definitionFit": "An ideal is something existing only as a perfect concept in the mind, hence theoretical rather than actual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Theoretical"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +241,47 @@
     "text": "Loudly insult a nobleman and leave",
     "enumeration": "9"
    },
-   "solution": "DISAPPEAR"
+   "solution": "DISAPPEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DISAPPEAR",
+    "definitions": [
+     {
+      "text": "leave",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loudly",
+      "for": "homophone",
+      "note": "loudly tells us to listen to how the words are spoken rather than how they are written"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insult a nobleman",
+      "gives": "DISAPPEAR",
+      "soundsLike": "DISS A PEER",
+      "note": "to diss is slang for to insult, and a peer is a member of the nobility"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shouts abuse at a lord and then storms out.",
+     "definitionFit": "To vanish or go away from view is what leaving a scene amounts to, so the verbs match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Loudly"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +295,65 @@
     "text": "Sleep badly in a berth by the back of barge",
     "enumeration": "9"
    },
-   "solution": "HIBERNATE"
+   "solution": "HIBERNATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HIBERNATE",
+    "definitions": [
+     {
+      "text": "Sleep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is messed up, so the letters are rearranged"
+     },
+     {
+      "text": "the back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, which is the only one kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a berth",
+      "gives": "INABERTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "barge",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the boat word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INABERTHE",
+       "gives": "HIBERNATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tosses and turns in a cramped bunk on a canal boat.",
+     "definitionFit": "Animals that hibernate pass the winter in a long, deep dormant state, a kind of extended slumber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +367,72 @@
     "text": "The product of turning earth with the tops of spades — vegetables?",
     "enumeration": "7"
    },
-   "solution": "HARVEST"
+   "solution": "HARVEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HARVEST",
+    "definitions": [
+     {
+      "text": "The product",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning soil churns it over, so the letters are churned into a new order"
+     },
+     {
+      "text": "the tops of",
+      "for": "letter_selection",
+      "note": "the tops of words in a down answer are their first letters"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earth",
+      "gives": "EARTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spades",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the digging tools"
+     },
+     {
+      "clueFragment": "vegetables",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of the garden produce"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EARTHSV",
+       "gives": "HARVEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Digging over the vegetable patch with spades yields a crop.",
+     "definitionFit": "A harvest is the yield of a crop, the output gathered from farming or gardening work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +446,67 @@
     "text": "One stealing food raised alarm when exposed",
     "enumeration": "7"
    },
-   "solution": "BURGLAR"
+   "solution": "BURGLAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BURGLAR",
+    "definitions": [
+     {
+      "text": "One stealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raising a word means writing it from bottom to top"
+     },
+     {
+      "text": "when exposed",
+      "for": "letter_selection",
+      "note": "to expose something is to strip off its covering, so the outer letters go and the middle stays"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food",
+      "gives": "GRUB",
+      "note": "grub is slang for food"
+     },
+     {
+      "clueFragment": "alarm",
+      "gives": "LAR",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURG",
+      "LAR"
+     ],
+     "reversals": [
+      {
+       "from": "GRUB",
+       "to": "BURG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief taking food sets off an alarm and is caught in the act.",
+     "definitionFit": "A burglar is a person who breaks into buildings in order to commit theft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +520,73 @@
     "text": "Upset bather’s last bit of dirt removed where one gets clean",
     "enumeration": "5"
    },
-   "solution": "REHAB"
+   "solution": "REHAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REHAB",
+    "definitions": [
+     {
+      "text": "where one gets clean",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upset",
+      "for": "anagram",
+      "note": "upset means knocked over or disturbed, so the letters are thrown into another order"
+     },
+     {
+      "text": "last bit of",
+      "for": "letter_selection",
+      "note": "the last bit of a word is its final letter"
+     },
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "removed tells us to take the selected letter out of the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bather’s",
+      "gives": "BATHER",
+      "note": "the swimmer word, with its possessive dropped"
+     },
+     {
+      "clueFragment": "dirt",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the grime word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REHAB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAHER",
+       "gives": "REHAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bather is annoyed that the last speck of grime has been scrubbed away.",
+     "walkthrough": "Take T out of BATHER to leave BAHER, then rearrange. The surface plays on washing, but 'clean' here means free of drugs or drink.",
+     "definitionFit": "Rehab is a treatment centre where addicts go to get off drugs or alcohol, which is called getting clean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +600,57 @@
     "text": "Where Oscar goes with nothing on between lunch and dinner?",
     "enumeration": "9"
    },
-   "solution": "AFTERNOON"
+   "solution": "AFTERNOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTERNOON",
+    "definitions": [
+     {
+      "text": "between lunch and dinner?",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where Oscar goes",
+      "gives": "AFTERN",
+      "note": "Oscar is O in the radio alphabet, and O comes right after N in the alphabet"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, shaped like the letter O"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTERN",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about where an Oscar statuette ends up when someone is wearing nothing.",
+     "walkthrough": "The Oscar is not the film award but O from the phonetic alphabet; it goes after N, so AFTER N.",
+     "definitionFit": "The afternoon is the part of the day falling after the midday meal and before the evening one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +664,65 @@
     "text": "Unknown film about politician put on for my relative to misidentify?",
     "enumeration": "5"
    },
-   "solution": "EMPTY"
+   "solution": "EMPTY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EMPTY",
+    "definitions": [
+     {
+      "text": "for my relative to misidentify?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the short film title wraps the politician"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T., Spielberg's 1982 film about an alien"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP, Member of Parliament"
+     },
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "y is a standard algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "T",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to get a relative to mistake an obscure film about a politician for something else.",
+     "walkthrough": "'film' points at a long title, but it is a famous two-letter one. The closing phrase is a loose, whimsical definition, and the wordplay is the firm part.",
+     "definitionFit": "The playful tail seems to suggest a vacant, empty-headed relation who gets things wrong, which is the sense of blank or hollow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +736,71 @@
     "text": "Moneyman from Tadcaster turned out to receive half-hearted cheer",
     "enumeration": "9"
    },
-   "solution": "TREASURER"
+   "solution": "TREASURER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "TREASURER",
+    "definitions": [
+     {
+      "text": "Moneyman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned out",
+      "for": "letter_selection",
+      "note": "a room turned out is emptied, so the town name loses its insides and only its two ends remain"
+     },
+     {
+      "text": "half-hearted",
+      "for": "deletion",
+      "note": "half-hearted means half of the middle is missing, so one of the doubled central letters goes"
+     },
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "to receive something is to take it in, so the two kept letters go round the cheering word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tadcaster",
+      "gives": "TR",
+      "select": "outer",
+      "note": "the first and last letters of the Yorkshire brewing town"
+     },
+     {
+      "clueFragment": "cheer",
+      "gives": "REASSURE",
+      "note": "to cheer someone up is to reassure them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REASURE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A finance man from a Yorkshire brewery town turns up to unenthusiastic applause.",
+     "walkthrough": "The heart of the cheering word is a doubled S, and halving it drops one S. Tadcaster is a small North Yorkshire town known for its breweries.",
+     "definitionFit": "A treasurer is the officer who looks after the funds of a club, society or company, a keeper of the money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheer"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +820,55 @@
      }
     ]
    },
-   "solution": "HETUP"
+   "solution": "HETUP",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "HET UP",
+    "definitions": [
+     {
+      "text": "Agitated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the leader retreats",
+      "for": "cycling",
+      "note": "the leader retreats means the opening letter falls back to the end of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on horseback",
+      "gives": "UP",
+      "note": "a jockey who is riding is said to be up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HET",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled general retreats on his horse.",
+     "walkthrough": "'the leader' looks like a commander, but it is the word 'the' whose first letter moves to the back.",
+     "definitionFit": "Het up is an informal British phrase for worked up, anxious or excited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +882,55 @@
     "text": "Obscure short videos screened by telecoms company",
     "enumeration": "7"
    },
-   "solution": "ECLIPSE"
+   "solution": "ECLIPSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ECLIPSE",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screened by",
+      "for": "container",
+      "note": "something screened by another is hidden behind it, so the video word sits inside the company letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "telecoms company",
+      "gives": "EE",
+      "note": "EE is a British mobile phone network"
+     },
+     {
+      "clueFragment": "short videos",
+      "gives": "CLIPS",
+      "note": "clips are brief extracts of film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CLIPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A phone company streams little-known short films.",
+     "walkthrough": "'Obscure' looks like an adjective describing the videos, but it is a verb here meaning to hide.",
+     "definitionFit": "To eclipse something is to block it from view or overshadow it, which is to cover or obscure it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +944,63 @@
     "text": "Consecutive elements try struggling for freedom",
     "enumeration": "7"
    },
-   "solution": "LIBERTY"
+   "solution": "LIBERTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LIBERTY",
+    "definitions": [
+     {
+      "text": "freedom",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests thrashing about, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consecutive elements",
+      "gives": "LIBE",
+      "note": "Li (lithium, 3) and Be (beryllium, 4) sit side by side in the periodic table"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "TRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBE",
+      "RTY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRY",
+       "gives": "RTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elements of a people try one after another to win independence.",
+     "definitionFit": "Liberty is the state of being free from captivity or control, the same idea as freedom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elements"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +1014,45 @@
     "text": "Hoist delivered beams",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Hoist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered aloud, so we want the sound of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beams",
+      "gives": "RAISE",
+      "soundsLike": "RAYS",
+      "note": "rays are beams of light"
+     }
+    ],
+    "explanation": {
+     "surface": "A crane lifts steel girders that have just been brought to the site.",
+     "walkthrough": "'beams' suggests girders, but here they are beams of light.",
+     "definitionFit": "To hoist is to lift something up, the same as to raise it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beams"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1066,54 @@
     "text": "Blinis I’ve ruined getting hidden out of sight",
     "enumeration": "9"
    },
-   "solution": "INVISIBLE"
+   "solution": "INVISIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INVISIBLE",
+    "definitions": [
+     {
+      "text": "hidden out of sight",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked, so the letters are broken up and put back differently"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blinis I’ve",
+      "gives": "BLINISIVE",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLINISIVE",
+       "gives": "INVISIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook who has spoiled the blinis hides them away.",
+     "walkthrough": "'hidden' looks like a signal for letters hiding in the clue, but it is part of the definition. Blinis are small Russian pancakes.",
+     "definitionFit": "Something that cannot be seen is invisible, which is what being concealed from view amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1127,69 @@
     "text": "Drunk bouncer’s rear end holds the door",
     "enumeration": "9"
    },
-   "solution": "THRESHOLD"
+   "solution": "THRESHOLD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "THRESHOLD",
+    "definitions": [
+     {
+      "text": "door",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters reel into a new order"
+     },
+     {
+      "text": "rear end",
+      "for": "letter_selection",
+      "note": "the rear end of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bouncer’s",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the doorman word"
+     },
+     {
+      "clueFragment": "holds",
+      "gives": "HOLDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RHOLDSTHE",
+       "gives": "THRESHOLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken bouncer blocks the entrance with his backside.",
+     "walkthrough": "'Drunk' looks like a noun for a customer, but it signals the shuffle.",
+     "definitionFit": "A threshold is the sill or entrance of a doorway, so by extension the way in through a door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1203,55 @@
     "text": "Among friends, tennis player does belt out love songs",
     "enumeration": "9"
    },
-   "solution": "SERENADES"
+   "solution": "SERENADES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SERENADES",
+    "definitions": [
+     {
+      "text": "love songs",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "belt out",
+      "for": "deletion",
+      "note": "to belt something out is to knock it out, so a ring-shaped letter is knocked from the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Among friends, tennis player",
+      "gives": "SERENA",
+      "note": "Serena Williams, known by her first name as if among friends"
+     },
+     {
+      "clueFragment": "does",
+      "gives": "DOES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERENA",
+      "DES"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis star sings love songs loudly at a party with friends.",
+     "walkthrough": "Drop the O from DOES to leave DES. 'belt out' pretends to mean sing loudly.",
+     "definitionFit": "A serenade is a romantic song sung, traditionally at night beneath a window, to a sweetheart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1265,72 @@
     "text": "24 hours after being discharged, guard is given drugs for gastroenteritis",
     "enumeration": "9"
    },
-   "solution": "DYSENTERY"
+   "solution": "DYSENTERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DYSENTERY",
+    "definitions": [
+     {
+      "text": "gastroenteritis",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being discharged",
+      "for": "letter_selection",
+      "note": "a discharged gun is emptied, so only the outside letters of the time word remain"
+     },
+     {
+      "text": "is given",
+      "for": "container",
+      "note": "the guard is given something put inside him"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24 hours",
+      "gives": "DY",
+      "select": "outer",
+      "note": "24 hours is a day; its first and last letters"
+     },
+     {
+      "clueFragment": "guard",
+      "gives": "SENTRY",
+      "note": "a sentry stands guard"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "E",
+      "note": "E is slang for ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DY",
+      "SENT",
+      "E",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier discharged from hospital after a day is prescribed medicine for a stomach bug.",
+     "walkthrough": "'discharged' suggests leaving hospital, but here it empties the day of its middle letter. The drug letter sits near the guard's end, before RY.",
+     "definitionFit": "Dysentery is an infection of the intestines causing severe diarrhoea, a form of stomach and gut inflammation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discharged"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1344,51 @@
     "text": "City’s organ donor register?",
     "enumeration": "9"
    },
-   "solution": "LIVERPOOL"
+   "solution": "LIVERPOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIVERPOOL",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organ",
+      "gives": "LIVER",
+      "note": "the liver is a body organ"
+     },
+     {
+      "clueFragment": "donor register",
+      "gives": "POOL",
+      "note": "a pool is a stock of available people, such as donors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVER",
+      "POOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A city keeps a list of people willing to donate their organs.",
+     "walkthrough": "The ’s stands for 'is'. Liverpool is a major city in north-west England.",
+     "definitionFit": "Liverpool is a city, so the general word stands for a specific example of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "donor"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1402,62 @@
     "text": "Afghan perhaps the first to finish uncapped wine that goes with cheese",
     "enumeration": "7"
    },
-   "solution": "OATCAKE"
+   "solution": "OATCAKE",
+   "annotation": {
+    "type": [
+     "cycling",
+     "deletion",
+     "charade"
+    ],
+    "answer": "OATCAKE",
+    "definitions": [
+     {
+      "text": "that goes with cheese",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first to finish",
+      "for": "cycling",
+      "note": "the first letter is sent to the finish, the end of the word"
+     },
+     {
+      "text": "uncapped",
+      "for": "deletion",
+      "note": "in a down answer the cap of a word is its top letter, which is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afghan perhaps",
+      "gives": "COAT",
+      "note": "an Afghan coat is a sheepskin coat popular in the 1960s and 70s"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "SAKE",
+      "note": "sake is Japanese rice wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OATC",
+      "AKE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Afghan hound is the first to finish off the wine at a cheese party.",
+     "walkthrough": "'Afghan' suggests the hound, but it is the coat. COAT becomes OATC; SAKE loses its S.",
+     "definitionFit": "An oatcake is a savoury oat biscuit, traditionally served alongside cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Afghan"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1471,62 @@
     "text": "Nancy’s the vet closing in on young animal",
     "enumeration": "7"
    },
-   "solution": "LEVERET"
+   "solution": "LEVERET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LEVERET",
+    "definitions": [
+     {
+      "text": "young animal",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "closing in on",
+      "for": "container",
+      "note": "closing in on something means surrounding it, so the animal doctor wraps the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nancy’s the",
+      "gives": "LE",
+      "note": "Nancy is a French city, and in French 'the' is le"
+     },
+     {
+      "clueFragment": "vet",
+      "gives": "VET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "VE",
+      "RE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Nancy is a vet treating a baby animal.",
+     "walkthrough": "'Nancy' looks like a person's name, but it is the city in north-east France, so its word for 'the' is French.",
+     "definitionFit": "A leveret is a young hare, specifically one in its first year of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nancy’s"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1540,43 @@
     "text": "People become engaged when they receive these calls",
     "enumeration": "5"
    },
-   "solution": "RINGS"
+   "solution": "RINGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RINGS",
+    "definitions": [
+     {
+      "text": "People become engaged when they receive these",
+      "at": 0
+     },
+     {
+      "text": "calls",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People become engaged when they receive these",
+      "note": "first meaning: engagement bands given on agreeing to marry"
+     },
+     {
+      "clueFragment": "calls",
+      "note": "second meaning: telephones someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'engaged' also suggests a busy phone line, tying the two halves together.",
+     "definitionFit": "The word means both jewellery bands worn on fingers and telephoning someone, as in rings a friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1590,60 @@
     "text": "Dubious cult taking over America, quietly",
     "enumeration": "7"
    },
-   "solution": "SUSPECT"
+   "solution": "SUSPECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUSPECT",
+    "definitions": [
+     {
+      "text": "Dubious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking over",
+      "for": "container",
+      "note": "taking over means taking in, so the cult word swallows the next letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cult",
+      "gives": "SECT",
+      "note": "a sect is a religious cult"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US, United States"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, the musical direction to play quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A questionable cult quietly gains power across America.",
+     "definitionFit": "Something suspect is open to suspicion, of doubtful honesty or quality, hence questionable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "America"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1657,53 @@
     "text": "Your drink contains something sweet and sticky",
     "enumeration": "5"
    },
-   "solution": "SYRUP"
+   "solution": "SYRUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SYRUP",
+    "definitions": [
+     {
+      "text": "something sweet and sticky",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains means holds inside, so the drink word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "Your",
+      "gives": "YR",
+      "note": "yr is the abbreviation for your"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YR",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that someone's drink has something gooey in it.",
+     "definitionFit": "Syrup is a thick, sugary liquid, a classic example of a sweet, tacky substance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1717,72 @@
     "text": "Tiredness that is overwhelming cycling nun heading north",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container",
+     "reversal"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Tiredness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling means rolling round, so a letter moves from one end of the word to the other"
+     },
+     {
+      "text": "overwhelming",
+      "for": "container",
+      "note": "overwhelming means engulfing, so the abbreviation surrounds the other letters"
+     },
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "in a down answer heading north means reading upwards, from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., id est, Latin for that is"
+     },
+     {
+      "clueFragment": "nun",
+      "gives": "NUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENNUI"
+     ],
+     "reversals": [
+      {
+       "from": "IUNNE",
+       "to": "ENNUI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist nun pedalling north is overcome by fatigue.",
+     "walkthrough": "'cycling' looks like a bicycle in the surface, but it means moving the nun's first letter to the end; the wrapped result is then read upwards.",
+     "definitionFit": "Ennui is a listless boredom or weariness, a kind of mental fatigue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1796,63 @@
     "text": "Maker of diagrams about one’s love for meat",
     "enumeration": "7"
    },
-   "solution": "VENISON"
+   "solution": "VENISON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VENISON",
+    "definitions": [
+     {
+      "text": "meat",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the diagram maker goes around the following letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maker of diagrams",
+      "gives": "VENN",
+      "note": "John Venn, the logician who devised Venn diagrams"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "IS",
+      "note": "one is I, and ’s is is"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEN",
+      "IS",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician declares a fondness for a particular meat.",
+     "definitionFit": "Venison is the flesh of deer eaten as food, a type of game meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1866,62 @@
     "text": "Virtuous man lifted toilet seat",
     "enumeration": "5"
    },
-   "solution": "STOOL"
+   "solution": "STOOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STOOL",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down answer lifting a word means turning it to read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virtuous man",
+      "gives": "ST",
+      "note": "a saint, abbreviated St"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "loo is British slang for toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOO",
+       "to": "OOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good man raises the toilet seat.",
+     "walkthrough": "'toilet seat' reads as one object in the surface, but 'seat' is the definition on its own.",
+     "definitionFit": "A stool is a backless chair for one person, a simple kind of seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "toilet"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1935,49 @@
     "text": "Examining wingless bird",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ROBIN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingless",
+      "for": "letter_selection",
+      "note": "a word without wings has lost its two sides, so only its middle letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Examining",
+      "gives": "ROBIN",
+      "select": "middle",
+      "note": "probing means examining; its first and last letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROBIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet examines a bird that cannot fly.",
+     "walkthrough": "'wingless' suits the bird of the surface, but it trims the examining word.",
+     "definitionFit": "The robin is a small songbird with a red breast, an example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wingless"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1991,65 @@
     "text": "Heads of Air Europa stick with capital city’s transport hub",
     "enumeration": "9"
    },
-   "solution": "AERODROME"
+   "solution": "AERODROME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AERODROME",
+    "definitions": [
+     {
+      "text": "transport hub",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads of",
+      "for": "letter_selection",
+      "note": "the heads of words are their first letters"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Air Europa",
+      "gives": "AE",
+      "select": "first",
+      "note": "the first letters of the two airline words"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "ROD",
+      "note": "a rod is a stick"
+     },
+     {
+      "clueFragment": "capital city",
+      "gives": "ROME",
+      "note": "Rome, the capital of Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AE",
+      "ROD",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "An airline's bosses stick with the main airport of a capital city.",
+     "definitionFit": "An aerodrome is an airfield, a place where aircraft take off and land and passengers transfer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +2063,51 @@
     "text": "Quiet lodger getting Hoover?",
     "enumeration": "9"
    },
-   "solution": "PRESIDENT"
+   "solution": "PRESIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESIDENT",
+    "definitions": [
+     {
+      "text": "Hoover?",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p, piano, the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "lodger",
+      "gives": "RESIDENT",
+      "note": "a lodger is a resident in someone's house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A silent tenant borrows the vacuum cleaner.",
+     "walkthrough": "Hoover suggests the vacuum cleaner, but it is Herbert Hoover, the 31st US president; the question mark flags the example.",
+     "definitionFit": "Herbert Hoover held the highest office in the United States from 1929 to 1933."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hoover"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +2121,50 @@
     "text": "Spread out trifle with spades",
     "enumeration": "5"
    },
-   "solution": "SPLAY"
+   "solution": "SPLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPLAY",
+    "definitions": [
+     {
+      "text": "Spread out",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spades",
+      "gives": "S",
+      "note": "S is the abbreviation for spades in card games"
+     },
+     {
+      "clueFragment": "trifle",
+      "gives": "PLAY",
+      "note": "to trifle with something is to play with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out a trifle pudding and the cutlery.",
+     "walkthrough": "'trifle' suggests the British pudding of sponge, custard and cream, but it is a verb meaning toy with.",
+     "definitionFit": "To splay is to spread limbs or parts apart and outward, opening them wide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trifle"
+    }
+   }
   }
  ]
 }
