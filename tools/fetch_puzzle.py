@@ -1917,6 +1917,46 @@ SOURCE_CLUE_WRONG = {
         "( Occupation for the heartless French city girl",
         "Occupation for the heartless French city girl",
         "OCR misread: a stray bracket stands before the first word"),
+    ("times-17386", "3-down"): (
+        "Choicely_entertained by King Edward",
+        "Choicely entertained by King Edward",
+        "OCR misread: an underscore stands where the space between words was"),
+    ("times-17386", "4-across"): (
+        "Old-fashioned entertainment is hack: there's a lot round everyone",
+        "Old-fashioned entertainment is back: there's a lot round everyone",
+        "OCR misread: the wordplay needs 'is back', reversing IS to SI"),
+    ("times-17386", "7-down"): (
+        "A day in November with a raw start and fog and packed snow to (follow",
+        "A day in November with a raw start and fog and packed snow to follow",
+        "OCR misread: stray '(' before follow"),
+    ("times-17386", "9-across"): (
+        "An occasional boy for holmes",
+        "An occasional boy for Holmes",
+        "OCR misread: the detective's name Holmes is capitalised"),
+    ("times-17386", "11-across"): (
+        "A refugee.- removed as Persephone was in Hades?",
+        "A refugee - removed as Persephone was in Hades?",
+        "OCR misread: stray full stop before the dash"),
+    ("times-17386", "13-down"): (
+        "Working man, busier on (the bed perhaps",
+        "Working man, busier on the bed perhaps",
+        "OCR misread: stray '(' before the"),
+    ("times-17386", "15-down"): (
+        "(Day for David to slice the Devil in two - good man!",
+        "Day for David to slice the Devil in two - good man!",
+        "OCR misread: stray '(' before the clue"),
+    ("times-17386", "17-across"): (
+        "('areless of good French quality",
+        "Careless of good French quality",
+        "OCR misread: the definition needs 'Careless', its C read as ('"),
+    ("times-17386", "19-across"): (
+        "English hunts arc backward in this respect",
+        "English hunts are backward in this respect",
+        "OCR misread: the reversal needs 'are backward', not 'arc'"),
+    ("times-17386", "26-across"): (
+        "Lived to out-stare — awfully rude",
+        "Loved to out-stare — awfully rude",
+        "OCR misread: the definition needs 'Loved', a synonym of the answer"),
     ("times-17389", "7-down"): (
         "Perfect enunciation by 3 trader",
         "Perfect enunciation by a trader",

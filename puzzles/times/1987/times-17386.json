@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "30 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,43 @@
     "text": "Skip the sauce",
     "enumeration": "5"
    },
-   "solution": "CAPER"
+   "solution": "CAPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAPER",
+    "definitions": [
+     {
+      "text": "Skip",
+      "at": 0
+     },
+     {
+      "text": "the sauce",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skip",
+      "note": "first meaning: a playful leap or skip"
+     },
+     {
+      "clueFragment": "the sauce",
+      "note": "second meaning: the pickled flower bud that goes into a classic sauce for mutton"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an instruction to leave out the sauce; in fact both halves are separate meanings of one word.",
+     "definitionFit": "A caper is a frisky jump, and caper sauce, made from pickled buds, is a traditional British accompaniment to boiled mutton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Skip"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +88,39 @@
     "text": "Age when Germans were kinder",
     "enumeration": "9"
    },
-   "solution": "CHILDHOOD"
+   "solution": "CHILDHOOD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHILDHOOD",
+    "definitions": [
+     {
+      "text": "Age when Germans were kinder",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Age when Germans were kinder",
+      "note": "surface reading: an era when the German people behaved more gently"
+     },
+     {
+      "clueFragment": "Germans were kinder",
+      "note": "setter's reading: Kinder is German for children, so this is the age when a German was a child"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The English word kinder hides the German Kinder, children.",
+     "definitionFit": "The period of life when anyone is a child, German or otherwise, is the early stage before adolescence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kinder"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +134,48 @@
     "text": "Capital is at a discount",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at a discount",
+      "gives": "PAR",
+      "note": "par is face value, the benchmark against which a share is said to stand at a discount"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "Money is being offered cheaply.",
+     "walkthrough": "'Capital' looks like money, as at a discount suggests finance; it is the city. The parse is loose: par is only the reference point for a discount.",
+     "definitionFit": "The French seat of government is a capital in the geographical sense of a country's chief city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,10 +186,52 @@
    },
    "length": 7,
    "clue": {
-    "text": "Choicely_entertained by King Edward",
+    "text": "Choicely entertained by King Edward",
     "enumeration": "7"
    },
-   "solution": "REGALED"
+   "solution": "REGALED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REGALED",
+    "definitions": [
+     {
+      "text": "Choicely entertained",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "REGAL",
+      "note": "regal means of or like a king"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is the short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGAL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was treated to fine hospitality by King Edward.",
+     "definitionFit": "To regale guests is to feast them lavishly or amuse them with lively stories, entertaining them in style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,10 +242,80 @@
    },
    "length": 9,
    "clue": {
-    "text": "Old-fashioned entertainment is hack: there's a lot round everyone",
+    "text": "Old-fashioned entertainment is back: there's a lot round everyone",
     "enumeration": "9"
    },
-   "solution": "MUSICHALL"
+   "solution": "MUSICHALL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "MUSICHALL",
+    "definitions": [
+     {
+      "text": "Old-fashioned entertainment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the short word just before is read from right to left"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says the phrase for plenty wraps itself about the reversed pair of letters"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, then turned about"
+     },
+     {
+      "clueFragment": "there's a lot",
+      "gives": "MUCH",
+      "note": "much means a great quantity"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all people together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "SI",
+      "CH",
+      "ALL"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that a hackneyed old-time show has returned, with a crowd gathered round everyone.",
+     "walkthrough": "'Old-fashioned' could be the start of the wordplay, but it belongs to the definition of a vanished kind of British theatre.",
+     "definitionFit": "Music hall was the Victorian and Edwardian British variety theatre of comic songs and acts, now long out of fashion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +329,50 @@
     "text": "It devoured children in an instant, with water",
     "enumeration": "6"
    },
-   "solution": "MOLOCH"
+   "solution": "MOLOCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOLOCH",
+    "definitions": [
+     {
+      "text": "It devoured children",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an instant",
+      "gives": "MO",
+      "note": "a mo is a moment"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "LOCH",
+      "note": "a loch is a Scottish lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "LOCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A monster gobbling up children in a moment, washed down with water.",
+     "definitionFit": "Moloch was the Canaanite god to whom children were sacrificed by fire, and the name is now used for any devouring power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +386,39 @@
     "text": "Office machine to add to the scrap-heap?",
     "enumeration": "8"
    },
-   "solution": "SHREDDER"
+   "solution": "SHREDDER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHREDDER",
+    "definitions": [
+     {
+      "text": "Office machine to add to the scrap-heap?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Office machine",
+      "note": "surface reading: a piece of office equipment"
+     },
+     {
+      "clueFragment": "to add to the scrap-heap?",
+      "note": "setter's reading: the device turns paper into scraps, adding to the pile of waste"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that 'scrap-heap' is taken literally, a heap of paper scraps.",
+     "definitionFit": "The office device that cuts unwanted documents into thin strips for confidential disposal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scrap-heap"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +438,39 @@
      }
     ]
    },
-   "solution": "CATSEYE"
+   "solution": "CATSEYE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CATS-EYE",
+    "definitions": [
+     {
+      "text": "Traffic light - always green",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traffic light",
+      "note": "surface reading: a set of signals at a road junction"
+     },
+     {
+      "clueFragment": "always green",
+      "note": "setter's reading: a reflector set in the road, named after an animal's gleaming eye, which never turns red"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cat's-eyes are the glass reflectors set into British road surfaces; they light up in headlights but never switch to red.",
+     "definitionFit": "A road stud that reflects headlights is a light for traffic, though it is not a signal and never changes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Traffic"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,10 +481,76 @@
    },
    "length": 9,
    "clue": {
-    "text": "A day in November with a raw start and fog and packed snow to (follow",
+    "text": "A day in November with a raw start and fog and packed snow to follow",
     "enumeration": "9"
    },
-   "solution": "ARMISTICE"
+   "solution": "ARMISTICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ARMISTICE",
+    "definitions": [
+     {
+      "text": "day in November",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and",
+     "to follow"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of raw"
+     },
+     {
+      "clueFragment": "fog",
+      "gives": "MIST",
+      "note": "mist is a thin fog"
+     },
+     {
+      "clueFragment": "packed snow",
+      "gives": "ICE",
+      "note": "snow packed hard turns to ice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "MIST",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wintry November day that begins raw, with fog, and packed snow later.",
+     "walkthrough": "Armistice Day, 11 November, marks the end of the First World War; the A of the clue does double duty.",
+     "definitionFit": "Armistice Day is the anniversary on 11 November of the 1918 ceasefire, now kept as Remembrance Day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +564,46 @@
     "text": "Left port with cargo",
     "enumeration": "5"
    },
-   "solution": "LADEN"
+   "solution": "LADEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LADEN",
+    "definitions": [
+     {
+      "text": "with cargo",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "ADEN",
+      "note": "Aden, the seaport in Yemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ADEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship sailed out of harbour carrying its freight.",
+     "definitionFit": "Laden means loaded, carrying a heavy burden, as a ship full of cargo is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,10 +614,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "An occasional boy for holmes",
+    "text": "An occasional boy for Holmes",
     "enumeration": "9"
    },
-   "solution": "IRREGULAR"
+   "solution": "IRREGULAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IRREGULAR",
+    "definitions": [
+     {
+      "text": "occasional",
+      "at": 3
+     },
+     {
+      "text": "boy for Holmes",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "An"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occasional",
+      "note": "first meaning: happening at uneven intervals, not regular"
+     },
+     {
+      "clueFragment": "boy for Holmes",
+      "note": "second meaning: one of the street urchins Sherlock Holmes hired as informants"
+     }
+    ],
+    "explanation": {
+     "surface": "Sherlock Holmes now and then employs a boy.",
+     "walkthrough": "In the Conan Doyle stories the Baker Street Irregulars are a gang of street boys who gather information for Holmes.",
+     "definitionFit": "Something irregular happens only now and then, and each of Holmes's street informants was called an Irregular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "occasional"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +671,59 @@
     "text": "When retiring about to do this to the lamp?",
     "enumeration": "5"
    },
-   "solution": "TIMID"
+   "solution": "TIMID",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TIMID",
+    "definitions": [
+     {
+      "text": "retiring",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the phrase is read from its end back to its start"
+     }
+    ],
+    "linkWords": [
+     "When",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do this to the lamp",
+      "gives": "DIMIT",
+      "note": "what you do to a lamp at bedtime: dim it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIMID"
+     ],
+     "reversals": [
+      {
+       "from": "DIMIT",
+       "to": "TIMID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bedtime question: when going to bed, what should you do to the lamp?",
+     "walkthrough": "'Retiring' looks like going to bed, which pairs with dimming the lamp; here it means shy. DIM IT read backwards gives TIMID.",
+     "definitionFit": "A retiring person avoids company and attention, which is exactly what a shy, fearful or timid person does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +734,7 @@
    },
    "length": 15,
    "clue": {
-    "text": "A refugee.- removed as Persephone was in Hades?",
+    "text": "A refugee - removed as Persephone was in Hades?",
     "enumeration": "9,6",
     "separators": [
      {
@@ -215,7 +743,43 @@
      }
     ]
    },
-   "solution": "DISPLACEDPERSON"
+   "solution": "DISPLACEDPERSON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISPLACED PERSON",
+    "definitions": [
+     {
+      "text": "A refugee",
+      "at": 0
+     },
+     {
+      "text": "removed as Persephone was in Hades",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A refugee",
+      "note": "first meaning: someone forced from their homeland"
+     },
+     {
+      "clueFragment": "removed as Persephone was in Hades",
+      "note": "second meaning: Persephone was carried off from the world above to the underworld"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Greek myth Hades abducted Persephone to the underworld, so she was literally a person taken out of her proper place.",
+     "definitionFit": "Displaced person is the official term, used after the Second World War, for a refugee driven from their own country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hades"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +793,47 @@
     "text": "Leg is legitimate in football",
     "enumeration": "6"
    },
-   "solution": "ONSIDE"
+   "solution": "ONSIDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONSIDE",
+    "definitions": [
+     {
+      "text": "Leg",
+      "at": 0
+     },
+     {
+      "text": "legitimate in football",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leg",
+      "note": "first meaning: in cricket the leg side of the field is also called the ..."
+     },
+     {
+      "clueFragment": "legitimate in football",
+      "note": "second meaning: a player not offside is in a legal position"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim about which leg may legally be used in a football match.",
+     "walkthrough": "In cricket the half of the field behind the batsman's legs is called both leg and on side.",
+     "definitionFit": "Cricket names the leg half of the field the on side, and in football a player positioned legally is not offside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Leg"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,10 +844,55 @@
    },
    "length": 9,
    "clue": {
-    "text": "Working man, busier on (the bed perhaps",
+    "text": "Working man, busier on the bed perhaps",
     "enumeration": "9"
    },
-   "solution": "SUBMARINE"
+   "solution": "SUBMARINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBMARINE",
+    "definitions": [
+     {
+      "text": "on the bed perhaps",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working means being worked on and changed, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man, busier",
+      "gives": "MANBUSIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANBUSIER",
+       "gives": "SUBMARINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer who works harder while lying in bed.",
+     "walkthrough": "'Bed' looks like a bedroom one; it is the sea bed, and the answer is the adjective meaning undersea.",
+     "definitionFit": "Submarine as an adjective means beneath the surface of the sea, as on the sea floor might be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +906,57 @@
     "text": "Study of heredity in Indian Civil Service by leading French writer",
     "enumeration": "8"
    },
-   "solution": "GENETICS"
+   "solution": "GENETICS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENETICS",
+    "definitions": [
+     {
+      "text": "Study of heredity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "the writer is leading, so his name goes in front of the other part"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French writer",
+      "gives": "GENET",
+      "note": "Jean Genet, the French novelist and playwright"
+     },
+     {
+      "clueFragment": "Indian Civil Service",
+      "gives": "ICS",
+      "note": "the initials of the Indian Civil Service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENET",
+      "ICS"
+     ]
+    },
+    "explanation": {
+     "surface": "A heredity study in the old Indian Civil Service, led by a prominent French author.",
+     "definitionFit": "Genetics is the science of how traits are inherited, passed from parents to offspring through genes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,10 +967,66 @@
    },
    "length": 9,
    "clue": {
-    "text": "(Day for David to slice the Devil in two - good man!",
+    "text": "Day for David to slice the Devil in two - good man!",
     "enumeration": "9"
    },
-   "solution": "SAMARITAN"
+   "solution": "SAMARITAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAMARITAN",
+    "definitions": [
+     {
+      "text": "good man",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to slice",
+      "for": "container",
+      "note": "slicing something in two lets another piece sit between the halves"
+     }
+    ],
+    "linkWords": [
+     "in two"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devil",
+      "gives": "SA",
+      "note": "the first half of Satan, the Devil"
+     },
+     {
+      "clueFragment": "Day for David",
+      "gives": "MARI",
+      "note": "St David's Day falls on 1 March, so March 1"
+     },
+     {
+      "clueFragment": "Devil",
+      "gives": "TAN",
+      "note": "the second half of Satan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "MARI",
+      "TAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who cuts the Devil in half on a saint's day is a hero.",
+     "walkthrough": "St David, patron saint of Wales, has his day on March 1, written in Roman numerals after the month's abbreviation.",
+     "definitionFit": "From the parable of the Good Samaritan, a Samaritan is anyone who helps a stranger in need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Day"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1040,51 @@
     "text": "Red conspirator brought to court",
     "enumeration": "8"
    },
-   "solution": "CINNABAR"
+   "solution": "CINNABAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CINNABAR",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "brought to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conspirator",
+      "gives": "CINNA",
+      "note": "Cinna, one of the plotters against Julius Caesar"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "BAR",
+      "note": "the bar is the court, as in being called to the bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINNA",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A communist plotter is put on trial.",
+     "walkthrough": "'Red' looks like a communist; it is the colour.",
+     "definitionFit": "Cinnabar is a mercury ore whose bright scarlet colour gave its name to the pigment vermilion red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,10 +1095,50 @@
    },
    "length": 8,
    "clue": {
-    "text": "('areless of good French quality",
+    "text": "Careless of good French quality",
     "enumeration": "8"
    },
-   "solution": "DEBONAIR"
+   "solution": "DEBONAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEBONAIR",
+    "definitions": [
+     {
+      "text": "Careless",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of good French",
+      "gives": "DEBON",
+      "note": "de bon is French for of good"
+     },
+     {
+      "clueFragment": "quality",
+      "gives": "AIR",
+      "note": "an air is a manner or quality about a person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEBON",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone casual about the finer qualities of French things.",
+     "walkthrough": "The French phrase de bon air, of good bearing, is where the English word comes from.",
+     "definitionFit": "A debonair person is carefree and nonchalant, carrying themselves with easy unconcern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Careless"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1152,39 @@
     "text": "They may be found in colonies, naturally",
     "enumeration": "7"
    },
-   "solution": "NUDISTS"
+   "solution": "NUDISTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NUDISTS",
+    "definitions": [
+     {
+      "text": "They may be found in colonies, naturally",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They may be found in colonies",
+      "note": "surface reading: creatures like ants or bees that live in groups"
+     },
+     {
+      "clueFragment": "naturally",
+      "note": "setter's reading: people who live au naturel, without clothes, in communal camps"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Colonies' suggests insects or empire; it means camps of those who go without clothes.",
+     "definitionFit": "Naturists who go unclothed often gather in clubs or camps known as colonies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "naturally"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,10 +1195,67 @@
    },
    "length": 6,
    "clue": {
-    "text": "English hunts arc backward in this respect",
+    "text": "English hunts are backward in this respect",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "respect",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "are backward",
+      "for": "reversal",
+      "note": "backward tells us to read the word for hunts from right to left"
+     }
+    ],
+    "linkWords": [
+     "in this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "hunts",
+      "gives": "MEETS",
+      "note": "a meet is a gathering of a hunt, so hunts are meets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STEEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEETS",
+       "to": "STEEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that English fox hunts are behind the times in some regard.",
+     "walkthrough": "A meet is the assembly of riders and hounds before a fox hunt.",
+     "definitionFit": "Esteem is high regard or admiration, the same thing as respect when used as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hunts"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1269,59 @@
     "text": "Join together round one in private",
     "enumeration": "7"
    },
-   "solution": "SOLDIER"
+   "solution": "SOLDIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOLDIER",
+    "definitions": [
+     {
+      "text": "private",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means going about, so one piece is wrapped around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Join together",
+      "gives": "SOLDER",
+      "note": "to solder is to join metal pieces with melted alloy"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "People uniting around one person in secret.",
+     "walkthrough": "'Private' looks like an adjective meaning secret; it is the army rank.",
+     "definitionFit": "A private is the lowest rank in the army, an ordinary soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1335,68 @@
     "text": "The Welsh were in fearful dread of the first",
     "enumeration": "6"
    },
-   "solution": "EDWARD"
+   "solution": "EDWARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "EDWARD",
+    "definitions": [
+     {
+      "text": "The Welsh were in fearful dread of the first",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fearful",
+      "for": "anagram",
+      "note": "fearful suggests shaken, so the next word's letters are jumbled"
+     },
+     {
+      "text": "were in",
+      "for": "container",
+      "note": "were in means placed inside the shaken word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "W is the abbreviation for Welsh"
+     },
+     {
+      "clueFragment": "dread",
+      "gives": "DREAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "W",
+      "ARD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DREAD",
+       "gives": "EDARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The people of Wales were terrified of the first king of that name.",
+     "walkthrough": "Edward I conquered Wales in the 1280s and ringed it with castles, so the whole clue is also a description of him.",
+     "definitionFit": "King Edward the First of England subdued the Welsh, who had good reason to fear him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1420,55 @@
      }
     ]
    },
-   "solution": "STANDANDDELIVER"
+   "solution": "STANDANDDELIVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAND AND DELIVER",
+    "definitions": [
+     {
+      "text": "robbers' demand",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resist",
+      "gives": "STAND",
+      "note": "to stand against is to resist"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "AND",
+      "note": "and then: one thing following another"
+     },
+     {
+      "clueFragment": "achieve rescue",
+      "gives": "DELIVER",
+      "note": "to deliver someone is to rescue them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "AND",
+      "DELIVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Fight back, then manage to save yourself from the thieves' demands.",
+     "definitionFit": "Stand and deliver was the classic order of the highwayman stopping a coach to rob its passengers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Resist"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1482,44 @@
     "text": "Fish was off",
     "enumeration": "5"
    },
-   "solution": "SMELT"
+   "solution": "SMELT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMELT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "was off",
+      "at": 5,
+      "note": "past tense: gave off a bad smell"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: a small silvery food fish"
+     },
+     {
+      "clueFragment": "was off",
+      "note": "second meaning: food that has gone off smells bad, in British past tense"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Off means rotten in British use; the British past tense of smell is spelt with a t.",
+     "definitionFit": "A smelt is a small sea or river fish, and food that was off would have stank, giving off an odour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1533,56 @@
     "text": "Places of assignation out East for a beautiful woman",
     "enumeration": "5"
    },
-   "solution": "VENUS"
+   "solution": "VENUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VENUS",
+    "definitions": [
+     {
+      "text": "a beautiful woman",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out tells us the following letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Places of assignation",
+      "gives": "VENUES",
+      "note": "venues are meeting places"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the abbreviation for East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Lovers' meeting spots that have gone abroad, in search of a beauty.",
+     "walkthrough": "One E of VENUES is dropped to leave VENUS, the Roman goddess of love.",
+     "definitionFit": "Venus was the Roman goddess of love and beauty, and her name is used for any strikingly lovely woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1596,56 @@
     "text": "Prophet as follower of Samuel's teacher",
     "enumeration": "5"
    },
-   "solution": "ELIAS"
+   "solution": "ELIAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELIAS",
+    "definitions": [
+     {
+      "text": "Prophet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follower",
+      "for": "charade",
+      "note": "being a follower means this little word comes after the other part"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Samuel's teacher",
+      "gives": "ELI",
+      "note": "Eli, the priest who brought up the boy Samuel in the Bible"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "A prophet described as a disciple of the man who taught Samuel.",
+     "definitionFit": "Elias is the Greek form of Elijah, the Old Testament prophet, used in the New Testament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "follower"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1665,51 @@
      }
     ]
    },
-   "solution": "BRAZILNUT"
+   "solution": "BRAZILNUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAZIL NUT",
+    "definitions": [
+     {
+      "text": "something to eat",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angela",
+      "gives": "BRAZIL",
+      "note": "Angela Brazil, author of girls' boarding-school stories"
+     },
+     {
+      "clueFragment": "takes the Head",
+      "gives": "NUT",
+      "note": "nut is slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAZIL",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl named Angela goes to the headmistress to fetch a snack.",
+     "walkthrough": "Angela Brazil was a popular early-twentieth-century British writer of schoolgirl stories, which fits the Head of the surface.",
+     "definitionFit": "A Brazil nut is the large edible seed of a South American tree, a familiar Christmas nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,10 +1720,66 @@
    },
    "length": 9,
    "clue": {
-    "text": "Lived to out-stare — awfully rude",
+    "text": "Loved to out-stare — awfully rude",
     "enumeration": "9"
    },
-   "solution": "TREASURED"
+   "solution": "TREASURED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREASURED",
+    "definitions": [
+     {
+      "text": "Loved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests disorder, so the first word's letters are thrown about"
+     },
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully means badly done, so these letters too are jumbled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stare",
+      "gives": "STARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "RUDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARE RUDE",
+       "gives": "TREASURED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone liked nothing better than to stare others down, which is terribly impolite.",
+     "definitionFit": "Treasured means cherished, held very dear, which is to say deeply loved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1793,54 @@
     "text": "Method of restraint incorporates second adhesive",
     "enumeration": "5"
    },
-   "solution": "RESIN"
+   "solution": "RESIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIN",
+    "definitions": [
+     {
+      "text": "adhesive",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporates",
+      "for": "container",
+      "note": "to incorporate is to take something into one's body, so one part holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Method of restraint",
+      "gives": "REIN",
+      "note": "a rein holds back a horse"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "S",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A way of holding something back includes a second sticky substance.",
+     "definitionFit": "Resin is the sticky sap from trees, and synthetic resins are widely used as glues and binding agents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Method"
+    }
+   }
   }
  ]
 }
