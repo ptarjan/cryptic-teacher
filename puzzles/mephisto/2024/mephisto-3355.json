@@ -38,6 +38,9 @@
   "date": "2024-12-22",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,51 @@
     "text": "You’ll be reckoning with this dancing I’m no Mata Hari!",
     "enumeration": "12"
    },
-   "solution": "ARITHMOMANIA"
+   "solution": "ARITHMOMANIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARITHMOMANIA",
+    "definitions": [
+     {
+      "text": "You’ll be reckoning with this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "letters that are dancing move about and change places, so the phrase after it gets rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m no Mata Hari",
+      "gives": "IMNOMATAHARI",
+      "note": "the whole denial, all twelve letters, is the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMNOMATAHARI",
+       "gives": "ARITHMOMANIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman at a dance insists she is no glamorous spy like Mata Hari.",
+     "walkthrough": "Arithmomania is a compulsion to count things, so someone who has it is forever reckoning; the dancer's protest is pure fodder.",
+     "definitionFit": "The word names an obsessive urge to count and calculate, which is exactly what reckoning means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +112,55 @@
     "text": "Old fool’s right in class",
     "enumeration": "6"
    },
-   "solution": "ASSORT"
+   "solution": "ASSORT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASSORT",
+    "definitions": [
+     {
+      "text": "class",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "’s",
+      "for": "container",
+      "note": "the apostrophe s stands for has, so the first word has the next one held within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old fool",
+      "gives": "ASSOT",
+      "note": "ASSOT is an obsolete word for a besotted fool, found in Spenser"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSO",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly simpleton has the correct answer in a school lesson.",
+     "walkthrough": "Class is the verb here, not the schoolroom: R goes inside ASSOT just before its last letter to give ASSORT.",
+     "definitionFit": "To class things is to sort them into groups or categories, which is what this verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +174,55 @@
     "text": "Hard year to follow smoother",
     "enumeration": "5"
    },
-   "solution": "IRONY"
+   "solution": "IRONY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRONY",
+    "definitions": [
+     {
+      "text": "Hard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places the short word after the longer one rather than before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoother",
+      "gives": "IRON",
+      "note": "an iron smooths creases out of clothes"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A hard year comes after an easier, smoother one.",
+     "walkthrough": "IRONY here is not the literary device but the adjective meaning made of or like iron.",
+     "definitionFit": "Something resembling iron in texture is tough and unyielding, so the adjective can stand for solid, firm material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smoother"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +236,67 @@
     "text": "Hobnailed boot ultimately noisy? Take off",
     "enumeration": "7"
    },
-   "solution": "TACKETY"
+   "solution": "TACKETY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TACKETY",
+    "definitions": [
+     {
+      "text": "Hobnailed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points at the very end, so only the final letter of the word before it counts"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means removed, so that letter comes away from the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boot",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of boot"
+     },
+     {
+      "clueFragment": "noisy?",
+      "gives": "RACKETY",
+      "note": "making a racket, a clattering din; the question mark admits it is a loose synonym"
+     },
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, Latin for take, on old prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ACKETY"
+     ]
+    },
+    "explanation": {
+     "surface": "A hobnailed boot clatters, so the wearer is told to take it off.",
+     "walkthrough": "Take off looks like an instruction to remove the boot; Take is the letter R, from the prescription heading. TACKETY is a Scots word.",
+     "definitionFit": "In Scots a tacket is a hobnail, so a tackety boot is one studded with those small nails."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boot"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +310,60 @@
     "text": "Dump waste — head off fish and salamander",
     "enumeration": "8"
    },
-   "solution": "MUDPUPPY"
+   "solution": "MUDPUPPY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "MUDPUPPY",
+    "definitions": [
+     {
+      "text": "salamander",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "waste",
+      "for": "anagram",
+      "note": "to waste something is to wreck it, so the word before it is jumbled"
+     },
+     {
+      "text": "head off",
+      "for": "deletion",
+      "note": "head off means the first letter of the following word is lopped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dump",
+      "gives": "MUDP",
+      "note": "the four letters of dump, rearranged"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "GUPPY",
+      "note": "a guppy is a small tropical fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUDP",
+      "UPPY"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for tipping out rubbish, beheading a fish and adding a newt.",
+     "definitionFit": "This is a North American aquatic amphibian, a large gilled species of the salamander family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +377,50 @@
     "text": "I’m in rage suffering severe pain",
     "enumeration": "8"
    },
-   "solution": "MIGRAINE"
+   "solution": "MIGRAINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIGRAINE",
+    "definitions": [
+     {
+      "text": "severe pain",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering suggests being knocked out of shape, so the preceding letters are disturbed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m in rage",
+      "gives": "IMINRAGE",
+      "note": "all eight letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMINRAGE",
+       "gives": "MIGRAINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone furious says their anger is causing them a terrible headache.",
+     "definitionFit": "This is a recurrent intense headache, often with nausea, so severe pain describes it well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +434,49 @@
     "text": "Accepted point to charge with public burden",
     "enumeration": "5"
    },
-   "solution": "AGIST"
+   "solution": "AGIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGIST",
+    "definitions": [
+     {
+      "text": "charge with public burden",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accepted",
+      "gives": "A",
+      "note": "A is a dictionary abbreviation for accepted"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "GIST",
+      "note": "the gist is the main point of an argument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIST"
+     ]
+    },
+    "explanation": {
+     "surface": "An accepted argument about levying a tax on the public.",
+     "definitionFit": "In old land law, agisting meant laying a rate or levy on land, a duty owed to the community."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +490,42 @@
     "text": "Fred compared to Freud? That’s not acceptable",
     "enumeration": "4"
    },
-   "solution": "NONU"
+   "solution": "NONU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NONU",
+    "definitions": [
+     {
+      "text": "That’s not acceptable",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fred compared to Freud",
+      "gives": "NONU",
+      "note": "set the two names side by side and Fred has no U in it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONU"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objects to comparing an ordinary Fred with the great Sigmund Freud.",
+     "walkthrough": "U stands for upper-class usage; NON-U, coined by Nancy Mitford's circle, labels speech or behaviour that is not socially acceptable.",
+     "definitionFit": "Non-U describes manners or language thought unfit for polite upper-class society, hence socially unacceptable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fred"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +539,50 @@
     "text": "Regularly aboard trade vessels",
     "enumeration": "6"
    },
-   "solution": "AORTAE"
+   "solution": "AORTAE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AORTAE",
+    "definitions": [
+     {
+      "text": "vessels",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aboard trade",
+      "gives": "AORTAE",
+      "select": "alternate",
+      "note": "the first, third, fifth and so on letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AORTAE"
+     ]
+    },
+    "explanation": {
+     "surface": "Ships routinely carry goods for commerce.",
+     "walkthrough": "Vessels looks like ships but means blood vessels; this is the plural of the main artery.",
+     "definitionFit": "The aorta is the largest artery in the body, and arteries are blood-carrying tubes, so the plural fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessels"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +596,55 @@
     "text": "Self-catering place cut provisions",
     "enumeration": "5"
    },
-   "solution": "SCRAN"
+   "solution": "SCRAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCRAN",
+    "definitions": [
+     {
+      "text": "provisions",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the word before it loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Self-catering",
+      "gives": "SC",
+      "note": "SC is the abbreviation for self-catering in holiday listings"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "RANK",
+      "note": "a place in a hierarchy is a rank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-catering holiday spot has reduced the food it supplies.",
+     "walkthrough": "SCRAN is British and Irish slang for food.",
+     "definitionFit": "Scran is informal for food or grub, the stuff you lay in as supplies to eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +658,69 @@
     "text": "Start to incise nick in fruit tree",
     "enumeration": "10"
    },
-   "solution": "CHINABERRY"
+   "solution": "CHINABERRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "CHINABERRY",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the earlier pieces inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incise",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of incise"
+     },
+     {
+      "clueFragment": "nick",
+      "gives": "NAB",
+      "note": "to nick is to steal or nab"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "CHERRY",
+      "note": "a cherry is a stone fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "I",
+      "NAB",
+      "ERRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for cutting a notch into fruit to begin carving it.",
+     "walkthrough": "Nick misleads as a cut; it is slang for steal.",
+     "definitionFit": "The chinaberry is an Asian species of the mahogany family, also called bead tree, widely planted for shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +734,48 @@
     "text": "American might love Aussie sport",
     "enumeration": "6"
    },
-   "solution": "VIGORO"
+   "solution": "VIGORO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIGORO",
+    "definitions": [
+     {
+      "text": "Aussie sport",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American might",
+      "gives": "VIGOR",
+      "note": "vigour as spelt in the United States, meaning strength"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis scoring, written O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIGOR",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An American might be fond of an Australian game.",
+     "walkthrough": "Might is a noun here, not the verb it seems.",
+     "definitionFit": "Vigoro is a team game from Australia blending cricket with baseball, traditionally played by women."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "might"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +789,69 @@
     "text": "In a pickle after source of steam iron? Amazon has one",
     "enumeration": "10"
    },
-   "solution": "RAINFOREST"
+   "solution": "RAINFOREST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RAINFOREST",
+    "definitions": [
+     {
+      "text": "Amazon has one",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In a pickle",
+      "for": "anagram",
+      "note": "being in a pickle is a muddle, so the letters that follow are mixed up"
+     },
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of something is where it starts, so only an opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "AFTER",
+      "note": "taken as written; it is fodder, not a position word"
+     },
+     {
+      "clueFragment": "steam",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of steam"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "IRON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFTER S IRON",
+       "gives": "RAINFOREST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steam iron has broken down, and Amazon, the online shop, sells one.",
+     "walkthrough": "After looks like it orders the pieces but is part of the fodder, and Amazon is the river basin, not the retailer.",
+     "definitionFit": "The Amazon basin contains the largest tropical forest on Earth, a dense, wet, evergreen woodland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Amazon"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +871,67 @@
      }
     ]
    },
-   "solution": "SHOCKDOG"
+   "solution": "SHOCKDOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SHOCK DOG",
+    "definitions": [
+     {
+      "text": "Poodle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in sets the earlier pieces inside the word that follows"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the first piece behind the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dip",
+      "gives": "HOCK",
+      "note": "dip and hock are both slang for pawning something"
+     },
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the timetable abbreviation for departs"
+     },
+     {
+      "clueFragment": "soft wet place",
+      "gives": "SOG",
+      "note": "a sog is a boggy patch of ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOCK",
+      "D",
+      "OG"
+     ]
+    },
+    "explanation": {
+     "surface": "A poodle leaves after a swim and ends up in a soggy spot.",
+     "walkthrough": "A shock dog is an old name for a shaggy poodle, shock meaning a mass of hair.",
+     "definitionFit": "A shock dog was a shaggy-coated breed, essentially the poodle, named for its thick mop of curly hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dip"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +945,51 @@
     "text": "Grunts getting on with tattoos",
     "enumeration": "5"
    },
-   "solution": "OINKS"
+   "solution": "OINKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OINKS",
+    "definitions": [
+     {
+      "text": "Grunts",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "getting on",
+      "gives": "O",
+      "note": "someone getting on is old, abbreviated O"
+     },
+     {
+      "clueFragment": "tattoos",
+      "gives": "INKS",
+      "note": "to ink someone is to tattoo them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "INKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly soldiers, grunts, still turning up with tattoos.",
+     "walkthrough": "Grunts is a verb, the noises pigs make, rather than infantrymen.",
+     "definitionFit": "A pig's snort is written as oink, and that piggy noise is exactly a grunt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grunts"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1003,40 @@
     "text": "See 26",
     "enumeration": "7"
    },
-   "solution": "PURSUIT"
+   "solution": "PURSUIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PURSUIT",
+    "definitions": [
+     {
+      "text": "See 26",
+      "at": 0,
+      "note": "the definition, Game, is in the clue at 26"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See 26",
+      "gives": "PURSUIT",
+      "note": "the tail of the clue at 26 builds this: pawn is P, expressing hesitation is UR, action is SUIT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PURSUIT"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "This light holds the second half of the game named at 26, TRIVIAL PURSUIT; its wordplay is the tail of that clue.",
+     "definitionFit": "Together with 26 it forms the name of a famous trivia-quiz board game, which the word Game in that clue defines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1050,74 @@
     "text": "Survived Mephisto’s latest as fighting spirit returned",
     "enumeration": "8"
    },
-   "solution": "OUTLIVED"
+   "solution": "OUTLIVED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "OUTLIVED",
+    "definitions": [
+     {
+      "text": "Survived",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "latest",
+      "for": "letter_selection",
+      "note": "the latest letter of a word is its last one"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back the way it came, so the word is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mephisto’s",
+      "gives": "O",
+      "select": "last",
+      "note": "the final letter of Mephisto"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "UT",
+      "note": "ut is Latin for as"
+     },
+     {
+      "clueFragment": "fighting spirit",
+      "gives": "DEVIL",
+      "note": "devil is a fiery, combative energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "UT",
+      "LIVED"
+     ],
+     "reversals": [
+      {
+       "from": "DEVIL",
+       "to": "LIVED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's newest puzzle survived because his combative spirit came back.",
+     "walkthrough": "Only fighting spirit is reversed; UT is the Latin word for as.",
+     "definitionFit": "To outlive is to remain alive beyond some event or person, so it is a synonym of survived."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1131,42 @@
     "text": "Some look at an ancient samurai sword",
     "enumeration": "6"
    },
-   "solution": "KATANA"
+   "solution": "KATANA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KATANA",
+    "definitions": [
+     {
+      "text": "samurai sword",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of what follows, so the letters sit inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look at an ancient",
+      "gives": "KATANA",
+      "note": "runs across the end of look, all of at and an, and the start of ancient"
+     }
+    ],
+    "explanation": {
+     "surface": "An invitation to examine an old Japanese weapon.",
+     "definitionFit": "The katana is the long curved single-edged blade carried by Japanese warriors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1180,62 @@
     "text": "Fencing almost landed in whale carcass",
     "enumeration": "8"
    },
-   "solution": "KRAALING"
+   "solution": "KRAALING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "KRAALING",
+    "definitions": [
+     {
+      "text": "Fencing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the shortened word inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "landed",
+      "gives": "ALIT",
+      "note": "alit is a past tense of alight, to land"
+     },
+     {
+      "clueFragment": "whale carcass",
+      "gives": "KRANG",
+      "note": "krang is the carcass of a whale once the blubber is stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KRA",
+      "ALI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "Swordplay nearly happened on a beached dead whale.",
+     "walkthrough": "Fencing is enclosing, not swordplay: a kraal is a South African stock pen, so kraaling is shutting animals in one.",
+     "definitionFit": "Kraaling means penning livestock inside a kraal, an enclosure, which is putting a fence round them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fencing"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1255,48 @@
      }
     ]
    },
-   "solution": "TARTUP"
+   "solution": "TARTUP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TART UP",
+    "definitions": [
+     {
+      "text": "to make more decorative",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tipped",
+      "for": "deletion",
+      "note": "tipped means having the tip cut off, so the phrase loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to begin",
+      "gives": "STARTUP",
+      "note": "to start up is to begin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TARTUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forecast to start making something prettier.",
+     "walkthrough": "Tipped looks like predicted, but it means the start of the phrase is clipped off. TART UP is the British informal phrase for dressing something up cheaply.",
+     "definitionFit": "To tart up is informal for smartening or adorning something, often gaudily, to improve its appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tipped"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1310,69 @@
     "text": "Johnny Rotten faces getting caught out",
     "enumeration": "4"
    },
-   "solution": "SAFE"
+   "solution": "SAFE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SAFE",
+    "definitions": [
+     {
+      "text": "Johnny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so that letter is taken away from the word"
+     },
+     {
+      "text": "Rotten",
+      "for": "anagram",
+      "note": "rotten things fall apart, so the remaining letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "faces",
+      "gives": "FACES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAES",
+       "gives": "SAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Johnny Rotten, the Sex Pistols singer, faces being caught out.",
+     "walkthrough": "Johnny Rotten reads as one name, but it splits: johnny is British slang for a condom, and safe is the American slang equivalent.",
+     "definitionFit": "Both words are slang for a condom, johnny in Britain and safe in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Johnny"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1386,64 @@
     "text": "A line in picture indicating muscle",
     "enumeration": "7"
    },
-   "solution": "SCALENE"
+   "solution": "SCALENE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCALENE",
+    "definitions": [
+     {
+      "text": "muscle",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "indicating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "picture",
+      "gives": "SCENE",
+      "note": "a scene is a view or picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "A",
+      "L",
+      "ENE"
+     ]
+    },
+    "explanation": {
+     "surface": "A line drawn in an image shows where a muscle lies, as in an anatomy chart.",
+     "definitionFit": "The scalenes are a group of neck muscles, named for their uneven triangular shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1457,46 @@
     "text": "Be governed by old, old governor",
     "enumeration": "4"
    },
-   "solution": "OBEY"
+   "solution": "OBEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBEY",
+    "definitions": [
+     {
+      "text": "Be governed by",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "old governor",
+      "gives": "BEY",
+      "note": "a bey was a governor in the Ottoman Empire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Accepting the rule of an aged, long-gone ruler.",
+     "definitionFit": "To comply with rules or orders is to submit to their authority, which is being governed by them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "governor"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1510,66 @@
     "text": "Let horse loose? Not he",
     "enumeration": "6"
    },
-   "solution": "OSTLER"
+   "solution": "OSTLER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OSTLER",
+    "definitions": [
+     {
+      "text": "Let horse loose? Not he",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not tells us to leave the following letters out"
+     },
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "letters set loose are free to move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let horse",
+      "gives": "LETHORSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written, letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSTLER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LTORSE",
+       "gives": "OSTLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Who would set a horse free? Certainly not this man.",
+     "walkthrough": "The whole clue is both wordplay and definition: the stable hand is the last person to let a horse run off.",
+     "definitionFit": "An ostler looked after the horses at an inn, so he is the one who keeps them secured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "loose"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1583,47 @@
     "text": "Fix group of huts front to back …",
     "enumeration": "6"
    },
-   "solution": "ANCHOR"
+   "solution": "ANCHOR",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ANCHOR",
+    "definitions": [
+     {
+      "text": "Fix",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front to back",
+      "for": "cycling",
+      "note": "front to back means the opening letter moves to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of huts",
+      "gives": "RANCHO",
+      "note": "a rancho is a hut or cluster of huts in Spanish America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANCHOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Repairing a settlement of shacks from one end to the other.",
+     "definitionFit": "To anchor something is to secure it firmly in place, a sense matching fix as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1637,57 @@
     "text": "Age-old advice to desire short overnight flight",
     "enumeration": "6"
    },
-   "solution": "REDEYE"
+   "solution": "REDEYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REDEYE",
+    "definitions": [
+     {
+      "text": "overnight flight",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Age-old advice",
+      "gives": "REDE",
+      "note": "rede is an archaic word for counsel"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "YEN",
+      "note": "a yen is a longing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDE",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "Traditional wisdom about wanting a quick night-time plane journey.",
+     "definitionFit": "A red-eye is a late-night plane trip that lands early, leaving passengers bleary and bloodshot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 23,
@@ -427,7 +1701,55 @@
     "text": "… becoming simple once securing money",
     "enumeration": "6"
    },
-   "solution": "SEEMLY"
+   "solution": "SEEMLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEEMLY",
+    "definitions": [
+     {
+      "text": "becoming",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding fast, so one word grips the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple once",
+      "gives": "SEELY",
+      "note": "seely is an old word for innocent or simple"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "M",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Following on from the previous clue: something turns simple once it gets cash.",
+     "walkthrough": "Becoming looks like turning into, but it is the adjective for suitable, as in becoming behaviour.",
+     "definitionFit": "Becoming as an adjective means proper or fitting, so it is a synonym of decorous or appropriate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "becoming"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1763,55 @@
     "text": "Cross canary circling very large tree",
     "enumeration": "5"
    },
-   "solution": "MVULE"
+   "solution": "MVULE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MVULE",
+    "definitions": [
+     {
+      "text": "large tree",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "circling means going round, so one word surrounds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross canary",
+      "gives": "MULE",
+      "note": "a mule is a hybrid, and a canary crossed with another finch is called a mule"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "V",
+      "ULE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry yellow songbird flies around a tall tree.",
+     "walkthrough": "Cross reads as angry, but it means a hybrid. The mvule is a big African timber tree.",
+     "definitionFit": "The mvule is a tall tropical African hardwood species also called iroko, prized for timber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1825,50 @@
     "text": "Raise false gods",
     "enumeration": "5"
    },
-   "solution": "AESIR"
+   "solution": "AESIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AESIR",
+    "definitions": [
+     {
+      "text": "gods",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "false means not genuine, so the word before it is reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raise",
+      "gives": "RAISE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAISE",
+       "gives": "AESIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to set up idols, deities who are not real.",
+     "definitionFit": "The Aesir are the principal Norse deities, led by Odin and including Thor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "false"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1882,80 @@
     "text": "& 15: Game opponent capturing one pawn after time expressing hesitation with action",
     "enumeration": "7"
    },
-   "solution": "TRIVIAL"
+   "solution": "TRIVIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRIVIAL",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 6,
+      "note": "defines the two-word name made with 15"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing means taking prisoner, so one word holds the next inside it"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts what comes before it behind the letter that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "opponent",
+      "gives": "RIVAL",
+      "note": "a rival is an adversary"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "pawn",
+      "note": "P in chess notation; it starts the second word, entered at 15"
+     },
+     {
+      "clueFragment": "expressing hesitation",
+      "note": "ur, a sound like er; it goes into the second word, entered at 15"
+     },
+     {
+      "clueFragment": "action",
+      "note": "a suit at law; it ends the second word, entered at 15"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIV",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess opponent takes a pawn after pausing, unsure what to do.",
+     "walkthrough": "The chess picture leads away from the board game: the whole answer, with 15, is TRIVIAL PURSUIT, and the wordplay runs straight through both lights.",
+     "definitionFit": "Trivial Pursuit is a well-known board game of general-knowledge quiz questions, so it is an instance of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pawn"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1969,48 @@
     "text": "Fish that is tailless",
     "enumeration": "4"
    },
-   "solution": "IDES"
+   "solution": "IDES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDES",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "tailless means the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IDEST",
+      "note": "id est is the Latin for that is, abbreviated i.e."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish without a tail, that's what it is.",
+     "walkthrough": "The ide is a freshwater fish, and the answer is its plural, not the Ides of March.",
+     "definitionFit": "Ides is the plural of ide, a European freshwater species of carp family, so it means several of those."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tailless"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +2024,67 @@
     "text": "Bound to press one evasive about flood?",
     "enumeration": "5"
    },
-   "solution": "BLEED"
+   "solution": "BLEED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BLEED",
+    "definitions": [
+     {
+      "text": "flood?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to press",
+      "for": "container",
+      "note": "to press means to squeeze, so two letters close in on a word between them"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound",
+      "gives": "BD",
+      "note": "bd is the bookseller's abbreviation for bound"
+     },
+     {
+      "clueFragment": "one evasive",
+      "gives": "EEL",
+      "note": "an eel is a slippery character who wriggles out of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LEE",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "EEL",
+       "to": "LEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is obliged to push a cagey person about the flooding.",
+     "walkthrough": "The question mark flags a loose definition: blood that bleeds pours out like a flood.",
+     "definitionFit": "To bleed is to lose blood or let liquid run out freely, a gushing outflow like a small inundation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 29,
@@ -511,7 +2098,67 @@
     "text": "Futility of Spenser bust in V&A’s actual existence",
     "enumeration": "8"
    },
-   "solution": "VAINESSE"
+   "solution": "VAINESSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VAINESSE",
+    "definitions": [
+     {
+      "text": "Futility of Spenser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bust",
+      "for": "anagram",
+      "note": "something bust is broken, so the letters beside it are smashed and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "V&A’s",
+      "gives": "VA",
+      "note": "the V&A is the Victoria and Albert Museum in London"
+     },
+     {
+      "clueFragment": "actual existence",
+      "gives": "ESSE",
+      "note": "esse is the philosophical term for being or existence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAIN",
+      "ESSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INVA",
+       "gives": "VAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spenser bust in the London museum has no real point to its being there.",
+     "walkthrough": "Bust looks like a sculpture, but it signals breaking in. VAINESSE is Spenser's word.",
+     "definitionFit": "Vainesse was Spenser's form of vanity in its old sense of emptiness or uselessness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 30,
@@ -525,7 +2172,68 @@
     "text": "Send back box containing the old little lamp?",
     "enumeration": "6"
    },
-   "solution": "EYELET"
+   "solution": "EYELET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EYELET",
+    "definitions": [
+     {
+      "text": "little lamp?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Send back",
+      "for": "reversal",
+      "note": "send back means return the way it came, so the word is read backwards"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means the reversed word holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "box",
+      "gives": "TELE",
+      "note": "the box and the tele are both British slang for television"
+     },
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is an archaic spelling of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YE",
+      "LET"
+     ],
+     "reversals": [
+      {
+       "from": "TELE",
+       "to": "ELET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Returning an old TV with a small light fitting inside it.",
+     "walkthrough": "Lamps is slang for eyes, so a little lamp is a small eye; the question mark admits the stretch.",
+     "definitionFit": "An eyelet is literally a small eye, and lamps is informal for eyes, giving a playful link."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lamp"
+    }
+   }
   },
   {
    "number": 31,
@@ -539,7 +2247,55 @@
     "text": "Agreement to release rascal from freedom of punishment",
     "enumeration": "5"
    },
-   "solution": "UNITY"
+   "solution": "UNITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNITY",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "release",
+      "for": "deletion",
+      "note": "to release someone from a place is to let them out, so those letters leave the longer word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freedom of punishment",
+      "gives": "IMPUNITY",
+      "note": "impunity is exemption from penalty"
+     },
+     {
+      "clueFragment": "rascal",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A deal to let a scoundrel walk free without penalty.",
+     "definitionFit": "Unity is harmony or oneness of view, which is concord between people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 32,
@@ -563,7 +2319,76 @@
      }
     ]
    },
-   "solution": "RUSEDEGUERRE"
+   "solution": "RUSEDEGUERRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RUSE DE GUERRE",
+    "definitions": [
+     {
+      "text": "strategy",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed",
+      "for": "anagram",
+      "note": "something consumed is eaten up and broken down, so these letters are mashed into a new order"
+     },
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a bit of it, its first letter"
+     },
+     {
+      "text": "adopts",
+      "for": "anagram",
+      "note": "adopts means takes in, adding the extra letter to the mix"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Usurer",
+      "gives": "USURER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "greed",
+      "gives": "GREED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "extortion",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of extortion"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USURER GREED E",
+       "gives": "RUSEDEGUERRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy moneylender takes up a bit of blackmail.",
+     "walkthrough": "RUSE DE GUERRE is French for a trick of war, used in English for a stratagem.",
+     "definitionFit": "A ruse de guerre is a wartime trick or stratagem, so it amounts to a cunning plan or tactic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   }
  ]
 }
