@@ -36,7 +36,9 @@ REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-02T15:00:00+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
-  git fetch -q origin master && { git rebase -q origin/master || { git rebase --abort; false; }; } &&
+  # The filer's reindex restamps index.html (CI restamps it anyway), and a
+  # dirty tree refuses the rebase.
+  git checkout -q -- index.html && git fetch -q origin master && { git rebase -q origin/master || { git rebase --abort; false; }; } &&
     git push -q origin HEAD:master
 }
 
