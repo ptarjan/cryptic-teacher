@@ -1929,6 +1929,18 @@ SOURCE_CLUE_WRONG = {
         "Knight going to ground - a narrow' escape",
         "Knight going to ground - a narrow escape",
         "OCR misread: a stray apostrophe follows narrow"),
+    ("times-17632", "18-across"): (
+        "Entering in ship, Peter joins in (team",
+        "Entering in ship, Peter joins in team",
+        "OCR misread: a stray bracket stands before team"),
+    ("times-17632", "24-across"): (
+        "Translation exercise, such as “Gray's blushing flower**?",
+        "Translation exercise, such as Gray's blushing flower?",
+        "OCR misread: stray quote marks round Gray's blushing flower"),
+    ("times-17632", "25-across"): (
+        "Vanquished by some exploit indeed-",
+        "Vanquished by some exploit indeed",
+        "OCR misread: a stray hyphen follows indeed"),
     ("times-17393", "12-across"): (
         "( Occupation for the heartless French city girl",
         "Occupation for the heartless French city girl",
