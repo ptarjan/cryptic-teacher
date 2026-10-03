@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Feeder shortly scoffing last of soup",
     "enumeration": "5"
    },
-   "solution": "SPOON"
+   "solution": "SPOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPOON",
+    "definitions": [
+     {
+      "text": "Feeder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only the end of the next word is kept"
+     },
+     {
+      "text": "scoffing",
+      "for": "container",
+      "note": "to scoff is to eat greedily, so one word swallows the other inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortly",
+      "gives": "SOON",
+      "note": "shortly means before long, in a moment"
+     },
+     {
+      "clueFragment": "soup",
+      "gives": "P",
+      "select": "last",
+      "note": "the final letter of soup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "OON"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby's bottle, briefly, wolfing down the dregs of some soup.",
+     "walkthrough": "SO(P)ON: P sits inside SOON.",
+     "definitionFit": "A spoon is the utensil that carries food to a mouth, so it is literally something that feeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "scoffing"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +104,67 @@
     "text": "Deal with media holding business up",
     "enumeration": "7"
    },
-   "solution": "PROCESS"
+   "solution": "PROCESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PROCESS",
+    "definitions": [
+     {
+      "text": "Deal with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one word goes around another"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "media",
+      "gives": "PRESS",
+      "note": "the press is the news media"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company, a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "OC",
+      "ESS"
+     ],
+     "reversals": [
+      {
+       "from": "CO",
+       "to": "OC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists handle a story with a firm's affairs held back.",
+     "walkthrough": "In a down entry 'up' means bottom to top, so the business abbreviation is flipped before it goes inside.",
+     "definitionFit": "To process an application or request is to handle it and see it through, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +192,44 @@
      }
     ]
    },
-   "solution": "OVERMYDEADBODY"
+   "solution": "OVERMYDEADBODY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVER MY DEAD BODY",
+    "definitions": [
+     {
+      "text": "Where I’m mourned during burial",
+      "at": 0
+     },
+     {
+      "text": "under no circumstances",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where I’m mourned during burial",
+      "note": "first meaning, read literally: at a funeral the mourners stand above the deceased's corpse"
+     },
+     {
+      "clueFragment": "under no circumstances",
+      "note": "second meaning: an emphatic refusal"
+     }
+    ],
+    "explanation": {
+     "surface": "A grim aside about one's own funeral, ending in a flat refusal.",
+     "walkthrough": "The first half takes the idiom literally: mourners gather above the coffin.",
+     "definitionFit": "The phrase is a defiant idiom meaning something will never be allowed while the speaker lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mourned"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +243,45 @@
     "text": "Keep supply of broth",
     "enumeration": "5"
    },
-   "solution": "STOCK"
+   "solution": "STOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOCK",
+    "definitions": [
+     {
+      "text": "Keep supply",
+      "at": 0
+     },
+     {
+      "text": "broth",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep supply",
+      "note": "first meaning: a shop that ... goods keeps a supply of them"
+     },
+     {
+      "clueFragment": "broth",
+      "note": "second meaning: liquid made by simmering bones or vegetables"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook keeps a store of soup base handy.",
+     "definitionFit": "As a verb the word means to hold goods for sale; as a noun it is the cooking liquid behind soups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +295,69 @@
     "text": "Social worker inhabiting empty trailer, I’m not sure fit",
     "enumeration": "7"
    },
-   "solution": "TANTRUM"
+   "solution": "TANTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TANTRUM",
+    "definitions": [
+     {
+      "text": "fit",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its contents removed, leaving only its outside letters"
+     },
+     {
+      "text": "inhabiting",
+      "for": "container",
+      "note": "to inhabit is to live inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trailer",
+      "gives": "TR",
+      "select": "outer",
+      "note": "the first and last letters of trailer"
+     },
+     {
+      "clueFragment": "Social worker",
+      "gives": "ANT",
+      "note": "ants live in colonies, so an ant is a social worker"
+     },
+     {
+      "clueFragment": "I’m not sure",
+      "gives": "UM",
+      "note": "um is the noise of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANT",
+      "R",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A care worker living in a cleared-out caravan is unsure whether it is suitable.",
+     "walkthrough": "T(ANT)R + UM. 'Social worker' is a common crossword trick for an ant or a bee.",
+     "definitionFit": "A tantrum is an outburst of temper, like a fit of rage, so the noun sense of fit matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +371,43 @@
     "text": "Quality letter",
     "enumeration": "9"
    },
-   "solution": "CHARACTER"
+   "solution": "CHARACTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARACTER",
+    "definitions": [
+     {
+      "text": "Quality",
+      "at": 0
+     },
+     {
+      "text": "letter",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quality",
+      "note": "first meaning: a distinguishing trait or moral strength"
+     },
+     {
+      "clueFragment": "letter",
+      "note": "second meaning: a written symbol such as a letter of the alphabet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the words suggest a fine piece of correspondence; they are separate meanings.",
+     "definitionFit": "The word means both a personal trait or nature and a single printed symbol in writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +421,64 @@
     "text": "Prowler has put new painting up",
     "enumeration": "4"
    },
-   "solution": "LION"
+   "solution": "LION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LION",
+    "definitions": [
+     {
+      "text": "Prowler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, putting something up reads it from the bottom, backwards"
+     }
+    ],
+    "linkWords": [
+     "has put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "OIL",
+      "note": "an oil is a painting in oils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIO",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NOIL",
+       "to": "LION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar has hung a fresh canvas on the wall.",
+     "walkthrough": "N + OIL turned upwards gives LION.",
+     "definitionFit": "A lion stalks its prey through the grass, so it is a predator that prowls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Prowler"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +492,50 @@
     "text": "No contest! Plain stupid old city",
     "enumeration": "14"
    },
-   "solution": "CONSTANTINOPLE"
+   "solution": "CONSTANTINOPLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONSTANTINOPLE",
+    "definitions": [
+     {
+      "text": "old city",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "something stupid is muddled and senseless, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No contest! Plain",
+      "gives": "NOCONTESTPLAIN",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOCONTESTPLAIN",
+       "gives": "CONSTANTINOPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a rival as plainly foolish: no contest.",
+     "definitionFit": "Constantinople was the former name of Istanbul, capital of the Byzantine and Ottoman empires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stupid"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +549,44 @@
     "text": "Play musical instrument",
     "enumeration": "6"
    },
-   "solution": "FIDDLE"
+   "solution": "FIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDDLE",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     },
+     {
+      "text": "musical instrument",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play",
+      "note": "first meaning: to tinker or fidget with something"
+     },
+     {
+      "clueFragment": "musical instrument",
+      "note": "second meaning: an informal name for a violin"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to perform on an instrument.",
+     "walkthrough": "The surface reads as one command; 'Play' is a separate meaning of the answer, as in to tinker with something.",
+     "definitionFit": "To fiddle is to fidget or tinker, and a fiddle is the folk name for a violin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +600,51 @@
     "text": "A demonic, funny entertainer",
     "enumeration": "8"
    },
-   "solution": "COMEDIAN"
+   "solution": "COMEDIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMEDIAN",
+    "definitions": [
+     {
+      "text": "entertainer",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny can mean odd or out of order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A demonic",
+      "gives": "ADEMONIC",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADEMONIC",
+       "gives": "COMEDIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devilish performer who is also hilarious.",
+     "walkthrough": "'Funny' sits naturally beside the answer's meaning, but it is the shuffle signal.",
+     "definitionFit": "A comedian is a performer who makes audiences laugh, a specific kind of entertainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +658,56 @@
     "text": "A lecturer is a lovely bloke",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "lovely bloke",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "DON",
+      "note": "a don is a university teacher, especially at Oxford or Cambridge"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DON",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A student gushes that her tutor is a handsome man.",
+     "walkthrough": "A + DON + IS.",
+     "definitionFit": "Adonis was the beautiful youth of Greek myth, so his name stands for any very handsome young man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lecturer"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +721,65 @@
     "text": "Minister after revolution has little time for scum",
     "enumeration": "6"
    },
-   "solution": "VERMIN"
+   "solution": "VERMIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VERMIN",
+    "definitions": [
+     {
+      "text": "scum",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minister",
+      "gives": "REV",
+      "note": "Rev. is short for Reverend, a minister of religion"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "MIN",
+      "note": "min is the abbreviation for minute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "MIN"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician, post-uprising, has no patience with the rabble.",
+     "walkthrough": "'Minister' looks like a politician but is a clergyman here, abbreviated as in 'the Rev. Smith'.",
+     "definitionFit": "Both words are contemptuous terms for despicable people, likened to pests or filth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +793,50 @@
     "text": "Dancing is adored — where might one stop?",
     "enumeration": "8"
    },
-   "solution": "ROADSIDE"
+   "solution": "ROADSIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROADSIDE",
+    "definitions": [
+     {
+      "text": "where might one stop?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is adored",
+      "gives": "ISADORED",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISADORED",
+       "gives": "ROADSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loves to dance; when will they ever stop?",
+     "definitionFit": "A driver pulls over at the verge beside a highway to halt, so that is a place for stopping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +850,51 @@
     "text": "Gun, say, drunk admires",
     "enumeration": "7"
    },
-   "solution": "SIDEARM"
+   "solution": "SIDEARM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDEARM",
+    "definitions": [
+     {
+      "text": "Gun, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person is unsteady and jumbled, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admires",
+      "gives": "ADMIRES",
+      "note": "the letters of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADMIRES",
+       "gives": "SIDEARM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunkard gazes admiringly at a firearm.",
+     "walkthrough": "'say' marks the gun as one example of the class the answer names.",
+     "definitionFit": "A sidearm is any weapon worn at the belt, such as a pistol, so a gun is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +908,58 @@
     "text": "Wild animals alone with pets, worryingly",
     "enumeration": "9"
    },
-   "solution": "ANTELOPES"
+   "solution": "ANTELOPES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTELOPES",
+    "definitions": [
+     {
+      "text": "Wild animals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worryingly",
+      "for": "anagram",
+      "note": "worryingly suggests things in a disturbed, agitated state, so the letters are stirred up"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alone",
+      "gives": "ALONE",
+      "note": "the letters of this word"
+     },
+     {
+      "clueFragment": "pets",
+      "gives": "PETS",
+      "note": "the letters of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALONE PETS",
+       "gives": "ANTELOPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wild beasts left on their own with domestic pets: an alarming mix.",
+     "definitionFit": "Antelopes are swift, horned grazing mammals of Africa and Asia that live in the wild."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worryingly"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +973,43 @@
     "text": "River passing through West Ham estate",
     "enumeration": "6"
    },
-   "solution": "THAMES"
+   "solution": "THAMES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THAMES",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passing through",
+      "for": "hidden_word",
+      "note": "the answer runs across the following words, threading through them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West Ham estate",
+      "gives": "THAMES",
+      "note": "the letters run from the end of West through Ham into estate"
+     }
+    ],
+    "explanation": {
+     "surface": "A river flowing past a housing estate in West Ham, east London.",
+     "walkthrough": "West Ham is a district of east London, which the river does flow near.",
+     "definitionFit": "The Thames is the river that flows through London to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1023,51 @@
     "text": "Reveal pictures drawn by scamp?",
     "enumeration": "6"
    },
-   "solution": "IMPART"
+   "solution": "IMPART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPART",
+    "definitions": [
+     {
+      "text": "Reveal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "drawn by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scamp",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "pictures are works of art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "Uncover the pictures that a naughty child has drawn.",
+     "walkthrough": "Cryptically, a scamp's pictures are IMP ART; the question mark flags that playful reading.",
+     "definitionFit": "To impart information is to make it known or disclose it, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drawn"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1081,71 @@
     "text": "Type of farm machinery originally set up — a great deal",
     "enumeration": "6"
    },
-   "solution": "MYRIAD"
+   "solution": "MYRIAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "MYRIAD",
+    "definitions": [
+     {
+      "text": "a great deal",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how a word begins, so only its first letter is used"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means the letters are raised, reading from the bottom"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of farm",
+      "gives": "DAIRY",
+      "note": "a dairy farm is one kind of farm"
+     },
+     {
+      "clueFragment": "machinery",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of machinery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "YRIAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAIRYM",
+       "to": "MYRIAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dairy equipment being installed costs a lot.",
+     "walkthrough": "DAIRY + M, all turned upwards, gives MYRIAD.",
+     "definitionFit": "Myriad means countless or a vast number, so it stands for a large quantity as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "machinery"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1159,72 @@
     "text": "A cot finally brought into play — bed",
     "enumeration": "7"
    },
-   "solution": "STRATUM"
+   "solution": "STRATUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "STRATUM",
+    "definitions": [
+     {
+      "text": "bed",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of a word, so just its last letter is used"
+     },
+     {
+      "text": "brought into",
+      "for": "container",
+      "note": "something brought into another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play",
+      "gives": "STRUM",
+      "note": "to strum is to play a guitar casually"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cot",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of cot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STR",
+      "A",
+      "T",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cot is wheeled into a playroom as a bed.",
+     "walkthrough": "Bed here is a layer of rock, not furniture.",
+     "definitionFit": "In geology a bed is a layer of rock or sediment, which is exactly a stratum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1238,46 @@
     "text": "Footballer, one with a match?",
     "enumeration": "7"
    },
-   "solution": "STRIKER"
+   "solution": "STRIKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIKER",
+    "definitions": [
+     {
+      "text": "Footballer",
+      "at": 0
+     },
+     {
+      "text": "one with a match?",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Footballer",
+      "note": "first meaning: an attacking player whose job is to score"
+     },
+     {
+      "clueFragment": "one with a match?",
+      "note": "second meaning: someone who strikes a match to light it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a player in a game; the second half means someone lighting a match.",
+     "definitionFit": "A forward who scores goals is called by this name, as is anyone who strikes a match alight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1291,69 @@
     "text": "New game and books, a dark colour",
     "enumeration": "7"
    },
-   "solution": "MAGENTA"
+   "solution": "MAGENTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAGENTA",
+    "definitions": [
+     {
+      "text": "dark colour",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version is a reworking, so the next word's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GAME",
+      "note": "the letters of this word"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAGE",
+      "NT",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAME",
+       "gives": "MAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh board game and some books, all in a deep shade.",
+     "definitionFit": "Magenta is a deep purplish-red dye and hue, named after an Italian battle site."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1367,46 @@
     "text": "Hungry baby, one on the ball?",
     "enumeration": "8"
    },
-   "solution": "DRIBBLER"
+   "solution": "DRIBBLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRIBBLER",
+    "definitions": [
+     {
+      "text": "Hungry baby",
+      "at": 0
+     },
+     {
+      "text": "one on the ball?",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hungry baby",
+      "note": "first meaning: an infant that drools while waiting to be fed"
+     },
+     {
+      "clueFragment": "one on the ball?",
+      "note": "second meaning: a footballer who runs with the ball at his feet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On the ball' usually means alert; here it means a player keeping close control of the football.",
+     "definitionFit": "The word describes both an infant letting saliva run from its mouth and a player running past opponents with close control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ball"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1420,67 @@
     "text": "Harmless trap set back inside Scottish mountain",
     "enumeration": "6"
    },
-   "solution": "BENIGN"
+   "solution": "BENIGN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BENIGN",
+    "definitions": [
+     {
+      "text": "Harmless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set back",
+      "for": "reversal",
+      "note": "something set back is turned to face the other way, so the word is read backwards"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish mountain",
+      "gives": "BEN",
+      "note": "ben is the Scots word for a mountain, as in Ben Nevis"
+     },
+     {
+      "clueFragment": "trap",
+      "gives": "GIN",
+      "note": "a gin is a snare or trap for catching animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "NIG",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "GIN",
+       "to": "NIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snare laid on a Highland peak turns out to be no danger.",
+     "walkthrough": "'Trap' wants to be a verb in the surface; it is a noun, the old word for a snare.",
+     "definitionFit": "Benign means gentle and not causing damage, as with a tumour that is not cancerous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1494,44 @@
     "text": "Group not allowed on the phone?",
     "enumeration": "4"
    },
-   "solution": "BAND"
+   "solution": "BAND",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BAND",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the phone",
+      "for": "homophone",
+      "note": "on the phone a word is heard rather than seen, so its sound counts, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not allowed",
+      "gives": "BAND",
+      "soundsLike": "BANNED",
+      "note": "something not allowed is banned"
+     }
+    ],
+    "explanation": {
+     "surface": "A pop group barred from making calls.",
+     "definitionFit": "A band is a musical ensemble or any company of people gathered together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1551,47 @@
      }
     ]
    },
-   "solution": "HARDUP"
+   "solution": "HARDUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARD UP",
+    "definitions": [
+     {
+      "text": "Short of money",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "HARD",
+      "note": "firm means solid, not soft"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "as in 'time is up', meaning over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A broke company has gone under.",
+     "walkthrough": "'Firm' looks like a business but is an adjective here.",
+     "definitionFit": "Hard up is an informal idiom for lacking cash or being poor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1605,58 @@
     "text": "Secure within college, most important people",
     "enumeration": "8"
    },
-   "solution": "KINGPINS"
+   "solution": "KINGPINS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KINGPINS",
+    "definitions": [
+     {
+      "text": "most important people",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means placed inside the other piece"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "KINGS",
+      "note": "King's is a college of Cambridge University"
+     },
+     {
+      "clueFragment": "Secure",
+      "gives": "PIN",
+      "note": "to pin something is to fasten it in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KING",
+      "PIN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A student wins a place at a college full of top people.",
+     "walkthrough": "King's College is in Cambridge; 'Secure' is a verb, to fasten.",
+     "definitionFit": "A kingpin is the central or leading figure in an organisation, especially a gang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Secure"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1670,65 @@
     "text": "Appropriate report produced initially by American university",
     "enumeration": "5"
    },
-   "solution": "USURP"
+   "solution": "USURP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "USURP",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of each word, so only their first letters are used"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for United States, so American"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "report produced",
+      "gives": "RP",
+      "select": "first",
+      "note": "the first letters of report and produced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "U",
+      "RP"
+     ]
+    },
+    "explanation": {
+     "surface": "A fitting report written first by a US college.",
+     "walkthrough": "'Appropriate' looks like an adjective meaning suitable but is the verb to seize.",
+     "definitionFit": "To usurp is to take a throne or power without right, which is to seize or appropriate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1742,53 @@
     "text": "Coffee looked at the wrong way",
     "enumeration": "5"
    },
-   "solution": "DECAF"
+   "solution": "DECAF",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DECAF",
+    "definitions": [
+     {
+      "text": "Coffee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way",
+      "for": "reversal",
+      "note": "the wrong way means facing in the opposite direction, so the word reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "looked at",
+      "gives": "FACED",
+      "note": "to face something is to look towards it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECAF"
+     ],
+     "reversals": [
+      {
+       "from": "FACED",
+       "to": "DECAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone glares disapprovingly at a cup of coffee.",
+     "definitionFit": "Decaf is the everyday short name for decaffeinated coffee, with the caffeine taken out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "looked"
+    }
+   }
   }
  ]
 }
