@@ -2282,6 +2282,14 @@ SOURCE_CLUE_WRONG = {
         "Jack, model of-industry, takes girl to a dance",
         "Jack, model of industry, takes girl to a dance",
         "OCR misread: model of industry, with no hyphen"),
+    ("times-16769", "22-down"): (
+        "Highly . elusive, this taste of Rhine valley Riesling",
+        "Highly elusive, this taste of Rhine valley Riesling",
+        "OCR misread: a stray full stop after Highly"),
+    ("times-16769", "26-across"): (
+        "Nearly 1( involved in theft",
+        "Nearly 100 involved in theft",
+        "OCR misread: the anagram needs 100, C, not 1("),
 }
 
 
