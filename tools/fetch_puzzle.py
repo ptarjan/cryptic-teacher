@@ -1898,6 +1898,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18057", "16-down"): (
+        "Instrument producing c a n change in tortured spy",
+        "Instrument producing a change in tortured spy",
+        "OCR misread: stray letters c and n around a; the wordplay needs ALTER (a change) inside SPY rearranged"),
     ("times-17036", "13-down"): (
         "A player, bat no true gentleman",
         "A player, but no true gentleman",
