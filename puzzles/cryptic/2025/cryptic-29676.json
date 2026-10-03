@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,7 +48,62 @@
      }
     ]
    },
-   "solution": "WHITELIE"
+   "solution": "WHITELIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WHITE LIE",
+    "definitions": [
+     {
+      "text": "story with good intentions",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter of each of the two words just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "WHITE",
+      "note": "white wine, as opposed to red"
+     },
+     {
+      "clueFragment": "lake – Independent",
+      "gives": "LI",
+      "select": "first",
+      "note": "the opening letters of lake and Independent"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITE",
+      "LI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about the EU's notorious surplus of unsold wine, reported by the Independent newspaper.",
+     "walkthrough": "The European wine lake was a real surplus of EU wine; here the words are split up, and E for European is tacked on at the end.",
+     "definitionFit": "A white lie is a harmless falsehood told kindly, a fib meant to spare someone's feelings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lake"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +117,50 @@
     "text": "Notice jam setting",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPOT",
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     },
+     {
+      "text": "jam",
+      "at": 7
+     },
+     {
+      "text": "setting",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "note": "first meaning: to catch sight of"
+     },
+     {
+      "clueFragment": "jam",
+      "note": "second meaning: a predicament, as in 'in a tight one'"
+     },
+     {
+      "clueFragment": "setting",
+      "note": "third meaning: a place or location"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three separate meanings of one short word sit side by side; the surface suggests a sign about preserves.",
+     "definitionFit": "The word works as a verb for seeing, a noun for a tricky situation, and a noun for a particular place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +174,55 @@
     "text": "Son, 2 having cut top off a piece of cake",
     "enumeration": "6"
    },
-   "solution": "SIMPLE"
+   "solution": "SIMPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SIMPLE",
+    "definitions": [
+     {
+      "text": "piece of cake",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having cut top off",
+      "for": "deletion",
+      "note": "cutting the top off a down entry removes its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "2",
+      "gives": "PIMPLE",
+      "note": "the answer to 2 down is a word that also means a pimple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy slicing the top off a slice of cake.",
+     "walkthrough": "2 refers to the answer at 2 down, SPOT, whose synonym PIMPLE loses its P.",
+     "definitionFit": "Something described as a piece of cake is easy, which is what simple means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +236,62 @@
     "text": "Subtle satire occasionally stops oppression",
     "enumeration": "8"
    },
-   "solution": "ABSTRUSE"
+   "solution": "ABSTRUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ABSTRUSE",
+    "definitions": [
+     {
+      "text": "Subtle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means only now and then, so every other letter is kept"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "something that stops a gap plugs it, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oppression",
+      "gives": "ABUSE",
+      "note": "abuse is cruel or oppressive treatment"
+     },
+     {
+      "clueFragment": "satire",
+      "gives": "STR",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of satire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "STR",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic notes that a subtle piece of satire can now and then halt tyranny.",
+     "walkthrough": "The three alternate letters go inside the word for oppression after its first two letters: AB-STR-USE.",
+     "definitionFit": "Abstruse means hard to understand, close to subtle in the sense of fine and difficult to grasp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stops"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +305,71 @@
     "text": "Southern racist moving back to front through dictionary to arrive at ‘rejected’",
     "enumeration": "10"
    },
-   "solution": "OSTRACISED"
+   "solution": "OSTRACISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling",
+     "container"
+    ],
+    "answer": "OSTRACISED",
+    "definitions": [
+     {
+      "text": "rejected",
+      "at": 70
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving back to front",
+      "for": "cycling",
+      "note": "the final letter of the word is shifted round to its beginning"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "going through something means the letters pass inside its outer pair"
+     }
+    ],
+    "linkWords": [
+     "to arrive at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictionary",
+      "gives": "OED",
+      "note": "the Oxford English Dictionary"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "racist",
+      "gives": "RACIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "S",
+      "TRACIS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Southern bigot changing his ways and earning official condemnation in the dictionary.",
+     "walkthrough": "'moving' looks like a change of heart, but it shifts one letter round; the dictionary splits so that the rest sits inside it.",
+     "definitionFit": "To be ostracised is to be shunned and excluded from a group, that is, rejected by others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +383,56 @@
     "text": "Small county with unlimited accommodation",
     "enumeration": "6"
    },
-   "solution": "BEDSIT"
+   "solution": "BEDSIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BEDSIT",
+    "definitions": [
+     {
+      "text": "accommodation",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "letter_selection",
+      "note": "without limits means the first and last letters are dropped, leaving the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small county",
+      "gives": "BEDS",
+      "note": "Beds is the short form of Bedfordshire, an English county"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "IT",
+      "select": "middle",
+      "note": "the inner letters of with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEDS",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest English county offering plenty of places to stay.",
+     "walkthrough": "Beds is the standard abbreviation of Bedfordshire, a county north of London.",
+     "definitionFit": "A bedsit is a British one-room rented flat combining bedroom and living space, a form of lodging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unlimited"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +456,66 @@
    "group": [
     "7-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SHOPPING BASKET",
+    "definitions": [
+     {
+      "text": "Goods transporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every now and then",
+      "for": "letter_selection",
+      "note": "now and then means at intervals, so only every other letter counts"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests the letters are knocked out of order and rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Basingstoke",
+      "gives": "BASINGSTOKE",
+      "note": "the town name, taken as written"
+     },
+     {
+      "clueFragment": "he pops",
+      "gives": "HPP",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of he pops"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BASINGSTOKEHPP",
+       "gives": "SHOPPINGBASKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A delivery driver in Basingstoke occasionally leaves the van to drop things off.",
+     "walkthrough": "Basingstoke is a town in Hampshire, England. Its eleven letters plus H, P and P rearrange into the fourteen-letter answer.",
+     "definitionFit": "A shopping basket is what a customer uses to carry purchased goods around a store."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "transporter"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +543,49 @@
    "group": [
     "8-down",
     "19-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO INTO DETAIL",
+    "definitions": [
+     {
+      "text": "fully explain",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enter",
+      "gives": "GOINTO",
+      "note": "to enter a place is to go into it"
+     },
+     {
+      "clueFragment": "squad",
+      "gives": "DETAIL",
+      "note": "a detail is a small group of soldiers assigned a task"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOINTO",
+      "DETAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A captain joins the team and gives a thorough briefing.",
+     "definitionFit": "To go into detail is to explain something thoroughly, covering every particular point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "squad"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +618,48 @@
      }
     ]
    },
-   "solution": "ATIT"
+   "solution": "ATIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT IT",
+    "definitions": [
+     {
+      "text": "up to something dodgy",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist is engaged in some shady business.",
+     "walkthrough": "The 's stands for 'is', joining the wordplay to the definition; birds are 'singers' in crosswords.",
+     "definitionFit": "Someone said to be at it is engaged in mischief or underhand behaviour, colloquially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +673,67 @@
     "text": "Picasso had one hot, tense, fleeting encounter with secretary at the outset",
     "enumeration": "10"
    },
-   "solution": "PAINTBRUSH"
+   "solution": "PAINTBRUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAINTBRUSH",
+    "definitions": [
+     {
+      "text": "Picasso had one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "charade",
+      "note": "at the outset means at the very beginning, so this piece is placed first in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "PA is a personal assistant; 'at the outset' puts it first"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "hot in the sense of fashionable"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     },
+     {
+      "clueFragment": "fleeting encounter",
+      "gives": "BRUSH",
+      "note": "a brush is a brief contact, as in a brush with fame"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "IN",
+      "T",
+      "BRUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about the painter's brief, steamy affair with his secretary.",
+     "walkthrough": "'hot' suggests passion, but it is the sense of fashionable; secretary is the personal assistant, put first.",
+     "definitionFit": "Picasso was a painter, so a brush for applying paint is something he certainly owned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +747,76 @@
     "text": "Epidemic and surgeon’s focus turns to a little quinine tablet",
     "enumeration": "6"
    },
-   "solution": "PLAQUE"
+   "solution": "PLAQUE",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "PLAQUE",
+    "definitions": [
+     {
+      "text": "tablet",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "focus",
+      "for": "letter_selection",
+      "note": "a focus is a central point, so the middle letter of the word is wanted"
+     },
+     {
+      "text": "turns to",
+      "for": "substitution",
+      "note": "turns to means one letter changes into another in place"
+     },
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a small piece of it, its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epidemic",
+      "gives": "PLAGUE",
+      "note": "a plague is an epidemic disease"
+     },
+     {
+      "clueFragment": "surgeon’s",
+      "gives": "G",
+      "select": "middle",
+      "note": "the central letter of the seven-letter surgeon"
+     },
+     {
+      "clueFragment": "quinine",
+      "gives": "Q",
+      "select": "first",
+      "note": "the opening letter of quinine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "Q",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor treating an outbreak switches to prescribing small quinine pills.",
+     "walkthrough": "In PLAGUE, the G is swapped for Q.",
+     "definitionFit": "A plaque is a flat inscribed slab, which is one sense of tablet, as on a memorial wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tablet"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +836,76 @@
      }
     ]
    },
-   "solution": "QUICKMARCH"
+   "solution": "QUICKMARCH",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUICK MARCH",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally picks out the last letter of the word that follows"
+     },
+     {
+      "text": "is replacing",
+      "for": "substitution",
+      "note": "replacing means one piece takes the place of another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "25",
+      "gives": "QUICHE",
+      "note": "the first word of the answer at 25 across"
+     },
+     {
+      "clueFragment": "the man",
+      "gives": "HE",
+      "note": "he is a man's pronoun; this is the piece removed"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of work"
+     },
+     {
+      "clueFragment": "31 days",
+      "gives": "MARCH",
+      "note": "March is a month of 31 days"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIC",
+      "K",
+      "MARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic memo about a month's work and a change in someone's instructions.",
+     "walkthrough": "25 refers to the first word of the answer at 25 across; 'the man' is the pronoun swapped out.",
+     "definitionFit": "Quick march is a military command telling soldiers to start marching at normal pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +919,78 @@
     "text": "Dock where tide originally has King Canute unsettled",
     "enumeration": "8"
    },
-   "solution": "TRUNCATE"
+   "solution": "TRUNCATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "TRUNCATE",
+    "definitions": [
+     {
+      "text": "Dock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how the word begins, its opening letter"
+     },
+     {
+      "text": "unsettled",
+      "for": "anagram",
+      "note": "unsettled letters are disturbed and fall into a different order"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tide",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tide"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     },
+     {
+      "clueFragment": "Canute",
+      "gives": "UNCATE",
+      "note": "the name's letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "UNCATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANUTE",
+       "gives": "UNCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The legend of King Canute, who failed to hold back the tide, at a harbour.",
+     "walkthrough": "'Dock' looks like a harbour fitting in this seaside scene, but it is the verb meaning to cut short.",
+     "definitionFit": "To dock a tail or wages is to cut it short, which is exactly what truncating something does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dock"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +1014,40 @@
    "group": [
     "15-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REVISED VERSION",
+    "definitions": [
+     {
+      "text": "Bible",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bible’s",
+      "note": "surface: a book of scripture and its message about overcoming wickedness"
+     },
+     {
+      "clueFragment": "clue to get over sin",
+      "note": "setter's reading: the answer itself, read as a clue, has an anagram signal and seven letters that rearrange into over sin"
+     }
+    ],
+    "explanation": {
+     "surface": "Scripture offers a hint on how to overcome wrongdoing.",
+     "walkthrough": "Read REVISED VERSION as a clue: REVISED says rearrange, and the letters of VERSION make OVER SIN. The Revised Version is an 1880s English Bible.",
+     "definitionFit": "The Revised Version is a nineteenth-century British revision of the King James translation of scripture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1067,55 @@
      }
     ]
    },
-   "solution": "ERASURES"
+   "solution": "ERASURES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERASURES",
+    "definitions": [
+     {
+      "text": "evidence of censorship?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "ERAS",
+      "note": "eras are periods of time"
+     },
+     {
+      "clueFragment": "Certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "SURE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper, The Times, is said to be keeping proof that it has been censored.",
+     "walkthrough": "'Times' looks like the newspaper, but it is ages in history. The question mark marks erasures as only one kind of evidence of censorship.",
+     "definitionFit": "Erasures are rubbings-out of text, the visible marks left when a censor removes words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1142,65 @@
     "text": "Ready to follow plot that is found in old books",
     "enumeration": "8"
    },
-   "solution": "OBEDIENT"
+   "solution": "OBEDIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBEDIENT",
+    "definitions": [
+     {
+      "text": "Ready to follow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "plot",
+      "gives": "BED",
+      "note": "a garden bed is a plot for planting"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a collection of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BEDIE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader eager to follow a storyline discovered in antique volumes.",
+     "definitionFit": "Someone obedient is willing to do as they are told, prepared to comply with orders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 19,
@@ -366,7 +1233,59 @@
      }
     ]
    },
-   "solution": "PARKLANE"
+   "solution": "PARKLANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARK LANE",
+    "definitions": [
+     {
+      "text": "somewhere near Mayfair?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "assuming here means taking on or taking in, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps jumbo",
+      "gives": "PLANE",
+      "note": "a jumbo jet is an example of an aircraft"
+     },
+     {
+      "clueFragment": "animal sanctuary",
+      "gives": "ARK",
+      "note": "Noah's ark was a refuge for animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARK",
+      "LANE"
+     ]
+    },
+    "explanation": {
+     "surface": "An elephant finds a wildlife refuge in a posh part of London.",
+     "walkthrough": "'jumbo' suggests an elephant but is the jet. On the London Monopoly board, Park Lane is the square next to Mayfair; both are wealthy London areas.",
+     "definitionFit": "Park Lane is a London street running along Mayfair's edge and adjoining it on the Monopoly board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumbo"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1299,61 @@
     "text": "Mail say Labour’s half-cut member is leading",
     "enumeration": "6"
    },
-   "solution": "ARMOUR"
+   "solution": "ARMOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARMOUR",
+    "definitions": [
+     {
+      "text": "Mail say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "cutting a word in half removes one of its halves"
+     },
+     {
+      "text": "is leading",
+      "for": "charade",
+      "note": "leading means coming first, placed in front of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member",
+      "gives": "ARM",
+      "note": "an arm is a limb, a member of the body"
+     },
+     {
+      "clueFragment": "Labour’s",
+      "gives": "LABOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid reports that a tipsy Labour MP is ahead.",
+     "walkthrough": "'Mail' looks like the newspaper but is chain mail; 'half-cut' is British slang for drunk, but here it drops LAB.",
+     "definitionFit": "Chain mail is one kind of armour, protective metal covering worn in battle; 'say' marks it as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mail"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1367,68 @@
     "text": "Drunk drilling on the outside hides power tool",
     "enumeration": "6"
    },
-   "solution": "TODGER"
+   "solution": "TODGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "TODGER",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the outside",
+      "for": "letter_selection",
+      "note": "the outside of a word is its first and last letters"
+     },
+     {
+      "text": "hides",
+      "for": "substitution",
+      "note": "to hide something is to cover it up, so one piece takes its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "TOPER",
+      "note": "a toper is a heavy drinker"
+     },
+     {
+      "clueFragment": "drilling",
+      "gives": "DG",
+      "select": "outer",
+      "note": "the first and last letters of drilling"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "DG",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy DIY enthusiast conceals a power drill.",
+     "walkthrough": "In TOPER, the P is covered over by DG. Todger is British slang for penis, and tool is another slang word for it.",
+     "definitionFit": "Both words are British vulgar slang for the penis, so they are synonyms in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tool"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1442,70 @@
     "text": "What’s up with Conservative housing proposition?",
     "enumeration": "6"
    },
-   "solution": "THEORY"
+   "solution": "THEORY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "THEORY",
+    "definitions": [
+     {
+      "text": "proposition",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters read from bottom to top"
+     },
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "housing something means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh is said when you didn't catch something, like what"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "ORY"
+     ],
+     "reversals": [
+      {
+       "from": "EH",
+       "to": "HE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what a Conservative politician's latest plan is.",
+     "walkthrough": "'What's up' reads like a casual greeting, but 'What' is the exclamation of puzzlement and 'up' turns it round in this down entry.",
+     "definitionFit": "A theory is an idea put forward for consideration, a suggestion or hypothesis to be tested."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1519,67 @@
     "text": "Perfect copy with small shed to keep computer",
     "enumeration": "10"
    },
-   "solution": "IMMACULATE"
+   "solution": "IMMACULATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "IMMACULATE",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shed",
+      "for": "deletion",
+      "note": "shed means cast off, so the letter is dropped"
+     },
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "keeping something means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy",
+      "gives": "SIMULATE",
+      "note": "to simulate is to imitate"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small; this is the letter dropped"
+     },
+     {
+      "clueFragment": "computer",
+      "gives": "MAC",
+      "note": "a Mac is an Apple computer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MAC",
+      "ULATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spotless replica of a garden shed built to store a PC.",
+     "walkthrough": "'shed' looks like a garden hut but is the verb meaning to drop; SIMULATE without S holds MAC.",
+     "definitionFit": "Immaculate means flawless and spotless, without a single fault, the same as perfect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1593,60 @@
     "text": "Spouse briefly taking in a stray",
     "enumeration": "4"
    },
-   "solution": "WAIF"
+   "solution": "WAIF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "WAIF",
+    "definitions": [
+     {
+      "text": "stray",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter goes"
+     },
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking something in means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spouse",
+      "gives": "WIFE",
+      "note": "a wife is a spouse"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "IF"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband or wife adopts a lost animal.",
+     "definitionFit": "A waif is a homeless, neglected person or animal, one who has wandered without a home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stray"
+    }
+   }
   },
   {
    "number": 24,
@@ -450,7 +1660,43 @@
     "text": "River Don",
     "enumeration": "4"
    },
-   "solution": "WEAR"
+   "solution": "WEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEAR",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     },
+     {
+      "text": "Don",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "note": "first meaning: a river in northeast England"
+     },
+     {
+      "clueFragment": "Don",
+      "note": "second meaning: to put on clothing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Don is itself a river, so the clue reads as one name; the Wear flows through Durham in northeast England.",
+     "definitionFit": "Both senses are plain synonyms: a proper name for a northern English waterway, and a verb for putting clothes on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 25,
@@ -474,7 +1720,72 @@
    "group": [
     "25-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "QUICHE LORRAINE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "supply here is the adverb from supple, so the letters bend flexibly into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "HEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Clinique",
+      "gives": "CLINIQUE",
+      "note": "the cosmetics brand, taken as written"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUICHEL",
+      "OR",
+      "RAINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEARCLINIQUE",
+       "gives": "QUICHELRAINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert invites you to listen as a cosmetics brand provides a gold-rimmed plate.",
+     "walkthrough": "'supply' looks like the verb to provide, but it is the adverb meaning in a supple way. Clinique is a cosmetics brand.",
+     "definitionFit": "Quiche Lorraine is a savoury egg-and-bacon tart from eastern France, served as a dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 26,
