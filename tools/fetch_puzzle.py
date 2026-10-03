@@ -1893,6 +1893,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17852", "24-down"): (
+        "Ray left in danger",
+        "Fay left in danger",
+        "OCR misread: the wordplay needs fay, a fairy (PERI), not ray"),
+    ("times-17852", "18-down"): (
+        "3 Quicker off the mark in the theatre",
+        "Quicker off the mark in the theatre",
+        "OCR misread: a stray mark on the scan was read as a 3 before the clue"),
     ("times-17841", "3-down"): (
         "Record a critical) remark",
         "Record a critical remark",
