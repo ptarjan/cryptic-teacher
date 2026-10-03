@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Lead scientific study, maybe touched by extremely awful disease",
     "enumeration": "10"
    },
-   "solution": "METALLURGY"
+   "solution": "METALLURGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "METALLURGY",
+    "definitions": [
+     {
+      "text": "Lead scientific study, maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the following word, its very first and last letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touched",
+      "gives": "MET",
+      "note": "touched as in came into contact with, met"
+     },
+     {
+      "clueFragment": "awful",
+      "gives": "AL",
+      "select": "outer",
+      "note": "the first and last letters of awful"
+     },
+     {
+      "clueFragment": "disease",
+      "gives": "LURGY",
+      "note": "lurgy is British slang for an unspecified illness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "AL",
+      "LURGY"
+     ]
+    },
+    "explanation": {
+     "surface": "A study of lead poisoning, perhaps, by a scientist affected by a dreadful illness.",
+     "walkthrough": "The lurgy is jokey British slang for any catching illness, as in 'don't give me the lurgy'.",
+     "definitionFit": "Metallurgy is the science of metals, and lead is one such metal, so studying lead is an example of the discipline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,43 @@
     "text": "Look bad-tempered in conversation",
     "enumeration": "4"
    },
-   "solution": "MIEN"
+   "solution": "MIEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MIEN",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conversation",
+      "for": "homophone",
+      "note": "in conversation means we go by how a word is spoken rather than how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad-tempered",
+      "gives": "MIEN",
+      "soundsLike": "MEAN",
+      "note": "mean can describe someone nasty or bad-tempered"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone giving a cross glance while chatting.",
+     "definitionFit": "A mien is a person's appearance or bearing, especially the expression showing their mood, so a look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +158,42 @@
     "text": "Characteristic habit to cheat",
     "enumeration": "5"
    },
-   "solution": "TRICK"
+   "solution": "TRICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRICK",
+    "definitions": [
+     {
+      "text": "Characteristic habit",
+      "at": 0
+     },
+     {
+      "text": "to cheat",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Characteristic habit",
+      "note": "first meaning: a mannerism or peculiar habit"
+     },
+     {
+      "clueFragment": "to cheat",
+      "note": "second meaning: a verb, to deceive or swindle someone"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone whose typical behaviour is cheating.",
+     "definitionFit": "The noun names a personal quirk or mannerism, and the verb means to deceive or hoodwink someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Characteristic"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +213,72 @@
      }
     ]
    },
-   "solution": "LAYINTO"
+   "solution": "LAYINTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LAY INTO",
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without limits means the word loses its boundaries, the letters at each end"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means the next pieces are placed alongside, following on from the first"
+     },
+     {
+      "text": "final of",
+      "for": "letter_selection",
+      "note": "final of asks for only the closing letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gambling",
+      "gives": "PLAYING",
+      "note": "playing, as at the tables, is gambling"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     },
+     {
+      "clueFragment": "judo",
+      "gives": "O",
+      "select": "last",
+      "note": "the final letter of judo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAYIN",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A judo contest's last bout as the subject of reckless betting.",
+     "definitionFit": "To lay into someone is an idiom meaning to assault them physically or verbally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unlimited"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +292,58 @@
     "text": "Relative ambition that's heartless and immoral",
     "enumeration": "7"
    },
-   "solution": "UNCLEAN"
+   "solution": "UNCLEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNCLEAN",
+    "definitions": [
+     {
+      "text": "immoral",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "without a heart, the inner letters are dropped and only the outside pair is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "UNCLE",
+      "note": "an uncle is a family relative"
+     },
+     {
+      "clueFragment": "ambition",
+      "gives": "AN",
+      "select": "outer",
+      "note": "the outer letters of ambition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member whose ruthless drive makes them wicked.",
+     "definitionFit": "Unclean can mean morally impure or sinful, so it serves as a synonym for wicked conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +357,69 @@
     "text": "South African ready to visit on vacation glum adult family member",
     "enumeration": "7"
    },
-   "solution": "GRANDMA"
+   "solution": "GRANDMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "GRANDMA",
+    "definitions": [
+     {
+      "text": "family member",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so only the outer letters of the word stay"
+     },
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glum",
+      "gives": "GM",
+      "select": "outer",
+      "note": "glum with its middle emptied"
+     },
+     {
+      "clueFragment": "South African ready",
+      "gives": "RAND",
+      "note": "ready is slang for cash, and the rand is South Africa's currency"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the old film classification for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAND",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A South African, poised to go on holiday, looks gloomy about a visit to a grown-up relative.",
+     "walkthrough": "'The ready' is British slang for money, so South African ready is the rand.",
+     "definitionFit": "A grandma is a grandmother, the parent of one's parent and so a relation in the family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +433,52 @@
     "text": "Man, for example, that's deceived, receiving no protection",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "Man, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving no protection",
+      "for": "deletion",
+      "note": "with no protection the word loses its outer covering, the letters at each end"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deceived",
+      "gives": "MISLED",
+      "note": "to mislead someone is to deceive them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who has been fooled is left unprotected.",
+     "walkthrough": "'Man' looks like a person, but it is the Isle of Man in the Irish Sea.",
+     "definitionFit": "The Isle of Man is an island, so it is an example of the general word for an island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +498,44 @@
      }
     ]
    },
-   "solution": "SEABREEZE"
+   "solution": "SEABREEZE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEA BREEZE",
+    "definitions": [
+     {
+      "text": "Cocktail",
+      "at": 0
+     },
+     {
+      "text": "that creates a cool ambience around 6?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cocktail",
+      "note": "first meaning: a drink of vodka with cranberry and grapefruit juice"
+     },
+     {
+      "clueFragment": "that creates a cool ambience around 6?",
+      "note": "second meaning: the cooling air off the water that surrounds an island, the answer to 6"
+     }
+    ],
+    "explanation": {
+     "surface": "A drink that sets a relaxed mood on an island.",
+     "walkthrough": "The second half refers to 6 across, an island, and the air blowing in from the water around it.",
+     "definitionFit": "The cocktail is named for the wind blowing off the ocean, which is what freshens the air of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +555,50 @@
      }
     ]
    },
-   "solution": "EXCATHEDRA"
+   "solution": "EXCATHEDRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EX CATHEDRA",
+    "definitions": [
+     {
+      "text": "with authority",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement puts things in a new order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reached tax",
+      "gives": "REACHEDTAX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REACHEDTAX",
+       "gives": "EXCATHEDRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deal on taxes agreed with a public body.",
+     "definitionFit": "Ex cathedra is Latin for 'from the chair', describing pronouncements made with the full authority of office, especially papal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "authority"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +612,55 @@
     "text": "Priests outside mark old feast day",
     "enumeration": "6"
    },
-   "solution": "LAMMAS"
+   "solution": "LAMMAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMMAS",
+    "definitions": [
+     {
+      "text": "old feast day",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the first piece wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priests",
+      "gives": "LAMAS",
+      "note": "lamas are Tibetan Buddhist priests"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "M is an abbreviation for mark, the old German currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "M",
+      "MAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Clergy gathering outdoors to celebrate a traditional holy day.",
+     "walkthrough": "Lammas, 1 August, was the English harvest festival when loaves of the new wheat were blessed.",
+     "definitionFit": "Lammas is the traditional English harvest celebration on the first of August, a holy day now mostly lapsed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +674,42 @@
     "text": "Improve the minds of some disenchanted, if youthful characters",
     "enumeration": "5"
    },
-   "solution": "EDIFY"
+   "solution": "EDIFY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDIFY",
+    "definitions": [
+     {
+      "text": "Improve the minds of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following run of characters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disenchanted, if youthful characters",
+      "gives": "EDIFY",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third; characters says we are dealing with letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Educating young people who have lost their illusions.",
+     "definitionFit": "To edify is to instruct someone so as to improve them morally or intellectually."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +723,63 @@
     "text": "Risk briefly carrying horse in old vehicle",
     "enumeration": "9"
    },
-   "solution": "CHARABANC"
+   "solution": "CHARABANC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHARABANC",
+    "definitions": [
+     {
+      "text": "old vehicle",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risk",
+      "gives": "CHANCE",
+      "note": "to chance it is to take a risk"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "ARAB",
+      "note": "an Arab is a breed of horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ARAB",
+      "ANC"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a gamble by transporting a horse in an antique vehicle.",
+     "definitionFit": "A charabanc was an early open motor coach used for day outings, now obsolete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +793,52 @@
     "text": "He's a kind eccentric, one with little up top though",
     "enumeration": "8"
    },
-   "solution": "SKINHEAD"
+   "solution": "SKINHEAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SKINHEAD",
+    "definitions": [
+     {
+      "text": "one with little up top though",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "something eccentric is off-centre and odd, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He's a kind",
+      "gives": "HESAKIND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESAKIND",
+       "gives": "SKINHEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentle oddball who is not very bright.",
+     "walkthrough": "'Little up top' suggests a lack of brains, but here it means a lack of hair; 'though' contrasts with the kindness.",
+     "definitionFit": "A skinhead has a closely shaved head, so very little hair on top."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +852,59 @@
     "text": "Worth Rome writer ignoring argumentative individual at intervals?",
     "enumeration": "5"
    },
-   "solution": "MERIT"
+   "solution": "MERIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MERIT",
+    "definitions": [
+     {
+      "text": "Worth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving letters out of the phrase before it"
+     },
+     {
+      "text": "at intervals",
+      "for": "deletion",
+      "note": "at intervals tells us the dropped letters are spread out, not in one block"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome writer",
+      "gives": "ROMEWRITER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "argumentative individual",
+      "gives": "ROWER",
+      "note": "a row is an argument, so someone who rows is argumentative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Whether a Roman author has value if he dismisses a quarrelsome critic now and then.",
+     "walkthrough": "R, O, W, E and R are struck from the phrase one by one, in order but not together, leaving M, E, R, I, T.",
+     "definitionFit": "Merit is the quality of deserving praise, so it means value or excellence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "argumentative"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +924,63 @@
      }
     ]
    },
-   "solution": "MUMBOJUMBO"
+   "solution": "MUMBOJUMBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUMBO-JUMBO",
+    "definitions": [
+     {
+      "text": "baffling jargon",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undermined by",
+      "for": "charade",
+      "note": "in a down clue, being undermined puts the next piece underneath, so it follows"
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "UMBO",
+      "note": "an umbo is the raised boss in the centre of a shield"
+     },
+     {
+      "clueFragment": "flier",
+      "gives": "JUMBO",
+      "note": "a jumbo is a jumbo jet, a large aircraft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UMBO",
+      "JUMBO"
+     ]
+    },
+    "explanation": {
+     "surface": "A male manager's authority sapped by a pilot spouting nonsense.",
+     "walkthrough": "'Boss' looks like a manager, but it is the knob on a shield.",
+     "definitionFit": "Mumbo-jumbo is meaningless or obscure language intended to confuse, so incomprehensible talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +994,55 @@
     "text": "University and school rent regularly overlooked, not cut",
     "enumeration": "7"
    },
-   "solution": "UNSHORN"
+   "solution": "UNSHORN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNSHORN",
+    "definitions": [
+     {
+      "text": "not cut",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly overlooked",
+      "for": "letter_selection",
+      "note": "overlooking letters at regular steps means every other letter is skipped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "and school rent",
+      "gives": "NSHORN",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and so on letters of this phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NSHORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A campus and school whose rent payments are regularly forgotten, though not reduced.",
+     "definitionFit": "Shorn means sheared, so unshorn describes hair or wool left untrimmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1056,55 @@
     "text": "Short bouncy type, Liverpool player perhaps, acted as captain",
     "enumeration": "9"
    },
-   "solution": "SKIPPERED"
+   "solution": "SKIPPERED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SKIPPERED",
+    "definitions": [
+     {
+      "text": "acted as captain",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "short means the word is cut off before its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bouncy type",
+      "gives": "SKIPPER",
+      "note": "a skipper is one who skips, hopping along"
+     },
+     {
+      "clueFragment": "Liverpool player perhaps",
+      "gives": "RED",
+      "note": "Liverpool FC play in red and are nicknamed the Reds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIPPE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A small, energetic Liverpool footballer who led the team.",
+     "walkthrough": "Liverpool is an English football club whose players are known as the Reds.",
+     "definitionFit": "To skipper is to captain a side or a boat, so the past tense means led as captain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bouncy"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1118,69 @@
     "text": "Rule out treasure being scattered in grave",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "grave",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so the letter named before it is taken away"
+     },
+     {
+      "text": "being scattered",
+      "for": "anagram",
+      "note": "scattered things are strewn about in no order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "R",
+      "note": "R is an abbreviation for rule"
+     },
+     {
+      "clueFragment": "treasure",
+      "gives": "TREASURE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEASURE",
+       "gives": "AUSTERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ruling out that treasure was strewn about in a burial site.",
+     "walkthrough": "'Grave' looks like a burial place, but it is the adjective meaning solemn.",
+     "definitionFit": "Austere means stern and severe in manner, just as grave describes a serious, solemn demeanour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1194,51 @@
     "text": "Prepared to be given a diet of cheese?",
     "enumeration": "7"
    },
-   "solution": "BRIEFED"
+   "solution": "BRIEFED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIEFED",
+    "definitions": [
+     {
+      "text": "Prepared",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "Brie is a soft French cheese"
+     },
+     {
+      "clueFragment": "given a diet of",
+      "gives": "FED",
+      "note": "someone given a diet is fed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIE",
+      "FED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone getting ready to eat nothing but cheese.",
+     "walkthrough": "The question mark flags the playful split: the answer read as two words is literally cheese-fed.",
+     "definitionFit": "Being briefed means having been given instructions in advance, so made ready for a task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Prepared"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1252,67 @@
     "text": "Stack of food that describes dinner essentially",
     "enumeration": "6"
    },
-   "solution": "FUNNEL"
+   "solution": "FUNNEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FUNNEL",
+    "definitions": [
+     {
+      "text": "Stack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially means at its essence or core, so the centre letters are taken"
+     },
+     {
+      "text": "describes",
+      "for": "container",
+      "note": "to describe a shape is to draw a line round it, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food",
+      "gives": "FUEL",
+      "note": "food is fuel for the body"
+     },
+     {
+      "clueFragment": "dinner",
+      "gives": "NN",
+      "select": "middle",
+      "note": "the middle two letters of dinner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "NN",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A pile of food served up at an evening meal.",
+     "walkthrough": "'Stack' suggests a heap of food, but it is a ship's chimney.",
+     "definitionFit": "A stack is a chimney, and a ship's funnel is the chimney through which its engine smoke escapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stack"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1326,73 @@
     "text": "Reveal resort in which to stick around endlessly",
     "enumeration": "7"
    },
-   "solution": "DIVULGE"
+   "solution": "DIVULGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "DIVULGE",
+    "definitions": [
+     {
+      "text": "Reveal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means the word has its last letter cut off"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the letters are read in the opposite direction"
+     },
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "in which places the next piece inside the resort word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resort",
+      "gives": "DIVE",
+      "note": "a dive is a seedy bar or haunt, a place one resorts to"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "GLUE",
+      "note": "to glue is to stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIV",
+      "ULG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GLU",
+       "to": "ULG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disclosing a holiday spot where one can hang about forever.",
+     "walkthrough": "'Resort' suggests a holiday town, but it is a place frequented, here a disreputable one.",
+     "definitionFit": "To divulge is to make known information that was private or secret, so to disclose it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1406,73 @@
     "text": "Current unfinished row between Left and Right in Curacao, say",
     "enumeration": "7"
    },
-   "solution": "LIQUEUR"
+   "solution": "LIQUEUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LIQUEUR",
+    "definitions": [
+     {
+      "text": "Curacao, say",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the last letter of the word is missing"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between means placed inside, flanked on either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "QUEUE",
+      "note": "a queue is a row of people waiting"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "QUEU",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A political dispute between left and right on a Caribbean island.",
+     "walkthrough": "Curacao is a Caribbean island, but it also names an orange-flavoured spirit.",
+     "definitionFit": "Curacao is an orange-flavoured sweet spirit, one example of the general class of after-dinner liqueurs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Curacao"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1486,69 @@
     "text": "Brilliant amateur, first from blocks during fast time",
     "enumeration": "7"
    },
-   "solution": "LAMBENT"
+   "solution": "LAMBENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LAMBENT",
+    "definitions": [
+     {
+      "text": "Brilliant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first from",
+      "for": "letter_selection",
+      "note": "first from asks for only the opening letter of the next word"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within a stretch of time, so these pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amateur",
+      "gives": "AM",
+      "note": "AM is an abbreviation for amateur"
+     },
+     {
+      "clueFragment": "blocks",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of blocks"
+     },
+     {
+      "clueFragment": "fast time",
+      "gives": "LENT",
+      "note": "Lent is the Christian season of fasting before Easter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AM",
+      "B",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A talented amateur sprinter getting off the blocks quickly.",
+     "walkthrough": "'Fast time' suggests a quick race result, but fast here means going without food.",
+     "definitionFit": "Lambent describes something softly glowing or flickering, or wit that is light and sparkling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1562,67 @@
     "text": "Question over American pet food, missing kilo generates complaint",
     "enumeration": "7"
    },
-   "solution": "QUIBBLE"
+   "solution": "QUIBBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "QUIBBLE",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over places the first piece above, so ahead of the rest"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means a letter is absent from the word before it"
+     }
+    ],
+    "linkWords": [
+     "generates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "QU",
+      "note": "QU is an abbreviation for question"
+     },
+     {
+      "clueFragment": "American pet food",
+      "gives": "KIBBLE",
+      "note": "kibble is the American name for dry pellet food for pets"
+     },
+     {
+      "clueFragment": "kilo",
+      "gives": "K",
+      "note": "K is the abbreviation for kilo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "IBBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about US pet food sold short in weight leads to a grievance.",
+     "definitionFit": "A quibble is a minor objection or petty criticism, so a small grievance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kilo"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1636,49 @@
     "text": "Consent from Germany to criticise its wartime ally",
     "enumeration": "5"
    },
-   "solution": "JAPAN"
+   "solution": "JAPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAPAN",
+    "definitions": [
+     {
+      "text": "its wartime ally",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consent from Germany",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     },
+     {
+      "clueFragment": "criticise",
+      "gives": "PAN",
+      "note": "to pan a show is to criticise it harshly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Germany agreeing to condemn the nation it fought alongside.",
+     "definitionFit": "In the Second World War Japan was one of the Axis powers alongside Germany, so Germany's ally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Consent"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1692,40 @@
     "text": "Night owls partial to claret but not steaks reportedly?",
     "enumeration": "8"
    },
-   "solution": "VAMPIRES"
+   "solution": "VAMPIRES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VAMPIRES",
+    "definitions": [
+     {
+      "text": "Night owls partial to claret but not steaks reportedly?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Night owls partial to claret but not steaks reportedly?",
+      "note": "surface reading: people who stay up late, enjoy red wine and avoid steak"
+     },
+     {
+      "clueFragment": "Night owls partial to claret but not steaks reportedly?",
+      "note": "setter's reading: nocturnal creatures who drink blood (claret is slang for it) and fear wooden stakes, which sound like steaks"
+     }
+    ],
+    "explanation": {
+     "surface": "Late-night revellers who love red wine but do not eat steak.",
+     "walkthrough": "Claret is old slang for blood, and 'steaks reportedly' points to the sound of stakes, the wooden weapons that kill these creatures.",
+     "definitionFit": "The undead of folklore are active at night, drink human blood and are destroyed by a stake through the heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "claret"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1739,50 @@
     "text": "Course of electrotherapy probably surpasses other medication initially",
     "enumeration": "5"
    },
-   "solution": "EPSOM"
+   "solution": "EPSOM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EPSOM",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each word gives its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of electrotherapy probably surpasses other medication",
+      "gives": "EPSOM",
+      "select": "first",
+      "note": "the opening letters of the five words after 'of'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPSOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A course of electric treatment that probably beats any drug.",
+     "walkthrough": "'Course' suggests a course of treatment, but it is a racecourse; Epsom is the Surrey racecourse that hosts the Derby, and Epsom salts are a medicine too.",
+     "definitionFit": "Epsom Downs is a famous English racecourse, home to the Derby horse race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Course"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1796,50 @@
     "text": "Inadequate tool for drawing",
     "enumeration": "4"
    },
-   "solution": "PLAN"
+   "solution": "PLAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLAN",
+    "definitions": [
+     {
+      "text": "drawing",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Inadequate",
+      "for": "deletion",
+      "note": "inadequate means falling short, so the word is not given in full"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tool",
+      "gives": "PLANE",
+      "note": "a plane is a woodworking tool for smoothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tool that is no good for sketching.",
+     "definitionFit": "A plan is a scale drawing, such as an architect's diagram of a building from above."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drawing"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1853,69 @@
     "text": "Difficult to look restrained after damage in French city",
     "enumeration": "9"
    },
-   "solution": "MARSEILLE"
+   "solution": "MARSEILLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MARSEILLE",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained",
+      "for": "container",
+      "note": "restrained means held in, so one piece is held inside another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the next piece behind the earlier one"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damage",
+      "gives": "MAR",
+      "note": "to mar something is to damage it"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "SEE",
+      "note": "to see is to look"
+     },
+     {
+      "clueFragment": "Difficult",
+      "gives": "ILL",
+      "note": "ill can mean difficult, as in ill-tempered or ill at ease"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "SE",
+      "ILL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Struggling to keep a calm face after harm done in a French city.",
+     "definitionFit": "Marseille is the major Mediterranean port city in the south of France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restrained"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1929,48 @@
     "text": "Culinary plant from Mali's absolutely revolutionary",
     "enumeration": "5"
    },
-   "solution": "BASIL"
+   "solution": "BASIL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BASIL",
+    "definitions": [
+     {
+      "text": "Culinary plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means the letters are taken out of the words that follow"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things over, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mali's absolutely",
+      "gives": "LISAB",
+      "note": "the letters span the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A herb from the African country Mali that is radically new.",
+     "definitionFit": "Basil is an aromatic herb used widely in cooking, especially in Italian dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1984,44 @@
     "text": "Scraps inequality",
     "enumeration": "4"
    },
-   "solution": "ODDS"
+   "solution": "ODDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ODDS",
+    "definitions": [
+     {
+      "text": "Scraps",
+      "at": 0
+     },
+     {
+      "text": "inequality",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scraps",
+      "note": "first meaning: bits and pieces"
+     },
+     {
+      "clueFragment": "inequality",
+      "note": "second meaning: a disparity or imbalance"
+     }
+    ],
+    "explanation": {
+     "surface": "Fights about unfairness.",
+     "walkthrough": "'Scraps' reads like fights, but it means leftover fragments.",
+     "definitionFit": "Odds are miscellaneous leftovers, and the word also means a difference in advantage between two sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Scraps"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +2035,72 @@
     "text": "Fish possibly once served raw, eaten with moreish sides",
     "enumeration": "10"
    },
-   "solution": "WEATHERMAN"
+   "solution": "WEATHERMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "WEATHERMAN",
+    "definitions": [
+     {
+      "text": "Fish possibly once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served",
+      "for": "anagram",
+      "note": "served up as a dish, the ingredients are prepared and rearranged"
+     },
+     {
+      "text": "sides",
+      "for": "letter_selection",
+      "note": "the sides of a word are its edges, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raw",
+      "gives": "RAW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eaten",
+      "gives": "EATEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "moreish",
+      "gives": "MH",
+      "select": "outer",
+      "note": "the two edge letters of moreish"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAWEATENMH",
+       "gives": "WEATHERMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fish perhaps served as sashimi, eaten with tasty side dishes.",
+     "walkthrough": "'Fish' looks like food, but Michael Fish was a long-serving BBC television forecaster, now retired, hence 'once'.",
+     "definitionFit": "Michael Fish presented British television forecasts for decades, so he is an example of a former forecaster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fish"
+    }
+   }
   }
  ]
 }
