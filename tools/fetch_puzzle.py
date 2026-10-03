@@ -1893,6 +1893,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17862", "6-down"): (
+        "Working man gelling his knife into someone",
+        "Working man getting his knife into someone",
+        "OCR misread: the surgeon is getting his knife into someone"),
+    ("times-17862", "24-down"): (
+        "Loot for fee sovereign in general",
+        "Loot for the sovereign in general",
+        "OCR misread: the wordplay is L (the sovereign, a pound) inside RIFE (general); 'fee' has no role"),
     ("times-17856", "14-down"): (
         "Carry on quietly to rescue odd characters 5",
         "Carry on quietly to rescue odd characters",
