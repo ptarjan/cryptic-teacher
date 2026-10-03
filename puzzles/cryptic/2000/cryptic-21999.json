@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,79 @@
     "text": "Content of a hive with model at its centre in a town",
     "enumeration": "8"
    },
-   "solution": "ACTIVITY"
+   "solution": "ACTIVITY",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ACTIVITY",
+    "definitions": [
+     {
+      "text": "Content of a hive with model at its centre in a town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Content of",
+      "for": "letter_selection",
+      "note": "the content of something is what sits inside it, so only the inner letters of hive are kept"
+     },
+     {
+      "text": "at its centre",
+      "for": "container",
+      "note": "something placed at the centre of the town sits inside that word's letters"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as written"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "CITY",
+      "note": "a city is a large town"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     },
+     {
+      "clueFragment": "hive",
+      "gives": "IV",
+      "select": "middle",
+      "note": "the two inner letters of hive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "TIV",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy hive of bees sits in the middle of a town, with a model on display.",
+     "walkthrough": "The whole clue doubles as the definition: a hive is full of busy work. Model T is Ford's famous early car.",
+     "definitionFit": "A hive is proverbially full of busy work, as in the idiom 'a hive of industry', so what fills it is bustle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +123,48 @@
     "text": "Numbered request: can I hold my liquor?",
     "enumeration": "4"
    },
-   "solution": "CASK"
+   "solution": "CASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASK",
+    "definitions": [
+     {
+      "text": "can I hold my liquor?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbered",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred, so a numbered letter"
+     },
+     {
+      "clueFragment": "request",
+      "gives": "ASK",
+      "note": "to ask is to request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker politely asks whether they can still manage their drink.",
+     "walkthrough": "Read 'can' as a noun: the container speaks, saying it holds liquor; the drinker's worry is the false picture.",
+     "definitionFit": "A cask is a wooden barrel that stores wine, beer or spirits, so it is a vessel speaking of its contents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +178,58 @@
     "text": "'E was a brave man, not quite dead, just worn away",
     "enumeration": "6"
    },
-   "solution": "ERODED"
+   "solution": "ERODED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ERODED",
+    "definitions": [
+     {
+      "text": "worn away",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite whole means the word falls a letter short of complete"
+     }
+    ],
+    "linkWords": [
+     "just"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'E was a brave man",
+      "gives": "ERO",
+      "note": "a brave man is a hero; the dropped H of 'E tells us to drop it here too, Cockney style"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "DED",
+      "note": "dead with its A removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERO",
+      "DED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney tribute to a brave man who is nearly dead and quite worn out.",
+     "walkthrough": "'ERO (hero without its H) plus DED gives ERODED; the apostrophe in 'E is the hint to drop an H.",
+     "definitionFit": "Rock or soil that has eroded has been gradually ground down by water, wind or weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "'E"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +243,54 @@
     "text": "Read only memory to reply (say) to the writer of novels",
     "enumeration": "8"
    },
-   "solution": "ROMANCER"
+   "solution": "ROMANCER",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ROMANCER",
+    "definitions": [
+     {
+      "text": "writer of novels",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say means as spoken, so the reply is taken by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read only memory",
+      "gives": "ROM",
+      "note": "ROM is the abbreviation for read-only memory"
+     },
+     {
+      "clueFragment": "reply",
+      "gives": "ANCER",
+      "soundsLike": "ANSWER",
+      "note": "a reply is an answer, spoken in the southern English way"
+     }
+    ],
+    "explanation": {
+     "surface": "A computer's memory is asked to talk back to a novelist.",
+     "walkthrough": "In southern British speech 'answer' rhymes with the end of ROMANCER, so ROM plus that sound gives the answer.",
+     "definitionFit": "A romancer is one who writes romances, the old term for long prose stories of adventure and love."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "memory"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +304,64 @@
     "text": "Badly rattled battler pretty affected by awful muddle",
     "enumeration": "10"
    },
-   "solution": "TWEEDLEDUM"
+   "solution": "TWEEDLEDUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TWEEDLEDUM",
+    "definitions": [
+     {
+      "text": "Badly rattled battler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is a mess, so the letters are left in disorder"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty affected",
+      "gives": "TWEE",
+      "note": "twee means affectedly pretty or quaint"
+     },
+     {
+      "clueFragment": "muddle",
+      "gives": "DLEDUM",
+      "note": "the letters of muddle rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWEE",
+      "DLEDUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUDDLE",
+       "gives": "DLEDUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter is badly shaken, prettily posturing and thrown by a dreadful muddle.",
+     "walkthrough": "In Through the Looking-Glass, Tweedledum agrees to battle Tweedledee, but both flee when a monstrous crow frightens them.",
+     "definitionFit": "Lewis Carroll's quarrelsome twin agreed to fight his brother, then was frightened off by a crow, a famous scared combatant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rattled"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +375,64 @@
     "text": "Almost every copper at home to Charlemagne's mentor",
     "enumeration": "6"
    },
-   "solution": "ALCUIN"
+   "solution": "ALCUIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALCUIN",
+    "definitions": [
+     {
+      "text": "Charlemagne's mentor",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means nearly but not wholly, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every",
+      "gives": "AL",
+      "note": "every is all, cut short by a letter"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "CU",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly every policeman is at home to receive the Emperor Charlemagne's teacher.",
+     "walkthrough": "'Copper' is British slang for a policeman, but here it is the metal, symbol CU.",
+     "definitionFit": "Alcuin of York was the English scholar who taught at Charlemagne's court and led his revival of learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +446,67 @@
     "text": "Image containing pear-shaped protection for bridge in winter",
     "enumeration": "3-5"
    },
-   "solution": "ICEAPRON"
+   "solution": "ICEAPRON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ICE-APRON",
+    "definitions": [
+     {
+      "text": "protection for bridge in winter",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pear-shaped",
+      "for": "anagram",
+      "note": "in British slang a plan that goes pear-shaped goes wrong, so these letters end up out of order"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means the first word wraps around the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Image",
+      "gives": "ICON",
+      "note": "an icon is an image"
+     },
+     {
+      "clueFragment": "pear",
+      "gives": "EAPR",
+      "note": "the letters of pear rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "EAPR",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEAR",
+       "gives": "EAPR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture holds a pear-shaped object, which turns out to shield a bridge in winter.",
+     "walkthrough": "'Pear-shaped' reads as a description of the protection; its job is to scramble pear.",
+     "definitionFit": "An ice apron is a sloping structure placed upstream of a bridge pier to break up floating ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pear-shaped"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +520,56 @@
     "text": "Number considered partly to finish a game",
     "enumeration": "2-4"
    },
-   "solution": "NOSIDE"
+   "solution": "NOSIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NO-SIDE",
+    "definitions": [
+     {
+      "text": "to finish a game",
+      "at": 25,
+      "note": "the answer is a noun, the call that ends a game"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "deletion",
+      "note": "partly means only part of the next word survives, with letters cut from both its ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     },
+     {
+      "clueFragment": "considered",
+      "gives": "CONSIDERED",
+      "note": "taken as written, then trimmed of CON and RED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A number is mulled over in deciding how to end a game.",
+     "walkthrough": "No-side is the referee's call ending a rugby match.",
+     "definitionFit": "In rugby the referee calls no-side when time is up and the match ends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "considered"
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +583,50 @@
     "text": "Author wins the gold before spring",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORWELL",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wins the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a well is a spring of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer takes the gold medal ahead of the spring season.",
+     "walkthrough": "'Spring' suggests the season; here it is a source of water.",
+     "definitionFit": "George Orwell wrote Animal Farm and Nineteen Eighty-Four, so he is an example of a writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 10,
@@ -160,7 +640,43 @@
     "text": "Singular course off the cuff?",
     "enumeration": "4"
    },
-   "solution": "LINK"
+   "solution": "LINK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LINK",
+    "definitions": [
+     {
+      "text": "Singular course",
+      "at": 0
+     },
+     {
+      "text": "off the cuff?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular course",
+      "note": "first meaning: a golf course is called ..., so one of them is the singular"
+     },
+     {
+      "clueFragment": "off the cuff?",
+      "note": "second meaning: what a cufflink is, read as coming off the cuff"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Off the cuff' looks like the idiom for unrehearsed; the question mark says read it literally, as a piece from a cufflink. Links is a seaside golf course.",
+     "definitionFit": "Links is a seaside golf course, so one is its singular; a cufflink also fastens a shirt cuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cuff"
+    }
+   }
   },
   {
    "number": 11,
@@ -174,7 +690,56 @@
     "text": "Infected when various uses failed",
     "enumeration": "10"
    },
-   "solution": "DISEASEFUL"
+   "solution": "DISEASEFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISEASEFUL",
+    "definitions": [
+     {
+      "text": "Infected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "various",
+      "for": "anagram",
+      "note": "various suggests different arrangements, so the following letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uses failed",
+      "gives": "DISEASEFUL",
+      "note": "all ten letters of the two words rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISEASEFUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USESFAILED",
+       "gives": "DISEASEFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something became infected after several attempted uses went wrong.",
+     "definitionFit": "Diseaseful is a rare word for full of disease, so it describes something infected or diseased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failed"
+    }
+   }
   },
   {
    "number": 12,
@@ -188,7 +753,49 @@
     "text": "'Urley uneasy - could be a monitor",
     "enumeration": "6"
    },
-   "solution": "LIZARD"
+   "solution": "LIZARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LIZARD",
+    "definitions": [
+     {
+      "text": "could be a monitor",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'Urley",
+      "gives": "LIZ",
+      "note": "Liz Hurley is the British actress and model; her first name stands for her"
+     },
+     {
+      "clueFragment": "uneasy",
+      "gives": "HARD",
+      "note": "un-easy is hard, and the dropped H of 'Urley says to drop the H here too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIZ",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Hurley, said in a Cockney accent, is nervous about being watched on a screen.",
+     "walkthrough": "The apostrophe in 'Urley marks a dropped H, so 'ard is hard said the same way; LIZ plus ARD gives LIZARD.",
+     "definitionFit": "A monitor is a large tropical reptile, such as the Komodo dragon, so it is one example of the creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "monitor"
+    }
+   }
   },
   {
    "number": 13,
@@ -202,7 +809,55 @@
     "text": "Everyone first has audible spats with the beasts one sees afterwards",
     "enumeration": "10"
    },
-   "solution": "ALLIGATORS"
+   "solution": "ALLIGATORS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ALLIGATORS",
+    "definitions": [
+     {
+      "text": "the beasts one sees afterwards",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audible",
+      "for": "homophone",
+      "note": "audible means as heard, so the word for spats is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "first has",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     },
+     {
+      "clueFragment": "spats",
+      "gives": "IGATORS",
+      "soundsLike": "GAITERS",
+      "note": "spats are short gaiters covering the ankle"
+     }
+    ],
+    "explanation": {
+     "surface": "Everybody arrives in noisy footwear, alongside animals seen at a later time.",
+     "walkthrough": "Said aloud, 'all gaiters' sounds like ALLIGATORS. The definition rests on the parting phrase 'See you later, alligator'.",
+     "definitionFit": "The rhyming farewell 'See you later, alligator' makes those reptiles creatures one sees afterwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spats"
+    }
+   }
   },
   {
    "number": 14,
@@ -216,7 +871,50 @@
     "text": "Link up in space and come down to earth by modern light railway?",
     "enumeration": "8"
    },
-   "solution": "DOCKLAND"
+   "solution": "DOCKLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOCKLAND",
+    "definitions": [
+     {
+      "text": "by modern light railway?",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Link up in space",
+      "gives": "DOCK",
+      "note": "spacecraft dock when they join up in orbit"
+     },
+     {
+      "clueFragment": "come down to earth",
+      "gives": "LAND",
+      "note": "to land is to come down to the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOCK",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A spacecraft links up in orbit, then returns to earth and takes the train.",
+     "walkthrough": "The Docklands Light Railway is a modern driverless railway serving London's old docks area.",
+     "definitionFit": "London's redeveloped docks area is served by the Docklands Light Railway, so it is reached that way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 15,
@@ -230,7 +928,42 @@
     "text": "Craven ribbon?",
     "enumeration": "6"
    },
-   "solution": "YELLOW"
+   "solution": "YELLOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YELLOW",
+    "definitions": [
+     {
+      "text": "Craven",
+      "at": 0
+     },
+     {
+      "text": "ribbon?",
+      "at": 7,
+      "note": "an example: the colour of a famous ribbon"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Craven",
+      "note": "first meaning: cowardly"
+     },
+     {
+      "clueFragment": "ribbon?",
+      "note": "second meaning: the colour of the ribbon of song, tied as a sign of welcome home"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark admits that the second sense is by example: a yellow ribbon is the famous token of waiting for someone's return.",
+     "definitionFit": "Yellow is slang for cowardly, and it is the colour of the ribbon tied round the old oak tree in the song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -244,7 +977,57 @@
     "text": "Betty Boothroyd (will there ever be another?) having some golden hair?",
     "enumeration": "8"
    },
-   "solution": "ORATRESS"
+   "solution": "ORATRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORATRESS",
+    "definitions": [
+     {
+      "text": "Betty Boothroyd (will there ever be another?)",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golden",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "A",
+      "note": "a, as in a certain amount"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "A",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous politician, unique in her role, is pictured with some golden hair.",
+     "walkthrough": "Betty Boothroyd was the first woman Speaker of the House of Commons; the bracket wonders whether there will be another woman Speaker, or whether the old word will be used again.",
+     "definitionFit": "An oratress is an archaic word for a female orator or speaker, fitting the first woman Speaker of the Commons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "golden"
+    }
+   }
   },
   {
    "number": 17,
@@ -258,7 +1041,54 @@
     "text": "Domestic appliance London shop can't quite sell?",
     "enumeration": "6"
    },
-   "solution": "FRIDGE"
+   "solution": "FRIDGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FRIDGE",
+    "definitions": [
+     {
+      "text": "Domestic appliance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can't quite",
+      "for": "deletion",
+      "note": "the shop cannot have the word, and not quite all of it, so a shortened form is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London shop",
+      "gives": "SELFRIDGE",
+      "note": "Selfridges is the big Oxford Street department store in London"
+     },
+     {
+      "clueFragment": "sell",
+      "gives": "SEL",
+      "note": "sell short of its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A household appliance that a London store somehow cannot manage to sell.",
+     "walkthrough": "SELFRIDGE minus SEL leaves FRIDGE.",
+     "definitionFit": "A fridge, short for refrigerator, is a household machine that keeps food cold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sell"
+    }
+   }
   },
   {
    "number": 18,
@@ -272,7 +1102,56 @@
     "text": "A German saint and a German thinker",
     "enumeration": "8"
    },
-   "solution": "EINSTEIN"
+   "solution": "EINSTEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EINSTEIN",
+    "definitions": [
+     {
+      "text": "thinker",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A German",
+      "gives": "EIN",
+      "note": "ein is German for a"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "a German",
+      "gives": "EIN",
+      "note": "the German word for a once more"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EIN",
+      "ST",
+      "EIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of two German figures: a holy saint and a philosopher.",
+     "walkthrough": "'A German' is read as the German word for 'a', not as a German person; the second one also tells you the thinker is German.",
+     "definitionFit": "Albert Einstein, born in Ulm, was the physicist whose theories of relativity reshaped science, a great mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 19,
@@ -286,7 +1165,61 @@
     "text": "Add a thanksgiving put in at church",
     "enumeration": "6"
    },
-   "solution": "ATTACH"
+   "solution": "ATTACH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ATTACH",
+    "definitions": [
+     {
+      "text": "Add",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means placed inside, so the thanks go within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a thanksgiving",
+      "gives": "TA",
+      "note": "ta is British informal for thanks"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TA",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone adds a prayer of thanks during a church service.",
+     "walkthrough": "AT CH holds TA: AT(TA)CH. 'Ta' is a casual British thank-you.",
+     "definitionFit": "To attach something is to fasten or join it on, so to append or include it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thanksgiving"
+    }
+   }
   },
   {
    "number": 20,
@@ -300,7 +1233,56 @@
     "text": "Male grandparent has little time and is making no progress",
     "enumeration": "8"
    },
-   "solution": "STAGNANT"
+   "solution": "STAGNANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAGNANT",
+    "definitions": [
+     {
+      "text": "making no progress",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "has",
+     "and is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "STAG",
+      "note": "a stag is a male deer"
+     },
+     {
+      "clueFragment": "grandparent",
+      "gives": "NAN",
+      "note": "nan is a familiar name for a grandmother"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG",
+      "NAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An old grandfather has little time left and is getting nowhere.",
+     "definitionFit": "Stagnant describes water that does not flow, and by extension an economy or career that does not develop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Male"
+    }
+   }
   },
   {
    "number": 21,
@@ -314,7 +1296,65 @@
     "text": "What's caused by a bore? Tide turning and... let me think...",
     "enumeration": "6"
    },
-   "solution": "TEDIUM"
+   "solution": "TEDIUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TEDIUM",
+    "definitions": [
+     {
+      "text": "What's caused by a bore?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "something turning changes its position, so these letters are moved about"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tide",
+      "gives": "TEDI",
+      "note": "the letters of tide rearranged"
+     },
+     {
+      "clueFragment": "let me think",
+      "gives": "UM",
+      "note": "um is the noise of someone pausing to think"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEDI",
+      "UM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIDE",
+       "gives": "TEDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tidal bore rolls up the river as the tide turns, while someone hesitates.",
+     "walkthrough": "'Bore' and 'tide' together suggest a tidal wave up a river; here the bore is a dull person.",
+     "definitionFit": "Tedium is weariness and boredom, the feeling produced by a dull, tiresome person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 22,
@@ -328,7 +1368,56 @@
     "text": "A plate for my beastly back!",
     "enumeration": "6"
    },
-   "solution": "LAMINA"
+   "solution": "LAMINA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LAMINA",
+    "definitions": [
+     {
+      "text": "A plate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going the other way, so the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "for my"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beastly",
+      "gives": "ANIMAL",
+      "note": "beastly as an adjective means animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMINA"
+     ],
+     "reversals": [
+      {
+       "from": "ANIMAL",
+       "to": "LAMINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a protective plate for their creature's back.",
+     "definitionFit": "A lamina is a thin layer or sheet of material, so a thin plate of bone, metal or rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -342,7 +1431,57 @@
     "text": "She is embraced by a boy and severely criticised",
     "enumeration": "6"
    },
-   "solution": "LASHED"
+   "solution": "LASHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LASHED",
+    "definitions": [
+     {
+      "text": "severely criticised",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is embraced by",
+      "for": "container",
+      "note": "being embraced means being held inside someone's arms, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "She",
+      "gives": "SHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "SHE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is hugged by a young man, then given a harsh dressing-down.",
+     "definitionFit": "To lash someone verbally is to attack them with harsh words, so a scathing rebuke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "embraced"
+    }
+   }
   },
   {
    "number": 23,
@@ -356,7 +1495,59 @@
     "text": "Leaders to lead - or is it a new arrangement?",
     "enumeration": "10"
    },
-   "solution": "EDITORIALS"
+   "solution": "EDITORIALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITORIALS",
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a new arrangement",
+      "for": "anagram",
+      "note": "a new arrangement of the words means their letters are placed in a different order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "LEAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or is it",
+      "gives": "ORISIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEADORISIT",
+       "gives": "EDITORIALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether giving leaders the lead is a fresh arrangement.",
+     "walkthrough": "'Leaders' suggests people in charge; here it means newspaper leaders, the British term for editorial articles.",
+     "definitionFit": "A leader, or leading article, is a newspaper's opinion piece giving the paper's own view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 24,
@@ -370,7 +1561,44 @@
     "text": "Small letter",
     "enumeration": "4"
    },
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IOTA",
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0,
+      "note": "adjective; the answer is a noun for a very small amount"
+     },
+     {
+      "text": "letter",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "note": "first meaning: a tiny amount"
+     },
+     {
+      "clueFragment": "letter",
+      "note": "second meaning: a character of the Greek alphabet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a lower-case character; the two words are separate meanings of one short word.",
+     "definitionFit": "The ninth Greek character is the smallest in form, so the word has come to mean a tiny quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1612,50 @@
     "text": "Boy goes first to the front",
     "enumeration": "4"
    },
-   "solution": "IVAN"
+   "solution": "IVAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IVAN",
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "goes",
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "I",
+      "note": "I is one in Roman numerals, the first number"
+     },
+     {
+      "clueFragment": "front",
+      "gives": "VAN",
+      "note": "the van is the front of an army or procession"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "VAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy marches first, up to the head of the line.",
+     "definitionFit": "Ivan is the Russian form of John, a common masculine given name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1669,39 @@
     "text": "Changeable regiments?",
     "enumeration": "6"
    },
-   "solution": "GUARDS"
+   "solution": "GUARDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GUARDS",
+    "definitions": [
+     {
+      "text": "Changeable regiments?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Changeable",
+      "note": "surface reading: fickle, unreliable soldiers"
+     },
+     {
+      "clueFragment": "regiments?",
+      "note": "setter's reading: the household troops whose daily changing at Buckingham Palace is a ceremony"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Changeable' suggests inconstant; it means able to be changed, as in the Changing of the Guard at Buckingham Palace.",
+     "definitionFit": "The Guards are the British Army's household regiments, famous for their sentry handover ceremony in London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Changeable"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1715,50 @@
     "text": "Sounds of Priestley in the upper room?",
     "enumeration": "8"
    },
-   "solution": "HIERATIC"
+   "solution": "HIERATIC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HIERATIC",
+    "definitions": [
+     {
+      "text": "Priestley",
+      "at": 10,
+      "note": "read as priestly, an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds",
+      "for": "homophone",
+      "note": "sounds means the phrase that follows is heard, not spelt"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the upper room",
+      "gives": "HIERATIC",
+      "soundsLike": "HIGHER ATTIC",
+      "note": "an attic is the room at the top of a house, and the upper one is higher"
+     }
+    ],
+    "explanation": {
+     "surface": "Noises from the writer J. B. Priestley come down from a room upstairs.",
+     "walkthrough": "'Priestley' looks like the playwright's name but is to be read as the adjective priestly.",
+     "definitionFit": "Hieratic means relating to priests, as in the cursive script once used by Egyptian priests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Priestley"
+    }
+   }
   }
  ]
 }
