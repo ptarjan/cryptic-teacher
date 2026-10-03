@@ -117,6 +117,7 @@ from ocr_clues import (
     edits,
     engine,
     is_word,
+    one_light_each,
     rank,
     read_words,
     reader_key,
@@ -1184,13 +1185,16 @@ def read_puzzle(d, found, hit, solutions):
             return verdict, None
         grid, how = g, "rebuilt"
     verdict["grid"] = how
-    laid, blank = reconcile(laid, stream, {f"{n_}-{d_}": len(cells) for (n_, d_), cells
-                                           in rg.light_cells(grid).items()})
+    lengths = {f"{n_}-{d_}": len(cells) for (n_, d_), cells in rg.light_cells(grid).items()}
+    fits = {lid for lid, (_, enum, group) in laid.items()
+            if enum and not group and ftp.count(enum) == lengths.get(lid)}
+    laid, blank = reconcile(laid, stream, lengths)
     if blank and "vlm" in texts and vlm.reachable():
         try:
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
         except RuntimeError:
             pass
+    laid, blank = one_light_each(laid, blank, fits)
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
