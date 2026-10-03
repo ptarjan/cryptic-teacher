@@ -1889,6 +1889,22 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17653", "3-down"): (
+        "Factors,.. perhaps, involved in' home affairs",
+        "Factors, perhaps, involved in home affairs",
+        "OCR misread: stray dots and an apostrophe were picked up from the scan"),
+    ("times-17653", "5-down"): (
+        "Where you might get ice after 2 stew",
+        "Where you might get ice after a stew",
+        "OCR misread: the anagram needs ICE AFTER A for its nine letters"),
+    ("times-17653", "16-down"): (
+        "5 Move fast to get on target in game",
+        "Move fast to get on target in game",
+        "OCR misread: a stray digit from the scan opens the clue"),
+    ("times-17653", "21-down"): (
+        "Flexible one, for a change, in (lathe",
+        "Flexible one, for a change, in lathe",
+        "OCR misread: a stray bracket from the scan precedes lathe"),
     ("times-17711", "5-down"): (
         "Bird in battle with small tropical) predators",
         "Bird in battle with (small tropical) predators",
