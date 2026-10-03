@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,62 @@
     "text": "Italian road divisions, last of same",
     "enumeration": "8"
    },
-   "solution": "MILANESE"
+   "solution": "MILANESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MILANESE",
+    "definitions": [
+     {
+      "text": "Italian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "'last of' tells us to keep only the final letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "MI",
+      "note": "the M1 motorway, written MI in crosswords"
+     },
+     {
+      "clueFragment": "divisions",
+      "gives": "LANES",
+      "note": "a road is divided into lanes"
+     },
+     {
+      "clueFragment": "same",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of 'same'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "LANES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing how Italian roads are marked out into lanes.",
+     "walkthrough": "MI is the crossword spelling of the M1, Britain's main north-south motorway.",
+     "definitionFit": "Milanese describes a person or thing from Milan, so it can stand for an Italian adjective or native."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "divisions"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +120,51 @@
     "text": "Trouble with organ: nothing is in code",
     "enumeration": "6"
    },
-   "solution": "CIPHER"
+   "solution": "CIPHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CIPHER",
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 20
+     },
+     {
+      "text": "code",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "is in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble with organ",
+      "note": "third meaning: a fault in which an organ pipe keeps sounding"
+     },
+     {
+      "clueFragment": "nothing",
+      "note": "a nought or zero"
+     },
+     {
+      "clueFragment": "code",
+      "note": "a secret writing system"
+     }
+    ],
+    "explanation": {
+     "surface": "An organist's instrument breaks down, and nothing comes out but gibberish.",
+     "walkthrough": "Really a triple definition: a cipher is also an organ fault where a pipe sounds continuously without being played.",
+     "definitionFit": "The word means a zero figure and also a system of secret writing, two long-established senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +178,53 @@
     "text": "Once more say “Well read student won’t appear”",
     "enumeration": "7"
    },
-   "solution": "ITERATE"
+   "solution": "ITERATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITERATE",
+    "definitions": [
+     {
+      "text": "Once more say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "won’t appear",
+      "for": "deletion",
+      "note": "something that won't appear is missing, so that element is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Well read",
+      "gives": "LITERATE",
+      "note": "able to read and educated"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITERATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher repeats a remark that the bookish pupil is absent today.",
+     "walkthrough": "Remove L from LITERATE to leave ITERATE.",
+     "definitionFit": "To iterate is to repeat or restate something, doing or saying it again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +238,55 @@
     "text": "Such deviation: slab in floor unlined",
     "enumeration": "8"
    },
-   "solution": "QUARTILE"
+   "solution": "QUARTILE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "QUARTILE",
+    "definitions": [
+     {
+      "text": "Such deviation",
+      "at": 0,
+      "note": "the answer is an adjective-like noun that qualifies 'deviation' in the statistical phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlined",
+      "for": "deletion",
+      "note": "'unlined' asks us to take a line away, and in crosswords a line is a railway"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slab in floor",
+      "gives": "QUARRYTILE",
+      "note": "a quarry tile is an unglazed floor tile"
+     },
+     {
+      "clueFragment": "unlined",
+      "gives": "RY",
+      "note": "RY, railway, is the line removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUAR",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder notes that one paving slab sits unevenly, missing its lining.",
+     "walkthrough": "Drop RY from QUARRY TILE. Quartile deviation is a statistical measure of spread, half the interquartile range.",
+     "definitionFit": "Statisticians speak of the quartile deviation, a measure of how widely data are spread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "deviation"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +300,43 @@
     "text": "What makes B A? Extended small abode?",
     "enumeration": "6,4"
    },
-   "solution": "DOUBLEFLAT"
+   "solution": "DOUBLEFLAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOUBLE FLAT",
+    "definitions": [
+     {
+      "text": "What makes B A?",
+      "at": 0
+     },
+     {
+      "text": "Extended small abode?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What makes B A?",
+      "note": "first meaning: the musical sign that lowers a note two semitones"
+     },
+     {
+      "clueFragment": "Extended small abode?",
+      "note": "second meaning: a small apartment made twice as big"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "B lowered by two semitones sounds as A. A flat is a British apartment, so doubling one extends it.",
+     "definitionFit": "In music notation, this sign drops a note by a whole tone; jokily it also describes an apartment knocked through into two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "abode"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +350,59 @@
     "text": "Look hard and see inside: give nought to eat",
     "enumeration": "6"
    },
-   "solution": "STARVE"
+   "solution": "STARVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STARVE",
+    "definitions": [
+     {
+      "text": "give nought to eat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "'inside' places one element within the other"
+     }
+    ],
+    "linkWords": [
+     "and",
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look hard",
+      "gives": "STARE",
+      "note": "to gaze fixedly"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "V",
+      "note": "V is short for Latin vide, see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to peer into a cupboard and find there is nothing to feed anyone.",
+     "walkthrough": "V for 'see' comes from vide, as in cross-references.",
+     "definitionFit": "To starve someone is to deprive them of food entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +416,65 @@
     "text": "Destructive type left one in this display",
     "enumeration": "8"
    },
-   "solution": "NIHILIST"
+   "solution": "NIHILIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIHILIST",
+    "definitions": [
+     {
+      "text": "Destructive type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "display",
+      "for": "anagram",
+      "note": "a display arranges things for show, so these letters are laid out afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "L I IN THIS",
+       "gives": "NIHILIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vandal has left one item in this exhibition.",
+     "definitionFit": "A nihilist rejects all values and institutions, sometimes favouring their destruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +488,50 @@
     "text": "Beneath the waves it goes about distressed",
     "enumeration": "1-4"
    },
-   "solution": "UBOAT"
+   "solution": "UBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "U-BOAT",
+    "definitions": [
+     {
+      "text": "Beneath the waves it goes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distressed",
+      "for": "anagram",
+      "note": "distressed means battered and knocked out of shape, so the word is disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ABOUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABOUT",
+       "gives": "UBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel under the sea moves around in trouble.",
+     "definitionFit": "A U-boat was a German submarine, a vessel that travels under the sea's surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +549,55 @@
    "group": [
     "10-across",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GANGLING",
+    "definitions": [
+     {
+      "text": "Ungainly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mob",
+      "gives": "GANG",
+      "note": "a gang is a crowd or band"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "the ling is a long sea fish of the cod family"
+     },
+     {
+      "clueFragment": "good’s the sport",
+      "note": "a second route: G for good joined to the sport of fishing with rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy crowd goes fishing when the sport is good.",
+     "walkthrough": "The tail is a second route: G for good plus ANGLING, the sport, also spells the answer.",
+     "definitionFit": "Gangling means tall, thin and awkward in movement, a near synonym for ungainly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mob"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +611,58 @@
     "text": "With cranesbill poet George keeps sibling short",
     "enumeration": "4,6"
    },
-   "solution": "HERBROBERT"
+   "solution": "HERBROBERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HERB ROBERT",
+    "definitions": [
+     {
+      "text": "cranesbill",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it within, so one element goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet George",
+      "gives": "HERBERT",
+      "note": "George Herbert, the 17th-century English religious poet"
+     },
+     {
+      "clueFragment": "sibling short",
+      "gives": "BRO",
+      "note": "brother cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "BRO",
+      "BERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet keeps his brother's flowers close.",
+     "walkthrough": "'Poet George' points to the metaphysical poet George Herbert, whose surname is the outer part.",
+     "definitionFit": "Herb Robert is a common wild geranium, and cranesbill is the general name for that genus of plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +676,46 @@
     "text": "Protector or practitioner of game",
     "enumeration": "6"
    },
-   "solution": "KEEPER"
+   "solution": "KEEPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KEEPER",
+    "definitions": [
+     {
+      "text": "Protector",
+      "at": 0
+     },
+     {
+      "text": "practitioner of game",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protector",
+      "note": "first meaning: a guardian or custodian"
+     },
+     {
+      "clueFragment": "practitioner of game",
+      "note": "second meaning: a goalkeeper or wicketkeeper, or one who keeps game birds"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether someone guards a thing or simply plays at it.",
+     "definitionFit": "A keeper guards things, and in sport a goalkeeper or gamekeeper is a specialist role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +729,60 @@
     "text": "Choice pole for fishing, capital for shrew: shortage of fuel for aircraft centre too",
     "enumeration": "10"
    },
-   "solution": "PETRODROME"
+   "solution": "PETRODROME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PETRODROME",
+    "definitions": [
+     {
+      "text": "shrew",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choice",
+      "gives": "PET",
+      "note": "a pet project is a favoured choice"
+     },
+     {
+      "clueFragment": "pole for fishing",
+      "gives": "ROD",
+      "note": "a fishing rod"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "the capital of Italy"
+     },
+     {
+      "clueFragment": "shortage of fuel for aircraft centre too",
+      "note": "a second route: petrol cut short, then the drome of an aerodrome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PET",
+      "ROD",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A rambling list of fishing gear, a capital city, and an airport running out of fuel.",
+     "walkthrough": "The last part offers PETRO (petrol, short) plus DROME, an airfield, as a second route to the same letters.",
+     "definitionFit": "Petrodromus is a genus of elephant shrew, and the anglicised name refers to that small long-snouted mammal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Choice"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +796,65 @@
     "text": "Spruce tree destroyed by something with three feet",
     "enumeration": "8"
    },
-   "solution": "TRIMETER"
+   "solution": "TRIMETER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TRIMETER",
+    "definitions": [
+     {
+      "text": "something with three feet",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "destroyed means wrecked, so the word is broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spruce",
+      "gives": "TRIM",
+      "note": "spruce and trim both mean neat"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ETER",
+      "note": "the word tree rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIM",
+      "ETER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "ETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spruce tree is felled by a three-legged creature.",
+     "walkthrough": "'Spruce tree' reads as one conifer; spruce is the adjective neat.",
+     "definitionFit": "A trimeter is a line of verse made of three metrical units, or feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spruce"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +868,53 @@
     "text": "For all that strayed the Sabbath was designed",
     "enumeration": "4,3"
    },
-   "solution": "RESTDAY"
+   "solution": "RESTDAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REST DAY",
+    "definitions": [
+     {
+      "text": "the Sabbath",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "was designed",
+      "for": "anagram",
+      "note": "something designed is planned and arranged, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "For all that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strayed",
+      "gives": "STRAYED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRAYED",
+       "gives": "RESTDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher's line that the holy day was made even for those who went astray.",
+     "definitionFit": "The Sabbath is the weekly day of rest kept by religious tradition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +928,61 @@
     "text": "(A near mad answer) Folk from desert climes",
     "enumeration": "8"
    },
-   "solution": "ARABIANS"
+   "solution": "ARABIANS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ARABIANS",
+    "definitions": [
+     {
+      "text": "Folk from desert climes",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "near",
+      "for": "deletion",
+      "note": "'near' means almost, so the word falls just short of its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mad",
+      "gives": "RABID",
+      "note": "rabid means raving or frenzied"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "standard abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RABI",
+      "ANS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bracketed aside about a crazy reply, then a note on desert peoples.",
+     "walkthrough": "RABID loses its last letter to give RABI.",
+     "definitionFit": "Arabians are natives of Arabia, a peninsula known for its desert climate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +996,50 @@
     "text": "Bleak House campaigner has explosive near",
     "enumeration": "7"
    },
-   "solution": "JELLYBY"
+   "solution": "JELLYBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JELLYBY",
+    "definitions": [
+     {
+      "text": "Bleak House campaigner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explosive",
+      "gives": "JELLY",
+      "note": "jelly is slang for gelignite"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means beside or close to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JELLY",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Dickens activist has a bomb close at hand.",
+     "walkthrough": "Mrs Jellyby in Dickens's Bleak House neglects her family to campaign for an African mission.",
+     "definitionFit": "Mrs Jellyby is the obsessive philanthropic campaigner in Dickens's novel Bleak House."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1053,51 @@
     "text": "Some weapons’ parts in bags with witch’s rhymes",
     "enumeration": "8"
    },
-   "solution": "BREECHES"
+   "solution": "BREECHES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BREECHES",
+    "definitions": [
+     {
+      "text": "Some weapons’ parts",
+      "at": 0
+     },
+     {
+      "text": "bags",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some weapons’ parts",
+      "note": "first meaning: the rear ends of gun barrels"
+     },
+     {
+      "clueFragment": "bags",
+      "note": "second meaning: trousers, as in Oxford bags"
+     },
+     {
+      "clueFragment": "with witch’s rhymes",
+      "note": "the trouser sense is said to rhyme with witches"
+     }
+    ],
+    "explanation": {
+     "surface": "A spell for loading guns, spoken in witch's rhyme.",
+     "walkthrough": "As trousers the word is said 'britches', rhyming with witches; as gun parts it keeps the long vowel. Bags are wide British trousers.",
+     "definitionFit": "The breech is the back part of a gun barrel, and breeches are short trousers fastened below the knee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1111,65 @@
     "text": "Where law is turned to ass, a Francophone",
     "enumeration": "7"
    },
-   "solution": "WALLOON"
+   "solution": "WALLOON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WALLOON",
+    "definitions": [
+     {
+      "text": "a Francophone",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means facing the other way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "Where",
+     "is",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "law",
+      "gives": "LAW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ass",
+      "gives": "LOON",
+      "note": "a loon is a fool, as is an ass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAL",
+      "LOON"
+     ],
+     "reversals": [
+      {
+       "from": "LAW",
+       "to": "WAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Echoes Mr Bumble's line that the law is an ass, set in a French-speaking country.",
+     "definitionFit": "Walloons are the French-speaking people of southern Belgium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ass"
+    }
+   }
   },
   {
    "number": 20,
@@ -304,7 +1183,71 @@
     "text": "Arches in skull with right make Mozart gay",
     "enumeration": "8"
    },
-   "solution": "ZYGOMATA"
+   "solution": "ZYGOMATA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ZYGOMATA",
+    "definitions": [
+     {
+      "text": "Arches in skull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with right make",
+      "for": "deletion",
+      "note": "the answer plus a right would make the phrase, so a right must be removed from it"
+     },
+     {
+      "text": "gay",
+      "for": "anagram",
+      "note": "gay in its old sense of merry and lively, so the letters frolic into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mozart",
+      "gives": "MOZART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gay",
+      "gives": "GAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZYGOMATA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOZATGAY",
+       "gives": "ZYGOMATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Absurd: bones of the skull turning a composer cheerful.",
+     "walkthrough": "Add R to the answer and you have the letters of MOZART GAY; so remove R from those letters and rearrange.",
+     "definitionFit": "The zygomata are the cheekbone arches, bony bridges on each side of the skull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gay"
+    }
+   }
   },
   {
    "number": 21,
@@ -318,7 +1261,68 @@
     "text": "You’ve swallowed broken pipe, I’m glad to say",
     "enumeration": "6"
    },
-   "solution": "YIPPEE"
+   "solution": "YIPPEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "YIPPEE",
+    "definitions": [
+     {
+      "text": "I’m glad to say",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "’ve swallowed",
+      "for": "container",
+      "note": "to have swallowed something is to hold it within, so one element goes inside the other"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "broken means shattered, so the word's letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "IPPE",
+      "note": "pipe rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "IPPE",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIPE",
+       "gives": "IPPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful remark to someone who has swallowed a broken pipe.",
+     "walkthrough": "YE is the archaic form of you, still heard in dialect and in phrases like 'hear ye'.",
+     "definitionFit": "Yippee is an exclamation of delight, so it is what one says when glad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "swallowed"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1354,62 @@
    "group": [
     "22-down",
     "22-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FOSTER FATHER",
+    "definitions": [
+     {
+      "text": "took in kid",
+      "at": 24,
+      "note": "describes the person by what they did; the answer is a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is remade, so the following word appears in a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forest",
+      "gives": "FOSTER",
+      "note": "forest rearranged"
+     },
+     {
+      "clueFragment": "opera singer",
+      "gives": "FATHER",
+      "note": "a father is a standard singing role in opera, as in Humperdinck's Hansel and Gretel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOSTER",
+      "FATHER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOREST",
+       "gives": "FOSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer from an opera company based in the New Forest adopts a child.",
+     "walkthrough": "The New Forest is a woodland area in Hampshire, southern England.",
+     "definitionFit": "A foster father is a man who raises a child not his own, having taken it into his home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1423,61 @@
     "text": "These subatomic things on page unknown",
     "enumeration": "1-9"
    },
-   "solution": "XPARTICLES"
+   "solution": "XPARTICLES",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "X-PARTICLES",
+    "definitions": [
+     {
+      "text": "These subatomic things on page unknown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in this reading 'on' means placed after, so the word before it is sent to the back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the algebraic unknown"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "things",
+      "gives": "ARTICLES",
+      "note": "articles are items or things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "P",
+      "ARTICLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Mysterious tiny particles written about on a page, nature unknown.",
+     "walkthrough": "The whole clue defines as well: these particles are hypothetical, known only on paper, while ARTICLES is placed on (after) P with X in front.",
+     "definitionFit": "X-particles are hypothetical heavy subatomic bosons proposed in grand unified theories, existing so far only in theory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "page"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1509,57 @@
    "group": [
     "24-down",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIVA VOCE",
+    "definitions": [
+     {
+      "text": "test",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bat Richards",
+      "gives": "VIV",
+      "note": "Viv Richards, the great West Indies batsman"
+     },
+     {
+      "clueFragment": "and a",
+      "gives": "A",
+      "note": "the a, joined on"
+     },
+     {
+      "clueFragment": "bowler (old)",
+      "gives": "VOCE",
+      "note": "Bill Voce, England fast bowler of the 1930s Bodyline series"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIV",
+      "A",
+      "VOCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman and a veteran bowler line up in a Test match.",
+     "walkthrough": "'Test' suggests a cricket Test match, but here it is an exam.",
+     "definitionFit": "A viva voce is an oral examination, especially for a university degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1573,51 @@
     "text": "The steel menagerie has Woody hid",
     "enumeration": "5"
    },
-   "solution": "ELMEN"
+   "solution": "ELMEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELMEN",
+    "definitions": [
+     {
+      "text": "Woody",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "hidden_word",
+      "note": "'has' says the phrase holds something within it"
+     },
+     {
+      "text": "hid",
+      "for": "hidden_word",
+      "note": "'hid' confirms the thing held is concealed inside the phrase"
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steel menagerie",
+      "gives": "ELMEN",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A metal zoo is hiding someone called Woody.",
+     "walkthrough": "'has Woody hid' wraps around the definition: the phrase has the woody word hidden.",
+     "definitionFit": "Elmen is an old adjective meaning made of elm wood, hence woody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Woody"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1631,68 @@
     "text": "Round one: go round with general survey",
     "enumeration": "8"
    },
-   "solution": "OVERVIEW"
+   "solution": "OVERVIEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVERVIEW",
+    "definitions": [
+     {
+      "text": "general survey",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the second 'round' means surrounding, so that word encloses the one before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Round",
+      "gives": "O",
+      "note": "a round shape, the letter O"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "VERVE",
+      "note": "go in the sense of energy and dash"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERV",
+      "I",
+      "E",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing commentator's broad survey after round one.",
+     "walkthrough": "O, then VERV(I)E, then W.",
+     "definitionFit": "An overview is a broad summary of a subject, giving a general picture without detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   }
  ]
 }
