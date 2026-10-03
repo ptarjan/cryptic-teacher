@@ -78,7 +78,10 @@ def engine(which):
             tmp = model.with_suffix(".part")
             tmp.write_bytes(data)
             tmp.replace(model)
-        _ENGINES[which] = RapidOCR(rec_model_path=str(model)) if model else RapidOCR()
+        # Each parallel reader gets its share of the cores, or N workers each
+        # take all of them and the host runs at N times its CPU count.
+        threads = {"intra_op_num_threads": int(os.environ.get("OCR_THREADS", "-1")), "inter_op_num_threads": 1}
+        _ENGINES[which] = RapidOCR(rec_model_path=str(model), **threads) if model else RapidOCR(**threads)
     return _ENGINES[which]
 
 
