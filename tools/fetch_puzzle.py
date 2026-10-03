@@ -1913,6 +1913,14 @@ SOURCE_CLUE_WRONG = {
         "Part of Night in fastest airliner",
         "Part of flight in fastest airliner",
         "OCR misread: the definition needs flight, as in a flight of stairs"),
+    ("times-17395", "3-down"): (
+        "Rallying grounds where one may-hold the advantage?",
+        "Rallying grounds where one may hold the advantage?",
+        "OCR misread: a stray hyphen stands where the space was"),
+    ("times-17395", "16-down"): (
+        "Knight going to ground - a narrow' escape",
+        "Knight going to ground - a narrow escape",
+        "OCR misread: a stray apostrophe follows narrow"),
     ("times-17393", "12-across"): (
         "( Occupation for the heartless French city girl",
         "Occupation for the heartless French city girl",
