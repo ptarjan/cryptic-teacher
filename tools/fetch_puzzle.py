@@ -2242,6 +2242,50 @@ SOURCE_CLUE_WRONG = {
         "The under-lens skate back to town",
         "The under-tens skate back to town",
         "OCR misread: a Yarborough is a bridge hand of under-tens, no card above nine"),
+    ("times-16652", "5-down"): (
+        "Appalling article by sergeant-major gels over a pound",
+        "Appalling article by sergeant-major gets over a pound",
+        "OCR misread: the clue reads gets over, SM sitting over A L"),
+    ("times-16652", "10-across"): (
+        "Instrument decapitating a buccaneer 5.",
+        "Instrument decapitating a buccaneer",
+        "OCR misread: the trailing 5. is a doubled enumeration"),
+    ("times-16652", "27-across"): (
+        "5 Some say it's but a substitute",
+        "Some say it's but a substitute for fresh German air",
+        "OCR misread: the leading 5 is a stray enumeration"),
+    ("times-16658", "13-across"): (
+        "Relative eve-opener in a Mediterranean resort",
+        "Relative eye-opener in a Mediterranean resort",
+        "OCR misread: the first letter of eye, an eye-opener"),
+    ("times-16658", "7-down"): (
+        "Fatty in ceremonial robes, end lessly chan ling",
+        "Fatty in ceremonial robes, endlessly changing",
+        "OCR misread: the words are endlessly and changing"),
+    ("times-16672", "10-across"): (
+        "Old textile worker liable 10 be missed?",
+        "Old textile worker liable to be missed?",
+        "OCR misread: the wordplay needs to, not 10"),
+    ("times-16672", "20-across"): (
+        "... while ÉEmile chases frightful female for another",
+        "... while Émile chases frightful female for another",
+        "OCR misread: the novelist Émile Zola, with a stray doubled E"),
+    ("times-16672", "25-across"): (
+        "One with a wet chin making 3 run at Wembley",
+        "One with a wet chin making a run at Wembley",
+        "OCR misread: the second meaning needs making a run, not 3 run"),
+    ("times-16672", "26-across"): (
+        "Old German duchy providing capital for W1",
+        "Old German duchy providing capital for WI",
+        "OCR misread: WI, the West Indies, not W1"),
+    ("times-16672", "8-down"): (
+        "Marshal imprisons 200. including classical type, for witchcraft",
+        "Marshal imprisons 200, including classical type, for witchcraft",
+        "OCR misread: a comma, not a full stop, after 200"),
+    ("times-16672", "27-across"): (
+        "Jack, model of-industry, takes girl to a dance",
+        "Jack, model of industry, takes girl to a dance",
+        "OCR misread: model of industry, with no hyphen"),
 }
 
 
