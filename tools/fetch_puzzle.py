@@ -1898,6 +1898,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17392", "18-down"): (
+        "Fatty takes swim with nothing on in rough sca",
+        "Fatty takes swim with nothing on in rough sea",
+        "OCR misread: the anagram needs the letters of sea around DIP and O"),
     ("times-17859", "5-down"): (
         "How's (that for an attraction?",
         "How's that for an attraction?",
