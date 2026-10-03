@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17648", "12-across"): (
+        "Money teachers used to obtain take",
+        "Money teachers used to obtain cake",
+        "OCR misread: the definition must be cake, a doughnut being one"),
     ("times-17646", "8-down"): (
         "The church lacking . change, many will give such a coin",
         "The church lacking change, many will give such a coin",
