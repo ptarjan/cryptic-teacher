@@ -1728,6 +1728,10 @@ def bare_letters(solution):
 # which marks a whole puzzle's fill unofficial. This table is the opposite case:
 # an official key, published, with a known error in two of its letters.
 SOURCE_ANSWER_WRONG = {
+    ("times-17841", "24-across"): (
+        "ALISI", "ALIBI",
+        '"Left one bishop to be taken in excellent defence" is L, I, B inside '
+        "A1 (excellent), which spells ALIBI, a defence; ALISI is not a word"),
     ("cryptic-22711", "21-down"): (
         "AQUATINIA", "AQUATINTA",
         '"Unusual work of art used among volunteers after weedkiller, if below '
@@ -1889,6 +1893,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17841", "3-down"): (
+        "Record a critical) remark",
+        "Record a critical remark",
+        "OCR misread: a stray bracket was read into the clue after critical"),
+    ("times-17841", "8-down"): (
+        "One's . performances can be taken either way",
+        "One's performances can be taken either way",
+        "OCR misread: a speck on the scan was read as a full stop"),
     ("times-17725", "1-down"): (
         "A's one — Al",
         "A's one — A1",
