@@ -24,6 +24,9 @@
   "date": "2024-08-09",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,42 @@
     "text": "Rapid pace cut short — a blow!",
     "enumeration": "4"
    },
-   "solution": "CLIP"
+   "solution": "CLIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLIP",
+    "definitions": [
+     {
+      "text": "Rapid pace cut short",
+      "at": 0
+     },
+     {
+      "text": "a blow",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rapid pace cut short",
+      "note": "first sense: a brisk speed, as in moving at a good rate; also, to cut short is to trim"
+     },
+     {
+      "clueFragment": "a blow",
+      "note": "second sense: a sharp smack, as in a cuff round the ear"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Really three meanings in a row: a rapid pace, to cut short, and a blow. The dash makes it read like a breathless report of an injury.",
+     "definitionFit": "The word covers a brisk speed, the act of trimming something, and a quick sharp smack with the hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +89,57 @@
     "text": "Ancient Med city gate, arch, recollected",
     "enumeration": "8"
    },
-   "solution": "CARTHAGE"
+   "solution": "CARTHAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARTHAGE",
+    "definitions": [
+     {
+      "text": "Ancient Med city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recollected",
+      "for": "anagram",
+      "note": "read as re-collected, gathered up again into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gate",
+      "gives": "GATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "arch",
+      "gives": "ARCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GATEARCH",
+       "gives": "CARTHAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist remembers the gate and arch of some ancient Mediterranean city.",
+     "walkthrough": "'Recollected' seems to mean remembered, but split as re-collected it means the letters are gathered again in a new order.",
+     "definitionFit": "Carthage was the great Phoenician trading port on the North African coast, destroyed by Rome in 146 BC."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "recollected"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +153,53 @@
     "text": "Enticing learner — University indication of engagement?",
     "enumeration": "6"
    },
-   "solution": "LURING"
+   "solution": "LURING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LURING",
+    "definitions": [
+     {
+      "text": "Enticing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner plate on a British car"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "standard abbreviation for university"
+     },
+     {
+      "clueFragment": "indication of engagement",
+      "gives": "RING",
+      "note": "an engagement ring signals a couple are betrothed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "A student at university showing off a ring that hints at a wedding to come.",
+     "walkthrough": "The question mark flags that 'indication of engagement' is a playful way of describing a piece of jewellery.",
+     "definitionFit": "Luring means tempting or drawing someone in, often with a bait or promise of reward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +213,62 @@
     "text": "City celebrity interrupted by steel band at first",
     "enumeration": "6"
    },
-   "solution": "LISBON"
+   "solution": "LISBON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LISBON",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each of the two words before it"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "something interrupted has other material break into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "LION",
+      "note": "a lion is a much-feted famous person, as in a literary lion"
+     },
+     {
+      "clueFragment": "steel band",
+      "gives": "SB",
+      "select": "first",
+      "note": "the opening letters of steel and band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "SB",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous musician's performance is disrupted by a Caribbean steel band.",
+     "walkthrough": "A steel band is a Caribbean ensemble playing tuned oil drums; here only its initials matter.",
+     "definitionFit": "Lisbon is the capital of Portugal, sitting on the estuary of the Tagus river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +282,46 @@
     "text": "One with income from property, not so much? Otherwise!",
     "enumeration": "6"
    },
-   "solution": "LESSOR"
+   "solution": "LESSOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LESSOR",
+    "definitions": [
+     {
+      "text": "One with income from property",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not so much",
+      "gives": "LESS",
+      "note": "a smaller amount"
+     },
+     {
+      "clueFragment": "Otherwise",
+      "gives": "OR",
+      "note": "or, as in do it or else"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord asks whether rental earnings are falling, then insists they are not.",
+     "definitionFit": "A lessor grants a lease and receives rent from the tenant, so earns money from owning a building or land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Otherwise"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +335,43 @@
     "text": "Nautical equipment transaction reported",
     "enumeration": "4"
    },
-   "solution": "SAIL"
+   "solution": "SAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SAIL",
+    "definitions": [
+     {
+      "text": "Nautical equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by voice, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transaction",
+      "gives": "SAIL",
+      "soundsLike": "SALE",
+      "note": "a sale is a commercial deal"
+     }
+    ],
+    "explanation": {
+     "surface": "News of a deal for some boating gear.",
+     "definitionFit": "A sail is the canvas sheet rigged on a mast to catch the wind and drive a vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transaction"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +385,45 @@
     "text": "Perhaps catch by chance located in this country it’s said",
     "enumeration": "8"
    },
-   "solution": "OVERHEAR"
+   "solution": "OVERHEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OVERHEAR",
+    "definitions": [
+     {
+      "text": "Perhaps catch by chance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it’s said",
+      "for": "homophone",
+      "note": "what is said is heard rather than read, so the sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "located in this country",
+      "gives": "OVERHEAR",
+      "soundsLike": "OVER HERE",
+      "note": "where we are, as opposed to over there"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders if a fugitive might be caught by luck, being somewhere in this country.",
+     "walkthrough": "'Catch' suggests arresting someone, but it means hearing; 'perhaps' marks the definition as one example.",
+     "definitionFit": "To catch something by chance can mean hearing words not meant for you, which is exactly eavesdropping accidentally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +437,55 @@
     "text": "Happy experience parking by field? Quite",
     "enumeration": "8"
    },
-   "solution": "PLEASURE"
+   "solution": "PLEASURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASURE",
+    "definitions": [
+     {
+      "text": "Happy experience",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road sign for a car park"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "LEA",
+      "note": "lea is a poetic word for a meadow"
+     },
+     {
+      "clueFragment": "Quite",
+      "gives": "SURE",
+      "note": "as an emphatic reply, quite and sure both mean certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEA",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked whether parking in a field was a joy replies 'Quite!'",
+     "definitionFit": "Pleasure is enjoyment or delight, and a pleasure can be an enjoyable event or occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quite"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +499,49 @@
     "text": "One aims to shoot bird by river",
     "enumeration": "6"
    },
-   "solution": "SNIPER"
+   "solution": "SNIPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNIPER",
+    "definitions": [
+     {
+      "text": "One aims to shoot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "SNIPE",
+      "note": "a long-billed wading bird"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNIPE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter takes aim at a bird beside a river.",
+     "walkthrough": "The snipe is hard to shoot, which is where the word for a hidden marksman came from.",
+     "definitionFit": "A sniper is a marksman who fires from a concealed position, someone whose job is taking aim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +555,55 @@
     "text": "To higher level as purist possibly",
     "enumeration": "8"
    },
-   "solution": "UPSTAIRS"
+   "solution": "UPSTAIRS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UPSTAIRS",
+    "definitions": [
+     {
+      "text": "To higher level",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements the letters might take"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "purist",
+      "gives": "PURIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASPURIST",
+       "gives": "UPSTAIRS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A purist might aim for loftier standards.",
+     "definitionFit": "Going upstairs means climbing to the floor above, so moving towards a higher storey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "purist"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +617,61 @@
     "text": "Plan is doomed from the start, dead, outsiders leave",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDEA",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the start",
+      "for": "letter_selection",
+      "note": "from the start takes only the opening letter of each word before it"
+     },
+     {
+      "text": "outsiders leave",
+      "for": "letter_selection",
+      "note": "when outsiders leave, only the inner letters of the word remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is doomed",
+      "gives": "ID",
+      "select": "first",
+      "note": "opening letters of is and doomed"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "EA",
+      "select": "middle",
+      "note": "the word with its first and last letters gone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "EA"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy verdict: the scheme was doomed from the outset and is now dead.",
+     "definitionFit": "An idea is a thought or scheme for doing something, much like a proposal or plan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doomed"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +685,51 @@
     "text": "This is potentially dangerous, it may end disastrously",
     "enumeration": "8"
    },
-   "solution": "DYNAMITE"
+   "solution": "DYNAMITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DYNAMITE",
+    "definitions": [
+     {
+      "text": "This is potentially dangerous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disastrously",
+      "for": "anagram",
+      "note": "something gone disastrously has been wrecked and its parts scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it may end",
+      "gives": "ITMAYEND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITMAYEND",
+       "gives": "DYNAMITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning label: this stuff is risky and things could finish badly.",
+     "walkthrough": "The whole clue reads as a description of the answer, with the fodder hidden in a natural phrase.",
+     "definitionFit": "Dynamite is a high explosive, about as hazardous a substance as you can handle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +743,58 @@
     "text": "Worker’s greed ran wild",
     "enumeration": "8"
    },
-   "solution": "GARDENER"
+   "solution": "GARDENER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARDENER",
+    "definitions": [
+     {
+      "text": "Worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "running wild means behaving without order, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greed",
+      "gives": "GREED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREEDRAN",
+       "gives": "GARDENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An employee's greed got out of control.",
+     "definitionFit": "A gardener is someone employed to tend plants and grounds, one example of a labourer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "greed"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +808,51 @@
     "text": "Bustling activity in sandbox on regular basis",
     "enumeration": "3"
    },
-   "solution": "ADO"
+   "solution": "ADO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADO",
+    "definitions": [
+     {
+      "text": "Bustling activity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on regular basis",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sandbox",
+      "gives": "ADO",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "Children busily playing in a sandpit day after day.",
+     "definitionFit": "Ado is fuss and commotion, as in much ado about nothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +866,64 @@
     "text": "Those inside sect with figure in charge, joyful",
     "enumeration": "8"
    },
-   "solution": "ECSTATIC"
+   "solution": "ECSTATIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ECSTATIC",
+    "definitions": [
+     {
+      "text": "joyful",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Those inside",
+      "for": "letter_selection",
+      "note": "those inside are the letters within the word, leaving its outer ones behind"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sect",
+      "gives": "EC",
+      "select": "middle",
+      "note": "the two inner letters"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "STAT",
+      "note": "a stat is a statistic, a number"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "STAT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a religious sect are overjoyed to have a leader in charge.",
+     "definitionFit": "Ecstatic means overwhelmed with delight, a far stronger synonym for happy or joyful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +937,43 @@
     "text": "Winter coming is too much for contact system",
     "enumeration": "8"
    },
-   "solution": "INTERCOM"
+   "solution": "INTERCOM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTERCOM",
+    "definitions": [
+     {
+      "text": "contact system",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is too much for",
+      "for": "hidden_word",
+      "note": "the answer is held within more than enough letters, so the phrase holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winter coming",
+      "gives": "INTERCOM",
+      "note": "drop the W and the final ING"
+     }
+    ],
+    "explanation": {
+     "surface": "The approaching winter will overwhelm the communications network.",
+     "walkthrough": "The answer is longer than one word of the fodder, so it spans the gap between them.",
+     "definitionFit": "An intercom is a two-way speaker system for talking between rooms or buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Winter"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +987,52 @@
     "text": "Awkward position as public official misses centrepiece",
     "enumeration": "6"
    },
-   "solution": "CORNER"
+   "solution": "CORNER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CORNER",
+    "definitions": [
+     {
+      "text": "Awkward position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misses centrepiece",
+      "for": "deletion",
+      "note": "missing the centrepiece means the single letter in the very middle is dropped"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public official",
+      "gives": "CORONER",
+      "note": "an official who investigates sudden deaths"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "NER"
+     ]
+    },
+    "explanation": {
+     "surface": "An official in an awkward spot has lost the central piece of a display.",
+     "walkthrough": "CORONER has seven letters, so its centre is the fourth, the second O.",
+     "definitionFit": "Being in a corner, as in painted into a corner, is an idiom for a tricky predicament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centrepiece"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1046,59 @@
     "text": "New OC aims to produce colourful design?",
     "enumeration": "6"
    },
-   "solution": "MOSAIC"
+   "solution": "MOSAIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOSAIC",
+    "definitions": [
+     {
+      "text": "colourful design?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is made afresh, so the letters are formed into a different order"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OC",
+      "gives": "OC",
+      "note": "taken as written; OC is an officer commanding"
+     },
+     {
+      "clueFragment": "aims",
+      "gives": "AIMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OCAIMS",
+       "gives": "MOSAIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly arrived commanding officer sets goals to come up with a bright scheme.",
+     "walkthrough": "The question mark admits the definition is only an example: a picture from coloured tiles.",
+     "definitionFit": "A mosaic is a picture or pattern built from many small pieces of coloured stone or glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aims"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1112,64 @@
     "text": "Dress artist’s recalled, reaching India",
     "enumeration": "4"
    },
-   "solution": "SARI"
+   "solution": "SARI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SARI",
+    "definitions": [
+     {
+      "text": "Dress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the letters run back the other way"
+     }
+    ],
+    "linkWords": [
+     "reaching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist’s",
+      "gives": "RAS",
+      "note": "RA, a Royal Academician, plus the 's"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAR",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "RAS",
+       "to": "SAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist remembers a frock, on arriving in India.",
+     "walkthrough": "RA stands for Royal Academician, a member of the Royal Academy of Arts in London.",
+     "definitionFit": "A sari is a long length of cloth wrapped as a garment, worn by women in South Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1183,55 @@
     "text": "Heavy defeat — manager finally dismissed",
     "enumeration": "4"
    },
-   "solution": "ROUT"
+   "solution": "ROUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROUT",
+    "definitions": [
+     {
+      "text": "Heavy defeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manager",
+      "gives": "R",
+      "select": "last",
+      "note": "the word's last letter"
+     },
+     {
+      "clueFragment": "dismissed",
+      "gives": "OUT",
+      "note": "a batsman dismissed in cricket is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "After a thrashing on the pitch, the manager is at last sacked.",
+     "definitionFit": "A rout is a crushing victory in which the losing side is completely overwhelmed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dismissed"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1245,61 @@
     "text": "Investigation about burn, achy when uncovered",
     "enumeration": "8"
    },
-   "solution": "RESEARCH"
+   "solution": "RESEARCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESEARCH",
+    "definitions": [
+     {
+      "text": "Investigation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when uncovered",
+      "for": "letter_selection",
+      "note": "uncovered means stripped of its covering, the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "burn",
+      "gives": "SEAR",
+      "note": "to scorch"
+     },
+     {
+      "clueFragment": "achy",
+      "gives": "CH",
+      "select": "middle",
+      "note": "the inner two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SEAR",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical inquiry into a burn that aches once its dressing is off.",
+     "definitionFit": "Research is systematic study to discover facts, which is a kind of inquiry or probe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1313,46 @@
     "text": "Name caught by everyone",
     "enumeration": "4"
    },
-   "solution": "CALL"
+   "solution": "CALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALL",
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "by everyone",
+      "gives": "ALL",
+      "note": "everyone is all; by joins the pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A name everyone heard.",
+     "definitionFit": "To call someone something is to give them a title, as in they call him Bob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1366,58 @@
     "text": "Deny any connection with noise, as animal’s inside",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Deny any connection with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one thing within the other, splitting its letters"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noise",
+      "gives": "DIN",
+      "note": "a loud racket"
+     },
+     {
+      "clueFragment": "animal’s",
+      "gives": "SOW",
+      "note": "a female pig; the 's is read as is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone denies responsibility for a racket coming from an animal shut indoors.",
+     "walkthrough": "The apostrophe-s on the animal is read as 'is', so the animal is inside the noise.",
+     "definitionFit": "To disown someone is to refuse to acknowledge them, cutting all ties publicly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "animal’s"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1431,46 @@
     "text": "Entitled to compete and fit for match?",
     "enumeration": "8"
    },
-   "solution": "ELIGIBLE"
+   "solution": "ELIGIBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELIGIBLE",
+    "definitions": [
+     {
+      "text": "Entitled to compete",
+      "at": 0
+     },
+     {
+      "text": "fit for match",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entitled to compete",
+      "note": "first meaning: qualified to take part"
+     },
+     {
+      "clueFragment": "fit for match",
+      "note": "second meaning: desirable as a marriage partner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Match' reads as a sporting fixture after 'compete', but here it is a marriage match.",
+     "definitionFit": "The word means meeting the rules for entry, and describes a single person regarded as a good catch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1484,73 @@
     "text": "One owing money returning bed to seller in the end",
     "enumeration": "6"
    },
-   "solution": "DEBTOR"
+   "solution": "DEBTOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEBTOR",
+    "definitions": [
+     {
+      "text": "One owing money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word is read from right to left"
+     },
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "in the end takes only the closing letter of the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seller",
+      "gives": "R",
+      "select": "last",
+      "note": "the word's last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "TO",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "BED",
+       "to": "DEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in debt sends a bed back to the shop that sold it.",
+     "definitionFit": "A debtor is a person who has borrowed and still has a sum to repay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seller"
+    }
+   }
   }
  ]
 }
