@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "River containing 75 per cent of fish, lower",
     "enumeration": "6"
    },
-   "solution": "DEBASE"
+   "solution": "DEBASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DEBASE",
+    "definitions": [
+     {
+      "text": "lower",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "75 per cent of",
+      "for": "letter_selection",
+      "note": "three quarters of a four-letter word means keeping its first three letters and dropping the last"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the river's name is wrapped around the other piece, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "DEE",
+      "note": "the Dee is a river in Wales, England and Scotland"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "BAS",
+      "select": "first",
+      "note": "the first three of the four letters of bass, a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's river holds most of the fish, sitting low in the water.",
+     "walkthrough": "'Lower' is a verb here, to bring down, not an adjective describing the fish.",
+     "definitionFit": "To debase something is to degrade it or reduce its value or standing, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +104,78 @@
     "text": "God: American under clerical council raised to accept one",
     "enumeration": "8"
    },
-   "solution": "DIONYSUS"
+   "solution": "DIONYSUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DIONYSUS",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word up means reading it from bottom to top"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "taking something in means the other letters wrap around it"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, placing something under another puts it after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clerical council",
+      "gives": "SYNOD",
+      "note": "a synod is an assembly of clergy"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "ONYS",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "SYNOD",
+       "to": "DONYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deity watches as an American sits beneath a church council that is promoted to admit someone.",
+     "definitionFit": "Dionysus was the Greek deity of wine and revelry, an example of a classical god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +189,43 @@
     "text": "By the sound of it, panel fed up",
     "enumeration": "5"
    },
-   "solution": "BORED"
+   "solution": "BORED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BORED",
+    "definitions": [
+     {
+      "text": "fed up",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "the phrase asks the solver to go by how a word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panel",
+      "gives": "BORED",
+      "soundsLike": "BOARD",
+      "note": "a board is a panel of wood, or a committee"
+     }
+    ],
+    "explanation": {
+     "surface": "A committee seems to have had enough of everything.",
+     "definitionFit": "Being fed up means weary and lacking interest, which is how a person feels when tired of something dull."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "panel"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +239,42 @@
     "text": "Person who criticises prison?",
     "enumeration": "7"
    },
-   "solution": "SLAMMER"
+   "solution": "SLAMMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLAMMER",
+    "definitions": [
+     {
+      "text": "Person who criticises",
+      "at": 0
+     },
+     {
+      "text": "prison",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person who criticises",
+      "note": "first meaning, whimsical: someone who slams, attacks verbally"
+     },
+     {
+      "clueFragment": "prison",
+      "note": "second meaning: slang for a jail"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the invented sense: one who slams others in reviews.",
+     "definitionFit": "Slammer is everyday slang for a jail, and to slam is to attack harshly in words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +288,49 @@
     "text": "Difficult situation, conflict, for vessel",
     "enumeration": "6"
    },
-   "solution": "JAMJAR"
+   "solution": "JAMJAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAMJAR",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult situation",
+      "gives": "JAM",
+      "note": "to be in a jam is to be in a tight spot"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "JAR",
+      "note": "a jar is a clash or disagreement, as when ideas jar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "JAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky fight breaks out over who gets the boat.",
+     "definitionFit": "A jam jar is a glass container, and a container that holds things can be called a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +344,71 @@
     "text": "African girl keeping a diary up",
     "enumeration": "7"
    },
-   "solution": "ANGOLAN"
+   "solution": "ANGOLAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ANGOLAN",
+    "definitions": [
+     {
+      "text": "African",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters are read bottom to top"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it, so the girl's name goes around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "diary",
+      "gives": "LOG",
+      "note": "a log is a daily record"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ANN",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GOLA",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "ALOG",
+       "to": "GOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl writes a journal while on safari.",
+     "definitionFit": "Someone from Angola, in south-west Africa, is an African; the adjective and noun share a form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +428,49 @@
      }
     ]
    },
-   "solution": "JETSETTER"
+   "solution": "JETSETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JET-SETTER",
+    "definitions": [
+     {
+      "text": "Traveller",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "JET",
+      "note": "jet is a black stone, hence jet-black"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "SETTER",
+      "note": "a setter is a breed of gun dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "SETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on the road accompanied by a dark-coated hound.",
+     "definitionFit": "A jet-setter is a wealthy person who flies around the world for pleasure, so a frequent traveller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +484,47 @@
     "text": "Deny judge employment",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFUSE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "REF",
+      "note": "a ref, short for referee, judges a game"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "employment in the sense of putting something to use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses a judge a job.",
+     "walkthrough": "'Employment' means use, not a job.",
+     "definitionFit": "To refuse a request is to decline or reject it, which is what denying someone does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "employment"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +538,59 @@
     "text": "Piece inside hard fruit for hog",
     "enumeration": "8"
    },
-   "solution": "GOURMAND"
+   "solution": "GOURMAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOURMAND",
+    "definitions": [
+     {
+      "text": "hog",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one piece sits within the other, so the first is placed in the middle of the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard fruit",
+      "gives": "GOURD",
+      "note": "a gourd is a fruit with a hard rind"
+     },
+     {
+      "clueFragment": "Piece",
+      "gives": "MAN",
+      "note": "a chess or draughts piece is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOUR",
+      "MAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of tough fruit is given to a pig to eat.",
+     "walkthrough": "'Hog' looks like the animal, but it means a greedy person.",
+     "definitionFit": "A hog is someone who eats or takes more than a fair share, which is what a glutton or gourmand does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hog"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +610,67 @@
      }
     ]
    },
-   "solution": "DIDDLYSQUAT"
+   "solution": "DIDDLYSQUAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DIDDLY-SQUAT",
+    "definitions": [
+     {
+      "text": "Anything",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means only the letters in odd-numbered positions are kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one piece comes after the other in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "DID",
+      "note": "to have done something is to have finished it"
+     },
+     {
+      "clueFragment": "delay",
+      "gives": "DLY",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of delay"
+     },
+     {
+      "clueFragment": "Little",
+      "gives": "SQUAT",
+      "note": "squat means short and stocky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "DLY",
+      "SQUAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks if anything is done, given small and odd hold-ups.",
+     "walkthrough": "The phrase is American slang used in negatives: 'you don't know diddly-squat' means you know nothing at all.",
+     "definitionFit": "In negative sentences the slang term stands for anything whatsoever, as in not caring a jot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +690,42 @@
      }
     ]
    },
-   "solution": "GETOFF"
+   "solution": "GETOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET OFF",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "post",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: to step down from a bus or train, or depart"
+     },
+     {
+      "clueFragment": "post",
+      "note": "second meaning: to send a letter on its way"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To get a letter off is to send it, so the phrasal verb covers posting as well as leaving.",
+     "definitionFit": "The phrasal verb means both to alight or depart and to dispatch mail, as in getting a letter sent today."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +739,53 @@
     "text": "Part of blade, yet rotating in saw",
     "enumeration": "4"
    },
-   "solution": "EYED"
+   "solution": "EYED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EYED",
+    "definitions": [
+     {
+      "text": "saw",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "only a portion of the following words is used, so the letters lie inside them"
+     },
+     {
+      "text": "rotating",
+      "for": "reversal",
+      "note": "turning round means the run of letters is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blade, yet",
+      "gives": "DEYE",
+      "note": "the letters spanning the end of blade and the start of yet"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of a saw blade spinning round, as in a workshop.",
+     "walkthrough": "'Saw' looks like the cutting tool of the surface, but it is the past tense of see.",
+     "definitionFit": "To have eyed something is to have looked at it, so it matches the past tense verb meaning watched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +805,50 @@
      }
     ]
    },
-   "solution": "MIDDLEEAST"
+   "solution": "MIDDLEEAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIDDLE EAST",
+    "definitions": [
+     {
+      "text": "Transcontinental region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made blurry",
+      "for": "anagram",
+      "note": "something blurry has lost its shape, so these letters are rearranged out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listed, made",
+      "gives": "LISTEDMADE",
+      "note": "the ten letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LISTEDMADE",
+       "gives": "MIDDLEEAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A region on a list has had its borders drawn fuzzily on the map.",
+     "definitionFit": "The region spans parts of western Asia and northern Africa, so it straddles two continents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +868,65 @@
      }
     ]
    },
-   "solution": "BUTTERFLYNET"
+   "solution": "BUTTERFLYNET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BUTTERFLY NET",
+    "definitions": [
+     {
+      "text": "might there be a comma in there?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "the word says plainly that the number is written backwards"
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stroke",
+      "gives": "BUTTERFLY",
+      "note": "butterfly is a swimming stroke"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "ten is a figure, a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTTERFLY",
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimming lesson and a grammar puzzle about punctuation get muddled together.",
+     "walkthrough": "The comma is not punctuation but a butterfly species with a white comma-shaped mark on its wing.",
+     "definitionFit": "A collector's net for catching butterflies could well hold a comma, a species of butterfly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "comma"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +940,48 @@
     "text": "Layer helping lab test",
     "enumeration": "9"
    },
-   "solution": "TITRATION"
+   "solution": "TITRATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITRATION",
+    "definitions": [
+     {
+      "text": "lab test",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Layer",
+      "gives": "TIT",
+      "note": "a tit is a small bird, and a bird is something that lays eggs"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a ration is a portion or helping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A stratum assists in a laboratory analysis.",
+     "walkthrough": "'Layer' looks like a stratum, but it means something that lays eggs, here a small bird.",
+     "definitionFit": "Titration is a standard chemistry procedure for finding a solution's concentration, a classic laboratory analysis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Layer"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +995,66 @@
     "text": "Distance set to change over mountains",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESTRANGE",
+    "definitions": [
+     {
+      "text": "Distance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "changing the word means altering the order of its letters"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, one piece sits above the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mountains",
+      "gives": "RANGE",
+      "note": "a range is a chain of mountains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "RANGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The gap is about to shift as you cross a mountain range.",
+     "walkthrough": "'Distance' is a verb here: to distance people from each other.",
+     "definitionFit": "To estrange someone is to alienate them or push them away emotionally, a verb meaning to put apart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Distance"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1074,52 @@
      }
     ]
    },
-   "solution": "TROUSERPRESS"
+   "solution": "TROUSERPRESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROUSER-PRESS",
+    "definitions": [
+     {
+      "text": "Device that decreases",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "written otherwise means set out in a different way, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pure stress, or",
+      "gives": "PURESTRESSOR",
+      "note": "the twelve letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PURESTRESSOR",
+       "gives": "TROUSERPRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gadget sold as a way to lower pure stress, or something like it.",
+     "walkthrough": "'Decreases' reads as reduces, but split it as de-creases: the device removes creases.",
+     "definitionFit": "This household appliance flattens trousers and removes wrinkles from them, so it literally takes creases out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decreases"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1133,67 @@
     "text": "New road in London’s opening first, say?",
     "enumeration": "7"
    },
-   "solution": "ORDINAL"
+   "solution": "ORDINAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORDINAL",
+    "definitions": [
+     {
+      "text": "first, say",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the letters is a fresh arrangement of them"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road in",
+      "gives": "ROADIN",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "London’s",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORDINA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROADIN",
+       "gives": "ORDINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new road is being built at the very start of a London project.",
+     "definitionFit": "First is an example of an ordinal number, one that gives position in a series; 'say' signals the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1207,62 @@
     "text": "Ultimately, chowder is fish dish",
     "enumeration": "7"
    },
-   "solution": "RISSOLE"
+   "solution": "RISSOLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RISSOLE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the end, so only the final letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chowder",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of chowder"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "SOLE",
+      "note": "sole is a flatfish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IS",
+      "SOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "In the end, a chowder turns out to be a seafood meal.",
+     "walkthrough": "'Fish dish' looks like the definition, but fish is the sole and dish alone is the definition.",
+     "definitionFit": "A rissole is a fried cake of minced meat or fish coated in breadcrumbs, a kind of food served at table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1276,47 @@
     "text": "Weak, working for company?",
     "enumeration": "6"
    },
-   "solution": "INFIRM"
+   "solution": "INFIRM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFIRM",
+    "definitions": [
+     {
+      "text": "Weak",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working",
+      "gives": "IN",
+      "note": "a machine that is in is on, working"
+     },
+     {
+      "clueFragment": "for company",
+      "gives": "FIRM",
+      "note": "a firm is a company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FIRM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frail asks whether they are working for a business.",
+     "walkthrough": "'For company' reads as firm alone; 'for' simply means standing for.",
+     "definitionFit": "Infirm describes someone feeble or frail, usually through age or illness, matching weak as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1340,44 @@
      }
     ]
    },
-   "solution": "INSANDOUTS"
+   "solution": "INSANDOUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INS AND OUTS",
+    "definitions": [
+     {
+      "text": "Particulars",
+      "at": 0
+     },
+     {
+      "text": "of the hokey cokey?",
+      "at": 14,
+      "note": "cryptic second definition"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Particulars",
+      "note": "first meaning: the detailed workings of something"
+     },
+     {
+      "clueFragment": "of the hokey cokey?",
+      "note": "second meaning, playful: the dance moves of putting a limb in and taking it out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The hokey cokey is a British party dance (the hokey pokey in the US) whose song goes 'in, out, in, out, shake it all about'.",
+     "definitionFit": "The phrase is an idiom for the detailed facts of a matter, and literally describes the dance's in-and-out moves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hokey"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1391,42 @@
     "text": "Alcoholic tipple left",
     "enumeration": "4"
    },
-   "solution": "PORT"
+   "solution": "PORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORT",
+    "definitions": [
+     {
+      "text": "Alcoholic tipple",
+      "at": 0
+     },
+     {
+      "text": "left",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alcoholic tipple",
+      "note": "first meaning: a sweet fortified wine from Portugal"
+     },
+     {
+      "clueFragment": "left",
+      "note": "second meaning: the left side of a ship"
+     }
+    ],
+    "explanation": {
+     "surface": "A boozy drink has been abandoned on the table.",
+     "definitionFit": "The word names a fortified Portuguese wine and also the nautical term for the left-hand side of a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1440,43 @@
     "text": "What goes into grandpa’s tagliatelle?",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "hidden_word"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "What goes into grandpa’s tagliatelle?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes into",
+      "for": "hidden_word",
+      "note": "the answer goes into the following words, sitting inside them unseen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grandpa’s tagliatelle",
+      "gives": "PASTA",
+      "note": "the letters spanning the end of grandpa's and the start of tagliatelle"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the ingredients of an old man's favourite noodle supper.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: the answer is hidden in two words, and is what tagliatelle is made of.",
+     "definitionFit": "Tagliatelle is a type of ribbon noodle, so what makes up the dish is the Italian dough food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1490,48 @@
     "text": "Loyal servant wearing skirt?",
     "enumeration": "6"
    },
-   "solution": "MINION"
+   "solution": "MINION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINION",
+    "definitions": [
+     {
+      "text": "Loyal servant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skirt",
+      "gives": "MINI",
+      "note": "a mini is a short skirt"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "ON",
+      "note": "clothes you are wearing are on you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A faithful retainer is oddly dressed in a skirt.",
+     "walkthrough": "The clue reads 'wearing' before 'skirt', but the pieces go in the other order: the skirt with ON after it.",
+     "definitionFit": "A minion is a devoted follower or subordinate who does a master's bidding without question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "skirt"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1545,54 @@
     "text": "Beach behind you, grand",
     "enumeration": "8"
    },
-   "solution": "THOUSAND"
+   "solution": "THOUSAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOUSAND",
+    "definitions": [
+     {
+      "text": "grand",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "being behind something places this piece after the other in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "THOU",
+      "note": "thou is the old form of you"
+     },
+     {
+      "clueFragment": "Beach",
+      "gives": "SAND",
+      "note": "a beach is made of sand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOU",
+      "SAND"
+     ]
+    },
+    "explanation": {
+     "surface": "The beach lying behind you looks magnificent.",
+     "walkthrough": "'Grand' is slang for a thousand pounds or dollars rather than meaning splendid.",
+     "definitionFit": "Grand is informal for one thousand units of money, so the number is a fair equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1606,51 @@
     "text": "Lima, an extraordinary capital city",
     "enumeration": "6"
    },
-   "solution": "MANILA"
+   "solution": "MANILA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANILA",
+    "definitions": [
+     {
+      "text": "capital city",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "extraordinary means out of the ordinary, so the letters leave their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lima, an",
+      "gives": "LIMAAN",
+      "note": "the six letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIMAAN",
+       "gives": "MANILA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lima, the Peruvian capital, is praised as a remarkable city.",
+     "walkthrough": "Lima is itself a capital, which makes it tempting as the answer area; it is only fodder.",
+     "definitionFit": "Manila is the capital of the Philippines, an example of a national seat of government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lima"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1664,50 @@
     "text": "Soldiers confronting wicked troublemaker",
     "enumeration": "6"
    },
-   "solution": "MENACE"
+   "solution": "MENACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENACE",
+    "definitions": [
+     {
+      "text": "troublemaker",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "confronting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in crossword shorthand"
+     },
+     {
+      "clueFragment": "wicked",
+      "gives": "ACE",
+      "note": "wicked and ace are both slang for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops face up to an evil person causing trouble.",
+     "walkthrough": "'Wicked' looks like evil, but it is used in its slang sense of brilliant.",
+     "definitionFit": "A menace is a nuisance or a person who causes constant problems, as in a public menace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wicked"
+    }
+   }
   }
  ]
 }
