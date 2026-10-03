@@ -159,9 +159,9 @@ check "out-of-order numbers go unknown and are placed by the grid" "[[1], [4], [
 # count ends a clue only before a number with a digit in it.
 got=$(cd "$REPO/tools" && python3 -c "
 import file_trove_puzzles as F
-cl, why = F.clues(\"1 One (10). : 6 Two (5)' 7 Three (9) 8;Four (5) 11.12A linked (5,2,3,4) 13- Five (5V 14 Six (4). .15 Seven (9). 16' It's (8) 17 A big record (laugh!) is beginning (5) 18 Pot 17). 19 Lac (7). < 20 Geneve (5)\")
-print(why, [(sorted(map(sorted, c['tokens'])), c['text']) for c in cl], cl[-3]['enums'])")
-check "a clue's start found past OCR's punctuation" "None [([[1]], 'One'), ([[6]], 'Two'), ([[7]], 'Three'), ([[8]], 'Four'), ([[11], [12]], 'A linked'), ([[]], 'Five'), ([[14]], 'Six'), ([[15]], 'Seven'), ([[16]], \"It's\"), ([[17]], 'A big record (laugh!) is beginning'), ([[18]], 'Pot'), ([[19]], 'Lac'), ([[20]], 'Geneve')] {'7'}" "$got"
+cl, why = F.clues(\"1 One (10). : 6 Two (5)' 7 Three (9) 8;Four (5) 11.12A linked (5,2,3,4) 13- Five (5V 14 Six (4). .15 Seven (9). 16' It's (8) 17 A big record (laugh!) is beginning (5) 18 Pot 17). 19 Lac (7). < 20 Geneve (5). ■ ■ 21 Bill (4, 3). , ' *4 Be (4)\")
+print(why, [(sorted(map(sorted, c['tokens'])), c['text']) for c in cl], cl[-5]['enums'])")
+check "a clue's start found past OCR's punctuation" "None [([[1]], 'One'), ([[6]], 'Two'), ([[7]], 'Three'), ([[8]], 'Four'), ([[11], [12]], 'A linked'), ([[]], 'Five'), ([[14]], 'Six'), ([[15]], 'Seven'), ([[16]], \"It's\"), ([[17]], 'A big record (laugh!) is beginning'), ([[18]], 'Pot'), ([[19]], 'Lac'), ([[20]], 'Geneve'), ([[21]], 'Bill'), ([[4]], 'Be')] {'7'}" "$got"
 
 # A symmetric grid's across lights read the same lengths from both ends: a
 # count read two ways takes its mirror's, a pair that disagrees goes
