@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Lettuce covered in sticky stuff (sugar)",
     "enumeration": "7"
    },
-   "solution": "GLUCOSE"
+   "solution": "GLUCOSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLUCOSE",
+    "definitions": [
+     {
+      "text": "sugar",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "something covered in a coating sits wrapped inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sticky stuff",
+      "gives": "GLUE",
+      "note": "glue is the stuff that makes things stick"
+     },
+     {
+      "clueFragment": "Lettuce",
+      "gives": "COS",
+      "note": "cos is a variety of lettuce, also called romaine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLU",
+      "COS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A salad leaf gets smeared in something gooey, with a bracketed aside saying the goo is sugary.",
+     "walkthrough": "The bracketed word looks like a stage note added to the surface, but it is the definition.",
+     "definitionFit": "Glucose is a simple carbohydrate, one particular kind of sugar found in fruit and blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sticky"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,51 @@
     "text": "Most showy tousled style",
     "enumeration": "7"
    },
-   "solution": "LOUDEST"
+   "solution": "LOUDEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOUDEST",
+    "definitions": [
+     {
+      "text": "Most showy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "style",
+      "for": "anagram",
+      "note": "to style hair is to rearrange it, so the neighbouring word's letters are rearranged too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tousled",
+      "gives": "TOUSLED",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOUSLED",
+       "gives": "LOUDEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A messy, dishevelled hairdo is described as the flashiest look around.",
+     "walkthrough": "'Tousled' feels like the anagram signal, but it is the word whose letters get rearranged; 'style' does the rearranging.",
+     "definitionFit": "Loud clothing or colours are garish and flashy, so the loudest outfit is the most ostentatious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tousled"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +156,65 @@
     "text": "Dance erratically, collapsing after taking pills",
     "enumeration": "5"
    },
-   "solution": "CONGA"
+   "solution": "CONGA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CONGA",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after taking",
+      "for": "deletion",
+      "note": "what remains after something is taken away is the word minus those letters"
+     },
+     {
+      "text": "erratically",
+      "for": "anagram",
+      "note": "erratically means without a fixed course, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "collapsing",
+      "gives": "COLLAPSING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pills",
+      "gives": "PILLS",
+      "note": "these letters are removed from the longer word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONGA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COAGN",
+       "gives": "CONGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clubber who has taken pills dances wildly and then falls in a heap.",
+     "walkthrough": "The drug-taking picture hides a subtraction: remove the letters of 'pills' from 'collapsing' and C, O, A, N, G are left to rearrange.",
+     "definitionFit": "The conga is a Cuban-origin party dance performed in a long single-file line with kicking steps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pills"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +234,46 @@
      }
     ]
    },
-   "solution": "SUBZERO"
+   "solution": "SUBZERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUB-ZERO",
+    "definitions": [
+     {
+      "text": "extremely chilly",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reserve",
+      "gives": "SUB",
+      "note": "a sub is a substitute or reserve player"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "ZERO",
+      "note": "zero means nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "ZERO"
+     ]
+    },
+    "explanation": {
+     "surface": "A spare player is left with nothing, sitting out in freezing weather.",
+     "definitionFit": "Below freezing point temperatures are bitterly cold, so the hyphenated adjective describes very cold weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +297,51 @@
    "group": [
     "5-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOTHER'S RUIN",
+    "definitions": [
+     {
+      "text": "the gin",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distressed",
+      "for": "anagram",
+      "note": "distressed means upset and knocked about, so the letters are knocked into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mourners hit",
+      "gives": "MOURNERSHIT",
+      "note": "the letters of both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOURNERSHIT",
+       "gives": "MOTHERSRUIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grieving funeral-goers turn to the bottle and start drinking gin.",
+     "walkthrough": "'hit' reads like a verb, but it belongs to the letters being rearranged. Mother's ruin is an old British slang name for gin.",
+     "definitionFit": "Gin earned the nickname from its ruinous effect on poor households in eighteenth-century London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +355,40 @@
     "text": "Stupid sort of angle",
     "enumeration": "6"
    },
-   "solution": "OBTUSE"
+   "solution": "OBTUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBTUSE",
+    "definitions": [
+     {
+      "text": "Stupid",
+      "at": 0
+     },
+     {
+      "text": "sort of angle",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupid",
+      "note": "first meaning: slow to understand, dim"
+     },
+     {
+      "clueFragment": "sort of angle",
+      "note": "second meaning: a geometric angle greater than ninety degrees"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The adjective means dull-witted, and in geometry names any angle between ninety and one hundred eighty degrees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +402,61 @@
     "text": "Topless man craves small pleasure",
     "enumeration": "9"
    },
-   "solution": "HAPPINESS"
+   "solution": "HAPPINESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HAPPINESS",
+    "definitions": [
+     {
+      "text": "pleasure",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "without a top means the first letter is cut off the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "CHAP",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "craves",
+      "gives": "PINES",
+      "note": "to pine for something is to crave it"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAP",
+      "PINES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A shirtless man longs for a little bit of enjoyment.",
+     "walkthrough": "CHAP loses its top letter to leave HAP; chap is everyday British for a man.",
+     "definitionFit": "Happiness is a state of contentment and joy, so it is a close synonym for that enjoyable feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Topless"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +470,56 @@
     "text": "China's leader ignored garden feature",
     "enumeration": "7"
    },
-   "solution": "ROCKERY"
+   "solution": "ROCKERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ROCKERY",
+    "definitions": [
+     {
+      "text": "garden feature",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "the leader is ignored, meaning that first letter is simply left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "CROCKERY",
+      "note": "china in the sense of plates and cups"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "C",
+      "select": "first",
+      "note": "the leading letter of the china word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCKERY"
+     ]
+    },
+    "explanation": {
+     "surface": "The head of state of China is snubbed, perhaps in a garden.",
+     "walkthrough": "'China' looks like the country, but it is tableware; drop its first letter.",
+     "definitionFit": "A rockery is an arrangement of stones and alpine plants laid out as a decorative part of a garden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "China's"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +539,61 @@
      }
     ]
    },
-   "solution": "INDIANGAZELLE"
+   "solution": "INDIANGAZELLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INDIAN GAZELLE",
+    "definitions": [
+     {
+      "text": "elegant creature",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "crazy means mad and disordered, so the letters before it are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nazi and GI",
+      "gives": "NAZIANDGI",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "her, French",
+      "gives": "ELLE",
+      "note": "elle is French for her or she"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDIANGAZ",
+      "ELLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAZIANDGI",
+       "gives": "INDIANGAZ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German soldier and an American soldier are both smitten with an elegant Frenchwoman.",
+     "walkthrough": "'over' simply places one piece after the other in this down entry. 'elegant' adds colour to the definition.",
+     "definitionFit": "The Indian gazelle, or chinkara, is a graceful antelope found across South Asia, an animal fairly called elegant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "her"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +630,73 @@
      }
     ]
    },
-   "solution": "BONETOPICK"
+   "solution": "BONETOPICK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BONE TO PICK",
+    "definitions": [
+     {
+      "text": "an unresolved grievance",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just the beginning of",
+      "for": "letter_selection",
+      "note": "only the beginning of a word means its first letter alone is kept"
+     },
+     {
+      "text": "Having covered",
+      "for": "container",
+      "note": "the outer word covers the others, so they sit inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go to bed",
+      "gives": "BONK",
+      "note": "British slang for having sex with someone"
+     },
+     {
+      "clueFragment": "easy",
+      "gives": "E",
+      "select": "first",
+      "note": "just the beginning of the word easy"
+     },
+     {
+      "clueFragment": "subject",
+      "gives": "TOPIC",
+      "note": "a topic is a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "E",
+      "TOPIC",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone starts with an easy subject, then retires to bed still nursing a complaint.",
+     "walkthrough": "Bonk is a cheeky British slang word for sleeping with someone; here it is split open to hold the other pieces.",
+     "definitionFit": "Having a bone to pick with someone means holding a complaint against them that still needs to be talked out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +710,54 @@
     "text": "Discuss stick trapped in river",
     "enumeration": "6"
    },
-   "solution": "DEBATE"
+   "solution": "DEBATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEBATE",
+    "definitions": [
+     {
+      "text": "Discuss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "trapped in means held inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "BAT",
+      "note": "a bat is a stick used in sports"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "People talk over a branch that has got stuck in a river.",
+     "definitionFit": "To debate a matter is to talk it over and argue its points, the verb sense of discussing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +771,74 @@
     "text": "Stirred spin about Italy's head Communist",
     "enumeration": "8"
    },
-   "solution": "INSPIRED"
+   "solution": "INSPIRED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INSPIRED",
+    "definitions": [
+     {
+      "text": "Stirred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about suggests the preceding word's letters are moved around"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, at the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spin",
+      "gives": "SPIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italy's",
+      "gives": "I",
+      "select": "first",
+      "note": "the head, or first letter, of Italy"
+     },
+     {
+      "clueFragment": "Communist",
+      "gives": "RED",
+      "note": "a red is a Communist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSP",
+      "I",
+      "RED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPIN",
+       "gives": "INSP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Political spin swirls around the Communist leader of Italy.",
+     "walkthrough": "'Stirred' looks like an anagram signal, but it is the definition.",
+     "definitionFit": "To be inspired is to be roused or moved to feeling or action, as a crowd is moved by a speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stirred"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +858,50 @@
      }
     ]
    },
-   "solution": "STABWOUND"
+   "solution": "STABWOUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAB WOUND",
+    "definitions": [
+     {
+      "text": "injury",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "STAB",
+      "note": "to have a stab at something is to try it"
+     },
+     {
+      "clueFragment": "curled",
+      "gives": "WOUND",
+      "note": "wound, past tense of wind, as in curled round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAB",
+      "WOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "An attempt at curling ends with someone getting hurt.",
+     "walkthrough": "WOUND here rhymes with sound, not with spooned.",
+     "definitionFit": "A stab wound is the injury left when a knife or blade pierces the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "curled"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +915,44 @@
     "text": "Where horses may be game",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BADMINTON",
+    "definitions": [
+     {
+      "text": "Where horses may be",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where horses may be",
+      "note": "first meaning: an English country estate in Gloucestershire famous for its annual horse trials"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: a racket sport played with a shuttlecock over a high net"
+     }
+    ],
+    "explanation": {
+     "surface": "A place where horses are found is also willing, or game.",
+     "walkthrough": "'game' looks like an adjective meaning willing, but it is a noun for a sport.",
+     "definitionFit": "The Gloucestershire estate hosts a famous equestrian event, and the shuttlecock sport takes its name from that same house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +966,52 @@
     "text": "Mr West gets his vowels confused in this country",
     "enumeration": "5"
    },
-   "solution": "KENYA"
+   "solution": "KENYA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KENYA",
+    "definitions": [
+     {
+      "text": "this country",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "his vowels confused",
+      "for": "anagram",
+      "note": "confused vowels are muddled up, so only those letters swap positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr West",
+      "gives": "KANYE",
+      "note": "the rapper Kanye West"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KANYE",
+       "gives": "KENYA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rapper Kanye West mixes up his vowels while in some country.",
+     "walkthrough": "Only the A and E change places; the consonants stay put.",
+     "definitionFit": "Kenya is an East African nation, and 'this country' points to it within the clue's own wordplay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1025,64 @@
     "text": "Extremely dreary man about town",
     "enumeration": "5"
    },
-   "solution": "DANDY"
+   "solution": "DANDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DANDY",
+    "definitions": [
+     {
+      "text": "man about town",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters, the two ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dreary",
+      "gives": "D",
+      "select": "first",
+      "note": "the first end of dreary"
+     },
+     {
+      "clueFragment": "Extremely",
+      "gives": "AND",
+      "note": "extremes are plural, so the two end letters are named together with a joining word"
+     },
+     {
+      "clueFragment": "dreary",
+      "gives": "Y",
+      "select": "last",
+      "note": "the other end of dreary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull man spends his time out on the town.",
+     "walkthrough": "The extremes of 'dreary' are D and Y, and read as a phrase, 'D and Y' gives the answer.",
+     "definitionFit": "A dandy is a fashionable man who cares greatly about his appearance and is seen about the social scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1115,50 @@
     "text": "Liquid spilt at 9 o'clock",
     "enumeration": "9"
    },
-   "solution": "WATERSHED"
+   "solution": "WATERSHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WATERSHED",
+    "definitions": [
+     {
+      "text": "9 o'clock",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liquid",
+      "gives": "WATER",
+      "note": "water is the commonest liquid"
+     },
+     {
+      "clueFragment": "spilt",
+      "gives": "SHED",
+      "note": "to shed is to spill or let fall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATER",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone knocks over a drink at nine o'clock.",
+     "walkthrough": "In British TV the watershed is 9pm, after which adult content may be broadcast.",
+     "definitionFit": "The broadcasting cut-off time in Britain falls at nine in the evening, marking when unsuitable programmes may air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spilt"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1172,45 @@
     "text": "Ensure observance with part written for cello",
     "enumeration": "7"
    },
-   "solution": "ENFORCE"
+   "solution": "ENFORCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENFORCE",
+    "definitions": [
+     {
+      "text": "Ensure observance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "hidden_word",
+      "note": "part of the following words means a run of their letters is taken out"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "written for cello",
+      "gives": "ENFORCE",
+      "note": "the run of letters sits across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A section of music composed for cello must be played as written.",
+     "definitionFit": "To enforce a rule is to compel people to obey it, making sure it is observed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1224,72 @@
     "text": "They have no balls for regular returns — such madness!",
     "enumeration": "7"
    },
-   "solution": "EUNUCHS"
+   "solution": "EUNUCHS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EUNUCHS",
+    "definitions": [
+     {
+      "text": "They have no balls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regular",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "madness",
+      "for": "anagram",
+      "note": "madness implies disorder, so the letters it follows are scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "returns",
+      "gives": "EUN",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "such",
+      "gives": "SUCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUN",
+      "UCHS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUCH",
+       "gives": "UCHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a group without dance invitations keep coming back, which is crazy.",
+     "walkthrough": "'balls' looks like dances, and 'returns' like coming back, but it is just the source word for alternate letters.",
+     "definitionFit": "Eunuchs are castrated men, so they literally lack testicles, which slang calls balls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1303,47 @@
     "text": "Ghastly court order",
     "enumeration": "6"
    },
-   "solution": "DIRECT"
+   "solution": "DIRECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIRECT",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ghastly",
+      "gives": "DIRE",
+      "note": "dire means dreadful"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRE",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge hands down a dreadful ruling.",
+     "walkthrough": "'court order' reads as one legal phrase, but 'order' is the definition alone.",
+     "definitionFit": "To direct someone is to instruct or command them, a verb sense matching order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1357,50 @@
     "text": "Extra tie David knotted",
     "enumeration": "8"
    },
-   "solution": "ADDITIVE"
+   "solution": "ADDITIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADDITIVE",
+    "definitions": [
+     {
+      "text": "Extra",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knotted",
+      "for": "anagram",
+      "note": "something knotted is twisted and tangled, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie David",
+      "gives": "TIEDAVID",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEDAVID",
+       "gives": "ADDITIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "David has tied an extra necktie.",
+     "definitionFit": "An additive is something added on, such as a supplementary ingredient in food, so it is a supplement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1414,64 @@
     "text": "Buddy getting tiniest bit of nettle cooked outside",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "Buddy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tiniest bit of",
+      "for": "letter_selection",
+      "note": "the tiniest bit of a word is its single opening letter"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one piece goes outside, wrapping around the other"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooked",
+      "gives": "FRIED",
+      "note": "fried is a way of cooking"
+     },
+     {
+      "clueFragment": "nettle",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of nettle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIE",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal gets a taste of nettle prepared in the pan.",
+     "definitionFit": "A buddy is an informal word for a pal, a companion you are close to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1485,41 @@
     "text": "Breadwinners' hidden secret",
     "enumeration": "5"
    },
-   "solution": "INNER"
+   "solution": "INNER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INNER",
+    "definitions": [
+     {
+      "text": "secret",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden",
+      "for": "hidden_word",
+      "note": "the answer is concealed within the letters of the possessive word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Breadwinners'",
+      "gives": "INNER",
+      "note": "the run of letters sits inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "The family earners are keeping something under wraps.",
+     "definitionFit": "Inner feelings are private ones not shown to others, so the adjective can mean concealed or personal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1539,61 @@
      }
     ]
    },
-   "solution": "SALTCELLAR"
+   "solution": "SALTCELLAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SALT CELLAR",
+    "definitions": [
+     {
+      "text": "found in the kitchen",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tatty",
+      "for": "anagram",
+      "note": "something tatty is worn and messed up, so the letters are messed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last",
+      "gives": "LAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "basement",
+      "gives": "CELLAR",
+      "note": "a cellar is a basement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALT",
+      "CELLAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAST",
+       "gives": "SALT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final scruffy basement turns out to be where the kitchen is.",
+     "walkthrough": "The definition is descriptive rather than a synonym: the item is something found in a kitchen.",
+     "definitionFit": "A salt cellar is a small dish or shaker for holding table salt, a typical kitchen item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "basement"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1617,66 @@
    "group": [
     "27-across",
     "18-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NICE AND EASY",
+    "definitions": [
+     {
+      "text": "carefully",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to move",
+      "for": "anagram",
+      "note": "moving the letters around means putting them in a new order"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in means placed inside the abbreviation for the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     },
+     {
+      "clueFragment": "as CIA need",
+      "gives": "ASCIANEED",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ICEANDEAS",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASCIANEED",
+       "gives": "ICEANDEAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American intelligence agents must tread cautiously in New York.",
+     "definitionFit": "Taking things nice and easy means proceeding gently and without hurry, so it is an idiom for cautiously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1690,47 @@
     "text": "Picked up rings for baby birds",
     "enumeration": "7"
    },
-   "solution": "CYGNETS"
+   "solution": "CYGNETS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYGNETS",
+    "definitions": [
+     {
+      "text": "baby birds",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "picked up means heard, as on a radio, so the sound matters rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rings",
+      "gives": "CYGNETS",
+      "soundsLike": "SIGNETS",
+      "note": "signets are seal rings worn on the finger"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collects jewellery to give to young birds.",
+     "definitionFit": "Cygnets are young swans, the offspring of these large waterbirds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Picked"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1744,66 @@
     "text": "Update: Judge right? He's wrong",
     "enumeration": "7"
    },
-   "solution": "REFRESH"
+   "solution": "REFRESH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REFRESH",
+    "definitions": [
+     {
+      "text": "Update",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "wrong means out of order, so those letters are set in a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "REF",
+      "note": "a ref, or referee, judges a game"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "He's",
+      "gives": "HES",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "R",
+      "ESH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HES",
+       "gives": "ESH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news update asks whether a judge is right, then says he is mistaken.",
+     "definitionFit": "To refresh a web page or a display is to reload it with the latest information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   }
  ]
 }
