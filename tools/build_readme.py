@@ -301,6 +301,8 @@ LAYOUT = [
     ("scheduling", "tools/test_prereset_pool.sh", "drives the burn's rolling pool with a stub run: never past the width, a freed slot refilled at once, launches spaced, a width change taking effect"),
     ("scheduling", "tools/discard_clue_rows.py", "the burn's discard: drops a puzzle's SOURCE_CLUE_WRONG rows its reverted file does not show"),
     ("scheduling", "tools/test_discard_clue_rows.sh", "a discarded run takes its SOURCE_CLUE_WRONG rows with it, and the table agrees with the file"),
+    ("scheduling", "tools/own_rows.py", "a burn puzzle's commit stages its own rows of fetch_puzzle.py's SOURCE_* tables and no sibling's; its discard puts them back"),
+    ("scheduling", "tools/test_own_rows.sh", "two puzzles in flight: one commits only its own rows, the other's discard leaves the tree clean"),
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),
