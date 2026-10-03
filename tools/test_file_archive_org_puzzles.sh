@@ -144,6 +144,44 @@ got, blank = ocr_clues.reconcile({"8-down": ("Wisdom shown by, school-head", "10
                          ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
 check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
 
+# A real word misread as another (real readings off the gold editions).
+def vote(clue, *readings):
+    return ocr_clues.agree(clue, [ocr_clues.marked(t, breaks=True) for t in readings])[0]
+check("a number standing for a word it looks like takes the word: \"10\" for \"to\" (Times 18,180 12A)",
+      "When in quarters, be agreeable to forming a unit",
+      vote("When in quarters, be agreeabie 10 forming a unit",
+           "1 When in quartets , be agreeable to forming a unit 1",
+           "1 When in quarters , be agreeable Io forming a unit 1",
+           "yt be tempted by partnership 1 Smoothed an upset in"))
+check("\"3\" for \"a\" where the other readings read \"a\" (Times 13,678 19A)", "A boy is backward, and not a girl",
+      vote("A bny is backward, and not 3 girl", "1 A boy Is backward , and not a girl 1",
+           "1 A bny is backward , and not a gir 1", "1 A boy is backward , and pot a girl 1"))
+check("a number the other readings print as a number stays", "Like a don in trouble with Homer in 3",
+      vote("Like a don in trouble with Homer in 3", "15 Like a don in trouble with Homer in 3 (5)",
+           "15 Like a don in trouble with Homer in 3 (5)"))
+check("a word one confused letter from a commoner one a reader has that fits far better (Times 16,786 20D)",
+      "Innovator of single element in breakwater",
+      vote("Innovator of single clement in breakwater", "1 Innovalor of singic clement in brcakwaleri 1",
+           "1 Innovator of singie element in breakwaler 1", "1 Innovator of single clement in reakwater 1"))
+check("\"ad\" for \"an\", one reader reading \"an\" (Times 13,682 23A)", "Its rate is adjusted for an entertainer",
+      vote("Its rate is Jdijusted for ad entertainer", "1 Its rare is adjusted for ad entertainer f",
+           "1 Irs rate is aujusted for ad cntertainer f", "1 tts rate is adjusted for an 1"))
+check("a non-word every reader shares, one confused letter from a word (Times 13,682 13A)",
+      "In its turn it does us a power of good",
+      vote("In its turn it does us a power ot good", "1 In its turn it does us a power ot good f",
+           "1 In its turn it does usa power ot good 1", "1 In its turn it does us a power ot good 1"))
+check("two readings' \"al\" gives way to \"at\" (Times 18,179 22D)", "In the Orient reeds are served at dinner",
+      vote("In the Orient reeds are served at dinner", "1 In the Orient reeds are served al dinner 1",
+           "1 In the Orient reeds are served al dinner 1", "wros they or reckon are following the"))
+check("a word three readings share is no slip of a commoner one that fits no better (Times 19,742 28A)",
+      "Result may be tame but filling food",
+      vote("Resull may be tame but filling food", "Times Two Crossword ,",
+           "1 Result may be tame but filling food 1", "1 Result may be tame but hifing food 1"))
+for clue in ("Chance it perhaps if over 50", "Lace it tight round top of stocking",
+             "Excellent worker in firm, one co-opted originally", "Disturbed when riding on 19ac"):
+    check(f"a word every reading has stays, however a confused letter would fit: {clue!r}", clue,
+          vote(clue, f"4 {clue} (5)", f"4 {clue} (5)", f"4 {clue} (5)"))
+
 # Words and marks this reading lost, and the print's commonest mark slips.
 three = [ocr_clues.marked(t, breaks=True) for t in ("9 Hurtful stuff, nicer as a cocktail? (7)",
                                             "9 Hurtful stuff, nicer as a cocktail? (7)",
@@ -896,6 +934,12 @@ check("a count torn at a clue's end is read as its count: \"17).\", \"IS).\" (Ti
       (("Definitely the product of a writer", {"7"}), ("Souvenir exhibited by Kildare licensee", True)),
       ((d16626[5, "across"]["text"], d16626[5, "across"]["enums"]),
        (d16626[19, "across"]["text"], "5" in d16626[19, "across"]["enums"])))
+check("a word split at a line end is joined where this clue misreads it by a letter (Times 16,626 20D)",
+      "Half-clad and primitive, obviously",
+      voted("times-16626", "djvu", "20-down", "Half-clad and primitive, obviousJy", "7"))
+check("a speck read as a full stop gives way to the comma the other readings have (Times 16,626 4D)",
+      "Of great significance to chaps in Missouri, all French",
+      voted("times-16626", "djvu", "4-down", "Of great significance to chaps in Missouri.all French", "9"))
 p, _ = f.parse(clue_cases["times-13683"]["texts"]["en5"])
 p, _ = ftp.renumber(p)
 nums = [next(iter(c["tokens"][0])) for c in p["across"] if len(c["tokens"][0]) == 1]

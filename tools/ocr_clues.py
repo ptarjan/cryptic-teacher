@@ -397,6 +397,64 @@ def common_slip(word):
     return None
 
 
+#: Letters a reader takes for one another one at a time, both ways: the
+#: print's worn type (SLIPS) and the shapes the readers confuse ("fudge"
+#: for "judge", "ear" for "eat", "ad" for "an").
+CONFUSED = tuple(p for p in SLIPS if len(p[0]) == len(p[1]) == 1) + (
+    ("f", "j"), ("r", "t"), ("d", "n"), ("n", "h"))
+#: How much better a word one CONFUSED letter from the voted one must fit
+#: its neighbours in the corpus's clues to replace it ("single element", not
+#: "single clement"; "for an entertainer", not "for ad entertainer").
+CONFUSED_FIT = 3.5
+
+
+def confused(word):
+    """The spellings one CONFUSED letter from `word` (lower case)."""
+    low, out = word.lower(), set()
+    for a, b in CONFUSED + tuple((b, a) for a, b in CONFUSED):
+        at = low.find(a)
+        while at >= 0:
+            out.add(low[:at] + b + low[at + 1:])
+            at = low.find(a, at + 1)
+    return out
+
+
+def likelier(word, before, after, read=None):
+    """The lexicon word one CONFUSED letter from the voted `word` that the
+    lexicon ranks commoner and that fits its neighbours in the corpus's
+    clues CONFUSED_FIT better than it, else None. A lexicon word gives way
+    only to a spelling one of the readings `read` has there ("element" for
+    "clement"): the corpus's fit alone would turn "if" into "it" and
+    "tight" into "right"."""
+    r = rank(word)
+    own = fit(word, before, after)
+    best = max(((fit(c, before, after), c) for c in confused(word)
+                if (rank(c) or 10 ** 9) < (r or 10 ** 9) and (r is None or c in (read or ()))),
+               default=None)
+    return best[1] if best and best[0] - own >= CONFUSED_FIT else None
+
+
+def swappable(text, at, word):
+    """Whether `word`, at `at` in `text`, is one likelier() may respell:
+    not an abbreviation or numeral in capitals ("MC", "II"), a light's
+    "ac", half of a hyphened word ("co-opted", "Heigh-ho") or a word that
+    drops its first letter after an apostrophe ("'ot")."""
+    return not (any(c.isupper() for c in word[1:]) or re.fullmatch(LIGHT_WORD, word)
+                or text[at + len(word):at + len(word) + 1] == "-"
+                or (at and text[at - 1] in "-'\u2019"))
+
+
+#: The letters a digit standing alone may be a reader's misread of.
+DIGIT_LETTERS = {"0": "o", "1": "ilt", "3": "a", "5": "s"}
+
+
+def digit_word(number, read):
+    """Whether the number `number` is the word `read` misread, letter by
+    letter ("10" for "to", "3" for "a")."""
+    return len(number) == len(read) and all(d in DIGIT_LETTERS and c in DIGIT_LETTERS[d]
+                                            for d, c in zip(number, read.lower()))
+
+
 #: Punctuation inside a clue that the readings vote on like words.
 MARKS = ",;:!?"
 
@@ -437,7 +495,8 @@ def ends(pairs, theirs):
 
 def rejoin(theirs, low):
     """Another reading's tokens with a word it split joined again, when this
-    clue's words (`low`) hold the joined word and it is a dictionary word: one
+    clue's words (`low`) hold the joined word, or one a letter from it, and
+    it is a dictionary word: one
     split at a line end ("taste. fully", "subter fuge") or spaced out letter
     by letter ("w a lk")."""
     out, k = [], 0
@@ -450,7 +509,9 @@ def rejoin(theirs, low):
             # Words with a space between are words ("of fish"): only a mark,
             # or a piece that is no word, says one was split.
             apart = parts == [2] or not all(is_word(t.lower()) for t in pieces)
-            if all(t.isalpha() for t in pieces) and apart and joined in low and is_word(joined):
+            # The clue may misread the joined word by a letter ("obviousJy").
+            here = joined in low or (len(joined) > 4 and any(within_one(joined, w) for w in low))
+            if all(t.isalpha() for t in pieces) and apart and here and is_word(joined):
                 out.append("".join(pieces))
                 k += parts[-1] + 1
                 break
@@ -553,6 +614,15 @@ def agree(clue, others, keep_known=False):
         a = low[i]
         got = {k: v for k, v in seen[i].items() if v not in MARKS and v != BREAK}
         if w == BREAK:
+            # A number standing in the clue is a word misread when more
+            # other readings have a word it looks like there than a number.
+            num = spans[i][1]
+            like = [v.lower() for v in got.values() if digit_word(num, v) and is_word(v) and v.lower() != "i"]
+            if like and len(like) > sum(v == BREAK for v in seen[i].values()):
+                before = next((low[k] for k in range(i - 1, -1, -1) if low[k] not in MARKS + BREAK), None)
+                after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS + BREAK), None)
+                fixes[i] = max(sorted(set(like)), key=lambda v: (like.count(v), fit(v, before, after)))
+                how = "settled by the readings"
             continue
         if w.isdigit():
             marks = [v for v in seen[i].values() if v in MARKS]
@@ -671,10 +741,18 @@ def agree(clue, others, keep_known=False):
             # unless the read one fits its neighbours in the corpus's clues
             # far better.
             gap = fit(slip, before, after) - fit(pick, before, after)
-            if gap > -FIT_MARGIN:
+            # A word most readings and at least three share gives way only to
+            # one that fits better.
+            shared = votes.get(pick, 0)
+            if gap > (FIT_MARGIN if shared >= 3 and shared * 2 > len(read) else -FIT_MARGIN):
                 spelt[slip] = slip.capitalize() if spelt[pick][:1].isupper() else slip
                 pick = slip
                 how = "settled by the corpus"
+        alt = None if keep_known and pick == a else likelier(pick, before, after, read)
+        if alt and not (i and spelt[pick][:1].isupper()) and swappable(clue, spans[i][0], w):
+            spelt[alt] = alt.capitalize() if spelt[pick][:1].isupper() else alt
+            pick = alt
+            how = "settled by the corpus"
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
@@ -695,7 +773,11 @@ def agree(clue, others, keep_known=False):
                 new = new[0].lower() + new[1:]
         elif new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
-        out += speckless(text[k:at]) + (add[0] + " " if add else "") + new
+        gap = speckless(text[k:at])
+        if add and add[0] in MARKS and gap.strip() == ".":
+            # A speck read as a full stop where the other readings have a mark.
+            gap = " " if gap[-1:].isspace() else ""
+        out += gap + (add[0] + " " if add else "") + new
         k = at + len(old)
     out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:])
     if adds and how == "agree":
