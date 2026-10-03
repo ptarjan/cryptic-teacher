@@ -489,8 +489,9 @@ def blog_name(series, link):
 
 def content(puzzle):
     """What a later run compares: the grid, the clues' words and the answers.
-    A clue retyped with other quotes or dashes is the same clue."""
-    return [(entry_id(e), e["position"], e["length"], clue_words(e["clue"].get("text", "")), e["solution"])
+    A clue retyped with other quotes or dashes is the same clue; a file filed
+    from a scan may carry no answers, which reads as blank ones."""
+    return [(entry_id(e), e["position"], e["length"], clue_words(e["clue"].get("text", "")), e.get("solution") or "")
             for e in puzzle["entries"]]
 
 
