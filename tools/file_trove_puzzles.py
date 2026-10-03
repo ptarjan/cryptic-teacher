@@ -335,10 +335,10 @@ def clues(text):
     # A speck the OCR read between two clues ("(3-6). _ 3 It's") is not text.
     text = re.sub(r"(\)\.?)\s+[_|*•~^#=+\-—.]{1,3}(?=\s)", r"\1", text)
     # So is punctuation it read between a count and the next clue's number
-    # ("(10). : 6 Angry", "(5)' 6 Salt"), and what it read after that number
-    # for a space or a comma ("(9) 7;Ko-ko's", "(5) 11.12A product",
-    # "(9). 10' It's").
-    text = re.sub(r"(\)\.?)[\s.,:;'’\"`<>«»]+(?=\d)", r"\1 ", text)
+    # ("(10). : 6 Angry", "(5)' 6 Salt", "(9). ■ ■ 16 Bill", "(4, 3). , ' *4
+    # Be"), and what it read after that number for a space or a comma
+    # ("(9) 7;Ko-ko's", "(5) 11.12A product", "(9). 10' It's").
+    text = re.sub(r"(\)\.?)[\s.,:;'’\"`<>«»■_|*•~^#=+\-—]+(?=\d)", r"\1 ", text)
     text = re.sub(r"(\)\.? )(\d{1,2}(?:[.,]\s?\d{1,2})*)(?:[.,;:'’]\s?|(?=[A-Z]))(?=[A-Za-z\"'])",
                   lambda m: m[1] + m[2].replace(".", ",") + " ", text)
     out, pos = [], 0
