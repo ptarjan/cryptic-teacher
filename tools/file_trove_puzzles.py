@@ -21,7 +21,9 @@ Only the clues are mandatory:
     each clue number names one of its lights, and each enumeration counts that
     light (or the group a linked clue names). OCR slips in numbers (S for 5 or
     8, I or l for 1, O for 0) are repaired only where the grid's light decides
-    the reading. A disagreement means the picture is not used, never that it
+    the reading; a number its list's order refuses ("10" between 19 and 21)
+    is left for the grid to place (renumber()), and a one-number count read
+    as a nearby digit takes the light's (DIGIT_SLIPS). A disagreement means the picture is not used, never that it
     is forced to fit: the grid is then rebuilt from the clue list by
     tools/reconstruct_grid.py, and filed only when that rebuild is unique.
   - Every clue's words are then put to our own readings of the page's clue
@@ -109,10 +111,11 @@ SLIPS = {"S": "58", "s": "58", "I": "1", "l": "1", "i": "1", "J": "1", "j": "1",
 DIGITISH = "0-9" + re.escape("".join(SLIPS))
 NUM = rf"[{DIGITISH}]{{1,2}}"
 #: A clue number OCR turned to junk ("f About to surround"): it is placed by
-#: the grid alone, in the one slot its neighbours leave.
-JUNK_NUM = r"(?:[a-zA-Z]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
-BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)\.?(?=\s|$)"
-                     r"|(?<=\s)[jJft\[{]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?")
+#: the grid alone, in the one slot its neighbours leave; so is one whose
+#: digit it read as a dash ("1- Ask" for 12).
+JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
+BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
+                     r"|(?<=\s)[jJft\[{]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1(\d)\)\s*\.?")
 
 
 # ------------------------------------------------------------ the article
@@ -303,7 +306,8 @@ def readings(token):
 
 def enum_readings(raw):
     """Every enumeration an OCR'd bracket can be, as printed strings: "S, 4"
-    -> {"5,4", "8,4"}. Periods read as commas; spaces between counts too."""
+    -> {"5,4", "8,4"}. Periods read as commas; spaces between counts too.
+    A count of one is no light's: "(X)" read for (8) is a count lost."""
     raw = re.sub(r"\s*([,.\-'])\s*", r"\1", raw.strip()).replace(".", ",")
     raw = re.sub(r"\s+", ",", raw)
     opts = [""]
@@ -315,7 +319,7 @@ def enum_readings(raw):
         else:
             return set()
     return {o for o in opts if re.fullmatch(r"\d+(?:[,\-']\d+)*", o)
-            and all(0 < int(n) <= 23 for n in re.findall(r"\d+", o))}
+            and all(0 < int(n) <= 23 for n in re.findall(r"\d+", o)) and count(o) > 1}
 
 
 def clues(text):
@@ -330,6 +334,13 @@ def clues(text):
                        re.IGNORECASE)
     # A speck the OCR read between two clues ("(3-6). _ 3 It's") is not text.
     text = re.sub(r"(\)\.?)\s+[_|*•~^#=+\-—.]{1,3}(?=\s)", r"\1", text)
+    # So is punctuation it read between a count and the next clue's number
+    # ("(10). : 6 Angry", "(5)' 6 Salt"), and what it read after that number
+    # for a space or a comma ("(9) 7;Ko-ko's", "(5) 11.12A product",
+    # "(9). 10' It's").
+    text = re.sub(r"(\)\.?)[\s.,:;'’\"`<>«»]+(?=\d)", r"\1 ", text)
+    text = re.sub(r"(\)\.? )(\d{1,2}(?:[.,]\s?\d{1,2})*)(?:[.,;:'’]\s?|(?=[A-Z]))(?=[A-Za-z\"'])",
+                  lambda m: m[1] + m[2].replace(".", ",") + " ", text)
     out, pos = [], 0
     while pos < len(text):
         m = start.match(text, pos)
@@ -338,7 +349,7 @@ def clues(text):
         body_from = m.end()
         # Only the lead number may be junk; the ones it links ("1,4",
         # "10,9dn") are numbers, and the commas and "dn" between are not.
-        lead = re.match(rf"{NUM}|{JUNK_NUM}", m.group(1))
+        lead = re.match(rf"{NUM}(?![\-~^*{DIGITISH}])|{JUNK_NUM}", m.group(1))
         links = re.sub(r"(?:across|down|and|ac|dn)\b", " ", m.group(1)[lead.end():], flags=re.IGNORECASE)
         tokens = [readings(lead.group(0))] + [readings(t) for t in re.findall(NUM, links)]
         rest = text[body_from:]
@@ -357,13 +368,18 @@ def clues(text):
         end = None
         for e in BRACKET.finditer(rest):
             after = rest[e.end():]
-            if not after.strip() or start.match(rest, e.end()):
+            # A bracket that reads as no count ends the clue only before a
+            # number with a digit in it: "(laugh!) is beginning" is not
+            # clue 15's start.
+            lost = not enum_readings(e.group(1) or e.group(2) or e.group(3) or e.group(4))
+            if not after.strip() or (start.match(rest, e.end())
+                                     and not (lost and not re.match(r"\s*\S?\d", after))):
                 end = e
                 break
         if end is None:
             out.append({"tokens": tokens, "text": rest.strip(), "enums": set(), "see": None})
             break
-        raw = end.group(1) or end.group(2) or end.group(3)
+        raw = end.group(1) or end.group(2) or end.group(3) or end.group(4)
         enums = enum_readings(raw)
         if end.group(2) and re.search(r"[1lI]$", raw):
             enums |= enum_readings(raw[:-1])
@@ -373,19 +389,96 @@ def clues(text):
     return out, None
 
 
+# ------------------------------------------------------------ the numbering
+
+#: Above the highest clue number a 15x15 here prints (32, over the Guardian
+#: and Canberra 15x15s we hold): a list may have lost clues, so its length
+#: does not bound its numbers.
+TOP_NUMBER = 36
+
+
+def _kept(options, top):
+    """(most, fwd, bwd) for one list's lead-number `options` (a set of
+    readings per clue, in print order): the most clues whose numbers can
+    stand at once, and per (clue, reading) the best count of a standing run
+    ending (fwd) and starting (bwd) there. A list's numbers rise, so the
+    k-th of n clues reads at least k and at most `top` - (n - k); two that
+    stand k clues apart differ by at least k, the clues between needing
+    numbers of their own."""
+    n = len(options)
+    ok = [{v for v in opts if i + 1 <= v <= top - (n - 1 - i)} for i, opts in enumerate(options)]
+    fwd, bwd = {}, {}
+    for i in range(n):
+        for v in ok[i]:
+            fwd[i, v] = 1 + max((c for (j, u), c in fwd.items() if j < i and v - u >= i - j), default=0)
+    for i in reversed(range(n)):
+        for v in ok[i]:
+            bwd[i, v] = 1 + max((c for (j, u), c in bwd.items() if j > i and u - v >= j - i), default=0)
+    return max(fwd.values(), default=0), fwd, bwd
+
+
+def numbering(options, top):
+    """Each clue's lead-number readings narrowed to the ones its list's order
+    allows: the readings it takes in every reading of the list that keeps the
+    most numbers standing, else set() (a number OCR misread past its slips,
+    "10" for 20, "75" for 25, left for the grid to place)."""
+    most, fwd, bwd = _kept(options, top)
+    out = []
+    for i in range(len(options)):
+        best = {v for (j, v), c in fwd.items() if j == i and c + bwd[i, v] - 1 == most}
+        drop = options[:i] + [set()] + options[i + 1:]
+        out.append(best if best and _kept(drop, top)[0] < most else set())
+    return out
+
+
+def renumber(parsed):
+    """`parsed` with its lists' clue numbers put in order (numbering()), and
+    a list that runs on into the other's heading put back: the down list's
+    "12 ... 29, 2, 3" is across 12 to 29 read under a DOWN heading printed
+    too early, and an across list's "... 28, 1, 2" the down list's head. The
+    split moves only when it stands at least HEADLESS_RUN more numbers."""
+    across, down = parsed["across"], parsed["down"]
+    every = across + down
+    top = max(TOP_NUMBER, len(every))
+    leads = [{n for n in c["tokens"][0] if n <= 99} for c in every]
+
+    def standing(s):
+        return _kept(leads[:s], top)[0] + _kept(leads[s:], top)[0]
+    here = len(across)
+    split = max(range(1, top), key=lambda s: (standing(s), s == here), default=here)
+    if standing(split) - standing(here) < HEADLESS_RUN:
+        split = here
+    out = {}
+    for direction, part, opts in (("across", every[:split], leads[:split]),
+                                  ("down", every[split:], leads[split:])):
+        out[direction] = [{**c, "tokens": [n] + c["tokens"][1:]}
+                          for c, n in zip(part, numbering(opts, top))]
+    return out, split != here
+
+
 # ------------------------------------------------------------ the cross-check
 
 def count(enum):
     return sum(int(n) for n in re.findall(r"\d+", enum))
 
 
-def seven_slips(enum):
-    """The readings with one 1 read as 7 or one 7 as 1."""
-    out = set()
-    for k, ch in enumerate(enum):
-        if ch in "17":
-            out.add(enum[:k] + ("7" if ch == "1" else "1") + enum[k + 1:])
-    return out
+#: A printed count and the ones OCR reads it as past SLIPS' letters, as
+#: counted over the scans whose grid disagreed with one count: a thin 7 and
+#: a 1, the loops of 3, 5, 6, 8 and 9. A count of several words slips only
+#: between 1 and 7: "(5, J)" over a ten is (5,5) lost, not (9,1).
+DIGIT_SLIPS = {"1": "7", "3": "58", "5": "36789", "6": "78", "7": "159", "8": "3569", "9": "57"}
+PART_SLIPS = {"1": "7", "7": "1"}
+#: The most counts one puzzle may have read through DIGIT_SLIPS: a grid
+#: misread by one square changes four lights, so a few slips are the
+#: clues' and many are the grid's.
+MOST_DIGIT_SLIPS = 2
+
+
+def digit_slips(enum):
+    """The readings with one digit read as another (DIGIT_SLIPS, PART_SLIPS)."""
+    slips = DIGIT_SLIPS if enum.isdigit() else PART_SLIPS
+    return {enum[:k] + to + enum[k + 1:]
+            for k, ch in enumerate(enum) for to in slips.get(ch, "")}
 
 
 def match(parsed, grid):
@@ -395,7 +488,7 @@ def match(parsed, grid):
     A light the OCR lost is absent from the map."""
     lights = rg.light_cells(grid)
     length = {f"{n}-{d}": len(c) for (n, d), c in lights.items()}
-    out = {}
+    out, slipped = {}, []
     for direction in ("across", "down"):
         expected = [n for (n, d) in lights if d == direction]
         i = 0
@@ -406,12 +499,24 @@ def match(parsed, grid):
             j = next((k for k in range(i, len(expected)) if expected[k] in first), None)
             if j is None and i < len(expected):
                 # A number misread past every slip ("11" for 21, "f" for 6) is
-                # placed only when the next clue's number leaves it exactly
-                # one light, and its count must still fit that light.
-                nxt = clues_here[ci + 1]["tokens"][0] if ci + 1 < len(clues_here) else None
-                if (nxt is None and i == len(expected) - 1) or \
-                        (nxt and i + 1 < len(expected) and expected[i + 1] in nxt):
+                # placed only when the next clue with a number left, or the
+                # list's end, leaves it exactly one light, and its count must
+                # still fit that light.
+                k = next((k for k in range(1, len(clues_here) - ci)
+                          if clues_here[ci + k]["tokens"][0]), None)
+                if (k is None and len(clues_here) - ci == len(expected) - i) or \
+                        (k is not None and i + k < len(expected)
+                         and expected[i + k] in clues_here[ci + k]["tokens"][0]):
                     j = i
+                elif clue["enums"] and len(clue["tokens"]) == 1:
+                    # A clue lost before it: the one light its count fits
+                    # among those the clues around it leave.
+                    last = (len(expected) - (len(clues_here) - ci) if k is None else
+                            next((m for m in range(i + k, len(expected))
+                                  if expected[m] in clues_here[ci + k]["tokens"][0]), len(expected)) - k)
+                    fit = [m for m in range(i, last + 1)
+                           if any(count(e) == length[f"{expected[m]}-{direction}"] for e in clue["enums"])]
+                    j = fit[0] if len(fit) == 1 else None
             if j is None:
                 return None, (f"{direction} clue {sorted(first)} names no light the grid "
                               f"numbers after {expected[i - 1] if i else 'the start'}")
@@ -435,15 +540,18 @@ def match(parsed, grid):
                 continue
             total = sum(length[g] for g in group)
             fits = sorted(e for e in clue["enums"] if count(e) == total)
-            if not fits:
-                # A 7 printed thin reads as 1, and back: only the light decides.
-                fits = sorted({s for e in clue["enums"] for s in seven_slips(e)
+            if clue["enums"] and not fits:
+                # A 7 printed thin reads as 1, a 5 as 3: only the light decides.
+                fits = sorted({s for e in clue["enums"] for s in digit_slips(e)
                                if count(s) == total})
+                slipped.append(lid)
             if clue["enums"] and len(fits) != 1:
                 return None, (f"{lid}: the enumeration reads as {sorted(clue['enums'])}, "
                               f"the grid holds {total} letters")
             enum = fits[0] if fits and not clue.get("count_only") else None
             out[lid] = (clue["text"], enum, group if len(group) > 1 else None)
+    if len(slipped) > MOST_DIGIT_SLIPS:
+        return None, f"the counts of {', '.join(slipped)} fit the grid only read as other digits"
     return out, None
 
 
@@ -474,21 +582,44 @@ def closest(image):
     return pick
 
 
+def mirrored(options):
+    """The across lights' lengths, each read off its `options` (the counts
+    its clue's enumeration can be; None for no count) and its mirror's: a
+    symmetric grid's k-th across light from the start is as long as the k-th
+    from the end. A pair that disagrees is a count misread, and both go
+    unknown; past MOST_DIGIT_SLIPS such pairs the list has lost a clue and
+    stands as read."""
+    out = [next(iter(o)) if o and len(o) == 1 else None for o in options]
+    broken = 0
+    for i in range(len(options) // 2):
+        j = len(options) - 1 - i
+        a, b = options[i], options[j]
+        both = a & b if a and b else a or b
+        if a and b and not both:
+            broken += 1
+        out[i] = out[j] = next(iter(both)) if both and len(both) == 1 else None
+    if broken > MOST_DIGIT_SLIPS:
+        return [next(iter(o)) if o and len(o) == 1 else None for o in options]
+    return out
+
+
 def rebuild(parsed, image=None):
     """The one grid the clue list's numbers and lengths allow, or (None, why).
     What the OCR leaves uncertain goes in unknown: a number read several
     ways, an enumeration read several ways, and each light of a linked clue,
-    whose count is their sum. Several grids are settled by the scan
-    (`image`, the grid read off it even where it disagrees with the clues)."""
+    whose count is their sum. The across lengths are read with their mirrors
+    (mirrored()). Several grids are settled by the scan (`image`, the grid
+    read off it even where it disagrees with the clues)."""
     spec = []
     for direction in ("across", "down"):
-        for clue in parsed[direction]:
+        options = [{count(e) for e in clue["enums"]} or None
+                   if len(clue["tokens"]) == 1 and clue["see"] is None else None
+                   for clue in parsed[direction]]
+        lengths = mirrored(options) if direction == "across" else \
+            [next(iter(o)) if o and len(o) == 1 else None for o in options]
+        for clue, length in zip(parsed[direction], lengths):
             tokens = clue["tokens"][0]
-            n = next(iter(tokens)) if len(tokens) == 1 else None
-            length = None
-            if len(clue["tokens"]) == 1 and clue["see"] is None and len(clue["enums"]) == 1:
-                length = count(next(iter(clue["enums"])))
-            spec.append((n, direction, length))
+            spec.append((next(iter(tokens)) if len(tokens) == 1 else None, direction, length))
     return rg.unique_grid(spec, cols=SIDE, rows=SIDE, max_nodes=REBUILD_NODES,
                           pick=closest(image))
 
@@ -732,9 +863,12 @@ def consider(d, taken):
         if why:
             return {"refused": f"{direction} clues do not parse: {why}"}, None
     parsed, repairs = trove_clue_ocr.repaired(d, parsed, clue_zones(d))
+    parsed, moved = renumber(parsed)
     verdict = {"clues": sum(len(v) for v in parsed.values())}
     if repairs:
         verdict["clueRepairs"] = repairs
+    if moved:
+        verdict["listsSplit"] = len(parsed["across"])
     grid, laid, how, image = None, None, None, None
     if (d / "grid.jpg").exists():
         g, why = trove_grid.read_grid(d / "grid.jpg")
