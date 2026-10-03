@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,64 @@
     "text": "Half of comic's not much to look at, editor moaned",
     "enumeration": "10"
    },
-   "solution": "COMPLAINED"
+   "solution": "COMPLAINED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COMPLAINED",
+    "definitions": [
+     {
+      "text": "moaned",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half of",
+      "for": "letter_selection",
+      "note": "only half of the following word is kept, here its opening three letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comic",
+      "gives": "COM",
+      "select": "first",
+      "note": "the first half of the six-letter word"
+     },
+     {
+      "clueFragment": "not much to look at",
+      "gives": "PLAIN",
+      "note": "plain describes someone unattractive"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PLAIN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor grumbles that a comic is half rubbish to look at.",
+     "definitionFit": "To complain is to grumble or voice dissatisfaction, the same thing as to moan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +106,52 @@
     "text": "Looking up some railway ticket for London?",
     "enumeration": "4"
    },
-   "solution": "CITY"
+   "solution": "CITY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CITY",
+    "definitions": [
+     {
+      "text": "London?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means part of, so the answer sits inside the following words"
+     },
+     {
+      "text": "Looking up",
+      "for": "reversal",
+      "note": "in a down clue, looking up means reading from bottom to top, i.e. backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "railway ticket",
+      "gives": "YTIC",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller checks a train ticket for London.",
+     "walkthrough": "The question mark flags that London is merely one example of the definition.",
+     "definitionFit": "London is a capital city, so it serves as an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "London"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +165,65 @@
     "text": "Scrape green bananas for courier",
     "enumeration": "9"
    },
-   "solution": "MESSENGER"
+   "solution": "MESSENGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MESSENGER",
+    "definitions": [
+     {
+      "text": "courier",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas means crazy, so the letters go wild and rearrange"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrape",
+      "gives": "MESS",
+      "note": "a scrape is a predicament or tight spot"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "GREEN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESS",
+      "ENGER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREEN",
+       "gives": "ENGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peeling unripe bananas, perhaps for a delivery rider.",
+     "walkthrough": "Bananas looks like the fruit being scraped, but it is the slang word for crazy.",
+     "definitionFit": "A courier carries letters or parcels, which is exactly what a messenger does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +237,53 @@
     "text": "Musician removes soft blanket",
     "enumeration": "5"
    },
-   "solution": "LAYER"
+   "solution": "LAYER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LAYER",
+    "definitions": [
+     {
+      "text": "blanket",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removes",
+      "for": "deletion",
+      "note": "removes tells us to take a letter out of the musician"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musician",
+      "gives": "PLAYER",
+      "note": "a player performs on an instrument"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, the musical marking for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAYER"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician gets rid of a fluffy blanket.",
+     "walkthrough": "Soft looks like an adjective for the blanket, but it is the letter dropped; blanket is a noun here.",
+     "definitionFit": "A blanket of snow or fog is a covering sheet, exactly what a layer is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +297,52 @@
     "text": "Take off tie – I'm at Barking",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Take off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Barking",
+      "for": "anagram",
+      "note": "barking is slang for mad, so the letters go haywire"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie – I'm at",
+      "gives": "TIEIMAT",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEIMAT",
+       "gives": "IMITATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone removes their tie on arriving in Barking.",
+     "walkthrough": "Barking is a district of east London, which the surface uses as a place, but the word also means crazy.",
+     "definitionFit": "To take off someone is to mimic them for comic effect, a sense of copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barking"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +356,47 @@
     "text": "Fast old ram",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPRESS",
+    "definitions": [
+     {
+      "text": "Fast",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "ram",
+      "gives": "PRESS",
+      "note": "to ram something down is to press or push it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a quick elderly male sheep.",
+     "walkthrough": "Ram looks like the animal, but it is a verb meaning push hard.",
+     "definitionFit": "An express train or delivery is a high-speed one, so the word means quick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ram"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +410,46 @@
     "text": "Almost round fruit",
     "enumeration": "4"
    },
-   "solution": "PLUM"
+   "solution": "PLUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLUM",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "PLUMP",
+      "note": "plump means chubby or rounded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUM"
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A plum is a stone fruit, a straightforward example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +463,56 @@
     "text": "Discover king and queen at last",
     "enumeration": "5"
    },
-   "solution": "LEARN"
+   "solution": "LEARN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LEARN",
+    "definitions": [
+     {
+      "text": "Discover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the very end of the preceding word, keeping only its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "LEAR",
+      "note": "King Lear of Shakespeare"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Finally finding out about a royal couple.",
+     "walkthrough": "King is not R or K here but a specific king, Shakespeare's Lear.",
+     "definitionFit": "To learn a fact is to find it out or come to know it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +526,58 @@
     "text": "Wave, perhaps, left European ship frozen",
     "enumeration": "10"
    },
-   "solution": "MOTIONLESS"
+   "solution": "MOTIONLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTIONLESS",
+    "definitions": [
+     {
+      "text": "frozen",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wave, perhaps",
+      "gives": "MOTION",
+      "note": "a wave of the hand is a motion"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTION",
+      "L",
+      "E",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wave of goodbye as a European ship is left stuck in ice.",
+     "definitionFit": "Frozen in the sense of stock-still, not moving at all, a figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wave"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +591,63 @@
     "text": "Fairly short tops from independent emporium rated more attractive",
     "enumeration": "8"
    },
-   "solution": "PRETTIER"
+   "solution": "PRETTIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRETTIER",
+    "definitions": [
+     {
+      "text": "more attractive",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the last letter of the word is lost"
+     },
+     {
+      "text": "tops from",
+      "for": "letter_selection",
+      "note": "tops are the highest parts, so in a down clue the first letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fairly",
+      "gives": "PRETTY",
+      "note": "pretty good means fairly good"
+     },
+     {
+      "clueFragment": "independent emporium rated",
+      "gives": "IER",
+      "select": "first",
+      "note": "initial letters of three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRETT",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "An indie shop's quite short tops are rated as more appealing.",
+     "walkthrough": "Tops suggests clothing for sale, but it points to the first letters.",
+     "definitionFit": "Prettier is the comparative of pretty, meaning better looking, so it matches more attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tops"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +661,60 @@
     "text": "Grumpy alien comes back somewhere filthy",
     "enumeration": "5"
    },
-   "solution": "TESTY"
+   "solution": "TESTY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TESTY",
+    "definitions": [
+     {
+      "text": "Grumpy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes back",
+      "for": "reversal",
+      "note": "coming back means travelling the other way, so the word for alien is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the film alien"
+     },
+     {
+      "clueFragment": "somewhere filthy",
+      "gives": "STY",
+      "note": "a pigsty is the archetypal filthy place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "STY"
+     ],
+     "reversals": [
+      {
+       "from": "ET",
+       "to": "TE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bad-tempered alien returns to a squalid dwelling.",
+     "definitionFit": "Someone testy is irritable and short-tempered, which is a synonym for grumpy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alien"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +728,51 @@
     "text": "Hairy armpit not vital",
     "enumeration": "9"
    },
-   "solution": "IMPORTANT"
+   "solution": "IMPORTANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPORTANT",
+    "definitions": [
+     {
+      "text": "vital",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hairy",
+      "for": "anagram",
+      "note": "hairy can mean wild or chaotic, telling us to mess up the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "armpit not",
+      "gives": "ARMPITNOT",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMPITNOT",
+       "gives": "IMPORTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grooming claim: a hairy armpit is not essential.",
+     "definitionFit": "Something vital is essential or of great significance, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Hairy"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +786,63 @@
     "text": "Drop of French cider emptied with no difficulty",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DECREASE",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, leaving just the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "cider",
+      "gives": "CR",
+      "select": "outer",
+      "note": "first and last letters of the drink"
+     },
+     {
+      "clueFragment": "with no difficulty",
+      "gives": "EASE",
+      "note": "to do something with ease is to do it with no difficulty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CR",
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like a tasting note on a French cider served easily.",
+     "walkthrough": "'Drop of' suggests a small amount of liquid, but Drop is the definition as a noun meaning a fall.",
+     "definitionFit": "A decrease is a reduction or fall in amount, as is a drop in prices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +856,58 @@
     "text": "Oscar swaps with adult in Polynesian country dance",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swaps with",
+      "for": "substitution",
+      "note": "swaps with tells us two letters trade places within the country's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film certificate for adult"
+     },
+     {
+      "clueFragment": "Polynesian country",
+      "gives": "TONGA",
+      "note": "Tonga is an island kingdom in the South Pacific"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polynesian character called Oscar trades places with a grown-up.",
+     "walkthrough": "In TONGA the O and the A change positions, giving the dance.",
+     "definitionFit": "The tango is a ballroom dance originating in Argentina, an example of a dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +921,63 @@
     "text": "Schoolfellows from China supporting kind son",
     "enumeration": "10"
    },
-   "solution": "CLASSMATES"
+   "solution": "CLASSMATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLASSMATES",
+    "definitions": [
+     {
+      "text": "Schoolfellows",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, supporting means sitting underneath, so that piece follows the kind word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind",
+      "gives": "CLASS",
+      "note": "a class is a kind or category"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "rhyming slang: china plate means mate, a friend"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASS",
+      "MATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Pupils from China backing a well-behaved son.",
+     "walkthrough": "China is Cockney rhyming slang (china plate = mate), so it is a friend, not the country.",
+     "definitionFit": "Classmates are fellow pupils in the same school class, so schoolfellows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +991,55 @@
     "text": "Bags Sally put inside toboggan",
     "enumeration": "7"
    },
-   "solution": "LUGGAGE"
+   "solution": "LUGGAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LUGGAGE",
+    "definitions": [
+     {
+      "text": "Bags",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put inside",
+      "for": "container",
+      "note": "put inside tells us the first piece is placed within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toboggan",
+      "gives": "LUGE",
+      "note": "a luge is a small racing sled"
+     },
+     {
+      "clueFragment": "Sally",
+      "gives": "GAG",
+      "note": "a sally is a witty remark, i.e. a joke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUG",
+      "GAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Sally stuffs her bags into a sledge.",
+     "walkthrough": "Sally looks like a name, but here it is a quip or joke.",
+     "definitionFit": "Luggage is the collective term for the cases and holdalls a traveller carries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sally"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1053,63 @@
     "text": "Joined American and chatted nonsensically",
     "enumeration": "8"
    },
-   "solution": "ATTACHED"
+   "solution": "ATTACHED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ATTACHED",
+    "definitions": [
+     {
+      "text": "Joined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nonsensically",
+      "for": "anagram",
+      "note": "something said nonsensically makes no sense, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "chatted",
+      "gives": "CHATTED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TTACHED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHATTED",
+       "gives": "TTACHED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone signed up with an American and babbled.",
+     "definitionFit": "Attached means fastened or connected to something, which is what joined means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joined"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1123,53 @@
     "text": "Upset if skull's polished",
     "enumeration": "7"
    },
-   "solution": "SKILFUL"
+   "solution": "SKILFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SKILFUL",
+    "definitions": [
+     {
+      "text": "polished",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upset",
+      "for": "anagram",
+      "note": "upset means knocked over or disturbed, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if skull",
+      "gives": "IFSKULL",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFSKULL",
+       "gives": "SKILFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worry about whether a skull has been buffed.",
+     "definitionFit": "Polished describes a refined, accomplished performance, showing expert ability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "polished"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1183,57 @@
     "text": "One trying to catch trout maybe initially found in type of tank",
     "enumeration": "9"
    },
-   "solution": "FISHERMAN"
+   "solution": "FISHERMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FISHERMAN",
+    "definitions": [
+     {
+      "text": "One trying to catch trout maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each of the next two words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "found in",
+      "gives": "FI",
+      "select": "first",
+      "note": "first letters of the two words"
+     },
+     {
+      "clueFragment": "type of tank",
+      "gives": "SHERMAN",
+      "note": "the Sherman was a Second World War American tank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "SHERMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Trout discovered in a fish tank.",
+     "walkthrough": "Found in reads as a linking phrase, but it supplies the opening letters.",
+     "definitionFit": "An angler sets out to hook fish such as trout, and that person is a fisherman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tank"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1247,43 @@
     "text": "Withdraw cash",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRATCH",
+    "definitions": [
+     {
+      "text": "Withdraw",
+      "at": 0
+     },
+     {
+      "text": "cash",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Withdraw",
+      "note": "first meaning: to pull out of a race or event"
+     },
+     {
+      "clueFragment": "cash",
+      "note": "second meaning: slang for money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like taking money from a bank, but the two words are separate meanings of one word.",
+     "definitionFit": "A competitor is scratched when pulled from a race, and the same word is informal slang for money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Withdraw"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1297,43 @@
     "text": "Where you might find ship's hold",
     "enumeration": "7"
    },
-   "solution": "HARBOUR"
+   "solution": "HARBOUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARBOUR",
+    "definitions": [
+     {
+      "text": "Where you might find ship's",
+      "at": 0
+     },
+     {
+      "text": "hold",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you might find ship's",
+      "note": "first meaning: a sheltered port for vessels"
+     },
+     {
+      "clueFragment": "hold",
+      "note": "second meaning: to keep or cherish, as with a grudge"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as asking where a ship's cargo hold is, but ship's is a plural and hold is a verb.",
+     "definitionFit": "A harbour is a port where vessels moor, and to harbour a grudge is to hold or keep it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1347,55 @@
     "text": "Investigates wheezes after exercises",
     "enumeration": "7"
    },
-   "solution": "PERUSES"
+   "solution": "PERUSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERUSES",
+    "definitions": [
+     {
+      "text": "Investigates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the tricks word behind the exercises abbreviation in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercises",
+      "gives": "PE",
+      "note": "PE is physical education, school exercises"
+     },
+     {
+      "clueFragment": "wheezes",
+      "gives": "RUSES",
+      "note": "a wheeze is a clever scheme or trick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "RUSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor investigates wheezing after a workout.",
+     "walkthrough": "Wheezes suggests breathing trouble, but a wheeze is British slang for a crafty plan.",
+     "definitionFit": "To peruse is to read or examine something carefully, i.e. study or scrutinise it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wheezes"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1409,53 @@
     "text": "Sales pitch ahead of new model",
     "enumeration": "7"
    },
-   "solution": "PATTERN"
+   "solution": "PATTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATTERN",
+    "definitions": [
+     {
+      "text": "model",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "ahead of puts the sales talk in front of the new abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sales pitch",
+      "gives": "PATTER",
+      "note": "patter is a salesperson's glib talk"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Marketing spiel for the launch of a new model.",
+     "definitionFit": "A pattern is a template or design to be copied, so it can be a model."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1469,54 @@
     "text": "Terrific coat worn by soldier",
     "enumeration": "5"
    },
-   "solution": "MAGIC"
+   "solution": "MAGIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGIC",
+    "definitions": [
+     {
+      "text": "Terrific",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "a garment worn by someone wraps around them, so the coat goes outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "MAC",
+      "note": "a mac is a raincoat"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Admiring a great coat on a soldier.",
+     "definitionFit": "Magic is informal British praise meaning wonderful or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1530,43 @@
     "text": "Hotel resident conjectured for the audience",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "Hotel resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience",
+      "for": "homophone",
+      "note": "an audience hears things, so the word for conjectured is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conjectured",
+      "gives": "GUEST",
+      "soundsLike": "GUESSED",
+      "note": "conjectured means surmised"
+     }
+    ],
+    "explanation": {
+     "surface": "Speculation about a hotel resident, for the benefit of onlookers.",
+     "definitionFit": "A person staying at a hotel is called one of its guests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1580,54 @@
     "text": "Bend in tall grass appeared again",
     "enumeration": "8"
    },
-   "solution": "RETURNED"
+   "solution": "RETURNED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETURNED",
+    "definitions": [
+     {
+      "text": "appeared again",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the bend word within the grass word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tall grass",
+      "gives": "REED",
+      "note": "a reed is a tall waterside grass"
+     },
+     {
+      "clueFragment": "Bend",
+      "gives": "TURN",
+      "note": "a turn is a bend in a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TURN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A kink in tall grass suddenly reappears.",
+     "definitionFit": "To return is to come back, so something that returned showed up once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bend"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1641,57 @@
     "text": "Show last bit of chemistry set",
     "enumeration": "5"
    },
-   "solution": "READY"
+   "solution": "READY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "READY",
+    "definitions": [
+     {
+      "text": "set",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last bit of",
+      "for": "letter_selection",
+      "note": "the last bit of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show",
+      "gives": "READ",
+      "note": "a dial reads a figure when it shows it"
+     },
+     {
+      "clueFragment": "chemistry",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READ",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Displaying the final part of a chemistry kit.",
+     "walkthrough": "Chemistry set looks like a toy, but set is the definition, as in all set to go.",
+     "definitionFit": "Set and prepared both mean in position to begin, as in ready, steady, go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1705,55 @@
     "text": "Check spare tyre's turned up",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means flipped to read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spare tyre's",
+      "gives": "POTS",
+      "note": "a spare tyre is a roll of belly fat, i.e. a pot belly, plus the s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOP"
+     ],
+     "reversals": [
+      {
+       "from": "POTS",
+       "to": "STOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Checking whether a spare wheel has arrived.",
+     "walkthrough": "A spare tyre is British slang for a paunch, so it gives POT, with the 's adding S.",
+     "definitionFit": "To check something is to halt or arrest it, which is what stop means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tyre's"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1767,72 @@
     "text": "So drunk her feet wrapped round old Republican",
     "enumeration": "9"
    },
-   "solution": "THEREFORE"
+   "solution": "THEREFORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THEREFORE",
+    "definitions": [
+     {
+      "text": "So",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about, so these letters are jumbled"
+     },
+     {
+      "text": "wrapped round",
+      "for": "container",
+      "note": "wrapped round means enclosing, so the jumble surrounds the following pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her feet",
+      "gives": "HERFEET",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is an abbreviation for old"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is short for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEREF",
+      "OR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HERFEET",
+       "gives": "THEREFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy woman whose feet are tangled around an elderly Republican.",
+     "definitionFit": "So and therefore both mean consequently, introducing a logical conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "So"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1846,49 @@
     "text": "Allow promotional film, possibly, by US university",
     "enumeration": "5"
    },
-   "solution": "ADMIT"
+   "solution": "ADMIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADMIT",
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promotional film, possibly",
+      "gives": "AD",
+      "note": "an advert, which might be a short promotional film"
+     },
+     {
+      "clueFragment": "US university",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Permission for a promo video made by an American university.",
+     "definitionFit": "To admit someone is to let them in, so it means permit or allow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 29,
@@ -452,7 +1902,63 @@
     "text": "Spot – she regularly squeezes it",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SITE",
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "squeezes",
+      "for": "container",
+      "note": "squeezing something holds it tightly inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "she",
+      "gives": "SE",
+      "select": "alternate",
+      "note": "the first and third letters"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman keeps squeezing a pimple.",
+     "walkthrough": "Spot suggests a blemish, which fits the squeezing, but it means a place or location.",
+     "definitionFit": "A site is a location, and spot is an everyday synonym for a particular place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 30,
@@ -472,7 +1978,55 @@
      }
     ]
    },
-   "solution": "BRANDYSNAP"
+   "solution": "BRANDYSNAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRANDY SNAP",
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "BRANDY",
+      "note": "brandy is a spirit"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing sizes"
+     },
+     {
+      "clueFragment": "sleep",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRANDY",
+      "S",
+      "NAP"
+     ]
+    },
+    "explanation": {
+     "surface": "An afternoon of biscuits, a drink and then a doze.",
+     "definitionFit": "A brandy snap is a thin crisp rolled ginger biscuit, often filled with cream, popular in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   }
  ]
 }
