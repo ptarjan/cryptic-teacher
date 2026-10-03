@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Reasonable diet fed Joe",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "Reasonable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed",
+      "for": "container",
+      "note": "something fed takes food inside it, so the diet word swallows the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "LOCAL",
+      "note": "LO-CAL, short for low-calorie, describes a slimming diet"
+     },
+     {
+      "clueFragment": "Joe",
+      "gives": "GI",
+      "note": "GI Joe is the generic American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sensibly feeding a man called Joe a sensible diet.",
+     "walkthrough": "GI Joe is slang for an American soldier, and low-cal is the shorthand label on slimming food.",
+     "definitionFit": "Something sound and rational in argument can be called reasonable; the two adjectives are close synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joe"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,55 @@
     "text": "Molten rock that flows over edges of Borneo basin",
     "enumeration": "6"
    },
-   "solution": "LAVABO"
+   "solution": "LAVABO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LAVABO",
+    "definitions": [
+     {
+      "text": "basin",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Molten rock that flows over",
+      "gives": "LAVA",
+      "note": "lava is molten rock flowing from a volcano"
+     },
+     {
+      "clueFragment": "Borneo",
+      "gives": "BO",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAVA",
+      "BO"
+     ]
+    },
+    "explanation": {
+     "surface": "Lava pouring over the rim of a volcanic basin in Borneo.",
+     "definitionFit": "A lavabo is a washbasin, originally the one a priest uses to wash hands during Mass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "basin"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,67 @@
     "text": "Retriever turned up with tailless bird",
     "enumeration": "6"
    },
-   "solution": "GODWIT"
+   "solution": "GODWIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "GODWIT",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from bottom to top, so the word runs backwards"
+     },
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "tailless means without its tail, so the last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retriever",
+      "gives": "DOG",
+      "note": "a retriever is a breed of dog"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "taken as written, before losing its end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOD",
+      "WIT"
+     ],
+     "reversals": [
+      {
+       "from": "DOG",
+       "to": "GOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gun dog appears with a bird that has lost its tail feathers.",
+     "walkthrough": "'with' looks like a link word, but it supplies letters: WITH minus its last letter.",
+     "definitionFit": "The godwit is a long-billed wading bird of mudflats and marshes, related to sandpipers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +240,61 @@
      }
     ]
    },
-   "solution": "CLOCKRADIO"
+   "solution": "CLOCKRADIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLOCK RADIO",
+    "definitions": [
+     {
+      "text": "that might set off alarm bells",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the city name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "CLOCK",
+      "note": "to clock is slang for to notice or spot"
+     },
+     {
+      "clueFragment": "Brazilian city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, start"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOCK",
+      "RADIO"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert in Rio prompts warnings of danger.",
+     "walkthrough": "'Set off alarm bells' usually means arouse suspicion; here the alarm is literal, a bedside device going off.",
+     "definitionFit": "A clock radio is a bedside device combining a timer and radio, which wakes sleepers with an alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "alarm"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +308,48 @@
     "text": "Material ingredient of Darcy/Lizzie upset?",
     "enumeration": "5"
    },
-   "solution": "LYCRA"
+   "solution": "LYCRA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LYCRA",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingredient of",
+      "for": "hidden_word",
+      "note": "an ingredient is part of a mixture, so the letters sit inside the words that follow"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the letters are read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Darcy/Lizzie",
+      "gives": "ARCYL",
+      "note": "letters spanning the end of the first name and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering what fabric was in Mr Darcy and Lizzie Bennet's quarrel in Pride and Prejudice.",
+     "definitionFit": "Lycra is a trademarked stretchy synthetic fibre used in sportswear, a type of fabric or cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +363,44 @@
     "text": "Assault resulting from drinking too much in the pub?",
     "enumeration": "7"
    },
-   "solution": "BARRAGE"
+   "solution": "BARRAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BARRAGE",
+    "definitions": [
+     {
+      "text": "Assault",
+      "at": 0
+     },
+     {
+      "text": "resulting from drinking too much in the pub?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assault",
+      "note": "first meaning: a heavy, concentrated bombardment"
+     },
+     {
+      "clueFragment": "resulting from drinking too much in the pub?",
+      "note": "second, punning meaning: fury in a bar, split as two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A drunken brawl in a pub turns into an assault.",
+     "walkthrough": "Split it as BAR RAGE, the anger that boils over in a pub, and it reads as a whimsical second meaning.",
+     "definitionFit": "A barrage is a sustained artillery bombardment or a heavy onslaught, a kind of military assault."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pub"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +420,52 @@
      }
     ]
    },
-   "solution": "BOWLERHAT"
+   "solution": "BOWLERHAT",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "BOWLER HAT",
+    "definitions": [
+     {
+      "text": "With which Oddjob threw a lob, tragically?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tragically",
+      "for": "anagram",
+      "note": "tragically suggests things going badly wrong, so the letters end up in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "threw a lob",
+      "gives": "THREWALOB",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THREWALOB",
+       "gives": "BOWLERHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Bond henchman hurls his deadly hat in a lobbing throw.",
+     "walkthrough": "The whole clue is both wordplay and definition: in Goldfinger, Oddjob kills by throwing a steel-rimmed bowler.",
+     "definitionFit": "Oddjob's signature weapon is a hard round felt hat with a razor brim, a classic City gent's headgear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tragically"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +479,43 @@
     "text": "Bloody excellent!",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "Bloody",
+      "at": 0
+     },
+     {
+      "text": "excellent",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloody",
+      "note": "first meaning: lightly cooked, of steak, still red inside"
+     },
+     {
+      "clueFragment": "excellent",
+      "note": "second meaning: exceptionally good, an old-fashioned word of praise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it sounds like a British exclamation of approval, with bloody as an intensifier.",
+     "definitionFit": "Rare describes undercooked meat oozing juices, and also something unusually fine or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bloody"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +529,38 @@
     "text": "One who gets a buzz from work?",
     "enumeration": "8"
    },
-   "solution": "APIARIST"
+   "solution": "APIARIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "APIARIST",
+    "definitions": [
+     {
+      "text": "One who gets a buzz from work?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who gets a buzz from work?",
+      "note": "surface reading: someone who finds their job thrilling"
+     },
+     {
+      "clueFragment": "a buzz",
+      "note": "setter's reading: the literal humming noise of the insects this person tends for honey"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An apiarist keeps bees, so their daily labour is literally surrounded by the humming of hives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buzz"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +574,66 @@
     "text": "English cricket side of highest quality embracing new style",
     "enumeration": "8"
    },
-   "solution": "ELEGANCE"
+   "solution": "ELEGANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELEGANCE",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means holding in its arms, so one letter is wrapped inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "LEG",
+      "note": "the leg side is the half of a cricket field behind the batter's legs"
+     },
+     {
+      "clueFragment": "of highest quality",
+      "gives": "ACE",
+      "note": "ace means first-rate"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEG",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A top-class England cricket team adopting a new way of playing.",
+     "walkthrough": "In cricket the field divides into the off side and the leg side, so 'cricket side' is a standard route to LEG.",
+     "definitionFit": "Elegance is graceful refinement in appearance or manner, which is what having style means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +647,66 @@
     "text": "Record six nil Germany/Spain stuffing",
     "enumeration": "5"
    },
-   "solution": "VIDEO"
+   "solution": "VIDEO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VIDEO",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing is packed inside something, so these country letters go in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "Roman numeral for six"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "international vehicle code for Germany (Deutschland)"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "international vehicle code for Spain (España)"
+     },
+     {
+      "clueFragment": "nil",
+      "gives": "O",
+      "note": "nil is zero, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "DE",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A football result recorded: six-nil, with Germany and Spain involved.",
+     "walkthrough": "VI and O join, then D and E are stuffed between them.",
+     "definitionFit": "To video something is to capture it on film, a modern way of recording it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +720,62 @@
     "text": "Beefy individual ordered a cider where there’s no Courage?",
     "enumeration": "9"
    },
-   "solution": "COWARDICE"
+   "solution": "COWARDICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "COWARDICE",
+    "definitions": [
+     {
+      "text": "where there’s no Courage?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beefy individual",
+      "gives": "COW",
+      "note": "a cow is an animal raised for beef"
+     },
+     {
+      "clueFragment": "a cider",
+      "gives": "ARDICE",
+      "note": "the letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COW",
+      "ARDICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACIDER",
+       "gives": "ARDICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone orders a cider at a pub that has no Courage beer on tap.",
+     "walkthrough": "Courage is a British brewery, so the pub picture is a decoy; read as plain courage, its absence is the definition.",
+     "definitionFit": "Cowardice is the state of lacking bravery, a place or condition where nerve is missing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Courage"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +789,51 @@
     "text": "Skilled labourer requiring good egg and hen",
     "enumeration": "10"
    },
-   "solution": "BRICKLAYER"
+   "solution": "BRICKLAYER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRICKLAYER",
+    "definitions": [
+     {
+      "text": "Skilled labourer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good egg",
+      "gives": "BRICK",
+      "note": "an old-fashioned compliment for a reliable, decent person"
+     },
+     {
+      "clueFragment": "hen",
+      "gives": "LAYER",
+      "note": "a hen kept for eggs is a layer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRICK",
+      "LAYER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tradesman whose job description needs a good egg and a chicken.",
+     "walkthrough": "'Good egg' and 'hen' both look like farmyard words; one is a compliment for a person.",
+     "definitionFit": "A bricklayer is a builder trained to set bricks in mortar, a skilled manual trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +847,53 @@
     "text": "Gunners commander time and time again surrendered territory",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AREA",
+    "definitions": [
+     {
+      "text": "territory",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrendered",
+      "for": "deletion",
+      "note": "surrendered means given up, so those letters are handed over and lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gunners commander",
+      "gives": "ARTETA",
+      "note": "Mikel Arteta manages Arsenal, whose nickname is the Gunners"
+     },
+     {
+      "clueFragment": "time and time again",
+      "gives": "TT",
+      "note": "T is the abbreviation for time, used twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AREA"
+     ]
+    },
+    "explanation": {
+     "surface": "An army commander repeatedly gives up ground to the enemy.",
+     "walkthrough": "'Gunners' suggests artillery (RA), but it is Arsenal football club; drop both Ts from ARTETA to leave AREA.",
+     "definitionFit": "An area is a region or tract of land, which is what territory also means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunners"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +913,51 @@
      }
     ]
    },
-   "solution": "EMERYBOARD"
+   "solution": "EMERYBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMERY BOARD",
+    "definitions": [
+     {
+      "text": "Might it help avoid nail-biting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "situation with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Villa coach",
+      "gives": "EMERY",
+      "note": "Unai Emery manages Aston Villa football club"
+     },
+     {
+      "clueFragment": "directors",
+      "gives": "BOARD",
+      "note": "a company's directors make up its board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMERY",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A tense football match where the manager and directors are anxious.",
+     "walkthrough": "'Nail-biting' sounds like match tension, but literally a filed nail gives you nothing to bite.",
+     "definitionFit": "An emery board is a small abrasive strip for filing fingernails smooth, removing ragged edges people chew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nail-biting"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +981,46 @@
      }
     ]
    },
-   "solution": "FACETHEMUSIC"
+   "solution": "FACETHEMUSIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FACE THE MUSIC",
+    "definitions": [
+     {
+      "text": "Look at the score",
+      "at": 0
+     },
+     {
+      "text": "prepare for the worst",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look at the score",
+      "note": "first meaning, literal: turn towards the written notes a band plays"
+     },
+     {
+      "clueFragment": "prepare for the worst",
+      "note": "second meaning, idiomatic: brace yourself to accept unpleasant consequences"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports fan glances at the scoreline and braces for defeat.",
+     "definitionFit": "The idiom means confronting the unpleasant results of your actions, and literally a score is printed music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1034,73 @@
     "text": "Excited lad’s first to be carried by new Tube line",
     "enumeration": "9"
    },
-   "solution": "EBULLIENT"
+   "solution": "EBULLIENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "EBULLIENT",
+    "definitions": [
+     {
+      "text": "Excited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     },
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "something carried is held within, so that letter goes inside"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters take a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad’s",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Tube line",
+      "gives": "TUBELINE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EBU",
+      "L",
+      "LIENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUBELINE",
+       "gives": "EBULIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy thrilled to ride a newly opened London Underground line.",
+     "definitionFit": "Ebullient means bubbling over with enthusiasm and high spirits, an excited and lively state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1114,48 @@
     "text": "Triumphant as millions embracing spirit",
     "enumeration": "8"
    },
-   "solution": "PHANTASM"
+   "solution": "PHANTASM",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "charade"
+    ],
+    "answer": "PHANTASM",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "hidden_word",
+      "note": "embracing means holding within, so the opening words wrap the letters wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Triumphant as",
+      "gives": "PHANTAS",
+      "note": "letters inside these words"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "standard abbreviation"
+     }
+    ],
+    "explanation": {
+     "surface": "A victorious crowd of millions celebrating with team spirit.",
+     "definitionFit": "A phantasm is a ghostly apparition or illusion, which is one meaning of spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1169,61 @@
     "text": "Vintage spies discovered item in the shape of a cross",
     "enumeration": "8"
    },
-   "solution": "CRUCIATE"
+   "solution": "CRUCIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CRUCIATE",
+    "definitions": [
+     {
+      "text": "in the shape of a cross",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "discovered read literally means with its cover removed, so the outer letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vintage",
+      "gives": "CRU",
+      "note": "a cru is a vineyard or wine of a given quality"
+     },
+     {
+      "clueFragment": "spies",
+      "gives": "CIA",
+      "note": "the American intelligence agency"
+     },
+     {
+      "clueFragment": "item",
+      "gives": "ITEM",
+      "note": "taken as written, before stripping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRU",
+      "CIA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Undercover agents uncover an old artefact shaped like a crucifix.",
+     "walkthrough": "ITEM loses its outer I and M to leave TE.",
+     "definitionFit": "Cruciate is an anatomical and botanical adjective meaning cross-shaped, as in the cruciate ligaments of the knee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1237,72 @@
     "text": "Reportedly arrogant sect tempted to get naked gardening",
     "enumeration": "12"
    },
-   "solution": "HORTICULTURE"
+   "solution": "HORTICULTURE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "deletion"
+    ],
+    "answer": "HORTICULTURE",
+    "definitions": [
+     {
+      "text": "gardening",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as people say it, so the sound counts and not the spelling"
+     },
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "naked means stripped of its covering, so the outside letters of that word come off"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrogant",
+      "gives": "HORTI",
+      "soundsLike": "HAUGHTY",
+      "note": "haughty means arrogant, and said in a non-rhotic accent it matches this spelling"
+     },
+     {
+      "clueFragment": "sect",
+      "gives": "CULT",
+      "note": "a cult is a religious sect"
+     },
+     {
+      "clueFragment": "tempted",
+      "gives": "LURED",
+      "note": "to lure is to tempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORTI",
+      "CULT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A haughty cult lures followers into gardening in the nude.",
+     "walkthrough": "LURED stripped of its first and last letters leaves URE.",
+     "definitionFit": "Horticulture is the art and practice of cultivating plants, the formal word for gardening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1316,49 @@
     "text": "Drink gallons hip-hop artist delivered",
     "enumeration": "6"
    },
-   "solution": "GRAPPA"
+   "solution": "GRAPPA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "GRAPPA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "delivered here means spoken out, as a speech is delivered, so sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gallons",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "hip-hop artist",
+      "gives": "RAPPA",
+      "soundsLike": "RAPPER",
+      "note": "a rapper performs hip-hop; in a non-rhotic accent the ending matches"
+     }
+    ],
+    "explanation": {
+     "surface": "A rapper has gallons of drink brought round.",
+     "definitionFit": "Grappa is an Italian brandy distilled from grape pomace, a strong alcoholic spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1372,43 @@
     "text": "Swear when visiting Lord’s to watch The Ashes?",
     "enumeration": "6"
    },
-   "solution": "ATTEST"
+   "solution": "ATTEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATTEST",
+    "definitions": [
+     {
+      "text": "Swear",
+      "at": 0
+     },
+     {
+      "text": "when visiting Lord’s to watch The Ashes?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swear",
+      "note": "first meaning: declare something formally to be true"
+     },
+     {
+      "clueFragment": "when visiting Lord’s to watch The Ashes?",
+      "note": "second, punning meaning: split in two, being present at an England-Australia match"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lord's is a London cricket ground and the Ashes is the England-Australia Test series, so you would be AT (a) TEST.",
+     "definitionFit": "To attest is to bear witness or declare under oath, which is what swearing to something means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swear"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1422,48 @@
     "text": "Delicate relative disheartened",
     "enumeration": "4"
    },
-   "solution": "NICE"
+   "solution": "NICE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NICE",
+    "definitions": [
+     {
+      "text": "Delicate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "disheartened read literally means losing its heart, the central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "NIECE",
+      "note": "a niece is a family member"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensitive relative is feeling down.",
+     "walkthrough": "Remove the middle E of NIECE.",
+     "definitionFit": "Nice can mean subtle or requiring precision, as in a nice distinction, which matches delicate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1477,58 @@
     "text": "Brutus shivering with cold in awful weather",
     "enumeration": "10"
    },
-   "solution": "CLOUDBURST"
+   "solution": "CLOUDBURST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLOUDBURST",
+    "definitions": [
+     {
+      "text": "awful weather",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "shivering means shaking about, so the letters are shaken into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brutus",
+      "gives": "BRUTUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "COLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRUTUSCOLD",
+       "gives": "CLOUDBURST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brutus stands shivering with cold out in foul weather.",
+     "definitionFit": "A cloudburst is a sudden, very heavy downpour of rain, a violent spell of bad weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brutus"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1542,52 @@
     "text": "Brown American timber length cut",
     "enumeration": "5"
    },
-   "solution": "UMBER"
+   "solution": "UMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UMBER",
+    "definitions": [
+     {
+      "text": "Brown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means removed, so the abbreviation for length is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American timber",
+      "gives": "LUMBER",
+      "note": "the US word for sawn wood"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Brown-coloured American wood being cut to length.",
+     "definitionFit": "Umber is an earthy pigment, and the name of a dark brownish shade used by painters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "length"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1601,55 @@
     "text": "Centre right Tory peer who ran shelters",
     "enumeration": "4"
    },
-   "solution": "CORE"
+   "solution": "CORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CORE",
+    "definitions": [
+     {
+      "text": "Centre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shelters",
+      "for": "container",
+      "note": "something that shelters another keeps it protected inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory peer who ran",
+      "gives": "COE",
+      "note": "Lord Sebastian Coe, Olympic runner and Conservative peer"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Politics: a right-wing Conservative peer who once stood for election protects centrists.",
+     "walkthrough": "'Centre right' looks like a political label, but Centre is the definition and right is the letter sheltered.",
+     "definitionFit": "The core of something is its innermost central part, as in an apple core."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ran"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1677,67 @@
      }
     ]
    },
-   "solution": "ATALOWEBB"
+   "solution": "ATALOWEBB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AT A LOW EBB",
+    "definitions": [
+     {
+      "text": "Depressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freshly brewed",
+      "for": "anagram",
+      "note": "something freshly brewed has been newly mixed, so these letters are stirred up"
+     },
+     {
+      "text": "getting stuck into",
+      "for": "container",
+      "note": "getting stuck into means going inside, so one letter is pushed into the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "Abbot Ale",
+      "gives": "ABBOTALE",
+      "note": "the beer's name, letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATALO",
+      "W",
+      "EBB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABBOTALE",
+       "gives": "ATALOEBB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy wife drowns her sorrows in a fresh pint of Abbot Ale.",
+     "walkthrough": "Abbot Ale is a real British beer from Greene King, which makes the surface convincing.",
+     "definitionFit": "Being at a low ebb, like a tide that has gone out, means being in poor spirits or downcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Depressed"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1751,51 @@
     "text": "Unlimited free products to try? That’s generous!",
     "enumeration": "5"
    },
-   "solution": "AMPLE"
+   "solution": "AMPLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMPLE",
+    "definitions": [
+     {
+      "text": "generous",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "deletion",
+      "note": "unlimited read literally means without its limits, so the end letters go"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free products to try",
+      "gives": "SAMPLES",
+      "note": "samples are free goods handed out for people to test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper delighted at endless free tasters in a store.",
+     "walkthrough": "Remove the outer S and S of SAMPLES.",
+     "definitionFit": "Ample means plentiful or more than enough, as a generous helping is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unlimited"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1815,39 @@
      }
     ]
    },
-   "solution": "MAEWEST"
+   "solution": "MAEWEST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAE WEST",
+    "definitions": [
+     {
+      "text": "Saviour of pilots who’ve unfortunately taken to the drink?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saviour of pilots who’ve unfortunately taken to the drink?",
+      "note": "surface reading: rescuing aviators who have become heavy drinkers"
+     },
+     {
+      "clueFragment": "taken to the drink",
+      "note": "setter's reading: the drink is slang for the sea, so these airmen have ditched in the water and need flotation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "WWII RAF crews named their inflatable life jacket after the buxom film star, whose figure it resembled when inflated.",
+     "definitionFit": "A Mae West is an inflatable life vest issued to aircrew, keeping a downed flier afloat at sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1861,68 @@
     "text": "Shining River Mole runs away, heading for Thames",
     "enumeration": "7"
    },
-   "solution": "RADIANT"
+   "solution": "RADIANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RADIANT",
+    "definitions": [
+     {
+      "text": "Shining",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "runs away",
+      "for": "deletion",
+      "note": "something that runs away leaves, so the abbreviation for runs drops out"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     },
+     {
+      "clueFragment": "Mole",
+      "gives": "ADRIAN",
+      "note": "Adrian Mole is the teenage diarist in Sue Townsend's comic novels"
+     },
+     {
+      "clueFragment": "Thames",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ADIAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The River Mole, a Thames tributary in Surrey, flows off towards the Thames.",
+     "walkthrough": "The River Mole really does feed the Thames, but here Mole is Adrian Mole; take R (runs) out of ADRIAN.",
+     "definitionFit": "Radiant describes something giving off bright light, glowing or beaming, so it means shining."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mole"
+    }
+   }
   }
  ]
 }
