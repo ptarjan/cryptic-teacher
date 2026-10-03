@@ -1889,6 +1889,58 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-13807", "17-across"): (
+        "David's church 13",
+        "David's church 18",
+        "OCR misread: the cross-reference needs 18, whose answer LIBRETTO a psalter is to the church"),
+    ("times-14040", "2-down"): (
+        ". pretty bunch up before the beak",
+        "A pretty bunch up before the beak",
+        "OCR misread: the opening article A was read as a full stop"),
+    ("times-14040", "18-down"): (
+        "Minor occupations _limiting scope for sport",
+        "Minor occupations limiting scope for sport",
+        "OCR misread: a stray underscore before limiting"),
+    ("times-14040", "24-across"): (
+        "rifling award for MP involved with late duty",
+        "Trifling award for MP involved with late duty",
+        "OCR misread: the definition needs Trifling, a putty medal being a worthless award"),
+    ("times-13775", "4-down"): (
+        "The bole of the century Cheers!",
+        "The hole of the century Cheers!",
+        "OCR misread: the answer is the golfer's nineteenth hole, the clubhouse bar"),
+    ("times-13775", "13-across"): (
+        "I beard the German fliers-- downy birds!",
+        "I heard the German fliers-- downy birds!",
+        "OCR misread: the wordplay needs heard, I and DER said aloud as EIDER"),
+    ("times-13782", "10-across"): (
+        "Hand in this for the Friendly- ly Association",
+        "Hand in this for the Friendly Association",
+        "OCR misread: the scan repeats the ending of Friendly across a line break"),
+    ("times-14033", "12-across"): (
+        "Rosie looking unusually follow",
+        "Rosie looking unusually willow",
+        "OCR misread: the definition needs willow, which an osier is"),
+    ("times-14033", "13-across"): (
+        "One we recognize from his looks (9",
+        "One we recognize from his looks",
+        "OCR misread: the stray '(9' is the enumeration read into the clue"),
+    ("times-14033", "9-across"): (
+        "They secure the upkeep) of temporary accommodation",
+        "They secure the upkeep of temporary accommodation",
+        "OCR misread: the stray bracket is scan debris"),
+    ("times-14033", "18-across"): (
+        "Life the very strong feeling I miss on a tape, perhaps?",
+        "Like the very strong feeling I miss on a tape, perhaps?",
+        "OCR misread: the adjectival definition needs Like, not Life"),
+    ("times-14033", "26-across"): (
+        "Land in an Oriental country '",
+        "Land in an Oriental country",
+        "OCR misread: the stray apostrophe is scan debris"),
+    ("times-14033", "3-down"): (
+        "Haring hopes, they arrange to pass in art",
+        "Having hopes, they arrange to pass in art",
+        "OCR misread: the definition needs Having hopes, as aspirants do"),
     ("times-16975", "10-across"): (
         "Inclination to be in the pub, assume",
         "Inclination to be in the pub, I assume",
