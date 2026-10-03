@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,62 @@
     "text": "I tend to keep company proceeding as planned",
     "enumeration": "2,6"
    },
-   "solution": "INCOURSE"
+   "solution": "INCOURSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IN COURSE",
+    "definitions": [
+     {
+      "text": "proceeding as planned",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tend",
+      "gives": "NURSE",
+      "note": "to tend a patient is to nurse them"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "CO",
+      "URSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits they tend to keep company with others, as long as things go to plan.",
+     "walkthrough": "The surface reads 'tend to' as 'usually'; here 'tend' is a verb of its own, nursing, and wraps round the company.",
+     "definitionFit": "Something in course is under way in the normal sequence, which is what proceeding as planned describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tend"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +106,47 @@
     "text": "Warning: signallers' letter's wrong",
     "enumeration": "6"
    },
-   "solution": "TOCSIN"
+   "solution": "TOCSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOCSIN",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "signallers' letter's",
+      "gives": "TOC",
+      "note": "Toc was the old army signallers' word for the letter T"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a moral wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOC",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that the signallers have got a letter wrong.",
+     "walkthrough": "Before the modern phonetic alphabet, British signallers said 'Toc' for T (as in Toc H); ''s' here is 'is', joining the two parts.",
+     "definitionFit": "A tocsin is an alarm bell or signal, so the word means an alarm or warning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +160,68 @@
     "text": "Write, as on parchment, end of letter kept by inverted *letter-writer",
     "enumeration": "8"
    },
-   "solution": "INSCROLL"
+   "solution": "INSCROLL",
+   "annotation": {
+    "type": [
+     "cycling",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSCROLL",
+    "definitions": [
+     {
+      "text": "Write, as on parchment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inverted",
+      "for": "cycling",
+      "note": "turned upside down, so the back half of the name comes to the front"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "an end is the very last position, so only the closing character is kept"
+     },
+     {
+      "text": "kept by",
+      "for": "container",
+      "note": "something kept by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter-writer",
+      "gives": "COLLINS",
+      "note": "Mr Collins of Pride and Prejudice, the starred theme, is famous for his pompous letters"
+     },
+     {
+      "clueFragment": "letter",
+      "gives": "R",
+      "select": "last",
+      "note": "the plain word, before the hyphenated one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSC",
+      "R",
+      "OLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter-writer turned upside down keeps the end of his letter while writing on parchment.",
+     "walkthrough": "Starred clues are Pride and Prejudice characters. COLL and INS swap places to give INSCOLL, and the R goes in after INSC.",
+     "definitionFit": "To inscroll is an old verb for writing something on a scroll, the parchment roll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inverted"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +235,54 @@
     "text": "Leave thread on London street",
     "enumeration": "6"
    },
-   "solution": "STRAND"
+   "solution": "STRAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAND",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "thread",
+      "at": 6
+     },
+     {
+      "text": "London street",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: to leave someone stuck and helpless"
+     },
+     {
+      "clueFragment": "thread",
+      "note": "second meaning: a single fibre or filament"
+     },
+     {
+      "clueFragment": "London street",
+      "note": "third meaning: a famous thoroughfare in the West End"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone leaves a thread lying on a London street.",
+     "walkthrough": "This is in fact three meanings: the Strand is a famous thoroughfare running from Trafalgar Square towards the City of London.",
+     "definitionFit": "To strand someone is to abandon them, a strand is a single fibre, and the Strand is the street."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +296,53 @@
     "text": "People putting to use a piano tool",
     "enumeration": "8"
    },
-   "solution": "APPLIERS"
+   "solution": "APPLIERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPLIERS",
+    "definitions": [
+     {
+      "text": "People putting to use",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, meaning softly"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "PLIERS",
+      "note": "pliers are a gripping tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PLIERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers using a tool on a piano, perhaps a tuner at work.",
+     "walkthrough": "'Piano tool' reads as one thing, a tuning lever; split it into the musical abbreviation and a separate tool.",
+     "definitionFit": "Appliers are those who apply something, and to apply is to put to use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +356,64 @@
     "text": "Colour for axe said to be axed from carpet fixers",
     "enumeration": "4"
    },
-   "solution": "TINT"
+   "solution": "TINT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "deletion"
+    ],
+    "answer": "TINT",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so we want letters that sound like the word"
+     },
+     {
+      "text": "to be axed from",
+      "for": "deletion",
+      "note": "axing something cuts it out, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carpet fixers",
+      "gives": "TINTACKS",
+      "note": "tin tacks are the short nails used to fix carpets"
+     },
+     {
+      "clueFragment": "axe",
+      "gives": "ACKS",
+      "soundsLike": "AX",
+      "note": "this spelling is pronounced the same as the tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A colour choice for a chopping tool, with something to be cut from the carpet fitters' kit.",
+     "walkthrough": "Spell the sound of 'axe' as ACKS and cut it from TINTACKS, leaving TINT.",
+     "definitionFit": "A tint is a shade or hue, a slight variety of colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "axe"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +427,45 @@
     "text": "Frost report in verse?",
     "enumeration": "4"
    },
-   "solution": "RIME"
+   "solution": "RIME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RIME",
+    "definitions": [
+     {
+      "text": "Frost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report",
+      "for": "homophone",
+      "note": "a report is what is heard, so we want a word that sounds like another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in verse",
+      "gives": "RIME",
+      "soundsLike": "RHYME",
+      "note": "verse is written in rhyme"
+     }
+    ],
+    "explanation": {
+     "surface": "A request for a weather report on frost written in verse, or a nod to the poet Robert Frost.",
+     "walkthrough": "'Frost' looks like the poet Robert Frost, who wrote in verse; it is just the icy coating, and the question mark flags the pun.",
+     "definitionFit": "Rime is hoar frost, the white ice crystals that form on cold surfaces from freezing fog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Frost"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +479,41 @@
     "text": "Accustomed to being exploited",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Accustomed to",
+      "at": 0
+     },
+     {
+      "text": "being exploited",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accustomed to",
+      "note": "first meaning: familiar with"
+     },
+     {
+      "clueFragment": "being exploited",
+      "note": "second meaning: taken advantage of"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase about getting used to exploitation; the break comes after 'to', which belongs to the first meaning.",
+     "definitionFit": "One is used to a thing when familiar with it, and someone who has been taken advantage of feels used."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +527,67 @@
     "text": "Cad caught in painting reversing vehicle",
     "enumeration": "6"
    },
-   "solution": "TROIKA"
+   "solution": "TROIKA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TROIKA",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "something reversing goes backwards, so its letters run the other way"
+     },
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "a thing caught in another is trapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painting",
+      "gives": "ART",
+      "note": "painting is an art"
+     },
+     {
+      "clueFragment": "Cad",
+      "gives": "OIK",
+      "note": "an oik is a boorish lout, British slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OIK",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scoundrel is spotted in a painting of a vehicle backing up.",
+     "walkthrough": "'Reversing vehicle' seems to belong together, but 'reversing' turns the painting round and 'vehicle' stands alone.",
+     "definitionFit": "A troika is a Russian carriage or sleigh pulled by three horses abreast, so a type of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 10,
@@ -160,7 +601,60 @@
     "text": "Girl who drowned without work caught with the sun",
     "enumeration": "6"
    },
-   "solution": "HELIAC"
+   "solution": "HELIAC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HELIAC",
+    "definitions": [
+     {
+      "text": "with the sun",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl who drowned",
+      "gives": "OPHELIA",
+      "note": "Ophelia drowns in Shakespeare's Hamlet"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op, short for opus, is a work"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HELIA",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl drowned while out of work, caught along with the sun.",
+     "walkthrough": "OP for opus is the musical work number; take it from the front of Ophelia.",
+     "definitionFit": "Heliac means relating to the sun, used of a star rising or setting at the same time as the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 11,
@@ -174,7 +668,60 @@
     "text": "Remove tied head covering from a good, clean Parisian",
     "enumeration": "8"
    },
-   "solution": "UNBONNET"
+   "solution": "UNBONNET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNBONNET",
+    "definitions": [
+     {
+      "text": "Remove tied head covering",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "BON",
+      "note": "bon is French for good"
+     },
+     {
+      "clueFragment": "clean",
+      "gives": "NET",
+      "note": "net is French for clean"
+     },
+     {
+      "clueFragment": "Parisian",
+      "note": "qualifies all three words before it: each goes into French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "BON",
+      "NET"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the hat off a smart, clean-cut Parisian.",
+     "walkthrough": "'Parisian' tells us all three small words are to be put into French.",
+     "definitionFit": "A bonnet is a hat tied under the chin, so to unbonnet is to take that hat off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 12,
@@ -188,7 +735,50 @@
     "text": "*Clerk to 9's grandfather with letter to Greek speakers",
     "enumeration": "7"
    },
-   "solution": "PHILIPS"
+   "solution": "PHILIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PHILIPS",
+    "definitions": [
+     {
+      "text": "*Clerk to 9's grandfather",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter to Greek",
+      "gives": "PHI",
+      "note": "phi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "speakers",
+      "gives": "LIPS",
+      "note": "we speak with our lips"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHI",
+      "LIPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A clerk from the Bennet family past, speaking Greek letters to anyone who will listen.",
+     "walkthrough": "Starred clues are Pride and Prejudice characters, and 9 is Elizabeth Bennet in the setter's numbering. 'Greek speakers' looks like people; split it.",
+     "definitionFit": "In the novel Mr Philips was clerk to Elizabeth's maternal grandfather, a lawyer, and married his daughter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speakers"
+    }
+   }
   },
   {
    "number": 13,
@@ -202,7 +792,43 @@
     "text": "Bird, part of the overheads of Saturn?",
     "enumeration": "4"
    },
-   "solution": "RHEA"
+   "solution": "RHEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHEA",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     },
+     {
+      "text": "part of the overheads of Saturn?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "note": "first meaning: a large flightless South American bird"
+     },
+     {
+      "clueFragment": "part of the overheads of Saturn?",
+      "note": "second meaning: one of the moons orbiting the planet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Overheads' sounds like business costs; here it is things overhead in the sky, and the moon is one of them. The question mark flags the wordplay.",
+     "definitionFit": "The rhea is an ostrich-like bird, and Rhea is the second largest moon of the planet Saturn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "overheads"
+    }
+   }
   },
   {
    "number": 14,
@@ -216,7 +842,46 @@
     "text": "Setter and solver abroad, in a sense",
     "enumeration": "4"
    },
-   "solution": "NOUS"
+   "solution": "NOUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOUS",
+    "definitions": [
+     {
+      "text": "Setter and solver abroad",
+      "at": 0
+     },
+     {
+      "text": "sense",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter and solver abroad",
+      "note": "first meaning: French for we, the pair of us in a foreign language"
+     },
+     {
+      "clueFragment": "sense",
+      "note": "second meaning: common sense, gumption"
+     }
+    ],
+    "explanation": {
+     "surface": "The setter and the solver find themselves together overseas, in one sense.",
+     "walkthrough": "Setter and solver together make 'we', and 'abroad' asks for it in French.",
+     "definitionFit": "In British English nous means practical intelligence or good judgement, borrowed from the Greek word for mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +899,67 @@
    "group": [
     "15-across",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHARLOTTE LUCAS",
+    "definitions": [
+     {
+      "text": "*9's friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed",
+      "for": "anagram",
+      "note": "to dress material is to work it into shape, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "put in means placed inside, so these letters go within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coaches",
+      "gives": "CHARAS",
+      "note": "a chara is short for charabanc, an old motor coach"
+     },
+     {
+      "clueFragment": "cot with tulle",
+      "gives": "COTTULLE",
+      "note": "taken as written, the two words joined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "LOTTELUC",
+      "AS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COTTULLE",
+       "gives": "LOTTELUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend has dressed a baby's cot in tulle while travelling by coach.",
+     "walkthrough": "Starred clues are Pride and Prejudice characters, and 9 is Elizabeth Bennet. 'Coaches' looks like the verb; it is the plural of chara, and the coaches split to take the shuffled letters.",
+     "definitionFit": "Charlotte Lucas is Elizabeth Bennet's close friend in the novel, who marries the absurd Mr Collins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +973,69 @@
     "text": "Death to the Roman emperor was from pacified orphaned backer",
     "enumeration": "6"
    },
-   "solution": "DEIFIC"
+   "solution": "DEIFIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "DEIFIC",
+    "definitions": [
+     {
+      "text": "Death to the Roman emperor was",
+      "at": 0,
+      "note": "the answer completes this sentence as an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "orphaned",
+      "for": "deletion",
+      "note": "an orphan has lost a parent, so the word for father is taken out"
+     },
+     {
+      "text": "backer",
+      "for": "reversal",
+      "note": "something going back runs the other way"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pacified",
+      "gives": "PACIFIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "orphaned",
+      "gives": "PA",
+      "note": "pa, father, is the parent the word loses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEIFIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIFIED",
+       "to": "DEIFIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historical note on how death treated a Roman emperor, set against a placated orphan's sponsor.",
+     "walkthrough": "Roman emperors were declared gods after death. 'Backer' looks like a supporter but just means run backwards.",
+     "definitionFit": "Deific means making divine, and for an emperor death brought official deification by the Senate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "backer"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +1049,64 @@
     "text": "Hornbeam, say, for court in Bordeaux region (no extremes)",
     "enumeration": "8"
    },
-   "solution": "IRONWOOD"
+   "solution": "IRONWOOD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "IRONWOOD",
+    "definitions": [
+     {
+      "text": "Hornbeam, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no extremes",
+      "for": "deletion",
+      "note": "without its extremes a word loses its two ends"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bordeaux region",
+      "gives": "GIRONDE",
+      "note": "the Gironde is the French department round Bordeaux"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "WOO",
+      "note": "to court someone is to woo them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "WOO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Hornbeam wood chosen to build a courtroom somewhere in the Bordeaux wine region.",
+     "walkthrough": "'Court' looks like a law court; here it is the verb to woo, put inside IROND.",
+     "definitionFit": "Ironwood is a name for various very hard timbers, and the hornbeam is one tree called that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1120,67 @@
     "text": "Drape juniper with this to produce novel that is mythological",
     "enumeration": "5"
    },
-   "solution": "EDDIC"
+   "solution": "EDDIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EDDIC",
+    "definitions": [
+     {
+      "text": "mythological",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to produce",
+      "for": "anagram",
+      "note": "producing something new means making it out of the parts, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novel",
+      "gives": "PRIDEANDPREJUDICE",
+      "note": "the novel of the starred theme"
+     },
+     {
+      "clueFragment": "Drape juniper",
+      "gives": "DRAPEJUNIPER",
+      "note": "taken as written; these letters are the ones taken out of the title"
+     },
+     {
+      "clueFragment": "this",
+      "note": "stands for the answer itself, whose letters complete the title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDDIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRAPEJUNIPEREDDIC",
+       "gives": "PRIDEANDPREJUDICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to drape juniper sprigs over something mythological to create a fresh effect.",
+     "walkthrough": "This works backwards: drape juniper plus the answer rearrange to PRIDE AND PREJUDICE, the 'novel' of the theme. Take those letters away and EDDIC is left.",
+     "definitionFit": "Eddic describes the Edda, the Old Norse collections of poems and stories about gods and heroes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1194,53 @@
     "text": "Haunt of Apollo, a lost theatre",
     "enumeration": "6"
    },
-   "solution": "DELPHI"
+   "solution": "DELPHI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DELPHI",
+    "definitions": [
+     {
+      "text": "Haunt of Apollo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost is gone, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "theatre",
+      "gives": "ADELPHI",
+      "note": "the Adelphi is a theatre on London's Strand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELPHI"
+     ]
+    },
+    "explanation": {
+     "surface": "Apollo's favourite spot was once a theatre, now gone.",
+     "walkthrough": "The Adelphi is a long-running West End theatre; drop its first letter.",
+     "definitionFit": "Delphi in Greece was the sanctuary of Apollo and home of his famous oracle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 20,
@@ -304,7 +1254,51 @@
     "text": "Eccentric flower for motorist",
     "enumeration": "3,6"
    },
-   "solution": "CARDRIVER"
+   "solution": "CARDRIVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAR DRIVER",
+    "definitions": [
+     {
+      "text": "motorist",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eccentric",
+      "gives": "CARD",
+      "note": "a card is an eccentric or amusing person"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "RIVER",
+      "note": "a river flows, so it is a flower in crossword terms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARD",
+      "RIVER"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd bloom chosen as a gift for a driver.",
+     "walkthrough": "'Flower' wants to be a bloom; read it as 'flow-er', something that flows.",
+     "definitionFit": "A motorist is someone who drives a motor car, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 21,
@@ -318,7 +1312,51 @@
     "text": "Composer gets a coin, a sovereign",
     "enumeration": "6"
    },
-   "solution": "FRANCK"
+   "solution": "FRANCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRANCK",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a coin",
+      "gives": "FRANC",
+      "note": "the franc was the French coin before the euro"
+     },
+     {
+      "clueFragment": "a sovereign",
+      "gives": "K",
+      "note": "K is the abbreviation for king, a sovereign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANC",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer is paid a coin, and a gold one at that.",
+     "walkthrough": "A sovereign is also an old British gold coin, which keeps the money theme going; here it means a monarch.",
+     "definitionFit": "César Franck was a Belgian-born composer and organist working in Paris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1370,54 @@
     "text": "*Colonel in favour of canonising the Queen?",
     "enumeration": "7"
    },
-   "solution": "FORSTER"
+   "solution": "FORSTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORSTER",
+    "definitions": [
+     {
+      "text": "*Colonel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOR",
+      "note": "to be for something is to favour it"
+     },
+     {
+      "clueFragment": "canonising",
+      "gives": "ST",
+      "note": "canonising makes a saint, abbreviated ST"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "ST",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer who backs making the monarch a saint.",
+     "walkthrough": "Starred clues are Pride and Prejudice characters. Canonising the Queen puts the saint's abbreviation in front of her royal cipher.",
+     "definitionFit": "Colonel Forster commands the militia regiment in the novel and takes Lydia Bennet to Brighton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "canonising"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1431,60 @@
     "text": "Sort of word with somewhat abbreviated backing",
     "enumeration": "4"
    },
-   "solution": "VERB"
+   "solution": "VERB",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "VERB",
+    "definitions": [
+     {
+      "text": "Sort of word",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only part of the next word is used"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abbreviated",
+      "gives": "BREV",
+      "note": "the letters sit inside the word, after the first two"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "BREV",
+       "to": "VERB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grammar talk about a kind of word that comes with a shortened support.",
+     "walkthrough": "Hidden backwards in 'abbreviated'; the definition is fair as a verb is one of the parts of speech.",
+     "definitionFit": "A verb is one of the grammatical classes into which words are divided, a doing or being word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1498,50 @@
     "text": "Phone call saying it's a circular cutter",
     "enumeration": "4,3"
    },
-   "solution": "BUZZSAW"
+   "solution": "BUZZSAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUZZ SAW",
+    "definitions": [
+     {
+      "text": "circular cutter",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "it's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phone call",
+      "gives": "BUZZ",
+      "note": "to give someone a buzz is to ring them"
+     },
+     {
+      "clueFragment": "saying",
+      "gives": "SAW",
+      "note": "a saw is an old saying or proverb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUZZ",
+      "SAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A caller explains on the phone that the tool is a round blade.",
+     "walkthrough": "'Saying' looks like part of the phone call; it is the noun meaning a proverb.",
+     "definitionFit": "A buzz saw is a power saw with a spinning round blade, chiefly the American term for a circular saw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saying"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1569,62 @@
     "text": "*9's sister or *6's aunt finds beast (female) in the East",
     "enumeration": "9"
    },
-   "solution": "CATHERINE"
+   "solution": "CATHERINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATHERINE",
+    "definitions": [
+     {
+      "text": "*9's sister or *6's aunt",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beast",
+      "gives": "CAT",
+      "note": "a cat is a beast"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "HER",
+      "note": "her is the female pronoun"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the East",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "HER",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative discovers a female animal out in the Orient.",
+     "walkthrough": "Starred clues are Pride and Prejudice characters: 9 is Elizabeth Bennet and 6 is Darcy. 'In' looks like a container signal but is taken as written.",
+     "definitionFit": "Elizabeth's younger sister Catherine is known as Kitty, and Darcy's aunt is Lady Catherine de Bourgh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1638,77 @@
     "text": "Victorian philanthropist giving backword in number by dramatist",
     "enumeration": "4,6"
    },
-   "solution": "LORDROWTON"
+   "solution": "LORDROWTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "LORD ROWTON",
+    "definitions": [
+     {
+      "text": "Victorian philanthropist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backword",
+      "for": "reversal",
+      "note": "the first half of this coinage says go back, so the second half is turned round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backword",
+      "gives": "WORD",
+      "note": "the second half of the printed word, taken as written"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "L",
+      "note": "L is fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "dramatist",
+      "gives": "ORTON",
+      "note": "Joe Orton, the 1960s English playwright"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OR",
+      "DROW",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "WORD",
+       "to": "DROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Victorian do-gooder writes words backwards into a number by a playwright.",
+     "walkthrough": "'Backword' is one printed word made of two parts: the signal and the word it turns. The dramatist's name opens up after OR.",
+     "definitionFit": "Montagu Corry, Lord Rowton, founded the Rowton Houses, cheap decent lodgings for working men in London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1722,50 @@
     "text": "*The baddie with joint on the burner",
     "enumeration": "7"
    },
-   "solution": "WICKHAM"
+   "solution": "WICKHAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WICKHAM",
+    "definitions": [
+     {
+      "text": "*The baddie",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the burner",
+      "gives": "WICK",
+      "note": "the wick is the part of a candle or lamp that burns"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HAM",
+      "note": "a ham is a joint of meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WICK",
+      "HAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain with a joint of meat cooking on the stove.",
+     "walkthrough": "Starred clues are Pride and Prejudice characters. 'Joint on the burner' reads as cooking, but 'on' just places one piece next to the other.",
+     "definitionFit": "George Wickham is the novel's charming scoundrel, who slanders Darcy and elopes with Lydia Bennet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "burner"
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1779,56 @@
     "text": "Picnic scene with no alternative must excel",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "excel",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "with no means lacking, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "must"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Picnic scene",
+      "gives": "OUTDOOR",
+      "note": "a picnic is an outdoor scene"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "OR",
+      "note": "or is the word that offers an alternative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTDO"
+     ]
+    },
+    "explanation": {
+     "surface": "A picnic with no other choice of setting has to be the best one.",
+     "walkthrough": "'Alternative' looks like a noun meaning option; it is the little word that introduces one.",
+     "definitionFit": "To outdo is to surpass, which is to excel over others; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 29,
@@ -444,7 +1842,50 @@
     "text": "*She embodied the latter, being briefly divisible into two",
     "enumeration": "9"
    },
-   "solution": "ELIZABETH"
+   "solution": "ELIZABETH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELIZABETH",
+    "definitions": [
+     {
+      "text": "*She embodied the latter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "briefly",
+      "gives": "ELIZA",
+      "note": "one short form of the name, as Mr Collins and others call her"
+     },
+     {
+      "clueFragment": "divisible into two",
+      "gives": "BETH",
+      "note": "a second short form; the full name splits cleanly into the two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIZA",
+      "BETH"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who stood for the second of two qualities, and whose name could be cut into halves.",
+     "walkthrough": "The latter of Pride and Prejudice is prejudice, which the heroine embodies as Darcy does pride. Her name breaks into two familiar short forms.",
+     "definitionFit": "Elizabeth Bennet, the heroine of the novel, forms a hasty prejudice against Darcy that she must overcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "latter"
+    }
+   }
   },
   {
    "number": 30,
@@ -458,7 +1899,57 @@
     "text": "Chinese philosopher from American city and Australian island",
     "enumeration": "3,2"
    },
-   "solution": "LAOZI"
+   "solution": "LAOZI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAO ZI",
+    "definitions": [
+     {
+      "text": "Chinese philosopher",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "OZ",
+      "note": "Oz is the informal name for Australia"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "OZ",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese thinker who hails from somewhere in America and an island off Australia.",
+     "walkthrough": "'Australian island' reads as one place; it splits into two abbreviations.",
+     "definitionFit": "Laozi, also spelt Lao-tzu, is the traditional founder of Taoism and author of the Tao Te Ching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 31,
@@ -472,7 +1963,41 @@
     "text": "*6's friend in Yorkshire",
     "enumeration": "7"
    },
-   "solution": "BINGLEY"
+   "solution": "BINGLEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BINGLEY",
+    "definitions": [
+     {
+      "text": "*6's friend",
+      "at": 0
+     },
+     {
+      "text": "in Yorkshire",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "*6's friend",
+      "note": "first meaning: Darcy's amiable friend in Pride and Prejudice"
+     },
+     {
+      "clueFragment": "in Yorkshire",
+      "note": "second meaning: a town near Bradford in West Yorkshire"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "6 is Darcy in the setter's numbering. The surface puts the friend in Yorkshire; the county clause is a separate meaning, a place found there.",
+     "definitionFit": "Charles Bingley is Darcy's wealthy, good-natured friend, and Bingley is also a West Yorkshire mill town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 32,
@@ -486,7 +2011,54 @@
     "text": "*32's brother-in-law and Ruth's bastard",
     "enumeration": "5"
    },
-   "solution": "HURST"
+   "solution": "HURST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HURST",
+    "definitions": [
+     {
+      "text": "*32's brother-in-law",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bastard",
+      "for": "anagram",
+      "note": "a bastard form is a corrupted or impure one, so the letters are mixed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruth's",
+      "gives": "RUTHS",
+      "note": "taken as written, the possessive's s included"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUTHS",
+       "gives": "HURST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a brother-in-law and the illegitimate child of a woman called Ruth.",
+     "walkthrough": "The clue's own number points at the character linked by marriage; 'bastard' reads as an insult or a child, but works as an adjective meaning corrupt.",
+     "definitionFit": "Mr Hurst, married to Bingley's sister Louisa, is Bingley's indolent brother-in-law in the novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bastard"
+    }
+   }
   },
   {
    "number": 33,
@@ -500,7 +2072,50 @@
     "text": "Beast gets round censor",
     "enumeration": "4"
    },
-   "solution": "CATO"
+   "solution": "CATO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATO",
+    "definitions": [
+     {
+      "text": "censor",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beast",
+      "gives": "CAT",
+      "note": "a cat is a beast"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal manages to evade the censor.",
+     "walkthrough": "'Gets round' sounds like dodging; 'gets' only joins, and 'round' is the ring-shaped letter.",
+     "definitionFit": "Cato the Elder held the Roman office of censor and became famous as Cato the Censor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 34,
@@ -514,7 +2129,46 @@
     "text": "Fast bowler's extract from Anglo-French dictionary?",
     "enumeration": "6"
    },
-   "solution": "SEAMER"
+   "solution": "SEAMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEAMER",
+    "definitions": [
+     {
+      "text": "Fast bowler",
+      "at": 0
+     },
+     {
+      "text": "extract from Anglo-French dictionary?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast bowler",
+      "note": "first meaning: a cricket bowler who makes the ball deviate off its stitched seam"
+     },
+     {
+      "clueFragment": "extract from Anglo-French dictionary?",
+      "note": "second meaning: an entry giving an English word with its French translation, the ocean in both languages"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a playful definition: an English-French dictionary pairs 'sea' with 'mer'. The question mark flags it.",
+     "definitionFit": "In cricket a seamer is a fast or medium-pace bowler relying on movement off the seam of the ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 35,
@@ -528,7 +2182,42 @@
     "text": "The sea in Macbeth",
     "enumeration": "4"
    },
-   "solution": "ROSS"
+   "solution": "ROSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROSS",
+    "definitions": [
+     {
+      "text": "The sea",
+      "at": 0
+     },
+     {
+      "text": "in Macbeth",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The sea",
+      "note": "first meaning: an Antarctic sea named after the explorer James Clark"
+     },
+     {
+      "clueFragment": "in Macbeth",
+      "note": "second meaning: a Scottish thane who appears in Shakespeare's play"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a phrase from the play, perhaps the 'multitudinous seas'; the two halves are separate.",
+     "definitionFit": "The Ross Sea is a bay of the Southern Ocean, and Ross is a Scottish nobleman in Macbeth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 36,
@@ -542,7 +2231,55 @@
     "text": "Bearing in 47 as 9 to Mrs 24",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "as 9 to Mrs 24",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "47",
+      "gives": "NICE",
+      "note": "points at the clue 'Agreeable resort' in the setter's numbering"
+     },
+     {
+      "clueFragment": "Bearing",
+      "gives": "E",
+      "note": "east is a compass bearing, abbreviated E"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "E",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family relationship described with numbered cross-references, like a genealogy puzzle.",
+     "walkthrough": "The numbers are the setter's own, not this grid's: 47 is the 'Agreeable resort' answer, 9 is Elizabeth Bennet and Mrs 24 her aunt.",
+     "definitionFit": "Elizabeth is the daughter of Mrs Bennet's sibling, so she stands as niece to her aunts in the novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bearing"
+    }
+   }
   },
   {
    "number": 37,
@@ -556,7 +2293,46 @@
     "text": "Result of coup is an extra run",
     "enumeration": "9"
    },
-   "solution": "OVERTHROW"
+   "solution": "OVERTHROW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERTHROW",
+    "definitions": [
+     {
+      "text": "Result of coup",
+      "at": 0
+     },
+     {
+      "text": "an extra run",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result of coup",
+      "note": "first meaning: the toppling of a government"
+     },
+     {
+      "clueFragment": "an extra run",
+      "note": "second meaning: in cricket, a run scored when a fielder's throw goes past the stumps"
+     }
+    ],
+    "explanation": {
+     "surface": "A coup ends with the plotters making an extra dash for it.",
+     "walkthrough": "In cricket, if a return throw misses the stumps and nobody stops it, the batsmen can take additional runs, called overthrows.",
+     "definitionFit": "A successful coup brings the downfall of a regime, and in cricket the word names a bonus run from a wild throw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 38,
@@ -570,7 +2346,73 @@
     "text": "*4 17's father gets one to replace energy in river in Thailand",
     "enumeration": "3,7"
    },
-   "solution": "SIRWILLIAM"
+   "solution": "SIRWILLIAM",
+   "annotation": {
+    "type": [
+     "substitution",
+     "container"
+    ],
+    "answer": "SIR WILLIAM",
+    "definitions": [
+     {
+      "text": "*4 17's father",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "replacing means one letter takes the place of another"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "IRWELL",
+      "note": "the Irwell is the river flowing through Manchester"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "energy",
+      "note": "E, the physics symbol for energy, is the letter swapped out"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "SIAM",
+      "note": "Siam is the former name of Thailand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IRWILL",
+      "IAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A father takes someone along to stand in for the power on a Thai river.",
+     "walkthrough": "4 17 is Charlotte Lucas in the setter's numbering. Swap the E of the Manchester river for I and put the result inside Thailand's old name after its S.",
+     "definitionFit": "Sir William Lucas, a knighted former tradesman, is Charlotte's father and the Bennets' neighbour in the novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 39,
@@ -584,7 +2426,40 @@
     "text": "*Heard sound of bustle",
     "enumeration": "5"
    },
-   "solution": "DARCY"
+   "solution": "DARCY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DARCY",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "something heard reaches us by ear, so the name meant here is judged by how it is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound of bustle",
+      "gives": "DARCY",
+      "soundsLike": "DARCEY",
+      "note": "bustle is said like Bussell, and the ballerina Darcey Bussell has a first name pronounced like the hero's surname"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hears the noise of a busy crowd.",
+     "walkthrough": "The asterisk marks a character from the novel, which is the definition. Darcey Bussell was a famous British ballerina: bustle stands for her surname by sound, and her first name, heard, is the hero's.",
+     "definitionFit": "Fitzwilliam Darcy is the proud hero of Pride and Prejudice who eventually marries Elizabeth Bennet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bustle"
+    }
+   }
   },
   {
    "number": 39,
@@ -598,7 +2473,69 @@
     "text": "I cover up a chap who is industrious",
     "enumeration": "8"
    },
-   "solution": "DILIGENT"
+   "solution": "DILIGENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DILIGENT",
+    "definitions": [
+     {
+      "text": "industrious",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "who is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid is a cover"
+     },
+     {
+      "clueFragment": "a chap",
+      "gives": "GENT",
+      "note": "a gent is a gentleman, a chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DILI",
+      "GENT"
+     ],
+     "reversals": [
+      {
+       "from": "ILID",
+       "to": "DILI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to covering up for a hard-working man.",
+     "walkthrough": "'Cover up' reads as concealing; 'up' instead turns the first two pieces over, so both the I and the cover are reversed together.",
+     "definitionFit": "Diligent means showing steady careful effort, which is what an industrious person shows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 40,
@@ -612,7 +2549,65 @@
     "text": "Impressive collection backed by chap with Australian horse",
     "enumeration": "8"
    },
-   "solution": "YARRAMAN"
+   "solution": "YARRAMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YARRAMAN",
+    "definitions": [
+     {
+      "text": "Australian horse",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means sent backwards, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impressive collection",
+      "gives": "ARRAY",
+      "note": "an array is an impressive display or collection"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARRA",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "ARRAY",
+       "to": "YARRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine collection supported by a man who owns a horse from Down Under.",
+     "walkthrough": "'Backed by' reads as supported by; 'backed' turns the collection round and 'by' sets the chap after it. YARRA is also a Melbourne river, a happy accident.",
+     "definitionFit": "Yarraman is an Australian word for a horse, probably from an Aboriginal language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 41,
@@ -626,7 +2621,48 @@
     "text": "Some of many with wind or water",
     "enumeration": "4"
    },
-   "solution": "MILL"
+   "solution": "MILL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MILL",
+    "definitions": [
+     {
+      "text": "with wind or water",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "deletion",
+      "note": "only some of a thing means part of it is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "MILLION",
+      "note": "a million is a great many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Some of the many things powered by wind or water.",
+     "walkthrough": "The definition works by attachment: put wind or water in front and you get a windmill or watermill.",
+     "definitionFit": "A mill grinds grain using power from a source, so the word forms windmill and watermill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 42,
@@ -640,7 +2676,48 @@
     "text": "Catch fish - what with? Not radio",
     "enumeration": "4,4"
    },
-   "solution": "LANDLINE"
+   "solution": "LANDLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAND LINE",
+    "definitions": [
+     {
+      "text": "Not radio",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch fish",
+      "gives": "LAND",
+      "note": "to land a fish is to bring it out of the water"
+     },
+     {
+      "clueFragment": "what with?",
+      "gives": "LINE",
+      "note": "the answer to the question: a fishing line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAND",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler asks what to catch fish with, and is told not to use a radio.",
+     "walkthrough": "The question 'what with?' asks for the tackle you catch with.",
+     "definitionFit": "A landline is a telephone connection by fixed cable rather than by wireless or mobile signal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 43,
@@ -654,7 +2731,48 @@
     "text": "A pretended laryngitis?",
     "enumeration": "6"
    },
-   "solution": "APHONY"
+   "solution": "APHONY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APHONY",
+    "definitions": [
+     {
+      "text": "laryngitis?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pretended",
+      "gives": "PHONY",
+      "note": "phony means fake, put on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PHONY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fakes a sore throat to get out of something.",
+     "walkthrough": "The question mark admits that laryngitis is only one possible cause of the condition.",
+     "definitionFit": "Aphony, or aphonia, is loss of the voice, which laryngitis typically produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pretended"
+    }
+   }
   },
   {
    "number": 44,
@@ -668,7 +2786,40 @@
     "text": "Say 52s (say) when we get our money",
     "enumeration": "3,3"
    },
-   "solution": "PAYDAY"
+   "solution": "PAYDAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAY DAY",
+    "definitions": [
+     {
+      "text": "when we get our money",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say 52s (say)",
+      "note": "surface reading: a cryptic instruction to say something aloud, with an unexplained clue number"
+     },
+     {
+      "clueFragment": "52s (say)",
+      "note": "setter's reading: 52 is the 'Frost report in verse' answer in the setter's numbering, so spoken it means verses that chime, and both words of the answer chime with the word say"
+     }
+    ],
+    "explanation": {
+     "surface": "A cryptic instruction followed by a plain question of when wages arrive.",
+     "walkthrough": "The numbers are the setter's own: 52 is RIME, which said aloud is rhyme. Both PAY and DAY rhyme with 'say', so they are 'say rhymes', and together they make the day wages come in.",
+     "definitionFit": "Payday is the regular date on which employers hand over wages or salary to staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Say"
+    }
+   }
   },
   {
    "number": 45,
@@ -682,7 +2833,44 @@
     "text": "Sound of reproach in Hampshire",
     "enumeration": "6"
    },
-   "solution": "ODIHAM"
+   "solution": "ODIHAM",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ODIHAM",
+    "definitions": [
+     {
+      "text": "in Hampshire",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "the sound of a word is how it is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reproach",
+      "gives": "ODIHAM",
+      "soundsLike": "ODIUM",
+      "note": "odium is the disgrace or reproach heaped on someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A disapproving tut heard somewhere in Hampshire.",
+     "walkthrough": "Hampshire is a county in southern England; the definition 'in Hampshire' is a place found there.",
+     "definitionFit": "Odiham is a small town in Hampshire, home to an RAF helicopter base."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 46,
@@ -696,7 +2884,54 @@
     "text": "Put your name down - put it for Flynn's right",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "Put your name down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put it for",
+      "for": "substitution",
+      "note": "to put one thing for another is to make it stand in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flynn's",
+      "gives": "ERROL",
+      "note": "Errol Flynn, the swashbuckling film star"
+     },
+     {
+      "clueFragment": "right",
+      "note": "R, short for right, is the letter swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "ROL"
+     ]
+    },
+    "explanation": {
+     "surface": "Sign up, and swap your name for the film star's legal claim.",
+     "walkthrough": "'It' means the name just mentioned, abbreviated N, which goes in place of the first R in the actor's first name.",
+     "definitionFit": "To enrol is to sign up for something, which you do by putting your name on a list."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 47,
@@ -710,7 +2945,47 @@
     "text": "Grass on **9's sisters",
     "enumeration": "4,4"
    },
-   "solution": "MARYJANE"
+   "solution": "MARYJANE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARY JANE",
+    "definitions": [
+     {
+      "text": "Grass",
+      "at": 0
+     },
+     {
+      "text": "**9's sisters",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grass",
+      "note": "first meaning: slang for cannabis"
+     },
+     {
+      "clueFragment": "**9's sisters",
+      "note": "second meaning: two of Elizabeth Bennet's sisters, one starred light per sister"
+     }
+    ],
+    "explanation": {
+     "surface": "Informing on Elizabeth's siblings, as a grass is a police informer.",
+     "walkthrough": "The double star marks two characters; 9 is Elizabeth in the setter's numbering. 'Grass' looks like a verb meaning inform on, as 'on' supports.",
+     "definitionFit": "Mary Jane is slang for marijuana, and Mary and Jane are two of the five Bennet sisters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 47,
@@ -724,7 +2999,47 @@
     "text": "Will purposefully signified nothing",
     "enumeration": "4,2"
    },
-   "solution": "MEANTO"
+   "solution": "MEANTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEAN TO",
+    "definitions": [
+     {
+      "text": "Will purposefully",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "signified",
+      "gives": "MEANT",
+      "note": "to signify is to mean"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEANT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A will that was drawn up with purpose turned out to mean nothing at all.",
+     "walkthrough": "'Will' looks like a legal document; it is the verb of intention.",
+     "definitionFit": "If I mean to do something, I intend to do it, so I will do it on purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 48,
@@ -738,7 +3053,45 @@
     "text": "They say Scotsman and German like the Daffodils' company",
     "enumeration": "6"
    },
-   "solution": "JOCUND"
+   "solution": "JOCUND",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "JOCUND",
+    "definitions": [
+     {
+      "text": "like the Daffodils' company",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "what people say is spoken, so we want a word that sounds like these"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scotsman and German",
+      "gives": "JOCUND",
+      "soundsLike": "JOCK UND",
+      "note": "a Jock is a Scotsman, and und is German for and"
+     }
+    ],
+    "explanation": {
+     "surface": "A Scot and a German, said to be as cheerful as Wordsworth's daffodils.",
+     "walkthrough": "'And German' means the German word for 'and'. Jock is a British nickname for a Scotsman.",
+     "definitionFit": "Wordsworth's poem on daffodils says 'A poet could not but be gay, In such a jocund company', jocund meaning merry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 49,
@@ -752,7 +3105,50 @@
     "text": "Like Croesus, with *9's sister's name",
     "enumeration": "6"
    },
-   "solution": "LYDIAN"
+   "solution": "LYDIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LYDIAN",
+    "definitions": [
+     {
+      "text": "Like Croesus",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "*9's sister's",
+      "gives": "LYDIA",
+      "note": "the youngest Bennet sister, who elopes with Wickham"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LYDIA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "As rich as Croesus, and carrying the name of Elizabeth's sister.",
+     "walkthrough": "Here the starred character supplies wordplay rather than the definition; 9 is Elizabeth Bennet.",
+     "definitionFit": "Croesus was the fabulously rich king of Lydia in Asia Minor, so he was Lydian by nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 50,
@@ -766,7 +3162,41 @@
     "text": "Agreeable resort",
     "enumeration": "4"
    },
-   "solution": "NICE"
+   "solution": "NICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICE",
+    "definitions": [
+     {
+      "text": "Agreeable",
+      "at": 0
+     },
+     {
+      "text": "resort",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreeable",
+      "note": "first meaning: pleasant"
+     },
+     {
+      "clueFragment": "resort",
+      "note": "second meaning: the city on the French Riviera"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capital letter of the place disappears at the start of the grid entry, so the adjective and the city share a spelling.",
+     "definitionFit": "The adjective means pleasant, and the Riviera city is a famous seaside holiday destination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 51,
@@ -780,7 +3210,62 @@
     "text": "*6 are going out first",
     "enumeration": "9"
    },
-   "solution": "GEORGIANA"
+   "solution": "GEORGIANA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GEORGIANA",
+    "definitions": [
+     {
+      "text": "*6",
+      "at": 0,
+      "note": "the answer is Darcy's sister, whose full name includes the surname 6"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going out",
+      "for": "anagram",
+      "note": "going out of their places, the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "going",
+      "gives": "GOING",
+      "note": "taken as written; the word serves as fodder and as half the signal"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "A",
+      "note": "A is the first letter, as in A1 or A-grade"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AREGOINGA",
+       "gives": "GEORGIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several Darcys are setting out first.",
+     "walkthrough": "6 is Darcy in the setter's numbering, so the answer is a first name to go with that surname.",
+     "definitionFit": "Georgiana Darcy is Mr Darcy's shy younger sister, whom Wickham once tried to elope with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 51,
@@ -794,7 +3279,44 @@
     "text": "Clothes to be changed?",
     "enumeration": "4"
    },
-   "solution": "GEAR"
+   "solution": "GEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GEAR",
+    "definitions": [
+     {
+      "text": "Clothes",
+      "at": 0
+     },
+     {
+      "text": "to be changed?",
+      "at": 8,
+      "note": "a cryptic hint at the thing a driver changes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clothes",
+      "note": "first meaning: informal for clothing"
+     },
+     {
+      "clueFragment": "to be changed?",
+      "note": "second meaning: what a driver shifts while driving"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as laundry ready for changing into; the question mark marks the hop to motoring, where you change up or down.",
+     "definitionFit": "The word is slang for clothing, and in a car you change from one toothed ratio to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "changed"
+    }
+   }
   },
   {
    "number": 52,
@@ -808,7 +3330,48 @@
     "text": "Like some fish? Cut top of mat to go under it",
     "enumeration": "4"
    },
-   "solution": "OILY"
+   "solution": "OILY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OILY",
+    "definitions": [
+     {
+      "text": "Like some fish?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cut top of",
+      "for": "deletion",
+      "note": "cutting the top off removes the first letter of a down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mat to go under it",
+      "gives": "DOILY",
+      "note": "a doily is a small lace mat put under a cake or plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OILY"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish served on a plate, with instructions to trim a mat to sit underneath.",
+     "walkthrough": "'It' refers back to the fish on its plate, giving a mat that goes under food.",
+     "definitionFit": "Oily fish such as mackerel, herring and sardines have oil throughout their flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mat"
+    }
+   }
   },
   {
    "number": 53,
@@ -822,7 +3385,55 @@
     "text": "Left to be devoured by fish, which isn't friendly",
     "enumeration": "4"
    },
-   "solution": "COLD"
+   "solution": "COLD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COLD",
+    "definitions": [
+     {
+      "text": "which isn't friendly",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be devoured by",
+      "for": "container",
+      "note": "something devoured goes inside the eater"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "COD",
+      "note": "the cod is a fish"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Something abandoned to be eaten by an unfriendly fish.",
+     "walkthrough": "'Left' looks like a past tense, abandoned; it is the abbreviation.",
+     "definitionFit": "A cold manner is distant and unwelcoming, the opposite of warm and friendly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 54,
@@ -836,7 +3447,46 @@
     "text": "Cricket captain's part in declaration",
     "enumeration": "4"
    },
-   "solution": "LARA"
+   "solution": "LARA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LARA",
+    "definitions": [
+     {
+      "text": "Cricket captain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part in",
+      "for": "hidden_word",
+      "note": "a part found in a word is a run of its letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "declaration",
+      "gives": "LARA",
+      "note": "the letters sit in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricket captain's role in declaring an innings closed.",
+     "walkthrough": "A declaration in cricket is a captain ending his side's innings early, so the surface is all cricket. Brian Lara captained the West Indies.",
+     "definitionFit": "Brian Lara, the record-breaking West Indian batsman, was captain of the West Indies team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "declaration"
+    }
+   }
   },
   {
    "number": 55,
@@ -850,7 +3500,58 @@
     "text": "Film maker's reduced place in series",
     "enumeration": "7"
    },
-   "solution": "CHAPLIN"
+   "solution": "CHAPLIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAPLIN",
+    "definitions": [
+     {
+      "text": "Film maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "series",
+      "gives": "CHAIN",
+      "note": "a chain is a series of linked things"
+     },
+     {
+      "clueFragment": "reduced place",
+      "gives": "PL",
+      "note": "PL is the shortened form of place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "PL",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director finds his place in a franchise shrinking.",
+     "walkthrough": "'Reduced' means abbreviated here, not demoted.",
+     "definitionFit": "Charlie Chaplin wrote, directed and starred in his own films, so he was a film maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 56,
@@ -864,7 +3565,50 @@
     "text": "Preparation time for wet",
     "enumeration": "8"
    },
-   "solution": "TRAINING"
+   "solution": "TRAINING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAINING",
+    "definitions": [
+     {
+      "text": "Preparation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "wet",
+      "gives": "RAINING",
+      "note": "when it is raining it is wet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAINING"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting ready for the wet season.",
+     "walkthrough": "'Preparation time' looks like one phrase; the break comes after 'Preparation'.",
+     "definitionFit": "Training is the process of getting ready for a task or event by practice and instruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   }
  ]
 }
