@@ -1897,10 +1897,6 @@ SOURCE_CLUE_WRONG = {
         "Vacation ordered for emperor-to-bc",
         "Vacation ordered for emperor-to-be",
         "OCR misread: the definition needs emperor-to-be, Octavian before he became Augustus"),
-    ("times-16360", "22-down"): (
-        "Player who calls a dob is such a batsman",
-        "Player who calls a bid is such a batsman",
-        "OCR misread: the bridge sense needs a bid, which the opener calls first"),
     ("times-16357", "10-across"): (
         "Transport left one' in one capital or another",
         "Transport left one in one capital or another",
@@ -1925,10 +1921,6 @@ SOURCE_CLUE_WRONG = {
         "Wooing, but was in time to sail, we hear (9",
         "Wooing, but was in time to sail, we hear",
         "OCR misread: the trailing (9 is a duplicated enumeration"),
-    ("times-16376", "13-down"): (
-        "Teenager going up to receive social security (10",
-        "Teenager going up to receive social security",
-        "OCR misread: the trailing (10 is a duplicated enumeration"),
     ("times-16376", "23-down"): (
         "Relative is some Tuscan! (i.c. Cellini) (3",
         "Relative is some Tuscan! (i.e. Cellini)",
