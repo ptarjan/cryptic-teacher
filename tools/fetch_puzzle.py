@@ -1897,6 +1897,14 @@ SOURCE_CLUE_WRONG = {
         "Carry on quietly to rescue odd characters 5",
         "Carry on quietly to rescue odd characters",
         "OCR misread: a stray mark on the scan was read as a 5 after the clue"),
+    ("times-17849", "1-across"): (
+        "Break law here c.g. as one engaged in revolution",
+        "Break law here e.g. as one engaged in revolution",
+        "OCR misread: the anagram needs the E and G of e.g., not c.g."),
+    ("times-17849", "28-across"): (
+        "Get a university beginner to study this poet S).",
+        "Get a university beginner to study this poet",
+        "OCR misread: the enumeration (5) was read as S). after the clue"),
     ("times-17852", "24-down"): (
         "Ray left in danger",
         "Fay left in danger",
