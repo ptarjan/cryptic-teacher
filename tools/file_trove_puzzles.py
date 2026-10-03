@@ -800,6 +800,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seco
 
 
 def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
+    os.environ.setdefault("OCR_THREADS", str(max(1, (os.cpu_count() or 1) // max(1, workers))))
     known = {}
     if ledger.exists():
         for line in ledger.read_text().splitlines():
@@ -825,11 +826,10 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
     queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
                              lambda row: row is None or "inputs" not in row)
     # A line every few minutes, so a watcher sees a long slice move.
-    reported, done = time.monotonic(), 0
-    for (d,), (verdict, puzzle, vlm_ok) in scan_queue.parallel(
-            [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,)):
+    reported = time.monotonic()
+    for done, ((d,), (verdict, puzzle, vlm_ok)) in enumerate(scan_queue.parallel(
+            [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,)), 1):
         aid, h = d.name, due[d]
-        done += 1
         if time.monotonic() - reported >= 300:
             reported = time.monotonic()
             print(f"  {done} of {len(queue)} read", file=out, flush=True)
