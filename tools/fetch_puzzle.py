@@ -1898,6 +1898,10 @@ SOURCE_CLUE_WRONG = {
         "Cockney's description of Dobermann n is faulty",
         "Cockney's description of Dobermann is faulty",
         "OCR misread: the stray n is scan debris; the wordplay needs Dobermann alone"),
+    ("times-16940", "20-down"): (
+        "He does an examination, getting 70%, in ball",
+        "He does an examination, getting 70%, in hall",
+        "OCR misread: the wordplay needs hall, AUDITORIUM, cut to its first seven letters"),
     ("times-16360", "11-across"): (
         "Vacation ordered for emperor-to-bc",
         "Vacation ordered for emperor-to-be",
@@ -2299,6 +2303,22 @@ SOURCE_CLUE_WRONG = {
         "Poet accepted in society, we bear",
         "Poet accepted in society, we hear",
         "OCR misread: the homophone needs 'we hear', not 'we bear'"),
+    ("times-16767", "13-across"): (
+        "In lyric, very loud old seventh note payed in the wrong place",
+        "In lyric, very loud old seventh note played in the wrong place",
+        "OCR misread: the definition needs 'played', not 'payed'"),
+    ("times-16767", "27-across"): (
+        "Tourist and the tigress be disturbed",
+        "Tourist and he tigress be disturbed",
+        "OCR misread: the anagram needs 'he tigress', nine letters, not 'the tigress'"),
+    ("times-16767", "8-down"): (
+        "Look up description of bay'",
+        "Look up description of bay",
+        "OCR misread: a stray apostrophe after bay"),
+    ("times-16767", "24-down"): (
+        "Girl in' the cells",
+        "Girl in the cells",
+        "OCR misread: a stray apostrophe after in"),
 }
 
 
