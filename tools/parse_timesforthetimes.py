@@ -175,6 +175,12 @@ MIN_LIGHT = 3
 #: Blog slugs put the puzzle number first: times-29572-…, qc-1255-by-hurley,
 #: monthly-club-special-20231-…. The title is the fallback when it does not.
 NUMBER_IN = re.compile(r"(\d{3,5})")
+#: The Quick Cryptic's first 99 have one or two digits, too short for
+#: NUMBER_IN, so a slug or title with no longer number reads the one that
+#: follows "Quick Cryptic" or "QC": "quick-cryptic-number-3-…",
+#: "Times Quick Cryptic – 91 by Teazel".
+QUICK_NUMBER = re.compile(
+    r"\b(?:quick[\s-]*cryptic|qc)\b[\W_]*(?:(?:no|number)\b[\W_]*)?(\d{1,4})\b", re.I)
 
 
 def unbrace(ln):
@@ -256,7 +262,8 @@ def puzzle_number(post):
     A slug WordPress made up itself is the post id -- "50707-2" -- and says
     nothing about the puzzle, so the title answers instead, where a number may
     be printed with its thousands comma: "Times 27,365". So does a title whose
-    number is one slip from the slug's (one_slip).
+    number is one slip from the slug's (one_slip). With no number of three
+    digits or more in either, a Quick Cryptic's short number (QUICK_NUMBER).
     """
     m = NUMBER_IN.search(post.get("slug", ""))
     title = html.unescape(post.get("title", {}).get("rendered", ""))
@@ -264,6 +271,8 @@ def puzzle_number(post):
     if (not m or int(m.group(1)) == post.get("id")
             or (t and one_slip(m.group(1), t.group(1)))):
         m = t
+    if not m:
+        m = QUICK_NUMBER.search(title) or QUICK_NUMBER.search(post.get("slug", ""))
     return int(m.group(1)) if m else None
 
 
@@ -711,8 +720,11 @@ def number_orphans(entries):
 
     A list runs in number order, so an unnumbered clue printed between 11 and
     13 across is a light numbered 12 -- the one number between its neighbours
-    that its direction does not already have. When there are two such numbers
-    it is dropped, and so is a whole-grid guess like "the one number no light
+    that its direction does not already have; one opening its list is one
+    of the numbers below the first. Of several such numbers, one the other
+    direction has must start with the orphan's first letter, since both
+    lights start in its cell. When that still leaves two the clue is
+    dropped, and so is a whole-grid guess like "the one number no light
     carries": the missing number may be a different light the blogger left
     out, and a guessed number reconstructs a wrong grid.
     """
@@ -725,10 +737,18 @@ def number_orphans(entries):
         mine = same.index(e)
         before = [x["number"] for x in same[:mine] if x["number"] != ORPHAN]
         after = [x["number"] for x in same[mine + 1:] if x["number"] != ORPHAN]
-        if not before or not after:
+        if not after:
             continue
         taken = {x["number"] for x in same}
-        free = [n for n in range(before[-1] + 1, after[0]) if n not in taken]
+        free = [n for n in range(before[-1] + 1 if before else 1, after[0]) if n not in taken]
+        if len(free) > 1:
+            # A number the other direction has starts in the same cell, so
+            # its answer opens with the same letter; one neither direction
+            # has could be a light the blogger left out, so it stays.
+            other = {x["number"]: x["answer"] for x in entries
+                     if x["direction"] != e["direction"] and x["number"] != ORPHAN}
+            free = [n for n in free
+                    if n not in other or other[n][:1] == (e["answer"] or "")[:1]]
         if len(free) == 1:
             e["number"] = free[0]
             kept.append(e)
@@ -833,8 +853,9 @@ def read_entries(rendered):
     # its answer is the blogger's prose -- "1 SEN = 1/100th of a yen" under
     # 12's answer -- not the light again. A number that merely goes backwards
     # is left alone: that is a typo ("28" for 18), and refusing it would take
-    # every light after the typo with it. A post with no Down heading at all
-    # starts its Down list where the numbers restart at 1 or 2.
+    # every light after the typo with it. A post with no Down heading at all,
+    # or no heading of either kind, starts its Down list where the numbers
+    # restart at 1 or 2.
     headed_down = any(HEADING.match(ln) and HEADING.match(ln).group(1).lower()
                       == "down" for ln in rendered)
     last, answered = 0, set()
@@ -866,7 +887,7 @@ def read_entries(rendered):
             enum = words
             m = ENUM.search(clue or "")
             clue = f"{clue[:m.start()]}({enum})" if m else clue
-        if lights[0][1] == direction:  # a linked group sits at its leader
+        if lights[0][1] == (direction or "across"):  # a linked group sits at its leader
             last = max(last, lights[0][0])
         if len(lights) == 1:
             answered.add(lights[0])
@@ -965,7 +986,7 @@ def read_entries(rendered):
                 # A head LINK_HEAD reads is held to the same above.
                 if (suffix or glued) and direction and way != direction:
                     headed[(number, way)] = direction
-                if (direction == "across" and not headed_down and not (suffix or glued)
+                if (way == "across" and not headed_down and not (suffix or glued)
                         and number <= 2 < last):
                     direction, way, last = "down", "down", 0
                 if (number, way) not in answered:

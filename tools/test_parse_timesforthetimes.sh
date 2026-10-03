@@ -371,6 +371,30 @@ check "a post with no Down heading restarts into Down" \
   "1|across|ENGROSS
 12|across|GLYCERINE
 1|down|ENTERTAINING" "$got"
+# ...nor with no heading of either kind (QC 407, Joker's every-other-Wednesday).
+got="$(run '<p>1</p><p>Absorbed (7)</p><p>ENGROSS &#8211; x</p><p>12</p><p>Liquid (9)</p><p>GLYCERINE &#8211; x</p>
+<p>1</p><p>Hospitality (12)</p><p>ENTERTAINING &#8211; x</p>' | cut -d'|' -f1-3)"
+check "a post with no headings at all restarts into Down" \
+  "1|across|ENGROSS
+12|across|GLYCERINE
+1|down|ENTERTAINING" "$got"
+# An unnumbered clue opening its list is the number below the first whose
+# light in the other direction shares its first letter (QC 2313's MARBLE).
+got="$(run '<p>Across</p><p>Rock and R&amp;B embraced by fellow (6)</p><p>MARBLE &#8211; x</p>
+<p>4 Female, depressed, getting to run (4)</p><p>FLOW &#8211; x</p>
+<p>Down</p><p>1 Protester (7)</p><p>MARCHER &#8211; x</p><p>2 Ways (5)</p><p>ROADS &#8211; x</p>
+<p>3 Jolly (12)</p><p>LIGHTHEARTED &#8211; x</p>' | cut -d'|' -f1-3)"
+check "an orphan opening its list takes the number its crossing first letter allows" \
+  "1|across|MARBLE
+4|across|FLOW
+1|down|MARCHER
+2|down|ROADS
+3|down|LIGHTHEARTED" "$got"
+# ...and stays out when two numbers would take it.
+got="$(run '<p>Across</p><p>Rock and R&amp;B embraced by fellow (6)</p><p>MARBLE &#8211; x</p>
+<p>4 Female, depressed, getting to run (4)</p><p>FLOW &#8211; x</p>
+<p>Down</p><p>1 Protester (7)</p><p>MARCHER &#8211; x</p><p>2 Ways (5)</p><p>MOADS &#8211; x</p>' | cut -d'|' -f1-3 | head -1)"
+check "an orphan two numbers fit is dropped" "4|across|FLOW" "$got"
 # ...and a number that only goes backwards is a typo, kept, not refused.
 got="$(run '<p>Across</p><p>17 ANTHILL &#8211; x</p><p>28 THE STICKS &#8211; x</p><p>19 OPENING &#8211; x</p>
 <p>Down</p><p>1 ABC &#8211; x</p>' | cut -d'|' -f1-3)"
@@ -412,6 +436,18 @@ spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 print(m.puzzle_number({"id": 50707, "slug": "50707-2", "title": {"rendered": "Times 27,365: Candy"}}),
       m.puzzle_number({"id": 9, "slug": "times-quick-cryptic-no-2162-by-tracy", "title": {"rendered": ""}}))')"
+
+# The Quick Cryptic's first 99 have fewer digits than any other Times number.
+check "a Quick Cryptic's one- or two-digit number is read off its slug or title" "1 3 91 None" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+post = lambda slug, title: {"id": 1, "slug": slug, "title": {"rendered": title}}
+print(m.puzzle_number(post("quick-cryptic-1-by-des-not-so-quick", "QUICK CRYPTIC 1  by Des")),
+      m.puzzle_number(post("quick-cryptic-number-3-grumpy-setter", "Quick Cryptic Number 3")),
+      m.puzzle_number(post("times-quick-cryptic-91-by-teazel", "Times Quick Cryptic &#8211; 91 by Teazel")),
+      m.puzzle_number(post("quick-cryptic-blogging", "Quick Cryptic blogging (Week 2)")))')"
 
 # WordPress fixes the slug from the first title typed, so a title one slip
 # from the slug is the blogger's correction; any other title number is not.
