@@ -11,9 +11,9 @@ measured CPU.
 
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them). Its order
-is backlog()'s round-robin, with the
-puzzles a lockout cut off first, then each series' first puzzle
-(series.is_first_issue), then the partly annotated ones, fewest clues
+is backlog()'s: the puzzles a lockout cut off first, then each series' first
+puzzle (series.is_first_issue), then the puzzles without answers (the
+newspaper scans), oldest first, then the partly annotated ones, fewest clues
 missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
 notable tag (tools/puzzle_tags.py), then the indicator cover
 (tools/indicator_cover.py).
@@ -659,10 +659,14 @@ _SCAN = [_row("times-21042", "1999-03-01", solved=False),       # an OCR scan, n
               clues={"present": 27, "total": 28})]
 # (rows, annotate ledger, solve ledger, series) -> queue ids
 BACKLOG_CASES = [
-    # answerless puzzles a model can read are queued, round-robin, newest first
-    (_SCAN, (), (), (), ["canberra-500", "times-29600", "times-21042", "times-20994"]),
+    # answerless puzzles a model can read go first, oldest first, ahead of a
+    # newer answered one; the answered go round-robin, newest first
+    (_SCAN, (), (), (), ["times-20994", "times-21042", "canberra-500", "times-29600"]),
+    # once solved, a scan sorts by date with the answered
+    ([dict(p, hasSolutions=True) if p["id"] == "times-21042" else p for p in _SCAN], (), (), (),
+     ["times-20994", "canberra-500", "times-29600", "times-21042"]),
     # a solve that failed on these inputs stays out; an annotate failure keeps one out too
-    (_SCAN, ("times-29600",), ("times-21042",), (), ["canberra-500", "times-20994"]),
+    (_SCAN, ("times-29600",), ("times-21042",), (), ["times-20994", "canberra-500"]),
     # $CT_SERIES narrows it
     (_SCAN, (), (), ("canberra",), ["canberra-500"]),
     (_SCAN[2:4], (), (), (), ["times-29600"]),
@@ -805,6 +809,16 @@ def promote(queue, pinned, tagged):
     return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
 
 
+def answerless(index_path=INDEX):
+    """Ids of the rows without all their answers, which backlog() queues first
+    and oldest first. Empty when there is no index to read."""
+    try:
+        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return set()
+    return {r["id"] for r in index.get("puzzles", []) if not r.get("hasSolutions")}
+
+
 def partly_annotated(index_path=INDEX):
     """{id: clues it lacks} for the puzzles that have hints and lack some (the
     index's `unannotated`). A run annotates only those clues, so each costs a
@@ -827,12 +841,15 @@ BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
 
 def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     """The burn's queue: every un-annotated row, round-robin across the series,
-    newest first inside each one.
+    newest first inside each one, behind the rows without all their answers.
 
-    A row without all its answers is in it too, when a model can read enough
+    A row without all its answers is in it, ahead of the rest and oldest first
+    across every series, when a model can read enough
     of its clues to solve it cold (fetch_puzzle.cold_solvable) and that solve
     has not failed on these inputs: the burn solves it, then annotates it. The
     clues are the only thing a puzzle must come with; its answers are derived.
+    These are the newspaper scans: the oldest puzzles we hold, in no paper's
+    archive with answers, so they go first and the oldest of them first.
     A row the solve or annotate ledger (tools/failed_inputs.py) holds out is
     left out: selection is by date, so a puzzle that fails is otherwise the
     newest gap again at every checkpoint, bought from scratch each time.
@@ -853,20 +870,25 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     day; undated sorts last inside its lane and never raises. only, when given,
     narrows the queue to those series keys."""
     from datetime import date
+
     from fetch_puzzle import cold_solvable
     annotate_blocked, solve_blocked, only = set(annotate_blocked), set(solve_blocked), set(only)
     todo = [p for p in rows
             if not p["annotated"] and p["id"] not in annotate_blocked
             and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
             and (not only or p["series"] in only)]
+    scans = sorted((p for p in todo if not p.get("hasSolutions")),
+                   key=lambda p: series.puzzle_day(p) or date.max)
     lanes = {}
     for p in todo:
+        if not p.get("hasSolutions"):
+            continue
         lanes.setdefault(p["series"], []).append(p)
     for lane in lanes.values():
         lane.sort(key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
     cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
                                          else len(BY_DEMAND), s))
-    return [lanes[s][i]
+    return scans + [lanes[s][i]
             for i in range(max((len(lane) for lane in lanes.values()), default=0))
             for s in cycle if i < len(lanes[s])]
 
@@ -900,7 +922,8 @@ def unsolved(pid):
 
 def cover_first(pinned):
     """The ids on stdin, reordered: pinned first, then each series' first
-    puzzle, then the partly annotated
+    puzzle, then the puzzles without answers in queue order (oldest first),
+    then the partly annotated
     puzzles, then Cracking the Cryptic's puzzles, then the puzzles with a
     notable tag, then the indicator cover, then the rest as they came. The
     summary goes to stderr, which is the burn's log."""
@@ -909,6 +932,7 @@ def cover_first(pinned):
     ctc = ctc_puzzles()
     partial = partly_annotated()
     pinned = first_issues(queue, pinned)
+    pinned = promote(queue, pinned, answerless())
     pinned = pinned + sorted((pid for pid in queue if pid in partial and pid not in pinned),
                              key=partial.get)
     pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]
