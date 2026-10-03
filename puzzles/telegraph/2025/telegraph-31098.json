@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,42 @@
     "text": "Fulfilled expert",
     "enumeration": "12"
    },
-   "solution": "ACCOMPLISHED"
+   "solution": "ACCOMPLISHED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACCOMPLISHED",
+    "definitions": [
+     {
+      "text": "Fulfilled",
+      "at": 0
+     },
+     {
+      "text": "expert",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fulfilled",
+      "note": "first meaning: achieved or carried out successfully"
+     },
+     {
+      "clueFragment": "expert",
+      "note": "second meaning: highly skilled"
+     }
+    ],
+    "explanation": {
+     "surface": "A specialist who feels content and satisfied with their working life.",
+     "definitionFit": "The word covers both a task successfully completed and a person showing great skill at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fulfilled"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +84,56 @@
     "text": "Examiner of car on hill",
     "enumeration": "7"
    },
-   "solution": "AUDITOR"
+   "solution": "AUDITOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUDITOR",
+    "definitions": [
+     {
+      "text": "Examiner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one thing placed on another sits above it, so the first piece is written before the second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUDI",
+      "note": "a German make of car"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, common on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inspecting a vehicle parked on a slope.",
+     "definitionFit": "An auditor is an official who inspects company accounts, so a kind of examiner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +147,50 @@
     "text": "Caught everyone in ring",
     "enumeration": "4"
    },
-   "solution": "CALL"
+   "solution": "CALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALL",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Everybody rounded up inside a boxing ring or circus ring.",
+     "walkthrough": "'ring' reads as an arena, but it is a verb meaning to telephone.",
+     "definitionFit": "To ring someone is British usage for phoning them, which is the same as giving them a telephone call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +204,80 @@
     "text": "Hitched sheep up right before initially inserting electronic device",
     "enumeration": "7"
    },
-   "solution": "MARRIED"
+   "solution": "MARRIED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MARRIED",
+    "definitions": [
+     {
+      "text": "Hitched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the following words"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before tells us this piece is placed ahead of what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     },
+     {
+      "clueFragment": "inserting electronic device",
+      "gives": "IED",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "R",
+      "IED"
+     ],
+     "reversals": [
+      {
+       "from": "RAM",
+       "to": "MAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer hooks up a sheep and fits it with an electronic tag.",
+     "walkthrough": "'Hitched' looks like tethering the sheep, but it is the definition: getting hitched is slang for marrying.",
+     "definitionFit": "To get hitched is an informal idiom for getting wed, so hitched means wed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hitched"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +291,63 @@
     "text": "Field force to meet large alien flier",
     "enumeration": "7"
    },
-   "solution": "LEAFLET"
+   "solution": "LEAFLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAFLET",
+    "definitions": [
+     {
+      "text": "flier",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Field",
+      "gives": "LEA",
+      "note": "lea is a poetic word for a meadow"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "E.T. is the film's extra-terrestrial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "F",
+      "L",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops in a field encounter a big spaceship from another world.",
+     "walkthrough": "'flier' suggests an aircraft or alien craft, but here it is a printed handout.",
+     "definitionFit": "A flier, or flyer, is a single printed sheet handed out to advertise something, just like a handbill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +361,52 @@
     "text": "Very hot old London area",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "London area",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the tap abbreviation for hot"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A historic part of the capital that is sweltering, or perhaps fashionable.",
+     "definitionFit": "Soho is a district of the West End of central London known for nightlife and restaurants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +420,43 @@
     "text": "Balancing time",
     "enumeration": "7"
    },
-   "solution": "EVENING"
+   "solution": "EVENING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EVENING",
+    "definitions": [
+     {
+      "text": "Balancing",
+      "at": 0
+     },
+     {
+      "text": "time",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Balancing",
+      "note": "first meaning: making level or equal"
+     },
+     {
+      "clueFragment": "time",
+      "note": "second meaning: the part of the day after afternoon"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a juggler's timing, but the two words are separate meanings of one word.",
+     "definitionFit": "Making things level is evening them out, and the late part of the day is also called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balancing"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +470,67 @@
     "text": "Tact is largely deployed in considered fashion",
     "enumeration": "13"
    },
-   "solution": "STRATEGICALLY"
+   "solution": "STRATEGICALLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRATEGICALLY",
+    "definitions": [
+     {
+      "text": "in considered fashion",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deployed",
+      "for": "anagram",
+      "note": "troops deployed are spread out into new positions, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tact",
+      "gives": "TACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "largely",
+      "gives": "LARGELY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRATEGICALLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TACTISLARGELY",
+       "gives": "STRATEGICALLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diplomacy is mostly used in a thoughtful way.",
+     "walkthrough": "The first 'is' belongs to the letters; 'largely' looks like it means mostly but is used whole.",
+     "definitionFit": "Acting strategically means acting according to a deliberate plan, which is doing things in a thought-out manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "largely"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +544,60 @@
     "text": "Show evil spirit right inside depot",
     "enumeration": "13"
    },
-   "solution": "DEMONSTRATION"
+   "solution": "DEMONSTRATION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DEMONSTRATION",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us one piece is placed within the letters of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evil spirit",
+      "gives": "DEMON",
+      "note": "a demon is an evil spirit"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     },
+     {
+      "clueFragment": "depot",
+      "gives": "STATION",
+      "note": "a depot or station is a base for buses or trains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMON",
+      "STRATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A ghost appears in the right place within a bus garage, and everyone sees it.",
+     "walkthrough": "'Show' looks like a verb telling us to reveal the demon, but it is the noun definition at the front.",
+     "definitionFit": "A demonstration is a display or exhibition of how something works, which is one sense of a show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +611,67 @@
     "text": "After time line is crossed by more peculiar child",
     "enumeration": "7"
    },
-   "solution": "TODDLER"
+   "solution": "TODDLER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TODDLER",
+    "definitions": [
+     {
+      "text": "child",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after signals that the remaining letters follow this opening piece"
+     },
+     {
+      "text": "crossed by",
+      "for": "container",
+      "note": "being crossed by something means having it run through you, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "more peculiar",
+      "gives": "ODDER",
+      "note": "odder means stranger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ODDLER"
+     ]
+    },
+    "explanation": {
+     "surface": "Once a time limit is passed, a stranger person cuts across the queue.",
+     "definitionFit": "A toddler is a young child just learning to walk, so a specific kind of child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +685,58 @@
     "text": "Two articles about permit for sportswoman",
     "enumeration": "7"
    },
-   "solution": "ATHLETE"
+   "solution": "ATHLETE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATHLETE",
+    "definitions": [
+     {
+      "text": "sportswoman",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first pieces surround the next"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two articles",
+      "gives": "ATHE",
+      "note": "the indefinite article a followed by the definite article the"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to let is to permit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATH",
+      "LET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Two newspaper pieces discuss a licence for a female sports star.",
+     "walkthrough": "'articles' suggests newspaper stories, but these are grammar's a and the.",
+     "definitionFit": "An athlete is a person who competes in sport, so a female athlete is a sportswoman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +750,51 @@
     "text": "Narrates regularly showing skills",
     "enumeration": "4"
    },
-   "solution": "ARTS"
+   "solution": "ARTS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ARTS",
+    "definitions": [
+     {
+      "text": "skills",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is kept"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Narrates",
+      "gives": "ARTS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller habitually shows off their talents.",
+     "definitionFit": "Arts are crafts or abilities acquired by practice, as in the arts of persuasion, so they are skills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +808,61 @@
     "text": "Silicon Valley disposing of a creep",
     "enumeration": "5"
    },
-   "solution": "SIDLE"
+   "solution": "SIDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SIDLE",
+    "definitions": [
+     {
+      "text": "creep",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disposing of",
+      "for": "deletion",
+      "note": "disposing of something means getting rid of it, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silicon",
+      "gives": "SI",
+      "note": "Si is the chemical symbol for silicon"
+     },
+     {
+      "clueFragment": "Valley",
+      "gives": "DALE",
+      "note": "a dale is a valley, especially in northern England"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "DLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Silicon Valley gets rid of an unpleasant person.",
+     "walkthrough": "'Silicon Valley' reads as the tech hub, but the two words are split into separate pieces.",
+     "definitionFit": "To sidle is to move furtively or sideways, which is how one would creep along unnoticed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "creep"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +876,51 @@
     "text": "Heads of logistics irrationally make order for large car",
     "enumeration": "4"
    },
-   "solution": "LIMO"
+   "solution": "LIMO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LIMO",
+    "definitions": [
+     {
+      "text": "large car",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "logistics irrationally make order",
+      "gives": "LIMO",
+      "select": "first",
+      "note": "the first letter of each of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMO"
+     ]
+    },
+    "explanation": {
+     "surface": "Muddled transport managers place an order for a big car.",
+     "definitionFit": "A limo, short for limousine, is a long luxurious chauffeur-driven vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +934,56 @@
     "text": "Torment in the past extremely nasty",
     "enumeration": "5"
    },
-   "solution": "AGONY"
+   "solution": "AGONY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGONY",
+    "definitions": [
+     {
+      "text": "Torment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the past",
+      "gives": "AGO",
+      "note": "ago means in the past"
+     },
+     {
+      "clueFragment": "nasty",
+      "gives": "NY",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGO",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "Bygone suffering that was really unpleasant.",
+     "walkthrough": "'extremely' wants to mean very, but it picks the ends of the next word.",
+     "definitionFit": "Agony is intense physical or mental suffering, the same as torment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +997,53 @@
     "text": "Group of witches caught by stove",
     "enumeration": "5"
    },
-   "solution": "COVEN"
+   "solution": "COVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVEN",
+    "definitions": [
+     {
+      "text": "Group of witches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the two pieces stand side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "stove",
+      "gives": "OVEN",
+      "note": "an oven is part of a stove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gang of witches found huddled round a kitchen range.",
+     "definitionFit": "A coven is a gathering of witches who meet regularly, traditionally thirteen of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1057,61 @@
     "text": "Infuriated as English garden is destroyed",
     "enumeration": "7"
    },
-   "solution": "ENRAGED"
+   "solution": "ENRAGED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENRAGED",
+    "definitions": [
+     {
+      "text": "Infuriated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so these letters are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "garden",
+      "gives": "GARDEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENRAGED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGARDEN",
+       "gives": "ENRAGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is furious when their English garden is wrecked.",
+     "definitionFit": "Enraged means made extremely angry, which is what infuriated also means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "garden"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1125,61 @@
     "text": "Gutters uneven in middle of streetscapes",
     "enumeration": "7"
    },
-   "solution": "TROUGHS"
+   "solution": "TROUGHS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROUGHS",
+    "definitions": [
+     {
+      "text": "Gutters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, here the two at its centre"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "streetscapes",
+      "gives": "TS",
+      "select": "middle",
+      "note": "the sixth and seventh of its twelve letters"
+     },
+     {
+      "clueFragment": "uneven",
+      "gives": "ROUGH",
+      "note": "rough means bumpy or uneven"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUGH",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Drainage channels look patchy in the centre of town views.",
+     "definitionFit": "Troughs are long narrow channels, and gutters are channels that carry water off a roof or road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uneven"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1193,64 @@
     "text": "Popular number by South European is profound",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "profound",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for South"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TEN",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A hit song by a southern European singer is deep and meaningful.",
+     "walkthrough": "'number' suggests a song in the charts, but it is simply a numeral.",
+     "definitionFit": "Intense and profound both describe feelings of great depth or strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1264,43 @@
     "text": "Partly seethe at revolting drama",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "drama",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Partly",
+      "for": "hidden_word",
+      "note": "partly means only a portion of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seethe at revolting",
+      "gives": "THEATRE",
+      "note": "the letters run on from the end of seethe through at into the start of the third word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone half-fumes at disgusting drama.",
+     "walkthrough": "'revolting' looks like a reversal signal, but the letters read forwards.",
+     "definitionFit": "Theatre is the art of plays and acting, so it stands for drama as a form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1314,52 @@
     "text": "Former lover criticizes eastern area",
     "enumeration": "7"
    },
-   "solution": "EXPANSE"
+   "solution": "EXPANSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPANSE",
+    "definitions": [
+     {
+      "text": "area",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "criticizes",
+      "gives": "PANS",
+      "note": "to pan is to criticise harshly, as a reviewer does"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PANS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-partner runs down an eastern region.",
+     "definitionFit": "An expanse is a wide open stretch of land or sea, so a large area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criticizes"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1373,56 @@
     "text": "Drive group into promenade first",
     "enumeration": "7"
    },
-   "solution": "PREMIER"
+   "solution": "PREMIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREMIER",
+    "definitions": [
+     {
+      "text": "first",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into tells us one piece is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promenade",
+      "gives": "PIER",
+      "note": "a pier is a seaside promenade over the water"
+     },
+     {
+      "clueFragment": "Drive group",
+      "gives": "REM",
+      "note": "R.E.M. is the American band that recorded the song Drive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REM",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "A team herds people onto a seaside walkway.",
+     "walkthrough": "'Drive' looks like a verb, but it is the title of an R.E.M. single, identifying the band.",
+     "definitionFit": "Premier as an adjective means foremost or leading, the same as first in rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drive"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1436,61 @@
     "text": "Lap up state song and dance",
     "enumeration": "7"
    },
-   "solution": "PALAVER"
+   "solution": "PALAVER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PALAVER",
+    "definitions": [
+     {
+      "text": "song and dance",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lap",
+      "gives": "LAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to state firmly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "AVER"
+     ],
+     "reversals": [
+      {
+       "from": "LAP",
+       "to": "PAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lap up a national anthem and a dance routine.",
+     "walkthrough": "'Lap up' reads as enjoying eagerly, and 'state song' as an anthem; both are false pairings.",
+     "definitionFit": "A song and dance is an idiom for an unnecessary fuss, which is exactly what a palaver is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1504,47 @@
     "text": "Disparage the setter’s fruit",
     "enumeration": "7"
    },
-   "solution": "IMPEACH"
+   "solution": "IMPEACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEACH",
+    "definitions": [
+     {
+      "text": "Disparage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the setter’s",
+      "gives": "IM",
+      "note": "the setter refers to themself as I, so the setter is gives I'M"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEACH",
+      "note": "a peach is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PEACH"
+     ]
+    },
+    "explanation": {
+     "surface": "Belittling the crossword compiler's piece of fruit.",
+     "walkthrough": "The setter's is read as 'the setter is', so I'M, the apostrophe dropped in the grid.",
+     "definitionFit": "To impeach someone's character or motives is to call them into question, a way of discrediting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1558,53 @@
     "text": "Rewrite mean last word",
     "enumeration": "4"
    },
-   "solution": "AMEN"
+   "solution": "AMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMEN",
+    "definitions": [
+     {
+      "text": "last word",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rewrite",
+      "for": "anagram",
+      "note": "rewriting something produces a new version, so these letters are put in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean",
+      "gives": "MEAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEAN",
+       "gives": "AMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor's instruction to redo an unkind closing remark.",
+     "definitionFit": "Amen is said at the very end of a prayer or hymn, so it is literally the closing utterance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1618,57 @@
     "text": "Charm of exchange involving papa",
     "enumeration": "5"
    },
-   "solution": "SPELL"
+   "solution": "SPELL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPELL",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means including, so one piece is taken inside another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exchange",
+      "gives": "SELL",
+      "note": "to sell is to exchange goods for money"
+     },
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping something with a father turns out to be delightful.",
+     "definitionFit": "A spell is a magic formula or enchantment, and a charm is the same sort of magical incantation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charm"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1682,42 @@
     "text": "Ejected Tiff",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "Ejected",
+      "at": 0
+     },
+     {
+      "text": "Tiff",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ejected",
+      "note": "first meaning: forced out of the mouth, past tense of a verb"
+     },
+     {
+      "clueFragment": "Tiff",
+      "note": "second meaning: a petty quarrel"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thrown out after a squabble.",
+     "definitionFit": "The past tense of spit means expelled from the mouth, and the noun means a minor quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ejected"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1731,63 @@
     "text": "Bit of stuff I made up to annoy",
     "enumeration": "4"
    },
-   "solution": "MIFF"
+   "solution": "MIFF",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MIFF",
+    "definitions": [
+     {
+      "text": "annoy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "hidden_word",
+      "note": "a bit of the following words means just a short run of their letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff I made",
+      "gives": "FFIM",
+      "note": "the last two letters of the first word, the middle word and the first letter of the last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIFF"
+     ],
+     "reversals": [
+      {
+       "from": "FFIM",
+       "to": "MIFF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inventing something just to irritate people.",
+     "walkthrough": "'made up' looks like invented, but 'up' is the reversal signal on its own.",
+     "definitionFit": "To miff someone is to irritate or put them out slightly, an informal word for annoy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1801,54 @@
     "text": "Request bottom of spring to be relocated to top",
     "enumeration": "4"
    },
-   "solution": "PLEA"
+   "solution": "PLEA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "PLEA",
+    "definitions": [
+     {
+      "text": "Request",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom",
+      "for": "cycling",
+      "note": "in a down entry the bottom is the final letter, the one that will move"
+     },
+     {
+      "text": "to be relocated to top",
+      "for": "cycling",
+      "note": "moving that letter round to the front rotates the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring",
+      "gives": "LEAP",
+      "note": "to leap is to spring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for the base of a spring mattress to be put on top.",
+     "walkthrough": "'bottom' is the last letter of the word, since in a down entry the end is at the bottom.",
+     "definitionFit": "A plea is an earnest appeal or entreaty, so it is a request."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1862,53 @@
     "text": "Remarkably valiant European",
     "enumeration": "7"
    },
-   "solution": "LATVIAN"
+   "solution": "LATVIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LATVIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remarkably",
+      "for": "anagram",
+      "note": "remarkably suggests something unusual, so these letters take an unexpected new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "valiant",
+      "gives": "VALIANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATVIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VALIANT",
+       "gives": "LATVIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for an exceptionally brave person from Europe.",
+     "definitionFit": "A Latvian is a native of Latvia, a Baltic country in Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remarkably"
+    }
+   }
   },
   {
    "number": 29,
@@ -452,7 +1922,69 @@
     "text": "Victor left tin between two holes in Krakatoa perhaps",
     "enumeration": "7"
    },
-   "solution": "VOLCANO"
+   "solution": "VOLCANO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VOLCANO",
+    "definitions": [
+     {
+      "text": "Krakatoa perhaps",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between means these letters are sandwiched by what follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "CAN",
+      "note": "a can is a tin"
+     },
+     {
+      "clueFragment": "two holes",
+      "gives": "OO",
+      "note": "O looks like a hole, so two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "O",
+      "LCAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A victorious man left a tin between two pits on an Indonesian island.",
+     "definitionFit": "Krakatoa is the Indonesian volcano whose 1883 eruption was catastrophic, an example signalled by perhaps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 30,
@@ -472,7 +2004,63 @@
      }
     ]
    },
-   "solution": "SELFREPROACH"
+   "solution": "SELFREPROACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SELF-REPROACH",
+    "definitions": [
+     {
+      "text": "Contrition",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "supernatural being",
+      "gives": "ELF",
+      "note": "an elf is a magical creature"
+     },
+     {
+      "clueFragment": "Agent",
+      "gives": "REP",
+      "note": "a rep, or representative, acts as an agent"
+     },
+     {
+      "clueFragment": "Fish",
+      "gives": "ROACH",
+      "note": "the roach is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ELF",
+      "REP",
+      "ROACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny fairy regretful after encountering a secret agent called Fish.",
+     "definitionFit": "Contrition is sorrow for one's own wrongdoing, which is blaming oneself, the meaning of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Agent"
+    }
+   }
   }
  ]
 }
