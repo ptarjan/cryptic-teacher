@@ -100,6 +100,14 @@ lost = copy.deepcopy(base)
 del lost["solutions"]["printed"]
 check("provenance refuses a partly printed model fill without its printed list",
       any("solutions.printed lists 0" in f for f in provenance.check(lost)))
+misprint = copy.deepcopy(base)
+fetch_puzzle.SOURCE_ANSWER_WRONG[(base["id"], p_eid)] = ("MISQUOTEZ", "MISQUOTES", "test")
+misprint["solutions"]["printed"][p_eid] = "MISQUOTEZ"
+check("a key misprint SOURCE_ANSWER_WRONG corrects is not ground truth",
+      not provenance.check(misprint) and provenance.printed_answers(misprint)[p_eid] == "MISQUOTES")
+del fetch_puzzle.SOURCE_ANSWER_WRONG[(base["id"], p_eid)]
+check("without the row the misprint still binds",
+      any("the paper printed MISQUOTEZ" in f for f in provenance.check(misprint)))
 
 # Reopening: a model answer left null goes back once; a printed one never.
 ran = copy.deepcopy(base)
