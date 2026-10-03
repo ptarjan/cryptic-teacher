@@ -88,7 +88,7 @@ import trove_clue_ocr
 import trove_grid
 import trove_solution_ocr
 import vlm_reader as vlm
-from fetch_puzzle import puzzle_path, write_puzzle_file
+from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
 from ocr_clues import SEE_RE
@@ -783,7 +783,9 @@ def build(aid, meta, ocr, grid, how, laid, day):
                 groups[lid] = group
     for e in entries:
         lid = entry_id(e)
-        text, enum, _ = laid.get(lid, ("", None, None))
+        text = source_clue(series_meta.puzzle_id(SERIES, int(day.strftime("%y%m%d"))), lid,
+                           laid.get(lid, ("", None, None))[0])
+        enum = laid.get(lid, ("", None, None))[1]
         line = f"{text} ({enum})" if enum else text
         e["clue"] = enumeration.clue(line, separators=seps.get(lid),
                                      missing=not text.strip())
