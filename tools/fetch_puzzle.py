@@ -1898,6 +1898,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18151", "3-down"): (
+        "Don' view so much - it's inconsiderate",
+        "Don't view so much - it's inconsiderate",
+        "OCR misread: the wordplay needs 'Don't', to regard less"),
     ("times-18057", "16-down"): (
         "Instrument producing c a n change in tortured spy",
         "Instrument producing a change in tortured spy",
