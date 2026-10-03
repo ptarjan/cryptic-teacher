@@ -25,7 +25,7 @@ SENTENCE = re.compile("|".join([
     r"\bplease send a cheque\b", r"\bcheques?\b[^.]*\b(?:payable|made out)\b",
     # A link to the print/PDF copy or to clues held elsewhere.
     r"\bclick(?:ing)? here\b", r"\b(?:found|available|clues) here\b", r"\bSee here\b",
-    r"\bfollow(?:ing)? (?:this|the) link\b", r"\bthis pdf\b", r"\bpdf of\b",
+    r"\bfollow(?:ing)? (?:this|the) link\b", r"\bto go back to the (?:prize )?crossword\b", r"\bthis pdf\b", r"\bpdf of\b",
     r"\bprin?table\b", r"\bpritable\b", r"^For the annotated solution\b",
     # The paper's own interactive grid.
     r"\binteractive grid\b", r"\bclick on the grid\b", r"\bReveal All\W{1,3}button\b",

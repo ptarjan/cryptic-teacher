@@ -33,6 +33,7 @@ GONE = {
     "interactive grid": "For all clues containing 19 across, please click on the grid to enter "
                         "your answer.",
     "clues elsewhere": "Find today's crossword clues here.",
+    "back link": "to go back to the Prize crossword.",
     "annotated stub": "For the annotated solution to this crossword",
 }
 for name, text in GONE.items():
