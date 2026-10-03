@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Restrained by some Parisian, crowd reverts to peaceful mode",
     "enumeration": "6"
    },
-   "solution": "DEMOBS"
+   "solution": "DEMOBS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEMOBS",
+    "definitions": [
+     {
+      "text": "reverts to peaceful mode",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Restrained by",
+      "for": "container",
+      "note": "something restrained is held in, so one word is kept inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some Parisian",
+      "gives": "DES",
+      "note": "des is French for 'some'"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "MOB",
+      "note": "a mob is an unruly crowd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MOB",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Paris crowd, held back by police, calms down and returns to peaceful behaviour.",
+     "walkthrough": "'Reverts' looks like a reversal signal, but it belongs to the definition: to demob is to release troops from wartime service.",
+     "definitionFit": "Demob is short for demobilise, releasing armed forces back into civilian life after a war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reverts"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,54 @@
     "text": "Beast pins hero in crucial contest",
     "enumeration": "7"
    },
-   "solution": "DECIDER"
+   "solution": "DECIDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECIDER",
+    "definitions": [
+     {
+      "text": "crucial contest",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pins",
+      "for": "container",
+      "note": "to pin something is to hold it fast, so the beast's word holds the hero's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beast",
+      "gives": "DEER",
+      "note": "a deer is a wild beast"
+     },
+     {
+      "clueFragment": "hero",
+      "gives": "CID",
+      "note": "El Cid, the Spanish national hero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CID",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild animal pins down a hero during a deciding battle.",
+     "definitionFit": "A decider is the final game played to settle a tied series, so everything hangs on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pins"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,42 @@
     "text": "Comic book with some inhuman gags",
     "enumeration": "5"
    },
-   "solution": "MANGA"
+   "solution": "MANGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MANGA",
+    "definitions": [
+     {
+      "text": "Comic book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are used, a run lying inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inhuman gags",
+      "gives": "MANGA",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A comic book full of cruel, inhuman jokes.",
+     "definitionFit": "Manga are Japanese comics and graphic novels, published as serial books and magazines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +208,68 @@
     "text": "Spreading fun, Liberal in short out to be bighearted",
     "enumeration": "9"
    },
-   "solution": "BOUNTIFUL"
+   "solution": "BOUNTIFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOUNTIFUL",
+    "definitions": [
+     {
+      "text": "bighearted",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spreading",
+      "for": "anagram",
+      "note": "spreading things around scatters them, so the letters are laid out anew"
+     },
+     {
+      "text": "in short",
+      "for": "anagram",
+      "note": "a hint that the party name is used in its clipped form here"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fun",
+      "gives": "FUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "LIB",
+      "note": "Lib is the short form of Liberal"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FUN LIB OUT",
+       "gives": "BOUNTIFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician spreads good cheer to look generous.",
+     "definitionFit": "Bountiful describes someone who gives freely and generously, the same quality as being bighearted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spreading"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +283,55 @@
     "text": "Lover, first character to hide in library?",
     "enumeration": "7"
    },
-   "solution": "LEANDER"
+   "solution": "LEANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEANDER",
+    "definitions": [
+     {
+      "text": "Lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hide in",
+      "for": "container",
+      "note": "something hidden in a place is tucked inside it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "library",
+      "gives": "LENDER",
+      "note": "a library lends books, hence the question mark"
+     },
+     {
+      "clueFragment": "first character",
+      "gives": "A",
+      "note": "the first letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "A",
+      "NDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover tells his beloved to hide first in the library.",
+     "walkthrough": "A library is defined by what it does, a book lender, which the question mark flags.",
+     "definitionFit": "In Greek myth Leander swam the Hellespont nightly to visit his beloved Hero, the classic devoted lover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +345,50 @@
     "text": "Desire that’s odd for a number of years",
     "enumeration": "7"
    },
-   "solution": "LUSTRUM"
+   "solution": "LUSTRUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LUSTRUM",
+    "definitions": [
+     {
+      "text": "a number of years",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "that’s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desire",
+      "gives": "LUST",
+      "note": "lust is strong desire"
+     },
+     {
+      "clueFragment": "odd",
+      "gives": "RUM",
+      "note": "rum is an informal British word for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUST",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd desire that has lasted for years.",
+     "definitionFit": "A lustrum is a period of five years, originally the Roman interval between censuses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +402,64 @@
     "text": "Sailors having a party on deck",
     "enumeration": "5"
    },
-   "solution": "ADORN"
+   "solution": "ADORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORN",
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece placed on another sits above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party"
+     },
+     {
+      "clueFragment": "Sailors",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors throwing a party up on the ship's deck.",
+     "walkthrough": "'Deck' is the verb meaning to decorate, not the floor of a ship the surface suggests.",
+     "definitionFit": "To deck a room with flowers is to decorate or ornament it, the verb sense here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +473,60 @@
     "text": "Not the same with identity as monarch no longer reluctant to speak out?",
     "enumeration": "9"
    },
-   "solution": "DIFFIDENT"
+   "solution": "DIFFIDENT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DIFFIDENT",
+    "definitions": [
+     {
+      "text": "reluctant to speak out?",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer",
+      "for": "substitution",
+      "note": "what is no longer there has been swapped out, with the other piece standing in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not the same",
+      "gives": "DIFFERENT",
+      "note": "different means not the same"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the Queen"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "ID",
+      "note": "ID is short for identity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIFF",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shy whose identity is no longer royal.",
+     "walkthrough": "'Not the same' is a definition inside the wordplay; 'monarch' is the usual crossword shorthand for the Queen's cipher.",
+     "definitionFit": "A diffident person lacks self-confidence and hesitates to assert themselves, so is slow to voice opinions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "monarch"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +546,44 @@
      }
     ]
    },
-   "solution": "ROLLON"
+   "solution": "ROLLON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROLL-ON",
+    "definitions": [
+     {
+      "text": "We cannot wait for one",
+      "at": 0,
+      "note": "an exclamation said of an eagerly awaited event"
+     },
+     {
+      "text": "sort of deodorant",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We cannot wait for one",
+      "note": "first meaning: the exclamation of impatience, as in 'bring it on, the weekend!'"
+     },
+     {
+      "clueFragment": "sort of deodorant",
+      "note": "second meaning: a deodorant applied by a rolling ball"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation mark belongs to the first sense, a cry of eager anticipation.",
+     "definitionFit": "The phrase greets something eagerly awaited, and also names a deodorant dispensed from a ball applicator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +597,44 @@
     "text": "Beer warm? Certainly not!",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BITTER",
+    "definitions": [
+     {
+      "text": "Beer",
+      "at": 0
+     },
+     {
+      "text": "warm? Certainly not!",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer",
+      "note": "first meaning: a British draught ale with a hoppy taste"
+     },
+     {
+      "clueFragment": "warm? Certainly not!",
+      "note": "second meaning: very cold, the opposite of warm"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether the beer is warm and gets an indignant denial.",
+     "walkthrough": "The surface jokes about British beer served warm; the second half describes weather that is biting cold.",
+     "definitionFit": "Bitter is a classic British pale ale, and a bitter wind is piercingly cold, far from warm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +648,71 @@
     "text": "Endless upset about copper nabbing one wise man",
     "enumeration": "9"
    },
-   "solution": "CONFUCIUS"
+   "solution": "CONFUCIUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CONFUCIUS",
+    "definitions": [
+     {
+      "text": "wise man",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     },
+     {
+      "text": "nabbing",
+      "for": "container",
+      "note": "to nab is to grab hold of, so the metal's symbol takes the number inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset",
+      "gives": "CONFUSE",
+      "note": "to upset or muddle someone"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONFU",
+      "CIU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An endlessly agitated policeman arrests a wise man.",
+     "walkthrough": "'Copper' looks like a policeman, but it is the metal, given by its chemical symbol.",
+     "definitionFit": "Confucius was the ancient Chinese philosopher whose sayings made him the archetypal sage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +726,54 @@
     "text": "Waste material not fresh dumped by a lake",
     "enumeration": "5"
    },
-   "solution": "OFFAL"
+   "solution": "OFFAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFAL",
+    "definitions": [
+     {
+      "text": "Waste material",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "dumped by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not fresh",
+      "gives": "OFF",
+      "note": "food that has gone off is no longer fresh"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Stale rubbish has been fly-tipped beside a lake.",
+     "definitionFit": "Offal originally meant the parts that fall off in butchering, the leftovers or refuse of a carcass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +787,42 @@
     "text": "US beer – an early version?",
     "enumeration": "5"
    },
-   "solution": "DRAFT"
+   "solution": "DRAFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAFT",
+    "definitions": [
+     {
+      "text": "US beer",
+      "at": 0
+     },
+     {
+      "text": "an early version",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US beer",
+      "note": "first meaning: American spelling of draught, beer from the barrel"
+     },
+     {
+      "clueFragment": "an early version",
+      "note": "second meaning: a first rough version of a document"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Americans spell draught beer this way, and the same spelling is used everywhere for a preliminary text.",
+     "definitionFit": "Beer drawn from a cask is draft in American spelling, and a first sketch of writing is also called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +836,63 @@
     "text": "Film-maker with something black excited nation",
     "enumeration": "9"
    },
-   "solution": "TARANTINO"
+   "solution": "TARANTINO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TARANTINO",
+    "definitions": [
+     {
+      "text": "Film-maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited things are stirred up, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something black",
+      "gives": "TAR",
+      "note": "tar is a black substance"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "NATION",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "ANTINO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NATION",
+       "gives": "ANTINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director makes a dark film that stirs up the whole country.",
+     "definitionFit": "Quentin Tarantino is the American director of Pulp Fiction and Reservoir Dogs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +906,67 @@
     "text": "Small animal needs unusual fortifier if fading",
     "enumeration": "7"
    },
-   "solution": "ROTIFER"
+   "solution": "ROTIFER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ROTIFER",
+    "definitions": [
+     {
+      "text": "Small animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the normal order, so the letters are rearranged"
+     },
+     {
+      "text": "fading",
+      "for": "deletion",
+      "note": "what fades disappears, so those letters vanish from the longer word"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortifier",
+      "gives": "FORTIFIER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written, the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTIFER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORTIER",
+       "gives": "ROTIFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny creature needs a strange tonic if it is weakening.",
+     "definitionFit": "Rotifers are microscopic aquatic animals with a crown of beating cilia, the wheel animalcules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fading"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +980,53 @@
     "text": "Terribly inert host becoming most prickly",
     "enumeration": "9"
    },
-   "solution": "THORNIEST"
+   "solution": "THORNIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THORNIEST",
+    "definitions": [
+     {
+      "text": "most prickly",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "something done terribly is badly messed up, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inert host",
+      "gives": "INERTHOST",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INERTHOST",
+       "gives": "THORNIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lifeless host turns very touchy and irritable.",
+     "definitionFit": "Thorny means covered in spikes or awkward to handle, so the superlative is the spikiest of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1040,49 @@
     "text": "Male, say, to grumble",
     "enumeration": "6"
    },
-   "solution": "MUTTER"
+   "solution": "MUTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUTTER",
+    "definitions": [
+     {
+      "text": "grumble",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man says something only to complain.",
+     "definitionFit": "To mutter is to complain in a low voice under one's breath, a quiet form of grumbling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1096,53 @@
     "text": "Reportedly instructed in a science? That must be right",
     "enumeration": "9"
    },
-   "solution": "TAUTOLOGY"
+   "solution": "TAUTOLOGY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TAUTOLOGY",
+    "definitions": [
+     {
+      "text": "That must be right",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is heard said, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instructed",
+      "gives": "TAUT",
+      "soundsLike": "TAUGHT",
+      "note": "taught means instructed"
+     },
+     {
+      "clueFragment": "a science",
+      "gives": "OLOGY",
+      "note": "an ology is a jocular word for any branch of science"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone said to be trained in a science insists their claims cannot be wrong.",
+     "walkthrough": "The definition is cryptic: a statement that is true whatever happens, such as 'it will rain or it won't'.",
+     "definitionFit": "In logic, a tautology is a proposition true under every possible interpretation, so it cannot fail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1156,57 @@
     "text": "Work on Scottish island for a bit",
     "enumeration": "6"
    },
-   "solution": "COLLOP"
+   "solution": "COLLOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLOP",
+    "definitions": [
+     {
+      "text": "a bit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one piece placed on another follows it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish island",
+      "gives": "COLL",
+      "note": "Coll is an island in the Inner Hebrides off western Scotland"
+     },
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "op, short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works on a Scottish island for a short while.",
+     "walkthrough": "'For a bit' reads as 'for a while', but the definition is a bit of meat.",
+     "definitionFit": "A collop is a slice or small piece of meat, an old dialect word for a portion or morsel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1220,58 @@
     "text": "Italian water that’s taken on board is OK for drinking",
     "enumeration": "7"
    },
-   "solution": "POTABLE"
+   "solution": "POTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POTABLE",
+    "definitions": [
+     {
+      "text": "OK for drinking",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken on",
+      "for": "charade",
+      "note": "in a down clue a piece taken on another rests above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "that’s",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian water",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a table is a board, as in 'bed and board'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Italian water brought on board ship is safe to drink.",
+     "walkthrough": "'Taken on board' looks like a ship idiom, but the board is a table.",
+     "definitionFit": "Potable describes water or liquid that is clean and safe enough for people to consume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1285,57 @@
     "text": "American guy getting left trapped shows bravado",
     "enumeration": "7"
    },
-   "solution": "BLUSTER"
+   "solution": "BLUSTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLUSTER",
+    "definitions": [
+     {
+      "text": "shows bravado",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped",
+      "for": "container",
+      "note": "what is trapped is caught inside, so the letter goes within the man's name"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American guy",
+      "gives": "BUSTER",
+      "note": "buster is an American form of address to a man"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "USTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An American man who is cornered puts on a show of courage.",
+     "definitionFit": "To bluster is to talk loudly and aggressively, swaggering to cover weakness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1349,48 @@
     "text": "Ship’s protective layer, as you might say",
     "enumeration": "6"
    },
-   "solution": "BARQUE"
+   "solution": "BARQUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BARQUE",
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as you might say",
+      "for": "homophone",
+      "note": "what you might say is a spoken version, so the sound counts and not the spelling"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protective layer",
+      "gives": "BARQUE",
+      "soundsLike": "BARK",
+      "note": "bark is the protective outer layer of a tree"
+     }
+    ],
+    "explanation": {
+     "surface": "A ship's protective coating, as one might call it.",
+     "walkthrough": "'Ship’s' reads as a possessive, but it is 'Ship is', joining the definition to the wordplay.",
+     "definitionFit": "A barque is a sailing vessel with three or more masts, square-rigged except for the aftermost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "protective"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1404,51 @@
     "text": "Secured criminal let off court appearance?",
     "enumeration": "7"
    },
-   "solution": "RECUSED"
+   "solution": "RECUSED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECUSED",
+    "definitions": [
+     {
+      "text": "let off court appearance?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so these letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secured",
+      "gives": "SECURED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECURED",
+       "gives": "RECUSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A secured criminal is let off from appearing in court.",
+     "walkthrough": "The criminal in the surface looks like the one let off, but the definition describes a judge standing aside from a case.",
+     "definitionFit": "A judge who recuses themself withdraws from hearing a case because of a conflict of interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1462,43 @@
     "text": "Enthusiast for self-improvement appears to be happy",
     "enumeration": "6"
    },
-   "solution": "SMILES"
+   "solution": "SMILES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMILES",
+    "definitions": [
+     {
+      "text": "Enthusiast for self-improvement",
+      "at": 0
+     },
+     {
+      "text": "appears to be happy",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enthusiast for self-improvement",
+      "note": "first meaning: Samuel ..., Victorian author of the book Self-Help"
+     },
+     {
+      "clueFragment": "appears to be happy",
+      "note": "second meaning: looks pleased by beaming"
+     }
+    ],
+    "explanation": {
+     "surface": "A self-help fan seems cheerful.",
+     "walkthrough": "Samuel Smiles was a Scottish writer whose 1859 Self-Help preached personal improvement.",
+     "definitionFit": "Samuel Smiles championed bettering oneself through hard work, and someone grinning shows outward pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1512,50 @@
     "text": "Moment era changes – one can gauge the pressure",
     "enumeration": "9"
    },
-   "solution": "MANOMETER"
+   "solution": "MANOMETER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANOMETER",
+    "definitions": [
+     {
+      "text": "one can gauge the pressure",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "something that changes takes a new form, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moment era",
+      "gives": "MOMENTERA",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOMENTERA",
+       "gives": "MANOMETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historic moment: the era changes, and one can feel the pressure.",
+     "definitionFit": "A manometer is an instrument for measuring the pressure of liquids and gases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gauge"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1569,56 @@
     "text": "Maiden in church to act in affected manner",
     "enumeration": "5"
    },
-   "solution": "MINCE"
+   "solution": "MINCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINCE",
+    "definitions": [
+     {
+      "text": "act in affected manner",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman in church behaves in a showy, affected way.",
+     "walkthrough": "'In' looks like a container signal, but it is simply two letters in the chain.",
+     "definitionFit": "To mince is to walk or behave with exaggerated daintiness, an affected and fussy manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1632,66 @@
     "text": "I see nothing – then across time small image appears",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OPTIC",
+    "definitions": [
+     {
+      "text": "I see",
+      "at": 0,
+      "note": "the definition plays on 'eye see'; an optic is an eye or lens"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means spanning it, so one piece stretches around another"
+     }
+    ],
+    "linkWords": [
+     "then",
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "small image",
+      "gives": "PIC",
+      "note": "pic is a short word for picture"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone peering sees nothing at first, then a tiny picture appears.",
+     "walkthrough": "'I see' reads as 'I understand', but here it means 'eye see'.",
+     "definitionFit": "Optic relates to sight, and the word is used jokingly for the eye, the organ that sees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1705,56 @@
     "text": "‘Dog’ could be about right for this",
     "enumeration": "5"
    },
-   "solution": "TRAIL"
+   "solution": "TRAIL",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container"
+    ],
+    "answer": "TRAIL",
+    "definitions": [
+     {
+      "text": "‘Dog’ could be about right for this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘Dog’",
+      "gives": "TAIL",
+      "note": "to tail is to dog, follow closely"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog owner wonders whether 'dog' is about the right word for following someone.",
+     "walkthrough": "Read whole, the clue says 'dog' is a fair word for this answer; the same word dog, as TAIL, then wraps R.",
+     "definitionFit": "To trail someone is to follow behind them closely, which is exactly what dogging a person means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1774,48 @@
      }
     ]
    },
-   "solution": "LIEIN"
+   "solution": "LIEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE-IN",
+    "definitions": [
+     {
+      "text": "Reason for not going to work?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deceitful story",
+      "gives": "LIE",
+      "note": "a lie is a deceitful story"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee's excuse for skipping work is a trendy fib.",
+     "walkthrough": "The definition sounds like an excuse for absence, but is a morning spent staying in bed late.",
+     "definitionFit": "A lie-in is a lazy morning spent in bed beyond the usual time, the reason one stays home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reason"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1835,63 @@
      }
     ]
    },
-   "solution": "BRUNOMARS"
+   "solution": "BRUNOMARS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRUNO MARS",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the musical sections"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical sections",
+      "gives": "BARS",
+      "note": "bars are the measured sections of written music"
+     },
+     {
+      "clueFragment": "manage",
+      "gives": "RUN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "mystical sound",
+      "gives": "OM",
+      "note": "om is the sacred syllable chanted in meditation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUN",
+      "OM",
+      "ARS"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer has to cope with a mystical chant within his songs.",
+     "definitionFit": "Bruno Mars is the American pop singer of Uptown Funk and Just the Way You Are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manage"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +1911,48 @@
      }
     ]
    },
-   "solution": "SOTHERE"
+   "solution": "SOTHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SO THERE",
+    "definitions": [
+     {
+      "text": "words of defiance",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunkard",
+      "gives": "SOT",
+      "note": "a sot is a habitual drunkard"
+     },
+     {
+      "clueFragment": "in this place",
+      "gives": "HERE",
+      "note": "here means in this place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOT",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk in this spot is being defiant.",
+     "definitionFit": "The phrase is a childish retort that ends an argument by flatly insisting on having won."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -491,7 +1966,67 @@
     "text": "Terribly idle, inwardly you flap",
     "enumeration": "6"
    },
-   "solution": "EYELID"
+   "solution": "EYELID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EYELID",
+    "definitions": [
+     {
+      "text": "flap",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "something done terribly is badly messed up, so the letters are jumbled"
+     },
+     {
+      "text": "inwardly",
+      "for": "container",
+      "note": "inwardly means on the inside, so the old word for you goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idle",
+      "gives": "IDLE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "ye is an old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YE",
+      "LID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDLE",
+       "gives": "ELID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone terribly lazy is inwardly in a panic.",
+     "walkthrough": "'Flap' suggests a panic, but it is the fold of skin that covers the eye.",
+     "definitionFit": "An eyelid is a movable fold of skin that closes over the eye, a protective flap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flap"
+    }
+   }
   }
  ]
 }
