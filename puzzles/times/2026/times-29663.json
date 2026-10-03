@@ -23,6 +23,9 @@
   "date": "2026-10-02",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,42 @@
     "text": "Punitive damages constraining religious work",
     "enumeration": "4"
    },
-   "solution": "VEDA"
+   "solution": "VEDA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VEDA",
+    "definitions": [
+     {
+      "text": "religious work",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "constraining",
+      "for": "hidden_word",
+      "note": "the first two words hold the answer locked inside them, straddling the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punitive damages",
+      "gives": "VEDA",
+      "note": "the end of Punitive joined to the start of damages"
+     }
+    ],
+    "explanation": {
+     "surface": "A court orders punitive damages that hold up the publication of some sacred text.",
+     "definitionFit": "The Vedas are the oldest scriptures of Hinduism, so one of them is a sacred text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constraining"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +88,55 @@
     "text": "Quality of life in London possibly under examination",
     "enumeration": "8"
    },
-   "solution": "VIVACITY"
+   "solution": "VIVACITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIVACITY",
+    "definitions": [
+     {
+      "text": "Quality of life",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, being under means placed below, so the second part follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examination",
+      "gives": "VIVA",
+      "note": "a viva is an oral exam"
+     },
+     {
+      "clueFragment": "London possibly",
+      "gives": "CITY",
+      "note": "London is one example of a city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIVA",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Studies are looking into standards of living in London.",
+     "walkthrough": "In a down entry 'under' puts CITY below VIVA. A viva is the spoken defence of a thesis at British universities.",
+     "definitionFit": "Vivacity is liveliness, the trait of being full of energy and spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +150,49 @@
     "text": "Money given by party and country",
     "enumeration": "8"
    },
-   "solution": "DONATION"
+   "solution": "DONATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONATION",
+    "definitions": [
+     {
+      "text": "Money given",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "NATION",
+      "note": "a nation is a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party and the state hand over funds.",
+     "definitionFit": "A donation is a gift, typically cash handed to a charity or cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +206,71 @@
     "text": "Author will go with millions for reading, perhaps to enlighten",
     "enumeration": "10"
    },
-   "solution": "ILLUMINATE"
+   "solution": "ILLUMINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "ILLUMINATE",
+    "definitions": [
+     {
+      "text": "to enlighten",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing put in place of another: millions stands where reading stood"
+     }
+    ],
+    "linkWords": [
+     "perhaps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author will",
+      "gives": "ILL",
+      "note": "the setter, as author, says I'll"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "URINATE",
+      "note": "go is a polite euphemism for passing water"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million(s)"
+     },
+     {
+      "clueFragment": "reading",
+      "gives": "R",
+      "note": "reading is one of the three Rs, so it stands for R, the letter taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "U",
+      "M",
+      "INATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer reads aloud to a big audience hoping to enlighten them.",
+     "walkthrough": "'Author will go' is I'LL URINATE; swap its R for M and you get ILLUMINATE. The three Rs are reading, writing and arithmetic.",
+     "definitionFit": "To illuminate a subject is to shed light on it, making it clear and so informing people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +284,56 @@
     "text": "Minimum rent charged by original letters",
     "enumeration": "5"
    },
-   "solution": "LEAST"
+   "solution": "LEAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAST",
+    "definitions": [
+     {
+      "text": "Minimum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charged by",
+      "for": "container",
+      "note": "charged here means loaded or filled, so the rent is filled up by the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rent",
+      "gives": "LET",
+      "note": "a let is a rental"
+     },
+     {
+      "clueFragment": "original letters",
+      "gives": "AS",
+      "note": "AS is the abbreviation for Anglo-Saxon, the original English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Landlords of old set a minimum rent.",
+     "walkthrough": "LET holds AS: LE(AS)T. 'Letters' looks like landlords, people who let property.",
+     "definitionFit": "The least is the smallest possible amount, so it is a minimum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +347,48 @@
     "text": "Less transparent individual authorising peacekeeping force?",
     "enumeration": "9"
    },
-   "solution": "UNCLEARER"
+   "solution": "UNCLEARER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNCLEARER",
+    "definitions": [
+     {
+      "text": "Less transparent",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeeping force",
+      "gives": "UN",
+      "note": "the United Nations sends peacekeepers"
+     },
+     {
+      "clueFragment": "individual authorising",
+      "gives": "CLEARER",
+      "note": "one who clears something gives approval"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "CLEARER"
+     ]
+    },
+    "explanation": {
+     "surface": "An official who signs off on sending peacekeepers.",
+     "walkthrough": "Read whole, the clue describes a UN clearer; split, it is the comparative of unclear.",
+     "definitionFit": "Something unclear is murky or opaque, so being more so is the comparative of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "individual"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +402,50 @@
     "text": "Risible rites surprisingly hard to ignore",
     "enumeration": "12"
    },
-   "solution": "IRRESISTIBLE"
+   "solution": "IRRESISTIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRRESISTIBLE",
+    "definitions": [
+     {
+      "text": "hard to ignore",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something surprising comes out in an unexpected form, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risible rites",
+      "gives": "RISIBLERITES",
+      "note": "the fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISIBLERITES",
+       "gives": "IRRESISTIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ridiculous ceremonies turn out to be strangely compelling.",
+     "definitionFit": "Something irresistible is too strong or tempting to resist, so it demands attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +459,54 @@
     "text": "Dormant reptile taking shelter",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "Dormant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "the reptile takes something in, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reptile",
+      "gives": "ASP",
+      "note": "an asp is a venomous snake"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake lies inactive while hiding under cover.",
+     "walkthrough": "ASP holds LEE: AS(LEE)P.",
+     "definitionFit": "Asleep means not awake, inactive, which is what dormant describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +520,67 @@
     "text": "Looking back, you head off person",
     "enumeration": "6"
    },
-   "solution": "EYEING"
+   "solution": "EYEING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EYEING",
+    "definitions": [
+     {
+      "text": "Looking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the word from its end to its start"
+     },
+     {
+      "text": "head off",
+      "for": "deletion",
+      "note": "with its head off, the word loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "ye is an old word for you"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "BEING",
+      "note": "a being is a person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EY",
+      "EING"
+     ],
+     "reversals": [
+      {
+       "from": "YE",
+       "to": "EY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Glancing over your shoulder, you cut someone off.",
+     "walkthrough": "'Looking back' reads as one phrase but splits: Looking is the definition, back reverses YE.",
+     "definitionFit": "Eyeing is watching someone or something closely, so it means looking at them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +594,62 @@
     "text": "Give voice to battle-hardened soldier getting back from Afghanistan",
     "enumeration": "4"
    },
-   "solution": "VENT"
+   "solution": "VENT",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "VENT",
+    "definitions": [
+     {
+      "text": "Give voice to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "the soldier receives something, which is taken inside him"
+     },
+     {
+      "text": "back from",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the last letter of Afghanistan is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battle-hardened soldier",
+      "gives": "VET",
+      "note": "a vet is a veteran, a seasoned soldier"
+     },
+     {
+      "clueFragment": "Afghanistan",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of Afghanistan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran home from Afghanistan finally speaks out about the war.",
+     "walkthrough": "VET holds N: VE(N)T.",
+     "definitionFit": "To vent feelings is to express them openly, often anger or frustration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +663,66 @@
     "text": "Left half-cut after pub sing song",
     "enumeration": "10"
    },
-   "solution": "BARCAROLLE"
+   "solution": "BARCAROLLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BARCAROLLE",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "letter_selection",
+      "note": "cutting the word in half keeps only its first two letters"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "sing",
+      "gives": "CAROL",
+      "note": "to carol is to sing joyfully"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "LE",
+      "select": "first",
+      "note": "the first half of Left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "CAROL",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stumbles out of the pub half-cut, that is, tipsy, and has a sing-song.",
+     "walkthrough": "'Half-cut' is British slang for drunk, which suits the pub; 'sing song' looks like one phrase but splits into the verb and the definition. 'After' puts BAR before the rest.",
+     "definitionFit": "A barcarolle is a Venetian gondolier's song or a piece composed in that rocking style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +736,55 @@
     "text": "Extended time in prison revealed embarrassing things about guards",
     "enumeration": "12"
    },
-   "solution": "OUTSTRETCHED"
+   "solution": "OUTSTRETCHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OUTSTRETCHED",
+    "definitions": [
+     {
+      "text": "Extended",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "to guard is to surround protectively, so one part goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revealed embarrassing things about",
+      "gives": "OUTED",
+      "note": "to out someone is to expose their secrets"
+     },
+     {
+      "clueFragment": "time in prison",
+      "gives": "STRETCH",
+      "note": "a stretch is a prison sentence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "STRETCH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An exposé of a long jail term lays bare shameful secrets about prison officers.",
+     "walkthrough": "'Guards' looks like prison staff but is the containment signal; a stretch is British slang for a prison sentence.",
+     "definitionFit": "Outstretched means reached out to full length, so a limb so held is extended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +798,55 @@
     "text": "One-piece uniform involved in care for pet",
     "enumeration": "7"
    },
-   "solution": "CATSUIT"
+   "solution": "CATSUIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CATSUIT",
+    "definitions": [
+     {
+      "text": "One-piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "to be involved in something is to be caught up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "care for pet",
+      "gives": "CATSIT",
+      "note": "to cat-sit is to look after someone's cat"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATS",
+      "U",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A uniform is needed by someone looking after a pet.",
+     "walkthrough": "'One-piece' is the definition, used as a noun, as with a swimsuit called a one-piece.",
+     "definitionFit": "A catsuit is a close-fitting garment covering the body and legs in a single piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +860,56 @@
     "text": "Orient Express to start backwards, according to crew",
     "enumeration": "7"
    },
-   "solution": "EASTERN"
+   "solution": "EASTERN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EASTERN",
+    "definitions": [
+     {
+      "text": "Orient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "only the start of the word is wanted, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of Express"
+     },
+     {
+      "clueFragment": "backwards, according to crew",
+      "gives": "ASTERN",
+      "note": "sailors say astern for backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASTERN"
+     ]
+    },
+    "explanation": {
+     "surface": "The Orient Express pulls out of the station in reverse, the train crew say.",
+     "walkthrough": "'Orient Express' reads as the famous train; split it, and Orient is the definition, Express the source of E.",
+     "definitionFit": "Orient is a poetic adjective meaning of the east, as in the orient pearl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +929,55 @@
      }
     ]
    },
-   "solution": "TROUSERPRESS"
+   "solution": "TROUSERPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROUSER PRESS",
+    "definitions": [
+     {
+      "text": "mechanism to decrease strides?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backs",
+      "for": "charade",
+      "note": "to back something is to stand behind it in support, so this part comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appropriate",
+      "gives": "TROUSER",
+      "note": "to trouser money is to pocket it, often dishonestly"
+     },
+     {
+      "clueFragment": "Crowd",
+      "gives": "PRESS",
+      "note": "a press is a crowd or throng"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROUSER",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd supports a suitable way to slow people's walking pace.",
+     "walkthrough": "Strides is British slang for trousers, and de-crease means take out creases, though the surface reads it as lessen. To trouser money is to pocket it.",
+     "definitionFit": "A trouser press flattens trousers overnight, removing wrinkles and creases from the legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decrease"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +991,62 @@
     "text": "Vile leaders of political union stopping in power",
     "enumeration": "9"
    },
-   "solution": "REPUGNANT"
+   "solution": "REPUGNANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REPUGNANT",
+    "definitions": [
+     {
+      "text": "Vile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of words are their first letters"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so the letters sit inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in power",
+      "gives": "REGNANT",
+      "note": "regnant means reigning"
+     },
+     {
+      "clueFragment": "political union",
+      "gives": "PU",
+      "select": "first",
+      "note": "first letters of political and union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PU",
+      "GNANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Nasty union bosses block the ruling party.",
+     "walkthrough": "PU goes into REGNANT: RE(PU)GNANT.",
+     "definitionFit": "Repugnant means repulsive, causing disgust, a close synonym for vile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1060,47 @@
     "text": "I crew ship",
     "enumeration": "8"
    },
-   "solution": "INDIAMAN"
+   "solution": "INDIAMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDIAMAN",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "INDIA",
+      "note": "India is the code word for I in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MAN",
+      "note": "to man a ship is to crew it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDIA",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone states that they work aboard a vessel.",
+     "walkthrough": "I, sounding like a pronoun, is only the letter spelt out as INDIA.",
+     "definitionFit": "An Indiaman was a large merchant vessel trading with India, especially for the East India Company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1114,56 @@
     "text": "What’s played wearing red skirts?",
     "enumeration": "8"
    },
-   "solution": "CLARINET"
+   "solution": "CLARINET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLARINET",
+    "definitions": [
+     {
+      "text": "What’s played",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirts",
+      "for": "container",
+      "note": "a skirt goes round the body, so this word goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "CLARET",
+      "note": "claret is red wine, and also a deep red colour"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "to be in a garment is to be wearing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAR",
+      "IN",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about some game played by someone dressed in red skirts.",
+     "walkthrough": "'Skirts' looks like clothing but is a verb meaning goes round; claret is a red Bordeaux wine.",
+     "definitionFit": "A clarinet is a woodwind instrument, a thing that musicians play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1177,68 @@
     "text": "Relative in favour of internet gateway keeping one connected",
     "enumeration": "12"
    },
-   "solution": "PROPORTIONAL"
+   "solution": "PROPORTIONAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROPORTIONAL",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it within, so the gateway holds the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in favour of",
+      "gives": "PRO",
+      "note": "pro means for"
+     },
+     {
+      "clueFragment": "internet gateway",
+      "gives": "PORTAL",
+      "note": "a portal is a website giving access to others"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "connected",
+      "gives": "ON",
+      "note": "a device that is connected is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "PORT",
+      "I",
+      "ON",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member backs an online service that keeps someone linked up.",
+     "walkthrough": "PRO, then PORTAL holding I and ON: PRO + PORT(I ON)AL. 'Relative' looks like a family member but is an adjective.",
+     "definitionFit": "Something proportional is in proportion, measured against something else rather than absolute, which is relative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relative"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1258,56 @@
      }
     ]
    },
-   "solution": "ONEDGE"
+   "solution": "ONEDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ON EDGE",
+    "definitions": [
+     {
+      "text": "Anxious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content of",
+      "for": "letter_selection",
+      "note": "the content of something is what sits inside its outer edges"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     },
+     {
+      "clueFragment": "financial records",
+      "gives": "EDGE",
+      "select": "middle",
+      "note": "a ledger is an accounts book; its inside letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is worried about what the company accounts contain.",
+     "walkthrough": "Take LEDGER and drop its outer L and R.",
+     "definitionFit": "Being on edge means nervous and tense, unable to relax, which is anxious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1321,42 @@
     "text": "Run through what dim author might write",
     "enumeration": "6"
    },
-   "solution": "IMPALE"
+   "solution": "IMPALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPALE",
+    "definitions": [
+     {
+      "text": "Run through",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what dim author might write",
+      "gives": "IMPALE",
+      "note": "the author, faint and wan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skims over what a dull writer might produce.",
+     "walkthrough": "'Dim' suggests stupid but means pale, faint; the writer refers to themself as I.",
+     "definitionFit": "To impale is to pierce with a sharp point, as a sword would go through someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dim"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1370,50 @@
     "text": "Signal to handle Spooner’s domesticated horse",
     "enumeration": "7"
    },
-   "solution": "NAMETAG"
+   "solution": "NAMETAG",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "NAMETAG",
+    "definitions": [
+     {
+      "text": "Signal to handle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of pairs of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "domesticated horse",
+      "gives": "NAMETAG",
+      "soundsLike": "TAME NAG",
+      "note": "a nag is a horse, tame means domesticated; swap the initial sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAMETAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A rider signals how to handle a horse that has been broken in.",
+     "walkthrough": "'Handle' means a name here, as in a nickname; the surface makes it a verb about controlling a horse.",
+     "definitionFit": "A name tag is a label worn to display a person's name, so it advertises what people call them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1427,48 @@
     "text": "Best friend possibly right employee of mine",
     "enumeration": "7"
    },
-   "solution": "COLLIER"
+   "solution": "COLLIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLIER",
+    "definitions": [
+     {
+      "text": "employee of mine",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best friend possibly",
+      "gives": "COLLIE",
+      "note": "a dog is man's best friend, and a collie is one example"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLLIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Your closest pal might just be the right person to hire.",
+     "walkthrough": "'Of mine' looks like a possessive, my employee, but mine is a coal mine.",
+     "definitionFit": "A collier is a coal miner, a worker employed underground at a pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1482,62 @@
     "text": "Large plant company taking on a bean-counter",
     "enumeration": "5"
    },
-   "solution": "CACAO"
+   "solution": "CACAO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CACAO",
+    "definitions": [
+     {
+      "text": "Large plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking on",
+      "for": "container",
+      "note": "to take on is to take in, so the company holds the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bean-counter",
+      "gives": "CA",
+      "note": "a bean-counter is an accountant; CA is a chartered accountant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "CA",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A big factory firm hires an accountant.",
+     "walkthrough": "CO holds A and CA: C(A CA)O. 'Plant' looks like a factory but is a tree; the cacao tree gives cocoa beans, a nice nod to the bean-counter.",
+     "definitionFit": "Cacao is a tropical tree, a sizeable plant whose seeds make cocoa and chocolate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1551,55 @@
     "text": "Wake guard behind curtains",
     "enumeration": "10"
    },
-   "solution": "DEATHWATCH"
+   "solution": "DEATHWATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEATHWATCH",
+    "definitions": [
+     {
+      "text": "Wake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so the guard follows the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curtains",
+      "gives": "DEATH",
+      "note": "it's curtains means it's the end, death"
+     },
+     {
+      "clueFragment": "guard",
+      "gives": "WATCH",
+      "note": "a watch is a guard on duty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEATH",
+      "WATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentry, roused from sleep, stands hidden behind the drapes.",
+     "walkthrough": "'It's curtains' is an idiom for the end; the surface makes them window drapes.",
+     "definitionFit": "A wake is a vigil held over a dead body, and a deathwatch is a vigil kept beside the dying or dead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "curtains"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1613,50 @@
     "text": "Apparently, hen party’s make-up is sign of things to come",
     "enumeration": "4"
    },
-   "solution": "OMEN"
+   "solution": "OMEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OMEN",
+    "definitions": [
+     {
+      "text": "sign of things to come",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hen party’s make-up",
+      "gives": "WOMEN",
+      "note": "a hen party is made up of women"
+     },
+     {
+      "clueFragment": "Apparently",
+      "gives": "W",
+      "note": "the guests seemingly lack a wife, abbreviated W, since the bride is not yet married; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "The look of a bride's party crowd tells you what the wedding will be like.",
+     "walkthrough": "A hen party is a British pre-wedding night out for the bride and her female friends. Take W, for wife, out of WOMEN; the bride is not yet a wife.",
+     "definitionFit": "An omen is a portent, an event taken as a warning or promise of the future."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "make-up"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1670,52 @@
     "text": "Engineer mentioned a way to improve faulty lines",
     "enumeration": "10"
    },
-   "solution": "EMENDATION"
+   "solution": "EMENDATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMENDATION",
+    "definitions": [
+     {
+      "text": "way to improve faulty lines",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineer",
+      "for": "anagram",
+      "note": "to engineer something is to construct it, so these letters are built into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mentioned a",
+      "gives": "MENTIONEDA",
+      "note": "the fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENTIONEDA",
+       "gives": "EMENDATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer has suggested a fix for broken power or phone lines.",
+     "walkthrough": "'Lines' sounds like cables for the engineer, but means lines of text.",
+     "definitionFit": "An emendation is a correction made to a text, improving a passage that contains errors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1729,59 @@
     "text": "One teacher originally applied to higher education institution",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNIT",
+    "definitions": [
+     {
+      "text": "One",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points at the first letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "applied to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "higher education institution",
+      "gives": "UNI",
+      "note": "uni is short for university"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of teacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A single teacher applies for a job at a university.",
+     "walkthrough": "'Applied to' puts T against UNI.",
+     "definitionFit": "A unit is a single thing regarded as complete in itself, the number one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   }
  ]
 }
