@@ -325,12 +325,14 @@ discard_puzzle() {
 # Throwing it away means paying for those clues again. Only a half-written one —
 # the run died mid-edit — is worth nothing and goes back.
 #
-# Either way it leaves a note for the retry, which resumes this same
-# conversation (see run_claude) — so the note only has to say what changed
-# under it while it was stopped, not restate the job.
+# A kept file leaves a note for the retry, which resumes this same conversation
+# (see run_claude), so the note only says what changed while it was stopped. A
+# discarded one starts a fresh session: its conversation describes edits that
+# are no longer on disk.
 #   $1 the puzzle id  $2 the commit message prefix
 handle_failed_run() {
   local id="$1" what="$2" seen
+  tail -5 "/tmp/ct-prereset-$id.txt" 2>/dev/null | sed "s/^/  [$id] failed: /"
   # What the retry is told to look at: the annotate run's copy, never the
   # puzzle itself, which names the blog (see run_claude).
   seen=$(python3 tools/puzzle_paths.py "$id")
@@ -342,7 +344,7 @@ handle_failed_run() {
   else
     echo "  [$id] run failed — discarding its changes"
     discard_puzzle "$id"
-    printf '%s\n' "You were cut off by a usage limit, mid-edit, so $seen was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"/tmp/ct-prereset-$id.resume"
+    rm -f "/tmp/ct-prereset-$id.sid"
   fi
 }
 
