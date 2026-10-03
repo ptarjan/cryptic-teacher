@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,65 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SKIN-DEEP",
+    "definitions": [
+     {
+      "text": "Superficial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "one thing replacing another means a letter is swapped out and the type word put in its place"
+     },
+     {
+      "text": "during",
+      "for": "substitution",
+      "note": "during places the swap inside the lottery word, telling us where the exchange happens"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lottery",
+      "gives": "SWEEP",
+      "note": "a sweep, short for sweepstake, is a lottery"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "KIND",
+      "note": "a kind is a type or sort"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIND",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shallow takes the wife's place in a raffle draw.",
+     "walkthrough": "KIND goes where the W of SWEEP was, giving SKIN-DEEP.",
+     "definitionFit": "Something that goes no further than the outer layer is shallow, lacking any real depth beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +114,48 @@
     "text": "Drink starts to kick in rapidly",
     "enumeration": "3"
    },
-   "solution": "KIR"
+   "solution": "KIR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "KIR",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words are their opening letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kick in rapidly",
+      "gives": "KIR",
+      "select": "first",
+      "note": "the first letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink whose effect is felt almost at once.",
+     "definitionFit": "Kir is a French aperitif of white wine with blackcurrant liqueur, a mixed alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +175,62 @@
      }
     ]
    },
-   "solution": "NOTON"
+   "solution": "NOTON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "palindrome"
+    ],
+    "answer": "NOT ON",
+    "definitions": [
+     {
+      "text": "unacceptable",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means going without it, so a letter must be taken away from the idea word"
+     },
+     {
+      "text": "Either way",
+      "for": "palindrome",
+      "note": "reading the same either way, forwards or backwards, describes a word that reverses into itself"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idea",
+      "gives": "NOTION",
+      "note": "a notion is an idea"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "I is the abbreviation for information, as on tourist signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTON"
+     ]
+    },
+    "explanation": {
+     "surface": "An idea with no facts behind it is simply not good enough.",
+     "walkthrough": "NOTION without its I leaves NOTON, which reads the same backwards: NOT ON.",
+     "definitionFit": "'Not on' is a British idiom meaning something is not allowed or not acceptable behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +244,46 @@
     "text": "Coming to this planet and unable to leave it",
     "enumeration": "10"
    },
-   "solution": "EARTHBOUND"
+   "solution": "EARTHBOUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARTHBOUND",
+    "definitions": [
+     {
+      "text": "Coming to this planet",
+      "at": 0
+     },
+     {
+      "text": "unable to leave it",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coming to this planet",
+      "note": "first meaning: heading towards our world, as a returning spacecraft is"
+     },
+     {
+      "clueFragment": "unable to leave it",
+      "note": "second meaning: tied to the ground, unable to fly or escape"
+     }
+    ],
+    "explanation": {
+     "surface": "A spacecraft returning home that then finds itself stuck.",
+     "walkthrough": "'Bound' means both 'headed for' and 'tied down', so the one word covers both halves.",
+     "definitionFit": "Bound for our world means travelling towards it; bound to the ground means trapped there, never able to fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +297,55 @@
     "text": "Function without latitude to some extent",
     "enumeration": "6"
    },
-   "solution": "PARTLY"
+   "solution": "PARTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARTLY",
+    "definitions": [
+     {
+      "text": "to some extent",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "in the old sense, without means outside, so the function word wraps around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Function",
+      "gives": "PARTY",
+      "note": "a party is a social function"
+     },
+     {
+      "clueFragment": "latitude",
+      "gives": "L",
+      "note": "L is the abbreviation for latitude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A party held without some freedom is only partly enjoyable.",
+     "walkthrough": "'Without' looks like 'lacking' but here means 'outside': L sits inside PARTY.",
+     "definitionFit": "Partly is an adverb meaning in part, not completely, which is the same as to a certain degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +359,60 @@
     "text": "Congested excavation channel turned over",
     "enumeration": "6"
    },
-   "solution": "TURGID"
+   "solution": "TURGID",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TURGID",
+    "definitions": [
+     {
+      "text": "Congested",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "something turned over is flipped end to end, so the joined words are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excavation",
+      "gives": "DIG",
+      "note": "a dig is an archaeological excavation"
+     },
+     {
+      "clueFragment": "channel",
+      "gives": "RUT",
+      "note": "a rut is a groove or channel in the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "GID"
+     ],
+     "reversals": [
+      {
+       "from": "DIGRUT",
+       "to": "TURGID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blocked channel on a dig site has been overturned.",
+     "definitionFit": "Turgid describes something swollen and distended, as tissue congested with fluid becomes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Congested"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +426,45 @@
     "text": "Do spies keep them behind bars for drinking?",
     "enumeration": "4"
    },
-   "solution": "TABS"
+   "solution": "TABS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TABS",
+    "definitions": [
+     {
+      "text": "Do spies keep them",
+      "at": 0
+     },
+     {
+      "text": "behind bars for drinking",
+      "at": 19,
+      "note": "describes the things rather than naming them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do spies keep them",
+      "note": "first meaning: spies 'keep ... on' people they watch"
+     },
+     {
+      "clueFragment": "behind bars for drinking",
+      "note": "second meaning: running accounts held by bar staff for customers"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether spies hold something in prison for drinking.",
+     "walkthrough": "'Behind bars' suggests prison, but it means behind a pub counter, where drinkers' running bills are kept.",
+     "definitionFit": "To keep tabs on someone is to watch them closely; a bar tab is a customer's running bill for drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +478,65 @@
     "text": "Reason for relationship having spirit returned",
     "enumeration": "9"
    },
-   "solution": "RATIONALE"
+   "solution": "RATIONALE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RATIONALE",
+    "definitions": [
+     {
+      "text": "Reason",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the spirit word is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relationship",
+      "gives": "RATIO",
+      "note": "a ratio is the relationship between two quantities"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "ELAN",
+      "note": "elan is spirit or verve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATIO",
+      "NALE"
+     ],
+     "reversals": [
+      {
+       "from": "ELAN",
+       "to": "NALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking for why a relationship regained its spark.",
+     "walkthrough": "Only the spirit word is turned round; the relationship word stays as it is.",
+     "definitionFit": "A rationale is the underlying set of reasons or logical basis behind a course of action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +556,53 @@
      }
     ]
    },
-   "solution": "ISAACNEWTON"
+   "solution": "ISAACNEWTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISAAC NEWTON",
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "a surprising result is unexpected, hinting that the letters come out in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nato win case",
+      "gives": "NATOWINCASE",
+      "note": "the eleven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NATOWINCASE",
+       "gives": "ISAACNEWTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unexpected legal victory for the military alliance brings in an expert.",
+     "definitionFit": "Isaac Newton was the English physicist who formulated the laws of motion and universal gravitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +616,63 @@
     "text": "Journalist perhaps gets server to pull article for recipe",
     "enumeration": "6"
    },
-   "solution": "WRITER"
+   "solution": "WRITER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WRITER",
+    "definitions": [
+     {
+      "text": "Journalist perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pull",
+      "for": "substitution",
+      "note": "to pull something is to withdraw it, and with 'for' it signals one letter swapped out for another"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "server",
+      "gives": "WAITER",
+      "note": "a waiter serves at table"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from Latin, as on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "ITER"
+     ]
+    },
+    "explanation": {
+     "surface": "A food columnist has a waiter remove an item from the menu.",
+     "walkthrough": "The A in WAITER is replaced by R, giving WRITER.",
+     "definitionFit": "A journalist is one example of someone who produces written work professionally, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +686,58 @@
     "text": "Defence is behind in concrete case",
     "enumeration": "8"
    },
-   "solution": "REBUTTAL"
+   "solution": "REBUTTAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REBUTTAL",
+    "definitions": [
+     {
+      "text": "Defence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means set inside it, with the concrete word acting as the case around it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concrete case",
+      "gives": "REAL",
+      "note": "concrete means real or actual; 'case' marks it as the outer shell"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "BUTT",
+      "note": "a butt is a person's behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "BUTT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's defence relies on someone being encased in concrete.",
+     "walkthrough": "'Case' tells you the concrete word is the outer shell; 'behind' is the rear end, not 'late'.",
+     "definitionFit": "A rebuttal is a counter-argument offered to refute a charge or claim, a form of answering back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +751,62 @@
     "text": "Intend storing heroin in craft for now",
     "enumeration": "9"
    },
-   "solution": "MEANWHILE"
+   "solution": "MEANWHILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MEANWHILE",
+    "definitions": [
+     {
+      "text": "for now",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "storing",
+      "for": "container",
+      "note": "storing something means keeping it inside, so the craft word holds the drug letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intend",
+      "gives": "MEAN",
+      "note": "to mean is to intend"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "WILE",
+      "note": "craft in the sense of cunning or a crafty trick"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "W",
+      "H",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A smuggler plans to keep drugs hidden in a boat for the time being.",
+     "walkthrough": "'Craft' suggests a boat, but it means cunning.",
+     "definitionFit": "Meanwhile is an adverb meaning in the intervening period, until something else happens, like 'for the present'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +826,54 @@
      }
     ]
    },
-   "solution": "ELASTICBAND"
+   "solution": "ELASTICBAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELASTIC BAND",
+    "definitions": [
+     {
+      "text": "a flexible thing",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fragments",
+      "for": "anagram",
+      "note": "smashed into fragments, the letters are broken up and must be reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blade cast in",
+      "gives": "BLADECASTIN",
+      "note": "the eleven letters to be rearranged, the little word 'in' included"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLADECASTIN",
+       "gives": "ELASTICBAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cast blade that shatters turns out to have been bendy.",
+     "walkthrough": "'In' reads as part of 'in fragments', but its letters belong to the fodder.",
+     "definitionFit": "A rubber band stretches and springs back, so it is a typical example of something pliable and stretchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +887,48 @@
     "text": "It's light and carried for love",
     "enumeration": "5"
    },
-   "solution": "TORCH"
+   "solution": "TORCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TORCH",
+    "definitions": [
+     {
+      "text": "light",
+      "at": 5
+     },
+     {
+      "text": "carried for love",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "note": "first meaning: a portable lamp"
+     },
+     {
+      "clueFragment": "carried for love",
+      "note": "second meaning: in the idiom of carrying one for someone you secretly love"
+     }
+    ],
+    "explanation": {
+     "surface": "Describing something that is not heavy and is borne for affection.",
+     "walkthrough": "To carry a torch for someone is to love them without its being returned.",
+     "definitionFit": "A torch is a handheld lamp in British English, and the idiom about unrequited affection uses the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +952,54 @@
      }
     ]
    },
-   "solution": "CASEBYCASE"
+   "solution": "CASEBYCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASE BY CASE",
+    "definitions": [
+     {
+      "text": "individual circumstances",
+      "at": 20,
+      "note": "the answer is an adverbial phrase, 'treating individual circumstances separately'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Checkout",
+      "gives": "CASE",
+      "note": "to case a place is to check it out before a robbery"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "BY",
+      "note": "'by' means times, as in three by four"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "CASE",
+      "note": "a suit is a law case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASE",
+      "BY",
+      "CASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Supermarket tills that adapt to each shopper's situation.",
+     "walkthrough": "'Checkout' looks like a supermarket till but is the verb 'check out', as a burglar does.",
+     "definitionFit": "Dealing with matters case by case means handling each one separately on its own particular merits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Checkout"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1013,42 @@
     "text": "Start filming battle",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACTION",
+    "definitions": [
+     {
+      "text": "Start filming",
+      "at": 0
+     },
+     {
+      "text": "battle",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start filming",
+      "note": "first meaning: the director's call to begin a take"
+     },
+     {
+      "clueFragment": "battle",
+      "note": "second meaning: combat, as in troops seeing it"
+     }
+    ],
+    "explanation": {
+     "surface": "An order to begin shooting a war film.",
+     "definitionFit": "A film director shouts the word to begin a take; soldiers 'in' it are engaged in military combat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "filming"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1062,63 @@
     "text": "Fancy art deco from middle area of Paris",
     "enumeration": "9"
    },
-   "solution": "TROCADERO"
+   "solution": "TROCADERO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TROCADERO",
+    "definitions": [
+     {
+      "text": "area of Paris",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, so only those of the preceding word are kept"
+     },
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy as a verb means to dress up or elaborate, so these letters are rearranged into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art deco",
+      "gives": "ARTDECO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "from",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTDECORO",
+       "gives": "TROCADERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ornate 1920s design taken from the heart of the French capital.",
+     "walkthrough": "'From' looks like a link but supplies its middle letters.",
+     "definitionFit": "The Trocadéro is a district of Paris facing the Eiffel Tower across the Seine, famous for its Art Deco palace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1132,59 @@
     "text": "Nice lady using first name to interrupt me",
     "enumeration": "6"
    },
-   "solution": "MADAME"
+   "solution": "MADAME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MADAME",
+    "definitions": [
+     {
+      "text": "Nice lady",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to interrupt",
+      "for": "container",
+      "note": "interrupting means breaking into the middle of something, so the name goes inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "first name",
+      "gives": "ADAM",
+      "note": "Adam was the first man, so his is the first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ADAM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant woman keeps using someone's first name to cut in.",
+     "walkthrough": "'Nice' is the French city, not 'pleasant'; at the start of the clue its capital letter gives nothing away.",
+     "definitionFit": "Madame is the French title for a married woman, so a lady in the French city would be addressed this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1204,47 @@
      }
     ]
    },
-   "solution": "TWOONE"
+   "solution": "TWOONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWO ONE",
+    "definitions": [
+     {
+      "text": "Brace before lift-off",
+      "at": 0
+     },
+     {
+      "text": "a degree, perhaps",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "To"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brace before lift-off",
+      "note": "first meaning: a brace is a pair, and the countdown says the pair followed by the single just before launch"
+     },
+     {
+      "clueFragment": "a degree, perhaps",
+      "note": "second meaning: an upper second, the usual British university degree grade"
+     }
+    ],
+    "explanation": {
+     "surface": "Preparing oneself before take-off, to some extent.",
+     "walkthrough": "'To a degree' looks like 'somewhat', but 'To' is a link. A British honours degree is graded first, two-one, two-two or third.",
+     "definitionFit": "The final counts before launch are 'two, one'; a 2:1 is an upper-second-class British university honours grade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brace"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1258,58 @@
     "text": "What's at stake restrains whistleblower; that's very sad",
     "enumeration": "6"
    },
-   "solution": "BEREFT"
+   "solution": "BEREFT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEREFT",
+    "definitions": [
+     {
+      "text": "very sad",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrains",
+      "for": "container",
+      "note": "to restrain is to hold something in, so the stake word holds the other piece inside it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's at stake",
+      "gives": "BET",
+      "note": "a bet is the sum staked"
+     },
+     {
+      "clueFragment": "whistleblower",
+      "gives": "REF",
+      "note": "a referee blows the whistle in a match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "REF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Money on the line silences a leaker of secrets, which is a pity.",
+     "walkthrough": "'Whistleblower' suggests a leaker, but it is the official who blows a whistle in a match.",
+     "definitionFit": "Bereft means deprived of something loved, especially through bereavement, and so desolate or deeply sorrowful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whistleblower"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1329,64 @@
      }
     ]
    },
-   "solution": "BUSTUP"
+   "solution": "BUSTUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BUST-UP",
+    "definitions": [
+     {
+      "text": "row",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means reading from the bottom to the top, so the joined words run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Locate",
+      "gives": "PUT",
+      "note": "to put something is to locate or place it"
+     },
+     {
+      "clueFragment": "stand-in",
+      "gives": "SUB",
+      "note": "a sub is a substitute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "TUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUTSUB",
+       "to": "BUSTUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finding a replacement causes trouble when arguments break out.",
+     "walkthrough": "'Row' is the argument sense, rhyming with 'cow', not a line.",
+     "definitionFit": "A bust-up is a British informal word for a noisy quarrel or fight between people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Locate"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1400,46 @@
     "text": "Small crowd get lost",
     "enumeration": "5"
    },
-   "solution": "SCRAM"
+   "solution": "SCRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAM",
+    "definitions": [
+     {
+      "text": "get lost",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "CRAM",
+      "note": "to crowd into a space is to cram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest gathering of people goes missing.",
+     "definitionFit": "Scram is a rude command telling someone to leave at once, just like the dismissive order 'go away'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1459,49 @@
      }
     ]
    },
-   "solution": "DUTYBOUND"
+   "solution": "DUTYBOUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUTY BOUND",
+    "definitions": [
+     {
+      "text": "Obliged",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "DUTY",
+      "note": "a duty is a tax on goods"
+     },
+     {
+      "clueFragment": "limited",
+      "gives": "BOUND",
+      "note": "bound means restricted or limited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUTY",
+      "BOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Forced to set a ceiling on a levy.",
+     "definitionFit": "Someone duty-bound is morally or legally required to act, compelled by a sense of responsibility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limited"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1515,52 @@
     "text": "Prepare popular backing section for classical music",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "classical music",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section",
+      "for": "hidden_word",
+      "note": "a section is just a part, so the letters lie inside the run of words given"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means the letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepare popular",
+      "gives": "AREPO",
+      "note": "letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Getting a well-loved supporting part ready for a concert.",
+     "walkthrough": "The letters AREPO sit across 'prepARE POpular'; read backwards they give OPERA.",
+     "definitionFit": "Opera is a dramatic art form set to orchestral music, part of the Western art-music tradition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1574,53 @@
     "text": "Lost without commercial break",
     "enumeration": "4"
    },
-   "solution": "RIFT"
+   "solution": "RIFT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIFT",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without here means lacking, so the commercial letters must be taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lost",
+      "gives": "ADRIFT",
+      "note": "adrift means lost, drifting without direction"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Missing out on an advertising pause on television.",
+     "walkthrough": "'Commercial break' looks like one phrase; split it, and 'break' is the definition.",
+     "definitionFit": "A rift is a crack or split in something, or a breach in a friendship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1640,70 @@
      }
     ]
    },
-   "solution": "FACELIFT"
+   "solution": "FACELIFT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FACE LIFT",
+    "definitions": [
+     {
+      "text": "this makes it look better",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled, so these letters are mixed into a new order"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "placing one thing in another means setting it inside, so the jumbled letters go within the truth word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "truth",
+      "gives": "FACT",
+      "note": "a fact is a truth"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "LIFE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAC",
+      "ELIF",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIFE",
+       "gives": "ELIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophical sigh that life is hard, and something to cheer it up.",
+     "walkthrough": "'In truth' reads as 'honestly' but marks the container, and only 'life' is jumbled.",
+     "definitionFit": "A cosmetic surgical procedure tightens the skin of the face to make the patient appear younger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "truth"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1717,45 @@
     "text": "Bureau sounding out new college after some time",
     "enumeration": "6"
    },
-   "solution": "AGENCY"
+   "solution": "AGENCY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AGENCY",
+    "definitions": [
+     {
+      "text": "Bureau",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding out",
+      "for": "homophone",
+      "note": "sounding something out means saying it aloud, so the letters are read as spoken sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new college after some time",
+      "gives": "AGENCY",
+      "soundsLike": "AGE N C",
+      "note": "some time is an age, then N for new and C for college; said aloud as 'age-en-see'"
+     }
+    ],
+    "explanation": {
+     "surface": "An office announcing a new college opening after a delay.",
+     "walkthrough": "'After' puts the time first. Spoken as letters, AGE, N and C run together into the answer.",
+     "definitionFit": "An agency is an organisation or office providing a particular service, such as a government department."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sounding"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1769,53 @@
     "text": "Hint — what you're reading is missing line",
     "enumeration": "3"
    },
-   "solution": "CUE"
+   "solution": "CUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CUE",
+    "definitions": [
+     {
+      "text": "Hint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is missing",
+      "for": "deletion",
+      "note": "something missing is absent, so a letter is removed from the thing being read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what you're reading",
+      "gives": "CLUE",
+      "note": "the solver is reading a crossword clue"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tip that the text in front of you has dropped a line.",
+     "definitionFit": "A cue is a signal or prompt, such as an actor's cue to speak, which suggests what to do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +1829,63 @@
     "text": "Expert made errors with central pieces",
     "enumeration": "6"
    },
-   "solution": "ADROIT"
+   "solution": "ADROIT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADROIT",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central pieces",
+      "for": "letter_selection",
+      "note": "the central pieces of each word are its middle letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the two middle letters"
+     },
+     {
+      "clueFragment": "errors",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the two middle letters"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "IT",
+      "select": "middle",
+      "note": "the two middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "RO",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist made blunders in the key parts of a job.",
+     "walkthrough": "'With' looks like a link but supplies letters too.",
+     "definitionFit": "Adroit means skilful and clever with one's hands or mind, so as an adjective it matches being highly skilled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 29,
@@ -497,7 +1899,52 @@
     "text": "Pet adder gone astray — it happened earlier",
     "enumeration": "8"
    },
-   "solution": "PREDATED"
+   "solution": "PREDATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PREDATED",
+    "definitions": [
+     {
+      "text": "it happened earlier",
+      "at": 24,
+      "note": "a clause describing the answer's sense: came before"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone astray",
+      "for": "anagram",
+      "note": "something gone astray has wandered off course, so the letters stray into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet adder",
+      "gives": "PETADDER",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PETADDER",
+       "gives": "PREDATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet snake has escaped, and the owner says it occurred before.",
+     "walkthrough": "With a snake about, 'predator' comes to mind, but the time sense wins.",
+     "definitionFit": "To predate something is to come before it in time, existing or occurring at an earlier date."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adder"
+    }
+   }
   }
  ]
 }
