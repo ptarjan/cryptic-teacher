@@ -833,6 +833,11 @@ tools/discard_clue_rows.py                   the burn's discard: drops a puzzle'
                                              show
 tools/test_discard_clue_rows.sh              a discarded run takes its SOURCE_CLUE_WRONG rows
                                              with it, and the table agrees with the file
+tools/own_rows.py                            a burn puzzle's commit stages its own rows of
+                                             fetch_puzzle.py's SOURCE_* tables and no
+                                             sibling's; its discard puts them back
+tools/test_own_rows.sh                       two puzzles in flight: one commits only its own
+                                             rows, the other's discard leaves the tree clean
 tools/test_alert_claimed.sh                  runs a real failing run past alert.sh, so the
                                              catch-all cannot report a failure somebody already
                                              alerted on a second time

@@ -388,12 +388,23 @@ solve_applied() {
 # undone as both halves of the rename.
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
 # Undo a run's edits to one puzzle, including a copy written to a new folder,
-# and the SOURCE_CLUE_WRONG rows it filed for clues the file no longer shows.
+# and its rows of fetch_puzzle.py's SOURCE_* tables: back as HEAD has them, then
+# any SOURCE_CLUE_WRONG row left for a clue the reverted file does not show.
 discard_puzzle() {
   git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
   git clean -qf -- "$(puzzle_spec "$1")"
-  python3 tools/discard_clue_rows.py "$1" ||
-    alert "pre-reset backfill could not drop $1's SOURCE_CLUE_WRONG rows after discarding it; the next commit may carry rows its file does not show. See .prereset.log."
+  { python3 tools/own_rows.py revert "$1" && python3 tools/discard_clue_rows.py "$1"; } ||
+    alert "pre-reset backfill could not put back $1's rows of tools/fetch_puzzle.py after discarding it; the sweep at the end of the run may carry rows its file does not show. See .prereset.log."
+}
+
+# Stage one puzzle for its commit: its file, and its rows of fetch_puzzle.py
+# with no sibling's (tools/own_rows.py). On failure nothing is left staged, so
+# the next puzzle's commit cannot carry this one.
+stage_puzzle() {
+  git add -A -- "$(puzzle_spec "$1")"
+  python3 tools/own_rows.py stage "$1" && return 0
+  git reset -q -- "$(puzzle_spec "$1")" tools/fetch_puzzle.py
+  return 1
 }
 
 # A run that failed. One cut off by a lockout usually leaves real work behind:
@@ -849,10 +860,14 @@ commit_puzzle() {
     # so each finished puzzle reaches the site without waiting for the rest.
     # Named because it was just written, not as an allow-list — the sweep at the
     # end takes everything. -A, so a file that changed year folders goes in as
-    # a rename rather than as a new copy beside the old one. fetch_puzzle.py
-    # goes with it: a clue the run corrected is only valid beside its
-    # SOURCE_CLUE_WRONG row, so the puzzle must not land without it.
-    git add -A -- "$(puzzle_spec "$num")" tools/fetch_puzzle.py
+    # a rename rather than as a new copy beside the old one. Its rows of
+    # fetch_puzzle.py go with it, and only its own: a corrected clue is valid
+    # only beside its SOURCE_CLUE_WRONG row, and the siblings still in flight
+    # file theirs into the same file (tools/own_rows.py).
+    if ! out=$(stage_puzzle "$num" 2>&1); then
+      alert "pre-reset backfill could not stage $num's rows of tools/fetch_puzzle.py, so $what $num is not committed: $(printf '%s' "$out" | tail -5)"
+      return 1
+    fi
     if ! out=$(git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")" 2>&1); then
       # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so
       # a refused commit has to stop here or the log says "committed".

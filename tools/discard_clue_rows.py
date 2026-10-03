@@ -23,19 +23,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_puzzle as fetcher
 from groups import entry_id
+from own_rows import tables
 
 TABLE = "SOURCE_CLUE_WRONG"
 
 
 def row_spans(source):
     """[(pid, eid, printed, first line, last line)], 1-based and inclusive, for
-    every row of TABLE in `source`."""
-    for node in ast.parse(source).body:
-        if isinstance(node, ast.Assign) and any(
-                isinstance(t, ast.Name) and t.id == TABLE for t in node.targets):
-            return [(*ast.literal_eval(k), ast.literal_eval(v)[1], k.lineno, v.end_lineno)
-                    for k, v in zip(node.value.keys, node.value.values)]
-    raise SystemExit(f"discard_clue_rows: no {TABLE} in fetch_puzzle.py")
+    every row of TABLE in `source`, its lead comments included."""
+    if TABLE not in (found := tables(source)):
+        raise SystemExit(f"discard_clue_rows: no {TABLE} in fetch_puzzle.py")
+    return [(pid, ast.literal_eval(k)[1], ast.literal_eval(v)[1], first, last)
+            for pid, k, v, first, last in found[TABLE][1]]
 
 
 def shown_clues(pid):
