@@ -3077,6 +3077,14 @@ SOURCE_CLUE_WRONG = {
         "Invites Roman copper at' 3",
         "Invites Roman copper at 3",
         "OCR misread: a stray apostrophe after at"),
+    ("book-4055", "25-across"): (
+        "Indonesian painter foliows complete with a model",
+        "Indonesian painter follows complete with a model",
+        "OCR misread: the charade needs follows, putting the painter after the rest"),
+    ("book-4055", "11-across"): (
+        "Sailors’ stew. with highball from Liverpool",
+        "Sailors’ stew with highball from Liverpool",
+        "OCR misread: a stray full stop after stew"),
 }
 
 
