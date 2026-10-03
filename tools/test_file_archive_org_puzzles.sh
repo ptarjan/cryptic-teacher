@@ -784,6 +784,9 @@ check("a held clue on two lights takes this reading's clue for each, answers kep
 mended, now = f.mend_duplicates(held_13998(["A man's man", "", occasional]), path)
 check("a light this reading has no clue for is filed blank", ("", True),
       (mended["entries"][1]["clue"]["text"], mended["entries"][1]["clue"].get("missing")))
+path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
+mended, now = f.mend_duplicates(None, path)
+check("with no reading, each light a held clue sits on twice is blank", {"15-across": "", "18-across": ""}, now)
 check("a held filing with no clue on two lights is left alone", None,
       f.mend_duplicates(held_13998(["A man's man", "x", "y"]), path.write_text(json.dumps(
           held_13998(["A man's man", "An Athenian", occasional]))) and path))

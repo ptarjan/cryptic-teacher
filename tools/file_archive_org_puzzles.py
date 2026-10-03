@@ -1636,11 +1636,13 @@ def mend_duplicates(puzzle, path):
     (fetch_puzzle.duplicated_clues) takes this reading's clue for it, which
     one_light_each left on one light at most, else blank, for the blank-clue
     re-read. None when the file holds no such clue, is not this tool's, or
-    lies on another grid than this reading."""
+    lies on another grid than this reading. With no reading (`puzzle`
+    None: its scan now reads as another number), every such light is blank."""
     from fetch_puzzle import duplicated_clues
     old = json.loads(path.read_text())
+    puzzle = puzzle or {"entries": []}
     if (old.get("source") or {}).get("acquiredBy") != TOOL \
-            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+            or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
     lost = {i for ids in duplicated_clues(old["entries"]) for i in ids}
     if not lost:
@@ -1770,6 +1772,8 @@ def main(argv=None):
                          "the one-off after a change to this code or the VLM model, which alone makes nothing due")
     ap.add_argument("--edition", action="append", metavar="ITEM/EDITION",
                     help="read this edition again, and no other (repeatable)")
+    ap.add_argument("--mend-held", nargs="+", metavar="ID",
+                    help="blank each clue these held filings give two lights, with no reading")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
@@ -1780,6 +1784,15 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.match_canberra:
         match_canberra(args.source, write=not args.dry_run)
+        return 0
+    if args.mend_held:
+        from fetch_puzzle import puzzle_paths, write_puzzle_file
+        for pid in args.mend_held:
+            path = puzzle_paths.find(pid)
+            mended = path and mend_duplicates(None, path)
+            print(pid, mended[1] if mended else "nothing to mend")
+            if mended and not args.dry_run:
+                write_puzzle_file(path, mended[0], generator=TOOL)
         return 0
     if args.show:
         d = args.cache / args.show
