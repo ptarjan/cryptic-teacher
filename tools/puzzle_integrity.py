@@ -1103,7 +1103,7 @@ def check_rewrite(old, new, flags):
     A re-fetch of a page that serves the grid without the text (the Guardian's
     2005-08 prizes) would otherwise undo a recovery; see
     fetch_puzzle.carry_recovered_clues."""
-    was = {entry_id(e): e["clue"].get("text", "") for e in old.get("entries") or []}
+    was = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or [])}
     for e in new.get("entries") or []:
         if has_words(was.get(entry_id(e))) and not has_words(e["clue"].get("text", "")):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
