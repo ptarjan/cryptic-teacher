@@ -1934,6 +1934,10 @@ SOURCE_CLUE_WRONG = {
         "Remove rider's new born, in practice",
         "Remove rider's new horn, in practice",
         "OCR misread: the wordplay needs HORN rearranged inside USE"),
+    ("times-18200", "28-across"): (
+        "3 August count is one",
+        "23 August count is one",
+        "OCR misread: the cross-reference must be to 23, Old coin, which NOBLE also is"),
     ("times-18003", "20-down"): (
         ")Plant in which one's typically found",
         "Plant in which one's typically found",
