@@ -1893,6 +1893,30 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16412", "5-down"): (
+        "Surface appearance 'of Orwell's book",
+        "Surface appearance of Orwell's book",
+        "OCR misread: a stray apostrophe before of"),
+    ("times-16412", "8-down"): (
+        "Ruler singled out-from.Hardy's work",
+        "Ruler singled out from Hardy's work",
+        "OCR misread: stray punctuation in place of spaces"),
+    ("times-16412", "10-across"): (
+        "Hopelessness in writing - I fail 10 get record back",
+        "Hopelessness in writing - I fail to get record back",
+        "OCR misread: the link words are to get"),
+    ("times-16412", "12-across"): (
+        "One of his staff having sort of lack a head of embassy needed?",
+        "One of his staff having sort of tack a head of embassy needed?",
+        "OCR misread: the wordplay needs tack, giving ATTACH"),
+    ("times-16412", "19-down"): (
+        "Clue, perhaps, about an originator of .rebellion",
+        "Clue, perhaps, about an originator of rebellion",
+        "OCR misread: a stray full stop before rebellion"),
+    ("times-16412", "23-across"): (
+        "Constable so alternating with one 3as painter",
+        "Constable so alternating with one as painter",
+        "OCR misread: a stray 3 before as"),
     ("times-14603", "12-across"): (
         "Paper surely not for lie head of the class?",
         "Paper surely not for the head of the class?",
