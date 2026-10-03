@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Dullest dullard overwhelmed by exam",
     "enumeration": "8"
    },
-   "solution": "THICKEST"
+   "solution": "THICKEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THICKEST",
+    "definitions": [
+     {
+      "text": "Dullest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "something overwhelmed is swamped on every side, so the dullard sits wrapped inside the exam"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exam",
+      "gives": "TEST",
+      "note": "an exam is a test"
+     },
+     {
+      "clueFragment": "dullard",
+      "gives": "HICK",
+      "note": "a hick is an unsophisticated country bumpkin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HICK",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "The slowest student in the class is swamped by an examination paper.",
+     "walkthrough": "'Dullest' and 'dullard' look like a repeated idea, but only the first is the definition; the second supplies the bumpkin inside the test.",
+     "definitionFit": "Thick is informal for stupid, so the superlative form describes the most slow-witted person around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dullard"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,41 @@
     "text": "Soften, harden",
     "enumeration": "6"
    },
-   "solution": "TEMPER"
+   "solution": "TEMPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEMPER",
+    "definitions": [
+     {
+      "text": "Soften",
+      "at": 0
+     },
+     {
+      "text": "harden",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soften",
+      "note": "first meaning: to moderate or tone down"
+     },
+     {
+      "clueFragment": "harden",
+      "note": "second meaning: to toughen steel by heating and cooling it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two definitions are opposites, which makes the clue look self-contradictory until you find one verb carrying both senses.",
+     "definitionFit": "The verb means to mitigate something, and in metalwork it means toughening steel through controlled heating and quenching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +152,67 @@
      }
     ]
    },
-   "solution": "ILLGOTTEN"
+   "solution": "ILLGOTTEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ILL-GOTTEN",
+    "definitions": [
+     {
+      "text": "having been ripped off",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off here means gone bad or awry, so the letters of the first word are spoiled into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the shuffled letters go around the scriptural part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Telling",
+      "gives": "TELLING",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "part of Bible",
+      "gives": "OT",
+      "note": "OT is the Old Testament, one part of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILLG",
+      "OT",
+      "TEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TELLING",
+       "gives": "ILLGTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is scolded over a stolen portion of a Bible.",
+     "walkthrough": "'Telling off' reads as a scolding, but it splits into fodder and an anagram signal.",
+     "definitionFit": "Goods obtained by theft or dishonest means are described as acquired wrongfully, which is what stolen loot is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +240,55 @@
      }
     ]
    },
-   "solution": "KEEPYOURNOSEOUT"
+   "solution": "KEEPYOURNOSEOUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KEEP YOUR NOSE OUT",
+    "definitions": [
+     {
+      "text": "Back off",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means muddled up, so the preceding words are jumbled into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yes? No?",
+      "gives": "YESNO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Europe to UK",
+      "gives": "EUROPETOUK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YESNO EUROPETOUK",
+       "gives": "KEEPYOURNOSEOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Brexit-era exchange: the EU tells Britain to stop interfering while Britain dithers between yes and no.",
+     "definitionFit": "The idiom tells someone to stop prying into another's business, the same as telling them to withdraw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Europe"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +308,67 @@
      }
     ]
    },
-   "solution": "SLIPONS"
+   "solution": "SLIPONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SLIP-ONS",
+    "definitions": [
+     {
+      "text": "comfy shoes",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above, so the boy sits on top of the day"
+     },
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing means dressing or wrapping, so the boy and day go around the impudence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impudence",
+      "gives": "LIP",
+      "note": "lip is cheeky talk"
+     },
+     {
+      "clueFragment": "Boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     },
+     {
+      "clueFragment": "Sabbath",
+      "gives": "S",
+      "note": "S abbreviates Sunday, the Christian Sabbath"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LIP",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky lad dresses casually on a Sunday, wearing comfortable footwear.",
+     "walkthrough": "Boy and Sabbath make SONS, which is split open to take LIP after its first letter.",
+     "definitionFit": "Shoes without laces or fastenings that are simply pushed onto the feet are easy, comfortable footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +382,56 @@
     "text": "Fish by river, finding one gliding on surface",
     "enumeration": "6"
    },
-   "solution": "SKATER"
+   "solution": "SKATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKATER",
+    "definitions": [
+     {
+      "text": "one gliding on surface",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the river abbreviation is set beside the fish"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "SKATE",
+      "note": "a skate is a flat fish related to the ray"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler by a river spots someone gliding over the frozen water.",
+     "definitionFit": "A person on blades or wheels moves smoothly across ice or pavement, gliding over a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 6,
@@ -157,7 +459,62 @@
      }
     ]
    },
-   "solution": "KEEPYOURSHIRTON"
+   "solution": "KEEPYOURSHIRTON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "KEEP YOUR SHIRT ON",
+    "definitions": [
+     {
+      "text": "Cool it!",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fumbling",
+      "for": "anagram",
+      "note": "fumbling means handling clumsily, so the two words are mishandled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observe",
+      "gives": "KEEP",
+      "note": "to observe a rule or custom is to keep it"
+     },
+     {
+      "clueFragment": "horny suitor",
+      "gives": "HORNYSUITOR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "YOURSHIRTON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HORNYSUITOR",
+       "gives": "YOURSHIRTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watching an eager admirer grope clumsily, someone tells him to calm down.",
+     "walkthrough": "'Observe' looks like an instruction to watch, but it means keep, as in keeping a rule.",
+     "definitionFit": "Both are idioms telling someone to calm down and stop getting worked up or angry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Observe"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +528,53 @@
     "text": "Every so often, third yawl finds a kind of large wave",
     "enumeration": "5"
    },
-   "solution": "TIDAL"
+   "solution": "TIDAL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TIDAL",
+    "definitions": [
+     {
+      "text": "a kind of large wave",
+      "at": 33,
+      "note": "the answer is the adjective that describes this kind of wave"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Every so often",
+      "for": "letter_selection",
+      "note": "every so often means at regular intervals, so only every other letter of the phrase is kept"
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "third yawl",
+      "gives": "TIDAL",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIDAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A third small sailing boat meets a huge wave now and then.",
+     "walkthrough": "A yawl is a two-masted sailing boat; the words are just a letter source.",
+     "definitionFit": "A tidal wave is a very large ocean wave, so the adjective names that kind of wave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +588,63 @@
     "text": "Naughty, vandalising cars with mate",
     "enumeration": "8"
    },
-   "solution": "RASCALLY"
+   "solution": "RASCALLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RASCALLY",
+    "definitions": [
+     {
+      "text": "Naughty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vandalising",
+      "for": "anagram",
+      "note": "vandalising means wrecking, so the vehicles are smashed into a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cars",
+      "gives": "CARS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "ALLY",
+      "note": "a mate or friend is an ally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RASC",
+      "ALLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARS",
+       "gives": "RASC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mischievous youths smash up cars alongside a friend.",
+     "definitionFit": "A rascal is a mischievous person, so behaviour like a rogue's is impish and badly behaved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mate"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +658,65 @@
     "text": "Workers' groups' stewards initially rising to show agreement",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNISON",
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word it follows"
+     },
+     {
+      "text": "rising",
+      "for": "container",
+      "note": "in a down clue rising means moving upward, so the letter climbs from the end into the middle"
+     }
+    ],
+    "linkWords": [
+     "to show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Workers' groups'",
+      "gives": "UNION",
+      "note": "a trade union is a workers' group; its plural S is the letter that moves"
+     },
+     {
+      "clueFragment": "stewards",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of stewards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "S",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Union shop stewards stand up together to show solidarity.",
+     "walkthrough": "Workers' groups gives UNIONS; its final S, standing for stewards, rises two places up the down entry to give UNISON, itself a big British public-sector union.",
+     "definitionFit": "Acting in unison means acting together in perfect accord, so the word stands for harmony or concord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +730,63 @@
     "text": "Entertaining literature: primarily, a deep source?",
     "enumeration": "5"
    },
-   "solution": "MILNE"
+   "solution": "MILNE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "MILNE",
+    "definitions": [
+     {
+      "text": "Entertaining literature: primarily, a deep source?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Entertaining",
+      "for": "container",
+      "note": "entertaining means playing host to, so the source holds the selected letter inside"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of literature is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a deep source",
+      "gives": "MINE",
+      "note": "a mine is a deep source of minerals"
+     },
+     {
+      "clueFragment": "literature",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of literature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "L",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Light reading is, above all, a rich source of something.",
+     "walkthrough": "The whole clue also describes the author: A A Milne, creator of Winnie-the-Pooh, is a deep source of entertaining literature.",
+     "definitionFit": "Alan Alexander Milne wrote the Winnie-the-Pooh stories, a well of much-loved children's writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Entertaining"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +800,67 @@
     "text": "Hints end in sight amid unions' disruption",
     "enumeration": "9"
    },
-   "solution": "INNUENDOS"
+   "solution": "INNUENDOS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INNUENDOS",
+    "definitions": [
+     {
+      "text": "Hints",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one word is placed inside the other"
+     },
+     {
+      "text": "disruption",
+      "for": "anagram",
+      "note": "disruption throws things into disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unions'",
+      "gives": "UNIONS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "end in sight",
+      "gives": "END",
+      "note": "the word end, plainly visible, goes in as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNU",
+      "END",
+      "OS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNIONS",
+       "gives": "INNUOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There are signs that the strikes and industrial unrest are nearly over.",
+     "walkthrough": "'In sight' reads as part of the strike news; it just says the word end is there to be seen and used.",
+     "definitionFit": "Innuendos are indirect suggestions or insinuations, remarks that imply rather than state outright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disruption"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +874,51 @@
     "text": "Giving a name to mouse-pony hybrid",
     "enumeration": "9"
    },
-   "solution": "EPONYMOUS"
+   "solution": "EPONYMOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPONYMOUS",
+    "definitions": [
+     {
+      "text": "Giving a name to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hybrid",
+      "for": "anagram",
+      "note": "a hybrid is a cross mixing two sources, so the letters of both animals are mixed together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mouse-pony",
+      "gives": "MOUSEPONY",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOUSEPONY",
+       "gives": "EPONYMOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross between a rodent and a small horse names something after itself.",
+     "definitionFit": "An eponymous figure is the person or thing after whom something, such as a title or place, is called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hybrid"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +932,60 @@
     "text": "Year on island, topless resort",
     "enumeration": "5"
    },
-   "solution": "YALTA"
+   "solution": "YALTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "YALTA",
+    "definitions": [
+     {
+      "text": "resort",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed against, so the year abbreviation is set beside the island"
+     },
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means without its top, so the island loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "MALTA",
+      "note": "Malta is a Mediterranean island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ALTA"
+     ]
+    },
+    "explanation": {
+     "surface": "A year spent on a Mediterranean island at a resort where sunbathers go topless.",
+     "walkthrough": "Yalta is a Black Sea resort in Crimea, famous for the 1945 conference.",
+     "definitionFit": "This Crimean town on the Black Sea coast is a well-known holiday destination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +999,57 @@
     "text": "In conclusion, Guinness sells these!",
     "enumeration": "6"
    },
-   "solution": "STOUTS"
+   "solution": "STOUTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "STOUTS",
+    "definitions": [
+     {
+      "text": "In conclusion, Guinness sells these!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In conclusion",
+      "for": "letter_selection",
+      "note": "in conclusion points to the closing letter of the brand name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guinness",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of Guinness"
+     },
+     {
+      "clueFragment": "sells",
+      "gives": "TOUTS",
+      "note": "to tout is to sell or peddle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A summing-up: these are what the Irish brewery Guinness sells.",
+     "walkthrough": "The whole clue doubles as the definition: Guinness is the famous Irish brand of dark beer.",
+     "definitionFit": "Stouts are strong dark beers brewed with roasted malt, and Guinness is the best-known example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sells"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1063,60 @@
     "text": "Impartial head of Ireland ignored in new EU test",
     "enumeration": "7"
    },
-   "solution": "NEUTRAL"
+   "solution": "NEUTRAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NEUTRAL",
+    "definitions": [
+     {
+      "text": "Impartial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of Ireland ignored in",
+      "for": "deletion",
+      "note": "the opening letter of Ireland is left out from within the word for test"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EU",
+      "TRAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Ireland's leader is left out of a fresh European Union assessment, despite being even-handed.",
+     "definitionFit": "Being neutral means taking no side in a dispute, which is what impartial means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1136,71 @@
      }
     ]
    },
-   "solution": "RAREEARTH"
+   "solution": "RAREEARTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RARE EARTH",
+    "definitions": [
+     {
+      "text": "element",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost from",
+      "for": "deletion",
+      "note": "lost from means taken away, so one letter is dropped from the words that follow"
+     },
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or faulty, so the letters come out in a broken order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "rear",
+      "gives": "REAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "heater's",
+      "gives": "HEATER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAREEARTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RARHEATER",
+       "gives": "RAREEARTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faulty heater in the back of a car loses power because of one component.",
+     "walkthrough": "'Element' suggests a heating element in the surface, but it means a chemical element.",
+     "definitionFit": "Rare earths are a group of metallic chemical elements, the lanthanides, so one of them is an element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1224,68 @@
      }
     ]
    },
-   "solution": "UPINARMS"
+   "solution": "UPINARMS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UP IN ARMS",
+    "definitions": [
+     {
+      "text": "furious",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things gone wrong, so the letters fall into a muddled order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Happy",
+      "gives": "UP",
+      "note": "up means cheerful, as in feeling up"
+     },
+     {
+      "clueFragment": "Sir",
+      "gives": "SIR",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "MAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "INARMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIRMAN",
+       "gives": "INARMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks a gentleman if he is content, but sadly the man is livid.",
+     "definitionFit": "Being up in arms is an idiom for being angrily protesting or indignant about something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Happy"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1305,51 @@
      }
     ]
    },
-   "solution": "PINENUT"
+   "solution": "PINENUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINE NUT",
+    "definitions": [
+     {
+      "text": "a bit of salad",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consume",
+      "gives": "PINE",
+      "note": "to pine is to waste away, as consumption consumes a sufferer"
+     },
+     {
+      "clueFragment": "fruitcake",
+      "gives": "NUT",
+      "note": "fruitcake and nut are both slang for a crazy person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINE",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats fruitcake along with a little salad.",
+     "walkthrough": "'Consume' looks like eating, but it is intransitive here: to be consumed with grief, wasting away.",
+     "definitionFit": "These small edible seeds from pine cones are often scattered over salads as a garnish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fruitcake"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1369,60 @@
      }
     ]
    },
-   "solution": "TINPOT"
+   "solution": "TINPOT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TIN-POT",
+    "definitions": [
+     {
+      "text": "Second-rate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has to return",
+      "for": "reversal",
+      "note": "to return means to go back, so the word for chump is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chump",
+      "gives": "NIT",
+      "note": "a nit is a fool"
+     },
+     {
+      "clueFragment": "prize",
+      "gives": "POT",
+      "note": "a pot is slang for a trophy cup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "POT"
+     ],
+     "reversals": [
+      {
+       "from": "NIT",
+       "to": "TIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inferior fool is made to hand back his award.",
+     "definitionFit": "Tin-pot describes something petty, shoddy or inferior, a common term of disparagement for mediocrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prize"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1436,55 @@
     "text": "Stingy; losing pound will get you grief",
     "enumeration": "6"
    },
-   "solution": "MISERY"
+   "solution": "MISERY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MISERY",
+    "definitions": [
+     {
+      "text": "grief",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means giving up, so the currency symbol is dropped from the word for stingy"
+     }
+    ],
+    "linkWords": [
+     "will get you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stingy",
+      "gives": "MISERLY",
+      "note": "miserly means mean with money"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the symbol for a pound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tightwad who loses a pound is heartbroken.",
+     "definitionFit": "Misery is great unhappiness or distress, the same as deep sorrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1498,63 @@
     "text": "Endless acrimony with development for island",
     "enumeration": "7"
    },
-   "solution": "MINORCA"
+   "solution": "MINORCA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MINORCA",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "endless means without its end, so the final letter is cut off"
+     },
+     {
+      "text": "development",
+      "for": "anagram",
+      "note": "development means growing into something new, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acrimony",
+      "gives": "ACRIMONY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINORCA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACRIMON",
+       "gives": "MINORCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unending bitterness over building development on a holiday island.",
+     "walkthrough": "Minorca, or Menorca, is one of Spain's Balearic Islands.",
+     "definitionFit": "Minorca is a Mediterranean island in the Balearic group off the east coast of Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "development"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1568,54 @@
     "text": "Hindu creator's not a creator of music",
     "enumeration": "6"
    },
-   "solution": "BRAHMS"
+   "solution": "BRAHMS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRAHMS",
+    "definitions": [
+     {
+      "text": "creator of music",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following word is removed from the god's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hindu creator's",
+      "gives": "BRAHMAS",
+      "note": "Brahma is the creator god of Hinduism, with the possessive S"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAHMS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hindu creator god is said not to be a composer.",
+     "walkthrough": "The clue repeats creator to make the two figures seem alike, but one is a god and the other the German composer.",
+     "definitionFit": "Johannes Brahms was a German Romantic composer, so he made symphonies and other works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1629,63 @@
     "text": "Half of theological colleges regressive in Languedoc city",
     "enumeration": "5"
    },
-   "solution": "NIMES"
+   "solution": "NIMES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NIMES",
+    "definitions": [
+     {
+      "text": "Languedoc city",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half of",
+      "for": "deletion",
+      "note": "half of means only one of two equal parts is kept and the rest discarded"
+     },
+     {
+      "text": "regressive",
+      "for": "reversal",
+      "note": "regressive means going backwards, so the kept letters are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theological colleges",
+      "gives": "SEMINARIES",
+      "note": "seminaries train priests and ministers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIMES"
+     ],
+     "reversals": [
+      {
+       "from": "SEMIN",
+       "to": "NIMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some theological schools in a southern French region are going backwards.",
+     "walkthrough": "Languedoc is a region of southern France; Nîmes is its Roman city.",
+     "definitionFit": "Nîmes is a historic city in the Languedoc region of southern France, known for its Roman arena."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regressive"
+    }
+   }
   },
   {
    "number": 23,
@@ -443,7 +1705,67 @@
      }
     ]
    },
-   "solution": "MIDON"
+   "solution": "MIDON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MID-ON",
+    "definitions": [
+     {
+      "text": "position",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following",
+      "for": "charade",
+      "note": "following means coming after, so the next word is placed after the first"
+     },
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the combined letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "NOD",
+      "note": "a nod signals agreement"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "DON"
+     ],
+     "reversals": [
+      {
+       "from": "NODIM",
+       "to": "MIDON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having reached a deal, someone changes their stance.",
+     "walkthrough": "Mid-on is a cricket fielding position, in front of the batsman on the leg side.",
+     "definitionFit": "In cricket, mid-on is a place where a fielder stands, close to the bowler on the leg side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 24,
@@ -463,7 +1785,61 @@
      }
     ]
    },
-   "solution": "NONLINEAR"
+   "solution": "NONLINEAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NON-LINEAR",
+    "definitions": [
+     {
+      "text": "Having branches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means turned round, so the verb for cut is read backwards"
+     },
+     {
+      "text": "to make room for",
+      "for": "container",
+      "note": "making room for something means opening up a space for it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "RAN",
+      "note": "to cut, as in cut along, is to run away; ran is the past tense"
+     },
+     {
+      "clueFragment": "using the net",
+      "gives": "ONLINE",
+      "note": "being online means connected to the internet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ONLINE",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Trees are pruned to clear space for a cable or a fishing net.",
+     "walkthrough": "'Branches cut back' looks like pruning, but branches belongs to the definition and cut back is the wordplay.",
+     "definitionFit": "Something not in a straight line, like a branching structure or narrative, does not proceed in a single sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "branches"
+    }
+   }
   },
   {
    "number": 25,
@@ -483,7 +1859,67 @@
      }
     ]
    },
-   "solution": "RADIOFOUR"
+   "solution": "RADIOFOUR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RADIO FOUR",
+    "definitions": [
+     {
+      "text": "station",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, as seed is sown, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arid",
+      "gives": "ARID",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "from",
+      "gives": "OF",
+      "note": "of can mean from, as in a man of Kent"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADIOF",
+      "OUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARIDOF",
+       "gives": "RADIOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dry, dull programme goes out from the local station.",
+     "walkthrough": "Radio Four is the BBC's national speech radio station; 'broadcast' fits the surface but is the anagram signal.",
+     "definitionFit": "BBC Radio 4 is a national British speech-based radio service, so it is a broadcasting outlet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 26,
@@ -497,7 +1933,49 @@
     "text": "Primarily, text orthodox rabbi always honours?",
     "enumeration": "5"
    },
-   "solution": "TORAH"
+   "solution": "TORAH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "TORAH",
+    "definitions": [
+     {
+      "text": "Primarily, text orthodox rabbi always honours?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letters of the following words are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "text orthodox rabbi always honours",
+      "gives": "TORAH",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORAH"
+     ]
+    },
+    "explanation": {
+     "surface": "Above all, which scripture does an orthodox rabbi always revere?",
+     "walkthrough": "The whole clue also defines the answer: the Torah is the text an orthodox rabbi honours above all.",
+     "definitionFit": "The Torah, the first five books of the Hebrew Bible, is the central scripture of Judaism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 27,
@@ -511,7 +1989,55 @@
     "text": "Father Christmas, catching cold, retreats",
     "enumeration": "6"
    },
-   "solution": "SANCTA"
+   "solution": "SANCTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANCTA",
+    "definitions": [
+     {
+      "text": "retreats",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means taking hold of, so Father Christmas encloses the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father Christmas",
+      "gives": "SANTA",
+      "note": "Santa is another name for Father Christmas"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAN",
+      "C",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Santa Claus, having caught a chill, withdraws to rest.",
+     "walkthrough": "'Retreats' looks like a verb for Santa withdrawing, but it is the plural noun.",
+     "definitionFit": "A sanctum is a private room or place of refuge, and sancta is its Latin plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreats"
+    }
+   }
   },
   {
    "number": 28,
@@ -525,7 +2051,57 @@
     "text": "Drinks Australian ingested, displaying signs of overindulgence",
     "enumeration": "8"
    },
-   "solution": "PAUNCHES"
+   "solution": "PAUNCHES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAUNCHES",
+    "definitions": [
+     {
+      "text": "signs of overindulgence",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingested",
+      "for": "container",
+      "note": "ingested means swallowed, so the abbreviation ends up inside the drinks"
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drinks",
+      "gives": "PUNCHES",
+      "note": "punches are mixed fruit drinks, often alcoholic"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the abbreviation for Australian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "UNCHES"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian downing drinks begins to show a beer belly.",
+     "definitionFit": "Paunches are large protruding stomachs, which come from eating and drinking too much."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drinks"
+    }
+   }
   }
  ]
 }
