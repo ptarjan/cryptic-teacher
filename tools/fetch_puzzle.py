@@ -1901,6 +1901,14 @@ SOURCE_CLUE_WRONG = {
         "Loot for fee sovereign in general",
         "Loot for the sovereign in general",
         "OCR misread: the wordplay is L (the sovereign, a pound) inside RIFE (general); 'fee' has no role"),
+    ("times-17891", "9-across"): (
+        "Artist shows military leaders what a french looks like",
+        "Artist shows military leaders what a trench looks like",
+        "OCR misread: the wordplay needs a trench, which a dyke resembles"),
+    ("times-17891", "17-across"): (
+        "Palsgrave, for instance, has left 18in disarray",
+        "Palgrave, for instance, has left 18 in disarray",
+        "OCR misread: Palgrave compiled the Golden Treasury anthology, and 18 and in are separate words"),
     ("times-17856", "14-down"): (
         "Carry on quietly to rescue odd characters 5",
         "Carry on quietly to rescue odd characters",
