@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,68 @@
     "text": "Explosive gas available primarily in hospital room",
     "enumeration": "7"
    },
-   "solution": "WARHEAD"
+   "solution": "WARHEAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WARHEAD",
+    "definitions": [
+     {
+      "text": "Explosive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the word before it is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the gas and the opening letter sit inside the hospital room, which wraps around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital room",
+      "gives": "WARD",
+      "note": "a ward is a room of beds in a hospital"
+     },
+     {
+      "clueFragment": "gas",
+      "gives": "HE",
+      "note": "He is the chemical symbol for helium"
+     },
+     {
+      "clueFragment": "available",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of available"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "HE",
+      "A",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous gas is apparently on hand in a hospital ward.",
+     "walkthrough": "He is helium's chemical symbol; the gas and the single letter both go inside the hospital room together.",
+     "definitionFit": "A warhead is the explosive charge carried at the front of a missile, so the noun 'explosive' can stand for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Explosive"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +110,44 @@
     "text": "Suit in spandex, eccentric",
     "enumeration": "4"
    },
-   "solution": "EXEC"
+   "solution": "EXEC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXEC",
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the answer sits inside the run of words that follows, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spandex, eccentric",
+      "gives": "EXEC",
+      "note": "the end of spandex joined to the start of eccentric"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's outfit in stretchy spandex looks rather eccentric.",
+     "walkthrough": "'Suit' looks like clothing, picking up on spandex, but it is slang for an executive in a business suit.",
+     "definitionFit": "A suit is informal slang for a corporate manager or executive, named after their formal office clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +161,55 @@
     "text": "General bitten by snake, dead to the world",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "dead to the world",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bitten by",
+      "for": "container",
+      "note": "something bitten is held between the jaws, so the snake's word closes around the general"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "an asp is a small venomous snake"
+     },
+     {
+      "clueFragment": "General",
+      "gives": "LEE",
+      "note": "Robert E. Lee, the Confederate general"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A general bitten by a snake ends up dead to the world.",
+     "walkthrough": "Robert E. Lee is the stock crossword general; 'bitten by' puts him between the snake's jaws.",
+     "definitionFit": "To be dead to the world is an idiom for being fast asleep and unaware of anything around you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bitten"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +223,47 @@
     "text": "In contrast, lock supporting masonry",
     "enumeration": "8"
    },
-   "solution": "BUTTRESS"
+   "solution": "BUTTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTRESS",
+    "definitions": [
+     {
+      "text": "supporting masonry",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In contrast",
+      "gives": "BUT",
+      "note": "but introduces a contrast"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a lock of hair is a tress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a builder's note about a lock fitted into a supporting wall.",
+     "walkthrough": "'Lock' suggests a door fitting, but here it is a lock of hair.",
+     "definitionFit": "A buttress is a projecting structure of brick or stone built against a wall to prop it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +277,39 @@
     "text": "Illicit TS?",
     "enumeration": "10"
    },
-   "solution": "BACKSTREET"
+   "solution": "BACKSTREET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BACKSTREET",
+    "definitions": [
+     {
+      "text": "Illicit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illicit",
+      "note": "first meaning: carried out secretly and unlawfully"
+     },
+     {
+      "clueFragment": "TS?",
+      "note": "second meaning: ST, the usual short form for street, written back to front"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a reverse clue: TS is ST turned round, that is street at the back, and the question mark flags the wordplay.",
+     "definitionFit": "Backstreet as an adjective describes shady, illegal dealings done out of sight, as in a backstreet abortion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "TS"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +323,55 @@
     "text": "Reputation rubbish, certain to conceal it",
     "enumeration": "7"
    },
-   "solution": "STATURE"
+   "solution": "STATURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STATURE",
+    "definitions": [
+     {
+      "text": "Reputation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to conceal it",
+      "for": "container",
+      "note": "to conceal something is to cover it up, so the word for certain wraps around the rubbish"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TAT",
+      "note": "tat is cheap worthless stuff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's reputation is rubbish and they are sure to cover it up.",
+     "walkthrough": "'it' in 'to conceal it' points back to the rubbish, which is what gets hidden.",
+     "definitionFit": "Stature means the standing or esteem a person has earned, much like their reputation among others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +385,67 @@
     "text": "Red vehicle carrying number in reverse",
     "enumeration": "7"
    },
-   "solution": "MARXIST"
+   "solution": "MARXIST",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "MARXIST",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vehicle carrying a load holds it inside, so one word goes within the other"
+     },
+     {
+      "text": "in reverse",
+      "for": "reversal",
+      "note": "in reverse means going backwards, so the combined letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "TRAM",
+      "note": "a tram is a vehicle running on rails"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "SIX",
+      "note": "six is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "XIS",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TSIXRAM",
+       "to": "MARXIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A red vehicle reverses with a number on board.",
+     "walkthrough": "The number goes inside the vehicle first, and only then is the whole combination turned round.",
+     "definitionFit": "Red is a long-standing informal label for a communist or socialist, a follower of Karl Marx."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +459,67 @@
     "text": "Asian country backing delay, India",
     "enumeration": "7"
    },
-   "solution": "KUWAITI"
+   "solution": "KUWAITI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KUWAITI",
+    "definitions": [
+     {
+      "text": "Asian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the letters for country are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "UK",
+      "note": "the United Kingdom"
+     },
+     {
+      "clueFragment": "delay",
+      "gives": "WAIT",
+      "note": "to delay is to wait"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KU",
+      "WAIT",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "UK",
+       "to": "KU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Asian country is supporting a delay involving India.",
+     "walkthrough": "'Asian country' looks like one phrase, but the definition is just 'Asian'; country starts the wordplay.",
+     "definitionFit": "A Kuwaiti is a native of Kuwait, a Gulf state in western Asia, so the person is an Asian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +543,78 @@
      }
     ]
    },
-   "solution": "LOANDBEHOLD"
+   "solution": "LOANDBEHOLD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LO AND BEHOLD",
+    "definitions": [
+     {
+      "text": "All of a sudden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that opening letter is used"
+     },
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "to defend is to surround and protect, so the brave word wraps around the exclamation"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advance",
+      "gives": "LOAN",
+      "note": "an advance of money is a loan"
+     },
+     {
+      "clueFragment": "decelerate",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of decelerate"
+     },
+     {
+      "clueFragment": "courageous",
+      "gives": "BOLD",
+      "note": "bold means courageous"
+     },
+     {
+      "clueFragment": "eh",
+      "gives": "EH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOAN",
+      "D",
+      "B",
+      "EH",
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver suddenly moves forward, starts to slow, and wonders whether that was brave.",
+     "walkthrough": "'eh' is used just as printed, sitting inside the brave word right after its first letter.",
+     "definitionFit": "Lo and behold is an exclamation used to introduce something surprising that happened unexpectedly, like 'suddenly'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +634,47 @@
      }
     ]
    },
-   "solution": "CHICKENOUT"
+   "solution": "CHICKENOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICKEN OUT",
+    "definitions": [
+     {
+      "text": "bottle it",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meat",
+      "gives": "CHICKEN",
+      "note": "chicken is a meat"
+     },
+     {
+      "clueFragment": "available",
+      "gives": "OUT",
+      "note": "out means available, as a new book is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHICKEN",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's sign announces meat for sale and tells you to bottle it.",
+     "walkthrough": "To bottle it is British slang for losing your nerve.",
+     "definitionFit": "To chicken out and to bottle it both mean losing courage and backing away from doing something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +688,59 @@
     "text": "Tackle first of errors in flier",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "flier",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of picks out just the opening letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tackle",
+      "gives": "KIT",
+      "note": "tackle is equipment, kit"
+     },
+     {
+      "clueFragment": "errors",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of errors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby or football tackle that starts with errors by a flying winger.",
+     "walkthrough": "'Tackle' suggests a sporting challenge but means equipment, as in fishing tackle.",
+     "definitionFit": "A kite is a toy that flies on a string, and also a bird of prey, so it is a flier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tackle"
+    }
+   }
   },
   {
    "number": 12,
@@ -202,7 +754,51 @@
     "text": "Cook can pause where food may be simmering",
     "enumeration": "8"
    },
-   "solution": "SAUCEPAN"
+   "solution": "SAUCEPAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAUCEPAN",
+    "definitions": [
+     {
+      "text": "where food may be simmering",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook something is to tamper with it, as with the books, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can pause",
+      "gives": "CANPAUSE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANPAUSE",
+       "gives": "SAUCEPAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook can take a break while the dinner simmers.",
+     "walkthrough": "'Cook' fits the kitchen picture perfectly but signals rearranging the next two words.",
+     "definitionFit": "A saucepan is the deep pan with a handle in which food is heated gently on the hob."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 13,
@@ -222,7 +818,39 @@
      }
     ]
    },
-   "solution": "COLDTURKEY"
+   "solution": "COLDTURKEY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COLD TURKEY",
+    "definitions": [
+     {
+      "text": "Treatment for user in Eurasian winter?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Treatment for user",
+      "note": "surface reading: a way of treating a drug addict by stopping their supply all at once"
+     },
+     {
+      "clueFragment": "in Eurasian winter?",
+      "note": "setter's reading: the chilly season in the country straddling Europe and Asia"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A user here is a drug user; the question mark warns that the winter phrase is a playful second reading of the same two words.",
+     "definitionFit": "Going cold turkey means abruptly stopping an addictive drug, a blunt treatment for dependency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eurasian"
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +864,49 @@
     "text": "Whole piece of paper, it nearly flipped over",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ENTIRE",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "hidden_word",
+      "note": "a piece of something is a part of it, so the letters lie inside the following words"
+     },
+     {
+      "text": "flipped over",
+      "for": "reversal",
+      "note": "something flipped over is turned round, so the letters found are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper, it nearly",
+      "gives": "ERITNE",
+      "note": "the end of paper, all of it, and the start of nearly"
+     }
+    ],
+    "explanation": {
+     "surface": "An entire sheet of paper has nearly been turned upside down.",
+     "walkthrough": "'it nearly' looks like it means almost all of a word, but nearly just supplies letters.",
+     "definitionFit": "Entire and whole both mean complete, with no part missing or left out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nearly"
+    }
+   }
   },
   {
    "number": 15,
@@ -250,7 +920,54 @@
     "text": "Hit American man on head",
     "enumeration": "11"
    },
-   "solution": "BLOCKBUSTER"
+   "solution": "BLOCKBUSTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOCKBUSTER",
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another sits after it, so the man's word follows the head's word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "BLOCK",
+      "note": "block is slang for the head, as in knock your block off"
+     },
+     {
+      "clueFragment": "American man",
+      "gives": "BUSTER",
+      "note": "Buster is an American way to address a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOCK",
+      "BUSTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone struck an American man on the head.",
+     "walkthrough": "'Hit' looks like a verb of violence, but it is a noun for a big success; 'on' puts the man after the head.",
+     "definitionFit": "A blockbuster is a hugely successful film or book, a commercial hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 16,
@@ -264,7 +981,54 @@
     "text": "Death from ruin, cast out",
     "enumeration": "8"
    },
-   "solution": "CURTAINS"
+   "solution": "CURTAINS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CURTAINS",
+    "definitions": [
+     {
+      "text": "Death",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something put out of order, so the letters are scrambled into a new form"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruin, cast",
+      "gives": "RUINCAST",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUINCAST",
+       "gives": "CURTAINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is driven to death after being ruined and thrown out.",
+     "walkthrough": "'cast out' reads as one phrase, but cast is fodder and out alone signals the rearrangement.",
+     "definitionFit": "Curtains is informal for the end or death, as in 'it's curtains for him', from the stage curtain falling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +1042,50 @@
     "text": "Racing, spirited and smart",
     "enumeration": "7"
    },
-   "solution": "DASHING"
+   "solution": "DASHING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DASHING",
+    "definitions": [
+     {
+      "text": "Racing",
+      "at": 0
+     },
+     {
+      "text": "spirited",
+      "at": 8
+     },
+     {
+      "text": "smart",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Racing",
+      "note": "first meaning: rushing along at speed"
+     },
+     {
+      "clueFragment": "spirited",
+      "note": "second meaning: lively and full of dash"
+     },
+     {
+      "clueFragment": "smart",
+      "note": "third meaning: stylishly attractive in appearance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a description of a racehorse, but each of the three words is a separate meaning of the answer.",
+     "definitionFit": "The word means hurrying, also bold and lively, and also elegantly handsome, as in a dashing young officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Racing"
+    }
+   }
   },
   {
    "number": 18,
@@ -292,7 +1099,47 @@
     "text": "Crime of attack using blade",
     "enumeration": "7"
    },
-   "solution": "OFFENCE"
+   "solution": "OFFENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFENCE",
+    "definitions": [
+     {
+      "text": "Crime",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "attack using blade",
+      "gives": "FENCE",
+      "note": "to fence is to fight with a sword"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OF",
+      "FENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crime involving an assault with a knife.",
+     "walkthrough": "'of attack' sounds like one phrase, but 'of' stands alone and the rest describes swordplay.",
+     "definitionFit": "An offence is a breach of the law, an illegal act or crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attack"
+    }
+   }
   },
   {
    "number": 19,
@@ -306,7 +1153,42 @@
     "text": "Business problem",
     "enumeration": "6"
    },
-   "solution": "MATTER"
+   "solution": "MATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATTER",
+    "definitions": [
+     {
+      "text": "Business",
+      "at": 0
+     },
+     {
+      "text": "problem",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Business",
+      "note": "first meaning: an affair or concern, as in a private business"
+     },
+     {
+      "clueFragment": "problem",
+      "note": "second meaning: a difficulty, as in what's wrong with you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a company having trouble, but the two words are separate meanings.",
+     "definitionFit": "A matter is an affair to be dealt with, and 'what's the matter?' asks what the trouble is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Business"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1208,43 @@
      }
     ]
    },
-   "solution": "HOTSTUFF"
+   "solution": "HOTSTUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOT STUFF",
+    "definitions": [
+     {
+      "text": "Coffee or tea, for example",
+      "at": 0
+     },
+     {
+      "text": "something else!",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coffee or tea, for example",
+      "note": "first meaning: literally a warm drink or substance"
+     },
+     {
+      "clueFragment": "something else!",
+      "note": "second meaning: a person or thing that is exceptionally good or attractive"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Something else!' is an exclamation of admiration, the second, figurative meaning.",
+     "definitionFit": "A cup of coffee is literally warm substance, while the idiom describes someone sexy or impressive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "else"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1258,51 @@
     "text": "Drunk eating food from North Africa",
     "enumeration": "6"
    },
-   "solution": "TAGINE"
+   "solution": "TAGINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAGINE",
+    "definitions": [
+     {
+      "text": "food from North Africa",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about in disorder, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eating",
+      "gives": "EATING",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EATING",
+       "gives": "TAGINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk is tucking into some North African food.",
+     "walkthrough": "'eating' looks like the action of the scene but is the fodder.",
+     "definitionFit": "A tagine is a slow-cooked Moroccan stew, named after the conical clay pot it is cooked in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1316,51 @@
     "text": "Burn, drawing power cut",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAR",
+    "definitions": [
+     {
+      "text": "Burn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut suggests trimming the end off, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drawing power",
+      "gives": "CHARM",
+      "note": "charm is the power to attract or draw people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A burn-out at the drawing board after a power cut.",
+     "walkthrough": "'power cut' looks like a blackout, but 'power' belongs with 'drawing'.",
+     "definitionFit": "To char is to scorch or blacken by burning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1374,50 @@
     "text": "Stories galore, lies circulating",
     "enumeration": "10"
    },
-   "solution": "ALLEGORIES"
+   "solution": "ALLEGORIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALLEGORIES",
+    "definitions": [
+     {
+      "text": "Stories",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulating",
+      "for": "anagram",
+      "note": "circulating means moving around, so the letters are moved into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "galore, lies",
+      "gives": "GALORELIES",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GALORELIES",
+       "gives": "ALLEGORIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of stories and lies are going around.",
+     "definitionFit": "Allegories are tales with a hidden moral or political meaning, a kind of story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circulating"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1431,44 @@
     "text": "Bellow unrefined, by the sound of it?",
     "enumeration": "4"
    },
-   "solution": "ROAR"
+   "solution": "ROAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROAR",
+    "definitions": [
+     {
+      "text": "Bellow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "by the sound of it means we listen to how the word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unrefined",
+      "gives": "ROAR",
+      "soundsLike": "RAW",
+      "note": "raw means unrefined, as raw sugar"
+     }
+    ],
+    "explanation": {
+     "surface": "A rough, crude shout, so it seems.",
+     "walkthrough": "In a non-rhotic British accent the R at the end is silent, so the two words sound the same.",
+     "definitionFit": "To roar is to bellow, shouting or crying out loudly and deeply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unrefined"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1482,67 @@
     "text": "Fire, on spreading, has engulfed new blaze",
     "enumeration": "7"
    },
-   "solution": "INFERNO"
+   "solution": "INFERNO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INFERNO",
+    "definitions": [
+     {
+      "text": "blaze",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreading",
+      "for": "anagram",
+      "note": "spreading suggests letters scattered and moved about into new places"
+     },
+     {
+      "text": "has engulfed",
+      "for": "container",
+      "note": "to engulf is to swallow up, so the rearranged letters surround the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fire, on",
+      "gives": "FIREON",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "FERNO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIREON",
+       "gives": "IFERNO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fire is spreading and has swallowed up a fresh blaze.",
+     "walkthrough": "FIRE and ON are rearranged to IFERNO, which then takes N after the I.",
+     "definitionFit": "An inferno is a large, fierce and uncontrollable fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fire"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1556,47 @@
     "text": "Youth in want",
     "enumeration": "7"
    },
-   "solution": "INFANCY"
+   "solution": "INFANCY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFANCY",
+    "definitions": [
+     {
+      "text": "Youth",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "FANCY",
+      "note": "to fancy something is to want it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FANCY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young person living in poverty.",
+     "walkthrough": "'want' suggests need or poverty but here means desire.",
+     "definitionFit": "Infancy is the earliest period of life, so it is youth in its first stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "want"
+    }
+   }
   }
  ]
 }
