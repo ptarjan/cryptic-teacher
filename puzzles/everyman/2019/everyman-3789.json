@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,61 @@
      }
     ]
    },
-   "solution": "BULLETTRAINS"
+   "solution": "BULLETTRAINS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BULLET TRAINS",
+    "definitions": [
+     {
+      "text": "HS2's plans",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "detailed is read as de-tailed, so the word it qualifies loses its final letter"
+     },
+     {
+      "text": "describe",
+      "for": "container",
+      "note": "to describe is to draw a line around something, so one word encircles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official reports",
+      "gives": "BULLETINS",
+      "note": "bulletins are official news statements"
+     },
+     {
+      "clueFragment": "electric transportation",
+      "gives": "TRAM",
+      "note": "a tram is an electrically powered street vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULLET",
+      "TRA",
+      "INS"
+     ]
+    },
+    "explanation": {
+     "surface": "Official documents lay out the plans for Britain's HS2 electric railway.",
+     "walkthrough": "'Detailed' reads as thorough, but it means cut off at the tail. HS2 is a planned British high-speed railway line.",
+     "definitionFit": "HS2 is a high-speed rail project, so the fast trains it plans to run are bullet trains in the Japanese style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +110,62 @@
     "text": "Spoke, and mumbled, without mumbling at first",
     "enumeration": "7"
    },
-   "solution": "UTTERED"
+   "solution": "UTTERED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "UTTERED",
+    "definitions": [
+     {
+      "text": "Spoke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is removed from the other word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mumbled",
+      "gives": "MUTTERED",
+      "note": "to mutter is to speak in a low indistinct voice"
+     },
+     {
+      "clueFragment": "mumbling",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of mumbling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTERED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spoke, mumbling at first and then less so.",
+     "definitionFit": "To utter something is to say it out loud, a straightforward synonym for having spoken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mumbling"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +189,43 @@
      }
     ]
    },
-   "solution": "LETMESEE"
+   "solution": "LETMESEE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LET ME SEE",
+    "definitions": [
+     {
+      "text": "Um...",
+      "at": 0
+     },
+     {
+      "text": "I'd like to have a look at that",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Um...",
+      "note": "first meaning: a hesitating filler phrase while thinking"
+     },
+     {
+      "clueFragment": "I'd like to have a look at that",
+      "note": "second meaning: a request to be shown something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same three-word phrase is both a stalling noise while you think and a literal request to see something.",
+     "definitionFit": "The phrase works as a thinking pause, like um, and as a polite request asking to inspect an object."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Um"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +239,47 @@
     "text": "Also, knight removed from chessboard",
     "enumeration": "4"
    },
-   "solution": "TOOK"
+   "solution": "TOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOOK",
+    "definitions": [
+     {
+      "text": "removed from chessboard",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Also",
+      "gives": "TOO",
+      "note": "too means as well"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "K",
+      "note": "K is the abbreviation for knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight is also taken off the board in a chess game.",
+     "walkthrough": "In chess notation the knight is N, but in crosswords knight is usually K, as in titles like KBE.",
+     "definitionFit": "When a chess player captures an opponent's piece, they are said to have taken it, lifting it off play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +299,64 @@
      }
     ]
    },
-   "solution": "ROGUESTATE"
+   "solution": "ROGUESTATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROGUE STATE",
+    "definitions": [
+     {
+      "text": "country, not respecting others",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking last two slices",
+      "for": "deletion",
+      "note": "only the final two pieces of the first word are kept, the rest being thrown away"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bistro",
+      "gives": "BISTRO",
+      "note": "the word as written, of which only the end is wanted"
+     },
+     {
+      "clueFragment": "guest",
+      "gives": "GUEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ate",
+      "gives": "ATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "GUEST",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner at a bistro tucks into the last two slices, ignoring everyone else at the table.",
+     "walkthrough": "The surface's rude diner is mirrored by the definition: a nation that ignores international rules.",
+     "definitionFit": "A rogue state is a nation regarded as flouting international law and threatening its neighbours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "slices"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +370,48 @@
     "text": "Make horizontal axis the reverse of what you'd expect",
     "enumeration": "5"
    },
-   "solution": "IRONY"
+   "solution": "IRONY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRONY",
+    "definitions": [
+     {
+      "text": "the reverse of what you'd expect",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make horizontal",
+      "gives": "IRON",
+      "note": "to iron something is to press it flat"
+     },
+     {
+      "clueFragment": "axis",
+      "gives": "Y",
+      "note": "the y-axis of a graph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction for drawing a graph, which is then oddly said to be counter-intuitive.",
+     "walkthrough": "There is a little joke here: the y-axis is the vertical one, so making it horizontal is itself contrary.",
+     "definitionFit": "Irony describes a situation whose outcome is opposite to what was anticipated or intended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "horizontal"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +425,67 @@
     "text": "'Good to enter into unrestrained nudism': big name in psychoanalysis",
     "enumeration": "7"
    },
-   "solution": "SIGMUND"
+   "solution": "SIGMUND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SIGMUND",
+    "definitions": [
+     {
+      "text": "big name in psychoanalysis",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unrestrained",
+      "for": "anagram",
+      "note": "unrestrained suggests letters let loose to run in any order"
+     },
+     {
+      "text": "to enter into",
+      "for": "container",
+      "note": "entering into something means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nudism",
+      "gives": "NUDISM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "G",
+      "MUND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUDISM",
+       "gives": "SIMUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quotation recommending wild naturism, attributed to a famous psychoanalyst.",
+     "definitionFit": "Sigmund Freud founded psychoanalysis, so his first name is a celebrated figure in that field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nudism"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +505,53 @@
      }
     ]
    },
-   "solution": "PLEASUREBOATS"
+   "solution": "PLEASUREBOATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLEASURE-BOATS",
+    "definitions": [
+     {
+      "text": "vessels used only for fun",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow says the letters get there by some unstated rearrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaport usable",
+      "gives": "SEAPORTUSABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEAPORTUSABLE",
+       "gives": "PLEASUREBOATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harbour turns out to be suitable for leisure craft.",
+     "definitionFit": "Pleasure boats are craft kept for recreation and outings rather than trade or fishing work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Somehow"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +571,54 @@
      }
     ]
    },
-   "solution": "FIGHTERPLANES"
+   "solution": "FIGHTERPLANES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIGHTER PLANES",
+    "definitions": [
+     {
+      "text": "machines of war",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worry",
+      "for": "anagram",
+      "note": "to worry something is to tug and shake it about, disturbing the letters"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pershing felt a",
+      "gives": "PERSHINGFELTA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERSHINGFELTA",
+       "gives": "FIGHTERPLANES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "General Pershing feels anxious while building an arsenal.",
+     "walkthrough": "Pershing was an American First World War general, and 'worry' looks like his feeling, not an instruction.",
+     "definitionFit": "Fighter planes are combat aircraft, military machines built for air battles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worry"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +642,69 @@
      }
     ]
    },
-   "solution": "LETITGO"
+   "solution": "LETITGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LET IT GO",
+    "definitions": [
+     {
+      "text": "Disney tune",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of each word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "getting",
+      "gives": "G",
+      "select": "last",
+      "note": "the closing letter of getting"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "O",
+      "select": "last",
+      "note": "the closing letter of to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "TIT",
+      "G",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A French singer finally gets round to a Disney song.",
+     "walkthrough": "'Singer' looks like a performer but is a bird; crosswords often use singer for a songbird.",
+     "definitionFit": "Let It Go is the famous song from the Disney film Frozen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +724,65 @@
      }
     ]
    },
-   "solution": "GEORGEI"
+   "solution": "GEORGEI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GEORGE I",
+    "definitions": [
+     {
+      "text": "Hanover king",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after losing",
+      "for": "deletion",
+      "note": "losing something means letters are taken away from the word"
+     },
+     {
+      "text": "lunatic",
+      "for": "anagram",
+      "note": "lunatic means crazy, so the letters are jumbled madly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "egregious",
+      "gives": "EGREGIOUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEORGEI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGREGIO",
+       "gives": "GEORGEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Hanoverian king behaves outrageously after losing the American colonies.",
+     "walkthrough": "The surface evokes George III, who lost America and was thought mad, but the answer is his great-grandfather.",
+     "definitionFit": "George I was the first British monarch from the German House of Hanover, reigning from 1714."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lunatic"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +796,56 @@
     "text": "Get on... get on... about... about...",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGREE",
+    "definitions": [
+     {
+      "text": "Get on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the second about means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get on",
+      "gives": "AGE",
+      "note": "to get on is to grow older"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stammering out instructions, repeating themselves in a dither.",
+     "walkthrough": "Each phrase is repeated with a different job: one get on is the definition, the other is the letters; one about is letters, the other wraps.",
+     "definitionFit": "People who get on well have harmonious relations, so they agree with each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +865,60 @@
      }
     ]
    },
-   "solution": "VERYMUCH"
+   "solution": "VERYMUCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VERY MUCH",
+    "definitions": [
+     {
+      "text": "a lot",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Final half of",
+      "for": "deletion",
+      "note": "only the closing half of the next word is kept, the first half dropped"
+     },
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "losing its heart means the middle letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowling",
+      "gives": "DELIVERY",
+      "note": "a delivery is a single ball bowled in cricket"
+     },
+     {
+      "clueFragment": "champ",
+      "gives": "MUNCH",
+      "note": "to champ is to chew noisily, to munch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERY",
+      "MUCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bowling champion's final innings sees them lose their nerve badly.",
+     "walkthrough": "'Champ' suggests a champion but is the verb to chew. In cricket a delivery is one ball sent down by the bowler.",
+     "definitionFit": "Very much and a lot are interchangeable adverbial phrases meaning greatly or to a large degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "champ"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +946,47 @@
      }
     ]
    },
-   "solution": "MAKEITUPTO"
+   "solution": "MAKEITUPTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAKE IT UP TO",
+    "definitions": [
+     {
+      "text": "recompense",
+      "at": 29,
+      "note": "a verb here: to make amends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Become a success",
+      "gives": "MAKEIT",
+      "note": "to make it is to succeed"
+     },
+     {
+      "clueFragment": "capable of",
+      "gives": "UPTO",
+      "note": "up to a task means able to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAKEIT",
+      "UPTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has made good is now able to pay people back.",
+     "definitionFit": "To make it up to someone is to compensate them for a wrong done, which is recompensing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "success"
+    }
+   }
   },
   {
    "number": 15,
@@ -305,7 +1006,53 @@
      }
     ]
    },
-   "solution": "UNDUEHASTE"
+   "solution": "UNDUEHASTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDUE HASTE",
+    "definitions": [
+     {
+      "text": "carelessness",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rashly",
+      "for": "anagram",
+      "note": "done rashly, without care, so the letters are thrown together anyhow"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he sued aunt",
+      "gives": "HESUEDAUNT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESUEDAUNT",
+       "gives": "UNDUEHASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man impulsively takes his aunt to court for negligence.",
+     "definitionFit": "Undue haste is excessive hurry, the kind of rushing that leads to mistakes and negligence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rashly"
+    }
+   }
   },
   {
    "number": 16,
@@ -319,7 +1066,52 @@
     "text": "Vain and regularly indulged",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "Vain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indulged",
+      "gives": "IDLE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of indulged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A conceited person who is habitually pampered.",
+     "walkthrough": "'Vain' looks like conceited, but here it means futile, as in an idle threat.",
+     "definitionFit": "Idle can mean without purpose or effect, as vain does in phrases like idle or vain boasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vain"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1125,71 @@
     "text": "Enormous jerk about to commit sin with one female",
     "enumeration": "8"
    },
-   "solution": "TERRIFIC"
+   "solution": "TERRIFIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TERRIFIC",
+    "definitions": [
+     {
+      "text": "Enormous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece goes round the rest"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch"
+     },
+     {
+      "clueFragment": "to commit sin",
+      "gives": "ERR",
+      "note": "to err is to do wrong"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERR",
+      "I",
+      "F",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge idiot is about to sin with a woman.",
+     "walkthrough": "'Jerk' looks like an insult for a person, but it is a twitch. Terrific originally meant terrifying, hence huge.",
+     "definitionFit": "Terrific can mean of great size or intensity, as in a terrific noise, so it matches enormous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1203,58 @@
     "text": "Dutch specialty that's made round?",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDAM",
+    "definitions": [
+     {
+      "text": "Dutch specialty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round means facing the other way, read from end to start"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDAM"
+     ],
+     "reversals": [
+      {
+       "from": "MADE",
+       "to": "EDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Dutch delicacy which is produced in a round shape.",
+     "walkthrough": "The question mark flags the pun: Edam really is made in round balls, so 'round' does double duty.",
+     "definitionFit": "Edam is a mild cheese from the Netherlands, named after the town where it originated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1268,61 @@
     "text": "American cinema, oddly uninspiring",
     "enumeration": "7"
    },
-   "solution": "ANAEMIC"
+   "solution": "ANAEMIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANAEMIC",
+    "definitions": [
+     {
+      "text": "uninspiring",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "oddly means in a strange way, so the letters are set out strangely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "cinema",
+      "gives": "CINEMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NAEMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CINEMA",
+       "gives": "NAEMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic's verdict that Hollywood films are curiously dull.",
+     "walkthrough": "'Oddly' could suggest taking odd letters, but those give no answer; it is the anagram signal.",
+     "definitionFit": "Anaemic figuratively means lacking vigour or colour, so something weak and dull, which is uninspiring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1346,43 @@
      }
     ]
    },
-   "solution": "GETTHECHOP"
+   "solution": "GETTHECHOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET THE CHOP",
+    "definitions": [
+     {
+      "text": "To be summarily dismissed",
+      "at": 0
+     },
+     {
+      "text": "you might do this at the butcher's counter",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To be summarily dismissed",
+      "note": "first meaning: to be sacked without ceremony"
+     },
+     {
+      "clueFragment": "you might do this at the butcher's counter",
+      "note": "second meaning, playful: to buy a cut of meat from the butcher"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a cryptic definition taking the idiom literally, as buying a pork or lamb chop.",
+     "definitionFit": "The idiom means to be fired abruptly, while literally it describes purchasing a cut of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1396,55 @@
     "text": "One caught in childhood game wearing quaint socks",
     "enumeration": "7"
    },
-   "solution": "HOSTAGE"
+   "solution": "HOSTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOSTAGE",
+    "definitions": [
+     {
+      "text": "One caught",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a thing being worn is enclosed by the garment around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quaint socks",
+      "gives": "HOSE",
+      "note": "hose is an old-fashioned word for stockings or socks"
+     },
+     {
+      "clueFragment": "childhood game",
+      "gives": "TAG",
+      "note": "tag is a chasing game played by children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOS",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A child playing a game in old-fashioned socks gets caught.",
+     "walkthrough": "'Quaint' tells you the word for socks is dated: hose, as in Shakespearean doublet and hose.",
+     "definitionFit": "A hostage is a person seized and held captive as security, someone captured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1468,51 @@
      }
     ]
    },
-   "solution": "ONAPLATE"
+   "solution": "ONAPLATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON A PLATE",
+    "definitions": [
+     {
+      "text": "requiring next to no effort",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stew",
+      "for": "anagram",
+      "note": "a stew is a mixed-up jumble, so the letters are stirred about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A polenta",
+      "gives": "APOLENTA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APOLENTA",
+       "gives": "ONAPLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe for a polenta stew that is very easy to make.",
+     "walkthrough": "'Stew' looks like the dish but is the anagram signal; the plate also fits the cooking picture.",
+     "definitionFit": "Something handed to you on a plate comes with no work needed, an idiom for easily obtained."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stew"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1526,57 @@
     "text": "Behold! First half of pulpit address delivers one that's been left behind",
     "enumeration": "5"
    },
-   "solution": "LOSER"
+   "solution": "LOSER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOSER",
+    "definitions": [
+     {
+      "text": "one that's been left behind",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First half of",
+      "for": "deletion",
+      "note": "only the opening half of the next phrase's word is kept, the rest dropped"
+     }
+    ],
+    "linkWords": [
+     "delivers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Behold!",
+      "gives": "LO",
+      "note": "lo is an old exclamation meaning look"
+     },
+     {
+      "clueFragment": "pulpit address",
+      "gives": "SERMON",
+      "note": "a sermon is a talk given from a church pulpit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "SER"
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher's sermon proclaims something about the forsaken.",
+     "definitionFit": "A loser is someone beaten in a contest, the competitor trailing and outpaced by others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivers"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1590,51 @@
     "text": "Sun god's receiving thanks from worshipper",
     "enumeration": "5"
    },
-   "solution": "RASTA"
+   "solution": "RASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RASTA",
+    "definitions": [
+     {
+      "text": "worshipper",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "receiving",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sun god's",
+      "gives": "RAS",
+      "note": "Ra is the Egyptian sun god, with the S of the possessive"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAS",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A sun god is being thanked by one of his devotees.",
+     "walkthrough": "'Worshipper' suggests the sun god's follower, but it is a Rastafarian, who worships Haile Selassie.",
+     "definitionFit": "A Rasta, short for Rastafarian, follows a religion revering the Ethiopian emperor Haile Selassie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1648,43 @@
     "text": "Element derived from quartz in compounds",
     "enumeration": "4"
    },
-   "solution": "ZINC"
+   "solution": "ZINC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ZINC",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "derived from",
+      "for": "hidden_word",
+      "note": "derived from says the letters are drawn out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quartz in compounds",
+      "gives": "ZINC",
+      "note": "spans the end of quartz, all of in and the start of compounds"
+     }
+    ],
+    "explanation": {
+     "surface": "A chemical element obtained from compounds of quartz.",
+     "walkthrough": "'in' looks like a container signal, but it is just part of the run of letters.",
+     "definitionFit": "Zinc is a metallic chemical element, atomic number 30."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 26,
@@ -485,7 +1704,54 @@
      }
     ]
    },
-   "solution": "TIMESUP"
+   "solution": "TIMESUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIMES UP",
+    "definitions": [
+     {
+      "text": "feminist campaign",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Original",
+      "for": "anagram",
+      "note": "original means novel or freshly made, so the letters are formed into something new"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impetus",
+      "gives": "IMPETUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMPETUS",
+       "gives": "TIMESUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What first sparked a women's rights movement.",
+     "walkthrough": "The whole clue reads like a history question, but 'Original' is the anagram signal and only the campaign is the definition.",
+     "definitionFit": "Time's Up is a 2018 movement, founded by Hollywood women, against sexual harassment in the workplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Original"
+    }
+   }
   },
   {
    "number": 27,
@@ -499,7 +1765,56 @@
     "text": "Actually, half-missing dearly departed balloon",
     "enumeration": "7"
    },
-   "solution": "INFLATE"
+   "solution": "INFLATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INFLATE",
+    "definitions": [
+     {
+      "text": "balloon",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-missing",
+      "for": "deletion",
+      "note": "with half missing, only the first half of the word survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actually",
+      "gives": "INFACT",
+      "note": "in fact means actually"
+     },
+     {
+      "clueFragment": "dearly departed",
+      "gives": "LATE",
+      "note": "the late is a term for someone who has died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grieving remark about a lost loved one, oddly tied to a balloon.",
+     "walkthrough": "'Balloon' looks like a noun but is the verb to swell.",
+     "definitionFit": "To balloon is to swell up rapidly, which is what something does when you inflate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "balloon"
+    }
+   }
   },
   {
    "number": 28,
@@ -519,7 +1834,71 @@
      }
     ]
    },
-   "solution": "CARBONCYCLES"
+   "solution": "CARBONCYCLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARBON CYCLES",
+    "definitions": [
+     {
+      "text": "Atmospheric processes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overtaking",
+      "for": "container",
+      "note": "a vehicle overtaking passes alongside, here read as going around the rest"
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "automobiles",
+      "gives": "CARS",
+      "note": "cars are automobiles"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bike",
+      "gives": "CYCLE",
+      "note": "a cycle is a bicycle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "B",
+      "ON",
+      "CYCLE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Cars passing a cycling bishop pump out exhaust into the air.",
+     "walkthrough": "The surface links cars to emissions, fittingly, since they feed carbon into the atmosphere.",
+     "definitionFit": "Carbon cycles are the natural exchanges of carbon between air, oceans, rocks and living things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overtaking"
+    }
+   }
   }
  ]
 }
