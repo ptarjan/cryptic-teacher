@@ -550,7 +550,7 @@ def vote(d, laid, grid, zones=None):
     from PIL import Image
     texts = page_readings(d, zones)
     if not texts:
-        return None, "no reading of the page's clues to vote with (trove_clue_ocr.py --fetch)"
+        return None, "no reading of the page's clues to vote with (fetch_trove.py zones)"
     lengths = {f"{n}-{dr}": len(c) for (n, dr), c in rg.light_cells(grid).items()}
     lost = sorted(set(lengths) - set(laid), key=lambda k: (k.split("-")[1], int(k.split("-")[0])))
     if lost:

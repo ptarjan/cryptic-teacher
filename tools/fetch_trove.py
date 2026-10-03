@@ -6,6 +6,7 @@ Usage:
   python3 tools/fetch_trove.py search 1988 --query '"english cryptic"'
   python3 tools/fetch_trove.py fetch 102010719 [ID ...]     # OCR + grid for articles
   python3 tools/fetch_trove.py fetch --year 1975 [--limit N]  # every hit in a listing
+  python3 tools/fetch_trove.py zones [ID ...] [--limit N]    # clue columns (below)
   --out DIR     where everything lands (default ~/.cache/trove)
   --delay S     minimum seconds between requests (default 1.0)
   --title N     Trove newspaper title id (default 11, The Canberra Times)
@@ -19,6 +20,13 @@ Layout under --out:
   <id>/meta.json          date, page id, article zones (page pixel boxes), grid box
   <id>/ocr.txt            Trove's OCR text, one printed line per line
   <id>/grid.jpg           the grid zone cut from the page scan (see --grid-width)
+
+`zones` caches the page scan's text zones (every zone but the grid) in
+~/.cache/trove-clues/<id>/zone<N>.png, which tools/trove_clue_ocr.py reads.
+Given ids it fetches those; given none it fetches the articles whose filing
+ledger row (<out>/filed.jsonl) is pending and that have no zones yet, oldest
+first. Filers only read caches, so this is how a pending article gets its
+clue columns; the next filing run then reads them.
 
 No account and no API key. Three anonymous mechanisms, all plain HTTP:
 
@@ -39,6 +47,7 @@ No account and no API key. Three anonymous mechanisms, all plain HTTP:
   tile<L>-<col>-<row>, 256px, where page pixel p sits at p*scale + offset.
 """
 import argparse
+import glob
 import hashlib
 import html
 import http.client
@@ -235,9 +244,59 @@ def grid_zone(zones):
     return max(sq, key=lambda z: z["w"] * z["h"]) if sq else None
 
 
+#: Smallest zone width in pixels: Trove's level 6, half the top resolution,
+#: which RapidOCR reads as well as the top one.
+ZONE_WIDTH = 220
+ZONES_DIR = os.path.expanduser("~/.cache/trove-clues")
+
+
+def zone_images(zones, aid):
+    return glob.glob(os.path.join(zones, str(aid), "zone*.png"))
+
+
+def fetch_zones(tv, out, zones, aid):
+    """Cache article `aid`'s text zones (every zone but the grid) under `zones`."""
+    with open(os.path.join(out, str(aid), "meta.json")) as f:
+        meta = json.load(f)
+    d = os.path.join(zones, str(aid))
+    os.makedirs(d, exist_ok=True)
+    for i, z in enumerate(meta["zones"]):
+        p = os.path.join(d, f"zone{i}.png")
+        if z != meta.get("grid") and not os.path.exists(p):
+            img, _ = tv.crop(z["page"], z, pad=4)
+            img.save(p)
+
+
+def pending_zones(out, zones):
+    """Article ids the filing ledger leaves pending whose zones are not cached."""
+    ledger = os.path.join(out, "filed.jsonl")
+    if not os.path.exists(ledger):
+        return []
+    with open(ledger) as f:
+        rows = [json.loads(line) for line in f if line.strip()]
+    return sorted(r["article"] for r in rows
+                  if r.get("pending") and not zone_images(zones, r["article"])
+                  and os.path.exists(os.path.join(out, r["article"], "meta.json")))
+
+
+def fetch_all_zones(tv, out, zones, ids, limit=None):
+    """fetch_zones() for up to `limit` of `ids`; returns the number that failed.
+    One article's failure is named and the rest go on; it is retried next run."""
+    failed = 0
+    for aid in ids[:limit]:
+        try:
+            fetch_zones(tv, out, zones, aid)
+        except Exception as e:  # noqa: BLE001 -- one article's failure is reported, not fatal
+            failed += 1
+            print(f"FAILED zones {aid}: {type(e).__name__}: {e}", flush=True)
+            continue
+        print(f"{aid}: {len(zone_images(zones, aid))} zones", flush=True)
+    return failed
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("cmd", choices=["search", "fetch"])
+    ap.add_argument("cmd", choices=["search", "fetch", "zones"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--query", default='"cryptic crossword"')
     ap.add_argument("--title", default="11")
@@ -246,10 +305,16 @@ def main():
     ap.add_argument("--delay", type=float, default=1.0)
     ap.add_argument("--grid-width", type=int, default=600)
     ap.add_argument("--out", default=os.path.expanduser("~/.cache/trove"))
+    ap.add_argument("--zones-out", default=ZONES_DIR, help="where `zones` writes")
     a = ap.parse_args()
-    tv = Trove(a.out, a.delay, a.grid_width)
+    tv = Trove(a.out, a.delay, ZONE_WIDTH if a.cmd == "zones" else a.grid_width)
     t0 = time.time()
-    if a.cmd == "search":
+    failed = 0
+    if a.cmd == "zones":
+        ids = a.args or pending_zones(a.out, a.zones_out)
+        print(f"{len(ids)} article(s) need clue zones", flush=True)
+        failed = fetch_all_zones(tv, a.out, a.zones_out, ids, a.limit)
+    elif a.cmd == "search":
         year = a.year or int(a.args[0])
         total, hits = tv.search(a.query, a.title, year)
         os.makedirs(os.path.join(a.out, "index"), exist_ok=True)
@@ -271,7 +336,6 @@ def main():
         if a.year:
             with open(os.path.join(a.out, "index", f"{a.year}.jsonl")) as f:
                 ids += [json.loads(line)["id"] for line in f]
-        failed = 0
         for aid in ids[:a.limit]:
             if os.path.exists(os.path.join(a.out, str(aid), "meta.json")):
                 continue
@@ -285,7 +349,7 @@ def main():
             g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
             print(f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s")
     tv.jar.save(ignore_discard=True, ignore_expires=True)
-    if a.cmd == "fetch" and failed:
+    if failed:
         print(f"{failed} article(s) failed; rerun to retry them", file=sys.stderr)
     print(f"{tv.requests} requests, {tv.seconds:.1f}s in HTTP, {time.time() - t0:.1f}s wall",
           file=sys.stderr)
