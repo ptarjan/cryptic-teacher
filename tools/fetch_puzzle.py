@@ -1910,6 +1910,10 @@ SOURCE_CLUE_WRONG = {
         ")Plant in which one's typically found",
         "Plant in which one's typically found",
         "OCR misread: a stray ) before the definition Plant"),
+    ("times-17988", "16-across"): (
+        "$ Holding catch for return to the river",
+        "Holding catch for return to the river",
+        "OCR misread: a stray $ before the definition Holding"),
     ("times-17723", "20-across"): (
         "Hall fellow? Well, mel in short!",
         "Hail fellow? Well, met in short!",
