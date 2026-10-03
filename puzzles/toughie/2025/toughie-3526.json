@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Courage after reversal felt to be extremely lacking",
     "enumeration": "6"
    },
-   "solution": "BOTTLE"
+   "solution": "BOTTLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BOTTLE",
+    "definitions": [
+     {
+      "text": "Courage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely lacking",
+      "for": "hidden_word",
+      "note": "lacking the extremes means the outer letters of the phrase are dropped and only its inside is used"
+     },
+     {
+      "text": "after reversal",
+      "for": "reversal",
+      "note": "the words that follow are to be taken once they have been turned round end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt to be",
+      "gives": "ELTTOB",
+      "note": "the inner letters of the phrase, without its first and last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOTTLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELTTOB",
+       "to": "BOTTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's nerve gave way after a setback they felt keenly.",
+     "walkthrough": "'After reversal' reads as following a setback in the surface; here it instructs reading the phrase backwards.",
+     "definitionFit": "Bottle is informal British slang for nerve or daring, as in losing one's bottle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversal"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,48 @@
     "text": "Unpopular person freezing dwarf?",
     "enumeration": "9"
    },
-   "solution": "OUTNUMBER"
+   "solution": "OUTNUMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTNUMBER",
+    "definitions": [
+     {
+      "text": "dwarf",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unpopular",
+      "gives": "OUT",
+      "note": "out of favour, no longer in fashion"
+     },
+     {
+      "clueFragment": "person freezing",
+      "gives": "NUMBER",
+      "note": "something that freezes you makes you numb, so a numb-er"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "NUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A disliked figure is freezing out a little person.",
+     "walkthrough": "The question mark flags the whimsical reading of NUMBER as 'one who numbs'.",
+     "definitionFit": "To dwarf something is to overshadow it by greater size or quantity, which is what a larger count does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dwarf"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +168,86 @@
      }
     ]
    },
-   "solution": "TROMPELOEIL"
+   "solution": "TROMPELOEIL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "TROMPE L'OEIL",
+    "definitions": [
+     {
+      "text": "illusion",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raise",
+      "for": "reversal",
+      "note": "in a down entry, raising the pieces means reading them from the bottom upwards"
+     },
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "a thing swallowing another holds it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hoax",
+      "gives": "LIE",
+      "note": "a falsehood told to deceive"
+     },
+     {
+      "clueFragment": "football chant",
+      "gives": "OLE",
+      "note": "olé, the cry chanted by fans when their team strings passes together"
+     },
+     {
+      "clueFragment": "Liverpool, say",
+      "gives": "PORT",
+      "note": "Liverpool is an example of a port"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "O",
+      "M",
+      "P",
+      "E",
+      "L",
+      "O",
+      "E",
+      "I",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LIEOLEPMORT",
+       "to": "TROMPELOEIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football fans raise a mocking chant at Liverpool supporters.",
+     "walkthrough": "The mass symbol sits just after the first letter of the port; in a down entry 'Raise' means the whole chain is read from the bottom.",
+     "definitionFit": "Trompe l'oeil is painting that tricks the eye into seeing depth, a visual deception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Raise"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +261,63 @@
     "text": "Interested in overturning half-hearted music genre",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EAGER",
+    "definitions": [
+     {
+      "text": "Interested",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-hearted",
+      "for": "deletion",
+      "note": "with only half its heart, one of the pair of identical central letters is lost"
+     },
+     {
+      "text": "overturning",
+      "for": "reversal",
+      "note": "in a down entry, overturning flips the word so it reads from the bottom"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music genre",
+      "gives": "REGGAE",
+      "note": "the Jamaican style of popular music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGER"
+     ],
+     "reversals": [
+      {
+       "from": "REGAE",
+       "to": "EAGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keen on turning their back on a lukewarm musical style.",
+     "walkthrough": "REGGAE has GG at its heart; dropping one G gives REGAE, which upside down reads EAGER.",
+     "definitionFit": "Being eager means keenly wanting something, a strong form of having interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Interested"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +331,56 @@
     "text": "Part of a full English army unit taking exercise",
     "enumeration": "8"
    },
-   "solution": "SAUSAGES"
+   "solution": "SAUSAGES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAUSAGES",
+    "definitions": [
+     {
+      "text": "Part of a full English",
+      "at": 0,
+      "note": "the answer is plural; the sausages together form one part of the breakfast"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "a unit taking something in absorbs it within its ranks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army unit",
+      "gives": "SAS",
+      "note": "the Special Air Service regiment"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "USAGE",
+      "note": "exercise in the sense of use or employment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "USAGE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier mentions part of the fried breakfast served to a unit after drill.",
+     "walkthrough": "A full English is the traditional British cooked breakfast of eggs, bacon, beans and more.",
+     "definitionFit": "Sausages are a standard component of a British cooked breakfast plate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +394,42 @@
     "text": "Poet's quickly captivated by drama, inevitably",
     "enumeration": "5"
    },
-   "solution": "AMAIN"
+   "solution": "AMAIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMAIN",
+    "definitions": [
+     {
+      "text": "Poet's quickly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated by",
+      "for": "hidden_word",
+      "note": "held captive inside the following words, so the letters are found within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drama, inevitably",
+      "gives": "AMAIN",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet's lines quickly enthralled by a drama, as was bound to happen.",
+     "definitionFit": "Amain is an archaic word, found in poetry, meaning at full speed or with full force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "captivated"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +443,53 @@
     "text": "Character used to sum up brand after time passes",
     "enumeration": "5"
    },
-   "solution": "SIGMA"
+   "solution": "SIGMA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SIGMA",
+    "definitions": [
+     {
+      "text": "Character used to sum up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after time passes",
+      "for": "deletion",
+      "note": "once time has passed it is gone, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brand",
+      "gives": "STIGMA",
+      "note": "a mark of disgrace, as a brand is"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IGMA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's reputation is summed up by a label that fades as time goes by.",
+     "definitionFit": "The Greek capital letter Σ is the mathematical notation for adding a series of terms together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sum"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +503,51 @@
     "text": "Unarmed top soldier getting permit",
     "enumeration": "5"
    },
-   "solution": "GILET"
+   "solution": "GILET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GILET",
+    "definitions": [
+     {
+      "text": "Unarmed top",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "an American private soldier"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A disarmed senior soldier is granted a licence.",
+     "walkthrough": "'Unarmed' here means without arms in the sense of sleeves, not weapons.",
+     "definitionFit": "A gilet is a sleeveless jacket or waistcoat, a garment for the upper body with no sleeves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Unarmed"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +561,68 @@
     "text": "Modified grain's packing a punch",
     "enumeration": "7"
    },
-   "solution": "SANGRIA"
+   "solution": "SANGRIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SANGRIA",
+    "definitions": [
+     {
+      "text": "punch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Modified",
+      "for": "anagram",
+      "note": "a modified word has had its letters altered into another order"
+     },
+     {
+      "text": "packing",
+      "for": "container",
+      "note": "something packing an item has it stowed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grain's",
+      "gives": "GRAINS",
+      "note": "the apostrophe is ignored and the S kept"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "NGRIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAINS",
+       "gives": "SNGRIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Genetically altered grain turns out to pack a real wallop.",
+     "walkthrough": "'Packing a punch' reads as one idiom, but 'punch' alone is the definition, the fruity drink.",
+     "definitionFit": "Sangria is a Spanish wine punch mixed with fruit, served chilled from a bowl or jug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "punch"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +636,63 @@
     "text": "Firm perhaps lied about taking risks originally",
     "enumeration": "6"
    },
-   "solution": "STRONG"
+   "solution": "STRONG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STRONG",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start of each word, so only opening letters count"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perhaps lied",
+      "gives": "SONG",
+      "note": "a lied is a German art song, so an example of the general term"
+     },
+     {
+      "clueFragment": "taking risks",
+      "gives": "TR",
+      "select": "first",
+      "note": "the initial letters of both words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TR",
+      "ONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A company may have been dishonest about how it took risks.",
+     "walkthrough": "'Firm' looks like a noun for a company; it is the adjective. Lied is the German word for song.",
+     "definitionFit": "Firm and strong are synonyms for something solid, sturdy and not easily broken or moved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lied"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +706,64 @@
     "text": "Anteater from African nation mostly in fix",
     "enumeration": "8"
    },
-   "solution": "PANGOLIN"
+   "solution": "PANGOLIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PANGOLIN",
+    "definitions": [
+     {
+      "text": "Anteater",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fix",
+      "gives": "PIN",
+      "note": "to pin is to fasten in place"
+     },
+     {
+      "clueFragment": "African nation",
+      "gives": "ANGOLA",
+      "note": "the country in south-west Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ANGOL",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An anteater from an African country is in trouble, most likely.",
+     "walkthrough": "'In fix' reads as 'in a fix'; here fix is the word PIN that goes round the country.",
+     "definitionFit": "The pangolin is a scaly mammal that feeds on ants and termites, often called the scaly anteater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +783,52 @@
      }
     ]
    },
-   "solution": "SUPPORTINGACTOR"
+   "solution": "SUPPORTINGACTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUPPORTING ACTOR",
+    "definitions": [
+     {
+      "text": "No lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to corrupt",
+      "for": "anagram",
+      "note": "corrupting something spoils its proper form, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coating purports",
+      "gives": "COATINGPURPORTS",
+      "note": "all fifteen letters of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COATINGPURPORTS",
+       "gives": "SUPPORTINGACTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lead-free paint finish claims to be prone to decay.",
+     "walkthrough": "'No lead' reads as unleaded, the metal; it means someone who is not the star.",
+     "definitionFit": "A supporting actor plays a secondary role in a film or play rather than the principal part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +842,46 @@
     "text": "I shouldn't trade in alcohol, according to announcement",
     "enumeration": "7"
    },
-   "solution": "INSIDER"
+   "solution": "INSIDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INSIDER",
+    "definitions": [
+     {
+      "text": "I shouldn't trade",
+      "at": 0,
+      "note": "a self-description by the answer, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to announcement",
+      "for": "homophone",
+      "note": "an announcement is spoken, so the words are judged by how they come out of the mouth"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in alcohol",
+      "gives": "INSIDER",
+      "soundsLike": "IN CIDER",
+      "note": "cider is an alcoholic drink made from apples"
+     }
+    ],
+    "explanation": {
+     "surface": "A drinker announces that, being in their cups, they should not do any business.",
+     "walkthrough": "Insider trading, dealing in shares using confidential knowledge, is illegal, which is why the speaker shouldn't trade.",
+     "definitionFit": "A person with privileged company information is barred by law from dealing in its shares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trade"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +895,58 @@
     "text": "Run away from fruit in goggles",
     "enumeration": "5"
    },
-   "solution": "GAPES"
+   "solution": "GAPES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GAPES",
+    "definitions": [
+     {
+      "text": "goggles",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "one thing going away from another leaves it, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "GRAPES",
+      "note": "the fruit of the vine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "APES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees from fruit while wearing swimming goggles.",
+     "walkthrough": "'Goggles' looks like a plural noun for eyewear; it is the verb, to stare.",
+     "definitionFit": "To goggle is to stare open-mouthed, wide-eyed in astonishment, just as one gapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "goggles"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +960,67 @@
     "text": "Town crier sent out to circle church",
     "enumeration": "11"
    },
-   "solution": "CIRENCESTER"
+   "solution": "CIRENCESTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CIRENCESTER",
+    "definitions": [
+     {
+      "text": "Town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "sent out of shape, so the letters are put in a different order"
+     },
+     {
+      "text": "to circle",
+      "for": "container",
+      "note": "to circle something is to go all the way round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crier sent",
+      "gives": "CRIERSENT",
+      "note": "the nine letters of the two words"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIREN",
+      "CE",
+      "STER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIERSENT",
+       "gives": "CIRENSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town crier is dispatched to walk round the parish church.",
+     "walkthrough": "Cirencester is a market town in the Cotswolds, in Gloucestershire.",
+     "definitionFit": "Cirencester is an English market town, so it is an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crier"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1034,54 @@
     "text": "Prize-winner removing exterior Kansas pillars",
     "enumeration": "8"
    },
-   "solution": "OBELISKS"
+   "solution": "OBELISKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OBELISKS",
+    "definitions": [
+     {
+      "text": "pillars",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing exterior",
+      "for": "deletion",
+      "note": "taking away the outside means the first and last letters are shed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prize-winner",
+      "gives": "NOBELIST",
+      "note": "a winner of a Nobel Prize"
+     },
+     {
+      "clueFragment": "Kansas",
+      "gives": "KS",
+      "note": "KS is the postal abbreviation for Kansas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBELIS",
+      "KS"
+     ]
+    },
+    "explanation": {
+     "surface": "A laureate removes the façade of some Kansas columns.",
+     "definitionFit": "Obelisks are tall four-sided stone columns tapering to a pyramid point, a kind of monument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exterior"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1095,48 @@
     "text": "Female airline whence queen arrived?",
     "enumeration": "5"
    },
-   "solution": "SHEBA"
+   "solution": "SHEBA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEBA",
+    "definitions": [
+     {
+      "text": "whence queen arrived?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "SHE",
+      "note": "the female pronoun"
+     },
+     {
+      "clueFragment": "airline",
+      "gives": "BA",
+      "note": "British Airways"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman asks which airline brought the queen in.",
+     "walkthrough": "The biblical Queen of Sheba travelled to visit King Solomon, so Sheba is where she came from.",
+     "definitionFit": "The Bible's Queen of Sheba came to Jerusalem from that ancient land to test Solomon's wisdom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "airline"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1156,58 @@
      }
     ]
    },
-   "solution": "PERSIA"
+   "solution": "PERSIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERSIA",
+    "definitions": [
+     {
+      "text": "Iran",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the artist's name after the other piece rather than before it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "through",
+      "gives": "PER",
+      "note": "by means of, as in per post"
+     },
+     {
+      "clueFragment": "Titanium artist",
+      "gives": "SIA",
+      "note": "Sia is the singer on David Guetta's hit Titanium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "SIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note about titanium in some artist's work for Iran.",
+     "walkthrough": "'Titanium' looks like the element Ti; it is the song title. 'Following' puts the singer after PER.",
+     "definitionFit": "Persia was the name used in the West for the country until it officially became Iran in 1935."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Titanium"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1221,48 @@
     "text": "Repeating initially, but not entirely repeating",
     "enumeration": "9"
    },
-   "solution": "ITERATIVE"
+   "solution": "ITERATIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITERATIVE",
+    "definitions": [
+     {
+      "text": "repeating",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially, but not entirely",
+      "for": "deletion",
+      "note": "part of the opening is lost while the rest of the word stays intact"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeating",
+      "gives": "REITERATIVE",
+      "note": "saying again and again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITERATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A paradox: something repeats at the start yet does not repeat in full.",
+     "walkthrough": "REITERATIVE loses its opening RE, so it is not entire at the start, leaving ITERATIVE.",
+     "definitionFit": "Iterative describes a process done in repeated cycles, each pass building on the previous one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1276,43 @@
     "text": "Current picnic",
     "enumeration": "6"
    },
-   "solution": "BREEZE"
+   "solution": "BREEZE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BREEZE",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     },
+     {
+      "text": "picnic",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "note": "first meaning: a gentle flow of air"
+     },
+     {
+      "clueFragment": "picnic",
+      "note": "second meaning: an easy task, as in 'no picnic'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Current picnic' sounds like an outing happening now; each word is a separate meaning.",
+     "definitionFit": "A breeze is a light wind, and informally anything done with no effort at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1326,43 @@
     "text": "Fred's home principles",
     "enumeration": "7"
    },
-   "solution": "BEDROCK"
+   "solution": "BEDROCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEDROCK",
+    "definitions": [
+     {
+      "text": "Fred's home",
+      "at": 0
+     },
+     {
+      "text": "principles",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fred's home",
+      "note": "first meaning: the town where Fred Flintstone lives in the cartoon"
+     },
+     {
+      "clueFragment": "principles",
+      "note": "second meaning: the fundamental basis of something"
+     }
+    ],
+    "explanation": {
+     "surface": "Fred's house rules.",
+     "definitionFit": "Bedrock is solid rock under soil, and figuratively the fundamental beliefs on which everything rests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fred's"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1376,67 @@
     "text": "Dig up wrongdoing, breaking it in German article",
     "enumeration": "8"
    },
-   "solution": "DISINTER"
+   "solution": "DISINTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISINTER",
+    "definitions": [
+     {
+      "text": "Dig up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking into another word splits it and sits in the gap"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the assembled piece goes inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wrongdoing",
+      "gives": "SIN",
+      "note": "a moral offence"
+     },
+     {
+      "clueFragment": "German article",
+      "gives": "DER",
+      "note": "der is a German word for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "SIN",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unearths a scandal that breaks in a German newspaper piece.",
+     "walkthrough": "Der is the masculine form of the German definite article.",
+     "definitionFit": "To disinter is to exhume a body from a grave, literally to bring it out of the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1456,81 @@
      }
     ]
    },
-   "solution": "DUALCARRIAGEWAY"
+   "solution": "DUALCARRIAGEWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DUAL CARRIAGEWAY",
+    "definitions": [
+     {
+      "text": "road",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when turning",
+      "for": "reversal",
+      "note": "turning the whole string round means it is read from the end back to the start"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zigzag",
+      "gives": "YAW",
+      "note": "to yaw is to swing from side to side off course"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "AIR",
+      "note": "to air something is to put it on display"
+     },
+     {
+      "clueFragment": "roadside helpers",
+      "gives": "RAC",
+      "note": "the RAC is a British motoring organisation that rescues broken-down drivers"
+     },
+     {
+      "clueFragment": "acclaim",
+      "gives": "LAUD",
+      "note": "to praise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUAL",
+      "CARRIAGE",
+      "WAY"
+     ],
+     "reversals": [
+      {
+       "from": "YAWEGAIRRACLAUD",
+       "to": "DUALCARRIAGEWAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver weaving about and showing off gets cheered by the breakdown crew.",
+     "walkthrough": "A dual carriageway is a British road with a central barrier between the two directions of traffic.",
+     "definitionFit": "A dual carriageway is a major highway with separated lanes each way, a particular kind of road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1544,70 @@
     "text": "Alcaraz's familiar sporting error – I'm getting ace returns",
     "enumeration": "5"
    },
-   "solution": "AMIGO"
+   "solution": "AMIGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMIGO",
+    "definitions": [
+     {
+      "text": "Alcaraz's familiar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "a return sends a shot back the way it came, so the letters go backwards"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sporting error",
+      "gives": "OG",
+      "note": "an own goal in football"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the abbreviation for ace in a card pack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MI",
+      "GO"
+     ],
+     "reversals": [
+      {
+       "from": "OGIMA",
+       "to": "AMIGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tennis star Alcaraz's usual mistake, then he serves an ace and returns.",
+     "walkthrough": "Carlos Alcaraz is a Spanish tennis player, so his familiar is a Spanish word.",
+     "definitionFit": "Amigo is Spanish for friend, and a familiar is a close companion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1621,44 @@
     "text": "Thing to press",
     "enumeration": "5"
    },
-   "solution": "CRUSH"
+   "solution": "CRUSH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRUSH",
+    "definitions": [
+     {
+      "text": "Thing",
+      "at": 0
+     },
+     {
+      "text": "press",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thing",
+      "note": "first meaning: an infatuation, as in having a thing for someone"
+     },
+     {
+      "clueFragment": "press",
+      "note": "second meaning: to squash forcefully"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A crush is a passing romantic fancy, and to crush is to squeeze something flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Thing"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1672,66 @@
     "text": "At first Ronnie Wallwork's not getting cap for country?",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the name that follows"
+     },
+     {
+      "text": "not getting cap",
+      "for": "deletion",
+      "note": "a cap sits on top, and in a down entry the top letter is the first, which is missing"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ronnie",
+      "gives": "R",
+      "select": "first",
+      "note": "the name's opening letter"
+     },
+     {
+      "clueFragment": "Wallwork",
+      "gives": "MURAL",
+      "note": "a mural is a work of art painted on a wall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "URAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Ronnie Wallwork, a former Manchester United footballer, misses out on an international cap.",
+     "walkthrough": "'Wallwork' looks like the footballer's surname; split it as wall work. 'Cap' also means a call-up for one's country.",
+     "definitionFit": "Rural describes the countryside, so the adjective country, as in country life, fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wallwork"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1745,66 @@
     "text": "Quarrel, or a multi-headed quarrel?",
     "enumeration": "5"
    },
-   "solution": "ARROW"
+   "solution": "ARROW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARROW",
+    "definitions": [
+     {
+      "text": "Quarrel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "multi-headed",
+      "for": "letter_selection",
+      "note": "having more than one head means the leading letter appears an extra time"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quarrel?",
+      "gives": "R",
+      "select": "first",
+      "note": "the extra head of the second quarrel word's synonym"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "ROW",
+      "note": "a row is an argument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle asks whether a row is one argument or a many-headed dispute.",
+     "walkthrough": "The first Quarrel is the crossbow bolt; the second is the argument, ROW, given a second R at its head after A.",
+     "definitionFit": "A quarrel is the square-headed bolt shot from a crossbow, a kind of projectile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Quarrel"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1818,66 @@
     "text": "You and I irritated with brat passing note?",
     "enumeration": "8"
    },
-   "solution": "OBITUARY"
+   "solution": "OBITUARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBITUARY",
+    "definitions": [
+     {
+      "text": "passing note?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "irritated",
+      "for": "anagram",
+      "note": "irritated letters are stirred up and agitated into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "YOU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "brat",
+      "gives": "BRAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOU I BRAT",
+       "gives": "OBITUARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple are annoyed by a child who keeps handing notes round in class.",
+     "walkthrough": "'Passing' suggests handing over; it means dying, so the note is one recording a death.",
+     "definitionFit": "An obituary is a published notice of someone's death with an account of their life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1891,47 @@
     "text": "Sell dog again?",
     "enumeration": "6"
    },
-   "solution": "RETAIL"
+   "solution": "RETAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETAIL",
+    "definitions": [
+     {
+      "text": "Sell",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "RE",
+      "note": "the prefix meaning once more"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to follow them closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Dog again' reads like a second puppy; dog is the verb, to follow.",
+     "definitionFit": "To retail goods is to offer them for purchase directly to the public in shops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 29,
@@ -467,7 +1945,57 @@
     "text": "Reform then look for board vacancy?",
     "enumeration": "8"
    },
-   "solution": "KNOTHOLE"
+   "solution": "KNOTHOLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KNOTHOLE",
+    "definitions": [
+     {
+      "text": "board vacancy?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reform",
+      "for": "anagram",
+      "note": "to reform is to form again in a new shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then",
+      "gives": "THEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LOOK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEN LOOK",
+       "gives": "KNOTHOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restructure the company, then search for an empty seat on the board.",
+     "walkthrough": "'Board vacancy' suggests a directorship; it is a gap in a wooden plank.",
+     "definitionFit": "A knothole is the opening left in timber where a knot from a branch has fallen out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +2015,46 @@
      }
     ]
    },
-   "solution": "WARDEN"
+   "solution": "WARDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARDEN",
+    "definitions": [
+     {
+      "text": "Guardian",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Battles",
+      "gives": "WAR",
+      "note": "war is a state of fighting"
+     },
+     {
+      "clueFragment": "haunt",
+      "gives": "DEN",
+      "note": "a place one frequents, a hangout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Wars haunt a newspaper's coverage.",
+     "definitionFit": "A warden is an official who keeps watch over a place or people, a keeper or custodian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guardian"
+    }
+   }
   }
  ]
 }
