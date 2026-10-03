@@ -1,5 +1,5 @@
 #!/bin/bash
-# Read every Trove article and archive.org edition the scan filers have not
+# Read every archive.org edition and Trove article the scan filers have not
 # read yet, and those REREAD_BEFORE asks for again, to the end, then stop.
 #
 #     setsid nohup bash tools/ocr_full_pass.sh >>~/.cache/ocr_full_pass.log 2>&1 </dev/null &
@@ -65,10 +65,10 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
   done
 }
 
-slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 for paper in telegraph guardian ft times; do
   slices "$paper off archive.org" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
 done
+slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
 echo "=== full pass done $(date '+%F %T') ==="
